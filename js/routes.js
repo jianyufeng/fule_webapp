@@ -28,7 +28,7 @@ define(['app'],function(app){
 
 
 		//初始化显示的路由，页面初次打开时，默认显示的界面
-		$urlRouterProvider.otherwise('/tab/home');
+		$urlRouterProvider.otherwise('/tab/goods');
 
 		//初始化显示的路由，页面初次打开时，默认显示的界面
 

@@ -1,7 +1,146 @@
 <ion-view view-title="商品" hide-nav-bar="{{isNavShow}}">
 	<ion-content>
 
-		<h1>商品首页</h1>
-		
+
+
+		<div ng-include="'views/public/headerTitlePublic.html'"></div>
+
+
+
+		<ion-scroll screen-height="0" style="width:100%;">
+
+			<ion-refresher
+					pulling-text="下拉刷新..."
+					on-refresh="doRefresh()">
+			</ion-refresher>
+
+			<div class="goodsMenuBox">
+				<div class="goodsMenuItem selected">全部</div>
+				<div class="goodsMenuItem">精品</div>
+				<div class="goodsMenuItem">新品</div>
+				<div class="goodsMenuItem">热门</div>
+			</div>
+
+
+
+			<div class="goodsListBox">
+
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="goodsItem">
+					<div class="goodsImage">
+						<img src="./resource/images/goods_11.png" />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ 52</div>
+						<div class="goodsContent">
+							<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>
+							<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>
+						</div>
+					</div>
+				</div>
+
+				<div style="clear:both;"></div>
+			</div>
+
+			<ion-infinite-scroll on-infinite="loadMore()" distance="2%" immediate-check="false"></ion-infinite-scroll>
+
+		</ion-scroll>
+
+
 	</ion-content>
 </ion-view>
