@@ -1,0 +1,75 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+a {
+  text-decoration: none;
+}
+body {
+  font-size: 16px;
+}
+/*通屏按钮样式*/
+.buttonPadding {
+  width: 94%;
+  margin-left: 3%;
+  margin-top: 15px;
+}
+/*公共头样式*/
+.headerBox {
+  width: 100%;
+  height: 80px;
+  background: #ccc;
+  position: relative;
+}
+.headerBox .logoBox {
+  width: 150px;
+  height: 80px;
+  background: red;
+  float: left;
+}
+.headerBox .searchBox {
+  position: absolute;
+  left: 150px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  background: #ccc;
+}
+.headerBox .leftHeaderBox {
+  width: 20%;
+  height: 80px;
+  float: left;
+}
+.headerBox .middleHeaderBox {
+  width: 60%;
+  height: 80px;
+  float: left;
+  text-align: center;
+  line-height: 80px;
+}
+.headerBox .rightHeaderBox {
+  width: 20%;
+  height: 80px;
+  float: right;
+}
+/*通用组件样式*/
+.loactionBox {
+  width: 100%;
+  display: none;
+  height: 100%;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 0px;
+  z-index: 99999;
+}
+.loactionBox .locationMain {
+  width: 100%;
+  height: 240px;
+  background: #fff;
+  text-align: center;
+  line-height: 240px;
+  position: absolute;
+  bottom: -240px;
+  z-index: 9999999;
+}

@@ -1,0 +1,29 @@
+
+<ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
+	<ion-content class="padding">
+      <h1>我的界面</h1>
+	</ion-content>
+</ion-view>
+
+
+<script id="login.html" type="text/ng-template">
+  <div class="modal">
+    <ion-header-bar>
+      <h1 class="title">登录</h1>
+      <button class="button button-clear button-primary" ng-click="modal.hide()">关闭</button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input type="text" placeholder="用户帐号">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="用户密码">
+          </label>
+          <button class="button button-block button-positive" style="margin-top:20px;">
+            登录
+          </button>
+        </div>
+    </ion-content>
+  </div>
+</script>

@@ -1,0 +1,18 @@
+console.log("[框架]====>[加载框架初始化配置文件]");
+
+define(['jquery','loading','app'],function(N,N,app){
+
+    //在此初始化全局配置数据
+	app.run(['$rootScope',function($rootScope){
+
+		$rootScope.isNavShow = true;
+
+		//购物车归0
+		$rootScope.cartBadge = 0;
+
+	}]);
+
+    //初始化界面
+    //$.initAppStartLoad();
+
+});
