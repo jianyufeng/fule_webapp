@@ -1,22 +1,22 @@
-define(['app'],function(app){
+define(['app'], function (app) {
 
-    app.factory("myService",function(){
+    app.factory("myService", function () {
 
-         var service = {};
-        service.getMyInfo = function($scope){
+        var service = {};
+        service.getMyInfo = function ($scope) {
 
             $.initAppStartLoad();
 
-            HTTP.get(API.My.myInfo + "/user_name/zhoulibo4",{},function(e,data){
-
-                if(e){
-                    $.loadError(function(){
+            HTTP.get(API.My.myInfo + "/user_name/zhoulibo4", {}, function (e, data) {
+                console.log(data);
+                if (e) {
+                    $.loadError(function () {
                         service.getMyInfo();
                     });
                     return;
                 }
 
-                $scope.$apply(function(){
+                $scope.$apply(function () {
                     $scope.userInfo = data.userInfo;
                     $scope.travel_points = data.travel_points;
                     $.initAppEndLoad();
@@ -26,16 +26,11 @@ define(['app'],function(app){
                 console.log(data);
 
 
-
             });
 
-
         };
+        return service;
 
-
-         
-
-         return service;
 
     });
 
