@@ -1,0 +1,153 @@
+.lunboBanner {
+  width: 100%;
+  height: 150px;
+  position: relative;
+  top: -10px;
+}
+.lunboBanner .bannerBox {
+  width: 100%;
+  height: 180px;
+  background: #eee;
+}
+.lunboBanner .bannerBox .bannerItem {
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+.lunboBanner .bannerBox .bannerItem img {
+  width: 100%;
+  height: 100%;
+}
+.lunboBanner .bannerBox .slider-pager .slider-pager-page {
+  font-size: 50%;
+  color: #fff;
+}
+.newProductBox {
+  width: 100%;
+  height: 180px;
+  margin-top: 45px;
+  background: #fff;
+  float: left;
+}
+.newProductBox .productLeftBox {
+  width: 55%;
+  height: 200px;
+  float: left;
+  padding-left: 5%;
+}
+.newProductBox .productLeftBox img {
+  width: 100%;
+  height: auto;
+  margin-top: 45px;
+}
+.newProductBox .productContent {
+  width: 45%;
+  height: 200px;
+  float: left;
+}
+.newProductBox .productTitle {
+  width: 100%;
+  height: 40px;
+  margin-top: 30px;
+  color: cornflowerblue;
+  line-height: 40px;
+  font-size: 18px;
+  text-align: center;
+}
+.newProductBox .productDesc_1 {
+  width: 100%;
+  height: 20px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #999;
+  text-align: center;
+}
+.newProductBox .productDesc_2 {
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  line-height: 40px;
+  font-size: 16px;
+  text-align: center;
+  color: coral;
+}
+.productListBox {
+  width: 100%;
+  height: 200px;
+  background: #fff;
+  float: left;
+  margin-top: 15px;
+}
+.productListBox .leftProductBox {
+  width: 50%;
+  height: 200px;
+  float: left;
+}
+.productListBox .leftProductBox .productTitle {
+  width: 100%;
+  height: 30px;
+  margin-top: 20px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 18px;
+}
+.productListBox .leftProductBox .productDesc {
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+  color: #ccc;
+}
+.productListBox .leftProductBox .productImage {
+  width: 100%;
+  height: 100px;
+  margin-top: 10px;
+}
+.productListBox .leftProductBox .productImage img {
+  width: 90%;
+  height: auto;
+  margin-left: 5%;
+}
+.productListBox .rightProductBox {
+  width: 50%;
+  height: 200px;
+  float: left;
+  border-left: 1px solid #eee;
+}
+.productListBox .rightProductBox .topProductBox {
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid #eee;
+}
+.productListBox .rightProductBox .topProductBox .leftProductImage {
+  width: 45%;
+  height: 100px;
+  float: left;
+}
+.productListBox .rightProductBox .topProductBox .leftProductImage img {
+  width: 70%;
+  height: 70%;
+  margin-left: 15%;
+  margin-top: 15%;
+}
+.productListBox .rightProductBox .topProductBox .rightProductInfo {
+  width: 50%;
+  height: 100px;
+  float: left;
+}
+.productListBox .rightProductBox .topProductBox .rightProductInfo .rightProductTitle {
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  margin-top: 20px;
+}
+.productListBox .rightProductBox .topProductBox .rightProductInfo .rightProductDesc {
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+}

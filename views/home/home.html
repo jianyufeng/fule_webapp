@@ -1,7 +1,72 @@
 <ion-view view-title="首页" hide-nav-bar="{{isNavShow}}">
 	<ion-content>
-		<div ng-include="'views/public/headerTitlePublic.html'"></div>
+		<div ng-include="'views/public/headerSearchPublic.html'"></div>
 
-		<div></div>
+		<div class="lunboBanner">
+			<ion-slide-box class="bannerBox">
+				<ion-slide>
+					<div class="box bannerItem">
+						<img src="./resource/images/banner_1.jpeg" />
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="box bannerItem">
+						<img src="./resource/images/banner_2.jpeg" />
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="box bannerItem">
+						<img src="./resource/images/banner_1.jpeg" />
+					</div>
+				</ion-slide>
+				<ion-slide>
+					<div class="box bannerItem">
+						<img src="./resource/images/banner_2.jpeg" />
+					</div>
+				</ion-slide>
+			</ion-slide-box>
+		</div>
+
+		<div class="newProductBox">
+			<div class="productLeftBox">
+				<img src="./resource/images/goods_1.png" />
+ 			</div>
+			<div class="productContent">
+				<div class="productTitle">木糖醇 山药枸杞</div>
+				<div class="productDesc_1">颗粒植物固体饮料</div>
+				<div class="productDesc_2">健康新升级</div>
+			</div>
+		</div>
+
+		<div class="productListBox">
+			<div class="leftProductBox">
+				<div class="productTitle">爱她爱他</div>
+				<div class="productDesc">玫瑰黑枣复合果汁饮料</div>
+				<div class="productImage">
+					<img src="./resource/images/goods_2.png" />
+				</div>
+			</div>
+			<div class="rightProductBox">
+				<div class="topProductBox">
+					<div class="leftProductImage">
+						<img src="./resource/images/goods_3.png" />
+					</div>
+					<div class="rightProductInfo">
+						<div class="rightProductTitle">爱她爱他</div>
+						<div class="rightProductDesc ellipsis">胶原蛋白果汁饮料</div>
+					</div>
+				</div>
+				<div class="topProductBox">
+					<div class="leftProductImage">
+						<img src="./resource/images/goods_4.png" />
+					</div>
+					<div class="rightProductInfo">
+						<div class="rightProductTitle">爱她爱他</div>
+						<div class="rightProductDesc ellipsis">胶原蛋白果汁饮料</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
 	</ion-content>
 </ion-view>
