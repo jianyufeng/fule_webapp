@@ -24,20 +24,20 @@
   .levelBox {
     line-height: 40px;
     height: 40px;
-    width:auto;
+    width: auto;
     text-align: center;
-      /*等级图标*/
-      .levelIcon {
-        width: 30px;
-        height: 30px;
-        position:relative;
-        top:5px;
-      }
-      /*等级名*/
-      .levelName {
-        position:relative;
-        top:-3px;
-      }
+    /*等级图标*/
+    .levelIcon {
+      width: 30px;
+      height: 30px;
+      position: relative;
+      top: 5px;
+    }
+    /*等级名*/
+    .levelName {
+      position: relative;
+      top: -3px;
+    }
   }
 }
 
@@ -114,6 +114,34 @@
       margin-top: 10px;
       width: 30px;
       height: 30px;
+    }
+  }
+}
+
+/*业务相关容器*/
+.businessBox {
+  background: white;
+  margin-top: 10px;
+  /*行的样式*/
+  .businessRowBox {
+    height: 90px;
+    background: #ffc900;
+    border-bottom: solid 2px #eee;
+
+    /*每一个块的*/
+    .businessColBox {
+      margin: 0 0 0 1%;
+      height: 90px;
+      width: 32%;
+      float: left;
+      text-align: center;
+      /*我的订单*/
+      .indentIcon {
+        margin-top: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+      }
     }
   }
 }
