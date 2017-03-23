@@ -1,0 +1,107 @@
+.content {
+  background-color: white;
+}
+.content .category_top_block {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.content .category_top_block .category_top_list {
+  width: 100%;
+  height: auto;
+  list-style: none;
+}
+.content .category_top_block .category_top_list .category_top_list_item {
+  background-color: white;
+  float: left;
+  width: 25%;
+  height: 90px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.content .category_top_block .category_top_list .category_top_list_item .category_top_list_item_block {
+  width: 85%;
+  height: 85%;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+.content .category_top_block .category_top_list .category_top_list_item .category_top_list_item_block div .category_top_list_item_image {
+  display: block;
+  width: 45px;
+  height: 45px;
+  margin: 0 auto;
+}
+.content .category_top_block .category_top_list .category_top_list_item .category_top_list_item_block div span {
+  text-align: center;
+  color: #999999;
+  font-size: 10px;
+  display: block;
+}
+.content .midd_text_contant {
+  width: 100%;
+  background-color: #F4F4F4;
+  height: 35px;
+  margin-top: -10px;
+  float: left;
+  padding: 0 5%;
+}
+.content .midd_text_contant .line {
+  margin: 17px 0;
+  height: 1px;
+  width: 25%;
+  background-color: #BCBCBC;
+  float: left;
+}
+.content .midd_text_contant .midd_text {
+  height: 35px;
+  width: 50%;
+  font-size: 12px;
+  text-align: center;
+  line-height: 35px;
+  color: #878787;
+  float: left;
+}
+.content .product_list {
+  padding-bottom: 20px;
+  float: left;
+}
+.content .product_list .product_item {
+  width: 50%;
+  float: left;
+  border-right: solid 1px #F2F2F2;
+  border-bottom: solid 1px #F2F2F2;
+}
+.content .product_list .product_item img {
+  display: block;
+  width: 80%;
+  margin-left: 10%;
+  height: auto;
+}
+.content .product_list .product_item .product_item_info {
+  width: 100%;
+  height: 53px;
+  margin-left: 10%;
+  margin-bottom: 5px;
+}
+.content .product_list .product_item .product_item_info .product_price {
+  display: block;
+  color: #A92586;
+  font-weight: bold;
+  font-size: 14px;
+}
+.content .product_list .product_item .product_item_info .product_item_bottom {
+  margin-top: 10px;
+}
+.content .product_list .product_item .product_item_info .product_item_bottom .product_name {
+  height: auto;
+  width: 70%;
+  font-size: 10px;
+  color: #878787;
+  float: left;
+}
+.content .product_list .product_item .product_item_info .product_item_bottom i {
+  display: block;
+  float: left;
+  margin-left: 8px;
+  font-size: 20px;
+}
