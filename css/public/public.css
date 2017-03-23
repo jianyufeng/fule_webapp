@@ -26,7 +26,7 @@ body {
 }
 .headerBox .logoBox {
   width: 120px;
-  height: 80px;
+  height: 70px;
   float: left;
 }
 .headerBox .logoBox .logoMain {
@@ -68,19 +68,19 @@ body {
 }
 .headerBox .leftHeaderBox {
   width: 20%;
-  height: 80px;
+  height: 70px;
   float: left;
 }
 .headerBox .middleHeaderBox {
   width: 60%;
-  height: 80px;
+  height: 70px;
   float: left;
   text-align: center;
-  line-height: 80px;
+  line-height: 70px;
 }
 .headerBox .rightHeaderBox {
   width: 20%;
-  height: 80px;
+  height: 70px;
   float: right;
 }
 /*通用组件样式*/
