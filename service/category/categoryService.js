@@ -19,9 +19,10 @@ define(['app'],function(app){
 
                  $scope.$apply(function(){
                      $scope.categorys = data.categoryInfo;
+                     $scope.productArray=data.goodsInfo.data;
+                        console.log($scope.productArray);
                      $.initAppEndLoad();
                  });
-
 
                  console.log(data);
 
