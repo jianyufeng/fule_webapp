@@ -1,13 +1,19 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
-    <ion-content class="padding">
-        <div ng-include="'views/public/headerTitlePublic.html'"></div>
+    <ion-content>
+        <div  ng-include="'views/public/headerTitlePublic.html'"></div>
 
         <!--用户信息-->
         <div class="userBox">
-            <img class="usrIcon" alt="用户图像" src="./resource/images/default/default_header.png">
-            <p class="userAccount">zhangsan</p>
-            <img class="levelIcon" alt="等级图标" src="./resource/images/default/default_header.png">
-            <span class="levelName">注册会员</span>
+            <div class="usrIconBox">
+                <img class="usrIcon" alt="用户图像" src="./resource/images/default/default_header.png">
+            </div>
+            <div class="userAccountBox">
+                zhangsan
+            </div>
+            <div class="levelBox">
+                <img class="levelIcon" alt="等级图标" src="./resource/images/default/default_header.png">
+                <span class="levelName">注册会员</span>
+            </div>
 
         </div>
 
@@ -17,11 +23,24 @@
                 <div class="moneyName">金额</div>
                 <div class="moneyCount">222</div>
             </div>
-            <div class="moneyBox">
-                <div class="moneyName">积分</div>
-                <div class="moneyCount">145</div>
+            <div class="moneyBox scoreBox">
+                <div class="moneyName scoreName">积分</div>
+                <div class="moneyCount scoreCount">145</div>
             </div>
         </div>
+
+        <!--我的办公室-->
+        <div class="MyOfficeBox">
+            <div class="officeIconNameBox">
+                <img class="officeIcon" alt="办公室" src="./resource/images/default/default_header.png">
+                <span class="officeName">我的办公室</span>
+            </div>
+            <div class="nextPageBox">
+                <img class="nextPage" alt="下页" src="./resource/images/default/default_header.png">
+            </div>
+        </div>
+
+        <!---->
 
 
     </ion-content>

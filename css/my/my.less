@@ -3,65 +3,117 @@
   width: 100%;
   height: 200px;
   background: papayawhip;
-  text-align: center;
   /*用户图像*/
-  .usrIcon {
-    margin-top: 10px;
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
+  .usrIconBox {
+    text-align: center;
+    width: 100%;
+    .usrIcon {
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+    }
   }
   /*用户账号*/
-  .userAccount{
-    margin-top: 10px
+  .userAccountBox {
+    margin-top: 5px;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
 
   }
-  /*等级图标*/
-  .levelIcon{
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-  }
-  /*等级名*/
-  .levelName{
+  .levelBox {
+    line-height: 40px;
+    height: 40px;
+    width:auto;
     text-align: center;
-    margin-left: 10px;
+      /*等级图标*/
+      .levelIcon {
+        width: 30px;
+        height: 30px;
+        position:relative;
+        top:5px;
+      }
+      /*等级名*/
+      .levelName {
+        position:relative;
+        top:-3px;
+      }
   }
 }
+
 /*货币和积分*/
-.moneyAndScoreBox{
+.moneyAndScoreBox {
+  background: white;
   margin-top: 10px;
-  border-bottom: solid 1px gray;
-  border-top: solid 1px #c0c0c0;
+  border-bottom: solid 1px #eee;
+  border-top: solid 1px #eee;
   height: 70px;
   text-align: center;
   position: relative;
-  /*金额容器*/
-  .moneyBox{
-    height: 70px;
+  /*金额容器  积分容器*/
+  .moneyBox {
+    height: 50px;
     width: 50%;
     text-align: center;
     float: left;
-    background: #ffc900;
-    .moneyName{
+    margin-top: 10px;
+    border-right: 1px solid #eee;
+    /*金额 积分*/
+    .moneyName {
+      color: #9a9a9a;
       width: 100%;
-      height: 35px;
-      background:#ccc;
-      padding-top: 10px;
-
+      height: 25px;
+      line-height: 25px;
     }
-    .moneyCount{
-      padding-top: 5px;
+    /*金额数量 积分数量*/
+    .moneyCount {
+      line-height: 25px;
       width: 100%;
-      height: 35px;
+      height: 25px;
     }
   }
-  /*积分的容器*/
-  .scoreBox{
-    width: 50%;
-    height: 70px;
-    text-align: center;
+
+}
+
+/*去掉积分的右边线*/
+.moneyAndScoreBox :last-child {
+  border: none;
+}
+
+/*我的办公室*/
+.MyOfficeBox {
+  margin-top: 10px;
+  background: #f00;
+  width: 100%;
+  height: 50px;
+  position: relative;
+
+  .officeIconNameBox {
+    background: #ff0;
     float: left;
-    background: #ff8ab7;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 30px;
+
+    .officeIcon {
+      width: 30px;
+      height: 30px;
+      float: left;
+      margin-top: 10px;
+      margin-right: 5px;
+    }
+  }
+  /*下页的容器*/
+  .nextPageBox {
+    background: #f0f;
+    height: 50px;
+    position: absolute;
+    right: 15px;
+    /*下一页*/
+    .nextPage {
+      margin-top: 10px;
+      width: 30px;
+      height: 30px;
+    }
   }
 }

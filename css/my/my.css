@@ -3,63 +3,110 @@
   width: 100%;
   height: 200px;
   background: papayawhip;
-  text-align: center;
   /*用户图像*/
   /*用户账号*/
-  /*等级图标*/
-  /*等级名*/
 }
-.userBox .usrIcon {
-  margin-top: 10px;
+.userBox .usrIconBox {
+  text-align: center;
+  width: 100%;
+}
+.userBox .usrIconBox .usrIcon {
   width: 100px;
   height: 100px;
   border-radius: 100px;
 }
-.userBox .userAccount {
-  margin-top: 10px;
+.userBox .userAccountBox {
+  margin-top: 5px;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
 }
-.userBox .levelIcon {
+.userBox .levelBox {
+  line-height: 40px;
+  height: 40px;
+  width: auto;
+  text-align: center;
+  /*等级图标*/
+  /*等级名*/
+}
+.userBox .levelBox .levelIcon {
   width: 30px;
   height: 30px;
-  vertical-align: middle;
+  position: relative;
+  top: 5px;
 }
-.userBox .levelName {
-  text-align: center;
-  margin-left: 10px;
+.userBox .levelBox .levelName {
+  position: relative;
+  top: -3px;
 }
 /*货币和积分*/
 .moneyAndScoreBox {
+  background: white;
   margin-top: 10px;
-  border-bottom: solid 1px gray;
-  border-top: solid 1px #c0c0c0;
+  border-bottom: solid 1px #eee;
+  border-top: solid 1px #eee;
   height: 70px;
   text-align: center;
   position: relative;
-  /*金额容器*/
-  /*积分的容器*/
+  /*金额容器  积分容器*/
 }
 .moneyAndScoreBox .moneyBox {
-  height: 70px;
+  height: 50px;
   width: 50%;
   text-align: center;
   float: left;
-  background: #ffc900;
+  margin-top: 10px;
+  border-right: 1px solid #eee;
+  /*金额 积分*/
+  /*金额数量 积分数量*/
 }
 .moneyAndScoreBox .moneyBox .moneyName {
+  color: #9a9a9a;
   width: 100%;
-  height: 35px;
-  background: #ccc;
-  padding-top: 10px;
+  height: 25px;
+  line-height: 25px;
 }
 .moneyAndScoreBox .moneyBox .moneyCount {
-  padding-top: 5px;
+  line-height: 25px;
   width: 100%;
-  height: 35px;
+  height: 25px;
 }
-.moneyAndScoreBox .scoreBox {
-  width: 50%;
-  height: 70px;
-  text-align: center;
+/*去掉积分的右边线*/
+.moneyAndScoreBox :last-child {
+  border: none;
+}
+/*我的办公室*/
+.MyOfficeBox {
+  margin-top: 10px;
+  background: #f00;
+  width: 100%;
+  height: 50px;
+  position: relative;
+  /*下页的容器*/
+}
+.MyOfficeBox .officeIconNameBox {
+  background: #ff0;
   float: left;
-  background: #ff8ab7;
+  height: 50px;
+  line-height: 50px;
+  margin-left: 30px;
+}
+.MyOfficeBox .officeIconNameBox .officeIcon {
+  width: 30px;
+  height: 30px;
+  float: left;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+.MyOfficeBox .nextPageBox {
+  background: #f0f;
+  height: 50px;
+  position: absolute;
+  right: 15px;
+  /*下一页*/
+}
+.MyOfficeBox .nextPageBox .nextPage {
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
 }
