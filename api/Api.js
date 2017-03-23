@@ -1,4 +1,4 @@
-var serverIP = "http://192.168.10.121";
+var serverIP = "http://192.168.10.123:5000";
 
 var API = {
 
@@ -7,11 +7,7 @@ var API = {
 
 
     Goods : {
-       getGoodsList : serverIP + "/aa/bb",
-       getGoodsList : serverIP + "/aa/bb",
-       getGoodsList : serverIP + "/aa/bb",
-       getGoodsList : serverIP + "/aa/bb",
-       getGoodsList : serverIP + "/aa/bb"
+
     },
 
     My : {
@@ -23,7 +19,7 @@ var API = {
     },
 
     Category : {
-       
+       category : serverIP + "/_category/search"
     },
 
     Home : {
