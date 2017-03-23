@@ -4,68 +4,68 @@
         <!-- 头部的分类-->
         <div class="category_top_block">
             <ul class="category_top_list">
-                <li class="category_top_list_item">
+                <li class="category_top_list_item" ng-repeat="categoryItem in categorys">
                     <div class="category_top_list_item_block">
                         <div>
                             <img class="category_top_list_item_image" src="./resource/images/icon/sanbafule.png">
-                            <span> 三八妇乐·女性健康护理</span>
+                            <span> {{categoryItem.category_name}}</span>
                         </div>
                     </div>
                 </li>
-                <li class="category_top_list_item">
-                    <div class="category_top_list_item_block">
-                        <div>
-                            <img class="category_top_list_item_image" src="./resource/images/icon/shipin.png">
-                            <span> 妍生·食品</span>
+                <!--<li class="category_top_list_item">-->
+                    <!--<div class="category_top_list_item_block">-->
+                        <!--<div>-->
+                            <!--<img class="category_top_list_item_image" src="./resource/images/icon/shipin.png">-->
+                            <!--<span> 妍生·食品</span>-->
 
-                        </div>
-                    </div>
-                </li>
-                <li class="category_top_list_item">
-                    <div class="category_top_list_item_block">
-                        <div>
-                            <img class="category_top_list_item_image" src="./resource/images/icon/yingyangzibu.png">
-                            <span> 妍美·营养滋润</span>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="category_top_list_item">-->
+                    <!--<div class="category_top_list_item_block">-->
+                        <!--<div>-->
+                            <!--<img class="category_top_list_item_image" src="./resource/images/icon/yingyangzibu.png">-->
+                            <!--<span> 妍美·营养滋润</span>-->
 
-                        </div>
-                    </div>
-                </li>
-                <li class="category_top_list_item">
-                    <div class="category_top_list_item_block">
-                        <div>
-                            <img class="category_top_list_item_image" src="./resource/images/goods_3.png">
-                            <span> 妍健·用品</span>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="category_top_list_item">-->
+                    <!--<div class="category_top_list_item_block">-->
+                        <!--<div>-->
+                            <!--<img class="category_top_list_item_image" src="./resource/images/icon/yunpin.png">-->
+                            <!--<span> 妍健·用品</span>-->
 
-                        </div>
-                    </div>
-                </li>
-                <li class="category_top_list_item">
-                    <div class="category_top_list_item_block">
-                        <div>
-                            <img class="category_top_list_item_image" src="./resource/images/goods_3.png">
-                            <span> 研清·家居</span>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="category_top_list_item">-->
+                    <!--<div class="category_top_list_item_block">-->
+                        <!--<div>-->
+                            <!--<img class="category_top_list_item_image" src="./resource/images/icon/jiaju.png">-->
+                            <!--<span> 研清·家居</span>-->
 
-                        </div>
-                    </div>
-                </li>
-                <li class="category_top_list_item">
-                    <div class="category_top_list_item_block">
-                        <div>
-                            <img class="category_top_list_item_image" src="./resource/images/goods_3.png">
-                            <span> 精彩·男士护理</span>
-                        </div>
-                    </div>
-                </li>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
+                <!--<li class="category_top_list_item">-->
+                    <!--<div class="category_top_list_item_block">-->
+                        <!--<div>-->
+                            <!--<img class="category_top_list_item_image" src="./resource/images/icon/jingcainanshi.png">-->
+                            <!--<span> 精彩·男士护理</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
 
-                <li class="category_top_list_item">
-                    <div class="category_top_list_item_block">
-                        <div>
-                            <img class="category_top_list_item_image" src="./resource/images/goods_3.png">
-                            <span> GONIA·私密美容</span>
+                <!--<li class="category_top_list_item">-->
+                    <!--<div class="category_top_list_item_block">-->
+                        <!--<div>-->
+                            <!--<img class="category_top_list_item_image" src="./resource/images/icon/geoniya.png">-->
+                            <!--<span> GONIA·私密美容</span>-->
 
-                        </div>
-                    </div>
-                </li>
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</li>-->
 
 
             </ul>
@@ -74,123 +74,80 @@
 
         <!--中间的文字-->
         <div class=" midd_text_contant">
-            <span class="midd_text">三八妇乐·女性健康护理系列</span>
+            <div class="line">
+            </div>
+            <div class="midd_text">
+                <span >三八妇乐·女性健康护理系列</span>
+            </div>
+            <div class="line">
+            </div>
         </div>
 
 
         <!-- 商品列表-->
 
         <div class="product_list">
-            <div class="product_item">
-                <img src="./resource/images/goods_2.png">
-                <div class="product_item_info">
-                    <span class="product_price">￥52</span>
-                    <div class="product_item_bottom">
-                        <span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>
-                        <i class="icon ion-ios-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product_item">
-                <img src="./resource/images/goods_2.png">
-                <div class="product_item_info">
-                    <span class="product_price">￥52</span>
-                    <div class="product_item_bottom">
-                        <span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>
-                        <i class="icon ion-ios-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product_item">
-                <img src="./resource/images/goods_2.png">
-                <div class="product_item_info">
-                    <span class="product_price">￥52</span>
-                    <div class="product_item_bottom">
-                        <span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>
-                        <i class="icon ion-ios-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product_item">
-                <img src="./resource/images/goods_2.png">
-                <div class="product_item_info">
-                    <span class="product_price">￥52</span>
-                    <div class="product_item_bottom">
-                        <span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>
-                        <i class="icon ion-ios-cart"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="product_item">
-                <img src="./resource/images/goods_2.png">
-                <div class="product_item_info">
-                    <span class="product_price">￥52</span>
-                    <div class="product_item_bottom">
-                        <span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>
-                        <i class="icon ion-ios-cart"></i>
-                    </div>
-                </div>
-            </div>
 
+            <!--<li class="category_top_list_item" ng-repeat="categoryItem in categorys">-->
+                <!--<div class="category_top_list_item_block">-->
+                    <!--<div>-->
+                        <!--<img class="category_top_list_item_image" src="./resource/images/icon/sanbafule.png">-->
+                        <!--<span> {{categoryItem.category_name}}</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</li>-->
 
-
+            <div class="product_item"  ng-repeat="productInfo in productArray">
+                <img src="./resource/images/goods_2.png">
+                <div class="product_item_info">
+                    <span class="product_price">￥{{productInfo.shop_price}}</span>
+                    <div class="product_item_bottom">
+                        <span class="product_name">{{productInfo.goods_name}}</span>
+                        <i class="icon ion-ios-cart"></i>
+                    </div>
+                </div>
+            </div>
+            <!--<div class="product_item">-->
+                <!--<img src="./resource/images/goods_2.png">-->
+                <!--<div class="product_item_info">-->
+                    <!--<span class="product_price">￥52</span>-->
+                    <!--<div class="product_item_bottom">-->
+                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
+                        <!--<i class="icon ion-ios-cart"></i>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="product_item">-->
+                <!--<img src="./resource/images/goods_2.png">-->
+                <!--<div class="product_item_info">-->
+                    <!--<span class="product_price">￥52</span>-->
+                    <!--<div class="product_item_bottom">-->
+                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
+                        <!--<i class="icon ion-ios-cart"></i>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="product_item">-->
+                <!--<img src="./resource/images/goods_2.png">-->
+                <!--<div class="product_item_info">-->
+                    <!--<span class="product_price">￥52</span>-->
+                    <!--<div class="product_item_bottom">-->
+                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
+                        <!--<i class="icon ion-ios-cart"></i>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="product_item">-->
+                <!--<img src="./resource/images/goods_2.png">-->
+                <!--<div class="product_item_info">-->
+                    <!--<span class="product_price">￥52</span>-->
+                    <!--<div class="product_item_bottom">-->
+                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
+                        <!--<i class="icon ion-ios-cart"></i>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
         </div>
-        <!--<ion-list >-->
 
-            <!--<ion-item class="product_item">-->
-
-            <!--</ion-item>-->
-            <!--<ion-item class="product_item">-->
-                <!--<img src="./resource/images/goods_2.png">-->
-                <!--<div class="product_item_info">-->
-                    <!--<span class="product_price">￥52</span>-->
-                    <!--<div class="product_item_bottom">-->
-                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
-                        <!--<i class="icon ion-ios-cart"></i>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</ion-item>-->
-            <!--<ion-item class="product_item">-->
-                <!--<img src="./resource/images/goods_2.png">-->
-                <!--<div class="product_item_info">-->
-                    <!--<span class="product_price">￥52</span>-->
-                    <!--<div class="product_item_bottom">-->
-                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
-                        <!--<i class="icon ion-ios-cart"></i>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</ion-item>-->
-            <!--<ion-item class="product_item">-->
-                <!--<img src="./resource/images/goods_2.png">-->
-                <!--<div class="product_item_info">-->
-                    <!--<span class="product_price">￥52</span>-->
-                    <!--<div class="product_item_bottom">-->
-                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
-                        <!--<i class="icon ion-ios-cart"></i>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</ion-item>-->
-            <!--<ion-item class="product_item">-->
-                <!--<img src="./resource/images/goods_2.png">-->
-                <!--<div class="product_item_info">-->
-                    <!--<span class="product_price">￥52</span>-->
-                    <!--<div class="product_item_bottom">-->
-                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
-                        <!--<i class="icon ion-ios-cart"></i>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</ion-item>-->
-            <!--<ion-item class="product_item">-->
-                <!--<img src="./resource/images/goods_2.png">-->
-                <!--<div class="product_item_info">-->
-                    <!--<span class="product_price">￥52</span>-->
-                    <!--<div class="product_item_bottom">-->
-                        <!--<span class="product_name">三八妇乐伊悦美蔓越莓益生菌固体饮料</span>-->
-                        <!--<i class="icon ion-ios-cart"></i>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</ion-item>-->
-
-        <!--</ion-list>-->
     </ion-content>
 </ion-view>

@@ -1,67 +1,156 @@
 /*用户信息*/
 .userBox {
   width: 100%;
-  height: 200px;
-  background: papayawhip;
-  text-align: center;
+  height: 190px;
+  background: url("../../resource/images/icon/my_background.png") no-repeat 0 -35px;
   /*用户图像*/
-  .usrIcon {
-    margin-top: 10px;
-    width: 100px;
-    height: 100px;
-    border-radius: 100px;
+  .usrIconBox {
+    text-align: center;
+    width: 100%;
+    .usrIcon {
+      width: 90px;
+      height: 90px;
+      border-radius: 90px;
+    }
   }
   /*用户账号*/
-  .userAccount{
-    margin-top: 10px
-
-  }
-  /*等级图标*/
-  .levelIcon{
-    width: 30px;
-    height: 30px;
-    vertical-align: middle;
-  }
-  /*等级名*/
-  .levelName{
+  .userAccountBox {
+    font-size: x-large;
     text-align: center;
-    margin-left: 10px;
+    height: 40px;
+    line-height: 40px;
+    color: #676767;
+  }
+  .levelBox {
+    line-height: 40px;
+    height: 40px;
+    width: auto;
+    text-align: center;
+    /*等级图标*/
+    .levelIcon {
+      width: 20px;
+      height: 15px;
+      position: relative;
+    }
+    /*等级名*/
+    .levelName {
+      color: #676767;
+      margin-left: 5px;
+      position: relative;
+
+    }
   }
 }
+
 /*货币和积分*/
-.moneyAndScoreBox{
+.moneyAndScoreBox {
+  background: white;
   margin-top: 10px;
-  border-bottom: solid 1px gray;
-  border-top: solid 1px #c0c0c0;
+  border-bottom: solid 1px #eee;
+  border-top: solid 1px #eee;
   height: 70px;
   text-align: center;
   position: relative;
-  /*金额容器*/
-  .moneyBox{
-    height: 70px;
+  /*金额容器  积分容器*/
+  .moneyBox {
+    height: 50px;
     width: 50%;
     text-align: center;
     float: left;
-    background: #ffc900;
-    .moneyName{
+    margin-top: 10px;
+    border-right: 1px solid #eee;
+    /*金额 积分*/
+    .moneyName {
+      color: #9a9a9a;
       width: 100%;
-      height: 35px;
-      background:#ccc;
-      padding-top: 10px;
-
+      height: 25px;
+      line-height: 25px;
     }
-    .moneyCount{
-      padding-top: 5px;
+    /*金额数量 积分数量*/
+    .moneyCount {
+
+      font-size: x-large;
+      line-height: 25px;
       width: 100%;
-      height: 35px;
+      height: 25px;
     }
   }
-  /*积分的容器*/
-  .scoreBox{
-    width: 50%;
-    height: 70px;
-    text-align: center;
+
+}
+
+/*去掉积分的右边线*/
+.moneyAndScoreBox :last-child {
+  border: none;
+}
+
+/*我的办公室*/
+.MyOfficeBox {
+  border-bottom: solid 1px #eee;
+  border-top: solid 1px #eee;
+  margin-top: 10px;
+  background: white;
+  width: 100%;
+  height: 50px;
+  position: relative;
+
+  .officeIconNameBox {
     float: left;
-    background: #ff8ab7;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 30px;
+
+    .officeIcon {
+      width: 20px;
+      height: 20px;
+      float: left;
+      margin-top: 15px;
+      margin-right: 12px;
+    }
+    .officeName{
+      color: #343434;
+    }
+  }
+  /*下页的容器*/
+  .nextPageBox {
+    height: 50px;
+    position: absolute;
+    right: 15px;
+    /*下一页*/
+    .nextPage {
+      margin-top: 17px;
+      width: 10px;
+      height: 16px;
+    }
+  }
+}
+
+/*业务相关容器*/
+.businessBox {
+  border-bottom: solid 1px #eee;
+  border-top: solid 1px #eee;
+  background: white;
+  margin-top: 10px;
+  /*行的样式*/
+  .businessRowBox {
+    height: 90px;
+    background: white;
+    border-bottom: solid 1px #eee;
+
+    /*每一个块的*/
+    .businessColBox {
+      color: #676767;
+      margin: 0 0 0 1%;
+      height: 90px;
+      width: 32%;
+      float: left;
+      text-align: center;
+      /*我的订单*/
+      .indentIcon {
+        margin-top: 15px;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+      }
+    }
   }
 }

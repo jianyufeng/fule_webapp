@@ -1,28 +1,31 @@
 .content {
   background-color: white;
   .category_top_block {
+    display: block;
     width: 100%;
     height: auto;
+
     .category_top_list {
       width: 100%;
       height: auto;
       list-style: none;
-
       .category_top_list_item {
         background-color: white;
         float: left;
         width: 25%;
-        height: 125px;
+        height: 90px;
+        margin-top: 10px;
+        margin-bottom: 10px;
         .category_top_list_item_block {
-          width: 80%;
-          height: 80%;
+          width: 85%;
+          height: 85%;
           margin-left: 10%;
           margin-top: 10%;
           div {
             .category_top_list_item_image {
               display: block;
-              width: 68px;
-              height: 68px;
+              width: 45px;
+              height: 45px;
               margin: 0 auto;
             }
             span {
@@ -41,18 +44,32 @@
 
   .midd_text_contant {
     width: 100%;
-    height: 50px;
+    background-color: #F4F4F4;
+    height: 35px;
+    margin-top: -10px;
     float: left;
-    margin-top: 20px;
-    background-color: white;
+    padding: 0 5%;
+    .line{
+      margin: 17px 0;
+      height: 1px;
+      width: 25%;
+      background-color: #BCBCBC;
+      float: left;
+    }
     .midd_text {
-      margin: 0 auto;
+      height: 35px;
+      width: 50%;
       font-size: 12px;
+      text-align: center;
+      line-height: 35px;
+      color:   #878787;
+      float: left;
     }
   }
 
   .product_list {
-
+    padding-bottom: 20px;
+    float: left;
     .product_item {
       width: 50%;
       float: left;
@@ -76,12 +93,9 @@
           color: #A92586;
           font-weight: bold;
           font-size: 14px;
-          margin-left: 10px;
         }
         .product_item_bottom {
           margin-top: 10px;
-          margin-left: 10px;
-
           .product_name {
             height: auto;
             width: 70%;
@@ -93,6 +107,7 @@
             display: block;
             float: left;
             margin-left: 8px;
+            font-size: 20px;
           }
         }
       }
