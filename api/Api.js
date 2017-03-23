@@ -15,7 +15,7 @@ var API = {
     },
 
     My : {
-       
+        getMyInfo: serverIP +"/_my/search"
     },
 
     Cart : {
