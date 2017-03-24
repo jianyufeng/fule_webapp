@@ -9,7 +9,7 @@
 }
 .userBox .usrIconBox {
   text-align: center;
-  height: 100px;
+  height: 110px;
   width: 100%;
 }
 .userBox .usrIconBox .usrIcon {
@@ -18,9 +18,9 @@
   border-radius: 90px;
 }
 .userBox .usrIconBox .storeLevel {
-  height: 10px;
-  font-size: 8px;
-  color: #0a9ec7;
+  line-height: 20px;
+  height: 20px;
+  font-size: 5px;
 }
 .userBox .userAccountBox {
   font-size: x-large;
