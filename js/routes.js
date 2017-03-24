@@ -82,6 +82,21 @@ define(['app'],function(app){
 					}
 				})
 
+
+			.state('tab.goodsDetails', {
+				url: '/goodsDetails',
+				views: {
+					'tab-goods': {
+						templateUrl: "views/goods/goodsDetails.html?_r=" + Math.random(),
+						controller: 'goodsDetailsController',
+						resolve : {
+							deps : app.loadControllerJs('../controller/goods/goodsDetailsController')
+						}
+					}
+
+				}
+			})
+
 				.state('tab.category', {
 					url: '/category',
 					views: {
