@@ -3,6 +3,8 @@ define(['app'], function (app) {
     app.factory("myService", function () {
 
         var service = {};
+
+        /*网络获取用户信息*/
         service.getMyInfo = function ($scope) {
 
             $.initAppStartLoad();

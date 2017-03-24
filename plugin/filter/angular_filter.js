@@ -12,6 +12,28 @@ define(['app'],function(app){
         }
 	});
 
+	/*显示专卖店等级*/
+	app.filter('storeLevelFilter',function($rootScope){
+		return function (input,varl){
+			switch (input) {
+				case  0:
+					varl = '会员';
+					break;
+				case  1:
+					varl = '专卖店';
+					break;
+				case  2:
+					varl = '旗舰店';
+					break;
+				default:
+					varl = '会员';
+					break;
+			}
+			return varl
+		}
+
+	});
+
 
 
 
