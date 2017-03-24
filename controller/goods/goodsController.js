@@ -1,6 +1,6 @@
 define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
-	function ctrl($scope){
+	function ctrl($scope,goodsService){
 
 		goods_fun.menuSelected();
 
@@ -20,12 +20,14 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
 		}
 
-
+		$scope.$on('$ionicView.loaded', function () {
+			goodsService.getGoodList($scope);
+		});
 
 
 	}
 
-	ctrl.$inject = ['$scope'];
+	ctrl.$inject = ['$scope', 'goodsService'];
 	app.registerController('goodsController',ctrl);
 
 

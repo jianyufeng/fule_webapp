@@ -8,7 +8,7 @@ var API = {
 
 
     Goods : {
-
+        goods: serverIP + "/_goods/search"
     },
 
     My : {
