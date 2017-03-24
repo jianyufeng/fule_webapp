@@ -1,6 +1,6 @@
 define(['app'], function (app) {
 
-    function ctrl($scope, myService) {
+    function ctrl($scope,myService) {
         console.log("我的界面控制器...");
 
         /*ionicView的生命周期的事件调用在每个ionicView的controller中使用$scope.$on('$ionicView.enter', function() {});调用*/
@@ -8,6 +8,9 @@ define(['app'], function (app) {
             /*获取数据*/
             myService.getMyInfo($scope);
 
+            $scope.unread = function(){
+                alert(999);
+            }
 
         });
 

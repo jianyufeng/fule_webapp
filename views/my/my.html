@@ -1,6 +1,6 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
     <ion-content>
-        <div  ng-include="'views/public/headerTitlePublic.html'"></div>
+        <navigation-bar title="我的" ishint="true" on-left-click="unread()" rightimage="resource/images/icon/letter.png"></navigation-bar>
 
         <!--用户信息-->
         <div class="userBox">
@@ -13,7 +13,7 @@
             </div>
             <div class="levelBox">
                 <img class="levelIcon" alt="等级图标" src="./resource/images/icon/level.png">
-                <span class="levelName">注册会员</span>
+                <span class="levelName">{{userInfo.REGISTER_GRADE | userLevelFilter}}</span>
             </div>
 
         </div>
@@ -22,7 +22,7 @@
         <div class="moneyAndScoreBox">
             <div class="moneyBox">
                 <div class="moneyName">金额(元)</div>
-                <div class="moneyCount">222</div>
+                <div class="moneyCount">{{userInfo.user_money}}</div>
             </div>
             <div class="moneyBox scoreBox">
                 <div class="moneyName scoreName">积分</div>
@@ -31,22 +31,24 @@
         </div>
 
         <!--我的办公室-->
-        <div class="MyOfficeBox">
-            <div class="officeIconNameBox">
-                <img class="officeIcon" alt="办公室" src="./resource/images/icon/myoffice.png">
-                <span class="officeName">我的办公室</span>
+        <a href="#/tab/my-office">
+            <div class="MyOfficeBox">
+                <div class="officeIconNameBox">
+                    <img class="officeIcon" alt="办公室" src="./resource/images/icon/myoffice.png">
+                    <span class="officeName">我的办公室</span>
+                </div>
+                <div class="nextPageBox">
+                    <img class="nextPage" alt="下页" src="./resource/images/icon/jiantou_right.png">
+                </div>
             </div>
-            <div class="nextPageBox">
-                <img class="nextPage" alt="下页" src="./resource/images/icon/jiantou_right.png">
-            </div>
-        </div>
+        </a>
 
         <!--业务相关-->
         <div class="businessBox">
             <div class="businessRowBox">
                 <div class="businessColBox">
-                     <img class="indentIcon" alt="我的订单" src="./resource/images/icon/wodedingdan.png">
-                      <div class="indentName">我的订单</div>
+                    <img class="indentIcon" alt="我的订单" src="./resource/images/icon/wodedingdan.png">
+                    <div class="indentName">我的订单</div>
                 </div>
                 <div class="businessColBox">
                     <img class="indentIcon" alt="防伪查询" src="./resource/images/icon/fangweichaxun.png">
