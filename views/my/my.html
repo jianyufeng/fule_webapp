@@ -6,6 +6,7 @@
         <div class="userBox">
             <div class="usrIconBox">
                 <img class="usrIcon" alt="用户图像" src="./resource/images/icon/jingcainanshi.png">
+                <div class="storeLevel">{{userInfo.ZHUAN_MAI_DIAN_GRADE | storeLevelFilter}}</div>
             </div>
             <div class="userAccountBox">
                 {{userInfo.user_name}}
