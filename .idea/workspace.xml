@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0fd5c36-9f50-458a-8198-f8d37fbe6f9a" name="Default" comment="ShareLock  ∑÷¿‡“≥√Ê">
+    <list default="true" id="b0fd5c36-9f50-458a-8198-f8d37fbe6f9a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list default="true" id="b0fd5c36-9f50-458a-8198-f8d37fbe6f9a" name="Default" comment="ShareLock  ÂàÜÁ±ªÈ°µÈù¢">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fule_webapp.iml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
@@ -32,11 +34,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
       <file leaf-file-name="category.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/category/category.less">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.914286">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category.less" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/category/category.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.8">
+              <caret line="57" column="5" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goods_2.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resource/images/goods_2.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="categoryController.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controller/category/categoryController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.46514285">
+              <caret line="14" column="5" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="topListFun.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/category/Fun/topListFun.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-8.914286">
               <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
@@ -93,6 +134,7 @@
         <entry file="file://$PROJECT_DIR$/controller/category/Fun/topListFun.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
               <caret line="9" column="26" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="26" />
               <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
               <folding />
@@ -100,12 +142,45 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="categoryService.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/service/category/categoryService.js">
       <file leaf-file-name="goods_fun.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/controller/goods/Fun/goods_fun.js">
       <file leaf-file-name="categoryService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/category/categoryService.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+              <caret line="22" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Api.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/api/Api.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="21" column="15" selection-start-line="21" selection-start-column="7" selection-end-line="21" selection-end-column="15" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goodsController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controller/goods/goodsController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/category/category.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-14.0">
+              <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
               <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
             <state vertical-scroll-proportion="0.0">
               <caret line="22" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
@@ -174,7 +249,12 @@
     <option name="CHANGED_PATHS">
       <list>
 
+
         <option value="$PROJECT_DIR$/lib/css/ionic.min.css" />
+        <option value="$PROJECT_DIR$/controller/category/Fun/topListFun.js" />
+        <option value="$PROJECT_DIR$/api/Api.js" />
+        <option value="$PROJECT_DIR$/controller/category/categoryController.js" />
+        <option value="$PROJECT_DIR$/service/category/categoryService.js" />
         <option value="$PROJECT_DIR$/controller/category/Fun/topListFun.js" />
         <option value="$PROJECT_DIR$/api/Api.js" />
         <option value="$PROJECT_DIR$/lib/css/ionic.min.css" />
@@ -231,6 +311,306 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="fule_webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="goods" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="category" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="category" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resource" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="js" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="category" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="category.less" />
+              <option name="myItemType" value="com.intellij.plugins.watcher.projectView.NestingTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="home" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="goods" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="goods" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Fun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="category" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="category" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Fun" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fule_webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -837,23 +1217,23 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="true" />
           <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/»˝∞À∏æ¿÷.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/¥˙Ω»Ø◊™’À.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/¥˙Ω»Ø◊™’Àº«¬º.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/≥‰÷µø®≥‰÷µ.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ƒ⁄≤ø◊™’À.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/º“æ”.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/Œ“µƒ∂©µ•.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/∏Ò≈∑ƒ·—«.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ª„øÓº«¬º.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/µÁ◊”±““¯––ª„øÓ.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/æ´≤ ƒ– ø.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/”™—¯◊Ã≤π.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/◊™’Àº«¬º.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/∏®œ˙±““¯––ª„øÓ.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/‘À∂Ø.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/∑¿Œ±≤È—Ø.png</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ ≥∆∑.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/‰∏âÂÖ´Â¶á‰πê.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/‰ª£ÈáëÂà∏ËΩ¨Ë¥¶.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/‰ª£ÈáëÂà∏ËΩ¨Ë¥¶ËÆ∞ÂΩï.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ÂÖÖÂÄºÂç°ÂÖÖÂÄº.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ÂÜÖÈÉ®ËΩ¨Ë¥¶.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ÂÆ∂Â±Ö.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ÊàëÁöÑËÆ¢Âçï.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/Ê†ºÊ¨ßÂ∞º‰∫ö.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/Ê±áÊ¨æËÆ∞ÂΩï.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ÁîµÂ≠êÂ∏ÅÈì∂Ë°åÊ±áÊ¨æ.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/Á≤æÂΩ©Áî∑Â£´.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/Ëê•ÂÖªÊªãË°•.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ËΩ¨Ë¥¶ËÆ∞ÂΩï.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ËæÖÈîÄÂ∏ÅÈì∂Ë°åÊ±áÊ¨æ.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/ËøêÂä®.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/Èò≤‰º™Êü•ËØ¢.png</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/resource/images/icon/È£üÂìÅ.png</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Restored" />
@@ -991,27 +1371,40 @@
       <option name="number" value="Default" />
       <updated>1490230951370</updated>
     </task>
-    <task id="LOCAL-00001" summary="ShareLock  ∑÷¿‡“≥√Ê">
+    <task id="LOCAL-00001" summary="ShareLock  ÂàÜÁ±ªÈ°µÈù¢">
       <created>1490240427508</created>
       <option name="number" value="00001" />
       <option name="project" value="LOCAL" />
       <updated>1490240427508</updated>
     </task>
-    <task id="LOCAL-00002" summary="ShareLock  ∑÷¿‡“≥√Ê">
+    <task id="LOCAL-00002" summary="ShareLock  ÂàÜÁ±ªÈ°µÈù¢">
       <created>1490244120302</created>
       <option name="number" value="00002" />
       <option name="project" value="LOCAL" />
       <updated>1490244120302</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
-
-    <task id="LOCAL-00003" summary="ShareLock  ∑÷¿‡“≥√Ê">
+    <task id="LOCAL-00003" summary="ShareLock  ÂàÜÁ±ªÈ°µÈù¢">
       <created>1490260458083</created>
       <option name="number" value="00003" />
       <option name="project" value="LOCAL" />
       <updated>1490260458083</updated>
     </task>
-    <task id="LOCAL-00004" summary="ShareLock  ∑÷¿‡“≥√Ê">
+    <task id="LOCAL-00004" summary="ShareLock  ÂàÜÁ±ªÈ°µÈù¢">
+      <created>1490260643969</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1490260643969</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="3" />
+
+    <task id="LOCAL-00003" summary="ShareLock  ÂàÜÁ±ªÈ°µÈù¢">
+      <created>1490260458083</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1490260458083</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ShareLock  ÂàÜÁ±ªÈ°µÈù¢">
       <created>1490260643969</created>
       <option name="number" value="00004" />
       <option name="project" value="LOCAL" />
@@ -1030,6 +1423,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0022075055" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0022075055" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1061,8 +1456,8 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ShareLock  ∑÷¿‡“≥√Ê" />
-    <option name="LAST_COMMIT_MESSAGE" value="ShareLock  ∑÷¿‡“≥√Ê" />
+    <MESSAGE value="ShareLock  ÂàÜÁ±ªÈ°µÈù¢" />
+    <option name="LAST_COMMIT_MESSAGE" value="ShareLock  ÂàÜÁ±ªÈ°µÈù¢" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1085,6 +1480,10 @@
         </state>
       </provider>
     </entry>
+
+
+
+
     <entry file="file://$PROJECT_DIR$/api/Api.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1152,6 +1551,10 @@
         </state>
       </provider>
     </entry>
+
+
+
+
     <entry file="file://$PROJECT_DIR$/service/category/categoryService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1200,6 +1603,8 @@
         </state>
       </provider>
     </entry>
+
+
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-2.2285714">
@@ -1292,6 +1697,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/controller/goods/goodsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resource/images/goods_2.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/home/homeController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/controller/category/categoryController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1352,6 +1778,12 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resource/images/icon/jingcainanshi.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controller/goods/Fun/goods_fun.js">
     <entry file="file://$PROJECT_DIR$/css/category/category.less">
     <entry file="file://$PROJECT_DIR$/resource/images/icon/chongzhikachongzhi.png">
       <provider selected="true" editor-type-id="images">
@@ -1373,6 +1805,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/business_service.js">
     <entry file="file://$PROJECT_DIR$/views/category/category.html">
     <entry file="file://$PROJECT_DIR$/js/business_service.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1402,6 +1835,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/views/category/category.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.0">
+          <caret line="80" column="18" selection-start-line="80" selection-start-column="18" selection-end-line="80" selection-end-column="18" />
+          <folding>
+            <element signature="n#div#2;n#ion-content#0;n#ion-view#0;n#!!top" expanded="false" />
+          </folding>
         <state vertical-scroll-proportion="0.79116946">
           <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
         <state vertical-scroll-proportion="-14.0">
