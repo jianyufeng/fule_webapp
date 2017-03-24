@@ -12,7 +12,7 @@ var API = {
     },
 
     My : {
-       
+        myInfo: serverIP +"/_my/search"
     },
 
     Cart : {
