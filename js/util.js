@@ -125,6 +125,24 @@ define(function () {
 
 	//将工具添加至window对象
 	window.BrowserUtil = BrowserUtil;
+
+
+	//公共方法
+	var CommenFun = {};
+
+	/**
+	 * 判断一个对象是否为空
+	 */
+	CommenFun.isNullObj = function(obj){
+		for(var i in obj){
+			if(obj.hasOwnProperty(i)){
+				return false;
+			}
+		}
+		return true;
+	}
+
+	window.CommenFun = CommenFun;
 	
 
 });

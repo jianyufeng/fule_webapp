@@ -13,7 +13,7 @@ define(function(){
             $(".goodsMenuItem").eq(_index).addClass("selected");
 
         });
-    }
+    };
 
     return goodsFun;
 });
