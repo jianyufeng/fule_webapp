@@ -35,10 +35,12 @@ define(['app'],function(app){
          };
 
         // 点击按钮后实现分类货物的切换
-        service.getCategoryGoodsList=function($scope,categoryId){
-
+        service.getCategoryGoodsList=function($scope,categoryId,POP){
+            POP.StartLoading();
             HTTP.get(API.Category.category + "/category_id/"+categoryId,{},function(e,data){
 
+
+                POP.EndLoading();
                 if(e){
                     $.loadError(function(){
                         service.getCategoryGoodsList();
@@ -48,6 +50,7 @@ define(['app'],function(app){
 
                 $scope.$apply(function(){
                     $scope.productArray=data.goodsInfo.data;
+
                     console.log($scope.productArray);
                 });
 
@@ -56,6 +59,7 @@ define(['app'],function(app){
             });
 
         }
+
          return service;
 
     });
