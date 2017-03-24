@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/fule_web.iml" filepath="$PROJECT_DIR$/.idea/fule_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/fule_webapp.iml" filepath="$PROJECT_DIR$/.idea/fule_webapp.iml" />
     </modules>
   </component>
 </project>
