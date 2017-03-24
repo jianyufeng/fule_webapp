@@ -8,6 +8,10 @@ define(['app'], function (app) {
             /*获取数据*/
             myService.getMyInfo($scope);
 
+            $scope.unread = function(){
+                alert(999);
+            }
+
         });
 
         $scope.$on('$ionicView.enter', function () {

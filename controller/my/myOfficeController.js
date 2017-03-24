@@ -3,6 +3,7 @@
  */
 define(['app'], function (app) {
     function ctrl($scope) {
+
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
             console.log("dsfs")

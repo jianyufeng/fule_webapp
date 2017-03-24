@@ -1,6 +1,6 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
     <ion-content>
-        <div ng-include="'views/public/headerTitlePublic.html'"></div>
+        <navigation-bar title="我的" ishint="true" on-left-click="unread()" rightimage="resource/images/icon/letter.png"></navigation-bar>
 
         <!--用户信息-->
         <div class="userBox">
