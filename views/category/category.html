@@ -5,7 +5,7 @@
         <div class="category_top_block">
             <ul class="category_top_list">
                 <li class="category_top_list_item" ng-repeat="categoryItem in categorys">
-                    <div class="category_top_list_item_block">
+                    <div class="category_top_list_item_block" ng-click="changCategoryList(categoryItem.category_id)">
                         <div>
                             <img class="category_top_list_item_image" src="./resource/images/icon/sanbafule.png">
                             <span> {{categoryItem.category_name}}</span>

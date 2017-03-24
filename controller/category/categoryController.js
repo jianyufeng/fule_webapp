@@ -6,10 +6,12 @@ define(['app'], function (app) {
 
         //console.log(categoryService);
         $scope.$on('$ionicView.loaded', function () {
-            categoryService.getCategoryGoodsInfo($scope);
+            categoryService.getCategoryListAndCategoryGoodsList($scope);
         });
 
-
+        $scope.changCategoryList=function(categoryId){
+            categoryService.getCategoryGoodsList($scope,categoryId);
+        };
     }
 
     ctrl.$inject = ['$scope', 'categoryService'];
