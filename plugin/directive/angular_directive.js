@@ -40,5 +40,32 @@ define(['app'],function(app){
 		}
 	});
 
-
+	/*
+	 * 自定义导航条
+ 	 */
+	app.directive('navigationBar',function(){  
+		return{  
+			restrict: 'EA',  
+			transclude: true,  
+			scope: {  
+				title		: '@',
+				leftimage   : '@',
+				rightimage  : '@',
+				ishint      : '@',
+				onLeftClick : "&onLeftClick"
+			},  
+			template:[
+				'<div class="headerBox">',
+					'<div class="leftHeaderBox"><img src="{{leftimage}}" /></div>',
+					'<div class="middleHeaderBox">{{title}}</div>',
+					'<div class="rightHeaderBox" ng-click="rightIconClick()"><img src="{{rightimage}}" /><div class="iconHint" ng-show="{{ishint}}"></div></div>',
+				'</div>'
+			].join(""),  
+			link:function(scope,element,attrs){  
+				scope.rightIconClick = function(){
+					scope.onLeftClick();
+				}
+			}  
+		}
+	});
 });
