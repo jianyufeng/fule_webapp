@@ -9,9 +9,10 @@
 	}*/
 	
 	.tab-item i.icon {
-		width:30px;
-		height:30px;
-		margin-top: 4px;
+		width:22px;
+		height:22px;
+		margin-top: 6px;
+		margin-bottom:6px;
 	}
 
 	.tab-item .badge{
@@ -19,30 +20,99 @@
 	}
 
 	.tab-item.middleIcon{
-		width:50px;
-		height:70px;
-		background:#eee;
-		border-radius:35px;
-		border:1px solid #eee;
-		margin-top: -25px;
+		width:auto;
+		height:auto;
+		margin-top:-40px;
 		opacity:1;
 	}
 
 	.tab-item.middleIcon .icon{
-		width:35px;
-		height:35px;
+		width:70px;
+		height:70px;
 		margin-top:12px;
 	}
 
+	.tab-item.fenleiIcon .icon{ 
+		width:22px;
+		height:21px;
+	}
 
-	.fujin_off {
-		background-image:url("resource/images/tab_city_normal@2x.png");
+	.tab-item.goodsIcon .icon{ 
+		width:18px;
+		height:18px;
+		margin-top:9px;
+		margin-bottom:7px;
+	}
+
+
+	.shouye_off {
+		background-image:url("resource/images/tabIcon/home.png");
 		background-repeat:no-repeat;
 		background-size: cover;
 	}
 
-	.fujin_on {
-		background-image:url("resource/images/tab_city_highlight@2x.png");
+	.shouye_on {
+		background-image:url("resource/images/tabIcon/home_onclick.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.shangpin_off {
+		background-image:url("resource/images/tabIcon/allproduct.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.shangpin_on {
+		background-image:url("resource/images/tabIcon/allproduct_hover.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.shangpin_off {
+		background-image:url("resource/images/tabIcon/allproduct.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.shangpin_on {
+		background-image:url("resource/images/tabIcon/allproduct_hover.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.fenlei_off {
+		background-image:url("resource/images/tabIcon/fenlei.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.fenlei_on {
+		background-image:url("resource/images/tabIcon/fenlei_hover.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.cart_off {
+		background-image:url("resource/images/tabIcon/shopping.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.cart_on {
+		background-image:url("resource/images/tabIcon/shopping_hover.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.my_off {
+		background-image:url("resource/images/tabIcon/mycenter.png");
+		background-repeat:no-repeat;
+		background-size: cover;
+	}
+
+	.my_on {
+		background-image:url("resource/images/tabIcon/mycenter_hover.png");
 		background-repeat:no-repeat;
 		background-size: cover;
 	}
@@ -50,27 +120,23 @@
 
 <ion-tabs class="tabs-icon-top bar-stable" ng-class="{'tabs-item-hide': $root.hideTabs}">
 
-	<ion-tab title="首页" icon-off="ion-pricetag" icon-on="ion-pricetag" href="#/tab/home" on-select="tabSelect(0)">
-		<ion-nav-view name="tab-home"></ion-nav-view>
-	</ion-tab>
-
-	<ion-tab title="商品" icon-off="ion-pricetag" icon-on="ion-pricetag" href="#/tab/goods" on-select="tabSelect(1)">
+	<ion-tab title="全部商品" class="goodsIcon" icon-off="shangpin_off" icon-on="shangpin_on" href="#/tab/goods" on-select="tabSelect(0)">
 		<ion-nav-view name="tab-goods"></ion-nav-view>
 	</ion-tab>
 
-	<ion-tab title="分类" icon-off="ion-pricetag" icon-on="ion-pricetag" href="#/tab/category" on-select="tabSelect(2)">
+	<ion-tab title="分类" class="fenleiIcon" icon-off="fenlei_off" icon-on="fenlei_on" href="#/tab/category" on-select="tabSelect(1)">
 		<ion-nav-view name="tab-category"></ion-nav-view>
 	</ion-tab>
 
-	<!--<ion-tab title="分类" class="middleIcon" icon-off="fujin_off" icon-on="fujin_on"  href="#/tab/fujin" on-select="tabSelect(2)">
-		<ion-nav-view name="tab-fujin"></ion-nav-view> 
-	</ion-tab> -->
+	<ion-tab title="" class="middleIcon" icon-off="shouye_off" icon-on="shouye_on"  href="#/tab/home" on-select="tabSelect(2)">
+		<ion-nav-view name="tab-home"></ion-nav-view> 
+	</ion-tab> 
 
-	<ion-tab title="购物车" badge="cartBadge" badge-style="badge-assertive" icon-off="ion-android-cart" icon-on="ion-android-cart" href="#/tab/cart" on-select="tabSelect(3)">
+	<ion-tab title="购物车" badge="cartBadge" badge-style="badge-assertive" icon-off="cart_off" icon-on="cart_on" href="#/tab/cart" on-select="tabSelect(3)">
 		<ion-nav-view name="tab-cart"></ion-nav-view>
 	</ion-tab>
 
-	<ion-tab title="我的" icon-off="ion-person-stalker" icon-on="ion-person-stalker" href="#/tab/my" on-select="tabSelect(4)">
+	<ion-tab title="我的" icon-off="my_off" icon-on="my_on" href="#/tab/my" on-select="tabSelect(4)">
 		<ion-nav-view name="tab-my"></ion-nav-view>
 	</ion-tab>
 
