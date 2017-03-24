@@ -4,7 +4,8 @@ define(['app'],function(app){
 
          var service = {};
 
-         service.getCategoryGoodsInfo = function($scope){
+        //  获取头部的分类列表和默认分类货物
+         service.getCategoryListAndCategoryGoodsList = function($scope){
 
              $.initAppStartLoad();
 
@@ -12,7 +13,7 @@ define(['app'],function(app){
 
                  if(e){
                      $.loadError(function(){
-                         service.getCategoryGoodsInfo();
+                         service.getCategoryListAndCategoryGoodsList();
                      });
                      return;
                  }
@@ -33,7 +34,28 @@ define(['app'],function(app){
 
          };
 
+        // 点击按钮后实现分类货物的切换
+        service.getCategoryGoodsList=function($scope,categoryId){
 
+            HTTP.get(API.Category.category + "/category_id/"+categoryId,{},function(e,data){
+
+                if(e){
+                    $.loadError(function(){
+                        service.getCategoryGoodsList();
+                    });
+                    return;
+                }
+
+                $scope.$apply(function(){
+                    $scope.productArray=data.goodsInfo.data;
+                    console.log($scope.productArray);
+                });
+
+                console.log(data);
+
+            });
+
+        }
          return service;
 
     });
