@@ -22,7 +22,7 @@
 .userBox .usrIconBox .unreadBox {
   padding: 5px;
   top: 20px;
-  right: 30px;
+  right: 20px;
   position: absolute;
 }
 .userBox .usrIconBox .unreadBox .unreadIcon {
@@ -140,7 +140,6 @@
 }
 /*业务相关容器*/
 .businessBox {
-  border-bottom: solid 1px #eee;
   border-top: solid 1px #eee;
   background: white;
   margin-top: 10px;
