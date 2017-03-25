@@ -1,12 +1,20 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
     <ion-content>
-        <navigation-bar title="我的" ishint="true" on-left-click="unread()" rightimage="resource/images/icon/letter.png"></navigation-bar>
-
         <!--用户信息-->
+        <ion-refresher pulling-text="下拉刷新" style="background-color: pink" on-refresh="doRefresh()"></ion-refresher>
+
+
         <div class="userBox">
+
             <div class="usrIconBox">
-                <img class="usrIcon" alt="用户图像" src="./resource/images/icon/jingcainanshi.png">
-                <div class="storeLevel">{{userInfo.ZHUAN_MAI_DIAN_GRADE | storeLevelFilter}}</div>
+                <img class="usrIcon" alt="用户图像" src="./resource/images/icon/jingcainanshi.png" ng-click="selectIcon()">
+                <!--<div class="storeLevel">{{userInfo.ZHUAN_MAI_DIAN_GRADE | storeLevelFilter}}</div>-->
+                <a href="#/tab/my-unreadMessage">
+                    <div class="unreadBox">
+                        <img class="unreadIcon" alt="未读消息" src="./resource/images/icon/letter.png">
+                        <div class="unreadCount"></div>
+                    </div>
+                </a>
             </div>
             <div class="userAccountBox">
                 {{userInfo.user_name}}
@@ -46,63 +54,80 @@
         <!--业务相关-->
         <div class="businessBox">
             <div class="businessRowBox">
-                <div class="businessColBox">
-                    <img class="indentIcon" alt="我的订单" src="./resource/images/icon/wodedingdan.png">
-                    <div class="indentName">我的订单</div>
-                </div>
-                <div class="businessColBox">
-                    <img class="indentIcon" alt="防伪查询" src="./resource/images/icon/fangweichaxun.png">
-                    <div class="indentName">防伪查询</div>
-
-                </div>
-                <div class="businessColBox">
-                    <img class="indentIcon" alt="充值卡充值" src="./resource/images/icon/chongzhikachongzhi.png">
-                    <div class="indentName">充值卡充值</div>
-
-                </div>
+                <a href="#/tab/my-orderForm">
+                    <div class="businessColBox" on-touch="onTouch()" on-release="onRelease()">
+                        <img class="indentIcon" alt="我的订单" src="./resource/images/icon/wodedingdan.png">
+                        <div class="indentName">我的订单</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-authenticCheck">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="防伪查询" src="./resource/images/icon/fangweichaxun.png">
+                        <div class="indentName">防伪查询</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-prepaidCardRecharge">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="充值卡充值" src="./resource/images/icon/chongzhikachongzhi.png">
+                        <div class="indentName">充值卡充值</div>
+                    </div>
+                </a>
             </div>
             <div class="businessRowBox">
-                <div class="businessColBox">
-                    <img class="indentIcon" alt="电子币银行汇款" src="./resource/images/icon/dianzibihuikuan.png">
-                    <div class="indentName">电子币银行汇款</div>
-
-                </div>
-                <div class="businessColBox">
-                    <img class="indentIcon" alt="辅销币银行汇款" src="./resource/images/icon/fuxiaobihuikuan.png">
-                    <div class="indentName">辅销币银行汇款</div>
-
-                </div>
-                <div class="businessColBox">
-                    <img class="indentIcon" alt="汇款记录" src="./resource/images/icon/huikuanjilu.png">
-                    <div class="indentName">汇款记录</div>
-
-                </div>
+                <a href="#/tab/my-electronicBankTransfer">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="电子币银行汇款" src="./resource/images/icon/dianzibihuikuan.png">
+                        <div class="indentName">电子币银行汇款</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-subsidiaryBankTransfer">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="辅销币银行汇款" src="./resource/images/icon/fuxiaobihuikuan.png">
+                        <div class="indentName">辅销币银行汇款</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-remittanceRecord">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="汇款记录" src="./resource/images/icon/huikuanjilu.png">
+                        <div class="indentName">汇款记录</div>
+                    </div>
+                </a>
+            </div>
+            <div class="businessRowBox">
+                <a href="#/tab/my-internalTransfer">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="内部转账" src="./resource/images/icon/neibuzhuanzhang.png">
+                        <div class="indentName">内部转账</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-transferRecord">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="转账记录" src="./resource/images/icon/zhuanzhangjilu.png">
+                        <div class="indentName">转账记录</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-voucherTransfer">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="代金卷转账" src="./resource/images/icon/daijinjuanzhuanzhang.png">
+                        <div class="indentName">代金卷转账</div>
+                    </div>
+                </a>
 
             </div>
             <div class="businessRowBox">
+                <a href="#/tab/my-voucherTransferRecords">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="代金卷转账记录"
+                             src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
+                        <div class="indentName">代金卷转账记录</div>
+                    </div>
+                </a>
                 <div class="businessColBox">
-                    <img class="indentIcon" alt="内部转账" src="./resource/images/icon/neibuzhuanzhang.png">
-                    <div class="indentName">内部转账</div>
 
                 </div>
                 <div class="businessColBox">
-                    <img class="indentIcon" alt="转账记录" src="./resource/images/icon/zhuanzhangjilu.png">
-                    <div class="indentName">转账记录</div>
 
                 </div>
-                <div class="businessColBox">
-                    <img class="indentIcon" alt="代金卷转账" src="./resource/images/icon/daijinjuanzhuanzhang.png">
-                    <div class="indentName">代金卷转账</div>
-                </div>
-
-            </div>
-            <div class="businessRowBox">
-                <div class="businessColBox">
-                    <img class="indentIcon" alt="代金卷转账记录" src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
-                    <div class="indentName">代金卷转账记录</div>
-                </div>
-                <div class="businessColBox"></div>
-                <div class="businessColBox"></div>
             </div>
         </div>
 

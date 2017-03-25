@@ -5,13 +5,17 @@ define(['app'], function (app) {
         var service = {};
 
         /*网络获取用户信息*/
-        service.getMyInfo = function ($scope) {
-
-            $.initAppStartLoad();
+        service.getMyInfo = function ($scope, POP, isRefresh) {
+            if (!isRefresh) {
+                $.initAppStartLoad();
+            }
 
             HTTP.get(API.My.myInfo + "/user_name/zhoulibo4", {}, function (e, data) {
-                console.log(data);
                 if (e) {
+                    if (!isRefresh) {
+                        POP.Hint("对不起，刷新失败");
+                        return
+                    }
                     $.loadError(function () {
                         service.getMyInfo();
                     });
@@ -21,11 +25,14 @@ define(['app'], function (app) {
                 $scope.$apply(function () {
                     $scope.userInfo = data.userInfo;
                     $scope.travel_points = data.travel_points;
-                    $.initAppEndLoad();
+                    if (!isRefresh) {
+                        $.initAppEndLoad();
+                    }
                 });
 
-
-                console.log(data);
+                if (isRefresh) {
+                    $scope.$broadcast('scroll.refreshComplete');
+                }
 
 
             });
