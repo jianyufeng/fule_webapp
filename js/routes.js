@@ -29,7 +29,7 @@ define(['app'], function (app) {
 
 
         //初始化显示的路由，页面初次打开时，默认显示的界面
-        $urlRouterProvider.otherwise('/tab/goods');
+        $urlRouterProvider.otherwise('/tab/home');
 
         //初始化显示的路由，页面初次打开时，默认显示的界面
 
@@ -52,108 +52,7 @@ define(['app'], function (app) {
                     deps: app.loadControllerJs('../controller/mainController')
                 }
             })
-
-            .state('tab.home', {
-                url: '/home',
-                views: {
-                    'tab-home': {
-                        templateUrl: "views/home/home.html?_r=" + Math.random(),
-                        controller: 'homeController',
-                        resolve: {
-                            deps: app.loadControllerJs('../controller/home/homeController')
-                        }
-                    }
-
-                }
-
-            })
-
-
-            .state('tab.goods', {
-                url: '/goods',
-                views: {
-                    'tab-goods': {
-                        templateUrl: "views/goods/goods.html?_r=" + Math.random(),
-                        controller: 'goodsController',
-                        resolve: {
-                            deps: app.loadControllerJs('../controller/goods/goodsController')
-                        }
-                    }
-
-                }
-            })
-.state('tab.goodsDetails', {
-	url: '/goodsDetails',
-		views: {
-		'tab-goods': {
-			templateUrl: "views/goods/goodsDetails.html?_r=" + Math.random(),
-				controller: 'goodsDetailsController',
-				resolve : {
-				deps : app.loadControllerJs('../controller/goods/goodsDetailsController')
-			}
-		}
-
-	}
-})
-            .state('tab.category', {
-                url: '/category',
-                views: {
-                    'tab-category': {
-                        templateUrl: "views/category/category.html?_r=" + Math.random(),
-                        controller: 'categoryController',
-                        resolve: {
-                            deps: app.loadControllerJs('../controller/category/categoryController')
-                        }
-                    }
-
-                }
-            })
-
-
-            .state('tab.cart', {
-                url: '/cart',
-                views: {
-                    'tab-cart': {
-                        templateUrl: "views/cart/cart.html?_r=" + Math.random(),
-                        controller: 'cartController',
-                        resolve: {
-                            deps: app.loadControllerJs('../controller/cart/cartController')
-                        }
-                    }
-
-                }
-
-            })
-
-            .state('tab.my', {
-                url: '/my',
-                views: {
-                    'tab-my': {
-                        templateUrl: "views/my/my.html?_r=" + Math.random(),
-                        controller: 'myController',
-                        resolve: {
-                            deps: app.loadControllerJs('../controller/my/myController')
-                        }
-                    }
-
-                }
-            })
-            .state('tab.my-office', {
-                url: '/my-office',
-                views: {
-                    'tab-my': {
-                        templateUrl: "views/my/my-office.html?_r=" + Math.random(),
-                        controller: 'myOfficeController',
-                        resolve: {
-                            deps: app.loadControllerJs('../controller/my/myOfficeController')
-                        }
-                    }
-
-                }
-            })
-
-
+                
     });
-
 
 });
