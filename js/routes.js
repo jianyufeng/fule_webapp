@@ -29,7 +29,7 @@ define(['app'], function (app) {
 
 
         //初始化显示的路由，页面初次打开时，默认显示的界面
-        $urlRouterProvider.otherwise('/tab/goods');
+        $urlRouterProvider.otherwise('/tab/home');
 
         //初始化显示的路由，页面初次打开时，默认显示的界面
 
@@ -53,22 +53,6 @@ define(['app'], function (app) {
                 }
             })
 
-            .state('tab.home', {
-                url: '/home',
-                views: {
-                    'tab-home': {
-                        templateUrl: "views/home/home.html?_r=" + Math.random(),
-                        controller: 'homeController',
-                        resolve: {
-                            deps: app.loadControllerJs('../controller/home/homeController')
-                        }
-                    }
-
-                }
-
-            })
-
-
             .state('tab.goods', {
                 url: '/goods',
                 views: {
@@ -82,19 +66,21 @@ define(['app'], function (app) {
 
                 }
             })
-.state('tab.goodsDetails', {
-	url: '/goodsDetails',
-		views: {
-		'tab-goods': {
-			templateUrl: "views/goods/goodsDetails.html?_r=" + Math.random(),
-				controller: 'goodsDetailsController',
-				resolve : {
-				deps : app.loadControllerJs('../controller/goods/goodsDetailsController')
-			}
-		}
 
-	}
-})
+            .state('tab.goodsDetails', {
+                url: '/goodsDetails',
+                    views: {
+                    'tab-goods': {
+                        templateUrl: "views/goods/goodsDetails.html?_r=" + Math.random(),
+                            controller: 'goodsDetailsController',
+                            resolve : {
+                            deps : app.loadControllerJs('../controller/goods/goodsDetailsController')
+                        }
+                    }
+
+                }
+            })
+
             .state('tab.category', {
                 url: '/category',
                 views: {
@@ -151,9 +137,7 @@ define(['app'], function (app) {
 
                 }
             })
-
-
+          
     });
-
 
 });

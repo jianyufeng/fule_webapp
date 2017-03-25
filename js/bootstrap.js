@@ -10,6 +10,7 @@ define([
 	'angular_service',
 	'angular_filter',
 	'routes',
+	'liweixuanRoutes',
 	'lodash',
 	'utils',
 	'init',
