@@ -2,25 +2,41 @@
 .userBox {
   border-bottom: solid 1px #eee;
   width: 100%;
-  height: 190px;
+  height: 180px;
   background: url("../../resource/images/icon/my_background.png") no-repeat 0 -35px;
   /*用户图像*/
   /*用户账号*/
 }
 .userBox .usrIconBox {
   text-align: center;
-  height: 110px;
+  height: 100px;
   width: 100%;
+  position: relative;
 }
 .userBox .usrIconBox .usrIcon {
+  margin-top: 5px;
   width: 90px;
   height: 90px;
   border-radius: 90px;
 }
-.userBox .usrIconBox .storeLevel {
-  line-height: 20px;
+.userBox .usrIconBox .unreadBox {
+  padding: 5px;
+  top: 20px;
+  right: 30px;
+  position: absolute;
+}
+.userBox .usrIconBox .unreadBox .unreadIcon {
+  width: 30px;
   height: 20px;
-  font-size: 5px;
+}
+.userBox .usrIconBox .unreadBox .unreadCount {
+  top: 3px;
+  right: 3px;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  position: absolute;
+  background: red;
 }
 .userBox .userAccountBox {
   font-size: x-large;
@@ -44,7 +60,7 @@
 }
 .userBox .levelBox .levelName {
   color: #676767;
-  margin-left: 5px;
+  margin-left: 8px;
   position: relative;
 }
 /*货币和积分*/
