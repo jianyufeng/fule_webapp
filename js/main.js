@@ -26,14 +26,22 @@ require.config({
 		'css'				: '../lib/js/requirejs-css.min',		   //加载CSS插件
 		'text'				: '../lib/js/requirejs-text',		       //加载文本插件
 
-		'liweixuanRoutes'	: './tempRoutes/liweixuan'				   //李蔚轩临时路由
+		'liweixuanRoutes'	   : './tempRoutes/liweixuan',				   //李蔚轩临时路由
+		'lixufengRoutes'	   : './tempRoutes/lixufeng',				   //李许峰临时路由
+		'jianyufengRoutes'	   : './tempRoutes/jianyufeng',				   //简玉峰临时路由
+		'xieshaoxiongRoutes'   : './tempRoutes/xieshaoxiong',			   //谢少雄临时路由
+		'yejingyaRoutes'	   : './tempRoutes/yejingya'				   //叶静雅临时路由
 	},
 
 	//设置优先加载文件
 	deps: ['jquery', 'bootstrap'],
 
 	shim : {
-		'liweixuanRoutes' : ['routes']	
+		'liweixuanRoutes' : ['routes'],
+		'lixufengRoutes' : ['routes'],
+		'jianyufengRoutes' : ['routes'],
+		'xieshaoxiongRoutes' : ['routes'],
+		'yejingyaRoutes' : ['routes']
 	},
 
 	//禁止文件缓存
