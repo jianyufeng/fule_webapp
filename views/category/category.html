@@ -37,6 +37,7 @@
 
         <div class="product_list">
             <div class="product_item" ng-repeat="productInfo in productArray">
+                <a href="#/tab/productInfo">
                 <img  src="./resource/images/goods_2.png">
                 <div class="product_item_info">
                     <span class="product_price">￥{{productInfo.shop_price}}</span>
@@ -45,6 +46,7 @@
                         <i class="icon ion-ios-cart-outline cartTag2" id="{{productInfo.goods_id}}"></i>
                     </div>
                 </div>
+                </a>
             </div>
         </div>
 
