@@ -21,7 +21,8 @@ var API = {
 
     Category : {
        
-       category : serverIP + "/_category/search"
+       category : serverIP + "/_category/search",
+        productInfo:serverIP+"/_category/goodsDetail"
     },
 
     Home : {
