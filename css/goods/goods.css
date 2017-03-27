@@ -54,6 +54,7 @@
   height: 35px;
   font-size: 14px;
   padding-left: 10px;
+  color: purple;
   line-height: 35px;
 }
 .goodsListBox .goodsItem .goodsInfo .goodsContent {
@@ -81,4 +82,12 @@
 }
 .goodsListBox .goodsItem:nth-child(2n+0) {
   margin-right: 0px;
+}
+.u-flyer {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  position: fixed;
+  z-index: 9999;
 }
