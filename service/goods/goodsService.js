@@ -3,7 +3,7 @@ define(['app'],function(app){
     app.factory("goodsService",function(){
 
          var service = {};
-        
+
 //获取商品列表
         service.getGoodList = function($scope){
             $.initAppStartLoad();

@@ -5,7 +5,7 @@
 .cartBox .buyerListBox {
   width: 100%;
   position: absolute;
-  top: 70px;
+  top: 66px;
   bottom: 90px;
   right: 0px;
 }
@@ -20,7 +20,7 @@
   margin-top: 3px;
 }
 .cartBox .buyerListBox .buyerItem .selectBtnBox {
-  width: 50px;
+  width: 40px;
   height: 100%;
   float: left;
 }
@@ -33,56 +33,78 @@
   border-radius: 11px;
   border: 1px solid #ccc;
 }
+.cartBox .buyerListBox .buyerItem .selectBtnBox .selectBtn img {
+  width: 100%;
+  height: 100%;
+  margin-left: 0px;
+  margin-top: 0px;
+  border-radius: 11px;
+}
 .cartBox .buyerListBox .buyerItem .cartGoodsImage {
   width: 110px;
   height: 100%;
   float: left;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsImage img {
-  width: 90%;
-  height: 90%;
-  margin-left: 5%;
-  margin-top: 5%;
+  width: 80%;
+  height: 80%;
+  margin-left: 10%;
+  margin-top: 10%;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo {
   height: 100%;
   position: absolute;
-  left: 170px;
+  left: 150px;
   top: 0px;
-  right: 0px;
+  right: 20px;
   bottom: 0px;
   font-size: 14px;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsTitleBox {
   width: 100%;
-  height: 55px;
+  height: 60px;
   padding-left: 10px;
+  padding-top: 30px;
+  line-height: normal;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsTitleBox span {
-  margin-top: 30px;
   float: left;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsInfoBox {
   width: 100%;
-  height: 55px;
+  height: 50px;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsInfoBox .cartGoodsMoneyBox {
-  width: 120px;
-  height: 55px;
+  width: 60px;
+  height: 50px;
   padding-left: 10px;
-  font-size: 15px;
+  font-size: 14px;
   float: left;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsInfoBox .cartGoodsMoneyBox span {
   color: #A92586;
-  font-size: 15px;
+  font-size: 16px;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsInfoBox .cartGoodsActionBox {
-  width: 100px;
-  height: 30px;
-  border: 1px solid #ccc;
+  width: 80px;
+  height: 25px;
   float: right;
-  margin-right: 10px;
+  margin-left: 10px;
+}
+.cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsInfoBox .cartGoodsActionBox img {
+  width: 25px;
+  height: 25px;
+  float: left;
+}
+.cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsInfoBox .cartGoodsActionBox p {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  height: 25px;
+  text-align: center;
+  line-height: 25px;
+  color: #666;
+  width: 28px;
+  float: left;
 }
 .cartBox .hintBox {
   width: 100%;
@@ -107,27 +129,31 @@
   left: 0px;
 }
 .cartBox .amountBox .selectBox {
-  width: 30%;
+  width: 26%;
   height: 100%;
   float: left;
 }
 .cartBox .amountBox .selectBox .allSelectArea {
-  width: 40%;
+  width: 50%;
   height: 100%;
   float: left;
   background: white;
 }
 .cartBox .amountBox .selectBox .allSelectArea .allSelectBtn {
-  width: 22px;
-  height: 22px;
+  width: 20px;
+  height: 20px;
   background: white;
   margin-top: 20px;
   margin-left: 15px;
-  border-radius: 11px;
+  border-radius: 10px;
   border: 1px solid #ccc;
 }
+.cartBox .amountBox .selectBox .allSelectArea .allSelectBtn img {
+  width: 100%;
+  height: 100%;
+}
 .cartBox .amountBox .selectBox .allSelectPrompt {
-  width: 60%;
+  width: 50%;
   height: 60px;
   float: left;
   background: white;
@@ -140,23 +166,24 @@
   font-size: 14px;
 }
 .cartBox .amountBox .valueBox {
-  width: 40%;
+  width: 49%;
   height: 60px;
   float: left;
   line-height: 60px;
-  text-align: left;
+  text-align: center;
+  padding-right: 5px;
   background: white;
 }
-.cartBox .amountBox .valueBox span {
+.cartBox .amountBox .valueBox .price {
   color: #A92586;
   font-size: 16px;
 }
-.cartBox .amountBox .valueBox a {
+.cartBox .amountBox .valueBox .info {
   color: #888888;
   font-size: 12px;
 }
 .cartBox .amountBox .accountBox {
-  width: 30%;
+  width: 25%;
   height: 100%;
   float: left;
   color: #fff;

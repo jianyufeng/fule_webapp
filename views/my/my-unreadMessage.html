@@ -1,6 +1,27 @@
 <ion-view view-title="未读消息" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-
     <ion-content>
-        <div>未读消息</div>
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新" style="background-color: pink" on-refresh="doRefresh()"></ion-refresher>
+        <!--新消息-->
+        <a href="#/tab/login">
+            <div class="itemBox" ng-repeat="item in items">
+                <div class="leftIconBox">
+                    <img class="messageIcon" src="./resource/images/icon/notice.png">
+                </div>
+                <div class="messageBox">
+                    <div class="contentBox">
+                        <div class="title ellipsis">山药枸杞延迟发货通知山药枸杞延迟发货通知</div>
+                        <div class="time">2015/03/23</div>
+
+                    </div>
+                    <div class="contentBox">
+                        放大师傅师傅的放大师傅师傅的放大师傅师傅的放大师傅师傅的放大师傅师傅的放大师傅师傅的
+
+                    </div>
+
+                </div>
+
+            </div>
+        </a>
     </ion-content>
 </ion-view>
