@@ -9,6 +9,7 @@ define(['app'],function(app){
 	function ctrl($scope,$rootScope){
 
 		//.....
+		
 
 	}
 

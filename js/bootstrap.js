@@ -10,6 +10,7 @@ define([
 	'angular_service',
 	'angular_filter',
 	'routes',
+	'cookie',
 	'liweixuanRoutes',
 	'lixufengRoutes',
 	'jianyufengRoutes',

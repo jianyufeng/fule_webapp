@@ -1,170 +1,120 @@
 <ion-view view-title="购物车" hide-nav-bar="{{isNavShow}}">
 	<ion-content>
+		<navigation-bar title="购物车" righttitle="{{righttitleValue}}" on-right-click="editCart()"></navigation-bar>
 
-		<div ng-include="'./views/public/headerTitlePublic.html'"></div>
+		<div class="noCartGoodBox">
+			<div class="isLoginBox">现在&nbsp;&nbsp;<button>登录</button>&nbsp;&nbsp; , 您的商品将永久保存在"购物车"中</div>
+			<div class="noCartMain">
+				<img src="./resource/images/icon/shopping_bg.png" />
+				<p>购物车空空的，去买点啥呢~</p>
+				<p><button>去首页逛逛</button></p>
+			</div>
+		</div>
 
 
-		<div class="cartBox" screen-height="0">
+		<div class="cartBox" screen-height="-10">
 
 			<div class="buyerListBox">
 
 				<ion-scroll style="width: 100%;height:100%;">
 
-					<div class="buyerItem">
+					<div class="buyerItem" on-swipe-left="swipLeft(0)" on-swipe-right="swipRight(0)">
 
-                         <div class="selectBtnBox">
-							 <div class="selectBtn">
-								 <img src="resource/images/icon/shoppingcar_xuanz.png">
-							 </div>
-						 </div>
-						 <div class="cartGoodsImage">
-							 <img alt="商品图片" src="resource/images/goods_11.png" />
-						 </div>
-						<div class="cartGoodsInfo">
-							<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
-							<div class="cartGoodsInfoBox">
-								<div class="cartGoodsMoneyBox">
-									<span><strong>¥ </strong>300</span>
-								</div>
-								<div class="cartGoodsActionBox">
-									<img src="resource/images/icon/shoppingcar_add.png" />
-									<p>99</p>
-									<img src="resource/images/icon/shoppingcar_reduce.png" />
+						<div class="deleteBox">删除</div>
+
+						<div class="buyerItemMain">
+
+							<div class="selectBtnBox">
+								<div class="selectBtn">
+									<img src="resource/images/icon/shoppingcar_xuanz.png">
 								</div>
 							</div>
+							<div class="cartGoodsImage">
+								<img src="resource/images/goods_11.png" />
+							</div>
+							<div class="cartGoodsInfo">
+								<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
+								<div class="cartGoodsInfoBox">
+									<div class="cartGoodsMoneyBox">
+										<span><strong>¥ </strong><b>300</b></span>
+									</div>
+									<div class="cartGoodsActionBox">
+										<img class="addBtn" src="resource/images/icon/shoppingcar_add.png" />
+										<p>99</p>
+										<img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png" />
+									</div>
+								</div>
+							</div>
+
 						</div>
+
 					</div>
 
-					<div class="buyerItem">
+					<div class="buyerItem" on-swipe-left="swipLeft(1)" on-swipe-right="swipRight(1)">
 
-						<div class="selectBtnBox">
-							<div class="selectBtn">
-								<img src="resource/images/icon/shoppingcar_xuanz.png">
+						<div class="deleteBox">删除</div>
 
-							</div>
-						</div>
-						<div class="cartGoodsImage">
-							<img alt="商品图片" src="resource/images/goods_2.png" />
-						</div>
-						<div class="cartGoodsInfo">
-							<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
-							<div class="cartGoodsInfoBox">
-								<div class="cartGoodsMoneyBox">
-									<span><strong>¥ </strong>300</span>
-								</div>
-								<div class="cartGoodsActionBox">
-									<img src="resource/images/icon/shoppingcar_add.png" />
-									<p>99</p>
-									<img src="resource/images/icon/shoppingcar_reduce.png" />
+						<div class="buyerItemMain">
+
+							<div class="selectBtnBox">
+								<div class="selectBtn">
+									<img src="resource/images/icon/shoppingcar_xuanz.png">
 								</div>
 							</div>
+							<div class="cartGoodsImage">
+								<img src="resource/images/goods_11.png" />
+							</div>
+							<div class="cartGoodsInfo">
+								<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
+								<div class="cartGoodsInfoBox">
+									<div class="cartGoodsMoneyBox">
+										<span><strong>¥ </strong><b>300</b></span>
+									</div>
+									<div class="cartGoodsActionBox">
+										<img class="addBtn" src="resource/images/icon/shoppingcar_add.png" />
+										<p>99</p>
+										<img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png" />
+									</div>
+								</div>
+							</div>
+
 						</div>
+
 					</div>
 
-					<div class="buyerItem">
+					<div class="buyerItem" on-swipe-left="swipLeft(2)" on-swipe-right="swipRight(2)">
 
-						<div class="selectBtnBox">
-							<div class="selectBtn">
-								<img src="resource/images/icon/shoppingcar_xuanz.png">
+						<div class="deleteBox">删除</div>
 
-							</div>
-						</div>
-						<div class="cartGoodsImage">
-							<img alt="商品图片" src="resource/images/goods_4.png" />
-						</div>
-						<div class="cartGoodsInfo">
-							<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
-							<div class="cartGoodsInfoBox">
-								<div class="cartGoodsMoneyBox">
-									<span><strong>¥ </strong>300</span>
-								</div>
-								<div class="cartGoodsActionBox">
-									<img src="resource/images/icon/shoppingcar_add.png" />
-									<p>99</p>
-									<img src="resource/images/icon/shoppingcar_reduce.png" />
+						<div class="buyerItemMain">
+
+							<div class="selectBtnBox">
+								<div class="selectBtn">
+									<img src="resource/images/icon/shoppingcar_xuanz.png">
 								</div>
 							</div>
+							<div class="cartGoodsImage">
+								<img src="resource/images/goods_11.png" />
+							</div>
+							<div class="cartGoodsInfo">
+								<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
+								<div class="cartGoodsInfoBox">
+									<div class="cartGoodsMoneyBox">
+										<span><strong>¥ </strong><b>300</b></span>
+									</div>
+									<div class="cartGoodsActionBox">
+										<img class="addBtn" src="resource/images/icon/shoppingcar_add.png" />
+										<p>99</p>
+										<img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png" />
+									</div>
+								</div>
+							</div>
+
 						</div>
+
 					</div>
 
-					<div class="buyerItem">
-
-						<div class="selectBtnBox">
-							<div class="selectBtn">
-								<img src="resource/images/icon/shoppingcar_xuanz.png">
-
-							</div>
-						</div>
-						<div class="cartGoodsImage">
-							<img alt="商品图片" src="resource/images/goods_1.png" />
-						</div>
-						<div class="cartGoodsInfo">
-							<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
-							<div class="cartGoodsInfoBox">
-								<div class="cartGoodsMoneyBox">
-									<span><strong>¥ </strong>300</span>
-								</div>
-
-								<div class="cartGoodsActionBox">
-									<img src="resource/images/icon/shoppingcar_add.png" />
-									<p>99</p>
-									<img src="resource/images/icon/shoppingcar_reduce.png" />
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="buyerItem">
-
-						<div class="selectBtnBox">
-							<div class="selectBtn">
-								<img src="resource/images/icon/shoppingcar_xuanz.png">
-
-							</div>
-						</div>
-						<div class="cartGoodsImage">
-							<img alt="商品图片" src="resource/images/goods_11.png" />
-						</div>
-						<div class="cartGoodsInfo">
-							<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
-							<div class="cartGoodsInfoBox">
-								<div class="cartGoodsMoneyBox">
-									<span><strong>¥ </strong>300</span>
-								</div>
-								<div class="cartGoodsActionBox">
-									<img src="resource/images/icon/shoppingcar_add.png" />
-									<p>99</p>
-									<img src="resource/images/icon/shoppingcar_reduce.png" />
-								</div>
-
-							</div>
-						</div>
-					</div>
-
-					<div class="buyerItem">
-
-						<div class="selectBtnBox">
-							<div class="selectBtn">
-								<img src="resource/images/icon/shoppingcar_xuanz.png">
-							</div>
-						</div>
-						<div class="cartGoodsImage">
-							<img alt="商品图片" src="resource/images/goods_11.png" />
-						</div>
-						<div class="cartGoodsInfo">
-							<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
-							<div class="cartGoodsInfoBox">
-								<div class="cartGoodsMoneyBox">
-									<span><strong>¥ </strong>300</span>
-								</div>
-								<div class="cartGoodsActionBox">
-									<img src="resource/images/icon/shoppingcar_add.png" />
-									<p>99</p>
-									<img src="resource/images/icon/shoppingcar_reduce.png" />
-								</div>
-							</div>
-						</div>
-					</div>
+					
 
 				</ion-scroll>
 
@@ -192,14 +142,7 @@
 				</div>
 				<div class="valueBox">合计:&nbsp;&nbsp;<span class="price">¥ 9999 </span> <apan class="info">&nbsp;不含运费</apan>
 				</div>
-
-				<a href="#/tab/cart_orderConfirm">
-
-					<div class="accountBox">结算 ( 0 )</div>
-
-				</a>
-
-
+				<div class="accountBox">结算 ( 0 )</div>
 			</div>
 
 

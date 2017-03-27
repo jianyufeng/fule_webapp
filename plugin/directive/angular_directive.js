@@ -61,23 +61,24 @@ define(['app'],function(app){
 			transclude: true,  
 			scope: {  
 				title		: '@',
-				leftimage   : '@',
-				rightimage  : '@',
+				lefttitle   : '@',
+				righttitle  : '@',
 				ishint      : '@',
-				onLeftClick : "&onLeftClick"
+				onRightClick : "&onRightClick"
 			},  
 			template:[
 				'<div class="headerBox">',
-					'<div class="leftHeaderBox"><img src="{{leftimage}}" /></div>',
+					'<div class="leftHeaderBox">{{lefttitle}}</div>',
 					'<div class="middleHeaderBox">{{title}}</div>',
-					'<div class="rightHeaderBox" ng-click="rightIconClick()"><img src="{{rightimage}}" /><div class="iconHint" ng-show="{{ishint}}"></div></div>',
+					'<div class="rightHeaderBox" ng-click="rightIconClick()">{{righttitle}}<div class="iconHint" ng-show="{{ishint}}"></div></div>',
 				'</div>'
 			].join(""),  
 			link:function(scope,element,attrs){  
 				scope.rightIconClick = function(){
-					scope.onLeftClick();
+					scope.onRightClick();
 				}
 			}  
 		}
 	});
+
 });
