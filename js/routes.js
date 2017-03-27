@@ -42,7 +42,6 @@ define(['app'], function (app) {
          */
         $stateProvider
 
-
             .state('tab', {
                 url: "/tab",
                 abstract: true,
@@ -52,7 +51,6 @@ define(['app'], function (app) {
                     deps: app.loadControllerJs('../controller/mainController')
                 }
             })
-                
     });
 
 });

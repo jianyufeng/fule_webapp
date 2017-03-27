@@ -1,0 +1,61 @@
+.wh(@w:100%,@h:100%) {
+  width: @w;
+  height: @h;
+}
+
+.mt(@top:0px) {
+  margin-top: @top;
+}
+.mb(@bottom:0px) {
+  margin-bottom: @bottom;
+}
+
+.border(b ,@w:1px ,@c:#eee) {
+  border-bottom: solid @w @c;
+}
+
+.border(t ,@w:1px ,@c:#eee) {
+  border-top: solid @w @c;
+}
+
+.border(r ,@w:1px ,@c:#eee) {
+  border-right: solid @w @c;
+}
+
+.border(l ,@w:1px ,@c:#eee) {
+  border-left: solid @w @c;
+}
+
+.border(@_, @w:1px,@c:#eee) {
+}
+
+.bc(@c:white) {
+  background: @c;
+}
+
+.pl(@l:01px) {
+  padding-left: @l;
+}
+
+.pr(@r:0px) {
+  padding-right: @r;
+}
+.pt(@t:0px) {
+  padding-top: @t;
+}
+
+/*浮动 默认左浮动*/
+.f(@d:left) {
+  float: @d;
+}
+.loginBgBox{
+  .wh(100%,250px);
+  //.loginBg{
+  //  .wh(100%,100%);
+    background:url("../../resource/images/icon/login_bg.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+
+
+
+}
