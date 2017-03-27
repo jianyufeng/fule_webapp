@@ -19,7 +19,10 @@ define([
 	'../service/category/categoryService',	
 
     //我的部分
-    '../service/my/myService'
+    '../service/my/myService',
+
+    // 商品详情页
+    '../service/category/productInfoService'
 
 
 

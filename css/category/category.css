@@ -48,18 +48,19 @@
 .content .midd_text_contant .line {
   margin: 17px 0;
   height: 1px;
-  width: 25%;
+  width: 20%;
   background-color: #BCBCBC;
   float: left;
 }
 .content .midd_text_contant .midd_text {
   height: 35px;
-  width: 50%;
+  width: 60%;
   font-size: 12px;
   text-align: center;
   line-height: 35px;
   color: #878787;
   float: left;
+  letter-spacing: 1px;
 }
 .content .product_list {
   float: left;

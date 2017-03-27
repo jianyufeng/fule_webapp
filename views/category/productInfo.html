@@ -1,0 +1,89 @@
+<ion-view view-title="商品" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
+
+    <ion-content>
+
+        <div class="contentBox" set-window-height>
+
+            <ion-scroll class="scrollBox" direction="y">
+                <!--图片详情-->
+                <div class="productImgBox">
+                    <!-- 滑动块-->
+                    <ion-slide-box>
+                        <ion-slide>
+                            <div class="productImg">
+                                <img src="./resource/images/goods_1.png">
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div class="productImg">
+                                <img src="./resource/images/goods_2.png">
+                            </div>
+                        </ion-slide>
+                        <ion-slide on-slide-changed="slideHasChanged(index)">
+                            <div class="productImg">
+                                <img src="./resource/images/goods_1.png">
+                            </div>
+                        </ion-slide>
+                    </ion-slide-box>
+                </div>
+
+                <!-- 商品的详情区-->
+                <div class="productInfoBox">
+                    <span class="productName"> {{productName}} </span>
+                    <div class="productProperty">
+                        <span class="productPrice">￥{{productPrice_I}}<span class="productPrice_decimal_point">{{productPrice_F}}</span></span>
+                        <span class="integral">积分:{{integral}}</span>
+                        <span class="freight">快递：支付满{{freight}}免运费</span>
+                    </div>
+                    <div class="productOtherBox">
+                        <div class="productOtherItem">
+                            <span>商品品牌:<span> {{productBrand}}</span></span>
+                        </div>
+                        <div class="productOtherItem">
+                            <span>商品编号:<span> {{productNum}}</span></span>
+                        </div>
+                        <div class="productOtherItem">
+                            <div class="number">数量:</div>
+                            <div class="numberBox">
+                                <div class="accountBox" ng-click="reduce()"><img src="./resource/images/icon/shoppingcar_reduce.png"></div>
+                                <div class="accountBox_number">{{count}}</div>
+                                <div class="accountBox" ng-click="add()"><img src="./resource/images/icon/shoppingcar_add.png"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="product_Details">
+                    <div class="product_Details_Block">
+                    </div>
+            <span>
+                商品详情
+            </span>
+                </div>
+                <div>
+                    <img src="./resource/images/goods_2.png" style="width: 100%;height: 300px">
+                    <img src="./resource/images/goods_2.png" style="width: 100%;height: 300px">
+                    <img src="./resource/images/goods_2.png" style="width: 100%;height: 300px">
+                    <img src="./resource/images/goods_2.png" style="width: 100%;height: 300px">
+                    <img src="./resource/images/goods_2.png" style="width: 100%;height: 300px">
+                    <img src="./resource/images/goods_2.png" style="width: 100%;height: 300px">
+                </div>
+
+            </ion-scroll>
+            <!-- 加入购物车-->
+            <div class="addCartBar">
+                <div class="cartBox">
+                    <i class="icon ion-ios-cart-outline "></i>
+                    <div class="cartNumber"><span class="num">11</span></div>
+                </div>
+                <div class="line"></div>
+                <div class="addCartBarButton">加入购物车</div>
+            </div>
+
+
+        </div>
+
+    </ion-content>
+
+</ion-view>

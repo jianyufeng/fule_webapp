@@ -13,6 +13,19 @@ define(['app'],function (app) {
          * controller    : 控制器名称
          */
         $stateProvider
+            .state('tab.login', {
+                url: '/login',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/login/login.html?_r=" + Math.random(),
+                        controller: 'loginController',
+                        resolve : {
+                            deps : app.loadControllerJs('../controller/login/loginController')
+                        }
+                    }
+
+                }
+            })
 
             .state('tab.my', {
                 url: '/my',
@@ -36,6 +49,20 @@ define(['app'],function (app) {
                         controller: 'myUnreadMessageController',
                         resolve: {
                             deps: app.loadControllerJs('../controller/my/myUnreadMessageController')
+                        }
+                    }
+
+                }
+            })
+            /*我的 未读消息详情 路由*/
+            .state('tab.my-unreadMessageDetail', {
+                url: '/my-unreadMessageDetail',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-unreadMessageDetail.html?_r=" + Math.random(),
+                        controller: 'myUnreadMessageDetailController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myUnreadMessageDetailController')
                         }
                     }
 

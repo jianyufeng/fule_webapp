@@ -1,0 +1,176 @@
+.contentBox {
+  width: 100%;
+  position: relative;
+}
+.contentBox .scrollBox {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 60px;
+}
+.contentBox .scrollBox .productImgBox {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.contentBox .scrollBox .productImgBox .productImg img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.contentBox .scrollBox .productInfoBox {
+  margin-top: 5px;
+  background-color: white;
+  padding: 5% 5% 0 5%;
+}
+.contentBox .scrollBox .productInfoBox .productName {
+  display: block;
+  font-weight: bold;
+  color: black;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+.contentBox .scrollBox .productInfoBox .productProperty {
+  margin-top: 10px;
+  clear: both;
+}
+.contentBox .scrollBox .productInfoBox .productProperty .productPrice {
+  width: 25%;
+  font-size: 16px;
+  color: #D39AC5;
+  font-weight: bold;
+  display: block;
+  float: left;
+  margin-bottom: 10px;
+}
+.contentBox .scrollBox .productInfoBox .productProperty .productPrice .productPrice_decimal_point {
+  font-size: 12px;
+}
+.contentBox .scrollBox .productInfoBox .productProperty .integral {
+  width: 20%;
+  display: block;
+  float: left;
+  font-size: 8px;
+  margin-left: 5%;
+}
+.contentBox .scrollBox .productInfoBox .productProperty .freight {
+  width: 50%;
+  display: block;
+  float: right;
+  font-size: 8px;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox {
+  background-color: #e4e5e7;
+  clear: both;
+  padding-top: 0.1px;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem {
+  background-color: white;
+  margin-top: 1px;
+  font-size: 14px;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .number {
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox {
+  position: absolute;
+  bottom: -6px;
+  left: 40px;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox {
+  float: left;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox img {
+  width: 20px;
+  height: 20px;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox_number {
+  margin-top: 5px;
+  float: left;
+  width: 30px;
+  height: 20px;
+  border-top: solid 1px #999999;
+  border-bottom: solid 1px #999999;
+  text-align: center;
+  line-height: 20px;
+}
+.contentBox .scrollBox .product_Details {
+  margin-top: 3px;
+  background-color: white;
+  width: 100%;
+  height: 40px;
+}
+.contentBox .scrollBox .product_Details .product_Details_Block {
+  width: 5px;
+  height: 100%;
+  background-color: #D39AC5;
+  float: left;
+}
+.contentBox .scrollBox .product_Details span {
+  display: block;
+  float: left;
+  font-size: 18px;
+  height: 40px;
+  line-height: 40px;
+  margin-left: 30px;
+}
+.contentBox .addCartBar {
+  background-color: white;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+.contentBox .addCartBar .cartBox {
+  float: left;
+  width: 20%;
+  margin-left: 5%;
+}
+.contentBox .addCartBar .cartBox i {
+  font-size: 35px;
+  display: block;
+  float: left;
+}
+.contentBox .addCartBar .cartBox .cartNumber {
+  position: relative;
+  background-color: #D39AC5;
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  top: 0px;
+  left: -7px;
+  float: left;
+}
+.contentBox .addCartBar .cartBox .cartNumber .num {
+  position: absolute;
+  top: 0px;
+  right: 3px;
+  font-size: 5px;
+  color: white;
+}
+.contentBox .addCartBar .line {
+  width: 2px;
+  background-color: #999999;
+  height: 40px;
+  float: left;
+}
+.contentBox .addCartBar .addCartBarButton {
+  float: left;
+  background-color: #D39AC5;
+  width: 65%;
+  height: 40px;
+  border-radius: 25px;
+  margin-left: 5%;
+  text-align: center;
+  line-height: 40px;
+  color: white;
+}

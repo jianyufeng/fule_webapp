@@ -28,6 +28,25 @@ define(['app'],function (app) {
                 }
             })
 
+
+            /**
+             *
+             *
+             */
+            .state('tab.productInfo', {
+                url: '/productInfo',
+                views: {
+                    'tab-category': {
+                        templateUrl: "views/category/productInfo.html?_r=" + Math.random(),
+                        controller: 'productInfoController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/category/productInfoController')
+                        }
+                    }
+                }
+            })
+
+
     });
    
 

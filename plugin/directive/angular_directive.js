@@ -41,6 +41,18 @@ define(['app'],function(app){
 	});
 
 	/*
+	 * 设置高度与屏幕高度一致
+	 */
+	app.directive('setWindowHeight',function($window){
+		return{
+			restrict:'AE',
+			link:function(scope,element,attr){
+				element[0].style.height=($window.innerHeight)+'px';
+			}
+		}
+	});
+
+	/*
 	 * 自定义导航条
  	 */
 	app.directive('navigationBar',function(){  
