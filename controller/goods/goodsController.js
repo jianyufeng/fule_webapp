@@ -2,8 +2,7 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
 	function ctrl($scope,$rootScope, goodsService,POP){
 
-		goods_fun.
-		();
+		goods_fun.menuSelected();
 
 
 
