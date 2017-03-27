@@ -4,9 +4,9 @@ define(['app',"./Fun/cart_fun",'jquery_fly'],function(app,cart_fun){
 
 		$scope.aa = [];
 
-		$(".accountBox").click(function(){
-			alert(1);
-		});
+		// $(".accountBox").click(function(){
+		// 	alert(1);
+		// });
 
 
 		$(".selectBtn").click(function () {
@@ -37,7 +37,7 @@ define(['app',"./Fun/cart_fun",'jquery_fly'],function(app,cart_fun){
 				$(".selectBtn").find("img").show();
 
 			}
-		})
+		});
 
 
 

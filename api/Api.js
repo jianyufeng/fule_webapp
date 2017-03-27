@@ -5,8 +5,6 @@ var API = {
 
 
 
-
-
     Goods : {
         goods: serverIP + "/_goods/search"
     },
@@ -16,7 +14,9 @@ var API = {
     },
 
     Cart : {
-        
+        cartSearch:serverIP + "/_cart/search",
+
+        cartAdd:serverIP + "/_cart/addGoods"
     },
 
     Category : {
