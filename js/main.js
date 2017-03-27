@@ -16,6 +16,7 @@ require.config({
 		'animate'			: '../lib/js/jquery.transit',			   //动画库			
 		'loading'			: '../plugin/loading/loading',   		   //动画加载插件文件
 		'lodash'			: '../lib/js/lodash',					   //通用库
+		'cookie'			: '../lib/js/jquery.cookie',			   //cookie	
 		'angular_directive' : '../plugin/directive/angular_directive', //angularjs指令扩展
 		'angular_service'   : '../plugin/service/angular_service', 	   //angularjs公共服务扩展
 		'angular_filter'    : '../plugin/filter/angular_filter', 	   //angularjs公共过滤器扩展

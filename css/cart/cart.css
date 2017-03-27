@@ -16,6 +16,25 @@
   position: relative;
   background: #fff;
 }
+.cartBox .buyerListBox .buyerItem .deleteBox {
+  position: absolute;
+  right: -110px;
+  top: 0px;
+  width: 100px;
+  height: 110px;
+  line-height: 110px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+  background: red;
+}
+.cartBox .buyerListBox .buyerItem .buyerItemMain {
+  width: 100%;
+  height: 110px;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
 .cartBox .buyerListBox .buyerItem:first-child {
   margin-top: 3px;
 }
@@ -190,4 +209,59 @@
   background: #d79ac4;
   line-height: 60px;
   text-align: center;
+}
+.noCartGoodBox {
+  width: 100%;
+  background: #eee;
+  position: absolute;
+  z-index: 99999;
+  top: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+.noCartGoodBox .isLoginBox {
+  width: 100%;
+  height: 50px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  background: #fff;
+  line-height: 50px;
+  padding-left: 10px;
+}
+.noCartGoodBox .isLoginBox button {
+  width: 50px;
+  height: 25px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+}
+.noCartGoodBox .noCartMain {
+  width: 220px;
+  height: 260px;
+  margin: 0px auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -130px;
+  margin-left: -110px;
+}
+.noCartGoodBox .noCartMain img {
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+}
+.noCartGoodBox .noCartMain p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #999;
+}
+.noCartGoodBox .noCartMain button {
+  width: 190px;
+  height: 40px;
+  background: #d39ac5;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  color: #fff;
 }

@@ -143,6 +143,29 @@ define(function () {
 	}
 
 	window.CommenFun = CommenFun;
+
+	/**
+	 * 用户相关操作
+	 */
+	var User = {};
+
+	//判断是否登录
+	User.isLogin = function(){
+		//判断是否登录
+		var userInfo = $.cookie('userInfo');
+		if(userInfo == undefined || userInfo === 'null'){
+			return false;
+		}else{
+			return true;
+		}
+	}
+
+	//获取用户信息
+	User.getInfo = function(){
+		
+	}
+
+	window.User = User;
 	
 
 });
