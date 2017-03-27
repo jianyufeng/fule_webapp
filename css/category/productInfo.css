@@ -14,9 +14,10 @@
   position: relative;
   width: 100%;
   height: 400px;
+  padding: 0 5%;
 }
 .contentBox .scrollBox .productImgBox .productImg img {
-  width: 100%;
+  width: 90%;
   height: auto;
   margin: 0 auto;
 }
@@ -87,25 +88,24 @@
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox {
   position: absolute;
-  bottom: -6px;
+  top: 5px;
   left: 40px;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox {
   float: left;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox img {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox_number {
-  margin-top: 5px;
   float: left;
   width: 30px;
-  height: 20px;
+  height: 30px;
   border-top: solid 1px #999999;
   border-bottom: solid 1px #999999;
   text-align: center;
-  line-height: 20px;
+  line-height: 30px;
 }
 .contentBox .scrollBox .product_Details {
   margin-top: 3px;
@@ -159,9 +159,10 @@
 .contentBox .addCartBar .cartBox .cartNumber .num {
   position: absolute;
   top: 0px;
-  right: 3px;
-  font-size: 5px;
+  right: 8px;
+  font-size: 8px;
   color: white;
+  display: block;
 }
 .contentBox .addCartBar .line {
   width: 2px;

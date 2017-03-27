@@ -7,7 +7,6 @@ define(['app'], function (app) {
     app.factory("productInfoService", function () {
 
         var service = {};
-
         // 获取产品详情
         service.getProductInfo = function ($scope) {
             $.initAppStartLoad();
@@ -47,8 +46,6 @@ define(['app'], function (app) {
         }
 
         service.setImageMargin = function () {
-            //var _w = parseInt($(window).width());//获取浏览器的宽度
-            //var _h = parseInt($(window).height());//获取浏览器的高度
             $(function () {
                 var maxWidth = $(".productImgBox").width();
                 var maxHeight = $(".productImgBox").height();
@@ -69,8 +66,8 @@ define(['app'], function (app) {
                     if (h < maxHeight) {
                         var mar = (maxHeight - h) / 2;
                         $(".productImg img").css({
-                            "margin-top":mar+"px",
-                            "margin-buttom":mar+"px"
+                            "margin-top": mar + "px",
+                            "margin-buttom": mar + "px"
                         });
                     }
 
@@ -95,6 +92,22 @@ define(['app'], function (app) {
             }
 
         }
+
+        /**
+         *加入购物车
+         * @param $scope
+         */
+        service.addCartAction = function ($scope) {
+            alert("加入购物车");
+        }
+        /**
+         *  获取购物车信息
+         * @param $scope
+         */
+        service.getCartInfo = function ($scope) {
+            alert("获取购物车信息");
+        }
+
 
         return service;
     });
