@@ -1,31 +1,25 @@
-
 var serverIP = "http://192.168.10.123:5000";
 
 var API = {
 
 
-
-
-
-    Goods : {
+    Goods: {
         goods: serverIP + "/_goods/search"
     },
 
-    My : {
-        myInfo: serverIP +"/_my/search"
+    My: {
+        myInfo: serverIP + "/_my/search"
     },
 
-    Cart : {
-        
+    Cart: {},
+
+    Category: {
+
+        category: serverIP + "/_category/search",
+        // 产品详情页
+        productInfo: serverIP + "/_category/goodsDetail"
     },
 
-    Category : {
-       
-       category : serverIP + "/_category/search"
-    },
-
-    Home : {
-        
-    }
+    Home: {}
 
 };

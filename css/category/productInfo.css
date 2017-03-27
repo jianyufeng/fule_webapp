@@ -1,28 +1,42 @@
-.productImgBox {
-  background-color: white;
+.contentBox {
+  width: 100%;
   position: relative;
 }
-.productImgBox .productImg img {
-  width: 100%;
-  height: 460px;
+.contentBox .scrollBox {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 60px;
 }
-.productInfoBox {
+.contentBox .scrollBox .productImgBox {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+.contentBox .scrollBox .productImgBox .productImg img {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.contentBox .scrollBox .productInfoBox {
   margin-top: 5px;
   background-color: white;
   padding: 5% 5% 0 5%;
 }
-.productInfoBox .productName {
+.contentBox .scrollBox .productInfoBox .productName {
   display: block;
   font-weight: bold;
   color: black;
   font-size: 16px;
   letter-spacing: 1px;
 }
-.productInfoBox .productProperty {
+.contentBox .scrollBox .productInfoBox .productProperty {
   margin-top: 10px;
   clear: both;
 }
-.productInfoBox .productProperty .productPrice {
+.contentBox .scrollBox .productInfoBox .productProperty .productPrice {
   width: 25%;
   font-size: 16px;
   color: #D39AC5;
@@ -31,47 +45,53 @@
   float: left;
   margin-bottom: 10px;
 }
-.productInfoBox .productProperty .productPrice .productPrice_decimal_point {
+.contentBox .scrollBox .productInfoBox .productProperty .productPrice .productPrice_decimal_point {
   font-size: 12px;
 }
-.productInfoBox .productProperty .integral {
+.contentBox .scrollBox .productInfoBox .productProperty .integral {
   width: 20%;
   display: block;
   float: left;
   font-size: 8px;
   margin-left: 5%;
 }
-.productInfoBox .productProperty .freight {
+.contentBox .scrollBox .productInfoBox .productProperty .freight {
   width: 50%;
   display: block;
   float: right;
   font-size: 8px;
 }
-.productInfoBox .productOtherBox {
+.contentBox .scrollBox .productInfoBox .productOtherBox {
   background-color: #e4e5e7;
   clear: both;
   padding-top: 0.1px;
 }
-.productInfoBox .productOtherBox .productOtherItem {
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem {
   background-color: white;
   margin-top: 1px;
   font-size: 14px;
   height: 40px;
   line-height: 40px;
+  position: relative;
 }
-.productInfoBox .productOtherBox .productOtherItem .number {
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .number {
   display: block;
   float: left;
   margin-right: 5px;
 }
-.productInfoBox .productOtherBox .productOtherItem .accountBox {
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox {
+  position: absolute;
+  bottom: -6px;
+  left: 40px;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox {
   float: left;
 }
-.productInfoBox .productOtherBox .productOtherItem .accountBox img {
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox img {
   width: 20px;
   height: 20px;
 }
-.productInfoBox .productOtherBox .productOtherItem .accountBox_number {
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox_number {
   margin-top: 5px;
   float: left;
   width: 30px;
@@ -81,19 +101,19 @@
   text-align: center;
   line-height: 20px;
 }
-.product_Details {
+.contentBox .scrollBox .product_Details {
   margin-top: 3px;
   background-color: white;
   width: 100%;
   height: 40px;
 }
-.product_Details .product_Details_Block {
+.contentBox .scrollBox .product_Details .product_Details_Block {
   width: 5px;
   height: 100%;
   background-color: #D39AC5;
   float: left;
 }
-.product_Details span {
+.contentBox .scrollBox .product_Details span {
   display: block;
   float: left;
   font-size: 18px;
@@ -101,23 +121,26 @@
   line-height: 40px;
   margin-left: 30px;
 }
-.addCartBar {
+.contentBox .addCartBar {
   background-color: white;
   width: 100%;
   height: 60px;
   padding: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
 }
-.addCartBar .cartBox {
+.contentBox .addCartBar .cartBox {
   float: left;
   width: 20%;
   margin-left: 5%;
 }
-.addCartBar .cartBox i {
+.contentBox .addCartBar .cartBox i {
   font-size: 35px;
   display: block;
   float: left;
 }
-.addCartBar .cartBox .cartNumber {
+.contentBox .addCartBar .cartBox .cartNumber {
   position: relative;
   background-color: #D39AC5;
   width: 20px;
@@ -127,20 +150,20 @@
   left: -7px;
   float: left;
 }
-.addCartBar .cartBox .cartNumber .num {
+.contentBox .addCartBar .cartBox .cartNumber .num {
   position: absolute;
   top: 0px;
   right: 3px;
   font-size: 5px;
   color: white;
 }
-.addCartBar .line {
+.contentBox .addCartBar .line {
   width: 2px;
   background-color: #999999;
   height: 40px;
   float: left;
 }
-.addCartBar .addCartBarButton {
+.contentBox .addCartBar .addCartBarButton {
   float: left;
   background-color: #D39AC5;
   width: 65%;
