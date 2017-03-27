@@ -2,7 +2,7 @@
  * require配置文件
  */
 
-console.log("[框架]====>[加载require主入口文件]");
+//console.log("[框架]====>[加载require主入口文件]");
 
 require.config({
 

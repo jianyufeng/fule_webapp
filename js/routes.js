@@ -2,7 +2,7 @@
  * 路由配置文件
  */
 
-console.log("[框架]====>[加载angularjs路由配置文件]");
+//console.log("[框架]====>[加载angularjs路由配置文件]");
 
 
 define(['app'], function (app) {

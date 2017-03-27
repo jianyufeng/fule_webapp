@@ -20,6 +20,12 @@
   height: auto;
   margin: 0 auto;
 }
+.contentBox .scrollBox .productImgBox .instructions {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
 .contentBox .scrollBox .productInfoBox {
   margin-top: 5px;
   background-color: white;

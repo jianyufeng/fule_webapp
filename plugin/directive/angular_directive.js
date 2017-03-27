@@ -2,7 +2,7 @@
  * angularjs指令扩展文件
  */
 
-console.log("[框架]====>[加载angularjs指令自定义扩展文件]");
+//console.log("[框架]====>[加载angularjs指令自定义扩展文件]");
 
 define(['app'],function(app){
 

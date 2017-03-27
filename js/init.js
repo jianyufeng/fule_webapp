@@ -1,4 +1,4 @@
-console.log("[框架]====>[加载框架初始化配置文件]");
+//console.log("[框架]====>[加载框架初始化配置文件]");
 
 define(['jquery','loading','app'],function(N,N,app){
 

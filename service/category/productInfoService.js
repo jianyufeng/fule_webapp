@@ -46,32 +46,53 @@ define(['app'], function (app) {
 
         }
 
-        service.setImageMargin=function($scope){
-            var _w = parseInt($(window).width());//获取浏览器的宽度
-            $(".productImg img").each(function(i){
-                var img = $(this);
-                var realWidth;//真实的宽度
-                var realHeight;//真实的高度
-                //这里做下说明，$("<img/>")这里是创建一个临时的img标签，类似js创建一个new Image()对象！
-                $("<img/>").attr("src", $(img).attr("src")).load(function() {
-                    /*
-                     如果要获取图片的真实的宽度和高度有三点必须注意
-                     1、需要创建一个image对象：如这里的$("<img/>")
-                     2、指定图片的src路径
-                     3、一定要在图片加载完成后执行如.load()函数里执行
-                     */
-                    realWidth = this.width;
-                    realHeight = this.height;
-                    console.log("图片的高度");
-                    //如果真实的宽度大于浏览器的宽度就按照100%显示
-                    if(realWidth>=_w){
-                        $(img).css("width","100%").css("height","auto");
+        service.setImageMargin = function () {
+            //var _w = parseInt($(window).width());//获取浏览器的宽度
+            //var _h = parseInt($(window).height());//获取浏览器的高度
+            $(function () {
+                var maxWidth = $(".productImgBox").width();
+                var maxHeight = $(".productImgBox").height();
+                var imgSrc = $(".productImg img").attr("src");
+                getImageWidth(imgSrc, function (w, h) {
+                    console.log(maxWidth)
+                    console.log(maxHeight)
+                    console.log(w)
+                    console.log(h)
+
+                    if (w < maxWidth) {
+                        var mar = (maxWidth - w) / 2;
+                        $(".productImg img").css({
+                            "margin-left": mar + "px",
+                            "margin-right": mar + "px"
+                        });
                     }
-                    else{//如果小于浏览器的宽度按照原尺寸显示
-                        $(img).css("width",realWidth+'px').css("height",realHeight+'px');
+                    if (h < maxHeight) {
+                        var mar = (maxHeight - h) / 2;
+                        $(".productImg img").css({
+                            "margin-top":mar+"px",
+                            "margin-buttom":mar+"px"
+                        });
                     }
+
+
                 });
             });
+
+            function getImageWidth(url, callback) {
+                var img = new Image();
+                img.src = url;
+
+                // 如果图片被缓存，则直接返回缓存数据
+                if (img.complete) {
+                    callback(img.width, img.height);
+                } else {
+                    // 完全加载完毕的事件
+                    img.onload = function () {
+                        callback(img.width, img.height);
+                    }
+                }
+
+            }
 
         }
 

@@ -8,7 +8,7 @@
                 <!--图片详情-->
                 <div class="productImgBox">
                     <!-- 滑动块-->
-                    <ion-slide-box>
+                    <ion-slide-box show-pager="false"  on-slide-changed="onSlideChanged($index)">
                         <ion-slide>
                             <div class="productImg">
                                 <img src="./resource/images/goods_1.png">
@@ -19,12 +19,17 @@
                                 <img src="./resource/images/goods_2.png">
                             </div>
                         </ion-slide>
-                        <ion-slide on-slide-changed="slideHasChanged(index)">
+                        <ion-slide >
                             <div class="productImg">
                                 <img src="./resource/images/goods_1.png">
                             </div>
                         </ion-slide>
                     </ion-slide-box>
+                    <div class="instructions">
+                        <img src="./resource/images/icon/point_hover.png">
+                        <img src="./resource/images/icon/point_gray.png">
+                        <img src="./resource/images/icon/point_gray.png">
+                    </div>
                 </div>
 
                 <!-- 商品的详情区-->
@@ -45,9 +50,11 @@
                         <div class="productOtherItem">
                             <div class="number">数量:</div>
                             <div class="numberBox">
-                                <div class="accountBox" ng-click="reduce()"><img src="./resource/images/icon/shoppingcar_reduce.png"></div>
+                                <div class="accountBox" ng-click="reduce()"><img
+                                        src="./resource/images/icon/shoppingcar_reduce.png"></div>
                                 <div class="accountBox_number">{{count}}</div>
-                                <div class="accountBox" ng-click="add()"><img src="./resource/images/icon/shoppingcar_add.png"></div>
+                                <div class="accountBox" ng-click="add()"><img
+                                        src="./resource/images/icon/shoppingcar_add.png"></div>
                             </div>
                         </div>
                     </div>

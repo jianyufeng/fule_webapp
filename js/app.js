@@ -2,7 +2,7 @@
  * angular主配置文件
  */
 
-console.log("[框架]====>[加载angularjs主配置文件]");
+//console.log("[框架]====>[加载angularjs主配置文件]");
 
 define(function(){
 

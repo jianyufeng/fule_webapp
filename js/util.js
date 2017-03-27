@@ -1,4 +1,4 @@
-console.log("[框架]====>[加载框架工具包文件]");
+//console.log("[框架]====>[加载框架工具包文件]");
 
 define(function () {
 

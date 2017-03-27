@@ -1,4 +1,4 @@
-console.log("[框架]====>[加载angularjs路由配置文件 -> 李蔚轩专用]");
+//console.log("[框架]====>[加载angularjs路由配置文件 -> 李蔚轩专用]");
 
 define(['app'],function (app) {
 
