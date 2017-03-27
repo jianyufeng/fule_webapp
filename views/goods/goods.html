@@ -1,11 +1,7 @@
 <ion-view view-title="商品" hide-nav-bar="{{isNavShow}}">
 	<ion-content>
 
-
-
-		<div ng-include="'views/public/headerTitlePublic.html'"></div>
-
-
+		<navigation-bar title="商品"></navigation-bar>
 
 		<ion-scroll screen-height="0" style="width:100%;">
 
@@ -15,16 +11,16 @@
 			</ion-refresher>
 
 			<div class="goodsMenuBox">
-				<div class="goodsMenuItem selected">全部</div>
-				<div class="goodsMenuItem">精品</div>
-				<div class="goodsMenuItem">新品</div>
-				<div class="goodsMenuItem">热门</div>
+				<div class="goodsMenuItem selected" id="ALL">全部</div>
+				<div class="goodsMenuItem" id="BEST">精品</div>
+				<div class="goodsMenuItem" id="NEW">新品</div>
+				<div class="goodsMenuItem" id="HOT">热门</div>
 			</div>
 
 
-
+			<!-- 商品列表-->
 			<div class="goodsListBox">
-				<a href="#/tab/goodsDetails" style="color: gray;">
+				<!--<a href="#/tab/goodsDetails" style="color: gray;">-->
 				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray">
 					<div class="goodsImage">
 						<img src="./resource/images/goods_11.png" />
@@ -32,113 +28,18 @@
 					<div class="goodsInfo">
 						<div class="goodsMoney">¥{{goodsInfo.shop_price}}</div>
 						<div class="goodsContent">
-							<div class="goodsDesc">{{goodsInfo.goods_name}}</div>
-							<div class="goodsCart"><i class="icon ion-ios-cart-outline" id="{{goodsInfo.goods_id}}"></i></div>
+							<div class="goodsDesc ellipsis">{{goodsInfo.goods_name}}</div>
+							<div class="goodsCart">
+								<i class="icon ion-ios-cart-outline cartTag3" id="{{goodsInfo.goods_id}}"></i>
+							</div>
 						</div>
 					</div>
 				</div>
-				</a>
-				<!--<div class="goodsItem">-->
-					<!--<div class="goodsImage">-->
-						<!--<img src="./resource/images/goods_11.png" />-->
-					<!--</div>-->
-					<!--<div class="goodsInfo">-->
-						<!--<div class="goodsMoney">¥ 52</div>-->
-						<!--<div class="goodsContent">-->
-							<!--<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>-->
-							<!--<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="goodsItem">-->
-					<!--<div class="goodsImage">-->
-						<!--<img src="./resource/images/goods_11.png" />-->
-					<!--</div>-->
-					<!--<div class="goodsInfo">-->
-						<!--<div class="goodsMoney">¥ 52</div>-->
-						<!--<div class="goodsContent">-->
-							<!--<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>-->
-							<!--<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="goodsItem">-->
-					<!--<div class="goodsImage">-->
-						<!--<img src="./resource/images/goods_11.png" />-->
-					<!--</div>-->
-					<!--<div class="goodsInfo">-->
-						<!--<div class="goodsMoney">¥ 52</div>-->
-						<!--<div class="goodsContent">-->
-							<!--<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>-->
-							<!--<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="goodsItem">-->
-					<!--<div class="goodsImage">-->
-						<!--<img src="./resource/images/goods_11.png" />-->
-					<!--</div>-->
-					<!--<div class="goodsInfo">-->
-						<!--<div class="goodsMoney">¥ 52</div>-->
-						<!--<div class="goodsContent">-->
-							<!--<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>-->
-							<!--<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="goodsItem">-->
-					<!--<div class="goodsImage">-->
-						<!--<img src="./resource/images/goods_11.png" />-->
-					<!--</div>-->
-					<!--<div class="goodsInfo">-->
-						<!--<div class="goodsMoney">¥ 52</div>-->
-						<!--<div class="goodsContent">-->
-							<!--<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>-->
-							<!--<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="goodsItem">-->
-					<!--<div class="goodsImage">-->
-						<!--<img src="./resource/images/goods_11.png" />-->
-					<!--</div>-->
-					<!--<div class="goodsInfo">-->
-						<!--<div class="goodsMoney">¥ 52</div>-->
-						<!--<div class="goodsContent">-->
-							<!--<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>-->
-							<!--<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="goodsItem">-->
-					<!--<div class="goodsImage">-->
-						<!--<img src="./resource/images/goods_11.png" />-->
-					<!--</div>-->
-					<!--<div class="goodsInfo">-->
-						<!--<div class="goodsMoney">¥ 52</div>-->
-						<!--<div class="goodsContent">-->
-							<!--<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>-->
-							<!--<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-				<!--<div class="goodsItem">-->
-					<!--<div class="goodsImage">-->
-						<!--<img src="./resource/images/goods_11.png" />-->
-					<!--</div>-->
-					<!--<div class="goodsInfo">-->
-						<!--<div class="goodsMoney">¥ 52</div>-->
-						<!--<div class="goodsContent">-->
-							<!--<div class="goodsDesc">爱爱他他胶原蛋白饮料</div>-->
-							<!--<div class="goodsCart"><i class="icon ion-ios-cart-outline"></i></div>-->
-						<!--</div>-->
-					<!--</div>-->
-				<!--</div>-->
-
+				<!--</a>-->
 				<div style="clear:both;"></div>
 			</div>
 
-			<ion-infinite-scroll on-infinite="loadMore()" distance="2%" immediate-check="false"></ion-infinite-scroll>
+			<!--<ion-infinite-scroll on-infinite="loadMore()" distance="2%" immediate-check="false"></ion-infinite-scroll>-->
 
 		</ion-scroll>
 
