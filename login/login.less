@@ -63,10 +63,19 @@
   float: @d;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+input{
+  border: none;
+  outline: none;
+}
+
 /*登录界面的背景*/
 .loginBgBox {
   .wh(100%, 250px);
-  background: url("../../resource/images/icon/login_bg.png") no-repeat;
+  background: url("../resource/images/icon/login_bg.png") no-repeat -30px;
   background-size: cover;
 
 }
@@ -87,19 +96,17 @@
 
   /*手机验证登录 容器*/
   .choicePhoneCheckBox {
-    .pr(5px);
     text-align: right;
-    .wh(50%, @h);
-
+    font-size: 15px;
+    .wh(48%, @h);
     .f();
-    color: #020202;
 
   }
-  /*手机验证登录 容器*/
+  /*密保卡登录 容器*/
   .choiceSecurityCardBox {
-    .pl(5px);
-    .wh(50%, @h);
-    .f();
+    .wh(48%, @h);
+    float: right;
+    font-size: 15px;
 
   }
   /*选择按钮*/
@@ -143,15 +150,12 @@
       .f();
       position: absolute;
       left: 40px;
-      right: 0px;
-      bottom: (@h/2 - 25px)/2;
+      right: 0;
+      bottom: (@h/2 - 25px)/2 - 3px;
 
       .account {
-        .wh(100%, 40px);
-        padding-top: 15px;
-        .border(b, 1px);
-        .bc(transparent);
-
+        .wh(100%,30px);
+        .border(b);
       }
 
     }
@@ -172,7 +176,7 @@
     /*验证码容器*/
     .checkCodeBox {
       position: relative;
-      .wh(60%, 100%);
+      .wh(46%, 100%);
       .f();
 
       ///*验证码图标*/
@@ -203,7 +207,7 @@
     }
     /*发送验证码*/
     .sendBox {
-      .bc(#d9a9cd);
+      .bc(#d98bbc);
       .wh(38%, @ch);
       float: right;
       color: white;
@@ -211,6 +215,7 @@
       line-height: @ch;
       .border(1px);
       border-radius: 5px;
+      font-size: 13px;
     }
   }
 
@@ -218,7 +223,7 @@
 
 .noticeBox {
   .mt(5px);
-  color: #d9a9cd;
+  color: #d98bbc;
   font-size: 12px;
 
 }
@@ -292,7 +297,7 @@
     color: #afafaf;
 
     .saveLogin {
-      @r: 18px;
+      @r: 16px;
       .wh(@r, @r);
       .mt((@h - @r)/2);
       .f();
@@ -306,7 +311,7 @@
     font-size: 12px;
 
     .retrievePassword {
-      color: #d9a9cd;
+      color: #d98bbc;
     }
   }
 
@@ -316,7 +321,7 @@
   @h: 40px;
   .wh(100%, @h);
   .contentBox {
-    .bc(#d9a9cd);
+    .bc(#d98bbc);
     .border(1px);
     border-radius: 5px;
     font-size: 18px;

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 禁止用户对屏幕进行缩放-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>登录界面</title>
+    <!-- 加载式文件 -->
+    <link rel="stylesheet" href="login.css"/>
+    <link rel="stylesheet" href="../lib/css/ionic.min.css"/>
+    <script src="../lib/js/jquery.js"></script>
+    <script src="../lib/js/ionic.bundle.min.js"></script>
+    <script src="../lib/js/jquery.transit.js"></script>
+    <script src="../lib/js/jquery.cookie.js"></script>
+    <script src="util.js"></script>
+    <script src="loginController.js"></script>
+
+</head>
+<body ng-app="loginApp" ng-controller="loginController">
+<ion-content>
+    <!--登录界面的背景-->
+    <div class="loginBgBox"></div>
+    <!--登录选择模式-->
+    <div class="loginChoiceBox">
+
+        <label for="choicePhoneCheck">
+            <div class="choicePhoneCheckBox">
+                <input class="choiceModel" checked id="choicePhoneCheck" type="radio" name="loginChoice" value="0"/>手机验证登录
+            </div>
+        </label>
+        <label for="choiceCardCheck">
+            <div class="choiceSecurityCardBox">
+                <input class="choiceModel" type="radio" id="choiceCardCheck" name="loginChoice" value="1"/>密保卡登录
+            </div>
+        </label>
+    </div>
+    <!--登录用户名及密码-->
+    <div class="inputBox">
+        <!--账号-->
+        <div class="inputAccountBox">
+            <div class="contentBox">
+                <div class="accountIconBox">
+                    <img class="accountIcon" alt="账号" src="../resource/images/icon/user_head.png">
+                </div>
+                <div class="accountBox">
+                    <input  type="text" class="account" id="account" placeholder="请输入用户名" value="zhoulibo4" autofocus>
+                </div>
+            </div>
+        </div>
+        <!--密码-->
+        <div class="inputAccountBox">
+            <div class="contentBox">
+                <div class="accountIconBox">
+                    <img style="height:24px;" class="accountIcon" alt="密码"
+                         src="../resource/images/icon/password_headhover.png">
+                </div>
+                <div class="accountBox">
+                    <input type="password" class="account" id="password"  placeholder="请输入密码" value="123456">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--验证信息-->
+    <div class="phoneCheckBox">
+        <div class="contentBox">
+            <div class="checkBox">
+                <div class="checkCodeBox">
+                    <img class="phoneIcon" alt="校验码" src="../resource/images/icon/login_yanzheng.png">
+                    <input type="text" class="code" id="code" placeholder="请输入短信校验码" value="123456">
+
+                </div>
+                <div class="sendBox">
+                    发送短信效验码
+                </div>
+            </div>
+            <div class="noticeBox">
+                注:此手机验证码所对应的号码为注册时所填的号码
+            </div>
+        </div>
+    </div>
+    <!--密保卡验证-->
+    <div class="CardCheckBox">
+        <div class="contentBox">
+            <div class="lockBox">
+                <img class="lockIcon" alt="密保" src="../resource/images/icon/login_mibao.png">
+            </div>
+            <div class="securityContentBox">
+                <div class="securityBox">
+                    <label for="codeValueA1">
+                        <div class="securityCode">
+                            <div class="codeName">A1</div>
+                            <input type="text" id="codeValueA1" class="codeValue">
+                        </div>
+                    </label>
+
+                    <label for="codeValueB2">
+                        <div class="securityCode">
+                            <div class="codeName">B2</div>
+                            <input type="text" id="codeValueB2" class="codeValue">
+                        </div>
+                    </label>
+                    <label for="codeValueC3">
+                        <div class="securityCode">
+                            <div class="codeName">C3</div>
+                            <input type="text" id="codeValueC3" class="codeValue">
+                        </div>
+                    </label>
+                    <label for="codeValueD4">
+                        <div class="securityCode">
+                            <div class="codeName">D4</div>
+                            <input type="text" id="codeValueD4" class="codeValue">
+                        </div>
+                    </label>
+                    <label for="codeValueE5">
+                        <div class="securityCode">
+                            <div class="codeName">E5</div>
+                            <input type="text" id="codeValueE5" class="codeValue">
+                        </div>
+                    </label>
+                </div>
+                <div class="noticeBox">
+                    注:请依次输入密保卡上5个坐标对应的数字
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--登录选项-->
+    <div class="loginOptionBox">
+        <div class="contentBox">
+            <label for="saveLogin">
+                <div class="saveLoginBox">
+                    <input type="checkbox" checked id="saveLogin" class="saveLogin"> 保存登录信息
+                </div>
+            </label>
+            <div class="forgetPasswordBox">
+                忘记密码？<span class="retrievePassword">点击找回密码</span>
+            </div>
+        </div>
+    </div>
+    <!--登录按钮-->
+    <div class="loginBtnBox">
+        <div class="contentBox" id="login">
+            登录
+        </div>
+    </div>
+    <!--注册-->
+    <div class="registBox">
+        免费注册
+    </div>
+</ion-content>
+</body>
