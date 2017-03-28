@@ -6,11 +6,15 @@
 
 define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
-    function ctrl($scope, productInfoService, $ionicSlideBoxDelegate) {
+    function ctrl($scope, productInfoService,$stateParams,POP) {
+
+        //console.log(11111);
+        //console.log($stateParams);
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
             console.log("productInfoController")
-            productInfoService.getProductInfo($scope);
+            productInfoService.getProductInfo($scope,$stateParams);
+            productInfoService.getCartInfo($scope);
             productInfoService.setImageMargin();
         });
         $scope.count = 1;
@@ -45,12 +49,12 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
             }
         }
 
-        productInfoService.addCartAction($scope);
+        productInfoService.addCartAction($scope,POP);
 
     }
 
 
-    ctrl.$inject = ['$scope', 'productInfoService'];
+    ctrl.$inject = ['$scope', 'productInfoService','$stateParams','POP'];
     app.registerController('productInfoController', ctrl);
 
 

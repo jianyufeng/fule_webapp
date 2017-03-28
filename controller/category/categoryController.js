@@ -31,8 +31,12 @@ define(['app',"./Fun/caregoryFun"], function (app, caregoryFun) {
         $scope.doRefresh = function(){
             categoryService.Refresh($scope);
         }
+        // 跳转下一页
+        //$scope.startNextPage=function(goodsId){
+        //    categoryService.goNextPage($scope,$state,goodsId);
+        //}
         // 加入购物车
-        caregoryFun.addCartFlay($scope,$rootScope);
+        caregoryFun.addCartFlay($scope,$rootScope,$state);
 
     }
 
