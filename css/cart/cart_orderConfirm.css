@@ -1,4 +1,73 @@
 .orderBox {
   width: 100%;
-  background: green;
+  position: relative;
+}
+.orderBox .orderDetailBox {
+  width: 100%;
+  height: 100%;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+.orderBox .orderDetailBox .scrollV {
+  width: 100%;
+  position: absolute;
+  bottom: 60px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  background: greenyellow;
+}
+.orderBox .orderDetailBox .scrollV .addressBox {
+  width: 100%;
+  height: 160px;
+  background: #e4e5e7;
+  float: left;
+}
+.orderBox .orderDetailBox .scrollV .addressBox .addressContent {
+  width: 100%;
+  height: 155px;
+  background: #886aea;
+}
+.orderBox .orderDetailBox .scrollV .addressBox .addressContent .locationImg {
+  width: 50px;
+  height: 100%;
+  background: #0a9ec7;
+  float: left;
+}
+.orderBox .orderDetailBox .scrollV .addressBox .addressContent .locationImg img {
+  width: 22px;
+  height: 28px;
+  margin-top: 66px;
+  margin-left: 14px;
+}
+.orderBox .orderDetailBox .scrollV .addressBox .addressContent .addressDetail {
+  height: 100%;
+  background: #4cd964;
+}
+.orderBox .orderDetailBox .scrollV .addressBox .colorLine {
+  width: 100%;
+  height: 6px;
+  margin-top: 0px;
+  background: #A92586;
+}
+.orderBox .orderDetailBox .scrollV .addressBox .colorLine img {
+  width: 100%;
+  float: left;
+}
+.orderBox .orderDetailBox .scrollV .buyedGoodsBox {
+  width: 100%;
+  height: auto;
+  background: #D29BC4;
+}
+.orderBox .orderDetailBox .scrollV .payInfoBox {
+  width: 100%;
+  height: 200px;
+  background: #0a9ec7;
+}
+.payAcountBox {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  bottom: 0px;
+  background: red;
 }
