@@ -6,8 +6,17 @@
 .mt(@top:0px) {
   margin-top: @top;
 }
+
 .mb(@bottom:0px) {
   margin-bottom: @bottom;
+}
+
+.mr(@right:0px) {
+  margin-right: @right;
+}
+
+.ml(@l:0px) {
+  margin-left: @l;
 }
 
 .border(b ,@w:1px ,@c:#eee) {
@@ -29,6 +38,10 @@
 .border(@_, @w:1px,@c:#eee) {
 }
 
+.border(@w:1px,@c:#eee) {
+  border: solid @w @c;
+}
+
 .bc(@c:white) {
   background: @c;
 }
@@ -40,6 +53,7 @@
 .pr(@r:0px) {
   padding-right: @r;
 }
+
 .pt(@t:0px) {
   padding-top: @t;
 }
@@ -48,14 +62,275 @@
 .f(@d:left) {
   float: @d;
 }
-.loginBgBox{
-  .wh(100%,250px);
-  //.loginBg{
-  //  .wh(100%,100%);
-    background:url("../../resource/images/icon/login_bg.png");
-    background-repeat: no-repeat;
-    background-size:cover;
 
+/*登录界面的背景*/
+.loginBgBox {
+  .wh(100%, 250px);
+  background: url("../../resource/images/icon/login_bg.png") no-repeat;
+  background-size: cover;
 
+}
 
+/*内容区域  向内居中 10%*/
+.contentBox {
+  .wh(90%, 100%);
+  .ml(5%);
+
+  position: relative;
+}
+
+/*登录模式选择*/
+.loginChoiceBox {
+  @h: 40px; //高度
+  .wh(100%, @h);
+  line-height: @h;
+
+  /*手机验证登录 容器*/
+  .choicePhoneCheckBox {
+    .pr(5px);
+    text-align: right;
+    .wh(50%, @h);
+
+    .f();
+    color: #020202;
+
+  }
+  /*手机验证登录 容器*/
+  .choiceSecurityCardBox {
+    .pl(5px);
+    .wh(50%, @h);
+    .f();
+
+  }
+  /*选择按钮*/
+  .choiceModel {
+    @r: 20px;
+    margin-right: 10px;
+    width: @r;
+    height: @r;
+    position: relative;
+    top: 5px;
+
+  }
+}
+
+/*输入密码及账号*/
+.inputBox {
+  @h: 120px;
+  .wh(100%, 120px);
+  .bc(white);
+
+  /*输入密码及账号 容器*/
+  .inputAccountBox {
+    @ihb: @h/2;
+    .wh(100%, @ihb);
+
+    /*图标*/
+    .accountIconBox {
+      .wh(30px, 100%);
+      .f();
+      text-align: center;
+
+      .accountIcon {
+        @mt: (@h/2 - 25px)/2;
+        .wh(20px, 20px);
+        .mt(@mt);
+
+      }
+    }
+    /*内容 */
+    .accountBox {
+      .f();
+      position: absolute;
+      left: 40px;
+      right: 0px;
+      bottom: (@h/2 - 25px)/2;
+
+      .account {
+        .wh(100%, 40px);
+        padding-top: 15px;
+        .border(b, 1px);
+        .bc(transparent);
+
+      }
+
+    }
+
+  }
+}
+
+/*短信码验证*/
+.phoneCheckBox {
+  @h: 90px;
+  .mt(15px);
+  .wh(100%, @h);
+
+  .checkBox {
+    @ch: 40px;
+    .wh(100%, @ch);
+
+    /*验证码容器*/
+    .checkCodeBox {
+      position: relative;
+      .wh(60%, 100%);
+      .f();
+
+      ///*验证码图标*/
+      .phoneIcon {
+        .wh(12px, 18px);
+        position: absolute;
+        top: (40px - 18px)/2;
+        bottom: 0;
+        right: 0;
+        left: 15px;
+        z-index: 1;
+      }
+
+      /*输入验证码*/
+      .code {
+        .wh(100%, 100%);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        .border(1px);
+        border-radius: 5px;
+        .pl(40px);
+
+      }
+
+    }
+    /*发送验证码*/
+    .sendBox {
+      .bc(#d9a9cd);
+      .wh(38%, @ch);
+      float: right;
+      color: white;
+      text-align: center;
+      line-height: @ch;
+      .border(1px);
+      border-radius: 5px;
+    }
+  }
+
+}
+
+.noticeBox {
+  .mt(5px);
+  color: #d9a9cd;
+  font-size: 12px;
+
+}
+
+/*密保卡验证*/
+.CardCheckBox {
+  display: none;
+  @h: 90px;
+  .mt(15px);
+  .wh(100%, @h);
+  position: relative;
+
+  .lockBox {
+    .f();
+    .wh(30px, 100%);
+    text-align: center;
+
+    .lockIcon {
+      .wh(20px, 16px);
+      .mt(20px);
+
+    }
+  }
+  .securityContentBox {
+    .f();
+    height: @h;
+    position: absolute;
+    right: 0;
+    left: 40px;
+
+    .securityBox {
+      @sh: 40px;
+      .wh(100%, @sh);
+
+      .securityCode {
+        .f();
+        .wh(20%, @sh);
+
+        .codeName {
+          line-height: 20px;
+          text-align: center;
+          .wh(90%, 20px);
+          .bc(#d9a9cd);
+          font-size: 12px;
+          color: white;
+        }
+        .codeValue {
+          .wh(90%, @sh - 20px);
+          text-align: center;
+          .border(l);
+          .border(r);
+          .border(b);
+        }
+
+      }
+    }
+  }
+
+}
+
+/*登录选项*/
+.loginOptionBox {
+  @h: 40px;
+  .wh(100%, @h);
+  .mt(10px);
+
+  .saveLoginBox {
+    .f();
+    height: @h;
+    line-height: @h;
+    color: #afafaf;
+
+    .saveLogin {
+      @r: 18px;
+      .wh(@r, @r);
+      .mt((@h - @r)/2);
+      .f();
+      .mr(5px);
+    }
+  }
+  .forgetPasswordBox {
+    height: @h;
+    line-height: @h;
+    float: right;
+    font-size: 12px;
+
+    .retrievePassword {
+      color: #d9a9cd;
+    }
+  }
+
+}
+
+.loginBtnBox {
+  @h: 40px;
+  .wh(100%, @h);
+  .contentBox {
+    .bc(#d9a9cd);
+    .border(1px);
+    border-radius: 5px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    line-height: @h;
+    letter-spacing: 5px;
+  }
+}
+
+.registBox {
+  @h: 150px;
+  .wh(100%, @h);
+  color: #afafaf;
+  text-align: center;
+  line-height: @h;
 }

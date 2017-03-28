@@ -1,8 +1,245 @@
 /*浮动 默认左浮动*/
+/*登录界面的背景*/
 .loginBgBox {
   width: 100%;
   height: 250px;
-  background: url("../../resource/images/icon/login_bg.png");
-  background-repeat: no-repeat;
+  background: url("../../resource/images/icon/login_bg.png") no-repeat;
   background-size: cover;
+}
+/*内容区域  向内居中 10%*/
+.contentBox {
+  width: 90%;
+  height: 100%;
+  margin-left: 5%;
+  position: relative;
+}
+/*登录模式选择*/
+.loginChoiceBox {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  /*手机验证登录 容器*/
+  /*手机验证登录 容器*/
+  /*选择按钮*/
+}
+.loginChoiceBox .choicePhoneCheckBox {
+  padding-right: 5px;
+  text-align: right;
+  width: 50%;
+  height: 40px;
+  float: left;
+  color: #020202;
+}
+.loginChoiceBox .choiceSecurityCardBox {
+  padding-left: 5px;
+  width: 50%;
+  height: 40px;
+  float: left;
+}
+.loginChoiceBox .choiceModel {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 5px;
+}
+/*输入密码及账号*/
+.inputBox {
+  width: 100%;
+  height: 120px;
+  background: white;
+  /*输入密码及账号 容器*/
+}
+.inputBox .inputAccountBox {
+  width: 100%;
+  height: 60px;
+  /*图标*/
+  /*内容 */
+}
+.inputBox .inputAccountBox .accountIconBox {
+  width: 30px;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+.inputBox .inputAccountBox .accountIconBox .accountIcon {
+  width: 20px;
+  height: 20px;
+  margin-top: 17.5px;
+}
+.inputBox .inputAccountBox .accountBox {
+  float: left;
+  position: absolute;
+  left: 40px;
+  right: 0px;
+  bottom: 17.5px;
+}
+.inputBox .inputAccountBox .accountBox .account {
+  width: 100%;
+  height: 40px;
+  padding-top: 15px;
+  border-bottom: solid 1px #eee;
+  border: solid b 1px;
+  background: transparent;
+}
+/*短信码验证*/
+.phoneCheckBox {
+  margin-top: 15px;
+  width: 100%;
+  height: 90px;
+}
+.phoneCheckBox .checkBox {
+  width: 100%;
+  height: 40px;
+  /*验证码容器*/
+  /*发送验证码*/
+}
+.phoneCheckBox .checkBox .checkCodeBox {
+  position: relative;
+  width: 60%;
+  height: 100%;
+  float: left;
+  /*输入验证码*/
+}
+.phoneCheckBox .checkBox .checkCodeBox .phoneIcon {
+  width: 12px;
+  height: 18px;
+  position: absolute;
+  top: 11px;
+  bottom: 0;
+  right: 0;
+  left: 15px;
+  z-index: 1;
+}
+.phoneCheckBox .checkBox .checkCodeBox .code {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  border: solid 1px #eee;
+  border-radius: 5px;
+  padding-left: 40px;
+}
+.phoneCheckBox .checkBox .sendBox {
+  background: #d9a9cd;
+  width: 38%;
+  height: 40px;
+  float: right;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  border: solid 1px #eee;
+  border-radius: 5px;
+}
+.noticeBox {
+  margin-top: 5px;
+  color: #d9a9cd;
+  font-size: 12px;
+}
+/*密保卡验证*/
+.CardCheckBox {
+  display: none;
+  margin-top: 15px;
+  width: 100%;
+  height: 90px;
+  position: relative;
+}
+.CardCheckBox .lockBox {
+  float: left;
+  width: 30px;
+  height: 100%;
+  text-align: center;
+}
+.CardCheckBox .lockBox .lockIcon {
+  width: 20px;
+  height: 16px;
+  margin-top: 20px;
+}
+.CardCheckBox .securityContentBox {
+  float: left;
+  height: 90px;
+  position: absolute;
+  right: 0;
+  left: 40px;
+}
+.CardCheckBox .securityContentBox .securityBox {
+  width: 100%;
+  height: 40px;
+}
+.CardCheckBox .securityContentBox .securityBox .securityCode {
+  float: left;
+  width: 20%;
+  height: 40px;
+}
+.CardCheckBox .securityContentBox .securityBox .securityCode .codeName {
+  line-height: 20px;
+  text-align: center;
+  width: 90%;
+  height: 20px;
+  background: #d9a9cd;
+  font-size: 12px;
+  color: white;
+}
+.CardCheckBox .securityContentBox .securityBox .securityCode .codeValue {
+  width: 90%;
+  height: 20px;
+  text-align: center;
+  border-left: solid 1px #eee;
+  border: solid l #eee;
+  border-right: solid 1px #eee;
+  border: solid r #eee;
+  border-bottom: solid 1px #eee;
+  border: solid b #eee;
+}
+/*登录选项*/
+.loginOptionBox {
+  width: 100%;
+  height: 40px;
+  margin-top: 10px;
+}
+.loginOptionBox .saveLoginBox {
+  float: left;
+  height: 40px;
+  line-height: 40px;
+  color: #afafaf;
+}
+.loginOptionBox .saveLoginBox .saveLogin {
+  width: 18px;
+  height: 18px;
+  margin-top: 11px;
+  float: left;
+  margin-right: 5px;
+}
+.loginOptionBox .forgetPasswordBox {
+  height: 40px;
+  line-height: 40px;
+  float: right;
+  font-size: 12px;
+}
+.loginOptionBox .forgetPasswordBox .retrievePassword {
+  color: #d9a9cd;
+}
+.loginBtnBox {
+  width: 100%;
+  height: 40px;
+}
+.loginBtnBox .contentBox {
+  background: #d9a9cd;
+  border: solid 1px #eee;
+  border-radius: 5px;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 5px;
+}
+.registBox {
+  width: 100%;
+  height: 150px;
+  color: #afafaf;
+  text-align: center;
+  line-height: 150px;
 }
