@@ -8,9 +8,9 @@ define(['app'], function (app) {
 
         var service = {};
         // 获取产品详情
-        service.getProductInfo = function ($scope) {
+        service.getProductInfo = function ($scope, $stateParams) {
             $.initAppStartLoad();
-            HTTP.get(API.Category.productInfo + "/goods_id/57", {}, function (e, data) {
+            HTTP.get(API.Category.productInfo + "/goods_id/" + $stateParams.goodsId, {}, function (e, data) {
 
                 if (e) {
                     $.loadError(function () {
@@ -34,7 +34,6 @@ define(['app'], function (app) {
                     var index = pri.indexOf(".");
                     $scope.productPrice_I = pri.substr(0, index);
                     $scope.productPrice_F = pri.substr(index, pri.length);
-
 
                     $.initAppEndLoad();
                 });
@@ -97,15 +96,56 @@ define(['app'], function (app) {
          *加入购物车
          * @param $scope
          */
-        service.addCartAction = function ($scope) {
-            alert("加入购物车");
+        service.addCartAction = function ($scope,POP) {
+            //alert("加入购物车");
+            $scope.addCartAction = function () {
+                POP.StartLoading();
+                console.log("加入购物车"+$scope.productName);
+                console.log("加入购物车"+$scope.productPrice_I+$scope.productPrice_F);
+                console.log("加入购物车"+$scope.productName);
+                console.log("加入购物车"+$scope.productName);
+                console.log("加入购物车"+$scope.productName);
+                HTTP.post(API.Cart.cartAdd, {
+                    "user_name": "zhoulibo8",
+                    "user_id": "146150",
+                    "goods_id": "57",
+                    "goods_name": "三八",
+                    "goods_number": "1",
+                    "goods_price": "57"
+                }, function (e, data) {
+                    POP.EndLoading();
+                    if (e) {
+                        $.loadError(function () {
+                            service.addCartAction();
+                        });
+                        return;
+                    }
+                    $scope.$apply(function () {
+                        $scope.cartCount+=$scope.count;
+                    });
+                })
+            }
         }
         /**
-         *  获取购物车信息
+         *  获取购物车数量
          * @param $scope
          */
         service.getCartInfo = function ($scope) {
-            alert("获取购物车信息");
+            HTTP.get(API.Category.getCartNum + "/user_id/" + "146150" + "/shopping_type/1", {}, function (e, data) {
+                if (e) {
+                    $.loadError(function () {
+                        service.getCartInfo();
+                    });
+                    return;
+                }
+
+                $scope.$apply(function () {
+                    console.log("138"+data);
+                    $scope.cartCount=data;
+                });
+
+            })
+
         }
 
 

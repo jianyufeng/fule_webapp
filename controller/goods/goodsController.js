@@ -1,6 +1,6 @@
 define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
-	function ctrl($scope,$rootScope, goodsService,POP){
+	function ctrl($scope, $rootScope, goodsService, POP, $state){
 
 		goods_fun.menuSelected();
 
@@ -38,11 +38,11 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 		});
 
 		// 加入购物车
-		goods_fun.addCart($scope,$rootScope);
+		goods_fun.addCart($scope,$rootScope,$state);
 
 	}
 
-	ctrl.$inject = ['$scope','$rootScope', 'goodsService','POP'];
+	ctrl.$inject = ['$scope','$rootScope', 'goodsService','POP','$state'];
 	app.registerController('goodsController',ctrl);
 
 

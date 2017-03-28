@@ -1,0 +1,341 @@
+.wh(@w:100%,@h:100%) {
+  width: @w;
+  height: @h;
+}
+
+.mt(@top:0px) {
+  margin-top: @top;
+}
+
+.mb(@bottom:0px) {
+  margin-bottom: @bottom;
+}
+
+.mr(@right:0px) {
+  margin-right: @right;
+}
+
+.ml(@l:0px) {
+  margin-left: @l;
+}
+
+.border(b ,@w:1px ,@c:#eee) {
+  border-bottom: solid @w @c;
+}
+
+.border(t ,@w:1px ,@c:#eee) {
+  border-top: solid @w @c;
+}
+
+.border(r ,@w:1px ,@c:#eee) {
+  border-right: solid @w @c;
+}
+
+.border(l ,@w:1px ,@c:#eee) {
+  border-left: solid @w @c;
+}
+
+.border(@_, @w:1px,@c:#eee) {
+}
+
+.border(@w:1px,@c:#eee) {
+  border: solid @w @c;
+}
+
+.bc(@c:white) {
+  background: @c;
+}
+
+.pl(@l:01px) {
+  padding-left: @l;
+}
+
+.pr(@r:0px) {
+  padding-right: @r;
+}
+
+.pt(@t:0px) {
+  padding-top: @t;
+}
+
+/*浮动 默认左浮动*/
+.f(@d:left) {
+  float: @d;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+input{
+  border: none;
+  outline: none;
+}
+
+/*登录界面的背景*/
+.loginBgBox {
+  .wh(100%, 250px);
+  background: url("../resource/images/icon/login_bg.png") no-repeat -30px;
+  background-size: cover;
+
+}
+
+/*内容区域  向内居中 10%*/
+.contentBox {
+  .wh(90%, 100%);
+  .ml(5%);
+
+  position: relative;
+}
+
+/*登录模式选择*/
+.loginChoiceBox {
+  @h: 40px; //高度
+  .wh(100%, @h);
+  line-height: @h;
+
+  /*手机验证登录 容器*/
+  .choicePhoneCheckBox {
+    text-align: right;
+    font-size: 15px;
+    .wh(48%, @h);
+    .f();
+
+  }
+  /*密保卡登录 容器*/
+  .choiceSecurityCardBox {
+    .wh(48%, @h);
+    float: right;
+    font-size: 15px;
+
+  }
+  /*选择按钮*/
+  .choiceModel {
+    @r: 20px;
+    margin-right: 10px;
+    width: @r;
+    height: @r;
+    position: relative;
+    top: 5px;
+
+  }
+}
+
+/*输入密码及账号*/
+.inputBox {
+  @h: 120px;
+  .wh(100%, 120px);
+  .bc(white);
+
+  /*输入密码及账号 容器*/
+  .inputAccountBox {
+    @ihb: @h/2;
+    .wh(100%, @ihb);
+
+    /*图标*/
+    .accountIconBox {
+      .wh(30px, 100%);
+      .f();
+      text-align: center;
+
+      .accountIcon {
+        @mt: (@h/2 - 25px)/2;
+        .wh(20px, 20px);
+        .mt(@mt);
+
+      }
+    }
+    /*内容 */
+    .accountBox {
+      .f();
+      position: absolute;
+      left: 40px;
+      right: 0;
+      bottom: (@h/2 - 25px)/2 - 3px;
+
+      .account {
+        .wh(100%,30px);
+        .border(b);
+      }
+
+    }
+
+  }
+}
+
+/*短信码验证*/
+.phoneCheckBox {
+  @h: 90px;
+  .mt(15px);
+  .wh(100%, @h);
+
+  .checkBox {
+    @ch: 40px;
+    .wh(100%, @ch);
+
+    /*验证码容器*/
+    .checkCodeBox {
+      position: relative;
+      .wh(46%, 100%);
+      .f();
+
+      ///*验证码图标*/
+      .phoneIcon {
+        .wh(12px, 18px);
+        position: absolute;
+        top: (40px - 18px)/2;
+        bottom: 0;
+        right: 0;
+        left: 15px;
+        z-index: 1;
+      }
+
+      /*输入验证码*/
+      .code {
+        .wh(100%, 100%);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        .border(1px);
+        border-radius: 5px;
+        .pl(40px);
+
+      }
+
+    }
+    /*发送验证码*/
+    .sendBox {
+      .bc(#d98bbc);
+      .wh(38%, @ch);
+      float: right;
+      color: white;
+      text-align: center;
+      line-height: @ch;
+      .border(1px);
+      border-radius: 5px;
+      font-size: 13px;
+    }
+  }
+
+}
+
+.noticeBox {
+  .mt(5px);
+  color: #d98bbc;
+  font-size: 12px;
+
+}
+
+/*密保卡验证*/
+.CardCheckBox {
+  display: none;
+  @h: 90px;
+  .mt(15px);
+  .wh(100%, @h);
+  position: relative;
+
+  .lockBox {
+    .f();
+    .wh(30px, 100%);
+    text-align: center;
+
+    .lockIcon {
+      .wh(20px, 16px);
+      .mt(20px);
+
+    }
+  }
+  .securityContentBox {
+    .f();
+    height: @h;
+    position: absolute;
+    right: 0;
+    left: 40px;
+
+    .securityBox {
+      @sh: 40px;
+      .wh(100%, @sh);
+
+      .securityCode {
+        .f();
+        .wh(20%, @sh);
+
+        .codeName {
+          line-height: 20px;
+          text-align: center;
+          .wh(90%, 20px);
+          .bc(#d9a9cd);
+          font-size: 12px;
+          color: white;
+        }
+        .codeValue {
+          .wh(90%, @sh - 20px);
+          text-align: center;
+          .border(l);
+          .border(r);
+          .border(b);
+        }
+
+      }
+    }
+  }
+
+}
+
+/*登录选项*/
+.loginOptionBox {
+  @h: 40px;
+  .wh(100%, @h);
+  .mt(10px);
+
+  .saveLoginBox {
+    .f();
+    height: @h;
+    line-height: @h;
+    color: #afafaf;
+
+    .saveLogin {
+      @r: 16px;
+      .wh(@r, @r);
+      .mt((@h - @r)/2);
+      .f();
+      .mr(5px);
+    }
+  }
+  .forgetPasswordBox {
+    height: @h;
+    line-height: @h;
+    float: right;
+    font-size: 12px;
+
+    .retrievePassword {
+      color: #d98bbc;
+    }
+  }
+
+}
+
+.loginBtnBox {
+  @h: 40px;
+  .wh(100%, @h);
+  .contentBox {
+    .bc(#d98bbc);
+    .border(1px);
+    border-radius: 5px;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    line-height: @h;
+    letter-spacing: 5px;
+  }
+}
+
+.registBox {
+  @h: 150px;
+  .wh(100%, @h);
+  color: #afafaf;
+  text-align: center;
+  line-height: @h;
+}

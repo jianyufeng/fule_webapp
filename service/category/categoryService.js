@@ -108,6 +108,11 @@ define(['app'], function (app) {
             });
 
         }
+        //// 跳转下一页
+        //service.goNextPage=function($scope,$state,goodsId){
+        //    $state.go("tab.productInfo",{"goodsId":goodsId});
+        //
+        //}
 
 
         return service;

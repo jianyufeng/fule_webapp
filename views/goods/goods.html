@@ -20,7 +20,6 @@
 
 			<!-- 商品列表-->
 			<div class="goodsListBox">
-				<!--<a href="#/tab/goodsDetails" style="color: gray;">-->
 				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray">
 					<div class="goodsImage">
 						<img src="./resource/images/goods_11.png" />
@@ -30,12 +29,11 @@
 						<div class="goodsContent">
 							<div class="goodsDesc ellipsis">{{goodsInfo.goods_name}}</div>
 							<div class="goodsCart">
-								<i class="icon ion-ios-cart-outline cartTag3" id="{{goodsInfo.goods_id}}"></i>
+								<img src="./resource/images/icon/shoppingcar.png" id="{{goodsInfo.goods_id}}"/>
 							</div>
 						</div>
 					</div>
 				</div>
-				<!--</a>-->
 				<div style="clear:both;"></div>
 			</div>
 

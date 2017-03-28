@@ -3,13 +3,16 @@
  * 加入购物车的特效
  */
 
-define(['app','jquery_fly'], function (app) {
+define(['app', 'jquery_fly'], function (app) {
     var caregoryFun = {}
-    caregoryFun.addCartFlay = function ($scope,$rootScope) {
+    caregoryFun.addCartFlay = function ($scope, $rootScope,$state) {
+        $(document).on("click", ".product_item", function () {
+            var goodsId=$(this).attr('name');
+            $state.go("tab.productInfo",{"goodsId":goodsId});
+        });
 
-        $(document).on("click", ".cartTag2", function () {
+        $(document).on("click", ".cartTagBox", function () {
             var offset = $(".tab-item:eq(3)").offset();
-            console.log(offset);
             var addcar = $(this).parent().parent().parent();
             console.log(addcar)
             var img = addcar.find('img').attr('src');
@@ -21,20 +24,34 @@ define(['app','jquery_fly'], function (app) {
                     top: event.pageY //开始位置（必填）
                 },
                 end: {
-                    left: offset.left+10, //结束位置（必填）
-                    top: offset.top+20, //结束位置（必填）
+                    left: offset.left + 10, //结束位置（必填）
+                    top: offset.top + 20, //结束位置（必填）
                     width: 0, //结束时宽度
                     height: 0 //结束时高度
                 },
-                onEnd: function(){ //结束回调
-                    $scope.$apply(function(){
+                onEnd: function () { //结束回调
+                    $scope.$apply(function () {
                         $rootScope.cartBadge++;
                     })
 
 
                 }
             });
+
+            return false;
+            //stopBubble(event);
         });
+
+    }
+
+    //阻止事件冒泡函数
+    function stopBubble(e) {
+        if (e && e.stopPropagation) {
+            e.stopPropagation()
+            console.log('阻止事件冒泡');
+        } else {
+            window.event.cancelBubble = true
+        }
 
     }
 

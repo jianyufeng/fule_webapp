@@ -1,6 +1,6 @@
 //console.log("[框架]====>[加载angularjs路由配置文件 -> 简玉峰专用]");
 
-define(['app'],function (app) {
+define(['app'], function (app) {
 
     //配置路由
     app.config(function ($stateProvider, $urlRouterProvider, $controllerProvider) {
@@ -13,20 +13,6 @@ define(['app'],function (app) {
          * controller    : 控制器名称
          */
         $stateProvider
-            .state('tab.login', {
-                url: '/login',
-                views: {
-                    'tab-my': {
-                        templateUrl: "views/login/login.html?_r=" + Math.random(),
-                        controller: 'loginController',
-                        resolve : {
-                            deps : app.loadControllerJs('../controller/login/loginController')
-                        }
-                    }
-
-                }
-            })
-
             .state('tab.my', {
                 url: '/my',
                 views: {
@@ -229,6 +215,6 @@ define(['app'],function (app) {
             })
 
     });
-   
+
 
 });

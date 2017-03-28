@@ -3,6 +3,11 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
     function ctrl($scope, myService, POP) {
         console.log("我的界面控制器...");
 
+        var isLogin = User.isLogin();
+        if(isLogin){
+
+        }
+
         /*加载界面动画*/
         my_fun.animation();
 

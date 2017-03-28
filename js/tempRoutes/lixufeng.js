@@ -34,7 +34,7 @@ define(['app'],function (app) {
              *
              */
             .state('tab.productInfo', {
-                url: '/productInfo',
+                url: '/productInfo/:goodsId',
                 views: {
                     'tab-category': {
                         templateUrl: "views/category/productInfo.html?_r=" + Math.random(),
