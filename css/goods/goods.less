@@ -1,20 +1,20 @@
 .goodsMenuBox {
   width:100%;
-  height:55px;
+  height:50px;
 background:white;
 
 }
 
 .goodsMenuBox .goodsMenuItem {
   width:25%;
-  height:45px;
+  height:40px;
   margin-top:5px;
   background:white;
   font-size: 14px;
   border-right:1px solid #eee;
   float:left;
   text-align: center;
-  line-height:45px;
+  line-height:40px;
 }
 
 .goodsMenuBox .goodsMenuItem:last-child {
@@ -71,13 +71,14 @@ background:white;
 .goodsListBox .goodsItem .goodsInfo .goodsContent {
   width:100%;
   height:35px;
+  position:relative;
 }
 
 .goodsListBox .goodsItem .goodsInfo .goodsContent .goodsDesc {
   width:80%;
   height:35px;
   float:left;
-  color: black;
+  color: dimgrey;
   font-size:10px;
   line-height:35px;
   padding-left:10px;
@@ -85,14 +86,21 @@ background:white;
 
 .goodsListBox .goodsItem .goodsInfo .goodsContent .goodsCart {
   width:20%;
-  height:35px;
-  float:left;
-  line-height:35px;
+  height:55px;
+  position:absolute;
+  z-index:99999;
+  line-height:80px;
+  top:-20px;
   text-align: center;
+  right:5px;
 }
 
-.goodsListBox .goodsItem .goodsInfo .goodsContent .goodsCart i {
-  font-size:24px;
+.goodsListBox .goodsItem .goodsInfo .goodsContent .goodsCart img {
+  width: 60%;
+  height: 20px;
+  line-height:20px;
+  text-align: center;
+
 }
 
 .goodsListBox .goodsItem:nth-child(2n+0){

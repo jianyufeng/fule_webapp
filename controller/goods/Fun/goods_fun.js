@@ -12,16 +12,23 @@
     };
 
 
-    goodsFun.addCart = function ($scope, $rootScope) {
+    goodsFun.addCart = function ($scope, $rootScope,$state) {
 
-        $(document).on("click", ".cartTag3", function () {
+        $(document).on("click", ".goodsItem", function () {
+            $state.go("tab.productInfo");
+        });
+
+        $(document).on("click", ".goodsCart", function () {
+
+
             var offset = $(".tab-item:eq(3)").offset();
             console.log(offset);
-            var addcar = $(this).parent().parent().parent();
+            var addcar = $(this).parent().parent().prev();
             console.log(addcar)
             var img = addcar.find('img').attr('src');
             var flyer = $('<img class="u-flyer" src="' + img + '">');
             console.log(img);
+
             flyer.fly({
                 start: {
                     left: event.pageX, //开始位置（必填）#fly元素会被设置成position: fixed
@@ -41,6 +48,9 @@
 
                 }
             });
+
+            return false;
+
         });
     }
     return goodsFun;

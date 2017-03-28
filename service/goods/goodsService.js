@@ -38,6 +38,8 @@ define(['app'],function(app){
 
 
         };
+
+
 //点击按钮切换分类
         service.getCategoryGoodList = function ($scope, type, POP) {
 
