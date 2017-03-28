@@ -35,7 +35,6 @@ define(['app'], function (app) {
                     $scope.productPrice_I = pri.substr(0, index);
                     $scope.productPrice_F = pri.substr(index, pri.length);
 
-
                     $.initAppEndLoad();
                 });
 
