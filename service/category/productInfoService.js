@@ -8,10 +8,10 @@ define(['app'], function (app) {
 
         var service = {};
         // 获取产品详情
-        service.getProductInfo = function ($scope, $stateParams) {
-            $.initAppStartLoad();
+        service.getProductInfo = function ($scope, $stateParams,POP) {
+            POP.StartLoading();
             HTTP.get(API.Category.productInfo + "/goods_id/" + $stateParams.goodsId, {}, function (e, data) {
-
+                POP.EndLoading();
                 if (e) {
                     $.loadError(function () {
                         service.getProductInfo();
@@ -35,7 +35,6 @@ define(['app'], function (app) {
                     $scope.productPrice_I = pri.substr(0, index);
                     $scope.productPrice_F = pri.substr(index, pri.length);
 
-                    $.initAppEndLoad();
                 });
 
                 console.log(data);

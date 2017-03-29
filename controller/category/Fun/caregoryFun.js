@@ -39,21 +39,11 @@ define(['app', 'jquery_fly'], function (app) {
             });
 
             return false;
-            //stopBubble(event);
         });
 
     }
 
-    //阻止事件冒泡函数
-    function stopBubble(e) {
-        if (e && e.stopPropagation) {
-            e.stopPropagation()
-            console.log('阻止事件冒泡');
-        } else {
-            window.event.cancelBubble = true
-        }
 
-    }
 
     return caregoryFun;
 

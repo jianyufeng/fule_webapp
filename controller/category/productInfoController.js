@@ -12,7 +12,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
             console.log("productInfoController")
-            productInfoService.getProductInfo($scope, $stateParams);
+            productInfoService.getProductInfo($scope, $stateParams,POP);
             productInfoService.getCartInfo($scope);
             productInfoService.setImageMargin();
         });
