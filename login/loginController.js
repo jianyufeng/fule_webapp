@@ -101,9 +101,50 @@ app.controller("loginController", function ($scope, POP) {
 
     /*点击发送短信效验码*/
     $('.sendBox').click(function () {
-        alert($('.sendBox').text());
+        console.log("click");
 
+        //获取账号
+        var user_name = $.trim($('#account').val());
+        //账号不为空
+        if (CommenFun.isNullObj(user_name)) {
+            POP.Hint("账号不能为空");
+            return;
+        }
+        var sendBox = $('.sendBox');
+        sendBox.attr("disabled",true);
+        sendBox.text("正在发送...");
+        //获取验证码
+        var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/"+user_name;
+        HTTP.get(url,{},function (e, data) {
+            if (e) {
+                POP.Hint("data");
+                sendBox.removeAttr("disabled");
+                sendBox.text("发送短信效验码");
+                return;
+            }
+            POP.Hint(data);
+            setTime(sendBox);
+        });
     });
+    var countdown = 8;
+    //定时60s
+    function setTime(obj) {
+        console.log(obj);
+        if (countdown == 0) {
+            obj.text("发送短信效验码");
+            countdown = 8;
+            obj.removeAttr("disabled");
+            return;
+        } else {
+            obj.attr("disabled", true);
+            obj.text("重新发送(" + countdown + ")");
+            countdown--;
+        }
+        setTimeout(function () {
+                setTime(obj)
+            }
+            , 1000)
+    }
 
 
     /*忘记密码*/
@@ -114,62 +155,57 @@ app.controller("loginController", function ($scope, POP) {
 
     /*登录*/
     $('#login').click(function () {
-
-
         //获取账号
         var user_name = $.trim($('#account').val());
-
         //账号不为空
         if (CommenFun.isNullObj(user_name)) {
             POP.Hint("账号不能为空");
             return;
-
         }
-
         //获取密码
         var password = $('#password').val();
-
         //密码不为空
         if (CommenFun.isNullObj(password)) {
             POP.Hint("密码不能为空");
             return;
-
         }
-
-
         //获取验证模式
         var isCardCheck = $('#choiceCardCheck').is(':checked');
         var isPhoneCheck = $('#choicePhoneCheck').is(':checked');
         var verification_mode;
-
         var codeCheck;
         if (isCardCheck) {
             //获取密保卡验证码
-            var codeValue = $('.codeValue').val();
+            var codeValue = "";
 
+            $(".codeValue").each(function(item){
+                codeValue+=$(this).val();
+            });
+
+            console.log(codeValue);
+
+            return;
             //密保卡验证码不为空
             if (CommenFun.isNullObj(codeValue)) {
-                POP.Hint("验证码不能为空");
+                POP.Hint("密保卡 验证码不能为空");
                 return
             }
             codeCheck = codeValue;
             verification_mode = "CARD"
-
-
         } else {
             //获取手机验证码
             var code = $('#code').val();
-
             //手机验证码不为空
             if (CommenFun.isNullObj(code)) {
                 POP.Hint("验证码不能为空");
                 return;
-
             }
             codeCheck = code;
             verification_mode = "CODE"
         }
         var url = "http://192.168.10.123:5000/_user/login";
+
+        //登录的参数
         var param = {
             'user_name': user_name,
             'password': password,
@@ -186,9 +222,7 @@ app.controller("loginController", function ($scope, POP) {
         HTTP.post(url, param, function (e, data) {
             POP.EndLoading();
             if (e) {
-                $.loadError(function () {
-                    POP.Hint("访问出错");
-                });
+                POP.Hint(data);
                 return;
             }
             var userInfo = JSON.stringify(data);
@@ -196,18 +230,35 @@ app.controller("loginController", function ($scope, POP) {
             //判断是否保存登录信息  如果保存则保存7天
             if ($('#saveLogin').is(':checked')) {
 
-                $.cookie('userInfo', userInfo, {expires: 7,path: '/' });
+                $.cookie('userInfo', userInfo, {expires: 7, path: '/'});
             } else {
-                $.cookie("userInfo", userInfo,{path: '/' });
+                $.cookie("userInfo", userInfo, {path: '/'});
             }
-            location.href="../index.html";
+            location.href = "../index.html";
 
 
         })
 
     });
 
-    /*未读消息 点击效果*/
+
+    //输入框聚焦变换
+    $('#account').focus(function () {
+        $('#accountIcon').attr("src", "../resource/images/icon/user_head.png");
+    });
+    $('#account').blur(function () {
+        $('#accountIcon').attr("src", "../resource/images/icon/user_headhover.png");
+    });
+    //输入框聚焦变换
+    $('#password').focus(function () {
+        $('#passwordIcon').attr("src", "../resource/images/icon/password_headhover.png");
+    });
+    $('#password').blur(function () {
+        $('#passwordIcon').attr("src", "../resource/images/icon/password_head.png");
+    });
+
+
+    /*登录 点击效果*/
     $(document).on("touchstart", "#login", function (event) {
         $(this).css({background: "#d9a9cd"}).transition({background: "#d9a9cd"}, 500);
     });
@@ -215,5 +266,6 @@ app.controller("loginController", function ($scope, POP) {
     $(document).on("touchend", "#login", function (event) {
         $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
     });
+
 });
 

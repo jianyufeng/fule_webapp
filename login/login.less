@@ -176,7 +176,7 @@ input{
     /*验证码容器*/
     .checkCodeBox {
       position: relative;
-      .wh(46%, 100%);
+      .wh(58%, 100%);
       .f();
 
       ///*验证码图标*/
@@ -216,6 +216,12 @@ input{
       .border(1px);
       border-radius: 5px;
       font-size: 13px;
+    }
+    .sendBox:disabled{
+      .bc(#d9a9cd);
+    }
+    .sendBox:active{
+      .bc(#d95067);
     }
   }
 

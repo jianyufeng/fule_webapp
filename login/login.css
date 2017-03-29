@@ -101,7 +101,7 @@ input {
 }
 .phoneCheckBox .checkBox .checkCodeBox {
   position: relative;
-  width: 46%;
+  width: 58%;
   height: 100%;
   float: left;
   /*输入验证码*/
@@ -139,6 +139,12 @@ input {
   border: solid 1px #eee;
   border-radius: 5px;
   font-size: 13px;
+}
+.phoneCheckBox .checkBox .sendBox:disabled {
+  background: #d9a9cd;
+}
+.phoneCheckBox .checkBox .sendBox:active {
+  background: #d95067;
 }
 .noticeBox {
   margin-top: 5px;

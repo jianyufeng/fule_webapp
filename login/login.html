@@ -40,7 +40,7 @@
         <div class="inputAccountBox">
             <div class="contentBox">
                 <div class="accountIconBox">
-                    <img class="accountIcon" alt="账号" src="../resource/images/icon/user_head.png">
+                    <img class="accountIcon" id="accountIcon" alt="账号" src="../resource/images/icon/user_head.png">
                 </div>
                 <div class="accountBox">
                     <input  type="text" class="account" id="account" placeholder="请输入用户名" value="zhoulibo4" autofocus>
@@ -51,8 +51,8 @@
         <div class="inputAccountBox">
             <div class="contentBox">
                 <div class="accountIconBox">
-                    <img style="height:24px;" class="accountIcon" alt="密码"
-                         src="../resource/images/icon/password_headhover.png">
+                    <img style="height:24px;" class="accountIcon"  id="passwordIcon" alt="密码"
+                         src="../resource/images/icon/password_head.png">
                 </div>
                 <div class="accountBox">
                     <input type="password" class="account" id="password"  placeholder="请输入密码" value="123456">
@@ -69,9 +69,9 @@
                     <input type="text" class="code" id="code" placeholder="请输入短信校验码" value="123456">
 
                 </div>
-                <div class="sendBox">
+                <button class="sendBox button">
                     发送短信效验码
-                </div>
+                </button>
             </div>
             <div class="noticeBox">
                 注:此手机验证码所对应的号码为注册时所填的号码

@@ -26,7 +26,6 @@ define(['app'],function(app){
                 }
 
                 $scope.$apply(function () {
-                    console.log(data);
                     $scope.cart_goods = data.cart_goods;
                     //$scope.travel_points = data.travel_points;
                     if (!isRefresh) {
