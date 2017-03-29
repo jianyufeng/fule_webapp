@@ -66,11 +66,13 @@ body {
   height: 35px;
   border: none;
   border-radius: 5px;
+  padding-left: 35px;
+  padding-right: 10px;
 }
 .headerBox .searchBox .searchInputBox i {
   position: absolute;
   left: 10px;
-  top: 8px;
+  top: 6px;
   font-size: 24px;
   color: #D29BC4;
 }

@@ -59,6 +59,7 @@ define(['jquery'], function ($) {
 			//网络请求错误
 			loadError : function(cb){
 
+				$.initAppEndLoad();
 				$.loadErrorRM();
 
 				var loadErrorBox = $("<div class='loadErrorBox'><div class='loadErrorImage'><span class='glyphicons glyphicons-warning-sign'></span></div><div class='loadErrorText'><font color='red'>数据加载失败</font> , 请点击界面重新尝试</div></div>");
