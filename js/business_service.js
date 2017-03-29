@@ -10,7 +10,8 @@ define([
     '../service/goods/goodsService',
 
     //购物车部分
-	'../service/cart/cartService',	
+	'../service/cart/cartService',
+    '../service/cart/cartOrderService',
 
     //首页部分
     '../service/home/homeService',
