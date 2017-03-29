@@ -128,7 +128,46 @@ define(['app'],function(app){
             //    }
             //}
         }
-         return service;
+
+
+
+
+//加入购物车
+        service.addCart = function($scope,isRefresh){
+
+            if(!isRefresh){
+                $.initAppStartLoad();
+            }
+
+
+            HTTP.get(API.Cart.cartAdd + "/skip/0/limit/100",{},function(e,data){
+
+                if(e){
+                    $.loadError(function(){
+                        service.addCart();
+                    });
+                    return;
+                }
+                $scope.$apply(function () {
+                    $scope.goodsArray=data.data;
+                    $.initAppEndLoad();
+                });
+
+                $scope.$broadcast('scroll.refreshComplete');
+
+                if(isRefresh){
+                    $(".goodsMenuItem").removeClass("selected");
+                    $(".goodsMenuItem").eq(0).addClass("selected");
+                }
+
+                console.log(data);
+
+            });
+
+
+        };
+
+        return service;
 
     });
 

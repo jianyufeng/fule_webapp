@@ -20,12 +20,12 @@
 
 			<!-- 商品列表-->
 			<div class="goodsListBox">
-				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray">
+				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray" name="{{goodsInfo.goods_id}}">
 					<div class="goodsImage">
 						<img src="./resource/images/goods_11.png" />
 					</div>
 					<div class="goodsInfo">
-						<div class="goodsMoney">¥{{goodsInfo.shop_price}}</div>
+						<div class="goodsMoney">¥ {{goodsInfo.shop_price}}</div>
 						<div class="goodsContent">
 							<div class="goodsDesc ellipsis">{{goodsInfo.goods_name}}</div>
 							<div class="goodsCart">

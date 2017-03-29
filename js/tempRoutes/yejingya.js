@@ -28,14 +28,14 @@ define(['app'],function (app) {
                 }
             })
 
-            .state('tab.goodsDetails', {
-                url: '/goodsDetails',
+            .state('tab.register', {
+                url: '/register',
                     views: {
                     'tab-goods': {
-                        templateUrl: "views/goods/goodsDetails.html?_r=" + Math.random(),
-                            controller: 'goodsDetailsController',
+                        templateUrl: "register/register.html?_r=" + Math.random(),
+                            controller: 'registerController',
                             resolve : {
-                            deps : app.loadControllerJs('../controller/goods/goodsDetailsController')
+                            deps : app.loadControllerJs('../register/registerController')
                         }
                     }
 

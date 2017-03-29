@@ -23,7 +23,7 @@
 .goodsListBox {
   width: 100%;
   height: auto;
-  background: #eee;
+  background: #F5F5F5;
   padding: 10px;
 }
 .goodsListBox .goodsItem {
@@ -54,7 +54,8 @@
   height: 35px;
   font-size: 14px;
   padding-left: 10px;
-  color: purple;
+  font-weight: bold;
+  color: #A92586;
   line-height: 35px;
 }
 .goodsListBox .goodsItem .goodsInfo .goodsContent {

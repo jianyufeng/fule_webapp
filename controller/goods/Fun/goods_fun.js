@@ -15,7 +15,8 @@
     goodsFun.addCart = function ($scope, $rootScope,$state) {
 
         $(document).on("click", ".goodsItem", function () {
-            $state.go("tab.productInfo");
+            var goodsId=$(this).attr('name');
+            $state.go("tab.productInfo",{"goodsId":goodsId});
         });
 
         $(document).on("click", ".goodsCart", function () {
