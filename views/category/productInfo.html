@@ -8,7 +8,7 @@
                 <!--图片详情-->
                 <div class="productImgBox">
                     <!-- 滑动块-->
-                    <ion-slide-box show-pager="false"  on-slide-changed="onSlideChanged($index)">
+                    <ion-slide-box show-pager="false" on-slide-changed="onSlideChanged($index)">
                         <ion-slide>
                             <div class="productImg">
                                 <img src="./resource/images/goods_1.png">
@@ -19,7 +19,7 @@
                                 <img src="./resource/images/goods_2.png">
                             </div>
                         </ion-slide>
-                        <ion-slide >
+                        <ion-slide>
                             <div class="productImg">
                                 <img src="./resource/images/goods_1.png">
                             </div>
@@ -42,10 +42,10 @@
                     </div>
                     <div class="productOtherBox">
                         <div class="productOtherItem">
-                            <span>商品品牌:<span> {{productBrand}}</span></span>
+                            <span>商品品牌:<span class="content"> {{productBrand}}</span></span>
                         </div>
                         <div class="productOtherItem">
-                            <span>商品编号:<span> {{productNum}}</span></span>
+                            <span>商品编号:<span class="content"> {{productNum}}</span></span>
                         </div>
                         <div class="productOtherItem">
                             <div class="number">数量:</div>
@@ -67,6 +67,9 @@
             <span>
                 商品详情
             </span>
+                    <span class="en">
+                        Detail
+                    </span>
                 </div>
                 <div>
                     <img src="./resource/images/goods_2.png" style="width: 100%;height: 300px">

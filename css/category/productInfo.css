@@ -36,9 +36,9 @@
 .contentBox .scrollBox .productInfoBox .productName {
   display: block;
   font-weight: bold;
-  color: black;
   font-size: 16px;
-  letter-spacing: 1px;
+  color: black;
+  letter-spacing: 2px;
 }
 .contentBox .scrollBox .productInfoBox .productProperty {
   margin-top: 10px;
@@ -46,28 +46,32 @@
 }
 .contentBox .scrollBox .productInfoBox .productProperty .productPrice {
   width: 25%;
-  font-size: 16px;
-  color: #D39AC5;
-  font-weight: bold;
+  font-size: 22px;
+  color: #A82285;
+  font-weight: 500;
   display: block;
   float: left;
   margin-bottom: 10px;
 }
 .contentBox .scrollBox .productInfoBox .productProperty .productPrice .productPrice_decimal_point {
-  font-size: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-left: 2px;
 }
 .contentBox .scrollBox .productInfoBox .productProperty .integral {
   width: 20%;
   display: block;
   float: left;
-  font-size: 8px;
+  font-size: 10px;
   margin-left: 5%;
+  color: #C3C4C4;
 }
 .contentBox .scrollBox .productInfoBox .productProperty .freight {
   width: 50%;
   display: block;
   float: right;
-  font-size: 8px;
+  font-size: 10px;
+  color: #C3C4C4;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox {
   background-color: #e4e5e7;
@@ -82,6 +86,9 @@
   line-height: 40px;
   position: relative;
 }
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .content {
+  margin-left: 5px;
+}
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .number {
   display: block;
   float: left;
@@ -89,24 +96,25 @@
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox {
   position: absolute;
-  top: 5px;
-  left: 40px;
+  top: 10px;
+  bottom: 10px;
+  left: 45px;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox {
   float: left;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox img {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox_number {
   float: left;
   width: 30px;
-  height: 30px;
+  height: 25px;
   border-top: solid 1px #999999;
   border-bottom: solid 1px #999999;
   text-align: center;
-  line-height: 30px;
+  line-height: 25px;
 }
 .contentBox .scrollBox .product_Details {
   margin-top: 3px;
@@ -119,6 +127,11 @@
   height: 100%;
   background-color: #D39AC5;
   float: left;
+}
+.contentBox .scrollBox .product_Details .en {
+  color: #D39AC5;
+  font-size: 16px;
+  margin-left: 5px;
 }
 .contentBox .scrollBox .product_Details span {
   display: block;
@@ -175,10 +188,11 @@
   float: left;
   background-color: #D39AC5;
   width: 65%;
-  height: 40px;
+  height: 35px;
   border-radius: 25px;
   margin-left: 5%;
   text-align: center;
-  line-height: 40px;
+  font-size: 16px;
+  line-height: 35px;
   color: white;
 }

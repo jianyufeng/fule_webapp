@@ -39,21 +39,24 @@
         font-weight: bold;
         color: black;
         font-size: 16px;
-        letter-spacing: 1px;
+        color: black;
+        letter-spacing: 2px;
       }
       .productProperty {
         margin-top: 10px;
         clear: both;
         .productPrice {
           width: 25%;
-          font-size: 16px;
-          color: #D39AC5;
-          font-weight: bold;
+          font-size: 22px;
+          color: #A82285;
+          font-weight: 500;
           display: block;
           float: left;
           margin-bottom: 10px;
           .productPrice_decimal_point {
-            font-size: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            margin-left: 2px;
           }
         }
 
@@ -61,14 +64,16 @@
           width: 20%;
           display: block;
           float: left;
-          font-size: 8px;
+          font-size: 10px;
           margin-left: 5%;
+          color: #C3C4C4;
         }
         .freight {
           width: 50%;
           display: block;
           float: right;
-          font-size: 8px;
+          font-size: 10px;
+          color: #C3C4C4;
         }
       }
       .productOtherBox {
@@ -82,6 +87,9 @@
           height: 40px;
           line-height: 40px;
           position: relative;
+          .content {
+            margin-left: 5px;
+          }
           .number {
             display: block;
             float: left;
@@ -89,23 +97,24 @@
           }
           .numberBox {
             position: absolute;
-            top: 5px;
-            left: 40px;
+            top: 10px;
+            bottom: 10px;
+            left: 45px;
             .accountBox {
               float: left;
               img {
-                width: 30px;
-                height: 30px;
+                width: 25px;
+                height: 25px;
               }
             }
             .accountBox_number {
               float: left;
               width: 30px;
-              height: 30px;
+              height: 25px;
               border-top: solid 1px #999999;
               border-bottom: solid 1px #999999;
               text-align: center;
-              line-height: 30px;
+              line-height: 25px;
             }
           }
 
@@ -124,6 +133,11 @@
         height: 100%;
         background-color: #D39AC5;
         float: left;
+      }
+      .en {
+        color: #D39AC5;
+        font-size: 16px;
+        margin-left: 5px;
       }
       span {
         display: block;
@@ -184,11 +198,12 @@
       float: left;
       background-color: #D39AC5;
       width: 65%;
-      height: 40px;
+      height: 35px;
       border-radius: 25px;
       margin-left: 5%;
       text-align: center;
-      line-height: 40px;
+      font-size: 16px;
+      line-height: 35px;
       color: white;
     }
 
