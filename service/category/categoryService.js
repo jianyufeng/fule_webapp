@@ -85,6 +85,7 @@ define(['app'], function (app) {
 
         // 下拉刷新
         service.Refresh = function ($scope) {
+
             HTTP.get(API.Category.category + "/category_id/35", {}, function (e, data) {
                 if (e) {
                     $.loadError(function () {
