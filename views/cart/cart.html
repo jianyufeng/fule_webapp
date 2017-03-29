@@ -18,7 +18,7 @@
 
 				<ion-scroll style="width: 100%;height:100%;">
 
-					<div class="buyerItem" on-swipe-left="swipLeft(0)" on-swipe-right="swipRight(0)">
+					<div class="buyerItem" on-swipe-left="swipLeft(0)" on-swipe-right="swipRight(0)" ng-repeat="cart_good in cart_goods">
 
 						<div class="deleteBox">删除</div>
 
@@ -33,14 +33,14 @@
 								<img src="resource/images/goods_11.png" />
 							</div>
 							<div class="cartGoodsInfo">
-								<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
+								<div class="cartGoodsTitleBox"><span>{{cart_good.goods_name}}</span></div>
 								<div class="cartGoodsInfoBox">
 									<div class="cartGoodsMoneyBox">
-										<span><strong>¥ </strong><b>300</b></span>
+										<span><strong>¥ </strong><b>{{cart_good.shop_price}}</b></span>
 									</div>
 									<div class="cartGoodsActionBox">
 										<img class="addBtn" src="resource/images/icon/shoppingcar_add.png" />
-										<p>99</p>
+										<p>{{cart_good.goods_number}}</p>
 										<img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png" />
 									</div>
 								</div>
@@ -49,73 +49,6 @@
 						</div>
 
 					</div>
-
-					<div class="buyerItem" on-swipe-left="swipLeft(1)" on-swipe-right="swipRight(1)">
-
-						<div class="deleteBox">删除</div>
-
-						<div class="buyerItemMain">
-
-							<div class="selectBtnBox">
-								<div class="selectBtn">
-									<img src="resource/images/icon/shoppingcar_xuanz.png">
-								</div>
-							</div>
-							<div class="cartGoodsImage">
-								<img src="resource/images/goods_11.png" />
-							</div>
-							<div class="cartGoodsInfo">
-								<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
-								<div class="cartGoodsInfoBox">
-									<div class="cartGoodsMoneyBox">
-										<span><strong>¥ </strong><b>300</b></span>
-									</div>
-									<div class="cartGoodsActionBox">
-										<img class="addBtn" src="resource/images/icon/shoppingcar_add.png" />
-										<p>99</p>
-										<img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png" />
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					<div class="buyerItem" on-swipe-left="swipLeft(2)" on-swipe-right="swipRight(2)">
-
-						<div class="deleteBox">删除</div>
-
-						<div class="buyerItemMain">
-
-							<div class="selectBtnBox">
-								<div class="selectBtn">
-									<img src="resource/images/icon/shoppingcar_xuanz.png">
-								</div>
-							</div>
-							<div class="cartGoodsImage">
-								<img src="resource/images/goods_11.png" />
-							</div>
-							<div class="cartGoodsInfo">
-								<div class="cartGoodsTitleBox"><span>爱她爱他 较远蛋白果汁饮品</span></div>
-								<div class="cartGoodsInfoBox">
-									<div class="cartGoodsMoneyBox">
-										<span><strong>¥ </strong><b>300</b></span>
-									</div>
-									<div class="cartGoodsActionBox">
-										<img class="addBtn" src="resource/images/icon/shoppingcar_add.png" />
-										<p>99</p>
-										<img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png" />
-									</div>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
-					
-
 				</ion-scroll>
 
 

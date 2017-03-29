@@ -1,6 +1,6 @@
 define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
-	function ctrl($scope,cartService){
+	function ctrl($scope,cartService,POP){
 
 		$scope.$on('$ionicView.beforeEnter', function () {
             //判断是否登录
@@ -72,11 +72,15 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 		$scope.swipRight = function(idx){
 			cart_fun.cartIdxSideslipping(false,idx);
+		};
+		//加载数据
+		if(User.isLogin()){
+			cartService.getCartGoods($scope, POP, false);
 		}
-		
 	}
 
-	ctrl.$inject = ['$scope','cartService'];
+
+	ctrl.$inject = ['$scope','cartService', 'POP'];
 	app.registerController('cartController',ctrl);
 
 
