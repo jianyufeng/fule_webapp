@@ -1,4 +1,4 @@
-console.log("[框架]====>[加载angularjs路由配置文件 -> 谢少雄专用]");
+console.log("[框架]====>[加载angularjs路由配置文件 -> 解少雄专用]");
 console.log("[框架]====>[加载angularjs路由配置文件 -> 解少雄专用]");
 
 define(['app'],function (app) {
