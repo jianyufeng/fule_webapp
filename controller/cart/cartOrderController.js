@@ -8,7 +8,8 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
         $scope.$on('$ionicView.loaded',function () {
 
-           console.log("购物车订单");
+
+
 
         });
     }
