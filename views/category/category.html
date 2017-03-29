@@ -11,7 +11,7 @@
         <div class="category_top_block">
             <ul class="category_top_list">
                 <li class="category_top_list_item" ng-repeat="categoryItem in categorys">
-                    <div class="category_top_list_item_block" ng-click="changCategoryList(categoryItem.category_id)">
+                    <div class="category_top_list_item_block" ng-click="changCategoryList(categoryItem.category_id,categoryItem.category_name)">
                         <div>
                             <img class="category_top_list_item_image" src="./resource/images/icon/sanbafule.png">
                             <span> {{categoryItem.category_name}}</span>
@@ -26,7 +26,7 @@
             <div class="line">
             </div>
             <div class="midd_text">
-                <span>三八妇乐·女性健康护理系列</span>
+                <span>{{categoryName}}</span>
             </div>
             <div class="line">
             </div>

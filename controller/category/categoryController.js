@@ -23,8 +23,8 @@ define(['app',"./Fun/caregoryFun"], function (app, caregoryFun) {
             $rootScope[$state.current.name]= {};
         })
         //更换产品列表
-        $scope.changCategoryList=function(categoryId){
-            categoryService.getCategoryGoodsList($scope,categoryId,POP,$rootScope[$state.current.name]);
+        $scope.changCategoryList=function(categoryId,categoryName){
+            categoryService.getCategoryGoodsList($scope,categoryId,POP,$rootScope[$state.current.name],categoryName);
 
         };
         // 下拉刷新

@@ -17,21 +17,20 @@ define(['app'], function (app) {
                 }
 
                 $scope.$apply(function () {
+                    console.log(data);
                     $scope.categorys = data.categoryInfo;
                     $scope.productArray = data.goodsInfo.data;
-                    console.log($scope.productArray);
+                    var a=data.categoryInfo;
+                    var obj=a[0];
+                    $scope.categoryName=obj.category_name;
                     $.initAppEndLoad();
                 });
 
-                console.log(data);
             });
         };
 
         // 点击按钮后实现分类货物的切换
-        service.getCategoryGoodsList = function ($scope, categoryId, POP, cacheData) {
-            console.log(categoryId);
-            console.log(cacheData);
-            console.log(CommenFun.isNullObj(cacheData));
+        service.getCategoryGoodsList = function ($scope, categoryId, POP, cacheData,categoryName) {
             if (CommenFun.isNullObj(cacheData)) {
                 console.log("没有缓存");
                 console.log("当前的Id是没有缓存的");
@@ -46,11 +45,12 @@ define(['app'], function (app) {
                     }
 
                     $scope.$apply(function () {
+                        console.log(data);
                         $scope.productArray = data.goodsInfo.data;
                         cacheData[categoryId] = $scope.productArray;
-                        console.log(cacheData);
+                        $scope.categoryName=categoryName;
+                        //console.log(cacheData);
                     });
-                    console.log(data);
                 });
             } else {
                 console.log("有缓存");
@@ -70,24 +70,21 @@ define(['app'], function (app) {
                         $scope.$apply(function () {
                             $scope.productArray = data.goodsInfo.data;
                             cacheData[categoryId] = $scope.productArray;
-
-                            console.log(cacheData);
+                            $scope.categoryName=categoryName;
                         });
 
-                        console.log(data);
 
                     });
 
                 } else {
                     console.log("当前的ID是有缓存的")
-
                     $scope.productArray = cacheData[categoryId];
-                    console.log(cacheData[categoryId]);
+                    $scope.categoryName=categoryName;
                 }
             }
         }
 
-        // 下拉树心
+        // 下拉刷新
         service.Refresh = function ($scope) {
             HTTP.get(API.Category.category + "/category_id/35", {}, function (e, data) {
                 if (e) {
@@ -101,20 +98,13 @@ define(['app'], function (app) {
                     $scope.$broadcast('scroll.refreshComplete');
                     $scope.categorys = data.categoryInfo;
                     $scope.productArray = data.goodsInfo.data;
+                    $scope.categoryName=data.categoryInfo.shift().category_name;
                     $scope.$broadcast('clearCache');
                 });
 
-                console.log(data);
             });
 
         }
-        //// 跳转下一页
-        //service.goNextPage=function($scope,$state,goodsId){
-        //    $state.go("tab.productInfo",{"goodsId":goodsId});
-        //
-        //}
-
-
         return service;
     });
 
