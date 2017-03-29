@@ -124,7 +124,6 @@ define(['app'], function (app) {
         service.addAndReduce = function ($scope) {
             // 减号
             $scope.reduce = function () {
-                ;
                 if ($scope.count <= 1) {
                     $scope.count = 1;
                 } else {
@@ -198,6 +197,17 @@ define(['app'], function (app) {
         }
 
 
+        /**
+         * 点击购物车跳转页面
+         * @param $scope
+         */
+        service.startPage=function($scope,$state){
+            // 减号
+            $scope.startPage = function () {
+                $state.go("tab.cart");
+            }
+
+        }
         return service;
     });
 

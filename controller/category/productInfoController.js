@@ -6,7 +6,7 @@
 
 define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
-    function ctrl($scope, productInfoService, $stateParams, POP) {
+    function ctrl($scope, productInfoService, $stateParams, POP,$state) {
         $scope.count = 1;
         $scope.index = 0;
         $scope.$on('$ionicView.loaded', function () {
@@ -20,11 +20,12 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         productInfoService.Slide($scope);
         productInfoService.addAndReduce($scope);
         productInfoService.addCartAction($scope, POP);
+        productInfoService.startPage($scope,$state);
 
     }
 
 
-    ctrl.$inject = ['$scope', 'productInfoService', '$stateParams', 'POP'];
+    ctrl.$inject = ['$scope', 'productInfoService', '$stateParams', 'POP','$state'];
     app.registerController('productInfoController', ctrl);
 
 
