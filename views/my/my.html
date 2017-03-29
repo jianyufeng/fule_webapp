@@ -1,23 +1,16 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
     <ion-content>
 
-        <div class="noCartGoodBox">
+        <div class="unLoginBox">
             <div class="isLoginBox">现在&nbsp;&nbsp;
-                <button>登录</button>
+                <button ng-click="goLogin()">登录</button>
                 &nbsp;&nbsp; , 您的商品将永久保存在"购物车"中
-            </div>
-            <div class="noCartMain">
-                <img src="./resource/images/icon/shopping_bg.png"/>
-                <p>购物车空空的，去买点啥呢~</p>
-                <p>
-                    <button>去首页逛逛</button>
-                </p>
             </div>
         </div>
 
-        <div>
+        <div class="my_loginBox">
             <!--下拉刷新-->
-            <ion-refresher pulling-text="下拉刷新" style="background-color: pink" on-refresh="doRefresh()"></ion-refresher>
+            <ion-refresher pulling-text="下拉刷新"  on-refresh="doRefresh()"></ion-refresher>
 
             <!--用户信息-->
             <div class="userBox">

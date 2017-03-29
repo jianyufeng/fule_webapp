@@ -1,7 +1,7 @@
 <ion-view view-title="未读消息" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <ion-content>
         <!--下拉刷新-->
-        <ion-refresher pulling-text="下拉刷新" style="background-color: pink" on-refresh="doRefresh()"></ion-refresher>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
         <!--新消息-->
         <a href="#/tab/login">
             <div class="itemBox" ng-repeat="item in items">

@@ -158,12 +158,13 @@ define(function () {
 		}else{
 			return true;
 		}
-	}
+	};
 
 	//获取用户信息
 	User.getInfo = function(){
-		
-	}
+		var userInfo = $.cookie('userInfo');
+		return JSON.parse(userInfo);
+	};
 
 	window.User = User;
 	
