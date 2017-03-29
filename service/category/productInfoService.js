@@ -74,6 +74,11 @@ define(['app'], function (app) {
                 });
             });
 
+            /***
+             * 获取图片的真实宽高
+             * @param url
+             * @param callback
+             */
             function getImageWidth(url, callback) {
                 var img = new Image();
                 img.src = url;
@@ -91,20 +96,64 @@ define(['app'], function (app) {
             }
 
         }
+        /**
+         * 滑动图片切换导航
+         * @param $scope
+         * @constructor
+         */
+        service.Slide = function ($scope) {
+            $scope.onSlideChanged = function (index) {
+                $scope.index = index;
+                // 获取所有 instructions 的子元素
+                var ch = $(".instructions").children();
+                for (var i = 0; i < ch.length; i++) {
+                    if (index == i) {
+                        ch.eq(i).attr("src", './resource/images/icon/point_hover.png')
+                    } else {
+                        ch.eq(i).attr("src", './resource/images/icon/point_gray.png')
+                    }
+                }
+            }
 
+        }
+
+        /**
+         * 点击加号或者减号
+         * @param $scope
+         */
+        service.addAndReduce = function ($scope) {
+            // 减号
+            $scope.reduce = function () {
+                ;
+                if ($scope.count <= 1) {
+                    $scope.count = 1;
+                } else {
+                    $scope.count--;
+                }
+            }
+            // 加号
+            $scope.add = function () {
+                if ($scope.count >= 99) {
+                    $scope.count = 99;
+                } else {
+                    $scope.count++;
+                }
+            }
+
+        }
         /**
          *加入购物车
          * @param $scope
          */
-        service.addCartAction = function ($scope,POP) {
+        service.addCartAction = function ($scope, POP) {
             //alert("加入购物车");
             $scope.addCartAction = function () {
                 POP.StartLoading();
-                console.log("加入购物车"+$scope.productName);
-                console.log("加入购物车"+$scope.productPrice_I+$scope.productPrice_F);
-                console.log("加入购物车"+$scope.productName);
-                console.log("加入购物车"+$scope.productName);
-                console.log("加入购物车"+$scope.productName);
+                console.log("加入购物车" + $scope.productName);
+                console.log("加入购物车" + $scope.productPrice_I + $scope.productPrice_F);
+                console.log("加入购物车" + $scope.productName);
+                console.log("加入购物车" + $scope.productName);
+                console.log("加入购物车" + $scope.productName);
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": "zhoulibo8",
                     "user_id": "146150",
@@ -121,7 +170,7 @@ define(['app'], function (app) {
                         return;
                     }
                     $scope.$apply(function () {
-                        $scope.cartCount+=$scope.count;
+                        $scope.cartCount += $scope.count;
                     });
                 })
             }
@@ -140,8 +189,8 @@ define(['app'], function (app) {
                 }
 
                 $scope.$apply(function () {
-                    console.log("138"+data);
-                    $scope.cartCount=data;
+                    console.log("138" + data);
+                    $scope.cartCount = data;
                 });
 
             })
