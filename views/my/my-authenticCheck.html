@@ -1,6 +1,26 @@
 <ion-view view-title="防伪查询" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
-    <ion-content>
-        <div>防伪查询</div>
+    <ion-content  style="background-color: white">
+        <navigation-bar title="防伪查询"></navigation-bar>
+        <div class="fangWeiShuoMingBox">
+            <img src="./resource/images/icon/fangweishuoming.png">
+        </div>
+
+
+        <div class="line">
+        </div>
+
+        <div class="selectBox">
+            <div class="hintBox">提示：刮开涂层，输入秘钥，点击查询即可</div>
+            <div class="SNBox">
+                <div class="inputBox">
+                    <img src="./resource/images/icon/fangweima.png"  class="fwImg">
+                    <input type="text"  class="text">
+                </div>
+                <span class="buttonBox">查询</span>
+            </div>
+            <div class="res">您输入的防伪码不存在，谨防假冒</div>
+        </div>
     </ion-content>
+
 </ion-view>

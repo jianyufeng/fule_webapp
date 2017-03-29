@@ -1,7 +1,8 @@
 /**
  * Created by Administrator on 2017/3/24.
+ *
  */
-define(['app'],function(app){
+define(['app', 'css! ../../../css/my/my-voucherTransfer'],function(app){
     function ctrl($scope) {
 
         $scope.$on('$ionicView.loaded', function () {
