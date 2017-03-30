@@ -1,32 +1,32 @@
 <ion-view view-title="充值卡充值" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
-    <ion-content  >
+    <ion-content>
         <navigation-bar title="充值卡充值"></navigation-bar>
-        <div  class="contentBox">
-        <div class="hintBox">提示：每个会员只能绑定一张卡号，绑定后可使用卡号登录
-        <div class="line">
-        </div>
-        </div>
-        <div class="cardItem"> <span>二级密码：</span> <input type="password" class="text">
-            <div class="line">
+        <div class="contentBox">
+            <div class="hintBox">提示：每个会员只能绑定一张卡号，绑定后可使用卡号登录
+                <div class="line">
+                </div>
             </div>
-        </div>
-        <div class="cardItem">
-            <span>充值卡卡号：</span> <input type="text" class="text" ng-model="card ">
-            <div class="line">
+            <div class="cardItem"><span>二级密码：</span> <input type="password" class="text" ng-bind="">
+                <div class="line">
+                </div>
             </div>
-        </div>
-        <div class="cardItem">
-            <span>充值卡密码：</span>
-             <input type="password" class="text">
-            <div class="line">
+            <div class="cardItem">
+                <span>充值卡卡号：</span> <input type="text" class="text" ng-model="card ">
+                <div class="line">
+                </div>
             </div>
-        </div>
-        <div class="buttonBox">
-            <div>
-                充值
+            <div class="cardItem">
+                <span>充值卡密码：</span>
+                <input type="password" class="text">
+                <div class="line">
+                </div>
             </div>
-        </div>
+            <div class="buttonBox">
+                <div ng-click="rechargeable()">
+                    充值
+                </div>
+            </div>
 
         </div>
     </ion-content>

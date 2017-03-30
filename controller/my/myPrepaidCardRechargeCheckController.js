@@ -1,5 +1,6 @@
 /**
- * Created by Administrator on 2017/3/24.
+ * Created by ShareLock on 2017/3/24.
+ * 充值卡充值的Contronller
  */
 define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'],function(app){
     function ctrl($scope,myPrepaidCardRechargeCheckService) {
