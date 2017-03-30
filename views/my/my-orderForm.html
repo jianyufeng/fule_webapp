@@ -1,6 +1,83 @@
 <ion-view view-title="我的订单" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <ion-content>
-        <div>我的订单</div>
+        <ion-scroll zooming="false" direction="x" scrollbar-x="true"  style="width: 100%">
+            <div class="of_navBox">
+                <div class="of_nav">商城订单</div>
+                <div class="of_nav">批发订单</div>
+                <div class="of_nav">提货订单</div>
+                <div class="of_nav">辅销订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+                <div class="of_nav">喜乐订单</div>
+            </div>
+        </ion-scroll>
+        <div class="of_itemBox" ng-repeat="item in data">
+            <div class="of_moneyBox">
+                <div class="of_leftBox">
+                    <label class="of_moneyName">金额&nbsp;:&yen;</label>
+                    <label class="of_moneyVal">{{item.goods_amount}}</label>
+                </div>
+                <div class="of_rightBox">
+                    <label class="of_moneyTime">下单时间&nbsp;:{{item.pay_time}}</label>
+                </div>
+
+
+            </div>
+            <div class="of_detailBox">
+                <div class="of_termBox">
+                    <div class="of_termNameBox">
+                        订单编号&nbsp;:
+                    </div>
+                    <div class="of_termValBox">
+                        {{item.order_sn}}
+                    </div>
+                </div>
+                <div class="of_termBox">
+                    <div class="of_termNameBox">
+                        订单状态&nbsp;:
+                    </div>
+                    <div class="of_termValBox">
+                        {{item.order_status|orderStatusFilter}}
+                    </div>
+                </div>
+                <div class="of_termBox">
+                    <div class="of_termNameBox">
+                        类型&nbsp;:
+                    </div>
+                    <div class="of_termValBox">
+                        {{item.order_type|orderTypeFilter}}
+                    </div>
+                </div>
+                <div class="of_termBox">
+                    <div class="of_termNameBox">
+                        折扣金额&nbsp;:
+                    </div>
+                    <div class="of_termValBox">
+                        &yen;{{item.discount}}元
+                    </div>
+                </div>
+                <div class="of_termBox">
+                    <div class="of_termNameBox">
+                        积分&nbsp;:
+                    </div>
+                    <div class="of_termValBox">
+                        1447.00
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
+        <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="1%"
+                             immediate-check="false"></ion-infinite-scroll>
     </ion-content>
 </ion-view>

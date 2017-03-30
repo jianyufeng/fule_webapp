@@ -25,5 +25,5 @@ define(['app','css! ../../../css/my/my-internalTransfer'],function(app){
     ctrl.$inject = ['$scope','myInternalTransferCheckService','$stateParams','POP'];
 
     /*动态注册控制器*/
-    app.registerController("myInternalTransferCheckController",ctrl);
+    app.registerController("myInternalTransferController",ctrl);
 });

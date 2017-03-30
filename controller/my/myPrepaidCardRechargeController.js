@@ -7,7 +7,7 @@ define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'],function(app){
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
-            console.log("myPrepaidCardRechargeCheckController")
+            console.log("myPrepaidCardRechargeController")
 
 
         });
@@ -17,5 +17,5 @@ define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'],function(app){
     ctrl.$inject = ['$scope','myPrepaidCardRechargeCheckService'];
 
     /*动态注册控制器*/
-    app.registerController("myPrepaidCardRechargeCheckController",ctrl);
+    app.registerController("myPrepaidCardRechargeController",ctrl);
 });

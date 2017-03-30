@@ -105,9 +105,9 @@ define(['app'], function (app) {
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-prepaidCardRecharge.html?_r=" + Math.random(),
-                        controller: 'myPrepaidCardRechargeCheckController',
+                        controller: 'myPrepaidCardRechargeController',
                         resolve: {
-                            deps: app.loadControllerJs('../controller/my/myPrepaidCardRechargeCheckController')
+                            deps: app.loadControllerJs('../controller/my/myPrepaidCardRechargeController')
                         }
                     }
 
@@ -120,9 +120,9 @@ define(['app'], function (app) {
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-electronicBankTransfer.html?_r=" + Math.random(),
-                        controller: 'myElectronicBankTransferCheckController',
+                        controller: 'myElectronicBankTransferController',
                         resolve: {
-                            deps: app.loadControllerJs('../controller/my/myElectronicBankTransferCheckController')
+                            deps: app.loadControllerJs('../controller/my/myElectronicBankTransferController')
                         }
                     }
 
@@ -134,9 +134,9 @@ define(['app'], function (app) {
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-subsidiaryBankTransfer.html?_r=" + Math.random(),
-                        controller: 'mySubsidiaryBankTransferCheckController',
+                        controller: 'mySubsidiaryBankTransferController',
                         resolve: {
-                            deps: app.loadControllerJs('../controller/my/mySubsidiaryBankTransferCheckController')
+                            deps: app.loadControllerJs('../controller/my/mySubsidiaryBankTransferController')
                         }
                     }
 
@@ -148,9 +148,9 @@ define(['app'], function (app) {
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-remittanceRecord.html?_r=" + Math.random(),
-                        controller: 'myRemittanceRecordCheckController',
+                        controller: 'myRemittanceRecordController',
                         resolve: {
-                            deps: app.loadControllerJs('../controller/my/myRemittanceRecordCheckController')
+                            deps: app.loadControllerJs('../controller/my/myRemittanceRecordController')
                         }
                     }
 
@@ -162,9 +162,9 @@ define(['app'], function (app) {
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-internalTransfer.html?_r=" + Math.random(),
-                        controller: 'myInternalTransferCheckController',
+                        controller: 'myInternalTransferController',
                         resolve: {
-                            deps: app.loadControllerJs('../controller/my/myInternalTransferCheckController')
+                            deps: app.loadControllerJs('../controller/my/myInternalTransferController')
                         }
                     }
 

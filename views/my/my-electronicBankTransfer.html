@@ -1,6 +1,102 @@
 <ion-view view-title="电子币银行汇款" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <ion-content>
-        <div>电子币银行汇款</div>
+        <div class="etr_box">
+
+
+            <div class="ert_AccountBox">
+                <div class="ert_AccountName">用户名&nbsp;:</div>
+                <div class="ert_AccountVal">zhangsan</div>
+            </div>
+
+            <div class="ert_transformBankBox">
+                <div class="ert_TBName">汇入银行&nbsp;:</div>
+                <div class="ert_TBContentBox">
+                    <div class="ert_TBCItemBox">
+                        <div class="ert_BankIconBox">
+                            <input class="ert_selectBank" name="selectBank" id="ert_selectBank0" type="radio">
+                            <label for="ert_selectBank0">
+                                <img class="ert_BankIcon" alt="银行"
+                                     src="./resource/images/icon/myoffice.png"></label>
+                        </div>
+                        <div class="ert_BankAccountBox">
+                            <label class="etr_BankName">姓名&nbsp;:&nbsp;苏丽莎</label>
+                            <label class="etr_BankAccount">账号&nbsp;:&nbsp;6228**********</label>
+                        </div>
+                    </div>
+                    <div class="ert_TBCItemBox">
+                        <div class="ert_BankIconBox">
+                            <input class="ert_selectBank" id="ert_selectBank1" name="selectBank" type="radio">
+                            <label for="ert_selectBank1">
+                                <img class="ert_BankIcon" alt="银行"
+                                     src="./resource/images/icon/myoffice.png"></label>
+                        </div>
+                        <div class="ert_BankAccountBox">
+                            <label class="etr_BankName">姓名&nbsp;:&nbsp;苏丽莎</label>
+                            <label class="etr_BankAccount">账号&nbsp;:&nbsp;6228**********</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="clear:both;"></div>
+
+
+            <div class="ert_AccountBox" style="border-top: solid 1px #eee">
+                <div class="ert_AccountName">汇款银行&nbsp;:</div>
+                <div class="ert_AccountVal">
+                    <input type="text" class="ert_input">
+                </div>
+            </div>
+            <div class="ert_AccountBox">
+                <div class="ert_AccountName">银行地址&nbsp;:</div>
+                <div class="ert_AccountVal">
+                    <input type="text" class="ert_input">
+                </div>
+            </div>
+            <div class="ert_AccountBox">
+                <div class="ert_AccountName">银行账号&nbsp;:</div>
+                <div class="ert_AccountVal">
+                    <input type="text" class="ert_input">
+                </div>
+            </div>
+            <div class="ert_AccountBox">
+                <div class="ert_AccountName">汇款人姓名&nbsp;:</div>
+                <div class="ert_AccountVal">
+                    <input type="text" class="ert_input">
+                </div>
+            </div>
+            <div class="ert_AccountBox">
+                <div class="ert_AccountName">汇款金额&nbsp;:</div>
+                <div class="ert_AccountVal">
+                    <input type="text" class="ert_input">
+                </div>
+            </div>
+            <div class="ert_AccountBox">
+                <div class="ert_AccountName">汇款日期&nbsp;:</div>
+                <div class="ert_AccountVal">
+                    <input type="text" class="ert_input">
+                </div>
+            </div>
+            <div class="ert_AccountBox">
+                <div class="ert_AccountName">汇款备注&nbsp;:</div>
+                <div class="ert_AccountVal">
+                    <input type="text" class="ert_input">
+                </div>
+            </div>
+            <div class="ert_TRVoucherBox">
+                <div class="ert_TRVoucherName">上传汇款凭证&nbsp;:</div>
+                <div class="ert_TRVoucherVal">
+                    <div class="ert_TRVoucherValTop">
+                        <button class="ert_upIcon">点击上传凭证</button>
+                        <span class="ert_upFile  ellipsis">未选择文件</span>
+                    </div>
+                    <div class="ert_TRVoucherValBottom">
+                        &quot;请上传4M一下的图片,仅支持gif,jpg,jpeg,bmp,png,swf格式&quot;
+                    </div>
+                </div>
+            </div>
+            <button class="ert_confirm">提交</button>
+        </div>
     </ion-content>
 </ion-view>
