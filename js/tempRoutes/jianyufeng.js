@@ -158,7 +158,7 @@ define(['app'], function (app) {
             })
             /*我的  内部转账 路由*/
             .state('tab.my-internalTransfer', {
-                url: '/my-internalTransfer',
+                url: '/my-internalTransfer/:userName/:userMoney',
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-internalTransfer.html?_r=" + Math.random(),

@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/3/24.
  */
 define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'],function(app){
-    function ctrl($scope) {
+    function ctrl($scope,myPrepaidCardRechargeCheckService) {
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
@@ -13,7 +13,7 @@ define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'],function(app){
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope'];
+    ctrl.$inject = ['$scope','myPrepaidCardRechargeCheckService'];
 
     /*动态注册控制器*/
     app.registerController("myPrepaidCardRechargeCheckController",ctrl);

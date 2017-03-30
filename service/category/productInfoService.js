@@ -7,8 +7,10 @@ define(['app'], function (app) {
     app.factory("productInfoService", function () {
 
         var service = {};
+        var goodsId;
+        var pri;
         // 获取产品详情
-        service.getProductInfo = function ($scope, $stateParams,POP) {
+        service.getProductInfo = function ($scope, $stateParams, POP) {
             POP.StartLoading();
             HTTP.get(API.Category.productInfo + "/goods_id/" + $stateParams.goodsId, {}, function (e, data) {
                 POP.EndLoading();
@@ -20,24 +22,24 @@ define(['app'], function (app) {
                 }
                 $scope.$apply(function () {
                     var goodsInfo = data.goodsInfo.data.shift();
-                    console.log(goodsInfo.goods_name);
                     // 商品名
                     $scope.productName = goodsInfo.goods_name;
                     // 商品编号
                     $scope.productNum = goodsInfo.goods_sn;
                     // 品牌名
                     $scope.productBrand = goodsInfo.brand_name;
+                    goodsId = goodsInfo.goods_id;
                     // 免运费的等级
                     $scope.freight = data.freight;
+
                     //商品价格
-                    var pri = goodsInfo.shop_price;
+                    pri = goodsInfo.shop_price;
                     var index = pri.indexOf(".");
                     $scope.productPrice_I = pri.substr(0, index);
                     $scope.productPrice_F = pri.substr(index, pri.length);
 
                 });
 
-                console.log(data);
 
             })
 
@@ -49,10 +51,6 @@ define(['app'], function (app) {
                 var maxHeight = $(".productImgBox").height();
                 var imgSrc = $(".productImg img").attr("src");
                 getImageWidth(imgSrc, function (w, h) {
-                    console.log(maxWidth)
-                    console.log(maxHeight)
-                    console.log(w)
-                    console.log(h)
 
                     if (w < maxWidth) {
                         var mar = (maxWidth - w) / 2;
@@ -145,53 +143,68 @@ define(['app'], function (app) {
          */
         service.addCartAction = function ($scope, POP) {
             //alert("加入购物车");
-            $scope.addCartAction = function () {
-                POP.StartLoading();
-                console.log("加入购物车" + $scope.productName);
-                console.log("加入购物车" + $scope.productPrice_I + $scope.productPrice_F);
-                console.log("加入购物车" + $scope.productName);
-                console.log("加入购物车" + $scope.productName);
-                console.log("加入购物车" + $scope.productName);
-                HTTP.post(API.Cart.cartAdd, {
-                    "user_name": "zhoulibo8",
-                    "user_id": "146150",
-                    "goods_id": "57",
-                    "goods_name": "三八",
-                    "goods_number": "1",
-                    "goods_price": "57"
-                }, function (e, data) {
-                    POP.EndLoading();
-                    if (e) {
-                        $.loadError(function () {
-                            service.addCartAction();
+            if (User.isLogin()) {
+                var userInfo = User.getInfo();
+                var goodsName = $scope.productName;
+                var goodsNumber = $scope.count;
+                $scope.addCartAction = function () {
+                    POP.StartLoading();
+                    HTTP.post(API.Cart.cartAdd, {
+                        "user_name": userInfo.user_name,
+                        "user_id": userInfo.user_id,
+                        "goods_id": goodsId,
+                        "goods_name": goodsName,
+                        "goods_number": goodsNumber,
+                        "goods_price": pri
+                    }, function (e, data) {
+                        POP.EndLoading();
+                        if (e) {
+                            $.loadError(function () {
+                                service.addCartAction();
+                            });
+                            return;
+                        }
+                        $scope.$apply(function () {
+                            $scope.cartCount += $scope.count;
                         });
-                        return;
-                    }
-                    $scope.$apply(function () {
-                        $scope.cartCount += $scope.count;
-                    });
+                    })
+                }
+            } else {
+
+                POP.Confirm("您未登录，点击确定进入登录页面！", function () {
+                    location.href = "./login/login.html";
                 })
             }
+
         }
         /**
          *  获取购物车数量
          * @param $scope
          */
         service.getCartInfo = function ($scope) {
-            HTTP.get(API.Category.getCartNum + "/user_id/" + "146150" + "/shopping_type/1", {}, function (e, data) {
-                if (e) {
-                    $.loadError(function () {
-                        service.getCartInfo();
+            if (User.isLogin()) {
+                var userId = User.getInfo().user_id;
+                HTTP.get(API.Category.getCartNum + "/user_id/" + userId + "/shopping_type/1", {}, function (e, data) {
+                    if (e) {
+                        $.loadError(function () {
+                            service.getCartInfo();
+                        });
+                        return;
+                    }
+
+                    $scope.$apply(function () {
+                        $scope.cartCount = data;
                     });
-                    return;
-                }
 
-                $scope.$apply(function () {
-                    console.log("138" + data);
-                    $scope.cartCount = data;
-                });
+                })
 
-            })
+            } else {
+                POP.Confirm("您未登录，点击确定进入登录页面！", function () {
+                    location.href = "./login/login.html";
+                })
+
+            }
+
 
         }
 
@@ -200,7 +213,7 @@ define(['app'], function (app) {
          * 点击购物车跳转页面
          * @param $scope
          */
-        service.startPage=function($scope,$state){
+        service.startPage = function ($scope, $state) {
             // 减号
             $scope.startPage = function () {
                 $state.go("tab.cart");

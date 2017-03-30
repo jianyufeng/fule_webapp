@@ -3,8 +3,6 @@ define(['app',"./Fun/caregoryFun"], function (app, caregoryFun) {
 
     function ctrl($scope,$rootScope, categoryService,POP,$state) {
 
-        //$rootScope =[];
-        console.log($state)
         $rootScope[$state.current.name]={};
 
         console.log("分类界面控制器...");
@@ -31,12 +29,8 @@ define(['app',"./Fun/caregoryFun"], function (app, caregoryFun) {
         $scope.doRefresh = function(){
             categoryService.Refresh($scope);
         }
-        // 跳转下一页
-        //$scope.startNextPage=function(goodsId){
-        //    categoryService.goNextPage($scope,$state,goodsId);
-        //}
         // 加入购物车
-        caregoryFun.addCartFlay($scope,$rootScope,$state);
+        caregoryFun.addCartFlay($scope,$rootScope,$state,POP);
 
     }
 

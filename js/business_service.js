@@ -21,6 +21,9 @@ define([
 
     //我的部分
     '../service/my/myService',
+    '../service/my/myAuthenticCheckService',
+    '../service/my/myPrepaidCardRechargeCheckService',
+    '../service/my/myInternalTransferCheckService',
 
     // 商品详情页
     '../service/category/productInfoService'

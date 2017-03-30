@@ -17,7 +17,6 @@ define(['app'], function (app) {
                 }
 
                 $scope.$apply(function () {
-                    console.log(data);
                     $scope.categorys = data.categoryInfo;
                     $scope.productArray = data.goodsInfo.data;
                     var a=data.categoryInfo;
@@ -32,8 +31,6 @@ define(['app'], function (app) {
         // 点击按钮后实现分类货物的切换
         service.getCategoryGoodsList = function ($scope, categoryId, POP, cacheData,categoryName) {
             if (CommenFun.isNullObj(cacheData)) {
-                console.log("没有缓存");
-                console.log("当前的Id是没有缓存的");s
                 POP.StartLoading();
                 HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
                     POP.EndLoading();
@@ -45,17 +42,13 @@ define(['app'], function (app) {
                     }
 
                     $scope.$apply(function () {
-                        console.log(data);
                         $scope.productArray = data.goodsInfo.data;
                         cacheData[categoryId] = $scope.productArray;
                         $scope.categoryName=categoryName;;
                     });
                 });
             } else {
-                console.log("有缓存");
-                console.log(cacheData[categoryId]);
                 if (cacheData[categoryId] == undefined) {
-                    console.log("当前的Id是没有缓存的");
                     POP.StartLoading();
                     HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
                         POP.EndLoading();
@@ -76,7 +69,6 @@ define(['app'], function (app) {
                     });
 
                 } else {
-                    console.log("当前的ID是有缓存的")
                     $scope.productArray = cacheData[categoryId];
                     $scope.categoryName=categoryName;
                 }
