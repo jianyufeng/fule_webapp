@@ -131,7 +131,7 @@
                         height: 60px;
                         margin-top: 0px;
                         float: left;
-                        text-align: 18px;
+                        font-size: 16px;
 
 
                      }
@@ -550,7 +550,186 @@
 
 
 
-
-
-
  }
+
+
+
+
+
+
+
+
+.popBg{
+   background-color:#000;
+   position:absolute;
+   z-index:99;
+   left:0;
+   top:0;
+   width:100%;
+   height:100%;
+   opacity:0.5;
+   filter: alpha(opacity=50);
+   -moz-opacity: 0.5;
+}
+
+
+.popBox{
+   width: 100%;
+   height: 60%;
+   background: white;
+   position: absolute;
+   z-index:99999;
+   bottom:0;
+   left: 0;
+
+   .topTitle{
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+   }
+
+   .deliveryBox{
+      width: 95%;
+      height: 35px;
+      margin-top: 10px;
+
+
+      .deliveryContent{
+       margin-left: 15px;
+         margin-top: 20px;
+         border-bottom: solid 1px #eee;
+      }
+
+      .deliveryChoice{
+
+         float: right;
+         margin-top: -20px;
+         //margin-right: 15px;
+         img{
+            width: 20px;
+            height: 20px;
+         }
+      }
+   }
+
+   .bottomBox{
+      width: 100%;
+      height: 80px;
+      float: left;
+      position: absolute;
+      bottom: 0;
+
+      .bottomChoice{
+         margin-left: 15px;
+         width: 20px;
+         height: 20px;
+
+         img{
+            width: 20px;
+            height: 20px;
+         }
+     }
+
+
+      .content{
+         position: absolute;
+         left: 40px;
+         top:0;
+      }
+
+      .closeButton{
+         width: 100%;
+         height: 50px;
+         position: absolute;
+         bottom: 0;
+         text-align: center;
+         line-height: 50px;
+         background:#d79ac4 ;
+         color: white;
+      }
+   }
+}
+
+.popAddressBox{
+   width: 100%;
+   height: 60%;
+   background: white;
+   position: absolute;
+   z-index:99999;
+   bottom:0;
+   left: 0;
+
+   .addressTitle{
+      width: 100%;
+      height: 50px;
+      text-align: center;
+      line-height: 50px;
+   }
+
+   .addressBox{
+      width: 90%;
+      height: 50px;
+      margin-top: 10px;
+      margin-left: 15px;
+      border-bottom: solid 1px #eee;
+      .topContent{
+
+      }
+      .bottomContent{
+        color: dimgray;
+      }
+      .choice{
+
+         float: right;
+         margin-top: -20px;
+
+         img{
+            width: 20px;
+            height: 20px;
+         }
+      }
+   }
+
+
+   .bottomBox{
+      width: 100%;
+      height: 80px;
+      position: absolute;
+      bottom: 0;
+
+      .inputAddress{
+         position: absolute;
+         width: 70%;
+         height: 40px;
+         left: 15px;
+         top: -30px;
+         border: solid 1px #d79ac4;
+         border-radius: 5px;
+    }
+    .search{
+       position: absolute;
+       width: 18%;
+       height: 40px;
+       right: 15px;
+       top: -30px;
+       background:#d79ac4 ;
+       color: white;
+       border-radius: 5px;
+       line-height: 40px;
+       text-align: center;
+
+    }
+      .close{
+         width: 100%;
+         height: 50px;
+         position: absolute;
+         bottom: 0;
+         text-align: center;
+         line-height: 50px;
+         background:#d79ac4 ;
+         color: white;
+
+      }
+   }
+    }
