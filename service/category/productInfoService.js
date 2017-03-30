@@ -143,12 +143,17 @@ define(['app'], function (app) {
          */
         service.addCartAction = function ($scope, POP) {
             //alert("加入购物车");
-            if (User.isLogin()) {
-                var userInfo = User.getInfo();
-                var goodsName = $scope.productName;
-                var goodsNumber = $scope.count;
-                $scope.addCartAction = function () {
-                    POP.StartLoading();
+            $scope.addCartAction = function () {
+                if (User.isLogin()) {
+                    var userInfo = User.getInfo();
+                    var goodsName = $scope.productName;
+                    var goodsNumber = $scope.count;
+                    console.log(userInfo.user_name);
+                    console.log(userInfo.user_id);
+                    console.log(goodsId);
+                    console.log(goodsName);
+                    console.log(goodsNumber);
+                    console.log(pri);
                     HTTP.post(API.Cart.cartAdd, {
                         "user_name": userInfo.user_name,
                         "user_id": userInfo.user_id,
@@ -157,25 +162,22 @@ define(['app'], function (app) {
                         "goods_number": goodsNumber,
                         "goods_price": pri
                     }, function (e, data) {
-                        POP.EndLoading();
+
                         if (e) {
-                            $.loadError(function () {
-                                service.addCartAction();
-                            });
                             return;
                         }
                         $scope.$apply(function () {
                             $scope.cartCount += $scope.count;
                         });
+
+                    })
+
+                } else {
+                    POP.Confirm("您未登录，点击确定进入登录页面！", function () {
+                        location.href = "./login/login.html";
                     })
                 }
-            } else {
-
-                POP.Confirm("您未登录，点击确定进入登录页面！", function () {
-                    location.href = "./login/login.html";
-                })
             }
-
         }
         /**
          *  获取购物车数量

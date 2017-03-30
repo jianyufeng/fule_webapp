@@ -35,9 +35,9 @@ define(['app'], function (app) {
                 HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
                     POP.EndLoading();
                     if (e) {
-                        $.loadError(function () {
-                            service.getCategoryGoodsList();
-                        });
+                        //$.loadError(function () {
+                        //    service.getCategoryGoodsList();
+                        //});
                         return;
                     }
 
@@ -80,9 +80,9 @@ define(['app'], function (app) {
 
             HTTP.get(API.Category.category + "/category_id/35", {}, function (e, data) {
                 if (e) {
-                    $.loadError(function () {
-                        service.Refresh();
-                    });
+                    //$.loadError(function () {
+                    //    service.Refresh();
+                    //});
                     $scope.$broadcast('scroll.refreshComplete');
                     return;
                 }
