@@ -18,7 +18,9 @@ var API = {
     Cart: {
         cartSearch: serverIP + "/_cart/search",
         cartAdd: serverIP + "/_cart/addGoods",
-        orderInfo:serverIP + "/_goods/payment"
+        orderInfo:serverIP + "/_goods/payment",
+        updateCart : serverIP + "/cart/updateCartGoods",
+        deleteCart : serverIP + "/cart/deleteCartGoods"
 
     },
 

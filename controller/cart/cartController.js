@@ -11,13 +11,13 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 				return;
 			}
         });
-		
+
+
 		//初始化
-		$scope.righttitleValue = "编辑";
 		var editOpen = false;
 
 		//结算按钮点击时
-		$(".accountBox").click(function(){
+		$(document).on("click",".accountBox",function(){
 			
 		});
 
@@ -32,17 +32,63 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		});
 
 		//递增按钮
-		cart_fun.addCartGoodsBtn(function(oneMoney,nowNum){
-			console.log(oneMoney);
-			console.log(nowNum);
+		cart_fun.addCartGoodsBtn(function(countMoney,nowNum,gid,cartId){
+
+			var info = User.getInfo();
+			var updateParams = {
+				user_id : info.user_id,
+				shopping_type : 1,
+				id : cartId,
+				goods_number : nowNum,
+				goods_price :countMoney,
+				goods_id : gid
+			};
+
+
+
+			cartService.updateCart($scope,updateParams,POP);
+
+			
+
+		})
+		
+		
+
+
+		//递减按钮
+		cart_fun.reduceCartGoodsBtn(POP,function(countMoney,nowNum,gid,cartId){
+
+			var info = User.getInfo();
+			var updateParams = {
+				user_id : info.user_id,
+				shopping_type : 1,
+				id : cartId,
+				goods_number : nowNum,
+				goods_price :countMoney,
+				goods_id : gid
+			};
+			
+			cartService.updateCart($scope,updateParams,POP);
+
 		})
 
-	
-		//递减按钮
-		cart_fun.reduceCartGoodsBtn(function(oneMoney,nowNum){
-			console.log(oneMoney);
-			console.log(nowNum);
-		})
+		//输入框改变时
+		cart_fun.changeCartGoodsBtn(function(countMoney,nowNum,gid,cartId){
+
+			var info = User.getInfo();
+			var updateParams = {
+				user_id : info.user_id,
+				shopping_type : 1,
+				id : cartId,
+				goods_number : nowNum,
+				goods_price :countMoney,
+				goods_id : gid
+			};
+
+			cartService.updateCart($scope,updateParams,POP);
+
+			
+		});
 
 		//编辑购物车
 		var editOpen = false;
@@ -56,21 +102,37 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 				$scope.righttitleValue = "关闭";
 				cart_fun.cartSideslipping(true);
 				editOpen = true;
+
+				
 			}
 
 		};
 
 		//点击删除
-		cart_fun.deleteCartBtn(function(_idx){
-			console.log(_idx);
+		cart_fun.deleteCartBtn(function(_idx,_id){
+			
+			var info = User.getInfo();
+			var deleteParams = {
+				user_id : info.user_id,
+				shopping_type : 1,
+				id : _id
+			}
+
+			console.log(deleteParams);
+
+			//删除购物车
+			
+			cartService.deleteCart($scope,deleteParams,POP,_idx);
+
+
 		})
 
 		//左滑动
-		$scope.swipLeft = function(idx){
+		$scope.swipLeft = function(idx,id){
 			cart_fun.cartIdxSideslipping(true,idx);
 		}
 
-		$scope.swipRight = function(idx){
+		$scope.swipRight = function(idx,id){
 			cart_fun.cartIdxSideslipping(false,idx);
 		};
 		//加载数据
