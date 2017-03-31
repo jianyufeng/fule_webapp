@@ -23,11 +23,16 @@ define([
     '../service/my/myService',
     //我的订单
     '../service/my/myOrderFormService',
+    // 商品条码查询
     '../service/my/myAuthenticCheckService',
     //充值卡充值
     '../service/my/myPrepaidCardRechargeService',
     //内部转账
-    '../service/my/myInternalTransferCheckService',
+    '../service/my/myInternalTransferService',
+    // 转账记录
+    '../service/my/myRemittanceRecordService',
+    //代金券转账
+    '../service/my/myVoucherTransferService',
 
     // 商品详情页
     '../service/category/productInfoService'

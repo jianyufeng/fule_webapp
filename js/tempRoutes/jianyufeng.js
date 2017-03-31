@@ -187,7 +187,8 @@ define(['app'], function (app) {
             })
             /*我的  代金卷转账 路由*/
             .state('tab.my-voucherTransfer', {
-                url: '/my-voucherTransfer',
+                url: '/my-voucherTransfer/:userVoucher',
+                //url: '/my-voucherTransfer',
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-voucherTransfer.html?_r=" + Math.random(),

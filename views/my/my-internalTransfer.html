@@ -42,8 +42,19 @@
                 <div class="line">
                 </div>
             </div>
+            <div class="postNoteBox">
+                <div class="inputBox">
+                    <img src="./resource/images/icon/login_yanzheng.png">
+                    <input type="text" class="note" placeholder="请输入短信校验码"  ng-model="transformMoney.messageCode">
+                </div>
+
+                <button class="postNote" ng-click="getMessageCode()">
+                    发送短信校验码
+                </button>
+            </div>
+
             <div class="buttonBox">
-                <div ng-click="transformMoney()">
+                <div ng-click="transformMoneyAction()">
                     提交
                 </div>
             </div>

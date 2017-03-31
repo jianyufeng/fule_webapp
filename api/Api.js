@@ -10,11 +10,17 @@ var API = {
     My: {
         myInfo: serverIP + "/_my/search",
         myOrderForm: serverIP + "/order/searchList",
-        myInfo: serverIP + "/_my/search",
         // 查询商品条形码
         searchBarCodeGoods:serverIP+"/barCode/searchBarCodeGoods",
         // 内部转账
-        internalTransfer:serverIP+"/money/transferUserMoney"
+        internalTransfer:serverIP+"/money/transferUserMoney",
+        // 充值卡充值
+        prepaidCard:serverIP+"/userCard/bindUser",
+        // 转账记录
+        remittanceRecord:serverIP+"/banks/searchRemittanceAdvices",
+        // 代金券转账
+        voucherTransfer:serverIP+"/fxp/transferFxpPoints"
+
     },
 
     Cart: {

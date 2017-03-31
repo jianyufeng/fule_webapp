@@ -7,27 +7,26 @@
                 <div class="line">
                 </div>
             </div>
-            <div class="cardItem"><span>二级密码：</span> <input type="password" class="text" >
+            <div class="cardItem"><span>二 级 密 码：</span> <input type="password" class="text"  ng-model=" rechargeCard.secondPassword">
                 <div class="line">
                 </div>
             </div>
             <div class="cardItem">
-                <span>充值卡卡号：</span> <input type="text" class="text" ng-model="card ">
+                <span>充值卡卡号：</span> <input type="text" class="text" ng-model="rechargeCard.cardNum">
                 <div class="line">
                 </div>
             </div>
             <div class="cardItem">
                 <span>充值卡密码：</span>
-                <input type="password" class="text">
+                <input type="password" class="text" ng-model="rechargeCard.cardPassword">
                 <div class="line">
                 </div>
             </div>
             <div class="buttonBox">
-                <div >
+                <div  ng-click="recharge()">
                     充值
                 </div>
             </div>
-
         </div>
     </ion-content>
 </ion-view>

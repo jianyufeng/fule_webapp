@@ -42,6 +42,11 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
             $state.go("tab.my-internalTransfer",{"userName":userName,"userMoney":userMoney});
 
         }
+        $scope.startVoucherTransferPage=function(fxp_points){
+
+            $state.go("tab.my-voucherTransfer",{"userVoucher":fxp_points});
+        }
+
 
         ////上拉弹出框
         //$scope.selectIcon = function () {
