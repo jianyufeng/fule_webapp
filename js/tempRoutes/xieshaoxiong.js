@@ -14,7 +14,7 @@ define(['app'],function (app) {
          * controller    : 控制器名称
          */
         $stateProvider
-
+            /*购物车 路由*/
             .state('tab.cart', {
                 url: '/cart',
                 views: {
@@ -29,7 +29,7 @@ define(['app'],function (app) {
                 }
 
             })
-            /*我的 未读消息 路由*/
+            /*购物车 确认订单 路由*/
             .state('tab.cart_orderConfirm', {
                 url: '/cart_orderConfirm',
                 views: {
@@ -38,6 +38,48 @@ define(['app'],function (app) {
                         controller: 'cartOrderController',
                         resolve: {
                             deps: app.loadControllerJs('../controller/cart/cartOrderController')
+                        }
+                    }
+
+                }
+            })
+            /*购物车 选择收货地址 路由*/
+            .state('tab.cart_selectAddress', {
+                url: '/cart_selectAddress',
+                views: {
+                    'tab-cart': {
+                        templateUrl: "views/cart/cart_selectAddress.html?_r=" + Math.random(),
+                        controller: 'cartSelectAddressController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/cart/cartSelectAddressController')
+                        }
+                    }
+
+                }
+            })
+            /*购物车 管理收货地址 路由*/
+            .state('tab.cart_manageAddress', {
+                url: '/cart_manageAddress',
+                views: {
+                    'tab-cart': {
+                        templateUrl: "views/cart/cart_manageAddress.html?_r=" + Math.random(),
+                        controller: 'cartManageAddressController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/cart/cartManageAddressController')
+                        }
+                    }
+
+                }
+            })
+            // /*购物车 管理收货地址 路由*/
+            .state('tab.cart_addAddress', {
+                url: '/cart_addAddress',
+                views: {
+                    'tab-cart': {
+                        templateUrl: "views/cart/cart_addAddress.html?_r=" + Math.random(),
+                        controller: 'cartAddAddressController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/cart/cartAddAddressController')
                         }
                     }
 

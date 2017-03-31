@@ -1,0 +1,51 @@
+<ion-view view-title="添加新地址" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
+    <ion-content style="background: #f5f5f5" set-window-height>
+        <navigation-bar title="添加新地址" righttitle="{{righttitleValue}}" on-right-click="saveAddress()"></navigation-bar>
+
+            <div class="newAddressBox">
+
+                <div class="reciever">
+                    <div class="title"><span>收货人</span></div>
+                    <input class="recieverName" type="text" placeholder="未填写"/>
+                </div>
+                <div class="mobile">
+                    <div class="title"><span>联系电话</span></div>
+                    <input class="recieverNumber" type="text" placeholder="未填写"/>
+                </div>
+                <div class="location">
+                    <div class="title">
+                        <span>所在地区</span>
+                    </div>
+                    <div class="selectAction">
+                        <div class="next"><img class="nextBtnImg" src="resource/images/icon/jiantou_right.png"></div>
+                        <div class="select-location"><span>请选择</span></div>
+                    </div>
+
+
+                </div>
+                <div class="street">
+                    <div class="title"><span>街道</span></div>
+                    <div class="selectAction">
+                        <div class="next"><img class="nextBtnImg" src="resource/images/icon/jiantou_right.png"></div>
+                        <div class="select-street"><span>请选择</span></div>
+                    </div>
+                </div>
+                <div class="detail"><input class="inputArea" type="text" placeholder="请填写详细地址,不少于5个字" min="5"/>
+
+                </div>
+            </div>
+            <div class="setDefault">
+                <div class="title"><span>设为默认</span></div>
+                 <ion-toggle class="openBtn" ng-model="item.checked" ng-checked="item.checked"></ion-toggle>
+            </div>
+
+
+    </ion-content>
+</ion-view>
+
+
+
+
+
+
+

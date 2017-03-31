@@ -12,6 +12,10 @@ define([
     //购物车部分
 	'../service/cart/cartService',
     '../service/cart/cartOrderService',
+    '../service/cart/cartSelectAddressService',
+    '../service/cart/cartManageAddressService',
+    '../service/cart/cartAddAddressService',
+
 
     //首页部分
     '../service/home/homeService',
