@@ -25,6 +25,7 @@ define(['app'], function (app) {
                 }else {
                     $scope.data = data.data;
                 }
+                console.log(data);
                 //判断是否有下页数据
                 if (data.data.length < 10) {
                     $scope.isCanPull = false;

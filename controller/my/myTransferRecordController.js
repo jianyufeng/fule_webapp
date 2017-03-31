@@ -11,7 +11,7 @@ define(['app',"css! ../../../css/my/my-transferRecord"],function(app){
             //默认页数
             $scope.page = 0;
             //默认获取商城订单
-            var type =0 ;
+            var type =3 ;
             //导航栏的点击事件 获取订单并展示
             $('.tr_nav').click(function () {
                 //重置页数
@@ -24,7 +24,7 @@ define(['app',"css! ../../../css/my/my-transferRecord"],function(app){
                 $(this).css("color", "#d39bc5");
                 switch (index) {
                     case 0:
-                        type = 0;
+                        type = 3;
                         //全部记录
                         break;
                     case 1:

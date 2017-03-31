@@ -6,11 +6,11 @@ define(['app'], function (app) {
 
         /*网络获取未读消息记录 信息*/
         service.getUnreadMsg = function ($scope, POP) {
-            POP.StartLoading();
+            //POP.StartLoading();
             //获取用户的账号
             var info = User.getInfo();
             HTTP.get(API.My.unreadMsg + "/is_notification/1/skip/" + $scope.page * 10 + "/limit/10/", {}, function (e, data) {
-                POP.EndLoading();
+                //POP.EndLoading();
                 console.log(data);
                 if (e) {
                     POP.Hint("加载失败");

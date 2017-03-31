@@ -19,7 +19,7 @@ var API = {
         // 转账记录
         remittanceRecord:serverIP+"/banks/searchRemittanceAdvices",
         // 代金券转账
-        voucherTransfer:serverIP+"/fxp/transferFxpPoints"
+        voucherTransfer:serverIP+"/fxp/transferFxpPoints",
 
         internalTransfer:serverIP+"/money/transferUserMoney",
         //转账记录

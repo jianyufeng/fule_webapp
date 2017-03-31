@@ -37,7 +37,6 @@ define([
     '../service/my/myRemittanceRecordService',
     //代金券转账
     '../service/my/myVoucherTransferService',
-    '../service/my/myInternalTransferCheckService',
     //转账记录
     '../service/my/myTransferRecordService',
     //未读消息
