@@ -1,5 +1,6 @@
 /**
- * Created by Administrator on 2017/3/30.
+ * Created by ShareLock on 2017/3/30.
+ * 条形码验证SerVice
  */
 define(['app'], function (app) {
 

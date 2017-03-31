@@ -12,6 +12,10 @@ define([
     //购物车部分
 	'../service/cart/cartService',
     '../service/cart/cartOrderService',
+    '../service/cart/cartSelectAddressService',
+    '../service/cart/cartManageAddressService',
+    '../service/cart/cartAddAddressService',
+
 
     //首页部分
     '../service/home/homeService',
@@ -24,7 +28,9 @@ define([
     //我的订单
     '../service/my/myOrderFormService',
     '../service/my/myAuthenticCheckService',
-    '../service/my/myPrepaidCardRechargeCheckService',
+    //充值卡充值
+    '../service/my/myPrepaidCardRechargeService',
+    //内部转账
     '../service/my/myInternalTransferCheckService',
 
     // 商品详情页

@@ -43,14 +43,13 @@ define(['app'],function(app){
 
                 }
 
-                var orderAmount;
-
+                var orderAmount = 0;
                 if (data.cartInfo.cart_goods != undefined && data.cartInfo.cart_goods.length > 0){
-                    console.log(123);
+
                     for (var i=0;i<data.cartInfo.cart_goods.length;i++){
+                        console.log(parseFloat(data.cartInfo.cart_goods[i].goods_price));
 
-
-                        orderAmount += data.cartInfo.cart_goods[i].goods_price;
+                        orderAmount +=parseFloat(data.cartInfo.cart_goods[i].goods_price);
 
                     }
 
