@@ -6,7 +6,7 @@ define(['app', 'css! ../../../css/my/my-remittanceRecord'],function(app){
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
-            console.log("myRemittanceRecordCheckController")
+            console.log("myRemittanceRecordController")
 
 
         });
@@ -16,5 +16,5 @@ define(['app', 'css! ../../../css/my/my-remittanceRecord'],function(app){
     ctrl.$inject = ['$scope'];
 
     /*动态注册控制器*/
-    app.registerController("myRemittanceRecordCheckController",ctrl);
+    app.registerController("myRemittanceRecordController",ctrl);
 });

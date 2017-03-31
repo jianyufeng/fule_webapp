@@ -21,6 +21,8 @@ define([
 
     //我的部分
     '../service/my/myService',
+    //我的订单
+    '../service/my/myOrderFormService',
     '../service/my/myAuthenticCheckService',
     '../service/my/myPrepaidCardRechargeCheckService',
     '../service/my/myInternalTransferCheckService',
