@@ -4,7 +4,7 @@
  */
 define(['app'], function (app) {
 
-    app.factory("myPrepaidCardRechargeCheckService", function () {
+    app.factory("myPrepaidCardRechargeService", function () {
 
         var service = {};
 
