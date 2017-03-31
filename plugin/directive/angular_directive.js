@@ -92,5 +92,19 @@ define(['app'],function(app){
 			}  
 		}
 	});
+	//视图渲染完的回调
+	app.directive('viewOnFinish', function ($timeout) {
+
+		return {
+			restrict: 'A',
+			link: function(scope, element, attr) {
+				if (scope.$last === true) {
+					$timeout(function() {
+						scope.$emit('viewOnFinish');
+					});
+				}
+			}
+		};
+	});
 
 });

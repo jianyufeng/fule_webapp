@@ -1,6 +1,6 @@
 .of_navBox {
   height: 55px;
-  width: 3000px;
+  width: 1045px;
   background-color: white;
 }
 .of_navBox .of_nav {
@@ -17,7 +17,7 @@
 .of_navBox .of_nav:last-child {
   border: none;
 }
-.of_navBox .of_shopMail {
+.of_navBox .of_nav:first-child {
   color: #d39bc5;
 }
 .of_itemBox {

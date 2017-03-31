@@ -3,25 +3,25 @@
         <!--下拉刷新-->
         <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
         <!--新消息-->
-        <a href="#/tab/my-unreadMessageDetail">
-            <div class="itemBox" ng-repeat="item in items">
-                <div class="leftIconBox">
-                    <img class="messageIcon" src="./resource/images/icon/notice.png">
+        <div class="itemBox" ng-repeat="item in datas" view-on-finish>
+            <div class="leftIconBox">
+                <img class="messageIcon" src="./resource/images/icon/notice.png">
+            </div>
+            <div class="messageBox">
+                <div class="titleBox">
+                    <div class="title ellipsis">{{item.title}}</div>
+                    <div class="time">{{item.add_time|timeFilter}}</div>
+
                 </div>
-                <div class="messageBox">
-                    <div class="titleBox">
-                        <div class="title ellipsis">山药枸杞延迟发货通知山药枸杞延迟发货通知</div>
-                        <div class="time">2015/03/23</div>
-
-                    </div>
-                    <div class="contentBox">
-                        放大师傅师傅傅师傅的放大师傅师傅的
-
-                    </div>
+                <div class="contentBox">
+                    {{item.description}}
 
                 </div>
 
             </div>
-        </a>
+        </div>
+        <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
+        <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="1%"
+                             immediate-check="false"></ion-infinite-scroll>
     </ion-content>
 </ion-view>

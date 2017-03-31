@@ -71,20 +71,25 @@
 }
 
 .tr_navBox {
-  @h: 55px;
+  @h: 54px;
   .wh(100%, @h);
   .bc(white);
-  .border(red);
+
 
   .tr_nav {
+    padding: 10px 0px; ;
     text-align: center;
     .wh(33.3%, @h);
     .f();
     .border(r);
-    line-height: @h;
+    color: #020202;
+    line-height: 34px;
   }
   .tr_nav:last-child {
     border: none;
+  }
+  .tr_nav:first-child {
+      color: #d39bc5;
   }
 }
 
@@ -130,20 +135,33 @@
     .f();
   }
 
-  .tr_RemarkName {
-    @ti: 20px;
-    color: #262626;
-    text-indent: @ti;
-    font-size: 15px;
-    max-width: 50%;
-    min-width: 90px;
-    overflow: hidden;
+  .transRemarkBox {
+    width: 100%;
 
-    .f();
+
+
+
+    .tr_RemarkName {
+      @ti: 20px;
+      color: #262626;
+      text-indent: @ti;
+      font-size: 15px;
+      max-width: 50%;
+      min-width: 90px;
+      overflow: hidden;
+      height: 50px;
+      line-height: 50px;
+      .f();
+    }
+    .tr_RemarkValue {
+      margin-top: 10px;
+      max-width: 67%;
+      color: red;
+      .f();
+      padding-bottom: 10px;
+
+    }
   }
-  .tr_RemarkValue{
-    color: red;
-    .f();
-  }
+
 }
 

@@ -26,6 +26,7 @@ require.config({
 		'API'				: '../api/Api',							   //接口配置文件加载
 		'css'				: '../lib/js/requirejs-css.min',		   //加载CSS插件
 		'text'				: '../lib/js/requirejs-text',		       //加载文本插件
+		'dotdotdot'			: '../lib/js/jquery.dotdotdot.min',		       //加载文本省略插件
 
 		'liweixuanRoutes'	   : './tempRoutes/liweixuan',				   //李蔚轩临时路由
 		'lixufengRoutes'	   : './tempRoutes/lixufeng',				   //李许峰临时路由

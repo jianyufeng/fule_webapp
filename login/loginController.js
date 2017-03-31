@@ -97,12 +97,15 @@ app.controller("loginController", function ($scope, POP) {
             $('.CardCheckBox').fadeIn(300);
 
         }
+        var loginCard = _getRandomString();
+        var length = loginCard.length;
+        for (var i = 0; i < length; i++) {
+            $('.codeName').eq(i).text(loginCard[i])
+        }
     });
 
     /*点击发送短信效验码*/
     $('.sendBox').click(function () {
-        console.log("click");
-
         //获取账号
         var user_name = $.trim($('#account').val());
         //账号不为空
@@ -111,11 +114,11 @@ app.controller("loginController", function ($scope, POP) {
             return;
         }
         var sendBox = $('.sendBox');
-        sendBox.attr("disabled",true);
+        sendBox.attr("disabled", true);
         sendBox.text("正在发送...");
         //获取验证码
-        var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/"+user_name;
-        HTTP.get(url,{},function (e, data) {
+        var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
+        HTTP.get(url, {}, function (e, data) {
             if (e) {
                 POP.Hint("data");
                 sendBox.removeAttr("disabled");
@@ -129,7 +132,6 @@ app.controller("loginController", function ($scope, POP) {
     var countdown = 8;
     //定时60s
     function setTime(obj) {
-        console.log(obj);
         if (countdown == 0) {
             obj.text("发送短信效验码");
             countdown = 8;
@@ -176,28 +178,36 @@ app.controller("loginController", function ($scope, POP) {
         var codeCheck;
         if (isCardCheck) {
             //获取密保卡验证码
-            var codeValue = "";
+            var codeValue = {};
 
-            $(".codeValue").each(function(item){
-                codeValue+=$(this).val();
-            });
-
-            console.log(codeValue);
-
-            return;
-            //密保卡验证码不为空
-            if (CommenFun.isNullObj(codeValue)) {
-                POP.Hint("密保卡 验证码不能为空");
-                return
+            for (var i = 0; i < 5; i++) {
+                var v = $.trim($(".codeValue").eq(i).val());
+                //密保卡验证码不为空
+                if (CommenFun.isNullObj(v)) {
+                    POP.Hint("密保卡 验证码不能为空");
+                    return;
+                }
+                if(isNaN(v)){
+                    POP.Hint("验证码格式不正确");
+                    return;
+                }
+                var name = $('.codeName').eq(i).text();
+                codeValue[name] = v;
             }
+            //$(".codeValue").each(function(i,item){
+            //});
             codeCheck = codeValue;
             verification_mode = "CARD"
         } else {
             //获取手机验证码
-            var code = $('#code').val();
+            var code = $.trim($('#code').val());
             //手机验证码不为空
             if (CommenFun.isNullObj(code)) {
                 POP.Hint("验证码不能为空");
+                return;
+            }
+            if(isNaN(code)){
+                POP.Hint("验证码格式不正确");
                 return;
             }
             codeCheck = code;
@@ -226,7 +236,6 @@ app.controller("loginController", function ($scope, POP) {
                 return;
             }
             var userInfo = JSON.stringify(data);
-            console.log(userInfo);
             //判断是否保存登录信息  如果保存则保存7天
             if ($('#saveLogin').is(':checked')) {
 
@@ -266,6 +275,24 @@ app.controller("loginController", function ($scope, POP) {
     $(document).on("touchend", "#login", function (event) {
         $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
     });
+
+        //随机获取 密保卡的码
+    function _getRandomString(len) {
+        var loginCard = [];
+        for (var t = 0; t < 5; t++) {
+            len = len || 1;
+            var $chars = 'ABCDEFGHJ'; // 默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1  ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678
+            var maxPos = $chars.length;
+            var randNums = Math.floor(Math.random() * 10);
+            var pwd = '';
+            for (var i = 0; i < len; i++) {
+                pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+            }
+            pwd += randNums;
+            loginCard.push(pwd)
+        }
+        return loginCard;
+    }
 
 });
 

@@ -1,19 +1,20 @@
 define(['app'], function (app) {
 
-    app.factory("myOrderFormService", function () {
+    app.factory("myTransferRecordService", function () {
 
         var service = {};
 
-        /*网络获取商城订单 信息*/
-        service.getShopOrderForm = function ($scope, POP, type) {
+        /*网络获取转账记录 信息*/
+        service.getTransferRecord = function ($scope, POP, type) {
             if ($scope.isCanPull) {
                 POP.StartLoading();
             }
 
             //获取用户的账号
             var info = User.getInfo();
-            HTTP.get(API.My.myOrderForm + "/skip/"+ $scope.page * 10 +"/limit/10/order_type/" + type + "/user_id/" + info.user_id, {}, function (e, data) {
+            HTTP.get(API.My.transferRecord + "/skip/"+ $scope.page * 10 +"/limit/10/type/" + type + "/user_id/" + info.user_id, {}, function (e, data) {
                 POP.EndLoading();
+                console.log(data);
                 if (e) {
                     POP.Hint("加载失败");
                     return;

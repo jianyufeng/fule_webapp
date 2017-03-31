@@ -21,6 +21,11 @@ var API = {
         // 代金券转账
         voucherTransfer:serverIP+"/fxp/transferFxpPoints"
 
+        internalTransfer:serverIP+"/money/transferUserMoney",
+        //转账记录
+        transferRecord:serverIP+"/_money/searchTransferAccounts" ,
+        //未读消息
+        unreadMsg:serverIP+"/article/search"
     },
 
     Cart: {

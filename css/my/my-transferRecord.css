@@ -5,21 +5,25 @@
 }
 .tr_navBox {
   width: 100%;
-  height: 55px;
+  height: 54px;
   background: white;
-  border: solid red #eee;
 }
 .tr_navBox .tr_nav {
+  padding: 10px 0px;
   text-align: center;
   width: 33.3%;
-  height: 55px;
+  height: 54px;
   float: left;
   border-right: solid 1px #eee;
   border: solid r #eee;
-  line-height: 55px;
+  color: #020202;
+  line-height: 34px;
 }
 .tr_navBox .tr_nav:last-child {
   border: none;
+}
+.tr_navBox .tr_nav:first-child {
+  color: #d39bc5;
 }
 .tr_Box {
   margin: 5px;
@@ -61,16 +65,24 @@
   margin-left: 5px;
   float: left;
 }
-.tr_itemBox .tr_RemarkName {
+.tr_itemBox .transRemarkBox {
+  width: 100%;
+}
+.tr_itemBox .transRemarkBox .tr_RemarkName {
   color: #262626;
   text-indent: 20px;
   font-size: 15px;
   max-width: 50%;
   min-width: 90px;
   overflow: hidden;
+  height: 50px;
+  line-height: 50px;
   float: left;
 }
-.tr_itemBox .tr_RemarkValue {
+.tr_itemBox .transRemarkBox .tr_RemarkValue {
+  margin-top: 10px;
+  max-width: 67%;
   color: red;
   float: left;
+  padding-bottom: 10px;
 }

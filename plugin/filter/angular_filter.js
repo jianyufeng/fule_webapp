@@ -134,5 +134,12 @@ define(['app'], function (app) {
 
     });
 
-
+    /*时间戳 过滤器*/
+    app.filter('timeFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            var now = new Date(parseInt(v) * 1000);
+            return now.toLocaleDateString();
+        }
+    });
 });
