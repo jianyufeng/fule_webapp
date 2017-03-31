@@ -8,7 +8,7 @@ define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'],function(app){
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
             console.log("myPrepaidCardRechargeCheckController")
-
+            //http://ecommerce.38zs.net:66/docs/index.php#594_28_14   文档接口
 
         });
     }
