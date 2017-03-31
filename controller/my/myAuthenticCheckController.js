@@ -1,5 +1,6 @@
 /**
- * Created by Administrator on 2017/3/24.
+ * Created by ShareLock on 2017/3/24.
+ * 条形码验证Controller
  */
 define(['app', 'css! ../../../css/my/my-authenticCheck'], function (app) {
     function ctrl($scope, myAuthenticCheckService,POP) {

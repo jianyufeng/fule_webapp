@@ -7,7 +7,7 @@ define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'],function(app){
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
-            console.log("myPrepaidCardRechargeCheckController")
+            console.log("myPrepaidCardRechargeController")
             //http://ecommerce.38zs.net:66/docs/index.php#594_28_14   文档接口
 
 
@@ -15,8 +15,8 @@ define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'],function(app){
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope','myPrepaidCardRechargeCheckService'];
+    ctrl.$inject = ['$scope','myPrepaidCardRechargeService'];
 
     /*动态注册控制器*/
-    app.registerController("myPrepaidCardRechargeCheckController",ctrl);
+    app.registerController("myPrepaidCardRechargeController",ctrl);
 });
