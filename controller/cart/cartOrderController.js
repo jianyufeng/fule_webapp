@@ -20,13 +20,34 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         $(".addressContent").click(function(){
             alert("点击收货信息");
         });
-        $(".orderDeliveryModel").click(function(){
-            alert("点击配送方式");
 
+        $(".orderDeliveryModel").click(function(){
+        $(".popBg").css({
+             display: "block", height: $(document).height()
+          });
+            var $popBox = $(".popBox");
+           $popBox.css({
+               display: "block"
+           }) ;
+            $(".closeButton").click(function () {
+                $(".popBg,.popBox").css("display", "none");
+            });
         });
+
         $(".orderSendGoodsAddress").click(function(){
-            alert("点击发货地址");
+            $(".popBg").css({
+                display: "block", height: $(document).height()
+            });
+            var $popAddressBox = $(".popAddressBox");
+            $popAddressBox.css({
+                display: "block"
+            }) ;
+
+            $(".close").click(function () {
+                $(".popBg,.popAddressBox").css("display", "none");
+            });
         });
+
         $(".orderPayModel").click(function(){
             alert("点击支付方式");
         });

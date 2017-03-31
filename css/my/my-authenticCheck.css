@@ -68,4 +68,14 @@ ion-content .selectBox .res {
   text-align: center;
   width: 100%;
   clear: both;
+  display: none;
+}
+ion-content .selectBox .ser {
+  text-indent: 25px;
+  margin-top: 25%;
+  width: 100%;
+  clear: both;
+  letter-spacing: 1px;
+  padding: 10px;
+  display: none;
 }

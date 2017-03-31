@@ -18,37 +18,41 @@
 
 				<ion-scroll style="width: 100%;height:100%;">
 
-					<div class="buyerItem" on-swipe-left="swipLeft(0)" on-swipe-right="swipRight(0)" ng-repeat="cart_good in cart_goods">
+						<div class="buyerItem" on-swipe-left="swipLeft($index,cart_good.id)" on-swipe-right="swipRight($index,cart_good.id)" ng-repeat="cart_good in cart_goods">
 
-						<div class="deleteBox">删除</div>
+							<div class="deleteBox" id="{{cart_good.id}}">删除</div>
 
-						<div class="buyerItemMain">
+							<div class="buyerItemMain">
 
-							<div class="selectBtnBox">
-								<div class="selectBtn">
-									<img src="resource/images/icon/shoppingcar_xuanz.png">
-								</div>
-							</div>
-							<div class="cartGoodsImage">
-								<img src="resource/images/goods_11.png" />
-							</div>
-							<div class="cartGoodsInfo">
-								<div class="cartGoodsTitleBox"><span>{{cart_good.goods_name}}</span></div>
-								<div class="cartGoodsInfoBox">
-									<div class="cartGoodsMoneyBox">
-										<span><strong>¥ </strong><b>{{cart_good.shop_price}}</b></span>
+								<!--<div class="selectBtnBox">
+									<div class="selectBtn">
+										<img src="resource/images/icon/shoppingcar_xuanz.png">
 									</div>
-									<div class="cartGoodsActionBox">
-										<img class="addBtn" src="resource/images/icon/shoppingcar_add.png" />
-										<p>{{cart_good.goods_number}}</p>
-										<img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png" />
+								</div>-->
+								<div class="cartGoodsImage">
+									<img src="resource/images/goods_11.png" />
+								</div>
+								<div class="cartGoodsInfo">
+									<div class="cartGoodsTitleBox"><span>{{cart_good.goods_name}}</span></div>
+									<div class="cartGoodsInfoBox">
+										<div class="cartGoodsMoneyBox">
+											<span><strong>¥ </strong><b>{{cart_good.goods_price}}</b></span>
+										</div>
+										<div class="cartArrtGoodsBox">
+											<span ng-repeat="attr in cart_good.attrInfo">{{attr.attr_name}} : {{attr.attr_value}}&nbsp;&nbsp;&nbsp;</span>
+										</div>
+										<div class="cartGoodsActionBox" data-price="{{cart_good.goods_price/cart_good.goods_number}}" id="{{cart_good.goods_id}}" name="{{cart_good.id}}">
+											<img class="addBtn" src="resource/images/icon/shoppingcar_add.png" />
+											<p class="changeBtn"><input value="{{cart_good.goods_number}}" /></p>
+											<img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png" />
+										</div>
 									</div>
 								</div>
+
 							</div>
 
 						</div>
 
-					</div>
 				</ion-scroll>
 
 
@@ -56,13 +60,17 @@
 
 			<div class="hintBox">
 
-			<span>此笔订单金额还差17314元,即可享受高级志愿者折扣10000减5000</span>
+			<span>
+				<i ng-if="cart_info.content == undefined">购物车中暂无信息</i>
+
+				<i ng-if="cart_info.content != undefined">{{cart_info.content}}</i>
+			</span>
 
 			</div>
 
 			<div class="amountBox">
 
-				<div class="selectBox">
+				<!--<div class="selectBox">
 					<div class="allSelectArea">
 						<div class="allSelectBtn">
 							<img src="resource/images/icon/shoppingcar_xuanz.png">
@@ -72,10 +80,10 @@
 						<span>全选</span>
 					</div>
 
+				</div>-->
+				<div class="valueBox">合计:&nbsp;&nbsp;<span class="price">¥ {{countPrice()}} </span>
 				</div>
-				<div class="valueBox">合计:&nbsp;&nbsp;<span class="price">¥ 9999 </span> <apan class="info">&nbsp;不含运费</apan>
-				</div>
-				<div class="accountBox">结算 ( 0 )</div>
+				<div class="accountBox">结算</div>
 			</div>
 
 

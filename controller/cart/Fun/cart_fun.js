@@ -42,42 +42,92 @@ define(function(){
     }
 
     cartFun.addCartGoodsBtn = function(fn){
-        $(".addBtn").click(function(){
-			
+
+		$(document).on("click",".addBtn",function(){
+      
+		
 			//获取单价
-			var moneyValue = parseInt($(this).parent().prev().find("span b").text());
+			var moneyValue = parseInt($(this).parent().data("price"));
 
 			//获取当前的数量
-			var nowNum = parseInt($(this).next().text());
+			var nowNum = parseInt($(this).next().find("input").val());
+
+			//获取商品ID
+			var gid = $(this).parent().attr("id");
+
+			//获取购物车ID
+			var cartId = $(this).parent().attr("name");
 
 			nowNum++;
 
 			$(this).next().text(nowNum);
 
+			countMoneyValue = moneyValue * nowNum;
+
 			//重新计算总价
-            fn(moneyValue,nowNum);
+            fn(countMoneyValue,nowNum,gid,cartId);
 
 		});
     }
 
-    cartFun.reduceCartGoodsBtn = function(fn){
-        $(".reduceBtn").click(function(){
+    cartFun.reduceCartGoodsBtn = function(POP,fn){
+
+		$(document).on("click",".reduceBtn",function(){
 
 			//获取单价
-			var moneyValue = parseInt($(this).parent().prev().find("span b").text());
+			var moneyValue = parseInt($(this).parent().data("price"));
 
 			//获取当前的数量
-			var nowNum = parseInt($(this).prev().text());
+			var nowNum = parseInt($(this).prev().find("input").val());
+
+			//获取商品ID
+			var gid = $(this).parent().attr("id");
+
+			//获取购物车ID
+			var cartId = $(this).parent().attr("name");
 
 			nowNum--;
 
+			if(nowNum <= 0){
+				POP.Hint("数量不能小余1");
+				return;
+			}
+
 			$(this).prev().text(nowNum);
 
+			countMoneyValue = moneyValue * nowNum;
+
 			//重新计算总价
-            fn(moneyValue,nowNum);
+            fn(countMoneyValue,nowNum,gid,cartId);
+
+
 
 		});
     }
+
+	cartFun.changeCartGoodsBtn = function(fn){
+		$(document).on("change",".changeBtn input",function(){
+
+			//获取单价
+			var moneyValue = parseInt($(this).parent().parent().data("price"));
+
+			//获取当前的数量
+			var nowNum = parseInt($(this).val());
+
+			//获取商品ID
+			var gid = $(this).parent().parent().attr("id");
+
+			//获取购物车ID
+			var cartId = $(this).parent().parent().attr("name");
+
+			countMoneyValue = moneyValue * nowNum;
+
+			//重新计算总价
+            fn(countMoneyValue,nowNum,gid,cartId);
+			
+		});
+	}
+	
 
     cartFun.cartSideslipping = function(isOpen){
 
@@ -101,11 +151,13 @@ define(function(){
     }
 
     cartFun.deleteCartBtn = function(fn){
-        $(".deleteBox").click(function(){
-		    var _idx = $(".deleteBox").index(this);
-            $(this).parent().slideUp(200,function(){
-                fn(_idx);
-            });
+       
+		$(document).on("click",".deleteBox",function(){
+			var _idx = $(".deleteBox").index(this);
+		    var _id = $(this).attr("id");
+           // $(this).parent().slideUp(200,function(){
+                fn(_idx,_id);
+           // });
 		});
     }
 

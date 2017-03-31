@@ -1,6 +1,6 @@
 define(['app', './Fun/my_fun'], function (app, my_fun) {
 
-    function ctrl($scope, myService, POP) {
+    function ctrl($scope, myService, POP,$state) {
         console.log("我的界面控制器...");
 
         var isLogin = User.isLogin();
@@ -35,6 +35,13 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
             location.href="./login/login.html";
         };
 
+        // 跳转到内部转账页面
+        $scope.startPage=function(){
+            var userName=$scope.userInfo.user_name;
+            var userMoney=$scope.userInfo.user_money;
+            $state.go("tab.my-internalTransfer",{"userName":userName,"userMoney":userMoney});
+
+        }
 
         ////上拉弹出框
         //$scope.selectIcon = function () {
@@ -50,7 +57,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myService', 'POP'];
+    ctrl.$inject = ['$scope', 'myService', 'POP','$state'];
 
     /*动态注册控制器*/
     app.registerController('myController', ctrl);

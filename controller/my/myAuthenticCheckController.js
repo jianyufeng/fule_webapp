@@ -1,20 +1,24 @@
 /**
  * Created by Administrator on 2017/3/24.
  */
-define(['app', 'css! ../../../css/my/my-authenticCheck'],function(app){
-    function ctrl($scope) {
+define(['app', 'css! ../../../css/my/my-authenticCheck'], function (app) {
+    function ctrl($scope, myAuthenticCheckService,POP) {
+        $scope.barCodeGoods={};
+        /**
+         * 查询商品码
+         */
+        $scope.searchBarCodeGoods = function () {
+            var code_password = $scope.barCodeGoods.code;
+            var userId=User.getInfo().user_id;
 
-        $scope.$on('$ionicView.loaded', function () {
-            /*获取数据*/
-            console.log("myAuthenticCheckController")
+            myAuthenticCheckService.searchBarCodeGoods($scope,code_password,userId,POP);
+        }
 
-
-        });
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope'];
+    ctrl.$inject = ['$scope', 'myAuthenticCheckService','POP'];
 
     /*动态注册控制器*/
-    app.registerController("myAuthenticCheckController",ctrl);
+    app.registerController("myAuthenticCheckController", ctrl);
 });

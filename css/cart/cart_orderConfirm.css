@@ -104,7 +104,7 @@
   height: 60px;
   margin-top: 0px;
   float: left;
-  text-align: 18px;
+  font-size: 16px;
 }
 .orderBox .orderDetailBox .scrollV .addressBox .colorLine {
   width: 100%;
@@ -398,4 +398,150 @@
 .payAcountBox .listInfo .payGoodsAcount span {
   color: #9e9e9e;
   font-size: 10px;
+}
+.popBg {
+  background-color: #000;
+  position: absolute;
+  z-index: 99;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  -moz-opacity: 0.5;
+}
+.popBox {
+  width: 100%;
+  height: 60%;
+  background: white;
+  position: absolute;
+  z-index: 99999;
+  bottom: 0;
+  left: 0;
+}
+.popBox .topTitle {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+.popBox .deliveryBox {
+  width: 95%;
+  height: 35px;
+  margin-top: 10px;
+}
+.popBox .deliveryBox .deliveryContent {
+  margin-left: 15px;
+  margin-top: 20px;
+  border-bottom: solid 1px #eee;
+}
+.popBox .deliveryBox .deliveryChoice {
+  float: right;
+  margin-top: -20px;
+}
+.popBox .deliveryBox .deliveryChoice img {
+  width: 20px;
+  height: 20px;
+}
+.popBox .bottomBox {
+  width: 100%;
+  height: 80px;
+  float: left;
+  position: absolute;
+  bottom: 0;
+}
+.popBox .bottomBox .bottomChoice {
+  margin-left: 15px;
+  width: 20px;
+  height: 20px;
+}
+.popBox .bottomBox .bottomChoice img {
+  width: 20px;
+  height: 20px;
+}
+.popBox .bottomBox .content {
+  position: absolute;
+  left: 40px;
+  top: 0;
+}
+.popBox .bottomBox .closeButton {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  line-height: 50px;
+  background: #d79ac4 ;
+  color: white;
+}
+.popAddressBox {
+  width: 100%;
+  height: 60%;
+  background: white;
+  position: absolute;
+  z-index: 99999;
+  bottom: 0;
+  left: 0;
+}
+.popAddressBox .addressTitle {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  line-height: 50px;
+}
+.popAddressBox .addressBox {
+  width: 90%;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 15px;
+  border-bottom: solid 1px #eee;
+}
+.popAddressBox .addressBox .bottomContent {
+  color: dimgray;
+}
+.popAddressBox .addressBox .choice {
+  float: right;
+  margin-top: -20px;
+}
+.popAddressBox .addressBox .choice img {
+  width: 20px;
+  height: 20px;
+}
+.popAddressBox .bottomBox {
+  width: 100%;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+}
+.popAddressBox .bottomBox .inputAddress {
+  position: absolute;
+  width: 70%;
+  height: 40px;
+  left: 15px;
+  top: -30px;
+  border: solid 1px #d79ac4;
+  border-radius: 5px;
+}
+.popAddressBox .bottomBox .search {
+  position: absolute;
+  width: 18%;
+  height: 40px;
+  right: 15px;
+  top: -30px;
+  background: #d79ac4 ;
+  color: white;
+  border-radius: 5px;
+  line-height: 40px;
+  text-align: center;
+}
+.popAddressBox .bottomBox .close {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  line-height: 50px;
+  background: #d79ac4 ;
+  color: white;
 }

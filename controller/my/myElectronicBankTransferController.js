@@ -1,12 +1,12 @@
 /**
  * Created by Administrator on 2017/3/24.
  */
-define(['app','css! ../../../css/my/my-internalTransfer'],function(app){
+define(['app',"css! ../../../css/my/myElectronicBankTransfer"],function(app){
     function ctrl($scope) {
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
-            console.log("myInternalTransferCheckController")
+            console.log("myElectronicBankTransferController")
 
 
         });
@@ -16,5 +16,5 @@ define(['app','css! ../../../css/my/my-internalTransfer'],function(app){
     ctrl.$inject = ['$scope'];
 
     /*动态注册控制器*/
-    app.registerController("myInternalTransferCheckController",ctrl);
+    app.registerController("myElectronicBankTransferController",ctrl);
 });
