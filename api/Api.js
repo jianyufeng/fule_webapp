@@ -8,14 +8,22 @@ var API = {
     },
 
     My: {
-        myInfo: serverIP + "/_my/search"
+        myInfo: serverIP + "/_my/search",
+        myOrderForm: serverIP + "/order/searchList",
+        myInfo: serverIP + "/_my/search",
+        // 查询商品条形码
+        searchBarCodeGoods:serverIP+"/barCode/searchBarCodeGoods",
+        // 内部转账
+        internalTransfer:serverIP+"/money/transferUserMoney"
     },
 
     Cart: {
         cartSearch: serverIP + "/_cart/search",
         cartAdd: serverIP + "/_cart/addGoods",
         orderInfo:serverIP + "/_goods/payment",
-        shippingAddress:serverIP + "/_user/searchUserAddress"
+        shippingAddress:serverIP + "/_user/searchUserAddress",
+        updateCart : serverIP + "/cart/updateCartGoods",
+        deleteCart : serverIP + "/cart/deleteCartGoods"
 
     },
 
