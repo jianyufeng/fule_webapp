@@ -1,0 +1,125 @@
+.etr_box {
+  height: auto;
+  background: white;
+  margin: 5px;
+}
+.ert_AccountBox {
+  height: 56px;
+  width: 100%;
+  line-height: 56px;
+  border-bottom: solid 1px #eee;
+}
+.ert_AccountBox .ert_AccountName {
+  float: left;
+  height: 56px;
+  width: 35%;
+  padding-left: 5%;
+}
+.ert_AccountBox .ert_AccountVal {
+  float: left;
+  height: 56px;
+  width: 65%;
+}
+.ert_transformBankBox {
+  width: 100%;
+  height: auto;
+}
+.ert_transformBankBox .ert_TBName {
+  padding-top: 5%;
+  float: left;
+  padding-left: 5%;
+  width: 35%;
+}
+.ert_transformBankBox .ert_TBContentBox {
+  float: left;
+  height: auto;
+  width: 65%;
+}
+.ert_transformBankBox .ert_TBContentBox .ert_TBCItemBox {
+  width: 100%;
+  height: 60px;
+}
+.ert_transformBankBox .ert_TBContentBox .ert_TBCItemBox .ert_BankIconBox {
+  width: 100%;
+  height: 35px;
+}
+.ert_transformBankBox .ert_TBContentBox .ert_TBCItemBox .ert_BankIconBox .ert_selectBank {
+  width: 15px;
+  height: 15px;
+}
+.ert_transformBankBox .ert_TBContentBox .ert_TBCItemBox .ert_BankIconBox .ert_BankIcon {
+  margin-left: 10px;
+  margin-top: 8px;
+  width: 100px;
+  height: 20px;
+}
+.ert_transformBankBox .ert_TBContentBox .ert_TBCItemBox .ert_BankAccountBox {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+}
+.ert_transformBankBox .ert_TBContentBox .ert_TBCItemBox .ert_BankAccountBox .etr_BankName {
+  font-size: 12px;
+}
+.ert_transformBankBox .ert_TBContentBox .ert_TBCItemBox .ert_BankAccountBox .etr_BankAccount {
+  font-size: 12px;
+  margin-left: 5%;
+}
+.ert_input {
+  margin-top: 9px;
+  width: 100%;
+  height: 100%;
+}
+.ert_TRVoucherBox {
+  height: 75px;
+  width: 100%;
+  line-height: 75px;
+  border-bottom: solid 1px #eee;
+}
+.ert_TRVoucherBox .ert_TRVoucherName {
+  width: 40%;
+  float: left;
+  padding-left: 5%;
+}
+.ert_TRVoucherBox .ert_TRVoucherVal {
+  width: 60%;
+  float: left;
+  height: 75px;
+  line-height: 14px;
+  position: relative;
+}
+.ert_TRVoucherBox .ert_TRVoucherVal .ert_TRVoucherValTop {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+.ert_TRVoucherBox .ert_TRVoucherVal .ert_TRVoucherValTop .ert_upIcon {
+  margin-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  border-radius: 2px;
+  height: 30px;
+  background-color: #d39bc5;
+  color: white;
+  font-size: 12px;
+}
+.ert_TRVoucherBox .ert_TRVoucherVal .ert_TRVoucherValTop .ert_upFile {
+  font-size: 12px;
+  color: #999c9c;
+}
+.ert_TRVoucherBox .ert_TRVoucherVal .ert_TRVoucherValBottom {
+  width: 100%;
+  height: 30px;
+  font-size: 12px;
+  color: #999c9c;
+}
+.ert_confirm {
+  margin: 20px 3% ;
+  width: 94%;
+  height: 40px;
+  background-color: #d39bc5;
+  color: white;
+  border: none;
+  border-radius: 2px;
+}
