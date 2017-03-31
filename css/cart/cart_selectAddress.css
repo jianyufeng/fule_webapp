@@ -2,18 +2,22 @@
   width: 100%;
   position: relative;
 }
-.shippingAddressBox .shippingAddressItem {
+.shippingAddressBox .shippingAddressScroll {
+  width: 100%;
+  height: 100%;
+}
+.shippingAddressBox .shippingAddressScroll .shippingAddressItem {
   width: 100%;
   height: 100px;
   background: white;
   margin-top: 2px;
 }
-.shippingAddressBox .shippingAddressItem .userInfo {
+.shippingAddressBox .shippingAddressScroll .shippingAddressItem .userInfo {
   width: 100%;
   height: 30px;
   float: left;
 }
-.shippingAddressBox .shippingAddressItem .userInfo .name {
+.shippingAddressBox .shippingAddressScroll .shippingAddressItem .userInfo .name {
   width: 50%;
   height: 30px;
   float: left;
@@ -21,23 +25,23 @@
   text-align: left;
   padding-left: 10px;
 }
-.shippingAddressBox .shippingAddressItem .userInfo .name span {
+.shippingAddressBox .shippingAddressScroll .shippingAddressItem .userInfo .name span {
   text-align: center;
   font-size: 14px;
 }
-.shippingAddressBox .shippingAddressItem .userInfo .mobile {
+.shippingAddressBox .shippingAddressScroll .shippingAddressItem .userInfo .mobile {
   width: 50%;
   height: 30px;
   float: left;
   line-height: 30px;
   text-align: right;
 }
-.shippingAddressBox .shippingAddressItem .userInfo .mobile span {
+.shippingAddressBox .shippingAddressScroll .shippingAddressItem .userInfo .mobile span {
   padding-right: 10px;
   text-align: center;
   font-size: 14px;
 }
-.shippingAddressBox .shippingAddressItem .shippingAddressContent {
+.shippingAddressBox .shippingAddressScroll .shippingAddressItem .shippingAddressContent {
   width: 100%;
   height: 70px;
   padding-left: 10px;
@@ -47,6 +51,6 @@
   font-size: 14px;
   float: left;
 }
-.shippingAddressBox .shippingAddressItem .shippingAddressContent span {
+.shippingAddressBox .shippingAddressScroll .shippingAddressItem .shippingAddressContent span {
   color: #BB55A0;
 }

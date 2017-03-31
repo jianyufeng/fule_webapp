@@ -71,7 +71,7 @@ define(['app'],function (app) {
 
                 }
             })
-            /*购物车 管理收货地址 路由*/
+            // /*购物车 管理收货地址 路由*/
             .state('tab.cart_addAddress', {
                 url: '/cart_addAddress',
                 views: {

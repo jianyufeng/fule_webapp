@@ -1,0 +1,180 @@
+.newAddressBox {
+  width: 100%;
+  height: 312px;
+  float: left;
+  background: #f5f5f5;
+}
+.newAddressBox .reciever {
+  width: 100%;
+  height: 50px;
+  float: left;
+  margin-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 50px;
+  background: white;
+}
+.newAddressBox .reciever .title {
+  width: 100px;
+  height: 50px;
+  float: left;
+}
+.newAddressBox .reciever .title span {
+  font-size: 14px;
+}
+.newAddressBox .reciever .recieverName {
+  width: 100px;
+  height: 50px;
+  float: right;
+}
+.newAddressBox .mobile {
+  width: 100%;
+  height: 50px;
+  float: left;
+  margin-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 50px;
+  background: white;
+}
+.newAddressBox .mobile .title {
+  width: 100px;
+  height: 50px;
+  float: left;
+}
+.newAddressBox .mobile .title span {
+  font-size: 14px;
+}
+.newAddressBox .mobile .recieverNumber {
+  width: 100px;
+  height: 50px;
+  float: right;
+}
+.newAddressBox .location {
+  width: 100%;
+  height: 50px;
+  float: left;
+  margin-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 50px;
+  background: white;
+}
+.newAddressBox .location .title {
+  width: 100px;
+  height: 50px;
+  float: left;
+}
+.newAddressBox .location .title span {
+  font-size: 14px;
+}
+.newAddressBox .location .selectAction {
+  width: 180px;
+  height: 50px;
+  float: right;
+  text-align: right;
+}
+.newAddressBox .location .selectAction .next {
+  width: 30px;
+  height: 50px;
+  float: right;
+}
+.newAddressBox .location .selectAction .next .nextBtnImg {
+  width: 10px;
+  height: 20px;
+  margin-top: 15px;
+}
+.newAddressBox .location .selectAction .select-location {
+  width: 150px;
+  height: 50px;
+  float: right;
+  text-align: right;
+}
+.newAddressBox .location .selectAction .select-location span {
+  font-size: 14px;
+  color: #BCBCBC;
+}
+.newAddressBox .street {
+  width: 100%;
+  height: 50px;
+  float: left;
+  margin-bottom: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 50px;
+  background: white;
+}
+.newAddressBox .street .title {
+  width: 100px;
+  height: 50px;
+  float: left;
+}
+.newAddressBox .street .title span {
+  font-size: 14px;
+}
+.newAddressBox .street .selectAction {
+  width: 180px;
+  height: 50px;
+  float: right;
+  text-align: right;
+}
+.newAddressBox .street .selectAction .next {
+  width: 30px;
+  height: 50px;
+  float: right;
+}
+.newAddressBox .street .selectAction .next .nextBtnImg {
+  width: 10px;
+  height: 20px;
+  margin-top: 15px;
+}
+.newAddressBox .street .selectAction .select-street {
+  width: 150px;
+  height: 50px;
+  float: right;
+  text-align: right;
+}
+.newAddressBox .street .selectAction .select-street span {
+  font-size: 14px;
+  color: #BCBCBC;
+}
+.newAddressBox .detail {
+  width: 100%;
+  height: 100px;
+  float: left;
+  margin-bottom: 3px;
+}
+.newAddressBox .detail .inputArea {
+  width: 100%;
+  height: 100px;
+  text-align: left;
+  color: #BCBCBC;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 14px;
+}
+.setDefault {
+  width: 100%;
+  height: 50px;
+  margin-top: 10px;
+  background: white;
+  float: left;
+  padding-left: 15px;
+  padding-right: 15px;
+  line-height: 50px;
+}
+.setDefault .title {
+  width: 100px;
+  height: 50px;
+  float: left;
+}
+.setDefault .title span {
+  font-size: 14px;
+}
+.setDefault .openBtn {
+  width: 49px;
+  height: 49px;
+  float: right;
+  border: none;
+  margin-top: 0px;
+}

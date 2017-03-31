@@ -53,6 +53,18 @@ define(['app'],function(app){
 	});
 
 	/*
+	 * 设置高度与屏幕高度一致(有导航条)
+	 */
+	app.directive('setWindowHeightNoNavigation',function($window){
+		return{
+			restrict:'AE',
+			link:function(scope,element,attr){
+				element[0].style.height=($window.innerHeight - 60)+'px';
+			}
+		}
+	});
+
+	/*
 	 * 自定义导航条
  	 */
 	app.directive('navigationBar',function(){  
