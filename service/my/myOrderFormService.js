@@ -6,7 +6,7 @@ define(['app'], function (app) {
 
         /*网络获取商城订单 信息*/
         service.getShopOrderForm = function ($scope, POP, type) {
-            if ($scope.isCanPull) {
+            if (!$scope.isCanPull) {
                 POP.StartLoading();
             }
 

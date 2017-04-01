@@ -42,7 +42,7 @@ define(['app'], function (app) {
             })
             /*我的 未读消息详情 路由*/
             .state('tab.my-unreadMessageDetail', {
-                url: '/my-unreadMessageDetail',
+                url: '/my-unreadMessageDetail/:title/:add_time/:create_user_name/:article_id',
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-unreadMessageDetail.html?_r=" + Math.random(),

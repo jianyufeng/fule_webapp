@@ -1,6 +1,16 @@
 <ion-view view-title="未读消息详情" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <ion-content>
-        <div>未读消息详情</div>
+        <div class="umd_Box">
+            <div class="umd_titleBox" >
+               {{title}}
+            </div>
+            <div class="umd_belongBox">
+                <div class="umd_createUser">{{createUser}}</div>
+                <div class="umd_createTime">{{createTime}}</div>
+            </div>
+            <div ng-bind-html="content"></div>
+        </div>
+
     </ion-content>
 </ion-view>
