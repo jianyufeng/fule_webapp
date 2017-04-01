@@ -2,35 +2,289 @@
 
     <ion-content>
         <navigation-bar title="充值列表"></navigation-bar>
-        <div>
+        <div class="contentBox">
 
-            <div>
-                电子币卡
+            <div class="title">
+                <div class="leftCard">电子币卡 RechargeableCard </div>
+                <div class="line"></div>
+                <div class="rightCard">换购代金券卡</div>
+            </div>
+            <div class="itemCardBox">
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        卡号:
+                    </div>
+                    <div class="itemRowRight">
+                        {{ card_no }}
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        金额:
+                    </div>
+                    <div class="itemRowRight">
+                        {{user_money || fxp_money}}
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        发卡方式:
+                    </div>
+                    <div class="itemRowRight">
+                        {{cardType}}
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        关联活动:
+                    </div>
+                    <div class="itemRowRight">
+                      {{act_id}}
+                    </div>
+
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        使用时间:
+                    </div>
+                    <div class="itemRowRight">
+                     {{abc}}
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        状态:
+                    </div>
+                    <div class="itemRowRight" style="color: red">
+                        {{ aabb }}
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        备注：
+                    </div>
+                    <div class="itemRowRight" style="color: red">
+                       {{ bbcc}}
+                    </div>
+                </div>
             </div>
 
-            <div>
-                换购代金券
+            <div class="itemCardBox">
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        卡号:
+                    </div>
+                    <div class="itemRowRight">
+                        cs000001
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        金额:
+                    </div>
+                    <div class="itemRowRight">
+                        10.00
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        发卡方式:
+                    </div>
+                    <div class="itemRowRight">
+                        电子币卡
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        关联活动:
+                    </div>
+                    <div class="itemRowRight">
+                        “海上丝路行”
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        使用时间:
+                    </div>
+                    <div class="itemRowRight">
+                        2017-04-01 10:12:32
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        状态:
+                    </div>
+                    <div class="itemRowRight" style="color: red">
+                        已充值
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        备注：
+                    </div>
+                    <div class="itemRowRight" style="color: red">
+
+                    </div>
+                </div>
             </div>
 
-        </div>
-        <div>卡号:</div>
-        <div>cs00000001</div>
-        <div>金额:</div>
-        <div>10.00</div>
-        <div>发卡方式:</div>
-        <div>电子币卡</div>
-        <div>关联活动:</div>
-        <div>cs00000001</div>
-        <div>使用时间:</div>
-        <div>2017-03-18 10:09:36</div>
-        <div>状态:</div>
-        <div>已充值</div>
-        <div>备注:</div>
-        <div>cs00000001</div>
+            <div class="itemCardBox">
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        卡号:
+                    </div>
+                    <div class="itemRowRight">
+                        cs000001
+                    </div>
+                    <div class="line"></div>
+                </div>
 
-        <div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        金额:
+                    </div>
+                    <div class="itemRowRight">
+                        10.00
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        发卡方式:
+                    </div>
+                    <div class="itemRowRight">
+                        电子币卡
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        关联活动:
+                    </div>
+                    <div class="itemRowRight">
+                        “海上丝路行”
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        使用时间:
+                    </div>
+                    <div class="itemRowRight">
+                        2017-04-01 10:12:32
+                    </div>
+                    <div class="line"></div>
+                </div>
 
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        状态:
+                    </div>
+                    <div class="itemRowRight" style="color: red">
+                        已充值
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        备注：
+                    </div>
+                    <div class="itemRowRight" style="color: red">
+
+                    </div>
+                </div>
+            </div>
+            <div class="itemCardBox">
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        卡号:
+                    </div>
+                    <div class="itemRowRight">
+                        cs000001
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        金额:
+                    </div>
+                    <div class="itemRowRight">
+                        10.00
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        发卡方式:
+                    </div>
+                    <div class="itemRowRight">
+                        电子币卡
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        关联活动:
+                    </div>
+                    <div class="itemRowRight">
+                        “海上丝路行”
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        使用时间:
+                    </div>
+                    <div class="itemRowRight">
+                        2017-04-01 10:12:32
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        状态:
+                    </div>
+                    <div class="itemRowRight" style="color: red">
+                        已充值
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+
+                <div class="itemRowBox">
+                    <div class="itemRowLeft">
+                        备注：
+                    </div>
+                    <div class="itemRowRight" style="color: red">
+
+                    </div>
+                </div>
+            </div>
         </div>
+
 
     </ion-content>
 </ion-view>

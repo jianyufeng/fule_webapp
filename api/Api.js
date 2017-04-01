@@ -25,9 +25,9 @@ var API = {
         //未读消息
         unreadMsg:serverIP+"/article/search",
         //电子币转账记录
-        searchUserAccoun:serverIP+"/_money/searchUserAccount",
+        searchUserAccoun:serverIP+"/userCard/searchLogs",
         //查询辅销币流水
-        searchAccountLog:serverIP+"/fxp/searchAccountLog"
+        searchAccountLog:serverIP+"/fxp/searchIntergralLog"
     },
 
     Cart: {
