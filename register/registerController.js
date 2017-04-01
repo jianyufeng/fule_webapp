@@ -1,12 +1,93 @@
 var app = angular.module("registerApp",['ionic']);
 
+/*
+ * 作用:弹出框服务封装
+ */
+app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
+
+    var service = {};
+
+    //确认弹出框
+    service.Confirm = function (content, ok) {
+        var confirmPopup = $ionicPopup.confirm({
+            title: '确认操作',
+            template: content,
+            cancelText: '取消',
+            okText: '确认'
+        });
+        confirmPopup.then(function (res) {
+            if (res) {
+                ok();
+            }
+        });
+    };
+
+    //普通信息提示弹出框
+    service.Alert = function (content) {
+        var alertPopup = $ionicPopup.alert({
+            title: '提示信息',
+            template: content
+        });
+
+        alertPopup.then(function (res) {
+
+        });
+    };
+
+    //上拉弹出框
+    service.ActionSheet = function (title, buttonArr, fns) {
+
+        var buttonJson = [];
+
+        for (var i = 0; i < buttonArr.length; i++) {
+            var tempJson = {text: buttonArr[i]};
+            buttonJson.push(tempJson);
+        }
+
+        // 显示操作表
+        $ionicActionSheet.show({
+            buttons: buttonJson,
+            titleText: title,
+            cancelText: '关闭',
+            buttonClicked: function (index) {
+                fns[index]();
+                return true;
+            }
+        });
+    };
+
+    //请求处理遮罩
+    service.StartLoading = function () {
+        $ionicLoading.show({
+            showBackdrop: true,
+            template: "正在登录..."
+        });
+    };
+
+    //请求处理遮罩关闭
+    service.EndLoading = function () {
+        $ionicLoading.hide();
+    };
+
+    //提示
+    service.Hint = function (msg) {
+        $ionicLoading.show({
+            showBackdrop: false,
+            template: msg,
+            duration: 2000
+        });
+    };
+
+    return service;
+});
 app.controller("registerController", function ($scope, POP) {
 
     /*点击发送短信效验码*/
     $('.postNote').click(function () {
-        var user_name = $.trim($('#account').val());
+        //alert(11);
+        var mobile = $('#phone').val();
         //账号不为空
-        if (CommenFun.isNullObj(user_name)) {
+        if (CommenFun.isNullObj(mobile)) {
             POP.Hint("账号不能为空");
             return;
         }
@@ -14,7 +95,7 @@ app.controller("registerController", function ($scope, POP) {
         postNote.attr("disabled",true);
         postNote.text("正在发送...");
         //获取验证码
-        var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/"+user_name;
+        var url = "http://192.168.10.123:5000/sms/registerVerification/mobile/"+mobile;
 
         HTTP.get(url,{},function (e, data) {
             if (e) {
@@ -24,6 +105,7 @@ app.controller("registerController", function ($scope, POP) {
                 return;
             }
             POP.Hint(data);
+            //console.log(data);
             setTime(postNote);
         });
 
@@ -53,6 +135,8 @@ app.controller("registerController", function ($scope, POP) {
 
     //注册
     $('#register').click(function () {
+        alert(11);
+
         var user_name = $.trim($('#account').val());
         var email = $('#mailbox').val();
         var loginPassword = $('#loginPassword').val();
@@ -62,11 +146,10 @@ app.controller("registerController", function ($scope, POP) {
         //获取手机验证码
         var note = $('#note').val();
         //手机验证码不为空
-        if (CommenFun.isNullObj(code)) {
+        if (CommenFun.isNullObj(note)) {
             POP.Hint("验证码不能为空");
             return;
         }
-        var codeCheck = note;
         var verification_mode = "CODE";
         var url = "http://192.168.10.123:5000/_user/register";
         var param = {
@@ -76,11 +159,10 @@ app.controller("registerController", function ($scope, POP) {
             'SECOND_PASSWORD':secondPassword,
             'THREE_PASSWORD':threePassword,
             'mobile':phoneNumber,
-            'verification_mode':verification_mode
-
+            'verification_mode':verification_mode,
+            'code':note
 
     };
-        param.code = codeCheck;
         POP.StartLoading();
 
         HTTP.post(url, param, function (e, data) {

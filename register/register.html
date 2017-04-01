@@ -8,21 +8,21 @@
     <!-- 加载式文件 -->
     <link rel="stylesheet" href="./register.css"/>
     <link rel="stylesheet" href="../lib/css/ionic.min.css"/>
-    <link rel="stylesheet" href="../plugin/directive/angular_directive"/>
-    <link rel="stylesheet" href="./register.css"/>
 
     <script src="../lib/js/jquery.js"></script>
     <script src="../lib/js/ionic.bundle.min.js"></script>
     <script src="../lib/js/jquery.transit.js"></script>
     <script src="../lib/js/jquery.cookie.js"></script>
+    <script src="../login/util.js"></script>
     <script src="registerController.js"></script>
 
+
 </head>
-<!--<body ng-app="registerApp" ng-controller="registerController">-->
-<body>
-<ion-view view-title="商品" hide-nav-bar="{{isNavShow}}">
+<body ng-app="registerApp" ng-controller="registerController">
+
+
 <ion-content>
-    <navigation-bar title="注册"></navigation-bar>
+<div class="navi">注册</div>
     <!--注册界面背景-->
     <div class="registerBgBox"></div>
     <div class="registerInformationBox">
@@ -76,9 +76,9 @@
         </div>
     </div>
 <div class="postNoteBox">
+    <img class="phoneIcon" alt="校验码" src="../resource/images/icon/login_yanzheng.png">
     <input type="text" class="note" id="note" placeholder="请输入短信校验码">
-    <div class="noteImg"></div>
-    <div class="postNote">
+    <div class="postNote" id="postNote">
         发送短信校验码
     </div>
 </div>
@@ -89,7 +89,7 @@
 
 
 </ion-content>
-    </ion-view>
-</body>
-</html>
 
+</body>
+
+</html>
