@@ -217,6 +217,21 @@ define(['app'], function (app) {
 
 
 
+            /*我的 充值卡充值列表 路由*/
+            .state('tab.my-rechargeableCardList', {
+                url: 'my-rechargeableCardList',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-rechargeableCardList.html?_r=" + Math.random(),
+                        controller: 'myRechargeableCardListController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myRechargeableCardListController')
+                        }
+                    }
+
+                }
+            })
+
 
     });
 

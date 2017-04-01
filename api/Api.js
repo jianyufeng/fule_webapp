@@ -19,13 +19,15 @@ var API = {
         // 转账记录
         remittanceRecord:serverIP+"/banks/searchRemittanceAdvices",
         // 代金券转账
-        voucherTransfer:serverIP+"/fxp/transferFxpPoints",
-
-        internalTransfer:serverIP+"/money/transferUserMoney",
+        voucherTransfer:serverIP+"/_fxp/transferFxpPoints",
         //转账记录
         transferRecord:serverIP+"/_money/searchTransferAccounts" ,
         //未读消息
-        unreadMsg:serverIP+"/article/search"
+        unreadMsg:serverIP+"/article/search",
+        //电子币转账记录
+        searchUserAccoun:serverIP+"/_money/searchUserAccount",
+        //查询辅销币流水
+        searchAccountLog:serverIP+"/fxp/searchAccountLog"
     },
 
     Cart: {

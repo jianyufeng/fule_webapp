@@ -20,7 +20,7 @@ define(['app'], function (app) {
             var targetName=$scope.voucher.targetName;
             var amount=$scope.voucher.amount;
             var thirdPassword=$scope.voucher.thirdPassword;
-            var remark=$scope.voucher.remark;
+            var reMark=$scope.voucher.remark;
             var messageCode=$scope.voucher.messageCode;
             if(reMark==undefined)reMark="";
             if(targetName==undefined||targetName==null){
@@ -47,34 +47,30 @@ define(['app'], function (app) {
             var userName=userInfo.user_name;
             var userId=userInfo.user_id;
 
-            //verificationType:1
-            //user_name:zhoulibo
-            //user_id:145989
-            //SECOND_PASSWORD:asdasd
-            //target_user_name:dadssad
-            //amount:23123
-            //remark:dasdasd
-            //verification_code:123123
+            //(* 必须)user_name           String转出账户用户名
+            //(* 必须)user_id             Number转出账户用户id
+            //(* 必须)target_user         String转入账户用户名
+            //(* 必须)point               Number转账积分
+            //(* 必须)SECOND_PASSWORD     String二级密码
+            //(* 必须)verificationType    Number验证方式 1-短信验证 2-图片验证码验证 3-推送验证
+            //(* 必须)verification_code   Number验证码
+            //(- 可选)remark              String转账备注
             POP.StartLoading();
             HTTP.post(API.My.voucherTransfer,{
-                "verificationType":"1",
                 "user_name":userName,
                 "user_id":userId,
-                "SECOND_PASSWORD":passWord,
-                "target_user_name":targetName,
-                "amount":money,
-                "remark":reMark,
-                "verification_code":verification_code
+                "target_user":targetName,
+                "point":amount,
+                "SECOND_PASSWORD":thirdPassword,
+                "verificationType":1,
+                "verification_code":messageCode,
+                "remark":reMark
             },function(e,data){
                 POP.EndLoading()
                 if (e) {
-                    //console.log(e);
-                    // console.log(data);
+                 POP.Hint(data);
                     return;
                 }
-
-
-
             });
 
         }

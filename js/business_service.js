@@ -41,6 +41,8 @@ define([
     '../service/my/myTransferRecordService',
     //未读消息
     '../service/my/myUnreadMsgService',
+    // 充值卡列表
+    '../service/my/myRechargeableCardListService',
 
     // 商品详情页
     '../service/category/productInfoService'

@@ -77,7 +77,7 @@ body {
   color: #D29BC4;
 }
 .headerBox .leftHeaderBox {
-  width: 20%;
+  width: 30%;
   height: 60px;
   float: left;
   line-height: 60px;
@@ -90,7 +90,7 @@ body {
   top: 5px;
 }
 .headerBox .middleHeaderBox {
-  width: 60%;
+  width: 40%;
   height: 60px;
   font-size: 16px;
   float: left;
@@ -98,13 +98,14 @@ body {
   line-height: 60px;
 }
 .headerBox .rightHeaderBox {
-  width: 20%;
+  width: 30%;
   height: 60px;
   float: right;
   line-height: 60px;
   text-align: right;
   padding-right: 10px;
   position: relative;
+  font-size: 12px;
 }
 .headerBox .rightHeaderBox img {
   width: 30px;

@@ -1,6 +1,6 @@
 /**
  * Created by ShareLock on 2017/3/30.
- *
+ *充值卡充值的Service
  */
 define(['app'], function (app) {
 

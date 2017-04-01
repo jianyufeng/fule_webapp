@@ -82,7 +82,12 @@ define(function () {
 				if (data.success) {
 					_callback(null, data.result);
 				} else {
-					_callback(true, data.result.message);
+					if(data.result.message == undefined){
+						_callback(true, data.result);
+					}else{
+						_callback(true, data.result.message);
+					}
+
 				}
 			},
 			error: function (e) {
