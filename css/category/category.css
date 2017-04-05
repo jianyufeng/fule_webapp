@@ -62,9 +62,6 @@
   float: left;
   letter-spacing: 1px;
 }
-.content .product_list {
-  float: left;
-}
 .content .product_list .product_item {
   width: 50%;
   float: left;
@@ -103,14 +100,16 @@
 .content .product_list .product_item .product_item_info .product_item_bottom .cartTagBox {
   width: 25%;
   height: 25%;
-  margin: 0 5%;
   float: left;
+  z-index: 99999;
 }
-.content .product_list .product_item .product_item_info .product_item_bottom .cartTagBox i {
+.content .product_list .product_item .product_item_info .product_item_bottom .cartTagBox img {
   display: block;
-  float: left;
-  margin-left: 8px;
-  font-size: 22px;
+  float: right;
+  margin-right: 10px;
+  width: 25px;
+  height: 22px;
+  margin-bottom: 5px;
 }
 .u-flyer {
   display: block;
