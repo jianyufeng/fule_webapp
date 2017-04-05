@@ -3,6 +3,8 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
     function ctrl($scope, myService, POP,$state) {
         console.log("我的界面控制器...");
 
+        
+
         var isLogin = User.isLogin();
         if(isLogin){
             $('.my_loginBox').fadeIn();
