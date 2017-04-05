@@ -1,11 +1,8 @@
 <ion-view view-title="管理收货地址" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <ion-content>
-        <navigation-bar title="管理收货地址"></navigation-bar>
+        <navigation-bar title="选择收货地址" righttitle="{{righttitleValue}}" on-right-click="manageAddress()"></navigation-bar>
 
-
-
-
-        <div class="outBox" set-window-height-no-navigation="0">
+        <div class="outBox" set-window-height-no-navigation="">
 
             <div class="manageContent">
 
@@ -13,15 +10,15 @@
 
                     <div class="editBox">
 
-                        <div class="shippingAddressItem">
+                        <div class="shippingAddressItem" ng-repeat="addressItem in historyAddress">
 
                             <div class="userInfo">
-                                <div class="name"><span>张三</span></div>
-                                <div class="mobile"><span>15091786918</span></div>
+                                <div class="name"><span>{{addressItem.consignee}}</span></div>
+                                <div class="mobile"><span>{{addressItem.mobile}}</span></div>
                             </div>
 
                             <div class="shippingAddressContent">
-                                <span class="default">[默认地址] </span>陕西省西安市雁塔区丈八沟街道丈八一路10号中铁西安中心38楼
+                                <span class="default" ng-if="addressItem.address_id == defaultAddressID">[默认地址] </span>{{addressItem.province_name+"省" + addressItem.city_name + addressItem.district_name + addressItem.address}}
                             </div>
 
 
@@ -69,236 +66,6 @@
                     </div>
 
 
-
-                    <div class="editBox">
-
-                        <div class="shippingAddressItem">
-
-                            <div class="userInfo">
-                                <div class="name"><span>张三</span></div>
-                                <div class="mobile"><span>15091786918</span></div>
-                            </div>
-
-                            <div class="shippingAddressContent">
-                                <span class="default">[默认地址] </span>陕西省西安市雁塔区丈八沟街道丈八一路10号中铁西安中心38楼
-                            </div>
-
-
-                        </div>
-
-                        <div class="editOperationArea">
-
-                            <div class="selectDefaultBox">
-                                <div class="selectBtn">
-                                    <img src="resource/images/icon/shoppingcar_xuanz.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>默认地址</span>
-                                </div>
-
-
-                            </div>
-                            <div class="editBtnBox">
-                                <div class="editBtnImg">
-                                    <img src="resource/images/icon/compile.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>编辑</span>
-                                </div>
-
-                            </div>
-                            <div class="deleteBtnBox">
-                                <div class="deleteBtnImg">
-                                    <img src="resource/images/icon/delete.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>删除</span>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-                    <div class="editBox">
-
-                        <div class="shippingAddressItem">
-
-                            <div class="userInfo">
-                                <div class="name"><span>张三</span></div>
-                                <div class="mobile"><span>15091786918</span></div>
-                            </div>
-
-                            <div class="shippingAddressContent">
-                                <span class="default">[默认地址] </span>陕西省西安市雁塔区丈八沟街道丈八一路10号中铁西安中心38楼
-                            </div>
-
-
-                        </div>
-
-                        <div class="editOperationArea">
-
-                            <div class="selectDefaultBox">
-                                <div class="selectBtn">
-                                    <img src="resource/images/icon/shoppingcar_xuanz.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>默认地址</span>
-                                </div>
-
-
-                            </div>
-                            <div class="editBtnBox">
-                                <div class="editBtnImg">
-                                    <img src="resource/images/icon/compile.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>编辑</span>
-                                </div>
-
-                            </div>
-                            <div class="deleteBtnBox">
-                                <div class="deleteBtnImg">
-                                    <img src="resource/images/icon/delete.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>删除</span>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-                    <div class="editBox">
-
-                        <div class="shippingAddressItem">
-
-                            <div class="userInfo">
-                                <div class="name"><span>张三</span></div>
-                                <div class="mobile"><span>15091786918</span></div>
-                            </div>
-
-                            <div class="shippingAddressContent">
-                                <span class="default">[默认地址] </span>陕西省西安市雁塔区丈八沟街道丈八一路10号中铁西安中心38楼
-                            </div>
-
-
-                        </div>
-
-                        <div class="editOperationArea">
-
-                            <div class="selectDefaultBox">
-                                <div class="selectBtn">
-                                    <img src="resource/images/icon/shoppingcar_xuanz.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>默认地址</span>
-                                </div>
-
-
-                            </div>
-                            <div class="editBtnBox">
-                                <div class="editBtnImg">
-                                    <img src="resource/images/icon/compile.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>编辑</span>
-                                </div>
-
-                            </div>
-                            <div class="deleteBtnBox">
-                                <div class="deleteBtnImg">
-                                    <img src="resource/images/icon/delete.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>删除</span>
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-
-
-                    </div>
-
-
-                    <div class="editBox">
-
-                        <div class="shippingAddressItem">
-
-                            <div class="userInfo">
-                                <div class="name"><span>张三</span></div>
-                                <div class="mobile"><span>15091786918</span></div>
-                            </div>
-
-                            <div class="shippingAddressContent">
-                                <span class="default">[默认地址] </span>陕西省西安市雁塔区丈八沟街道丈八一路10号中铁西安中心38楼
-                            </div>
-
-
-                        </div>
-
-                        <div class="editOperationArea">
-
-                            <div class="selectDefaultBox">
-                                <div class="selectBtn">
-                                    <img src="resource/images/icon/shoppingcar_xuanz.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>默认地址</span>
-                                </div>
-
-
-                            </div>
-                            <div class="editBtnBox">
-                                <div class="editBtnImg">
-                                    <img src="resource/images/icon/compile.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>编辑</span>
-                                </div>
-
-                            </div>
-                            <div class="deleteBtnBox">
-                                <div class="deleteBtnImg">
-                                    <img src="resource/images/icon/delete.png">
-                                </div>
-
-                                <div class="promptArea">
-                                    <span>删除</span>
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
-
-                    </div>
 
                 </ion-scroll>
             </div>

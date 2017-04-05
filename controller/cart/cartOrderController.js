@@ -8,7 +8,9 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
         $scope.$on('$ionicView.loaded',function () {
 
-            cartOrderService.getOrderInfo($scope,POP);
+            cartOrderService.getOrderInfo($scope, POP);
+
+
 
         });
 
@@ -17,9 +19,9 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
             alert("点击提交订单");
 
         });
-        $(".addressContent").click(function(){
-            alert("点击收货信息");
-        });
+        // $(document).on("click",".orderBox",function(){
+        //     alert("点击收货信息");
+        // });
 
         $(".orderDeliveryModel").click(function(){
         $(".popBg").css({
@@ -49,7 +51,19 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         });
 
         $(".orderPayModel").click(function(){
-            alert("点击支付方式");
+            console.log("选择支付方式");
+
+            $(".popPayModelBg").css({
+                display: "block", height: $(document).height()
+            });
+            var $popBox = $(".popPayModelBox");
+            $popBox.css({
+                display: "block"
+            }) ;
+            $(".closeButton").click(function () {
+                $(".popPayModelBg,.popPayModelBox").css("display", "none");
+            });
+
         });
 
     }
