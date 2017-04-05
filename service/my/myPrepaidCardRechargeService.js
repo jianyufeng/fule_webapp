@@ -33,12 +33,12 @@ define(['app'], function (app) {
                 "card_pass": cardPassword
             }, function (e, data) {
                 if(e){
-                    console.log(e);
-                    console.log("37---------->"+data);
+                    //console.log(e);
+                    //console.log("37---------->"+data);
                     //POP.Hint(data);
                     return;
                 }
-                console.log("41---------->"+data);
+                //console.log("41---------->"+data);
             })
 
 

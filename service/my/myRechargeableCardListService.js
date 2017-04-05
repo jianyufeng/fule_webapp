@@ -12,28 +12,36 @@ define(['app'], function (app) {
 
         /**
          * 获取电子币卡记录
+         *
          */
-        service.getAList=function($scope,POP){
+        service.getAList = function ($scope, POP, userId) {
 
-            HTTP
+            HTTP.get(API.My.searchUserAccount + "/user_id/" + userId, {}, function (e, data) {
 
+                if (e) {
+                    console.log("e:"+e+"-------22");
+                    console.log("data:"+data+"-------23");
+                }
+                //RechargeableCard
+                console.log("data:"+data+"-------25");
+
+
+            });
 
         }
 
 
         /**
          * 获取购物代金劵卡的记录
+         *
          */
-        service.getBList=function(){
-
-
+        service.getBList = function () {
 
 
         }
         return service;
 
     });
-
 
 
 });

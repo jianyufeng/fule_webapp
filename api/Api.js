@@ -27,7 +27,7 @@ var API = {
         //未读消息详情
        
         //电子币转账记录
-        searchUserAccoun:serverIP+"/userCard/searchLogs",
+        searchUserAccount:serverIP+"userCard/searchLogs",
         //查询辅销币流水
         searchAccountLog:serverIP+"/fxp/searchIntergralLog"
     },
@@ -51,7 +51,7 @@ var API = {
         getCartNum:serverIP+"/_cart/searchCartCount"
     },
 
-    Home: {}
+    Home: {},
     imageUrl:"http://image.38zs.net:848"
 
 };
