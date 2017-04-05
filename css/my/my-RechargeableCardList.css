@@ -1,0 +1,57 @@
+.contentBox .title {
+  width: 100%;
+  height: 50px;
+  background-color: white;
+  line-height: 50px;
+  font-weight: 500;
+}
+.contentBox .title .leftCard {
+  width: 50%;
+  text-align: center;
+  float: left;
+  color: red;
+}
+.contentBox .title .rightCard {
+  width: 49%;
+  text-align: center;
+  float: left;
+  color: black;
+}
+.contentBox .title .line {
+  width: 2px;
+  height: 40px;
+  float: left;
+  margin-top: 5px;
+  background-color: #eeeeee;
+}
+.contentBox .itemCardBox {
+  background-color: white;
+  padding: 5px;
+  height: auto;
+  border-radius: 5px;
+  margin: 15px 2px;
+  box-shadow: 2px 2px 2px #dddddd;
+}
+.contentBox .itemCardBox .itemRowBox {
+  height: 35px;
+  position: relative;
+  line-height: 35px;
+}
+.contentBox .itemCardBox .itemRowBox .itemRowLeft {
+  float: left;
+  width: 25%;
+  margin-left: 5%;
+}
+.contentBox .itemCardBox .itemRowBox .itemRowRight {
+  float: left;
+  width: 65%;
+}
+.contentBox .itemCardBox .itemRowBox .line {
+  height: 1px;
+  width: 100%;
+  background-color: #eeeeee;
+  clear: both;
+  position: absolute;
+  bottom: 0px;
+  box-shadow: 1px 0px 1px #fefefe;
+}
