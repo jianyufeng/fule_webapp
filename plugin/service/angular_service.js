@@ -84,6 +84,35 @@ define(['app'],function(app){
             });
         }
 
+        //输入
+        service.FormAlert = function(msg,$scope,fn){
+            $ionicPopup.show({
+                template: '<input type="password" id="pwdInput">',
+                title: msg,
+                scope: $scope,
+                buttons: [
+                { text: '放弃' },
+                {
+                    text: '<b>提交</b>',
+                    type: 'button-positive',
+                    onTap: function(e) {
+                       var pwdValue = $("#pwdInput").val();
+                       if(pwdValue.length<=0){
+                           $ionicLoading.show({
+                                showBackdrop: false,   
+                                template: "内容不能为空",
+                                duration : 2000
+                           });
+                           e.preventDefault();
+                       }else{
+                           fn(pwdValue);
+                       }
+                    }
+                },
+                ]
+            });
+        }
+
         return service;
     });
 

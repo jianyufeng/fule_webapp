@@ -1,8 +1,9 @@
 <ion-view view-title="确认订单" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <ion-content>
+        <navigation-bar title="确认订单"></navigation-bar>
 
-        <div class="orderBox" set-window-height>
+        <div class="orderBox" set-window-height-no-navigation="">
 
             <div class="orderDetailBox" >
                 <ion-scroll class="scrollV">
@@ -94,13 +95,12 @@
              </div>
 
 
-
         <div class="payAcountBox">
 
             <div class="paySubmit"><b>提交订单</b></div>
             <div class="listInfo">
                 <div class="payAcountPrice">合计 : <span>¥ {{amountOrder}}</span></div>
-                <div class="payGoodsAcount"><span>共2件商品</span></div>
+                <div class="payGoodsAcount"><span>共{{goodsNumber}}件商品</span></div>
             </div>
 
         </div>

@@ -26,19 +26,29 @@ var API = {
         unreadMsg:serverIP+"/article/search",
         //未读消息详情
         unreadMsgInfo:serverIP+"/article/searchInfo/",
+        unreadMsg:serverIP+"/article/search",
         //电子币转账记录
-        searchUserAccount:serverIP+"userCard/searchLogs",
+        searchUserAccoun:serverIP+"/userCard/searchLogs",
         //查询辅销币流水
         searchAccountLog:serverIP+"/fxp/searchIntergralLog"
     },
 
     Cart: {
+        //购物车信息
         cartSearch: serverIP + "/_cart/search",
+        //添加购物车
         cartAdd: serverIP + "/_cart/addGoods",
+        //商品支付
         orderInfo:serverIP + "/_goods/payment",
+        //用户地址查询
         shippingAddress:serverIP + "/_user/searchUserAddress",
+        //更新购物车产品
         updateCart : serverIP + "/cart/updateCartGoods",
-        deleteCart : serverIP + "/cart/deleteCartGoods"
+        //删除购物车产品
+        deleteCart : serverIP + "/cart/deleteCartGoods",
+        //购物车提交订单产品总数
+        goodsCount : serverIP +"/_cart/searchCartCount"
+
 
     },
 
@@ -51,6 +61,6 @@ var API = {
         getCartNum:serverIP+"/_cart/searchCartCount"
     },
 
-    Home: {},
-    imageUrl:"http://image.38zs.net:848"
+    Home: {}
+
 };

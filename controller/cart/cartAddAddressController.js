@@ -3,7 +3,7 @@
  */
 define(['app','css!../../../css/cart/cart_addAddress'],function(app,cart_fun){
 
-    function ctrl($scope,cartAddAddressService,POP){
+    function ctrl($scope,cartAddAddressService,POP,$state){
 
         $scope.$on('$ionicView.loaded',function () {
 
@@ -16,9 +16,19 @@ define(['app','css!../../../css/cart/cart_addAddress'],function(app,cart_fun){
         });
 
 
+        //保存
+        $scope.saveAddress = function () {
+
+            //保存成功后后退到地址管理页面
+            $state.go("tab.cart_manageAddress",{UID:1})
+
+
+        }
+
+
 
     }
 
-    ctrl.$inject = ['$scope','cartAddAddressService', 'POP'];
+    ctrl.$inject = ['$scope','cartAddAddressService', 'POP','$state'];
     app.registerController('cartAddAddressController',ctrl);
 });

@@ -44,12 +44,15 @@ define(['app'],function(app){
                 }
 
                 var orderAmount = 0;
+                var goodsCount = 0;
                 if (data.cartInfo.cart_goods != undefined && data.cartInfo.cart_goods.length > 0){
 
                     for (var i=0;i<data.cartInfo.cart_goods.length;i++){
                         console.log(parseFloat(data.cartInfo.cart_goods[i].goods_price));
 
                         orderAmount +=parseFloat(data.cartInfo.cart_goods[i].goods_price);
+
+                        goodsCount +=parseFloat(data.cartInfo.cart_goods[i].goods_number);
 
                     }
 
@@ -64,7 +67,8 @@ define(['app'],function(app){
                     $scope.shipping = data.shipping.data[0];       //快递公司名
                     $scope.cartGoods = data.cartInfo.cart_goods;   //购物车订单信息
                     $scope.payment = data.payment.data[0];         //支付方式
-                    $scope.amountOrder = orderAmount;              //合计
+                    $scope.amountOrder = orderAmount;              //合计价格
+                    $scope.goodsNumber = goodsCount;               //购买商品总数
                     console.log($scope.address);
 
 
