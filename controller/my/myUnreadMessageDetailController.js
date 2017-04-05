@@ -3,9 +3,9 @@
  */
 define(['app'],function(app){
     function ctrl($scope, $state, $stateParams,myUnreadMsgService,POP,$sce) {
-        var title = $stateParams.title;
-        var add_time = $stateParams.add_time;
-        var create_user_name = $stateParams.create_user_name;
+        $scope.title = $stateParams.title;
+        $scope.add_time = $stateParams.add_time;
+        $scope.create_user_name = $stateParams.create_user_name;
         var article_id = $stateParams.article_id;
         console.log(article_id);
         $scope.$on('$ionicView.loaded', function () {

@@ -187,7 +187,7 @@ app.controller("loginController", function ($scope, POP) {
                     POP.Hint("密保卡 验证码不能为空");
                     return;
                 }
-                if(isNaN(v)){
+                if (isNaN(v)) {
                     POP.Hint("验证码格式不正确");
                     return;
                 }
@@ -206,7 +206,7 @@ app.controller("loginController", function ($scope, POP) {
                 POP.Hint("验证码不能为空");
                 return;
             }
-            if(isNaN(code)){
+            if (isNaN(code)) {
                 POP.Hint("验证码格式不正确");
                 return;
             }
@@ -250,7 +250,9 @@ app.controller("loginController", function ($scope, POP) {
 
     });
 
-
+    $('.registBox').click(function () {
+        location.href = "../register/register.html";
+    });
     //输入框聚焦变换
     $('#account').focus(function () {
         $('#accountIcon').attr("src", "../resource/images/icon/user_head.png");
@@ -276,7 +278,16 @@ app.controller("loginController", function ($scope, POP) {
         $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
     });
 
-        //随机获取 密保卡的码
+    /*注册 点击效果*/
+    $(document).on("touchstart", ".registBox", function (event) {
+        $(this).css({background: "#fff"}).transition({background: "#eee"}, 100);
+    });
+
+    $(document).on("touchend", ".registBox", function (event) {
+        $(this).css("background", "#eee").transition({background: "#fff"}, 100);
+    });
+
+    //随机获取 密保卡的码
     function _getRandomString(len) {
         var loginCard = [];
         for (var t = 0; t < 5; t++) {

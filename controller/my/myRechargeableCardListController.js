@@ -6,8 +6,10 @@
 
 define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
     function ctrl($scope, myRechargeableCardListService,POP) {
-        
+
+        var userId=User.getInfo().user_id;
         $scope.$on('$ionicView.loaded', function () {
+            myRechargeableCardListService.getAList($scope,POP,userId);
 
         });
     }

@@ -7,8 +7,6 @@ define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'], function (app) {
 
         $scope.rechargeCard={};
         $scope.$on('$ionicView.loaded', function () {
-            /*获取数据*/
-            console.log("myPrepaidCardRechargeController")
             //点击充值按钮
             $scope.recharge = function () {
                 myPrepaidCardRechargeService.rechargeBiz($scope, POP);

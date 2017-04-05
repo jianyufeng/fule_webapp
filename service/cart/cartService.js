@@ -13,6 +13,8 @@ define(['app'],function(app){
             //获取用户的账号
             var info = User.getInfo();
             HTTP.get(API.Cart.cartSearch + "/shopping_type/1/user_id/"+info.user_id , {}, function (e, data) {
+                console.log(data);
+                console.log(e);
                 if (e) {
                     $.loadError(function () {
                         service.getCartGoods();
@@ -20,7 +22,7 @@ define(['app'],function(app){
                     return;
                 }
 
-                console.log(data);
+                
 
                 var cart_goods = data.cart_goods == undefined ? [] : data.cart_goods;
                 var order_info = data.order_info == undefined ? [] : data.order_info;
@@ -96,7 +98,7 @@ define(['app'],function(app){
         }
 
         /*删除购物车信息*/
-        service.deleteCart = function($scope,deleteParams,POP,_idx){
+        service.deleteCart = function($scope,deleteParams,POP,_idx,$rootScope){
 
             POP.StartLoading();
 
@@ -116,6 +118,21 @@ define(['app'],function(app){
 
                 $(".deleteBox:eq("+_idx+")").parent().slideUp(200);
                 var newArr = _.pullAt($scope.cart_goods,_idx);
+                console.log(1111);
+                console.log($scope.cart_goods);
+                if($scope.cart_goods.length<=0){
+
+                    $scope.$apply(function () {
+                        console.log("清空购物车...");
+                            $scope.cart_goods = [];
+                            $scope.righttitleValue = "";
+                            $rootScope.cartBadge = 0;
+                    });
+                        
+                        $(".noCartGoodBox").show();
+                        $(".noCartGoodBox").find(".isLoginBox").hide();
+                        
+                }
                 return;
 				 $scope.$apply(function () {
                      if(newArr.length > 0){

@@ -10,7 +10,7 @@
       width: 50%;
       text-align: center;
       float: left;
-     color: red;
+      color: red;
     }
     .rightCard {
       width: 49%;
@@ -27,34 +27,103 @@
     }
 
   }
-  .itemCardBox {
-    background-color: white;
-    padding: 5px;
-    height: auto;
-    border-radius: 5px;
-    margin: 15px 2px;
-    box-shadow: 2px 2px 2px #dddddd;
-    .itemRowBox {
-      height: 35px;
-      position: relative;
-      line-height: 35px;
-      .itemRowLeft {
-        float: left;
-        width: 25%;
-        margin-left: 5%;
+
+  .listABox {
+    .itemACardBox {
+      background-color: white;
+      padding: 5px;
+      height: auto;
+      border-radius: 5px;
+      margin: 20px 2px;
+      box-shadow: 2px 2px 2px #dddddd;
+      .itemRowBox {
+        height: 35px;
+        position: relative;
+        line-height: 35px;
+        .itemRowLeft {
+          float: left;
+          width: 25%;
+          margin-left: 5%;
+        }
+        .itemRowRight {
+          float: left;
+          width: 65%;
+        }
+        .line {
+          height: 1px;
+          width: 100%;
+          background-color: #eeeeee;
+          clear: both;
+          position: absolute;
+          bottom: 0px;
+          box-shadow: 1px 0px 1px #fefefe;
+        }
+
       }
-      .itemRowRight {
-        float: left;
-        width: 65%;
+
+    }
+  }
+
+  .listBBox {
+    .itemBCardBox {
+      background-color: white;
+      padding: 5px;
+      height: auto;
+      border-radius: 5px;
+      margin: 20px 2px;
+      box-shadow: 2px 2px 2px #dddddd;
+      .itemRowBox {
+        height: 35px;
+        position: relative;
+        line-height: 35px;
+        .itemRowLeft {
+          float: left;
+          width: 20%;
+          margin-left: 5%;
+        }
+
+        .itemRowRight {
+          float: left;
+          width: 70%;
+        }
+        .line {
+          height: 1px;
+          width: 100%;
+          background-color: #eeeeee;
+          clear: both;
+          position: absolute;
+          bottom: 0px;
+          box-shadow: 1px 0px 1px #fefefe;
+        }
       }
-      .line {
-        height: 1px;
-        width: 100%;
-        background-color: #eeeeee;
-        clear: both;
-        position: absolute;
-        bottom: 0px;
-        box-shadow: 1px 0px 1px #fefefe;
+
+      .maxH {
+        position: relative;
+        height: 60px;
+        line-height: 20px;
+        .itemRowLeft {
+          float: left;
+          width: 20%;
+          line-height: 60px;
+          margin-left: 5%;
+        }
+
+        .itemRowRight {
+          float: left;
+          width: 70%;
+          height: 75px;
+
+        }
+
+        .line {
+          height: 1px;
+          width: 100%;
+          background-color: #eeeeee;
+          clear: both;
+          position: absolute;
+          bottom: 0px;
+          box-shadow: 1px 0px 1px #fefefe;
+        }
       }
 
     }
