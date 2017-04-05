@@ -1,6 +1,6 @@
 define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
-	function ctrl($scope,cartService,POP,$state){
+	function ctrl($rootScope,$scope,cartService,POP,$state){
 
 		$scope.$on('$ionicView.beforeEnter', function () {
             //判断是否登录
@@ -10,6 +10,12 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 				$(".noCartGoodBox").show();
 				return;
 			}
+
+			//加载数据
+			if(User.isLogin()){
+				cartService.getCartGoods($scope, POP, false);
+			}
+
         });
 
 
@@ -126,7 +132,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 			//删除购物车
 			
-			cartService.deleteCart($scope,deleteParams,POP,_idx);
+			cartService.deleteCart($scope,deleteParams,POP,_idx,$rootScope);
 
 
 		})
@@ -139,14 +145,11 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		$scope.swipRight = function(idx,id){
 			cart_fun.cartIdxSideslipping(false,idx);
 		};
-		//加载数据
-		if(User.isLogin()){
-			cartService.getCartGoods($scope, POP, false);
-		}
+		
 	}
 
 
-	ctrl.$inject = ['$scope','cartService', 'POP','$state'];
+	ctrl.$inject = ['$rootScope','$scope','cartService', 'POP','$state'];
 	app.registerController('cartController',ctrl);
 
 
