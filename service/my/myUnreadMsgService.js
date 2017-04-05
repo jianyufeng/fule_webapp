@@ -27,8 +27,15 @@ define(['app'], function (app) {
                         $scope.datas = data.data;
                     })
                 }
+                //判断数据是否为空
+                var length = data.data.length;
+                if (length <= 0) {
+                    $scope.isEmptyData = true;
+                } else {
+                    $scope.isEmptyData = false;
+                }
                 //判断是否有下页数据
-                if (data.data.length < 10) {
+                if (length < 10) {
                     $scope.isCanPull = false;
                 } else {
                     $scope.isCanPull = true;

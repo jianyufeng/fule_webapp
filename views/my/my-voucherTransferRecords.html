@@ -1,13 +1,13 @@
 <ion-view view-title="代金卷转账记录" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <ion-content>
+        <!--下拉刷新-->
         <navigation-bar title="代金卷转账记录"></navigation-bar>
-        <div class="tr_navBox">
-            <div class="tr_nav">全部记录</div>
-            <div class="tr_nav">转出记录</div>
-            <div class="tr_nav">转入记录</div>
-        </div>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
         <div class="tr_Box" >
+            <div ng-show="isEmptyData"  style="width: 100%;height: 200px;text-align: center;line-height: 200px" class="tr_emptyList">
+                暂无数据
+            </div>
             <div class="tr_itemBox" ng-repeat="item in data">
                 <div class="tr_transOutPersonBox">
                     <div class="tr_NameBox">

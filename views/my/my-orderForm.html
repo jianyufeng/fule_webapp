@@ -17,6 +17,9 @@
                 <div class="of_nav">超期空升特批</div>
             </div>
         </ion-scroll>
+        <div ng-show="isEmptyData"  style="width: 100%;height: 200px;text-align: center;line-height: 200px" class="of_emptyList">
+            暂无数据
+        </div>
         <div class="of_itemBox" ng-repeat="item in data">
             <div class="of_moneyBox">
                 <div class="of_leftBox">

@@ -20,6 +20,8 @@ var API = {
         remittanceRecord:serverIP+"/banks/searchRemittanceAdvices",
         // 代金券转账
         voucherTransfer:serverIP+"/_fxp/transferFxpPoints",
+        // 代金券转账 记录
+        voucherTransferRecord:serverIP+"/fxp/searchAccount",
         //转账记录
         transferRecord:serverIP+"/_money/searchTransferAccounts" ,
         //未读消息
