@@ -26,7 +26,7 @@
             var addcar = $(this).parent().parent().prev();
             var img = addcar.find('img').attr('src');
             var flyer = $('<img class="u-flyer" src="' + img + '">');
-            var goodsPrice = $(this).parent().parent().children(".goodsMoney").text().substring(1);
+            var goodsPrice = $(this).parent().parent().children(".goodsMoney").text().substring(2);
             var goodsName = $(this).parent().children(".goodsDesc").text();
             var goodsId = $(this).find('img').attr('id');
 
