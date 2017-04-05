@@ -15,17 +15,21 @@ define(['app'], function (app) {
          *
          */
         service.getAList = function ($scope, POP, userId) {
-
+             POP.StartLoading();
             HTTP.get(API.My.searchUserAccount + "/user_id/" + userId, {}, function (e, data) {
-
+                POP.EndLoading();
                 if (e) {
-                    console.log("e:"+e+"-------22");
-                    console.log("data:"+data+"-------23");
+                    //console.log("e:"+e+"-------22");
+                    //console.log("data:"+data+"-------23");
+                    return;
                 }
                 //RechargeableCard
-                console.log("data:"+data+"-------25");
+                //console.log("data:"+data+"-------25");
+                $(".listBBox").attr('display','none');
+                $scope.$apply(function () {
 
-
+                    $scope.rechargeableCardBList = data.data;
+                });
             });
 
         }
@@ -37,7 +41,21 @@ define(['app'], function (app) {
          */
         service.getBList = function () {
 
-
+            POP.StartLoading();
+            HTTP.get(API.My.searchAccountLog + "/user_id/" + userId, {}, function (e, data) {
+                POP.EndLoading();
+                if (e) {
+                    //console.log("e:"+e+"-------46");
+                    //console.log("data:"+data+"-------47");
+                    return;
+                }
+                //RechargeableCard
+                //console.log("data:"+data+"-------50");
+                $(".listABox").attr('display','none');
+                $scope.$apply(function () {
+                    $scope.rechargeableCardBList = data.data;
+                });
+            });
         }
         return service;
 
