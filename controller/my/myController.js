@@ -7,11 +7,11 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
 
         var isLogin = User.isLogin();
         if(isLogin){
-            $('.my_loginBox').fadeIn();
-            $('.unLoginBox').fadeOut();
+            $('.my_loginBox').show();
+            $('.unLoginBox').hide();
         }else {
-            $('.my_loginBox').fadeOut();
-            $('.unLoginBox').fadeIn();
+            $('.my_loginBox').hide();
+            $('.unLoginBox').show();
         }
 
         /*加载界面动画*/
@@ -34,7 +34,12 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
 
         //去登陆
         $scope.goLogin = function(){
+            console.log(111111);
             location.href="./login/login.html";
+        };
+        //去注册
+        $scope.goRegister = function(){
+            location.href="./register/register.html";
         };
 
         // 跳转到内部转账页面

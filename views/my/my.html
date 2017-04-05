@@ -1,16 +1,15 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
     <ion-content>
-
+        <navigation-bar title="我的"></navigation-bar>
         <div class="unLoginBox">
-            <div class="isLoginBox">现在&nbsp;&nbsp;
-                <button ng-click="goLogin()">登录</button>
-                &nbsp;&nbsp; , 您的商品将永久保存在"购物车"中
-            </div>
+            <img src="./resource/images/icon/shopping_bg.png"/>
+            <button ng-click="goLogin()">登录</button>
+            <button ng-click="goRegister()">新用户注册</button>
         </div>
 
         <div class="my_loginBox">
             <!--下拉刷新-->
-            <ion-refresher pulling-text="下拉刷新"  on-refresh="doRefresh()"></ion-refresher>
+            <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
 
             <!--用户信息-->
             <div class="userBox">
@@ -105,10 +104,10 @@
                 </div>
                 <div class="businessRowBox">
                     <!--<a href="#/tab/my-internalTransfer">-->
-                        <div class="businessColBox" ng-click="startPage()">
-                            <img class="indentIcon" alt="内部转账" src="./resource/images/icon/neibuzhuanzhang.png">
-                            <div class="indentName">内部转账</div>
-                        </div>
+                    <div class="businessColBox" ng-click="startPage()">
+                        <img class="indentIcon" alt="内部转账" src="./resource/images/icon/neibuzhuanzhang.png">
+                        <div class="indentName">内部转账</div>
+                    </div>
                     <!--</a>-->
                     <a href="#/tab/my-transferRecord">
                         <div class="businessColBox">
@@ -116,10 +115,10 @@
                             <div class="indentName">转账记录</div>
                         </div>
                     </a>
-                        <div class="businessColBox" ng-click="startVoucherTransferPage(userInfo.fxp_points)">
-                            <img class="indentIcon" alt="代金卷转账" src="./resource/images/icon/daijinjuanzhuanzhang.png">
-                            <div class="indentName">代金卷转账</div>
-                        </div>
+                    <div class="businessColBox" ng-click="startVoucherTransferPage(userInfo.fxp_points)">
+                        <img class="indentIcon" alt="代金卷转账" src="./resource/images/icon/daijinjuanzhuanzhang.png">
+                        <div class="indentName">代金卷转账</div>
+                    </div>
 
                 </div>
                 <div class="businessRowBox">
