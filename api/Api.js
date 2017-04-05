@@ -25,7 +25,7 @@ var API = {
         //未读消息
         unreadMsg:serverIP+"/article/search",
         //未读消息详情
-       
+        unreadMsgInfo:serverIP+"/article/searchInfo/",
         //电子币转账记录
         searchUserAccount:serverIP+"userCard/searchLogs",
         //查询辅销币流水
@@ -53,5 +53,4 @@ var API = {
 
     Home: {},
     imageUrl:"http://image.38zs.net:848"
-
 };

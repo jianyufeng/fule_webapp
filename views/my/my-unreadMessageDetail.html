@@ -1,15 +1,23 @@
 <ion-view view-title="未读消息详情" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <ion-content>
+
+        <navigation-bar title="未读消息详情"></navigation-bar>
         <div class="umd_Box">
-            <div class="umd_titleBox" >
-               {{title}}
+            <div class="umd_titleBox">
+                {{title}}
             </div>
             <div class="umd_belongBox">
-                <div class="umd_createUser">{{createUser}}</div>
-                <div class="umd_createTime">{{createTime}}</div>
+                <div class="umd_createUser">
+
+                    创建人&nbsp;:&nbsp;{{create_user_name}}
+                </div>
+                <div class="umd_createTime">
+                    时间&nbsp;:&nbsp;{{ add_time|timeFilter}}
+                    <!--{{createTime}}-->
+                </div>
             </div>
-            <div ng-bind-html="content"></div>
+            <div class="umd_content" ng-bind-html="content"></div>
         </div>
 
     </ion-content>
