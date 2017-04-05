@@ -67,20 +67,20 @@ define(['app'],function(app){
 	/*
 	 * 自定义导航条
  	 */
-	app.directive('navigationBar',function(){  
+	app.directive('navigationBar',function($ionicHistory){  
 		return{  
 			restrict: 'EA',  
 			transclude: true,  
 			scope: {  
 				title		: '@',
-				lefttitle   : '@',
+				isBack      : '@',
 				righttitle  : '@',
 				ishint      : '@',
 				onRightClick : "&onRightClick"
 			},  
 			template:[
 				'<div class="headerBox">',
-					'<div class="leftHeaderBox">{{lefttitle}}</div>',
+					'<div class="leftHeaderBox" ng-click="backBtn()"><img ng-show="{{isBack}}" src="./resource/images/icon/jiantou_left.png" style="width:11px;height:auto;" /></div>',
 					'<div class="middleHeaderBox">{{title}}</div>',
 					'<div class="rightHeaderBox" ng-click="rightIconClick()">{{righttitle}}<div class="iconHint" ng-show="{{ishint}}"></div></div>',
 				'</div>'
@@ -88,6 +88,10 @@ define(['app'],function(app){
 			link:function(scope,element,attrs){  
 				scope.rightIconClick = function(){
 					scope.onRightClick();
+				}
+
+				scope.backBtn = function(){
+					$ionicHistory.goBack();
 				}
 			}  
 		}
