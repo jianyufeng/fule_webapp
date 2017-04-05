@@ -7,9 +7,9 @@ define(['app'],function(app){
 //获取商品列表
         service.getGoodList = function($scope,isRefresh){
 
-            if(!isRefresh){
-                $.initAppStartLoad();
-            }
+            //if(!isRefresh){
+            //    $.initcAppStartLoad();
+            //}
 
 
             HTTP.get(API.Goods.goods + "/skip/0/limit/100",{},function(e,data){
