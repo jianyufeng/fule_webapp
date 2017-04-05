@@ -13,7 +13,6 @@ define(['app','css! ../../../css/my/my-internalTransfer'],function(app){
          // 获取短信验证码
             $scope.getMessageCode=function(){
                 myInternalTransferService.getMessageCodeBiz($scope,POP);
-
             }
 
             // 提交

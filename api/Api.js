@@ -13,7 +13,7 @@ var API = {
         // 查询商品条形码
         searchBarCodeGoods:serverIP+"/barCode/searchBarCodeGoods",
         // 内部转账
-        internalTransfer:serverIP+"/money/transferUserMoney",
+        internalTransfer:serverIP+"/_money/transferUserMoney",
         // 充值卡充值
         prepaidCard:serverIP+"/userCard/bindUser",
         // 转账记录

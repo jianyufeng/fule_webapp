@@ -12,8 +12,7 @@ define(['app'], function (app) {
         var service = {};
 
         service.getRemittanceRecord = function ($scope, POP) {
-            POP.StartLoading();
-
+            //POP.StartLoading();
             //User_ID userId
             //skip    分页
             //limit   分页条数
@@ -22,16 +21,16 @@ define(['app'], function (app) {
             var userId = User.getInfo().user_id;
             HTTP.get(API.My.remittanceRecord + "/User_ID/" + userId ,
                 {}, function (e, data) {
-                    POP.EndLoading();
+                    //POP.EndLoading();
                     if(e){
-                        console.log(e);
-                        console.log(data);
-
-                        $.loadError(function () {
-                            service.getCategoryGoodsList();
-                        });
+                        //console.log(e);
+                        //console.log(data);
+                        //
+                        //$.loadError(function () {
+                        //    service.getRemittanceRecord();
+                        //});
+                        return;
                     }
-                    console.log(data);
                     $scope.$apply(function () {
                         $scope.RemittanceRecordArray = data.data;
                     });

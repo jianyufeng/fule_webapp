@@ -29,7 +29,9 @@ define(['app'], function (app) {
             var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/"+user_name;
             HTTP.get(url,{},function (e, data) {
                 if (e) {
-                    POP.Hint("data");
+                    //POP.Hint("data");
+                    console.log(e);
+                    console.log(data);
                     sendBox.removeAttr("disabled");
                     sendBox.text("发送短信效验码");
                     return;
@@ -107,8 +109,18 @@ define(['app'], function (app) {
             //amount:23123
             //remark:dasdasd
             //verification_code:123123
+
             POP.StartLoading();
-           HTTP.post(API.My.internalTransfer,{
+           HTTP.post(API.My.internalTransfer,
+               //+"/verificationType/"+'1'
+               //+"/user_name/"+userName
+               //+"/user_id/"+userId
+               //+"/SECOND_PASSWORD/"+passWord
+               //+"/target_user_name/"+targetName
+               //+"/amount/"+money
+               //+"/remark/"+reMark
+               //+"/verification_code/"+messageCode,
+               {
                "verificationType":"1",
                "user_name":userName,
                "user_id":userId,
@@ -120,11 +132,12 @@ define(['app'], function (app) {
            },function(e,data){
                POP.EndLoading()
                if (e) {
-                  //console.log(e);
-                  // console.log(data);
+                  console.log(e);
+                   console.log(data.verifyCode);
+                   POP.Hint(data.verifyCode);
                    return;
                }
-
+               POP.Hint("转账成功");
 
 
            });
