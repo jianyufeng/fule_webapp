@@ -31,11 +31,11 @@ define(['animate'],function(){
 
         /*未读消息 点击效果*/
         $(document).on("touchstart",".itemBox" ,function (event) {
-            $(this).css({ background: "#fff" }).transition({ background: "#eee" },500);
+            $(this).css({ background: "#fff" }).transition({ background: "#eee" },10);
         });
 
         $(document).on("touchend",".itemBox" ,function (event) {
-            $(this).css("background","#eee").transition({ background: "#fff" },500);
+            $(this).css("background","#eee").transition({ background: "#fff" },10);
         });
     };
 

@@ -3,7 +3,7 @@
         <!--下拉刷新-->
         <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
         <!--新消息-->
-        <div class="itemBox" ng-repeat="item in datas" view-on-finish>
+        <div class="itemBox" ng-repeat="item in datas" view-on-finish ng-click="showDetail(item)">
             <div class="leftIconBox">
                 <img class="messageIcon" src="./resource/images/icon/notice.png">
             </div>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
-        <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="1%"
+        <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="2%"
                              immediate-check="false"></ion-infinite-scroll>
     </ion-content>
 </ion-view>

@@ -7,13 +7,14 @@
             <div class="orderDetailBox" >
                 <ion-scroll class="scrollV">
 
+                    <a href="#/tab/cart_manageAddress">
                 <div class="addressBox">
 
 
-                    <div class="noAddressContent" ng-if="address == 'NO'"> <span>+ 请创建收货信息</span></div>
+                    <div class="noAddressContent" ng-if="address == 'NO'" style="color: #BCBCBC"> <span>+ 请创建收货信息</span></div>
 
 
-                    <div class="addressContent" ng-if="address != 'NO'">
+                    <div class="addressContent" ng-if="address != 'NO'" style="color: black">
 
 
                         <div class="locationImg">
@@ -38,7 +39,7 @@
                     </div>
 
                 </div>
-
+                    </a>
                 <div class="orderGoodsBox">
                       <div class="orderGoodsItem" ng-repeat="order_good in cartGoods">
                           <div class="orderItemImg">
@@ -173,5 +174,49 @@
          </div>
      </div>
 
+        <!--选择支付方式-->
+
+        <div class="popPayModelBg" style="display: none"></div>
+        <div class="popPayModelBox" style="display: none">
+            <div class="topTitle">
+                支付方式
+            </div>
+            <div class="modelBox">
+                <div class="payWay">
+                    支付宝
+                </div>
+                <div class="confirmChoice">
+                    <img src="resource/images/icon/shoppingcar_xuanz.png">
+                </div>
+            </div>
+            <div class="modelBox">
+                <div class="payWay">
+                    微信
+                </div>
+                <div class="confirmChoice">
+                    <img src="resource/images/icon/shoppingcar_xuanz.png">
+                </div>
+            </div>
+            <div class="bottomBox">
+                <div class="bottomChoice">
+                    <img src="resource/images/icon/shoppingcar_xuanz.png">
+                </div>
+                <div class="content">
+                    是否使用默认支付方式?
+                </div>
+                <div class="closeButton">
+                    关闭
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
     </ion-content>
 </ion-view>
+
+
+
