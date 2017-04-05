@@ -1,6 +1,6 @@
 define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
-	function ctrl($scope,cartService,POP){
+	function ctrl($scope,cartService,POP,$state){
 
 		$scope.$on('$ionicView.beforeEnter', function () {
             //判断是否登录
@@ -16,11 +16,15 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		//初始化
 		var editOpen = false;
 
+
 		//结算按钮点击时
 		$(document).on("click",".accountBox",function(){
-			
-		});
 
+			POP.Confirm("您确认要购买已选产品?",function(){
+				$state.go("tab.cart_orderConfirm",{UID:1});
+			});
+
+		});
 		//购物车商品选择按钮
 		cart_fun.cartGoodsSelectBtn(function(_idx){
 			console.log(_idx);
@@ -142,7 +146,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 	}
 
 
-	ctrl.$inject = ['$scope','cartService', 'POP'];
+	ctrl.$inject = ['$scope','cartService', 'POP','$state'];
 	app.registerController('cartController',ctrl);
 
 
