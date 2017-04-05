@@ -60,3 +60,16 @@
   font-size: 12px;
   letter-spacing: 1px;
 }
+.umd_Box {
+  background: white;
+}
+.umd_Box .umd_titleBox {
+  width: 100%;
+  min-height: 90px;
+  background: red;
+}
+.umd_Box .umd_belongBox {
+  width: 100%;
+  height: 50px;
+  background: green;
+}
