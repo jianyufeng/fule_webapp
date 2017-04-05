@@ -249,7 +249,8 @@ input {
   letter-spacing: 5px;
 }
 .registBox {
-  width: 100%;
+  margin: 5%;
+  width: 90%;
   height: 150px;
   color: #afafaf;
   text-align: center;
