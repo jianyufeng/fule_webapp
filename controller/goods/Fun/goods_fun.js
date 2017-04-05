@@ -12,7 +12,7 @@
     };
 
 
-    goodsFun.addCart = function ($scope, $rootScope,$state) {
+    goodsFun.addCart = function ($scope, $rootScope,$state,POP) {
 
         $(document).on("click", ".goodsItem", function () {
             var goodsId=$(this).attr('name');

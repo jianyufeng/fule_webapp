@@ -25,8 +25,7 @@ var API = {
         //未读消息
         unreadMsg:serverIP+"/article/search",
         //未读消息详情
-        unreadMsgInfo:serverIP+"/article/searchInfo/",
-        unreadMsg:serverIP+"/article/search",
+       
         //电子币转账记录
         searchUserAccoun:serverIP+"/userCard/searchLogs",
         //查询辅销币流水
@@ -52,7 +51,7 @@ var API = {
         getCartNum:serverIP+"/_cart/searchCartCount"
     },
 
-    Home: {},
+    Home: {}
     imageUrl:"http://image.38zs.net:848"
 
 };
