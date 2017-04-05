@@ -1,6 +1,6 @@
-<ion-view view-title="管理收货地址" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
+<ion-view view-title="选择收货地址" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <ion-content>
-        <navigation-bar title="选择收货地址" righttitle="{{righttitleValue}}" on-right-click="manageAddress()"></navigation-bar>
+        <navigation-bar class="navTitle" title="{{addressTitle}}" righttitle="{{righttitleValue}}" on-right-click="manageAddress()"></navigation-bar>
 
         <div class="outBox" set-window-height-no-navigation="">
 
@@ -53,7 +53,7 @@
                                 </div>
 
                                 <div class="promptArea">
-                                    <span>删除</span>
+                                    <span style="color: red">删除</span>
                                 </div>
                             </div>
 

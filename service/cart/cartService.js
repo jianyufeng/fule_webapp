@@ -56,6 +56,11 @@ define(['app'],function(app){
                 
             });
 
+
+
+
+
+
         };
 
         /*更新购物车信息*/
