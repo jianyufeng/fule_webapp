@@ -20,7 +20,17 @@ define(['app','css!../../../css/cart/cart_addAddress'],function(app,cart_fun){
         $scope.saveAddress = function () {
 
             //保存成功后后退到地址管理页面
-            $state.go("tab.cart_manageAddress",{UID:1})
+            var recieverName = $('.recieverName').val();
+            var mobileNumeber = $('.recieverNumber').val();
+
+
+
+
+
+
+
+
+            // $state.go("tab.cart_manageAddress",{UID:1})
 
 
         }
