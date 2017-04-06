@@ -144,6 +144,38 @@ app.controller("registerController", function ($scope, POP) {
         var phoneNumber = $('#phone').val();
         //获取手机验证码
         var note = $('#note').val();
+
+        //用户名不为空
+        if (CommenFun.isNullObj(user_name)) {
+            POP.Hint("用户名不为空");
+            return;
+        }
+        //邮箱不为空
+        if (CommenFun.isNullObj(email)) {
+            POP.Hint("邮箱不为空");
+            return;
+        }
+        //登录密码不为空
+        if (CommenFun.isNullObj(loginPassword)) {
+            POP.Hint("登录密码不为空");
+            return;
+        }
+        //二级密码不为空
+        if (CommenFun.isNullObj(secondPassword)) {
+            POP.Hint("二级密码不为空");
+            return;
+        }
+        //三级密码不为空
+        if (CommenFun.isNullObj(threePassword)) {
+            POP.Hint("三级密码不为空");
+            return;
+        }
+        //手机号码不为空
+        if (CommenFun.isNullObj(phoneNumber)) {
+            POP.Hint("手机号码不为空");
+            return;
+        }
+
         //手机验证码不为空
         if (CommenFun.isNullObj(note)) {
             POP.Hint("验证码不能为空");
@@ -167,7 +199,6 @@ app.controller("registerController", function ($scope, POP) {
 
         HTTP.post(url, param, function (e, data) {
             POP.EndLoading();
-            console.log( "123"+ data);
 
             if (e) {
     POP.Hint(data);
