@@ -28,9 +28,12 @@ var API = {
         unreadMsg:serverIP+"/article/search",
         //未读消息详情
         unreadMsgInfo:serverIP+"/article/searchInfo/",
-        unreadMsg:serverIP+"/article/search",
-        //电子币转账记录
+        //电子币银行汇款
+
+        //获取电子币卡记录
         searchUserAccount:serverIP+"/userCard/searchLogs",
+        //获取银行列表
+        bankList:serverIP+"/banks/search_banks",
         //查询辅销币流水
         searchAccountLog:serverIP+"/fxp/searchIntergralLog"
     },
