@@ -343,6 +343,11 @@ define(function(){
                     areaName     : _this.aValue,
                 };
 
+                 _this.maskBox.fadeOut(200);
+                _this.selectBox.animate({
+                    bottom:-350
+                },500);
+
                 _this.options.resultBtnClick(params);
 
 

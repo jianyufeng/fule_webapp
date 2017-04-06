@@ -104,7 +104,8 @@
                         initI = parseInt(nowdate.getMinutes()) + 1,
                         initS = parseInt(nowdate.getSeconds());
                 }
-                $('#datePlugin').show();
+                $('#datePlugin').fadeIn(200);
+                
                 destroyScroll();
                 renderDom();
                 $('#d-okBtn').on('click', function(event) {
@@ -116,12 +117,21 @@
                     var h = $('#hourScroll li').eq(initH).data('num');
                     var m = $('#minuteScroll li').eq(initI).data('num');
                     that.val($('.d-return-info').html());
-                    $('#datePlugin').hide().html('');
+                   
+                     $("#datePlugin").find(".d-date-box").animate({
+                    bottom:-1000
+                },300,function(){
+                     $('#datePlugin').fadeOut(100).html('');
+                });
                     opts.callBack({y:y,M:M,d:d,h:h,m:m});
                 });
                 $('#d-cancleBtn').on('click', function(event) {
                     destroyScroll();
-                    $('#datePlugin').hide().html('');
+                    $("#datePlugin").find(".d-date-box").animate({
+                    bottom:-1000
+                },300,function(){
+                     $('#datePlugin').fadeOut(100).html('');
+                });
                     document.getElementsByTagName('body')[0].removeEventListener('touchmove', cancleDefault, false);
                 });
             }
@@ -158,6 +168,9 @@
                 monthHtml += '<div class="d-month-wrap d-date-cell" style="width:50%" id="monthScroll"><ul></ul></div>';
                 monthHtml += '</div>';
                 $('#datePlugin').html(mainHtml);
+                $("#datePlugin").find(".d-date-box").animate({
+                    bottom:0
+                },300);
                 switch (opts.theme) {
                     case 'date':
                         $('.d-date-box').append(dateHtml);
