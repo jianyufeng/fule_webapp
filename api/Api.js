@@ -27,9 +27,9 @@ var API = {
         //未读消息
         unreadMsg:serverIP+"/article/search",
         //未读消息详情
-        unreadMsgInfo:serverIP+"/article/searchInfo/",
-        //电子币银行汇款
-
+        unreadMsgInfo:serverIP+"/article/searchInfo",
+        //添加电子币银行汇款
+        eleBankTransfer:serverIP+"/banks/addRemittance",
         //获取电子币卡记录
         searchUserAccount:serverIP+"/userCard/searchLogs",
         //获取银行列表

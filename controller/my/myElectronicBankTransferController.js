@@ -23,8 +23,8 @@ define(['app', "css! ../../../css/my/myElectronicBankTransfer"], function (app) 
                 return;
             }
             //汇款银行
-            var tfBank = $.trim($('#ert_TFBank').val());
-            if (!hzReg.test(tfBank)) {
+            var tfBankName = $.trim($('#ert_TFBank').val());
+            if (!hzReg.test(tfBankName)) {
                 POP.Alert("汇款银行&nbsp;格式不正确<br/><font color='red'>(必须为中文)</font>");
                 return
             }
@@ -33,18 +33,42 @@ define(['app', "css! ../../../css/my/myElectronicBankTransfer"], function (app) 
 
 
             //获取银行账号
-            var bankAccoutnt =$.trim( $('#ert_BankAccount').val());
-            if (CommenFun.isNullObj(bankID) || isNaN(bankAccoutnt)) {
+            var bankAccount =$.trim( $('#ert_BankAccount').val());
+            console.log(bankAccount);
+            if (bankAccount.length <= 0 || isNaN(bankAccount)) {
                 POP.Alert("银行账号&nbsp;格式不正确<br/><font color='red'>(必须为数字)</font>");
                 return
             }
+
             //获取汇款人姓名
             var userName =$.trim( $('#ert_userName').val());
-            if (!isNaN(userName)) {
+            if (!hzReg.test(userName)) {
                 POP.Alert("获取汇款人姓名&nbsp;格式不正确<br/><font color='red'>(必须为中文)</font>");
                 return
             }
+            //获取汇款金额
+            var money =$.trim( $('#ert_money').val());
 
+            if (money.length <= 0 || isNaN(money)) {
+                POP.Alert("汇款金额&nbsp;格式不正确<br/><font color='red'>(必须为数字)</font>");
+                return
+            }
+            //获取备注
+            var remark =$.trim( $('#ert_remark').val());
+
+            var param = {
+                "amount": money,
+                "bank_account": bankAccount,
+                "bank_name": tfBankName,
+                "remittance_date": tfTime,
+                "remittance_man": userName,
+                "bank_id": bankID,
+                "bank_address": bankAddress,
+                "huikuan_type": 1,
+                "remittance_img": img,
+                "remark": remark
+            };
+            myElectronicBankTransferService.addEleBankTransfer($scope,POP,param);
 
         });
 
