@@ -27,10 +27,13 @@ var API = {
         //未读消息
         unreadMsg:serverIP+"/article/search",
         //未读消息详情
-        unreadMsgInfo:serverIP+"/article/searchInfo/",
-        unreadMsg:serverIP+"/article/search",
-        //电子币转账记录
-        searchUserAccoun:serverIP+"/userCard/searchLogs",
+        unreadMsgInfo:serverIP+"/article/searchInfo",
+        //添加电子币银行汇款
+        eleBankTransfer:serverIP+"/banks/addRemittance",
+        //获取电子币卡记录
+        searchUserAccount:serverIP+"/userCard/searchLogs",
+        //获取银行列表
+        bankList:serverIP+"/banks/search_banks",
         //查询辅销币流水
         searchAccountLog:serverIP+"/fxp/searchIntergralLog"
     },
@@ -63,6 +66,12 @@ var API = {
         productInfo: serverIP + "/_category/goodsDetail",
         //获取购物车数量
         getCartNum:serverIP+"/_cart/searchCartCount"
+    },
+
+   Other : {
+        getProvinces : serverIP + "/region/provinces",
+        getCities    : serverIP + "/region/cities",
+        getCounties  : serverIP + "/region/counties"
     },
 
     Home: {}

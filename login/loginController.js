@@ -195,8 +195,7 @@ app.controller("loginController", function ($scope, POP) {
                 var name = $('.codeName').eq(i).text();
                 codeValue[name] = v;
             }
-            //$(".codeValue").each(function(i,item){
-            //});
+
             codeCheck = codeValue;
             verification_mode = "CARD"
         } else {
@@ -272,7 +271,7 @@ app.controller("loginController", function ($scope, POP) {
 
     /*登录 点击效果*/
     $(document).on("touchstart", "#login", function (event) {
-        $(this).css({background: "#d9a9cd"}).transition({background: "#d9a9cd"}, 500);
+        $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);
     });
 
     $(document).on("touchend", "#login", function (event) {
