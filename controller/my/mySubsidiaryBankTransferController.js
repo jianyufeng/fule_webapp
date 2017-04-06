@@ -12,7 +12,7 @@ define(['app',"css! ../../../css/my/myElectronicBankTransfer",'css!../../../plug
                 beginyear: 2002,
                 theme: 'datetime',
                 callBack: function () {
-//
+
                 }
             });
         });
