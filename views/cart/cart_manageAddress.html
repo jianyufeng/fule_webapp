@@ -1,6 +1,6 @@
 <ion-view view-title="选择收货地址" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <ion-content>
-        <navigation-bar class="navTitle" title="{{addressTitle}}" righttitle="{{righttitleValue}}" on-right-click="manageAddress()"></navigation-bar>
+        <navigation-bar is-back="true" title="{{addressTitle}}" righttitle="{{righttitleValue}}" on-right-click="manageAddress()"></navigation-bar>
 
         <div class="outBox" set-window-height-no-navigation="">
 
@@ -8,9 +8,9 @@
 
                 <ion-scroll class="manageScroll">
 
-                    <div class="editBox">
+                    <div class="editBox" ng-repeat="addressItem in historyAddress">
 
-                        <div class="shippingAddressItem" ng-repeat="addressItem in historyAddress">
+                        <div class="shippingAddressItem" >
 
                             <div class="userInfo">
                                 <div class="name"><span>{{addressItem.consignee}}</span></div>
@@ -21,9 +21,7 @@
                                 <span class="default" ng-if="addressItem.address_id == defaultAddressID">[默认地址] </span>{{addressItem.province_name+"省" + addressItem.city_name + addressItem.district_name + addressItem.address}}
                             </div>
 
-
                         </div>
-
                         <div class="editOperationArea">
 
                             <div class="selectDefaultBox">
@@ -34,7 +32,6 @@
 					            <div class="promptArea">
 						           <span>默认地址</span>
                                 </div>
-
 
                             </div>
                             <div class="editBtnBox">
@@ -58,8 +55,8 @@
                             </div>
 
 
-
                         </div>
+
 
 
 

@@ -3,7 +3,7 @@
  */
 define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun){
 
-    function ctrl($scope,cartManageAddressService,POP,$state){
+    function ctrl($rootScope,$scope,cartManageAddressService,POP,$state,$ionicHistory){
 
         $scope.addressTitle = "选择收货地址";
 
@@ -17,7 +17,8 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
         });
 
         var editing = false;
-        $(".editOperationArea").hide();
+        $(".editOperationArea").hide();  //初始编辑区域隐藏
+        $(".addBtn").hide();             //初始添加新地址隐藏
         //编辑购物车
         $scope.manageAddress = function(){
             if (editing){
@@ -26,12 +27,14 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
                 $scope.righttitleValue = "管理";
                 $(".editOperationArea").hide();
                 $scope.addressTitle = "选择收货地址";
+                $(".addBtn").hide();
 
             }else{
 
                 editing = true;
                 $scope.righttitleValue = "完成";
                 $(".editOperationArea").show();
+                $(".addBtn").show();
                 $scope.addressTitle = "管理收货地址";
 
             }
@@ -47,11 +50,36 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
                 else {
 
                     //请求服务器设为默认地址,并且跳转到订单页面
-                    $state.go("tab.cart_orderConfirm",{UID:1});
+
+                    //选择当前点击的收货地址
+                    var _idx = $(".shippingAddressItem").index(this);
+
+                    console.log($scope.historyAddress[_idx]);
+
+                    //将数组对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
+                    $rootScope.$broadcast('changeAddressInfo', { "address" : $scope.historyAddress[_idx]});
+
+                    //成功直接返回上一层
+                    $ionicHistory.goBack();
+
                 }
 
 
             });
+
+
+        //点击设置默认地址
+        $(".selectDefaultBox").click(function(){
+
+            var _idx = $(".selectBtn").index(this);
+            if($(this).find("img").is(':visible')){
+                $(this).find("img").hide();
+            }else{
+                $(this).find("img").show();
+            }
+
+
+        });
 
         //点击编辑
         $(".editBtnBox").click(function(){
@@ -66,10 +94,22 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
                 alert("删除地址");
 
-
             })
 
         });
+
+        //添加新地址
+        $(".addBtn").click(function(){
+
+            $state.go("tab.cart_addAddress");
+
+
+        });
+
+
+
+
+
 
 
     }
@@ -77,6 +117,6 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
 
 
-    ctrl.$inject = ['$scope','cartManageAddressService', 'POP','$state'];
+    ctrl.$inject = ['$rootScope','$scope','cartManageAddressService', 'POP','$state','$ionicHistory'];
     app.registerController('cartManageAddressController',ctrl);
 });

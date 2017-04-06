@@ -3,11 +3,6 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 	function ctrl($rootScope,$scope,cartService,POP,$state){
 
 
-			// POP.FormAlert("请输入您的支付密码",$scope,function(v){
-			// 	alert(v);
-			// });
-
-
 		$scope.$on('$ionicView.beforeEnter', function () {
             //判断是否登录
 			if(User.isLogin()){
@@ -37,6 +32,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 			});
 
 		});
+
 		//购物车商品选择按钮
 		cart_fun.cartGoodsSelectBtn(function(_idx){
 			console.log(_idx);

@@ -4,19 +4,33 @@
 
 define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
-    function ctrl($scope,cartOrderService,POP){
+    function ctrl($rootScope,$scope,cartOrderService,POP){
 
         $scope.$on('$ionicView.loaded',function () {
 
             cartOrderService.getOrderInfo($scope, POP);
 
+        });
 
+
+        // 接收传值页面传过来的地址内容
+        $rootScope.$on('changeAddressInfo', function(event, args) {
+
+            //将新的值重新注入页面
+            $scope.$apply(function(){
+                $scope.address = args.address;
+            })
 
         });
 
+
         //提交订单点击时
         $(".paySubmit").click(function(){
-            alert("点击提交订单");
+
+            POP.FormAlert("请输入您的支付密码",$scope,function(v){
+            	alert(v);
+            });
+
 
         });
         // $(document).on("click",".orderBox",function(){
@@ -68,6 +82,6 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
     }
 
-    ctrl.$inject = ['$scope','cartOrderService', 'POP'];
+    ctrl.$inject = ['$rootScope','$scope','cartOrderService', 'POP'];
     app.registerController('cartOrderController',ctrl);
 });

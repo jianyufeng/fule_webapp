@@ -87,7 +87,7 @@ define(['app'],function(app){
         //输入
         service.FormAlert = function(msg,$scope,fn){
             $ionicPopup.show({
-                template: '<input type="password" id="pwdInput">',
+                template: '<input type="password" id="pwdInput" style="border: 1px solid #e8e8e8;">',
                 title: msg,
                 scope: $scope,
                 buttons: [
