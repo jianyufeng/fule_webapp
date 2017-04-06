@@ -12,5 +12,6 @@
  * 插件用css
  */
 @import "../plugin/loading/loading.css";
+@import "../plugin/addressSelect/addressSelect.css";
 @import "./public/glyphicons.css";
 @import "./public/glyphicons-halflings.css";

@@ -66,6 +66,12 @@ var API = {
         getCartNum:serverIP+"/_cart/searchCartCount"
     },
 
+   Other : {
+        getProvinces : serverIP + "/region/provinces",
+        getCities    : serverIP + "/region/cities",
+        getCounties  : serverIP + "/region/counties"
+    },
+
     Home: {}
 
 };

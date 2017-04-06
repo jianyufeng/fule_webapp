@@ -1,8 +1,21 @@
-define(['app'],function(app,home_fun){
+define(['app','addressSelect'],function(app,home_fun){
 
 	function ctrl($scope){
+
 		
-		console.log("首页控制器...");
+		$(".lunboBanner").click(function(){
+				new AddressSelect({
+					resultBtnClick : function(result){
+					console.log(result);
+					}
+				});
+		})
+		
+		//  $scope.addressSelect = function(){
+
+			
+			 
+		//  }
 		
 		
 	}
