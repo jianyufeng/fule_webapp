@@ -18,19 +18,30 @@
                             </div>
 
                             <div class="shippingAddressContent">
-                                <span class="default" ng-if="addressItem.address_id == defaultAddressID">[默认地址] </span>{{addressItem.province_name+"省" + addressItem.city_name + addressItem.district_name + addressItem.address}}
+                                <span class="default" ng-if="addressItem.address_id == defaultAddressID">[默认地址] </span>
+                                <span class="default" ng-if="addressItem.address_id != defaultAddressID" style="display: none">[默认地址] </span>
+                                {{addressItem.province_name+"省" + addressItem.city_name + addressItem.district_name + addressItem.address}}
                             </div>
 
                         </div>
-                        <div class="editOperationArea">
+
+                        <div class="editOperationArea" style="display: none">
 
                             <div class="selectDefaultBox">
-                                <div class="selectBtn">
-                                    <img src="resource/images/icon/shoppingcar_xuanz.png">
-                                </div>
 
-					            <div class="promptArea">
-						           <span>默认地址</span>
+                                   <div class="selectBtn" ng-if="addressItem.address_id == defaultAddressID">
+                                       <img class="imgSelect" src="resource/images/icon/shoppingcar_xuanz.png">
+                                   </div>
+                                    <div class="selectBtn" ng-if="addressItem.address_id != defaultAddressID">
+                                        <img class="imgSelect" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
+                                    </div>
+
+
+					            <div class="defaultAddress" ng-if="addressItem.address_id == defaultAddressID">
+						           <span style="color:#BB55A0">默认地址</span>
+                                </div>
+                                <div class="defaultAddress"  ng-if="addressItem.address_id != defaultAddressID">
+                                    <span style="color:#BCBCBC">设为默认</span>
                                 </div>
 
                             </div>
@@ -50,7 +61,7 @@
                                 </div>
 
                                 <div class="promptArea">
-                                    <span style="color: red">删除</span>
+                                    <span>删除</span>
                                 </div>
                             </div>
 
@@ -67,7 +78,7 @@
                 </ion-scroll>
             </div>
 
-        <div class="addBtn">
+        <div class="addAddressBtn">
             <span class="addNewAddress">添加新地址</span>
         </div>
         </div>

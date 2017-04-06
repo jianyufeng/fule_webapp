@@ -49,7 +49,9 @@ var API = {
         //删除购物车产品
         deleteCart : serverIP + "/cart/deleteCartGoods",
         //购物车提交订单产品总数
-        goodsCount : serverIP +"/_cart/searchCartCount"
+        goodsCount : serverIP +"/_cart/searchCartCount",
+        //设置默认收货地址
+        updateDefaultAddress :serverIP + "/user/update"
 
 
     },

@@ -39,6 +39,31 @@ define(['app'],function(app){
 
         };
 
+        /*设置默认收货地址*/
+        service.setDefaultAddress = function($scope,updateParams,POP,fn){
+
+            POP.StartLoading();
+
+            //更新操作
+            HTTP.post(API.Cart.updateDefaultAddress,updateParams,function(e,data){
+
+                POP.EndLoading();
+
+                if(e){
+                    POP.Hint("设置失败");
+                    return;
+                }else {
+                    fn();
+                    POP.Hint("设置成功");
+                }
+                     console.log(data);
+
+
+
+            });
+
+        }
+
 
         return service;
 
