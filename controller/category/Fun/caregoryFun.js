@@ -19,6 +19,7 @@ define(['app', 'jquery_fly'], function (app) {
             var productPrice = $(this).parent().parent().children(".product_price").text().substring(1);
             var productName = $(this).parent().children(".product_name").text();
             var productId = $(this).children(".cartTag2").attr("id");
+            console.log(productPrice);
 
             //(* 必须)user_name     String用户帐号
             //(* 必须)user_id       Number用户ID

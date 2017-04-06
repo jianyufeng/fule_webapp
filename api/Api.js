@@ -13,13 +13,15 @@ var API = {
         // 查询商品条形码
         searchBarCodeGoods:serverIP+"/barCode/searchBarCodeGoods",
         // 内部转账
-        internalTransfer:serverIP+"/money/transferUserMoney",
+        internalTransfer:serverIP+"/_money/transferUserMoney",
         // 充值卡充值
         prepaidCard:serverIP+"/userCard/bindUser",
         // 转账记录
         remittanceRecord:serverIP+"/banks/searchRemittanceAdvices",
         // 代金券转账
         voucherTransfer:serverIP+"/_fxp/transferFxpPoints",
+        // 代金券转账 记录
+        voucherTransferRecord:serverIP+"/fxp/searchAccount",
         //转账记录
         transferRecord:serverIP+"/_money/searchTransferAccounts" ,
         //未读消息

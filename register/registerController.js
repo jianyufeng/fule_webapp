@@ -60,7 +60,7 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
     service.StartLoading = function () {
         $ionicLoading.show({
             showBackdrop: true,
-            template: "正在登录..."
+            template: "正在注册..."
         });
     };
 
@@ -135,7 +135,6 @@ app.controller("registerController", function ($scope, POP) {
 
     //注册
     $('#register').click(function () {
-        alert(11);
 
         var user_name = $.trim($('#account').val());
         var email = $('#mailbox').val();
@@ -156,10 +155,11 @@ app.controller("registerController", function ($scope, POP) {
             'user_name':user_name,
             'email':email,
             'password':loginPassword,
+            'confirm_password':loginPassword,
             'SECOND_PASSWORD':secondPassword,
             'THREE_PASSWORD':threePassword,
             'mobile':phoneNumber,
-            'verification_mode':verification_mode,
+            'verification_code':verification_mode,
             'code':note
 
     };
@@ -167,12 +167,23 @@ app.controller("registerController", function ($scope, POP) {
 
         HTTP.post(url, param, function (e, data) {
             POP.EndLoading();
-if (e) {
+            console.log( "123"+ data);
+
+            if (e) {
     POP.Hint(data);
     return;
 }
+
             var userInfo = JSON.stringify(data);
             console.log(userInfo);
+            //判断是否保存登录信息  如果保存则保存7天
+            if ($('#saveLogin').is(':checked')) {
+
+                $.cookie('userInfo', userInfo, {expires: 7, path: '/'});
+            } else {
+                $.cookie("userInfo", userInfo, {path: '/'});
+            }
+            location.href = "../index.html";
         })
     });
 

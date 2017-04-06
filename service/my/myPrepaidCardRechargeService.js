@@ -35,10 +35,11 @@ define(['app'], function (app) {
                 if(e){
                     //console.log(e);
                     //console.log("37---------->"+data);
-                    //POP.Hint(data);
+                    POP.Hint(data);
                     return;
                 }
                 //console.log("41---------->"+data);
+                POP.Hint("充值成功！！");
             })
 
 

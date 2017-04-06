@@ -11,7 +11,6 @@ define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'], function (app) {
             $scope.recharge = function () {
                 myPrepaidCardRechargeService.rechargeBiz($scope, POP);
             }
-
             $scope.showList=function(){
                 $state.go("tab.my-rechargeableCardList");
             }

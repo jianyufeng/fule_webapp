@@ -16,7 +16,6 @@ define(['app'], function (app) {
                 POP.EndLoading();
                 if (e) {
                     POP.Hint("加载失败");
-                    return;
                 }
                 //如果是上拉则添加到上次数据的后面
                 if($scope.isCanPull){
@@ -24,8 +23,16 @@ define(['app'], function (app) {
                 }else {
                     $scope.data = data.data;
                 }
+                var length = data.data.length;
+
+                //判断数据是否为空
+                if(length<=0){
+                    $scope.isEmptyData = true;
+                }else {
+                    $scope.isEmptyData = false;
+                }
                 //判断是否有下页数据
-                if (data.data.length < 10) {
+                if (length < 10) {
                     $scope.isCanPull = false;
                 } else {
                     $scope.isCanPull = true;

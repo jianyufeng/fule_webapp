@@ -23,16 +23,19 @@
 
 
             var offset = $(".tab-item:eq(3)").offset();
-            console.log(offset);
             var addcar = $(this).parent().parent().prev();
             var img = addcar.find('img').attr('src');
             var flyer = $('<img class="u-flyer" src="' + img + '">');
-            var goodsPrice = $(this).parent().prev().children(".shop_price").text().substring(1);
-            var goodsName = $(this).prev().children(".goods_name").text();
+            var goodsPrice = $(this).parent().parent().children(".goodsMoney").text().substring(2);
+            var goodsName = $(this).parent().children(".goodsDesc").text();
             var goodsId = $(this).find('img').attr('id');
+
+            console.log(goodsPrice);
+
             if (User.isLogin()) {
-                console.log("登陆了");
                 var userInfo = User.getInfo();
+                console.log(goodsPrice);
+
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
                     "user_id": userInfo.user_id,
@@ -40,10 +43,13 @@
                     "goods_name": goodsName,
                     "goods_number": 1,
                     "goods_price": goodsPrice,
+
                 }, function (e, data) {
                     if (e) {
                         return;
+
                     }
+
                 });
 
                 flyer.fly({

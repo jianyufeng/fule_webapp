@@ -119,6 +119,7 @@ app.controller("loginController", function ($scope, POP) {
         //获取验证码
         var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
         HTTP.get(url, {}, function (e, data) {
+            console.log(e);
             if (e) {
                 POP.Hint("data");
                 sendBox.removeAttr("disabled");
