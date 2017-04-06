@@ -30,7 +30,7 @@ var API = {
         unreadMsgInfo:serverIP+"/article/searchInfo/",
         unreadMsg:serverIP+"/article/search",
         //电子币转账记录
-        searchUserAccoun:serverIP+"/userCard/searchLogs",
+        searchUserAccount:serverIP+"/userCard/searchLogs",
         //查询辅销币流水
         searchAccountLog:serverIP+"/fxp/searchIntergralLog"
     },
