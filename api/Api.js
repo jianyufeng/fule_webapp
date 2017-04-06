@@ -27,9 +27,9 @@ var API = {
         //未读消息
         unreadMsg:serverIP+"/article/search",
         //未读消息详情
-        unreadMsgInfo:serverIP+"/article/searchInfo/",
-        //电子币银行汇款
-
+        unreadMsgInfo:serverIP+"/article/searchInfo",
+        //添加电子币银行汇款
+        eleBankTransfer:serverIP+"/banks/addRemittance",
         //获取电子币卡记录
         searchUserAccount:serverIP+"/userCard/searchLogs",
         //获取银行列表
@@ -52,7 +52,9 @@ var API = {
         //删除购物车产品
         deleteCart : serverIP + "/cart/deleteCartGoods",
         //购物车提交订单产品总数
-        goodsCount : serverIP +"/_cart/searchCartCount"
+        goodsCount : serverIP +"/_cart/searchCartCount",
+        //设置默认收货地址
+        updateDefaultAddress :serverIP + "/user/update"
 
 
     },
@@ -64,6 +66,12 @@ var API = {
         productInfo: serverIP + "/_category/goodsDetail",
         //获取购物车数量
         getCartNum:serverIP+"/_cart/searchCartCount"
+    },
+
+   Other : {
+        getProvinces : serverIP + "/region/provinces",
+        getCities    : serverIP + "/region/cities",
+        getCounties  : serverIP + "/region/counties"
     },
 
     Home: {}

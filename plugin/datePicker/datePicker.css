@@ -16,7 +16,7 @@
 }
 #datePlugin .d-date-box {
     position: absolute;
-    bottom: 0;
+    bottom: -1000px;
     background-color: #fff;
     width: 100%;
 }

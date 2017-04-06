@@ -4,7 +4,7 @@ define(['app'], function (app) {
 
         var service = {};
 
-        /*网络获取商城订单 信息*/
+        /*网络获取银行列表 信息*/
         service.getBankList = function ($scope,type) {
 
             //获取用户的账号
@@ -20,41 +20,32 @@ define(['app'], function (app) {
             });
 
         };
-        /*网络获取商城订单 信息*/
-        service.getShopOrderForm = function ($scope, POP, type) {
-            if (!$scope.isCanPull) {
-                POP.StartLoading();
-            }
 
+        //提交
+        service.addEleBankTransfer = function ($scope, POP,param) {
+            POP.StartLoading();
             //获取用户的账号
             var info = User.getInfo();
-            HTTP.get(API.My.myOrderForm + "/skip/"+ $scope.page * 10 +"/limit/10/order_type/" + type + "/user_id/" + info.user_id, {}, function (e, data) {
+            HTTP.post(API.My.eleBankTransfer, {
+                "user_id": info.user_id,
+                "user_name": info.user_name,
+                "AMOUNT": param.amount,
+                "BANK_ACCOUNT": param.bank_account,
+                "BANK_NAME": param.bank_name,
+                "REMITTANCE_DATE": param.remittance_date,
+                "REMITTANCE_MAN": param.remittance_man,
+                "BANK_ID": param.bank_id,
+                "BANK_ADDRESS": param.bank_address,
+                "HUIKUAN_TYPE": param.huikuan_type,
+                "remittance_img": param.remittance_img,
+                "REMARK": param.remark
+            }, function (e, data) {
                 POP.EndLoading();
                 if (e) {
-                    POP.Hint("加载失败");
+                    POP.Hint("提交失败");
                 }
-                //如果是上拉则添加到上次数据的后面
-                if($scope.isCanPull){
-                    $scope.data = $scope.data.concat(data.data);
-                }else {
-                    $scope.data = data.data;
-                }
-                var length = data.data.length;
+                //成功干啥？？？
 
-                //判断数据是否为空
-                if(length<=0){
-                    $scope.isEmptyData = true;
-                }else {
-                    $scope.isEmptyData = false;
-                }
-                //判断是否有下页数据
-                if (length < 10) {
-                    $scope.isCanPull = false;
-                } else {
-                    $scope.isCanPull = true;
-                    $scope.page++;
-                }
-                $scope.$broadcast('scroll.infiniteScrollComplete');
             });
 
         };

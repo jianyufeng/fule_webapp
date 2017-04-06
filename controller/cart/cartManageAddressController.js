@@ -17,8 +17,7 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
         });
 
         var editing = false;
-        $(".editOperationArea").hide();  //初始编辑区域隐藏
-        $(".addBtn").hide();             //初始添加新地址隐藏
+        $(".addAddressBtn").hide();             //初始添加新地址隐藏
         //编辑购物车
         $scope.manageAddress = function(){
             if (editing){
@@ -27,14 +26,14 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
                 $scope.righttitleValue = "管理";
                 $(".editOperationArea").hide();
                 $scope.addressTitle = "选择收货地址";
-                $(".addBtn").hide();
+                $(".addAddressBtn").hide();
 
             }else{
 
                 editing = true;
-                $scope.righttitleValue = "完成";
+                $scope.righttitleValue = "关闭";
                 $(".editOperationArea").show();
-                $(".addBtn").show();
+                $(".addAddressBtn").show();
                 $scope.addressTitle = "管理收货地址";
 
             }
@@ -44,10 +43,7 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
         //选择收货地址
         $(document).on("click",".shippingAddressItem",function(){
 
-                if (editing){
-
-                }
-                else {
+                if (!editing){
 
                     //请求服务器设为默认地址,并且跳转到订单页面
 
@@ -69,27 +65,63 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
 
         //点击设置默认地址
-        $(".selectDefaultBox").click(function(){
+        $(document).on("click",".selectDefaultBox",function(){
 
-            var _idx = $(".selectBtn").index(this);
-            if($(this).find("img").is(':visible')){
-                $(this).find("img").hide();
-            }else{
-                $(this).find("img").show();
-            }
+            var _this = $(this);
+
+            var _idx = $(".selectDefaultBox").index(this);
+            var info = User.getInfo();
+
+            console.log(_idx);
+            var addressID =  $scope.historyAddress[_idx].address_id;
+            console.log("*****" + addressID);
+            var params = {
+
+                 user_id : info.user_id,
+                 address_id : addressID
+
+                 }
+
+            cartManageAddressService.setDefaultAddress($scope,params,POP,function(){
+
+                // if (addressID !=$scope.defaultAddressID){
+
+                    console.log("22-" + addressID,$scope.defaultAddressID);
+
+                    $(".defaultAddress").find("span").text("设为默认");
+                    _this.find(".defaultAddress span").text("默认地址");
+
+                    $(".defaultAddress").find("span").css("color","#BCBCBC");
+                    _this.find(".defaultAddress span").css("color","#BB55A0");
+
+
+                    $(".imgSelect").hide();
+                    _this.find("img").show();
+                    $(".default").hide();
+                    $(".default:eq("+_idx+")").show();
+
+
+                // }
+
+
+            });
+
+
 
 
         });
 
         //点击编辑
-        $(".editBtnBox").click(function(){
+        $(document).on("click",".editBtnBox",function(){
+
             $state.go("tab.cart_addAddress",{UID:1});
 
-        });
+            });
 
 
         //点击删除
-        $(".deleteBtnBox").click(function(){
+        $(document).on("click",".deleteBtnBox",function(){
+
             POP.Confirm("您确认要删除掉当前地址?",function () {
 
                 alert("删除地址");
@@ -99,7 +131,7 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
         });
 
         //添加新地址
-        $(".addBtn").click(function(){
+        $(".addAddressBtn").click(function(){
 
             $state.go("tab.cart_addAddress");
 
