@@ -39,7 +39,7 @@ define(['app'], function (app) {
          * 获取购物代金劵卡的记录
          *
          */
-        service.getBList = function () {
+        service.getBList = function ($scope, POP, userId) {
 
             POP.StartLoading();
             HTTP.get(API.My.searchAccountLog + "/user_id/" + userId, {}, function (e, data) {
