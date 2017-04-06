@@ -43,6 +43,8 @@ define([
     '../service/my/myUnreadMsgService',
     // 充值卡列表
     '../service/my/myRechargeableCardListService',
+    // 电子币银行汇款
+    '../service/my/myElectronicBankTransferService',
 
     // 商品详情页
     '../service/category/productInfoService'
