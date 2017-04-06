@@ -98,15 +98,13 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
                     $(".imgSelect").hide();
                     _this.find("img").show();
                     $(".default").hide();
-                    $(".default:eq("+_idx+")").show();
+                    $(".default:eq("+_idx+")").show();  //根据下标地址获取对应的控件
 
 
                 // }
 
 
             });
-
-
 
 
         });
@@ -124,7 +122,10 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
             POP.Confirm("您确认要删除掉当前地址?",function () {
 
-                alert("删除地址");
+                var _idx = $(".deleteBtnBox").index(this);
+
+
+
 
             })
 
