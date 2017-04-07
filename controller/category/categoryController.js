@@ -4,9 +4,7 @@ define(['app',"./Fun/caregoryFun"], function (app, caregoryFun) {
     function ctrl($scope,$rootScope, categoryService,POP,$state) {
 
         $rootScope[$state.current.name]={};
-
         console.log("分类界面控制器...");
-    ;
         $scope.$on('$ionicView.loaded', function () {
             // 初始化页面数据
             categoryService.getCategoryListAndCategoryGoodsList($scope);

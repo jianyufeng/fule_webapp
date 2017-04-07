@@ -9,9 +9,8 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
     function ctrl($scope, productInfoService, $stateParams, POP,$state) {
         $scope.count = 1;
         $scope.index = 0;
+        console.log("商品详情控制器")
         $scope.$on('$ionicView.loaded', function () {
-            /*获取数据*/
-            console.log("productInfoController")
             productInfoService.getProductInfo($scope, $stateParams,POP);
             productInfoService.getCartInfo($scope);
             productInfoService.setImageMargin();

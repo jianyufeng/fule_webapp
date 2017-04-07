@@ -123,23 +123,23 @@
 
 <ion-tabs class="tabs-icon-top bar-stable" ng-class="{'tabs-item-hide': $root.hideTabs}">
 
-	<ion-tab title="全部商品" class="goodsIcon" icon-off="shangpin_off" icon-on="shangpin_on" href="#/tab/goods" on-select="tabSelect(0)">
+	<ion-tab title="全部商品" class="goodsIcon" icon-off="shangpin_off" icon-on="shangpin_on" href="#/tab/goods" ng-click="tabSelect(0)">
 		<ion-nav-view name="tab-goods"></ion-nav-view>
 	</ion-tab>
 
-	<ion-tab title="分类" class="fenleiIcon" icon-off="fenlei_off" icon-on="fenlei_on" href="#/tab/category" on-select="tabSelect(1)">
+	<ion-tab title="分类" class="fenleiIcon" icon-off="fenlei_off" icon-on="fenlei_on" href="#/tab/category" ng-click="tabSelect(1)">
 		<ion-nav-view name="tab-category"></ion-nav-view>
 	</ion-tab>
 
-	<ion-tab title="" class="middleIcon" icon-off="shouye_off" icon-on="shouye_on"  href="#/tab/home" on-select="tabSelect(2)">
+	<ion-tab title="" class="middleIcon" icon-off="shouye_off" icon-on="shouye_on"  href="#/tab/home" ng-click="tabSelect(2)">
 		<ion-nav-view name="tab-home"></ion-nav-view> 
 	</ion-tab> 
 
-	<ion-tab title="购物车" badge="cartBadge" badge-style="badge-assertive" icon-off="cart_off" icon-on="cart_on" href="#/tab/cart" on-select="tabSelect(3)">
+	<ion-tab title="购物车" badge="cartBadge" badge-style="badge-assertive" icon-off="cart_off" icon-on="cart_on" href="#/tab/cart" ng-click="tabSelect(3)">
 		<ion-nav-view name="tab-cart"></ion-nav-view>
 	</ion-tab>
 
-	<ion-tab title="我的" icon-off="my_off" icon-on="my_on" href="#/tab/my" on-select="tabSelect(4)">
+	<ion-tab title="我的" icon-off="my_off" icon-on="my_on" href="#/tab/my" ng-click="tabSelect(4)">
 		<ion-nav-view name="tab-my"></ion-nav-view>
 	</ion-tab>
 
