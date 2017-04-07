@@ -41,6 +41,42 @@ define(['app'],function(app){
 
 
 
+        /*保存新添加的收货地址*/
+        service.saveAddress = function($scope,newParams,POP,fn){
+
+            POP.StartLoading();
+
+            //更新操作
+            HTTP.post(API.Cart.addNewAddress,newParams,function(e,data){
+
+
+
+                console.log("*************" + data);
+
+                POP.EndLoading();
+
+                if(e){
+                    POP.Hint("设置失败:" + e);
+                    return;
+                }else {
+                    fn();
+                    POP.Hint("设置成功");
+                }
+
+
+
+            });
+
+        }
+
+
+
+
+
+
+
+
+
 
 
 

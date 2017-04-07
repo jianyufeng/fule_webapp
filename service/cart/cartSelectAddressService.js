@@ -14,13 +14,12 @@ define(['app'],function(app){
 
             POP.StartLoading();
 
-
             //获取用户的账号
             var info = User.getInfo();
             HTTP.get(API.Cart.shippingAddress + "/user_id/"+info.user_id , {}, function (e, data) {
 
-
                 POP.EndLoading();
+
                   console.log(data);
                 if (e) {
                     $.loadError(function () {
@@ -34,7 +33,6 @@ define(['app'],function(app){
                     //为html页面注入数据
                     $scope.historyAddress = data.AddressList;
                     $scope.defaultAddressID = data.defaultAddress;
-
 
 
                 });

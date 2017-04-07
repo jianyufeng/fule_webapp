@@ -6,11 +6,11 @@
 
                 <div class="reciever">
                     <div class="title"><span>收货人</span></div>
-                    <input class="recieverName" type="text" placeholder="未填写"/>
+                    <input class="recieverName" type="text" placeholder="中文、数字、字母下划线组合"/>
                 </div>
                 <div class="mobile">
                     <div class="title"><span>联系电话</span></div>
-                    <input class="recieverNumber" type="text" placeholder="未填写"/>
+                    <input class="recieverNumber" type="text" placeholder="未填写(必填)"/>
                 </div>
                 <div class="location">
                     <div class="title">
@@ -18,13 +18,34 @@
                     </div>
                     <div class="selectAction">
                         <div class="next"><img class="nextBtnImg" src="resource/images/icon/jiantou_right.png"></div>
-                        <div class="select-location"><span>请选择</span></div>
+                        <div class="select-location"><span>请选择(必选)</span></div>
                     </div>
-
-
                 </div>
+                <div class="address_categray">
+                        <div class="title"><span>地址别名</span></div>
+                        <input class="categray" type="text" placeholder="可以为中文、数字、字母组合"/>
+                </div>
+
+                <div class="address_zipcode">
+                    <div class="title"><span>邮政编码</span></div>
+                    <input class="zipcode" type="text" placeholder="请输入6位邮编"/>
+                </div>
+                <div class="address_email">
+                    <div class="title"><span>电子邮箱</span></div>
+                    <input class="email" type="text" placeholder="请输入正确的邮箱"/>
+                </div>
+                <div class="sign_building">
+                    <div class="title"><span>标志建筑</span></div>
+                    <input class="building" type="text" placeholder="可以为中文、数字、字母组合"/>
+                </div>
+                <div class="best_time">
+                    <div class="title"><span>最佳送货时间</span></div>
+                    <input class="time" type="text" placeholder="可以为中文、数字、字母组合"/>
+                </div>
+
+
                 <div class="street" style="display: none">
-                    <div class="title"><span>街道</span></div>
+                    <div class="title"><span>所在街道</span></div>
                     <div class="selectAction">
                         <div class="next"><img class="nextBtnImg" src="resource/images/icon/jiantou_right.png"></div>
                         <div class="select-street"><span>请选择</span></div>
@@ -37,7 +58,7 @@
             </div>
             <div class="setDefault">
                 <div class="title"><span>设为默认</span></div>
-                 <ion-toggle class="openBtn" ng-model="item.checked" ng-checked="item.checked"></ion-toggle>
+                 <ion-toggle class="openBtn" ng-model="isDefault" ng-change="setDefault(isDefault)"></ion-toggle>
             </div>
 
 
