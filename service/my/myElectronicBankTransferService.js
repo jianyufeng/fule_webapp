@@ -15,7 +15,6 @@ define(['app'], function (app) {
                     return;
                 }
                 //如果是上拉则添加到上次数据的后面
-                console.log(data.data);
                $scope.bankLists = data.data;
             });
 
@@ -23,6 +22,7 @@ define(['app'], function (app) {
 
         //提交
         service.addEleBankTransfer = function ($scope, POP,param) {
+            console.log(11111)
             POP.StartLoading();
             //获取用户的账号
             var info = User.getInfo();
@@ -37,15 +37,17 @@ define(['app'], function (app) {
                 "BANK_ID": param.bank_id,
                 "BANK_ADDRESS": param.bank_address,
                 "HUIKUAN_TYPE": param.huikuan_type,
-                "remittance_img": param.remittance_img,
+                "remittance_img":'/upload/auto/2017/04/1491528899881.png',
                 "REMARK": param.remark
             }, function (e, data) {
                 POP.EndLoading();
                 if (e) {
-                    POP.Hint("提交失败");
+                    POP.Hint(data);
+                    return;
                 }
                 //成功干啥？？？
-
+                POP.Hint("提交成功");
+                $("#form1")[0].reset();
             });
 
         };

@@ -5,7 +5,9 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
     function ctrl($scope,myElectronicBankTransferService, POP)  {
 
         $scope.$on('$ionicView.loaded', function () {});
+        //选择地址
         $("#ert_address").click(function () {
+            console.log(111);
             new AddressSelect({
                 resultBtnClick: function (result) {
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
@@ -13,12 +15,39 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
                 }
             })
         });
+        //隐藏汇入银行
+        $('.sel_BankBox').click(function (e) {
+            if (e.target.className == "sel_BankBox") {
+                $('.sel_BankBox').fadeOut();
+            }
+        });
+        //选择汇入银行
+        $('#ert_showBank').click(function () {
+            $('.sel_BankBox').fadeIn();
+        });
+        //初始化汇入银行
+        $scope.data = {sel_bank: ''};
+        //确定
+        $('.sel_confirmSelect').click(function () {
+            $('.sel_BankBox').fadeOut();
+
+            //获取选择的值
+            var data = $scope.data.sel_bank;
+            //判断是否为空
+            if (CommenFun.isNullObj(data)) {
+                return;
+            }
+            //更改当前选择的值
+            $('.ert_selectBank').val(
+                data.BANK_NAME + "    " + data.ACCOUNT_OWNER + "\n" + data.BANK_ACCOUNT
+            );
+        });
 
         var info = User.getInfo();
         $scope.userName = info.user_name;
         //获取转入银行列表
         myElectronicBankTransferService.getBankList($scope, 2);
-        //提交
+        //选择日期
         $('#ert_time').datePicker({
             beginyear: 2002,
             theme: 'datetime',
@@ -27,12 +56,13 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
                 //$("#ert_time").val(data);
             }
         });
-
+        //汉字正则
         var hzReg = /^[\u4e00-\u9fa5]+$/;
+        //提交
         $('.ert_confirm').click(function () {
             //获取选择的汇入银行
-            var bankID = $("input[name='selectBank']:checked").val();
-            if (CommenFun.isNullObj(bankID)) {
+            var bankContent = $.trim($("#ert_selectBank").val());
+            if (bankContent.length <= 0) {
                 POP.Alert("请选择<br/><font color='red'>(汇入银行)</font>");
                 return;
             }
@@ -75,27 +105,34 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
                 POP.Alert("请选择<br/><font color='red'>(汇款日期)</font>");
                 return
             }
-            return;
+
             //获取备注
             var remark = $.trim($('#ert_remark').val());
-
-            return;
             var param = {
                 "amount": money,
                 "bank_account": bankAccount,
                 "bank_name": tfBankName,
                 "remittance_date": tfTime,
                 "remittance_man": userName,
-                "bank_id": bankID,
+                "bank_id": $scope.data.sel_bank.BANK_ID,
                 "bank_address": address + addressDetail,
                 "huikuan_type": 2,
                 //"remittance_img": img,
                 "remark": remark
             };
+
             myElectronicBankTransferService.addEleBankTransfer($scope, POP, param);
 
         });
 
+        /*确定 点击效果*/
+        $(document).on("touchstart", ".sel_confirmSelect", function (event) {
+            $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);
+        });
+
+        $(document).on("touchend", ".sel_confirmSelect", function (event) {
+            $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
+        });
         /*提交 点击效果*/
         $(document).on("touchstart", ".ert_confirm", function (event) {
             $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);
