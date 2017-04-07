@@ -9,9 +9,11 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         if(isLogin){
             $('.my_loginBox').show();
             $('.unLoginBox').hide();
+            $('.myHeaderBox').hide();
         }else {
             $('.my_loginBox').hide();
             $('.unLoginBox').show();
+            $('.myHeaderBox').show();
         }
 
         /*加载界面动画*/
