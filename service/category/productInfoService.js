@@ -170,6 +170,7 @@ define(['app'], function (app) {
                             $scope.cartCount += $scope.count;
                         });
 
+                        POP.Hint("添加成功");
                     })
 
                 } else {
