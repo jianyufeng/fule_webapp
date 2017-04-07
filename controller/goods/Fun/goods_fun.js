@@ -30,11 +30,8 @@
             var goodsName = $(this).parent().children(".goodsDesc").text();
             var goodsId = $(this).find('img').attr('id');
 
-            console.log(goodsPrice);
-
             if (User.isLogin()) {
                 var userInfo = User.getInfo();
-                console.log(goodsPrice);
 
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
