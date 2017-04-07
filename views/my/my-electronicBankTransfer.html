@@ -1,7 +1,8 @@
 <ion-view view-title="电子币银行汇款" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <ion-content>
-        <navigation-bar is-back="true" title="电子币银行汇款"></navigation-bar>        <div class="etr_box">
+        <navigation-bar is-back="true" title="电子币银行汇款"></navigation-bar>
+        <div class="etr_box">
 
 
             <div class="ert_AccountBox">
@@ -34,43 +35,49 @@
             <div class="ert_AccountBox" style="border-top: solid 1px #eee">
                 <div class="ert_AccountName">汇款银行&nbsp;:</div>
                 <div class="ert_AccountVal">
-                    <input type="text" class="ert_input" id="ert_TFBank">
+                    <input type="text" class="ert_input" id="ert_TFBank"  placeholder="填写汇款银行">
+                </div>
+            </div>
+            <div class="ert_AccountBox" style="border: none">
+                <div class="ert_AccountName">银行地址&nbsp;:</div>
+                <div class="ert_AccountVal">
+                    <input type="text" class="ert_input" id="ert_address" readOnly="true" placeholder="选择银行地址" style="background: white" >
                 </div>
             </div>
             <div class="ert_AccountBox">
-                <div class="ert_AccountName">银行地址&nbsp;:</div>
+                <div class="ert_AccountName">银行详细地址&nbsp;:</div>
                 <div class="ert_AccountVal">
-                    <input type="text" class="ert_input" id="ert_address" >
+                    <input type="text" placeholder="填写银行详细地址" class="ert_input" id="ert_addressDetail" >
                 </div>
             </div>
             <div class="ert_AccountBox">
                 <div class="ert_AccountName">银行账号&nbsp;:</div>
                 <div class="ert_AccountVal">
-                    <input type="text" class="ert_input" id="ert_BankAccount" >
+                    <input type="text" class="ert_input" id="ert_BankAccount" placeholder="填写银行账号">
                 </div>
             </div>
             <div class="ert_AccountBox">
                 <div class="ert_AccountName">汇款人姓名&nbsp;:</div>
                 <div class="ert_AccountVal">
-                    <input type="text" class="ert_input" id="ert_userName">
+                    <input type="text" class="ert_input" id="ert_userName" placeholder="填写汇款人姓名">
                 </div>
             </div>
             <div class="ert_AccountBox">
                 <div class="ert_AccountName">汇款金额&nbsp;:</div>
                 <div class="ert_AccountVal">
-                    <input type="text" class="ert_input" id="ert_money">
+                    <input type="text" class="ert_input" id="ert_money"  placeholder="填写汇款金额">
                 </div>
             </div>
             <div class="ert_AccountBox">
                 <div class="ert_AccountName">汇款日期&nbsp;:</div>
                 <div class="ert_AccountVal">
-                    <input type="text" class="ert_input" id="ert_time">
+                    <input type="text" class="ert_input" placeholder="选择汇款日期" id="ert_time" readOnly="true" style="background: white">
                 </div>
             </div>
             <div class="ert_AccountBox">
                 <div class="ert_AccountName">汇款备注&nbsp;:</div>
                 <div class="ert_AccountVal">
-                    <input type="text" class="ert_input" id="ert_remark">
+                    <input type="text" class="ert_input" id="ert_remark" placeholder="填写汇款备注">
                 </div>
             </div>
             <div class="ert_TRVoucherBox">

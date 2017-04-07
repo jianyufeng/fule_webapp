@@ -4,7 +4,9 @@
 
         <navigation-bar  is-back="true" title="汇款记录"></navigation-bar>
         <div class="contentBox">
-
+            <div ng-show="isEmptyData"  style="width: 100%;height: 200px;text-align: center;line-height: 200px" class="of_emptyList">
+                暂无数据
+            </div>
             <div class="listBox">
 
                 <div class="ItemBox"   ng-repeat="RemittanceRecordInfo in RemittanceRecordArray">

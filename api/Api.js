@@ -54,7 +54,13 @@ var API = {
         //购物车提交订单产品总数
         goodsCount : serverIP +"/_cart/searchCartCount",
         //设置默认收货地址
-        updateDefaultAddress :serverIP + "/user/update"
+        updateDefaultAddress :serverIP + "/user/update",
+        //删除用户地址
+        deleteUserAddress:serverIP + "/user/deleteAddress",
+        //添加新的收货地址
+        addNewAddress:serverIP + "/user/addAddress",
+        //更新用户地址
+        updateUserAddress: serverIP + "/user/updateAddress"
 
 
     },

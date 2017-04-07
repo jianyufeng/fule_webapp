@@ -1,7 +1,7 @@
 /**
  * Created by charles_xsx on 2017/3/30.
  */
-define(['app','css!../../../css/cart/cart_addAddress'],function(app,cart_fun){
+define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(app,cart_fun){
 
     function ctrl($scope,cartAddAddressService,POP,$state){
 
@@ -13,6 +13,14 @@ define(['app','css!../../../css/cart/cart_addAddress'],function(app,cart_fun){
 
 
 
+        });
+
+        $(".selectAction").click(function(){
+            new AddressSelect({
+                resultBtnClick : function(result){
+                    console.log(result);
+                }
+            });
         });
 
 

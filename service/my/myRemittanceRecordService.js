@@ -19,8 +19,10 @@ define(['app'], function (app) {
             var skip = 1;
             var limit = 50;
             var userId = User.getInfo().user_id;
-            HTTP.get(API.My.remittanceRecord + "/User_ID/" + userId ,
+            console.log(userId)
+            HTTP.get(API.My.remittanceRecord + "/USER_ID/" + userId ,
                 {}, function (e, data) {
+
                     //POP.EndLoading();
                     if(e){
                         //console.log(e);
@@ -33,6 +35,13 @@ define(['app'], function (app) {
                     }
                     $scope.$apply(function () {
                         $scope.RemittanceRecordArray = data.data;
+
+                        //判断数据是否为空
+                        if(data.data.length<=0){
+                            $scope.isEmptyData = true;
+                        }else {
+                            $scope.isEmptyData = false;
+                        }
                     });
 
                     return;
