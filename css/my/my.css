@@ -168,9 +168,12 @@
 }
 /*遮盖层*/
 .unLoginBox {
-  width: 100%;
   position: absolute;
-  z-index: 99999;
+  top: 150px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 999;
 }
 .unLoginBox img {
   margin: 10px auto;
