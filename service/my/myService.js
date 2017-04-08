@@ -11,7 +11,7 @@ define(['app'], function (app) {
             }
             //获取用户的账号
             var info = User.getInfo();
-            HTTP.get(API.My.myInfo + "/user_name/"+info.user_name +"/token/"+ info.token , {}, function (e, data) {
+            HTTP.get(API.My.myInfo + "/user_name/"+info.user_name , {}, function (e, data) {
                 if (e) {
                     if (!isRefresh) {
                         POP.Hint("对不起，刷新失败");
