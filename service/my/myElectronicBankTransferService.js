@@ -16,7 +16,9 @@ define(['app'], function (app) {
                     return;
                 }
                 $('.sel_loading').hide();
-                $scope.bankLists = data.data;
+                $scope.$apply(function(){
+                    $scope.bankLists = data.data;
+                });
                 if (data.data.length > 0) {
                     //确定按钮可点击
                     $('.sel_confirmSelect').removeAttr("disabled");

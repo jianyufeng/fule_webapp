@@ -56,8 +56,12 @@ define(['app'], function (app) {
                     POP.Hint("加载失败");
                     return;
                 }
-                //如果是上拉则添加到上次数据的后面
-               $scope.content = $sce.trustAsHtml(data.data[0].content);
+
+                $scope.$apply(function(){
+                    //如果是上拉则添加到上次数据的后面
+                    $scope.content = $sce.trustAsHtml(data.data[0].content);
+                });
+
             });
         };
         return service;
