@@ -219,13 +219,27 @@ define(['app'], function (app) {
 
             /*我的 充值卡充值列表 路由*/
             .state('tab.my-rechargeableCardList', {
-                url: 'my-rechargeableCardList',
+                url: '/my-rechargeableCardList',
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-rechargeableCardList.html?_r=" + Math.random(),
                         controller: 'myRechargeableCardListController',
                         resolve: {
                             deps: app.loadControllerJs('../controller/my/myRechargeableCardListController')
+                        }
+                    }
+
+                }
+            })
+            /*我的 用户激活或者升级是填写信息页面 路由*/
+            .state('tab.my-updateUserData', {
+                url: '/my-updateUserData',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-updateUserData.html?_r=" + Math.random(),
+                        controller: 'myUpdateUserDataController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myUpdateUserDataController')
                         }
                     }
 

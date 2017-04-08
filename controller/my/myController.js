@@ -57,6 +57,12 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         };
 
 
+
+        $scope.upGrade=function(){
+            myService.upGrade($scope,$state);
+
+        }
+
         ////上拉弹出框
         //$scope.selectIcon = function () {
         //    POP.ActionSheet("图片获取方式", ["确认弹窗", "普通弹窗"], [

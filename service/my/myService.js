@@ -13,6 +13,8 @@ define(['app'], function (app) {
             var info = User.getInfo();
             HTTP.get(API.My.myInfo + "/user_name/"+info.user_name , {}, function (e, data) {
                 if (e) {
+                    console.log(e);
+                    console.log(data);
                     if (!isRefresh) {
                         POP.Hint("对不起，刷新失败");
                         return
@@ -22,7 +24,20 @@ define(['app'], function (app) {
                     });
                     return;
                 }
-
+                console.log(data);
+                // D级别的标准
+                var a=data.config.IS_D;
+                console.log("D级别的标准"+a);
+                // 当前用户的级别
+                var b=data.userInfo.REGISTER_GRADE;
+                console.log(" 当前用户的级别"+b);
+                b=4;
+                if(b<4){
+                 // 显示按钮
+                    $("#gradeButton").css("display","none");
+                }else {
+                    $("#gradeButton").css("display","block");
+                }
                 $scope.$apply(function () {
                     $scope.userInfo = data.userInfo;
                     $scope.travel_points = data.travel_points;
@@ -39,6 +54,11 @@ define(['app'], function (app) {
             });
 
         };
+
+
+        service.upGrade=function($scope,$state){
+            $state.go("tab.my-updateUserData",{});
+        }
         return service;
 
 
