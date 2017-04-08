@@ -18,11 +18,15 @@ define(['app'], function (app) {
                     POP.Hint("加载失败");
                 }
                 //如果是上拉则添加到上次数据的后面
-                if($scope.isCanPull){
-                    $scope.data = $scope.data.concat(data.data);
-                }else {
-                    $scope.data = data.data;
-                }
+
+                $scope.$apply(function(){
+                    if($scope.isCanPull){
+                        $scope.data = $scope.data.concat(data.data);
+                    }else {
+                        $scope.data = data.data;
+                    }
+                });
+
                 var length = data.data.length;
 
                 //判断数据是否为空

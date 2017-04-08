@@ -5,24 +5,37 @@ define(['app'], function (app) {
         var service = {};
 
         /*网络获取银行列表 信息*/
-        service.getBankList = function ($scope,type) {
+        service.getBankList = function ($scope, type, POP) {
 
-            //获取用户的账号
-            var info = User.getInfo();
             HTTP.get(API.My.bankList + "/BANK_TYPE/" + type, {}, function (e, data) {
+                //隐藏加载图片
+                $('.sel_loadImg').hide();
                 if (e) {
                     POP.Hint("获取银行列表失败");
+                    $('.sel_loadTxt').show();
                     return;
                 }
-                //如果是上拉则添加到上次数据的后面
-               $scope.bankLists = data.data;
-            });
+                $('.sel_loading').hide();
+                $scope.$apply(function(){
+                    $scope.bankLists = data.data;
+                });
+                if (data.data.length > 0) {
+                    //确定按钮可点击
+                    $('.sel_confirmSelect').removeAttr("disabled");
+                    //确定按钮的 点击效果
+                    $(document).on("touchstart", ".sel_confirmSelect", function (event) {
+                        $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 100);
+                    });
+                    $(document).on("touchend", ".sel_confirmSelect", function (event) {
+                        $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 100);
+                    });
+                }
 
+            });
         };
 
         //提交
-        service.addEleBankTransfer = function ($scope, POP,param) {
-            console.log(11111)
+        service.addEleBankTransfer = function ($scope, POP, param) {
             POP.StartLoading();
             //获取用户的账号
             var info = User.getInfo();
@@ -37,7 +50,7 @@ define(['app'], function (app) {
                 "BANK_ID": param.bank_id,
                 "BANK_ADDRESS": param.bank_address,
                 "HUIKUAN_TYPE": param.huikuan_type,
-                "remittance_img":'/upload/auto/2017/04/1491528899881.png',
+                "remittance_img": '/upload/auto/2017/04/1491528899881.png',
                 "REMARK": param.remark
             }, function (e, data) {
                 POP.EndLoading();

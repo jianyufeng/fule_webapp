@@ -56,7 +56,6 @@ define(['app'],function(app){
                     fn();
                     POP.Hint("设置成功");
                 }
-                     console.log(data);
 
 
 

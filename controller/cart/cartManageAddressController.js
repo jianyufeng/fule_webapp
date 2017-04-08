@@ -7,17 +7,17 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
         $scope.addressTitle = "选择收货地址";
 
-        $scope.$on('$ionicView.loaded',function () {
+        $scope.$on('$ionicView.beforeEnter',function () {
 
             //初始化
             $scope.righttitleValue = "管理";
             cartManageAddressService.getShippingAddress($scope,POP);
 
-
         });
 
         var editing = false;
         $(".addAddressBtn").hide();             //初始添加新地址隐藏
+        console.log(11111);
         //编辑购物车
         $scope.manageAddress = function(){
             if (editing){
@@ -72,9 +72,7 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
             var _idx = $(".selectDefaultBox").index(this);
             var info = User.getInfo();
 
-            console.log(_idx);
             var addressID =  $scope.historyAddress[_idx].address_id;
-            console.log("*****" + addressID);
             var params = {
 
                  user_id : info.user_id,

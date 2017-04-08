@@ -80,6 +80,17 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
         });
 
+
+        $(".deliveryChoice").click(function () {
+            if ($(this).find("img").is(':visible')){
+                $(this).find("img").hide();
+                alert(11);
+            }else {
+                $(this).find("img").show();
+                alert(22);
+
+            }
+        });
     }
 
     ctrl.$inject = ['$rootScope','$scope','cartOrderService', 'POP'];

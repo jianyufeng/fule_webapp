@@ -105,7 +105,7 @@ app.controller("registerController", function ($scope, POP) {
                 return;
             }
             POP.Hint(data);
-            //console.log(data);
+
             setTime(postNote);
         });
 
@@ -206,7 +206,7 @@ app.controller("registerController", function ($scope, POP) {
 }
 
             var userInfo = JSON.stringify(data);
-            console.log(userInfo);
+
             //判断是否保存登录信息  如果保存则保存7天
             if ($('#saveLogin').is(':checked')) {
 

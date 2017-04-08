@@ -169,6 +169,7 @@
   bottom: 0px;
   line-height: 50px;
   text-align: center;
+  display: none;
 }
 .outBox .addAddressBtn span {
   color: white;
