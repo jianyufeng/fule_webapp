@@ -1,11 +1,12 @@
+
 /**
  * Created by charles_xsx on 2017/3/30.
  */
-define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(app,cart_fun){
+define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],function(app,cart_fun){
 
 
 
-    function ctrl($scope,cartAddAddressService,POP,$state,$ionicHistory,$stateParams){
+    function ctrl($scope,cartModifyAddressService,POP,$state,$ionicHistory,$stateParams){
 
 
         $scope.$on('$ionicView.loaded',function () {
@@ -13,16 +14,22 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
             //初始化
             $scope.righttitleValue = "保存";
 
+            $('.recieverName').val($stateParams.consignee);
+            $('.recieverNumber').val($stateParams.mobile);
+            $(".select-location").find("span").text($stateParams.province_name + $stateParams.city_name + $stateParams.district_name);
+            $(".select-location").find("span").css("color","#000000");
+            $(".inputArea").val($stateParams.address);
+            $('.email').val($stateParams.email);
+            $('.categray').val($stateParams.address_name);
+            $('.zipcode').val($stateParams.zipcode);
+            $('.building').val($stateParams.sign_building);
+            $('.time').val($stateParams.best_time);
+            $('.telNumber').val($stateParams.tel);
+
         });
 
 
 
-        //初始化默认按钮
-        var isChecked = false;
-        $scope.setDefault = function(v){
-
-            isChecked = v;
-        }
 
         var locationAddress; //详细地址
         var province ; //省
@@ -62,16 +69,14 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
             //保存成功后后退到地址管理页面
             var recieverName  = $('.recieverName').val();
             var mobileNumeber = $('.recieverNumber').val();
+            var familyPhone   = $('.telNumber').val();
             var location      = $(".select-location").find("span").text();
-            var detailAddress = $(".inputArea").val();
-            var email         = $('.email').val();
             var categray      = $('.categray').val();
+            var detailAddress = $(".inputArea").val();
             var zipCode       = $('.zipcode').val();
+            var email         = $('.email').val();
             var building      = $('.building').val();
             var best_time     = $('.time').val();
-            var familyPhone   = $('.telNumber').val();
-            var defaultAddress= isChecked;
-
 
             //收货人姓名
             if (recieverName ==null || recieverName.length <= 0){
@@ -92,7 +97,6 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                     return;
                 }
             }
-
             //固定电话
             if (familyPhone && familyPhone.length>0){
 
@@ -105,7 +109,6 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                 }
 
             }
-
             //收货地址
             if (location ==null || location.length <= 0){
                 POP.Hint("收货地址不能为空");
@@ -146,15 +149,16 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                 }
 
             }
+
             if (detailAddress ==null || detailAddress.length <= 0){
                 POP.Hint("详细地址不能为空");
                 return;
             }
+
             var info = User.getInfo();
 
-
             var newParams = {
-
+                address_id   : $stateParams.address_id,
                 address_name : categray,
                 user_id      : info.user_id,
                 consignee    : recieverName,
@@ -165,18 +169,16 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                 district     : AID,
                 address      : detailAddress,
                 zipcode      : zipCode,
-                sign_building: building,
-                best_time    : best_time,
-                mobile       : mobileNumeber,
                 tel          : familyPhone,
-                is_default   : defaultAddress?1:0
-
+                mobile       : mobileNumeber,
+                sign_building: building,
+                best_time    : best_time
+            //
             }
-
 
             console.log(newParams);
             //上传数据
-            cartAddAddressService.saveAddress($scope,newParams,POP,function () {
+            cartModifyAddressService.setModifyAddress($scope,newParams,POP,function () {
 
                 //成功直接返回上一层
                 $ionicHistory.goBack();
@@ -192,6 +194,6 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
 
     }
 
-    ctrl.$inject = ['$scope','cartAddAddressService', 'POP','$state','$ionicHistory','$stateParams'];
-    app.registerController('cartAddAddressController',ctrl);
+    ctrl.$inject = ['$scope','cartModifyAddressService', 'POP','$state','$ionicHistory','$stateParams'];
+    app.registerController('cartModifyAddressController',ctrl);
 });

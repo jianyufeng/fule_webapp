@@ -309,28 +309,3 @@
   padding-bottom: 10px;
   font-size: 14px;
 }
-.setDefault {
-  width: 100%;
-  height: 50px;
-  margin-top: 10px;
-  background: white;
-  float: left;
-  padding-left: 15px;
-  padding-right: 15px;
-  line-height: 50px;
-}
-.setDefault .title {
-  width: 100px;
-  height: 50px;
-  float: left;
-}
-.setDefault .title span {
-  font-size: 14px;
-}
-.setDefault .openBtn {
-  width: 49px;
-  height: 49px;
-  float: right;
-  border: none;
-  margin-top: 0px;
-}

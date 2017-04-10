@@ -35,8 +35,6 @@ define(['app'],function(app){
                     return;
                 }
 
-                console.log()
-
                 $scope.$apply(function () {
                     $scope.cart_goods = cart_goods;
                     $scope.cart_info  = order_info;
