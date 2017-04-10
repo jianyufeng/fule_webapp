@@ -6,16 +6,6 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         
 
         var isLogin = User.isLogin();
-        if(isLogin){
-            $('.my_loginBox').show();
-            $('.unLoginBox').hide();
-            $('.myHeaderBox').hide();
-        }else {
-            $('.my_loginBox').hide();
-            $('.unLoginBox').show();
-            $('.myHeaderBox').show();
-        }
-
         /*加载界面动画*/
         my_fun.animation();
 
@@ -26,6 +16,18 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                 myService.getMyInfo($scope, POP, false);
             }
         });
+        $scope.$on('$ionicView.beforeEnter', function () {
+            var isLogin = User.isLogin();
+            if(isLogin){
+                $('.my_loginBox').show();
+                $('.unLoginBox').hide();
+                $('.myHeaderBox').hide();
+            }else {
+                $('.my_loginBox').hide();
+                $('.unLoginBox').show();
+                $('.myHeaderBox').show();
+            }
+        });
         /*下拉刷新*/
         $scope.doRefresh = function () {
             if(isLogin){
@@ -33,10 +35,17 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
             }
 
         };
+        //退出登录
+        $('.loginOutBox').click(function(){
+            POP.Confirm("确定退出登录?",function(){
+                $.cookie("userInfo", null, {path: '/'});
+                $state.go("tab.home");
+            });
 
+        });
         //去登陆
         $scope.goLogin = function(){
-            console.log(111111);
+
             location.href="./login/login.html";
         };
         //去注册
