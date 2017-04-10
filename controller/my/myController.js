@@ -3,7 +3,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
     function ctrl($scope, myService, POP,$state) {
         console.log("我的界面控制器...");
 
-        
+
 
         var isLogin = User.isLogin();
         /*加载界面动画*/
@@ -17,7 +17,8 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
             }
         });
         $scope.$on('$ionicView.beforeEnter', function () {
-            var isLogin = User.isLogin();
+            isLogin = User.isLogin();
+            console.log(isLogin);
             if(isLogin){
                 $('.my_loginBox').show();
                 $('.unLoginBox').hide();
@@ -30,10 +31,10 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         });
         /*下拉刷新*/
         $scope.doRefresh = function () {
+            $scope.$broadcast('scroll.refreshComplete');
             if(isLogin){
                 myService.getMyInfo($scope, POP, true);
             }
-
         };
         //退出登录
         $('.loginOutBox').click(function(){
