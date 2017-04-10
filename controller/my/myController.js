@@ -3,19 +3,9 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
     function ctrl($scope, myService, POP,$state) {
         console.log("我的界面控制器...");
 
-        
+
 
         var isLogin = User.isLogin();
-        if(isLogin){
-            $('.my_loginBox').show();
-            $('.unLoginBox').hide();
-            $('.myHeaderBox').hide();
-        }else {
-            $('.my_loginBox').hide();
-            $('.unLoginBox').show();
-            $('.myHeaderBox').show();
-        }
-
         /*加载界面动画*/
         my_fun.animation();
 
@@ -26,17 +16,38 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                 myService.getMyInfo($scope, POP, false);
             }
         });
+        $scope.$on('$ionicView.beforeEnter', function () {
+            isLogin = User.isLogin();
+            console.log(isLogin);
+            if(isLogin){
+                $('.my_loginBox').show();
+                $('.unLoginBox').hide();
+                $('.myHeaderBox').hide();
+            }else {
+                $('.my_loginBox').hide();
+                $('.unLoginBox').show();
+                $('.myHeaderBox').show();
+            }
+        });
         /*下拉刷新*/
         $scope.doRefresh = function () {
             if(isLogin){
                 myService.getMyInfo($scope, POP, true);
+            }else {
+               $scope.$broadcast('scroll.refreshComplete');
             }
-
         };
+        //退出登录
+        $('.loginOutBox').click(function(){
+            POP.Confirm("确定退出登录?",function(){
+                $.cookie("userInfo", null, {path: '/'});
+                $state.go("tab.home");
+            });
 
+        });
         //去登陆
         $scope.goLogin = function(){
-            console.log(111111);
+
             location.href="./login/login.html";
         };
         //去注册
@@ -56,6 +67,12 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
             $state.go("tab.my-voucherTransfer",{"userVoucher":fxp_points});
         };
 
+
+
+        $scope.upGrade=function(){
+            myService.upGrade($scope,$state);
+
+        }
 
         ////上拉弹出框
         //$scope.selectIcon = function () {

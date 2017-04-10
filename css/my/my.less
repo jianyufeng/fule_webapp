@@ -3,8 +3,18 @@
 .userBox {
   border-bottom: solid 1px @brc;
   width: 100%;
-  height: 180px;
+  height: 230px;
   background: url("../../resource/images/icon/my_background.png") no-repeat 0 -35px;
+
+  //登出
+  .loginOutBox {
+    top: 15px;
+    left: 15px;
+    position: absolute;
+    padding: 10px;
+    font-size: 15px;
+    z-index: 9999;
+  }
   /*用户图像*/
   .usrIconBox {
     text-align: center;
@@ -70,6 +80,17 @@
       position: relative;
 
     }
+  }
+  .gradeBox {
+    width: 22%;
+    height: 30px;
+    background-color: #d39ac5;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 39%;
+    color: white;
+    border-radius: 3px;
+    display: none;
   }
 }
 
@@ -189,28 +210,28 @@
 /*遮盖层*/
 
 .unLoginBox {
-  width:100%;
-  position:absolute;
-  top:150px;
-  left:0px;
-  right:0px;
-  z-index:99999;
+  width: 100%;
+  position: absolute;
+  top: 150px;
+  left: 0px;
+  right: 0px;
+  z-index: 99999;
 
   img {
     margin: 10px auto;
     display: block;
     width: 200px;
-    height:200px;
+    height: 200px;
   }
-    button {
-      margin-left: 10%;
-      width: 35%;
-      height:35px;
-      background:#d39ac5;
-      border:1px solid #eee;
-      border-radius:5px;
-      color:#fff;
-    }
+  button {
+    margin-left: 10%;
+    width: 35%;
+    height: 35px;
+    background: #d39ac5;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    color: #fff;
+  }
 
 }
 

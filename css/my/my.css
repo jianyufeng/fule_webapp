@@ -2,10 +2,18 @@
 .userBox {
   border-bottom: solid 1px #eee;
   width: 100%;
-  height: 180px;
+  height: 230px;
   background: url("../../resource/images/icon/my_background.png") no-repeat 0 -35px;
   /*用户图像*/
   /*用户账号*/
+}
+.userBox .loginOutBox {
+  top: 15px;
+  left: 15px;
+  position: absolute;
+  padding: 10px;
+  font-size: 15px;
+  z-index: 9999;
 }
 .userBox .usrIconBox {
   text-align: center;
@@ -62,6 +70,17 @@
   color: #676767;
   margin-left: 8px;
   position: relative;
+}
+.userBox .gradeBox {
+  width: 22%;
+  height: 30px;
+  background-color: #d39ac5;
+  text-align: center;
+  line-height: 30px;
+  margin: 0 39%;
+  color: white;
+  border-radius: 3px;
+  display: none;
 }
 /*货币和积分*/
 .moneyAndScoreBox {

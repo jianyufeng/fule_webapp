@@ -85,7 +85,7 @@
   margin: 20px 3%;
   width: 94%;
   height: 40px;
-  background-color: #d39bc5;
+  background-color: #d98bbc;
   color: white;
   border: none;
   border-radius: 2px;
@@ -101,6 +101,7 @@
   background-color: rgba(0, 0, 0, 0.3);
 }
 .sel_BankBox .sel_BankMain {
+  position: relative;
   width: 80%;
   height: 60%;
   margin: 20% auto;
@@ -126,9 +127,18 @@
   bottom: 5px;
 }
 .sel_BankBox .sel_BankMain .sel_confirmSelect {
-  width: 100%;
+  width: 48%;
   height: 10%;
   text-align: center;
+  float: right;
+  margin-right: 1%;
+}
+.sel_BankBox .sel_BankMain .sel_CancelSelect {
+  float: left;
+  width: 48%;
+  height: 10%;
+  text-align: center;
+  margin-left: 1%;
 }
 .sel_BankBox .sel_BankMain .sel_BankContBox {
   width: 100%;
@@ -142,9 +152,38 @@
 .sel_BankBox .sel_BankMain .sel_BankContBox .sel_BankIconBox {
   margin-top: -10px;
 }
-.sel_BankBox .sel_BankMain .sel_confirmSelect {
-  background-color: #d39bc5;
+.sel_BankBox .sel_BankMain .sel_confirmSelect,
+.sel_BankBox .sel_BankMain .sel_CancelSelect {
+  background-color: #d98bbc;
   color: white;
   border: none;
   border-radius: 5px;
+}
+.sel_BankBox .sel_BankMain .sel_confirmSelect:disabled {
+  background-color: #d9a9cd;
+}
+.sel_BankBox .sel_BankMain .sel_loading {
+  background-color: #eee;
+  position: absolute;
+  left: 0;
+  top: 12%;
+  right: 0;
+  bottom: 10%;
+  z-index: 999;
+  text-align: center;
+}
+.sel_BankBox .sel_BankMain .sel_loading .sel_loadImg {
+  display: block;
+  margin: 40% auto;
+  width: 40px;
+  height: 40px;
+}
+.sel_BankBox .sel_BankMain .sel_loading .sel_loadTxt {
+  top: 0px;
+  left: 0px;
+  padding-top: 40%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  font-size: 16px;
 }

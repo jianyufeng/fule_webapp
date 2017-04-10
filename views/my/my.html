@@ -13,7 +13,7 @@
 
             <!--用户信息-->
             <div class="userBox">
-
+                <div class="loginOutBox">登出</div>
                 <div class="usrIconBox">
                     <img class="usrIcon" alt="用户图像" src="./resource/images/icon/jingcainanshi.png"
                          ng-click="selectIcon()">
@@ -32,8 +32,9 @@
                     <img class="levelIcon" alt="等级图标" src="./resource/images/icon/level.png">
                     <span class="levelName">{{userInfo.REGISTER_GRADE | userLevelFilter}}</span>
                 </div>
-
+                <div  class="gradeBox"  id="gradeButton" ng-click="upGrade()"> D VIP</div>
             </div>
+
 
             <!--金额和积分-->
             <div class="moneyAndScoreBox">

@@ -47,6 +47,9 @@ define([
     '../service/my/myRechargeableCardListService',
     // 电子币银行汇款
     '../service/my/myElectronicBankTransferService',
+        // 用户激活
+    '../service/my/myUpdateUserDataService',
+
 
     // 商品详情页
     '../service/category/productInfoService'

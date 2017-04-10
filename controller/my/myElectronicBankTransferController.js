@@ -9,7 +9,6 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
         });
         //选择地址
         $("#ert_address").click(function () {
-            console.log(111);
             new AddressSelect({
                 resultBtnClick: function (result) {
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
@@ -26,7 +25,24 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
         //选择汇入银行
         $('#ert_showBank').click(function () {
             $('.sel_BankBox').fadeIn();
+            if( $scope.bankLists == undefined){
+                //获取转入银行列表
+                $('.sel_confirmSelect').attr("disabled","true");
+                myElectronicBankTransferService.getBankList($scope, 1,POP);
+
+            }
         });
+        //选择汇入银行
+        $('.sel_loadTxt').click(function () {
+            if( $scope.bankLists == undefined){
+                $('.sel_loadImg').show();
+                $('.sel_loadTxt').hide();
+                $('.sel_confirmSelect').attr("disabled","true");
+                //获取转入银行列表
+                myElectronicBankTransferService.getBankList($scope, 1,POP);
+            }
+        });
+
         //初始化汇入银行
         $scope.data = {sel_bank: ''};
         //确定
@@ -44,11 +60,18 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
                 data.BANK_NAME + "    " + data.ACCOUNT_OWNER + "\n" + data.BANK_ACCOUNT
             );
         });
+        //取消
+        $('.sel_CancelSelect').click(function () {
+            $('.sel_BankBox').fadeOut();
+        });
 
         var info = User.getInfo();
+        //绑定用户信息
         $scope.userName = info.user_name;
-        //获取转入银行列表
-        myElectronicBankTransferService.getBankList($scope, 1);
+
+
+
+
         //选择日期
         $('#ert_time').datePicker({
             beginyear: 2002,
@@ -127,21 +150,23 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
 
         });
 
-        /*确定 点击效果*/
-        $(document).on("touchstart", ".sel_confirmSelect", function (event) {
-            $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);
-        });
 
-        $(document).on("touchend", ".sel_confirmSelect", function (event) {
-            $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
-        });
         /*提交 点击效果*/
         $(document).on("touchstart", ".ert_confirm", function (event) {
-            $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);
+            $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 200);
         });
 
         $(document).on("touchend", ".ert_confirm", function (event) {
-            $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
+            $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 200);
+        });
+
+        /*取消 点击效果*/
+        $(document).on("touchstart", ".sel_CancelSelect", function (event) {
+            $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 200);
+        });
+
+        $(document).on("touchend", ".sel_CancelSelect", function (event) {
+            $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 200);
         });
     }
 

@@ -20,12 +20,16 @@ define(['app'], function (app) {
                     return;
                 }
                 //如果是上拉则添加到上次数据的后面
-                if ($scope.isCanPull) {
-                    $scope.data = $scope.data.concat(data.data);
-                } else {
-                    $scope.data = data.data;
-                }
-                console.log(data);
+
+
+
+                $scope.$apply(function(){
+                    if ($scope.isCanPull) {
+                        $scope.data = $scope.data.concat(data.data);
+                    } else {
+                        $scope.data = data.data;
+                    }
+                });
                 //判断数据是否为空
                 var length = data.data.length;
                 if (length <= 0) {
