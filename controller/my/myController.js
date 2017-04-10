@@ -31,9 +31,10 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         });
         /*下拉刷新*/
         $scope.doRefresh = function () {
-            $scope.$broadcast('scroll.refreshComplete');
             if(isLogin){
                 myService.getMyInfo($scope, POP, true);
+            }else {
+               $scope.$broadcast('scroll.refreshComplete');
             }
         };
         //退出登录
