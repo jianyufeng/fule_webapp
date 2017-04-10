@@ -71,7 +71,7 @@ define(['app'],function (app) {
 
                 }
             })
-            // /*购物车 管理收货地址 路由*/
+            // /*购物车 添加新收货地址 路由*/
             .state('tab.cart_addAddress', {
                 url: '/cart_addAddress',
                 views: {
@@ -85,6 +85,24 @@ define(['app'],function (app) {
 
                 }
             })
+
+            /*购物车 修改收货地址 路由*/
+            .state('tab.cart_modifyAddress', {
+                url: '/cart_modifyAddress/:address/:address_id/:address_name/:best_time/:city_name/:consignee/:district_name/:email/:mobile/:province_name/:sign_building/:tel/:zipcode/:user_id',
+                views: {
+                    'tab-cart': {
+                        templateUrl: "views/cart/cart_modifyAddress.html?_r=" + Math.random(),
+                        controller: 'cartModifyAddressController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/cart/cartModifyAddressController')
+                        }
+                    }
+
+                }
+            })
+
+
+
     });
    
 

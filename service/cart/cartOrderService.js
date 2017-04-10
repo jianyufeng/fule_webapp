@@ -69,8 +69,6 @@ define(['app'],function(app){
                     $scope.payment = data.payment.data[0];         //支付方式
                     $scope.amountOrder = orderAmount;              //合计价格
                     $scope.goodsNumber = goodsCount;               //购买商品总数
-                    console.log($scope.address);
-
 
                 });
 
@@ -78,6 +76,31 @@ define(['app'],function(app){
             });
 
         };
+
+
+        //验证支付密码
+        service.verifyPayPassword = function($scope,updateParams,POP,fn){
+
+            POP.StartLoading();
+
+            //更新操作
+            HTTP.post(API.Cart.verifyUserPassword,updateParams,function(e,data){
+
+                POP.EndLoading();
+
+                if(e){
+                    POP.Hint("密码错误!");
+                    return;
+                }else {
+                    fn();
+                    POP.Hint("提交成功!");
+                }
+
+            });
+
+        }
+
+
 
 
         return service;

@@ -4,7 +4,7 @@
 
 define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
-    function ctrl($rootScope,$scope,cartOrderService,POP){
+    function ctrl($rootScope,$scope,cartOrderService,POP,$state){
 
         $scope.$on('$ionicView.loaded',function () {
 
@@ -28,7 +28,24 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         $(".paySubmit").click(function(){
 
             POP.FormAlert("请输入您的支付密码",$scope,function(v){
-            	alert(v);
+
+                var info = User.getInfo();
+
+                var payParams = {
+
+                     user_id : info.user_id,
+                    password : v,
+                        type : "THREE_PASSWORD"
+
+                }
+
+                cartOrderService.verifyPayPassword($scope,payParams,POP,function () {
+
+                   $state.go("tab.my",{});
+                });
+
+
+
             });
 
 
@@ -38,6 +55,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         // });
 
         $(".orderDeliveryModel").click(function(){
+
         $(".popBg").css({
              display: "block", height: $(document).height()
           });
@@ -65,18 +83,19 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         });
 
         $(".orderPayModel").click(function(){
-            console.log("选择支付方式");
 
-            $(".popPayModelBg").css({
-                display: "block", height: $(document).height()
-            });
-            var $popBox = $(".popPayModelBox");
-            $popBox.css({
-                display: "block"
-            }) ;
-            $(".closeButton").click(function () {
-                $(".popPayModelBg,.popPayModelBox").css("display", "none");
-            });
+            POP.Alert("抱歉,暂不支持其他支付方式");
+
+            // $(".popPayModelBg").css({
+            //     display: "block", height: $(document).height()
+            // });
+            // var $popBox = $(".popPayModelBox");
+            // $popBox.css({
+            //     display: "block"
+            // }) ;
+            // $(".closeButton").click(function () {
+            //     $(".popPayModelBg,.popPayModelBox").css("display", "none");
+            // });
 
         });
 
@@ -84,15 +103,27 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         $(".deliveryChoice").click(function () {
             if ($(this).find("img").is(':visible')){
                 $(this).find("img").hide();
-                alert(11);
+                $(this).css("border", "1px solid #ccc");
             }else {
                 $(this).find("img").show();
-                alert(22);
-
+                $(this).css("border", "0px");
             }
         });
+
+        $(".bottomChoice").click(function () {
+            if ($(this).find("img").is(':visible')){
+                $(this).find("img").hide();
+                $(this).css("border", "1px solid #ccc");
+            }else {
+                $(this).find("img").show();
+                $(this).css("border", "0px");
+            }
+
+        });
+
+
     }
 
-    ctrl.$inject = ['$rootScope','$scope','cartOrderService', 'POP'];
+    ctrl.$inject = ['$rootScope','$scope','cartOrderService', 'POP','$state'];
     app.registerController('cartOrderController',ctrl);
 });

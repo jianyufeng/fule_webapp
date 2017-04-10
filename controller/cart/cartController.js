@@ -130,7 +130,6 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 				id : _id
 			}
 
-			console.log(deleteParams);
 
 			//删除购物车
 			

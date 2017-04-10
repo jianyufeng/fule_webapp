@@ -8,7 +8,7 @@ define(['app'],function(app){
         var service = {};
 
         /* 获取服务器数据*/
-        service.getShippingAddress = function ($scope, POP) {
+        service.getShippingAddressList = function ($scope, POP) {
 
             POP.StartLoading();
 
@@ -21,7 +21,7 @@ define(['app'],function(app){
                 console.log(data);
                 if (e) {
                     $.loadError(function () {
-                        service.getShippingAddress();
+                        service.getShippingAddressList();
                     });
                     return;
                 }
@@ -62,6 +62,48 @@ define(['app'],function(app){
             });
 
         }
+
+
+        /*删除收货地址*/
+        service.deleteAddress = function($scope,deleteParams,POP,_idx){
+
+            POP.StartLoading();
+            //删除操作
+            HTTP.get(API.Cart.deleteUserAddress + "/user_id/"+deleteParams.user_id + "/address_id/"+deleteParams.address_id, {}, function (e, data) {
+
+                POP.EndLoading();
+
+                console.log(data);
+                if (e) {
+                    $.loadError(function () {
+                        POP.Hint("删除失败!");
+                        return;
+                    });
+                    return;
+                }
+
+                $(".deleteBtnBox:eq("+_idx+")").parent().parent().slideUp(200);
+                var newArr = _.pullAt($scope.historyAddress,_idx);
+
+                if($scope.historyAddress.length<=0){
+
+                    $scope.$apply(function () {
+                        console.log("清空收货地址...");
+                        $scope.historyAddress = [];
+                        $scope.righttitleValue = "";
+                    });
+
+
+                }
+
+
+
+            });
+
+
+
+        }
+
 
 
         return service;

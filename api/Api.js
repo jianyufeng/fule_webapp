@@ -60,7 +60,9 @@ var API = {
         //添加新的收货地址
         addNewAddress:serverIP + "/user/addAddress",
         //更新用户地址
-        updateUserAddress: serverIP + "/user/updateAddress"
+        updateUserAddress: serverIP + "/user/updateAddress",
+        //验证用户三级密码
+        verifyUserPassword: serverIP + "/_user/verifyUserPassword"
 
 
     },

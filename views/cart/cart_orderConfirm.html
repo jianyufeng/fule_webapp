@@ -25,7 +25,7 @@
 
                                 <div class="personalInfo">
                                      <div class="personName"><span>收货人:{{address.consignee}}</span></div>
-                                     <div class="personPhone"><span>{{address.mobile}}&nbsp;&nbsp;</span></div>
+                                     <div class="personPhone"><span>{{address.mobile?address.mobile:address.tel}}&nbsp;&nbsp;</span></div>
                                 </div>
                             <div class="addressInfo"> <span>收货地址 : {{address.province_name + address.city_name + address.district_name + address.address}} </span></div>
                             </div>
@@ -120,12 +120,11 @@
             <div class="deliveryContent">
                 韵达快递: ¥ 10.00
             </div>
+
             <div class="deliveryChoice">
-                <img src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
+                <img class="xuanImg" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
             </div>
-            <div class="deliveryChoice">
-                <img src="resource/images/icon/weixuanz.png">
-            </div>
+
         </div>
         <!--<div class="deliveryBox">-->
             <!--<div class="deliveryContent">-->
@@ -140,7 +139,7 @@
         <!--</div>-->
         <div class="bottomBox">
            <div class="bottomChoice">
-        <img src="resource/images/icon/shoppingcar_xuanz.png">
+               <img src="resource/images/icon/shoppingcar_xuanz.png">
            </div>
            <div class="content">
               配送是否需要保价

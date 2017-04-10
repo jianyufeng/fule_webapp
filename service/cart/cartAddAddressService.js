@@ -70,16 +70,6 @@ define(['app'],function(app){
         }
 
 
-
-
-
-
-
-
-
-
-
-
         return service;
 
     });

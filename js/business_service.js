@@ -15,6 +15,8 @@ define([
     '../service/cart/cartSelectAddressService',
     '../service/cart/cartManageAddressService',
     '../service/cart/cartAddAddressService',
+    '../service/cart/cartModifyAddressService',
+
 
 
     //首页部分
