@@ -35,7 +35,17 @@ var API = {
         //获取银行列表
         bankList:serverIP+"/banks/search_banks",
         //查询辅销币流水
-        searchAccountLog:serverIP+"/fxp/searchIntergralLog"
+        searchAccountLog:serverIP+"/fxp/searchIntergralLog",
+        // 查看接点人信息
+        searchUserDetail:serverIP+"/user/searchUserDetail",
+        //升级到D
+        upgradeToD:"/upgrade/upgradeToD",
+        // 升级到VIP
+        upgradeToVIP:"/upgrade/upgradeToVIP",
+        // 升级到批发
+        upgradeToPIFA:"/upgrade/upgradeToPIFA",
+        // 一键升级到D+VIP+批发
+        oneUpgrade:"/upgrade/oneUpgrade"
     },
 
     Cart: {

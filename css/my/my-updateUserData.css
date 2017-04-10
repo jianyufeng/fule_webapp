@@ -1,52 +1,105 @@
-ion-content {
-  background-color: white;
-}
-ion-content .rowBox {
+.popRegionBox {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 45px;
-  background-color: white;
+  z-index: 9999;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
 }
-ion-content .rowBox .leftBox {
-  padding-left: 10px;
-  width: 25%;
+.popRegionBox .selectBox {
+  width: 80%;
+  position: relative;
+  top: 200px;
+  left: 10%;
+  height: auto;
+  background: white;
+}
+.popRegionBox .selectBox p {
+  padding-left: 20px;
+}
+.popRegionBox .selectBox p .text {
+  display: block;
+  width: 80%;
   float: left;
-  background-color: white;
-  line-height: 44px;
+  text-align: center;
+  margin: 10px 0px;
 }
-ion-content .rowBox .leftBox .redStar {
-  color: red;
-  margin-right: 5px;
-}
-ion-content .rowBox .rightBox {
-  height: 44px;
-  width: 70%;
+.popRegionBox .selectBox p i {
+  display: none;
+  width: 20%;
   float: left;
-  line-height: 39px;
-  margin-left: 5%;
+  font-size: 16px;
+  color: #D39AC5;
+  margin: 10px 0px;
 }
-ion-content .rowBox .rightBox input {
-  height: 44px;
-  line-height: 44px;
-}
-ion-content .rowBox .rightBox .span {
-  height: 44px;
-  line-height: 44px;
-}
-ion-content .rowBox .line {
+.popRegionBox .selectBox .line {
   clear: both;
   background-color: #eeeeee;
   width: 98%;
   height: 1px;
   margin: 0 1%;
 }
-ion-content .rowBottomBox {
-  background-color: white;
+ion-content .contentBox {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+ion-content .contentBox .rowBox {
+  width: 100%;
+  height: 45px;
+}
+ion-content .contentBox .rowBox .leftBox {
+  padding-left: 10px;
+  width: 25%;
+  float: left;
+  line-height: 44px;
+}
+ion-content .contentBox .rowBox .leftBox .redStar {
+  color: red;
+  margin-right: 5px;
+}
+ion-content .contentBox .rowBox .rightBox {
+  height: 44px;
+  width: 70%;
+  float: left;
+  line-height: 44px;
+  margin-left: 5%;
+}
+ion-content .contentBox .rowBox .rightBox input {
+  width: 100%;
+  height: 44px;
+  line-height: 44px;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+ion-content .contentBox .rowBox .rightBox .waring {
+  height: 10px;
+  color: red;
+  font-size: 10px;
+  margin-top: -20px;
+  display: none;
+}
+ion-content .contentBox .rowBox .rightBox .span {
+  height: 44px;
+  line-height: 44px;
+}
+ion-content .contentBox .rowBox .line {
+  clear: both;
+  background-color: #eeeeee;
+  width: 98%;
+  height: 1px;
+  margin: 0 1%;
+}
+ion-content .contentBox .rowBottomBox {
   margin-top: 15px;
   width: 100%;
   height: 50px;
   padding: 0 5%;
 }
-ion-content .rowBottomBox .submitButton {
+ion-content .contentBox .rowBottomBox .submitButton {
   width: 48%;
   height: 35px;
   background-color: #D39AC5;
@@ -56,7 +109,7 @@ ion-content .rowBottomBox .submitButton {
   text-align: center;
   line-height: 35px;
 }
-ion-content .rowBottomBox .resetButton {
+ion-content .contentBox .rowBottomBox .resetButton {
   width: 48%;
   height: 35px;
   border-radius: 3px;
@@ -65,5 +118,5 @@ ion-content .rowBottomBox .resetButton {
   float: left;
   text-align: center;
   line-height: 35px;
-  margin-left: 4% ;
+  margin-left: 4%;
 }
