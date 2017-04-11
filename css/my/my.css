@@ -72,12 +72,12 @@
   position: relative;
 }
 .userBox .gradeBox {
-  width: 22%;
+  width: 35%;
   height: 30px;
   background-color: #d39ac5;
   text-align: center;
   line-height: 30px;
-  margin: 0 39%;
+  margin: 0 auto;
   color: white;
   border-radius: 3px;
   display: none;
