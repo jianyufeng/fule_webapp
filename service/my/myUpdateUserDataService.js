@@ -8,8 +8,8 @@ define(['app'], function (app) {
     app.factory("myUpdateUserDataService", function () {
         var service = {};
         // 点击 提交按钮
-        service.upGradeAction = function ($scope, POP) {
-            var userInfo=User.getInfo();
+        service.upGradeAction = function ($scope, POP, myGrade) {
+            var userInfo = User.getInfo();
             var recommendP = $scope.upGrade.recommendP;
             var nodeP = $scope.upGrade.nodeP;
             var region = $("#selectResult").text();
@@ -60,8 +60,30 @@ define(['app'], function (app) {
                 return;
             }
 
+            var url = null;
+            switch (myGrade) {
+                case 1:
+                    //一键升级
+                    url = API.My.oneUpgrade;
+                    break;
+                case 2:
+                    //D
+                    url = API.My.upgradeToD;
+                    break;
+                case 3:
+                    //VIP
+                    url = API.My.upgradeToVIP;
+                    break;
+                case 4:
+                    //  批发
+                    url = API.My.upgradeToPIFA;
+                    break;
+                default:
+                    break;
+
+            }
             // HTTP 提交
-            HTTP.post(API.My.upgradeToD, {
+            HTTP.post(url, {
                 "user_name": userInfo.user_name,// 用户名
                 "user_id": userInfo.user_id, // 用户Id
                 "RECOMMENDED_MAN": recommendP,// 推荐人姓名
@@ -77,6 +99,12 @@ define(['app'], function (app) {
                 "BANK_DISTRICT_ID": "",   // 开户行所在区
                 "MEMBER_NAME": nickName,   // 昵称
             }, function (e, data) {
+
+                console.log(e);
+                console.log(data);
+                if (e) {
+                    return;
+                }
 
 
             })

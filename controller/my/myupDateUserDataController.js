@@ -4,11 +4,12 @@
  */
 
 define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData", 'addressSelect'], function (app,identityCardTest) {
-    function ctrl($scope, myUpdateUserDataService, POP) {
+    function ctrl($scope, myUpdateUserDataService, POP,$stateParams) {
 
         $scope.upGrade = {};
         $scope.$on('$ionicView.loaded', function () {
-            //console.log("已经注入了服务");
+           // 页面传值过来的要升级的级别
+            var myGrade=$stateParams.grade;
             $('#abc1').click(function () {
                 $(this).css('color', '#D39AC5');
                 $('#abc2').css('color', 'black');
@@ -183,12 +184,13 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
                     'line-height': '44px',
                 })
             });
-        });
-        // 点击提交按钮
-        $scope.submitUpGradeAction = function () {
-            myUpdateUserDataService.upGradeAction();
 
-        }
+            // 点击提交按钮
+            $scope.submitUpGradeAction = function () {
+                myUpdateUserDataService.upGradeAction($scope, POP,myGrade);
+            }
+        });
+
         // 点击重置按钮
         $scope.reset = function () {
 
@@ -217,7 +219,7 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP'];
+    ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP','$stateParams'];
 
     /*动态注册控制器*/
     app.registerController("myUpdateUserDataController", ctrl);
