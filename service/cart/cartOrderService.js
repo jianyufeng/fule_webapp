@@ -64,9 +64,9 @@ define(['app'],function(app){
                 $scope.$apply(function () {
 
                     $scope.address = nowAddress;                   //收货地址和信息
-                    $scope.deliveryArray = data.shipping.data;       //快递公司名
                     $scope.cartGoods = data.cartInfo.cart_goods;   //购物车订单信息
                     $scope.payment = data.payment.data[0];         //支付方式
+                    $scope.shipping = data.shipping.data[0];       //快递公司名
                     $scope.amountOrder = orderAmount;              //合计价格
                     $scope.goodsNumber = goodsCount;               //购买商品总数
 
@@ -93,28 +93,37 @@ define(['app'],function(app){
                     return;
                 }else {
                     fn();
-                    POP.Hint("提交成功!");
                 }
 
             });
 
         }
 
-//        //获取配送方式
-//        service.deliveryPath = function($scope) {
-//            HTTP.get(API.Cart.searchShipping,{},function(e,data){
-//                if(e){
-//                    $.loadError(function(){
-//                        service.deliveryPath();
-//                    });
-//return;
-//                }
-//                $scope.$apply(function () {
-//                $scope.deliveryArray = data.data;
-//                    console.log(data.data);
-//                })
-//            });
-//        }
+
+        //生成支付订单(普通商城)
+        service.addCommonPaymentOrder = function($scope,updateParams,POP,fn){
+
+            POP.StartLoading();
+
+            //更新操作
+            HTTP.post(API.Cart.commonPaymentOrder,updateParams,function(e,data){
+
+                POP.EndLoading();
+
+                if(e){
+                    POP.Hint("订单提交失败");
+                    return;
+                }else {
+                    fn();
+                    POP.Hint("订单提交成功!");
+                }
+
+            });
+
+        }
+
+
+
 
         return service;
 

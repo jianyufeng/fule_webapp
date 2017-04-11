@@ -67,6 +67,21 @@ define(['app'], function (app) {
                 $scope.$apply(function () {
                     $scope.userInfo = data.userInfo;
                     $scope.travel_points = data.travel_points;
+
+                    //判断是否显示部分功能
+                    if(data.userInfo.ZHUAN_MAI_DIAN_GRADE > 0){
+                        //专卖店 或 旗舰店
+                        $('.isNotRegister').show();
+                    }else if(data.userInfo.REGISTER_GRADE < 1){
+                        //是注册会员
+                        $('.isNotRegister').hide();
+                    }else {
+                        //其他等级的会员
+                        $('.isNotRegister').show();
+                    }
+
+
+
                     if (!isRefresh) {
                         $.initAppEndLoad();
                     }
