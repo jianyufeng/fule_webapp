@@ -109,7 +109,11 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
             var bankAccount = $.trim($('#ert_BankAccount').val());
             if (bankAccount.length <= 0 || isNaN(bankAccount)) {
                 POP.Alert("银行账号&nbsp;格式不正确<br/><font color='red'>(必须为数字)</font>");
-                return
+                return;
+            }
+            if (bankAccount.length < 16 || bankAccount.length > 19) {
+                POP.Alert("银行账号&nbsp;<br/><font color='red'>(长度必须在16到19位之间)</font>");
+                return;
             }
 
             //获取汇款人姓名
