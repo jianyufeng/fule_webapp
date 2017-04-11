@@ -13,8 +13,6 @@ define(['app'], function (app) {
             var info = User.getInfo();
             HTTP.get(API.My.myInfo + "/user_name/"+info.user_name , {}, function (e, data) {
                 if (e) {
-                    console.log(e);
-                    console.log(data);
                     if (!isRefresh) {
                         POP.Hint("对不起，刷新失败");
                         return
@@ -23,8 +21,7 @@ define(['app'], function (app) {
                         service.getMyInfo();
                     });
                     return;
-                }
-                console.log(data);
+                };
                 // D级别的标准
                 var a=data.config.IS_D;
                 console.log("D级别的标准"+a);

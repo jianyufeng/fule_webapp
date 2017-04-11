@@ -10,19 +10,17 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         my_fun.animation();
 
         /*ionicView的生命周期的事件调用在每个ionicView的controller中使用$scope.$on('$ionicView.enter', function() {});调用*/
-        $scope.$on('$ionicView.loaded', function () {
-            /*获取数据*/
-            if(isLogin){
-                myService.getMyInfo($scope, POP, false);
-            }
-        });
+        //$scope.$on('$ionicView.loaded', function () {
+        //
+        //});
         $scope.$on('$ionicView.beforeEnter', function () {
             isLogin = User.isLogin();
-            console.log(isLogin);
             if(isLogin){
                 $('.my_loginBox').show();
                 $('.unLoginBox').hide();
                 $('.myHeaderBox').hide();
+                /*获取数据*/
+                myService.getMyInfo($scope, POP, false);
             }else {
                 $('.my_loginBox').hide();
                 $('.unLoginBox').show();
