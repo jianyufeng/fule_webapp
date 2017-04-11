@@ -82,6 +82,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
             });
         });
 
+        //选择支付方式
         $(".orderPayModel").click(function(){
 
             POP.Alert("抱歉,暂不支持其他支付方式");
@@ -98,12 +99,22 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
             // });
 
         });
+        //选择支付方式
+        $(".confirmChoice").click(function () {
+            if ($(this).find("img").is(':visible')){
+                $(this).find("img").hide();
+                $(this).css("border", "1px solid #d79ac4");
+            }else {
+                $(this).find("img").show();
+                $(this).css("border", "0px");
+            }
+        });
 
-
+        //选择发货方式
         $(".deliveryChoice").click(function () {
             if ($(this).find("img").is(':visible')){
                 $(this).find("img").hide();
-                $(this).css("border", "1px solid #ccc");
+                $(this).css("border", "1px solid #d79ac4");
             }else {
                 $(this).find("img").show();
                 $(this).css("border", "0px");
@@ -113,7 +124,17 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         $(".bottomChoice").click(function () {
             if ($(this).find("img").is(':visible')){
                 $(this).find("img").hide();
-                $(this).css("border", "1px solid #ccc");
+                $(this).css("border", "1px solid #d79ac4");
+            }else {
+                $(this).find("img").show();
+                $(this).css("border", "0px");
+            }
+
+        });
+        $(".choice").click(function () {
+            if ($(this).find("img").is(':visible')){
+                $(this).find("img").hide();
+                $(this).css("border", "1px solid #d79ac4");
             }else {
                 $(this).find("img").show();
                 $(this).css("border", "0px");

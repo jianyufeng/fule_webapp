@@ -37,6 +37,15 @@ define(['animate'],function(){
         $(document).on("touchend",".itemBox" ,function (event) {
             $(this).css("background","#eee").transition({ background: "#fff" },10);
         });
+
+        /*登录 注册点击效果*/
+        $(document).on("touchstart", "button", function (event) {
+            $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);
+        });
+
+        $(document).on("touchend", "button", function (event) {
+            $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
+        });
     };
 
     return myFun;

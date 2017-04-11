@@ -31,10 +31,15 @@ define(['app'], function (app) {
 
                 //判断数据是否为空
                 if(length<=0){
-                    $scope.isEmptyData = true;
+                    $scope.$apply(function() {
+                        $scope.isEmptyData = true;
+                    });
                 }else {
-                    $scope.isEmptyData = false;
+                    $scope.$apply(function() {
+                        $scope.isEmptyData = false;
+                    });
                 }
+
                 //判断是否有下页数据
                 if (length < 10) {
                     $scope.isCanPull = false;
