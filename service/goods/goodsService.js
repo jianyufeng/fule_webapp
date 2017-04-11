@@ -32,7 +32,7 @@ define(['app'],function(app){
                     $(".goodsMenuItem").eq(0).addClass("selected");
                 }
 
-                console.log(data);
+                //console.log(data);
 
             });
 

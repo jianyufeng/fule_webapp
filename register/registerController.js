@@ -273,7 +273,7 @@ $('#account').blur(function() {
         var url = "http://192.168.10.123:5000/_user/verifyUserName/user_name/" + user_name;
         HTTP.get(url, function (e, data) {
             if (e) {
-                POP.Hint("用户名已被注册");
+                POP.Hint(data);
             }
         })
     }

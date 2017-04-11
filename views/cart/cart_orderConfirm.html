@@ -116,27 +116,18 @@
        <div class="topTitle">
            配送方式
        </div>
-        <div class="deliveryBox">
-            <div class="deliveryContent">
-                韵达快递: ¥ 10.00
-            </div>
+        <div class="middleBox" >
+            <div class="deliveryBox" ng-repeat="deliveryInfo in deliveryArray">
+                <div class="deliveryContent">
+                    {{deliveryInfo.shipping_name}}
+                </div>
 
-            <div class="deliveryChoice">
-                <img class="xuanImg" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
+                <div class="deliveryChoice">
+                    <img class="xuanImg" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
+                </div>
             </div>
-
         </div>
-        <!--<div class="deliveryBox">-->
-            <!--<div class="deliveryContent">-->
-                <!--韵达快递: ¥ 10.00-->
-            <!--</div>-->
-            <!--<div class="deliveryChoice">-->
-                <!--<img src="resource/images/icon/shoppingcar_xuanz.png">-->
-            <!--</div>-->
-            <!--<div class="deliveryChoice">-->
-                <!--<img src="resource/images/icon/weixuanz.png">-->
-            <!--</div>-->
-        <!--</div>-->
+
         <div class="bottomBox">
            <div class="bottomChoice">
                <img src="resource/images/icon/shoppingcar_xuanz.png">

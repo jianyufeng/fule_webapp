@@ -562,7 +562,7 @@
 
 
 
-
+//选择配送方式
 .popBg{
    background-color:#000;
    position:absolute;
@@ -577,35 +577,37 @@
 }
 
 
-.popBox{
+.popBox {
    width: 100%;
-   height: 60%;
+   height: 65%;
    background: white;
    position: absolute;
-   z-index:99999;
-   bottom:0;
+   z-index: 99999;
+   bottom: 0;
+   //margin-bottom: 0;
    left: 0;
    float: left;
 
-   .topTitle{
+   .topTitle {
       width: 100%;
-      height: 50px;
+      height: 40px;
       text-align: center;
-      line-height: 50px;
+      line-height: 40px;
    }
-
-   .deliveryBox{
+   .middleBox {
+      width: 100%;
+      height: auto;
+   .deliveryBox {
       width: 100%;
       height: 36px;
       background: white;
       line-height: 36px;
-      margin-top: 10px;
+      margin-top: 5px;
       padding-left: 15px;
       padding-right: 20px;
       border-bottom: solid 1px #eee;
 
-
-      .deliveryContent{
+      .deliveryContent {
          height: 35px;
          line-height: 36px;
          float: left;
@@ -613,15 +615,15 @@
          margin-bottom: 1px;
       }
 
-      .deliveryChoice{
+      .deliveryChoice {
          width: 20px;
          height: 20px;
          float: right;
          margin-top: 8px;
          text-align: center;
          border: 1px solid #d79ac4;
-         border-radius:10px;
-         img{
+         border-radius: 10px;
+         img {
 
             width: 20px;
             height: 20px;
@@ -630,7 +632,7 @@
          }
       }
    }
-
+}
    .bottomBox{
       width: 100%;
       height: 80px;
