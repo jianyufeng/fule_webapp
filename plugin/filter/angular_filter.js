@@ -40,22 +40,20 @@ define(['app'], function (app) {
             var v = parseInt(input);
             switch (v) {
                 case  0:
-                    varl = '会员0';
+                    varl = '会员';
                     break;
                 case  1:
-                    varl = '会员1';
+                    varl = '志愿者';
                     break;
                 case  2:
-                    varl = '会员2';
+                    varl = 'VIP';
                     break;
                 case  3:
-                    varl = '会员3';
+                    varl = '批发';
                     break;
-                case  4:
-                    varl = '会员4';
                     break;
                 default:
-                    varl = '会员default';
+                    varl = '会员';
                     break;
             }
             return varl

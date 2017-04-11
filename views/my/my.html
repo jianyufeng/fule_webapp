@@ -63,7 +63,7 @@
 
             <!--业务相关-->
             <div class="businessBox">
-                <div class="businessRowBox">
+
                     <a href="#/tab/my-orderForm">
                         <div class="businessColBox" on-touch="onTouch()" on-release="onRelease()">
                             <img class="indentIcon" alt="我的订单" src="./resource/images/icon/wodedingdan.png">
@@ -82,8 +82,8 @@
                             <div class="indentName">充值卡充值</div>
                         </div>
                     </a>
-                </div>
-                <div class="businessRowBox">
+
+
                     <a href="#/tab/my-electronicBankTransfer">
                         <div class="businessColBox">
                             <img class="indentIcon" alt="电子币银行汇款" src="./resource/images/icon/dianzibihuikuan.png">
@@ -102,41 +102,33 @@
                             <div class="indentName">汇款记录</div>
                         </div>
                     </a>
-                </div>
-                <div class="businessRowBox">
-                    <!--<a href="#/tab/my-internalTransfer">-->
-                    <div class="businessColBox" ng-click="startPage()">
+
+
+                    <div class="businessColBox isNotRegister" ng-click="startPage()">
                         <img class="indentIcon" alt="内部转账" src="./resource/images/icon/neibuzhuanzhang.png">
                         <div class="indentName">内部转账</div>
                     </div>
-                    <!--</a>-->
                     <a href="#/tab/my-transferRecord">
-                        <div class="businessColBox">
+                        <div class="businessColBox isNotRegister">
                             <img class="indentIcon" alt="转账记录" src="./resource/images/icon/zhuanzhangjilu.png">
                             <div class="indentName">转账记录</div>
                         </div>
                     </a>
-                    <div class="businessColBox" ng-click="startVoucherTransferPage(userInfo.fxp_points)">
+                    <div class="businessColBox isNotRegister"  ng-click="startVoucherTransferPage(userInfo.fxp_points)">
                         <img class="indentIcon" alt="代金卷转账" src="./resource/images/icon/daijinjuanzhuanzhang.png">
                         <div class="indentName">代金卷转账</div>
                     </div>
 
-                </div>
-                <div class="businessRowBox">
+
                     <a href="#/tab/my-voucherTransferRecords">
-                        <div class="businessColBox">
+                        <div class="businessColBox isNotRegister">
                             <img class="indentIcon" alt="代金卷转账记录"
                                  src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
                             <div class="indentName">代金卷转账记录</div>
                         </div>
                     </a>
-                    <div class="businessColBox">
 
-                    </div>
-                    <div class="businessColBox">
 
-                    </div>
-                </div>
             </div>
 
         </div>
