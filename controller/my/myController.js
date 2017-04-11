@@ -64,6 +64,8 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         };
 
 
+
+
         // 跳转到升级界面
         $scope.upGrade = function () {
             // 获取gradeButton上的字
