@@ -72,7 +72,9 @@ var API = {
         //更新用户地址
         updateUserAddress: serverIP + "/user/updateAddress",
         //验证用户三级密码
-        verifyUserPassword: serverIP + "/_user/verifyUserPassword"
+        verifyUserPassword: serverIP + "/_user/verifyUserPassword",
+        //普通商城生成支付订单
+        commonPaymentOrder: serverIP + "/order/addCommonPaymentOrder"
 
 
     },

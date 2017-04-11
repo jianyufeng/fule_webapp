@@ -43,7 +43,7 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                     CID      = result.cid;
                     area     = result.areaName;
                     AID      = result.aid;
-                    locationAddress  = province + city + "市" + area;
+                    locationAddress  = province +"省"+ city + "市" + area;
                     $(".select-location").find("span").css("color","#000000");
                     $(".select-location").find("span").text(locationAddress);
 

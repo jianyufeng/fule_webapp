@@ -8,7 +8,7 @@ define(['app'],function(app){
         var service = {};
 
         /* 获取服务器数据*/
-        service.getShippingAddressList = function ($scope, POP) {
+        service.getShippingAddressList = function ($scope, POP ,fn) {
 
             POP.StartLoading();
 
@@ -31,6 +31,7 @@ define(['app'],function(app){
                     //为html页面注入数据
                     $scope.historyAddress = data.AddressList;
                     $scope.defaultAddressID = data.defaultAddress;
+                    fn();//回调函数
 
                 });
 

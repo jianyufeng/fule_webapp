@@ -8,6 +8,12 @@
 
                 <ion-scroll class="manageScroll">
 
+
+                    <div class="noAddress">
+                        <p><a href="#/tab/cart_addAddress"><button>+ 创建收货地址</button></a></p>
+                    </div>
+
+
                     <div class="editBox" ng-repeat="addressItem in historyAddress">
 
                         <div class="shippingAddressItem" >
@@ -20,7 +26,7 @@
                             <div class="shippingAddressContent">
                                 <span class="default" ng-if="addressItem.address_id == defaultAddressID">[默认地址] </span>
                                 <span class="default" ng-if="addressItem.address_id != defaultAddressID" style="display: none">[默认地址] </span>
-                                {{addressItem.province_name+"省" + addressItem.city_name + addressItem.district_name + addressItem.address}}
+                                {{addressItem.province_name+"省" + addressItem.city_name +"市"+ addressItem.district_name + addressItem.address}}
                             </div>
 
                         </div>

@@ -11,10 +11,23 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
         $scope.$on('$ionicView.beforeEnter',function () {
 
             //初始化
-            $scope.righttitleValue = "管理";
-            cartManageAddressService.getShippingAddressList($scope,POP);
+            cartManageAddressService.getShippingAddressList($scope,POP,function () {
+
+                console.log("就是这里"+ $scope.historyAddress);
+                //判断是否登录
+                if($scope.historyAddress.length > 0){
+                    $(".noAddress").hide();
+                    $scope.righttitleValue = "管理";
+                }else{
+                    $(".noAddress").show();
+                    return;
+                }
+
+            });
             $(".addAddressBtn").hide(); //初始添加新地址隐藏
             $(".manageContent").css("bottom","0px");
+
+
 
         });
 

@@ -38,10 +38,34 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                         type : "THREE_PASSWORD"
 
                 }
-
+                 //验证密码
                 cartOrderService.verifyPayPassword($scope,payParams,POP,function () {
 
-                   $state.go("tab.my",{});
+
+
+                    var orderParams = {
+                           user_id : info.user_id,
+                        // user_money :
+
+
+
+
+
+
+
+                    }
+
+
+
+
+
+                 //提交订单
+                    cartOrderService.addCommonPaymentOrder($scope,payParams,POP,function () {
+
+                        $state.go("tab.my",{});
+                    });
+
+
                 });
 
 
