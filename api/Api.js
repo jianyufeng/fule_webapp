@@ -36,6 +36,8 @@ var API = {
         bankList:serverIP+"/banks/search_banks",
         //查询辅销币流水
         searchAccountLog:serverIP+"/fxp/searchIntergralLog",
+        //查看推荐人信息
+        recommendedManInfo:serverIP+"/_user/userInfo",
         // 查看接点人信息
         searchUserDetail:serverIP+"/user/searchUserDetail",
         //升级到D

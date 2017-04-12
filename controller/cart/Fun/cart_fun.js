@@ -41,7 +41,7 @@ define(function(){
 		})
     }
 
-    cartFun.addCartGoodsBtn = function(fn){
+    cartFun.addCartGoodsBtn = function(POP,fn){
 
 		$(document).on("click",".addBtn",function(){
       
@@ -58,14 +58,28 @@ define(function(){
 			//获取购物车ID
 			var cartId = $(this).parent().attr("name");
 
+			//获取库存量 
+			var goodsNumber = $(this).parent().data("actuarnumber");
+
+			//获取最大够买数
+			var limitNumber = $(this).parent().data("limitnumber");
+
 			nowNum++;
+
+			if(parseInt(nowNum) > parseInt(goodsNumber)){
+				return POP.Hint("对不起，该商品库存不足");
+			}
+
+			if(parseInt(limitNumber) != 0 && parseInt(nowNum) > parseInt(limitNumber)){
+				return POP.Hint("对不起，已超出该商品最大购买量");
+			}
 
 			$(this).next().text(nowNum);
 
 			countMoneyValue = moneyValue * nowNum;
 
 			//重新计算总价
-            fn(countMoneyValue,nowNum,gid,cartId);
+            fn(countMoneyValue,nowNum,gid,cartId,goodsNumber,limitNumber);
 
 		});
     }
@@ -86,6 +100,12 @@ define(function(){
 			//获取购物车ID
 			var cartId = $(this).parent().attr("name");
 
+			//获取库存量 
+			var goodsNumber = $(this).parent().data("actuarnumber");
+
+			//获取最大够买数
+			var limitNumber = $(this).parent().data("limitnumber");
+
 			nowNum--;
 
 			if(nowNum <= 0){
@@ -98,14 +118,14 @@ define(function(){
 			countMoneyValue = moneyValue * nowNum;
 
 			//重新计算总价
-            fn(countMoneyValue,nowNum,gid,cartId);
+            fn(countMoneyValue,nowNum,gid,cartId,goodsNumber,limitNumber);
 
 
 
 		});
     }
 
-	cartFun.changeCartGoodsBtn = function(fn){
+	cartFun.changeCartGoodsBtn = function(POP,fn){
 		$(document).on("change",".changeBtn input",function(){
 
 			//获取单价
@@ -114,11 +134,29 @@ define(function(){
 			//获取当前的数量
 			var nowNum = parseInt($(this).val());
 
+			//原始数量
+			var oldNum = $(this).data("oldvalue");
+
 			//获取商品ID
 			var gid = $(this).parent().parent().attr("id");
 
 			//获取购物车ID
 			var cartId = $(this).parent().parent().attr("name");
+
+			//获取库存量 
+			var goodsNumber = $(this).parent().parent().data("actuarnumber");
+
+			//获取最大够买数
+			var limitNumber = $(this).parent().parent().data("limitnumber");
+
+			if(parseInt(nowNum) > parseInt(goodsNumber)){
+				$(this).val(oldNum);
+				return POP.Hint("对不起，该商品库存不足");
+			}
+
+			if(parseInt(limitNumber) != 0 && parseInt(nowNum) > parseInt(limitNumber)){
+				return POP.Hint("对不起，已超出该商品最大购买量");
+			}
 
 			countMoneyValue = moneyValue * nowNum;
 

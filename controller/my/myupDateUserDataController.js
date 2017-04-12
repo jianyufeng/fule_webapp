@@ -3,13 +3,13 @@
  * 用户激活或者是升级是填写的用户资料Controller
  */
 
-define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData", 'addressSelect'], function (app,identityCardTest) {
-    function ctrl($scope, myUpdateUserDataService, POP,$stateParams) {
+define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData", 'addressSelect'], function (app, identityCardTest) {
+    function ctrl($scope, myUpdateUserDataService, POP, $stateParams) {
 
         $scope.upGrade = {};
         $scope.$on('$ionicView.loaded', function () {
-           // 页面传值过来的要升级的级别
-            var myGrade=$stateParams.grade;
+            // 页面传值过来的要升级的级别
+            var myGrade = $stateParams.grade;
             $('#abc1').click(function () {
                 $(this).css('color', '#D39AC5');
                 $('#abc2').css('color', 'black');
@@ -33,7 +33,7 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
                         })
                     } else {
                         // 验证推荐人
-                        myUpdateUserDataService.getUserInfo($(this), $("#recommendWaring"), $(this).val());
+                        myUpdateUserDataService.checkingRecommendedMan($scope, $(this), $("#recommendWaring"), $(this).val());
                     }
                 } else {
                     $("#recommendWaring").css('display', 'block');
@@ -59,7 +59,7 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
                         })
                     } else {
                         // 验证推荐人
-                        myUpdateUserDataService.getUserInfo($(this), $("#nodeWaring"), $(this).val());
+                        myUpdateUserDataService.checkingNodeMan($(this), $("#nodeWaring"), $(this).val());
                     }
 
                 }
@@ -85,8 +85,8 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
 
             // 银行账号失去焦点事件
             $("#bankCardN").blur(function () {
-                var num=$(this).val();
-                if(num==""){
+                var num = $(this).val();
+                if (num == "") {
                     //显示错误提示
                     $("#bankCardNWaring").css('display', 'block');
                     $(this).css({
@@ -95,20 +95,20 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
                     })
                 }
                 else {
-                    num=num.trim();
-                    if(num==""){
+                    num = num.trim();
+                    if (num == "") {
                         //显示错误提示
                         $("#bankCardNWaring").css('display', 'block');
                         $(this).css({
                             'height': '34px',
                             'line-height': '34px',
                         })
-                    }else{
+                    } else {
                         // 验证银行卡号
-                        if(/^\d{19}$/.test($(this).val())){
-                        // 格式正确
-                        }else {
-                        // 格式不正确
+                        if (/^\d{19}$/.test($(this).val())) {
+                            // 格式正确
+                        } else {
+                            // 格式不正确
                             $("#bankCardNWaring").css('display', 'block');
                             $(this).css({
                                 'height': '34px',
@@ -120,9 +120,9 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
 
             })
             // 身份证号失去焦点验证
-            $("#identityCardN").blur(function(){
-              var num=$(this).val();
-                if(num==""){
+            $("#identityCardN").blur(function () {
+                var num = $(this).val();
+                if (num == "") {
                     //显示错误提示
                     $("#identityCardNWaring").css('display', 'block');
                     $(this).css({
@@ -131,17 +131,17 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
                     })
                 }
                 else {
-                    num=num.trim();
-                    if(num==""){
+                    num = num.trim();
+                    if (num == "") {
                         //显示错误提示
                         $("#identityCardNWaring").css('display', 'block');
                         $(this).css({
                             'height': '34px',
                             'line-height': '34px',
                         })
-                    }else{
+                    } else {
                         // 验证身份证号
-                        if(!identityCardTest.test(num)) {
+                        if (!identityCardTest.test(num)) {
                             $("#identityCardNWaring").css('display', 'block');
                             $(this).css({
                                 'height': '34px',
@@ -159,6 +159,7 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
                     'height': '44px',
                     'line-height': '44px',
                 })
+                $scope.upGrade.team = "";
             });
             //节点人获取焦点事件
             $("#node").focus(function () {
@@ -187,14 +188,13 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
 
             // 点击提交按钮
             $scope.submitUpGradeAction = function () {
-                myUpdateUserDataService.upGradeAction($scope, POP,myGrade);
+                myUpdateUserDataService.upGradeAction($scope, POP, myGrade);
             }
         });
 
         // 点击重置按钮
         $scope.reset = function () {
-
-
+            myUpdateUserDataService.reset($scope);
         }
         // 选择区域
         $scope.selectRegion = function () {
@@ -211,7 +211,7 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
             new AddressSelect({
                 resultBtnClick: function (result) {
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
-                    $("#address").text(address);
+                    $("#address").val(address);
                 }
             })
         }
@@ -219,7 +219,7 @@ define(['app','./Fun/identityCardTest', "css! ../../../css/my/my-updateUserData"
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP','$stateParams'];
+    ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP', '$stateParams'];
 
     /*动态注册控制器*/
     app.registerController("myUpdateUserDataController", ctrl);
