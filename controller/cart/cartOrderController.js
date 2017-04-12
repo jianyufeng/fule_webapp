@@ -36,6 +36,14 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
             }
 
+            if ($scope.deliveryFreight == undefined){
+
+                POP.Alert("请选择配送方式!");
+
+                return;
+
+
+            }
             POP.FormAlert("请输入您的支付密码",$scope,function(v){
 
                 var info = User.getInfo();
@@ -55,10 +63,10 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                     var orderParams = {
                            user_id : info.user_id, //用户id
                         user_money : $scope.userInfo.user_money, //用户余额
-                      shipping_fee : 20, //运费
-                        address_id : 22, //收货地址id
-                       shipping_id : 33, //物流公司id
-                     shipping_name : "中通", //物流公司名
+                      shipping_fee : $scope.deliveryFreight, //运费
+                        address_id : $scope.address.address_id, //收货地址id
+                       shipping_id : $scope.shi_id, //物流公司id
+                     shipping_name : $scope.expressName, //物流公司名
                       goods_amount : $scope.amountOrder, //商品总金额
                            surplus : $scope.orderInfo.pay_amount, //实际支付总金额
                            referer : "手机", //订单来源(本站/手机/APP)
@@ -74,10 +82,14 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
                     }
 
-
+// alert("###########" + $scope.expressName);
 
                  //提交订单
-                    cartOrderService.addCommonPaymentOrder($scope,payParams,POP,function () {
+                    cartOrderService.addCommonPaymentOrder($scope,orderParams,POP,function () {
+
+                        $scope.$apply(function(){
+                            $rootScope.cartBadge = 0;
+                        })
 
                         $state.go("tab.my",{});
                     });
@@ -156,20 +168,22 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         $(document).on("click",".deliveryChoice",function () {
             var _index = $(".deliveryChoice").index(this);
             var shipping_id = $(".deliveryChoice").eq(_index).attr("id");
+             $scope.shi_id  = $(".deliveryChoice").eq(_index).attr("id"); //当前快递公司id
             var cart_id = $scope.cartGoods[0].cart_id;
             var payment_amount = $scope.orderInfo.pay_amount;
 
             var freightParams = {
 
                 shipping_id : shipping_id,
-                cart_id : cart_id,
-                payment_amount : payment_amount
+                    cart_id : cart_id,
+             payment_amount : payment_amount
 
             }
 
         cartOrderService.countFreight ($scope,freightParams,function() {
             var deliveryFreight = $scope.deliveryFreight;
             $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + deliveryFreight;
+            $scope.expressName  = $(".deliveryContent").eq(_index).text(); //物流公司名
 
         });
 

@@ -90,6 +90,8 @@ define(['app'],function(app){
 
                 POP.EndLoading();
 
+                console.log("*******" + data);
+
                 if(e){
                     POP.Hint("密码错误!");
                     return;
@@ -103,12 +105,12 @@ define(['app'],function(app){
 
 
         //生成支付订单(普通商城)
-        service.addCommonPaymentOrder = function($scope,updateParams,POP,fn){
+        service.addCommonPaymentOrder = function($scope,orderParams,POP,fn){
 
             POP.StartLoading();
 
             //更新操作
-            HTTP.post(API.Cart.commonPaymentOrder,updateParams,function(e,data){
+            HTTP.post(API.Cart.commonPaymentOrder,orderParams,function(e,data){
 
                 POP.EndLoading();
 
