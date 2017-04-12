@@ -56,9 +56,9 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                            user_id : info.user_id, //用户id
                         user_money : $scope.userInfo.user_money, //用户余额
                       shipping_fee : 20, //运费
-                        address_id : 65103, //收货地址id
-                       shipping_id : 1, //物流公司id
-                     shipping_name : "运费到付", //物流公司名
+                        address_id : 22, //收货地址id
+                       shipping_id : 33, //物流公司id
+                     shipping_name : "中通", //物流公司名
                       goods_amount : $scope.amountOrder, //商品总金额
                            surplus : $scope.orderInfo.pay_amount, //实际支付总金额
                            referer : "手机", //订单来源(本站/手机/APP)
@@ -74,7 +74,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
                     }
 
-                    console.log("$$$$$$$$$" + orderParams);
+
 
                  //提交订单
                     cartOrderService.addCommonPaymentOrder($scope,payParams,POP,function () {
@@ -167,9 +167,15 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
             }
 
-        cartOrderService.countFreight ($scope,freightParams,function(){
+        cartOrderService.countFreight ($scope,freightParams,function() {
+            var deliveryFreight = $scope.deliveryFreight;
 
+            if (deliveryFreight == undefined) {
+
+            $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + deliveryFreight;
+        }
         });
+
             if ($(this).find("img").is(':visible')){
                 $(this).find("img").hide();
                 $(this).css("border", "1px solid #d79ac4");
@@ -189,8 +195,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                 }) ;
             }
 
-            var deliveryFreight = $scope.deliveryFreight;
-            $scope.shippingName = $(".deliveryContent").eq(_index).text() +'¥'+ deliveryFreight;
+
         });
 
 

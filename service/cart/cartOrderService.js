@@ -40,6 +40,7 @@ define(['app'],function(app){
 
                 }else{
                     nowAddress = "NO";
+
                 }
 
                 var orderAmount = 0;
@@ -55,12 +56,12 @@ define(['app'],function(app){
 
                     }
 
+
                 }
 
                 console.log(orderAmount);
 
                 $scope.$apply(function () {
-
                     $scope.address     = nowAddress;                  //收货地址和信息
                     $scope.cartGoods   = data.cartInfo.cart_goods;    //购物车订单信息
                     $scope.orderInfo   = data.cartInfo.order_info;    //订单价格积分信息
@@ -70,8 +71,6 @@ define(['app'],function(app){
                     $scope.goodsNumber = goodsCount;                  //购买商品总数
                     $scope.amountOrder = orderAmount;                 //合计价格
                     $scope.webConfig   = data.webConfig;              //免运费配置/专卖店情况
-
-
                 });
 
 
@@ -124,7 +123,35 @@ define(['app'],function(app){
 
         }
 
+        //计算运费
 
+        service.countFreight = function($scope,freightParams,fn){
+
+            //更新操作
+            HTTP.post(API.Cart.countFreight,freightParams,function(e,data){
+
+                console.log(data);
+                if(e){
+                    $.loadError(function () {
+                        service.countFreight();
+                    });
+
+                    return;
+                }
+                  else {
+                    fn();
+                    $scope.$apply(function () {
+                    $scope.deliveryFreight = data;
+                });
+
+                }
+
+
+
+
+            });
+
+        }
 
 
         return service;
