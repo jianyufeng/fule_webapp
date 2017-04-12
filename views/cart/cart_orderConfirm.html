@@ -68,7 +68,7 @@
                 <div class="payInfoBox">
                     <div class="orderDeliveryModel">
                         <div class="titleArea"><span>配送方式:</span></div>
-                        <div class="deliveryModel"><span>{{shipping.shipping_name}}</span></div>
+                        <div class="deliveryModel"><span>{{shippingName}}</span></div>
                         <div class="setDeliveryBtn"><img src="resource/images/icon/jiantou_right.png"></div>
 
                     </div>
@@ -121,8 +121,8 @@
                 <div class="deliveryContent">
                     {{deliveryInfo.shipping_name}}
                 </div>
-
-                <div class="deliveryChoice">
+                <div class="deliveryPrice" style="visibility:hidden";>¥ {{deliveryFreight}}</div>
+                <div class="deliveryChoice" id="{{deliveryInfo.shipping_id}}">
                     <img class="xuanImg" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
                 </div>
             </div>

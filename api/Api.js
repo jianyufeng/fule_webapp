@@ -74,7 +74,9 @@ var API = {
         //验证用户三级密码
         verifyUserPassword: serverIP + "/_user/verifyUserPassword",
         //普通商城生成支付订单
-        commonPaymentOrder: serverIP + "/order/addCommonPaymentOrder"
+        commonPaymentOrder: serverIP + "/order/addCommonPaymentOrder",
+        //计算运费
+        countFreight: serverIP + "/shipping/countFreight"
 
 
     },

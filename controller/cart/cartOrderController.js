@@ -135,21 +135,46 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
             }
         });
 
-        //选择发货方式
-        $(".deliveryChoice").click(function () {
+        //选择配送方式
+        $(document).on("click",".deliveryChoice",function () {
             var _index = $(".deliveryChoice").index(this);
-            alert(_index);
+            var shipping_id = $(".deliveryChoice").eq(_index).attr("id");
+            var cart_id = $scope.cartInfo.cart_goods[0].cart_id;
+            var payment_amount = $scope.cartInfo.order_info.pay_amount;
 
+            var freightParams = {
+
+                shipping_id : shipping_id,
+                cart_id : cart_id,
+                payment_amount : payment_amount
+
+            }
+        cartOrderService.countFreight ($scope,freightParams,function(){
+
+        });
             if ($(this).find("img").is(':visible')){
-                var _index = $(".deliveryChoice").index(this);
-                alert(_index);
                 $(this).find("img").hide();
                 $(this).css("border", "1px solid #d79ac4");
+
             }else {
+                $(".deliveryChoice").find("img").hide();
                 $(this).find("img").show();
+                $(".deliveryChoice").css("border", "1px solid #d79ac4");
                 $(this).css("border", "0px");
+                var $deliveryPrice = $(".deliveryPrice");
+                $deliveryPrice.css({
+                    visibility: "hidden"
+                }) ;
+                var $deliveryPrice = $(".deliveryPrice").eq(_index);
+                $deliveryPrice.css({
+                    visibility: "visible"
+                }) ;
             }
+
+            var deliveryFreight = $scope.deliveryFreight;
+            $scope.shippingName = $(".deliveryContent").eq(_index).text() +'¥'+ deliveryFreight;
         });
+
 
         $(".bottomChoice").click(function () {
             if ($(this).find("img").is(':visible')){

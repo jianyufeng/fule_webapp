@@ -449,11 +449,15 @@
   font-size: 14px;
   margin-bottom: 1px;
 }
+.popBox .middleBox .deliveryBox .deliveryPrice {
+  width: 100px;
+  height: 36px;
+}
 .popBox .middleBox .deliveryBox .deliveryChoice {
   width: 20px;
   height: 20px;
   float: right;
-  margin-top: 8px;
+  margin-top: -27px;
   text-align: center;
   border: 1px solid #d79ac4;
   border-radius: 10px;
