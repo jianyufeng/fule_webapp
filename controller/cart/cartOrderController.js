@@ -156,8 +156,8 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         $(document).on("click",".deliveryChoice",function () {
             var _index = $(".deliveryChoice").index(this);
             var shipping_id = $(".deliveryChoice").eq(_index).attr("id");
-            var cart_id = $scope.cartInfo.cart_goods[0].cart_id;
-            var payment_amount = $scope.cartInfo.order_info.pay_amount;
+            var cart_id = $scope.cartGoods[0].cart_id;
+            var payment_amount = $scope.orderInfo.pay_amount;
 
             var freightParams = {
 
@@ -169,11 +169,8 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
         cartOrderService.countFreight ($scope,freightParams,function() {
             var deliveryFreight = $scope.deliveryFreight;
-
-            if (deliveryFreight == undefined) {
-
             $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + deliveryFreight;
-        }
+
         });
 
             if ($(this).find("img").is(':visible')){
