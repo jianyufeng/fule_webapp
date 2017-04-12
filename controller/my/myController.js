@@ -35,7 +35,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         };
         //退出登录
         $('.loginOutBox').click(function () {
-            POP.Confirm("确定退出登录?", function () {
+            POP.Confirm("确认退出登录?", function () {
                 $.cookie("userInfo", null, {path: '/'});
                 $state.go("tab.home");
             });
