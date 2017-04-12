@@ -36,6 +36,8 @@ var API = {
         bankList:serverIP+"/banks/search_banks",
         //查询辅销币流水
         searchAccountLog:serverIP+"/fxp/searchIntergralLog",
+        //查看推荐人信息
+        recommendedManInfo:serverIP+"/_user/userInfo",
         // 查看接点人信息
         searchUserDetail:serverIP+"/user/searchUserDetail",
         //升级到D
@@ -74,7 +76,9 @@ var API = {
         //验证用户三级密码
         verifyUserPassword: serverIP + "/_user/verifyUserPassword",
         //普通商城生成支付订单
-        commonPaymentOrder: serverIP + "/order/addCommonPaymentOrder"
+        commonPaymentOrder: serverIP + "/order/addCommonPaymentOrder",
+        //计算运费
+        countFreight: serverIP + "/shipping/countFreight"
 
 
     },

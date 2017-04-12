@@ -6,13 +6,13 @@
             <ion-radio id="abc2">右区</ion-radio>
             <!--<ion-radio>ShareLock</ion-radio>-->
             <!--<p><span class="text" id="noChoose"  style="color: #D39AC5">-&#45;&#45;请选择-&#45;&#45;</span> <i-->
-                    <!--class="radio-icon disable-pointer-events icon ion-checkmark"></i></p>-->
+            <!--class="radio-icon disable-pointer-events icon ion-checkmark"></i></p>-->
             <!--<div class="line"></div>-->
             <!--<p><span class="text" id="left">左区</span> <i-->
-                    <!--class="radio-icon disable-pointer-events icon ion-checkmark"></i></p>-->
+            <!--class="radio-icon disable-pointer-events icon ion-checkmark"></i></p>-->
             <!--<div class="line"></div>-->
             <!--<p><span class="text" id="right">右区</span> <i-->
-                    <!--class="radio-icon disable-pointer-events icon ion-checkmark"></i></p>-->
+            <!--class="radio-icon disable-pointer-events icon ion-checkmark"></i></p>-->
             <!--<div class="line"></div>-->
         </div>
 
@@ -31,9 +31,19 @@
                 </div>
 
                 <div class="rightBox">
-                    <input id="recommend" type="text" placeholder="请输入推荐人" ng-model="upGrade.recommendP"  >
-                    <div class="waring" id="recommendWaring" > <i class="icon ion-android-warning"></i> 推荐人格式不正确</div>
-               </div>
+                    <input id="recommend" type="text" placeholder="请输入推荐人" ng-model="upGrade.recommendP">
+                    <div class="waring" id="recommendWaring"><i class="icon ion-android-warning"></i> 推荐人格式不正确</div>
+                </div>
+                <div class="line"></div>
+            </div>
+
+            <div class="rowBox" style="margin-top: 5px">
+                <div class="leftBox">
+                    <span class="redStar">*</span>团队
+                </div>
+                <div class="rightBox">
+                    <span>{{upGrade.team}}</span>
+                </div>
                 <div class="line"></div>
             </div>
 
@@ -43,8 +53,8 @@
                 </div>
 
                 <div class="rightBox">
-                    <input id="node" type="text" placeholder="请输入节点人" ng-model="upGrade.nodeP" >
-                    <div class="waring" id="nodeWaring" > <i class="icon ion-android-warning"></i> 节点人格式不正确</div>
+                    <input id="node" type="text" placeholder="请输入节点人" ng-model="upGrade.nodeP">
+                    <div class="waring" id="nodeWaring"><i class="icon ion-android-warning"></i> 节点人格式不正确</div>
                 </div>
                 <div class="line"></div>
             </div>
@@ -54,7 +64,7 @@
                 </div>
 
                 <div class="rightBox" ng-click="selectRegion()">
-                    <input  type="text" placeholder="---请选择---"  id="selectResult"/>
+                    <input type="text" placeholder="---请选择---" id="selectResult"/>
                 </div>
                 <div class="line"></div>
             </div>
@@ -72,8 +82,8 @@
                     <span class="redStar">*</span>银行账号
                 </div>
                 <div class="rightBox">
-                    <input type="number" placeholder="请输入银行账号" id="bankCardN" ng-model="upGrade.bankCardN" >
-                    <div class="waring" id="bankCardNWaring" > <i class="icon ion-android-warning"></i> 银行卡号格式不正确</div>
+                    <input type="number" placeholder="请输入银行账号" id="bankCardN" ng-model="upGrade.bankCardN">
+                    <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i> 银行卡号格式不正确</div>
                 </div>
                 <div class="line"></div>
             </div>
@@ -91,8 +101,9 @@
                     <span class="redStar">*</span>身份证号
                 </div>
                 <div class="rightBox">
-                    <input type="text" placeholder="请输入身份证号" ng-model="upGrade.identityCardN"  id="identityCardN">
-                    <div class="waring" id="identityCardNWaring" > <i class="icon ion-android-warning"></i> 身份证号格式不正确</div>
+                    <input type="text" placeholder="请输入身份证号" ng-model="upGrade.identityCardN" id="identityCardN">
+                    <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i> 身份证号格式不正确
+                    </div>
                 </div>
                 <div class="line"></div>
             </div>
@@ -123,7 +134,7 @@
                 </div>
 
                 <div class="rightBox">
-                    <span  id="address" ng-click="chooseAddress()">xx区xx路xx支行</span>
+                    <input  type="text" id="address" placeholder="请选择地址" readonly ng-click="chooseAddress()" style="background-color: white"/>
                 </div>
                 <div class="line"></div>
             </div>
