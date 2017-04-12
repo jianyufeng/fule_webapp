@@ -166,9 +166,16 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                 payment_amount : payment_amount
 
             }
-        cartOrderService.countFreight ($scope,freightParams,function(){
 
+        cartOrderService.countFreight ($scope,freightParams,function() {
+            var deliveryFreight = $scope.deliveryFreight;
+
+            if (deliveryFreight == undefined) {
+
+            $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + deliveryFreight;
+        }
         });
+
             if ($(this).find("img").is(':visible')){
                 $(this).find("img").hide();
                 $(this).css("border", "1px solid #d79ac4");
@@ -188,8 +195,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                 }) ;
             }
 
-            var deliveryFreight = $scope.deliveryFreight;
-            $scope.shippingName = $(".deliveryContent").eq(_index).text() +'¥'+ deliveryFreight;
+
         });
 
 
