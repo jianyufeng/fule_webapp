@@ -27,6 +27,15 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         //提交订单点击时
         $(".paySubmit").click(function(){
 
+            //判断余额是否足够
+            if($scope.userInfo.user_money < $scope.orderInfo.pay_amount){
+
+                POP.Alert("抱歉,您的余额不足!");
+
+                return;
+
+            }
+
             POP.FormAlert("请输入您的支付密码",$scope,function(v){
 
                 var info = User.getInfo();
@@ -34,7 +43,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                 var payParams = {
 
                      user_id : info.user_id,
-                    password : v,
+                     password : v,
                         type : "THREE_PASSWORD"
 
                 }
@@ -44,18 +53,26 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
 
                     var orderParams = {
-                           user_id : info.user_id,
-                        // user_money :
-
-
-
-
-
-
+                           user_id : info.user_id, //用户id
+                        user_money : $scope.userInfo.user_money, //用户余额
+                      shipping_fee : 20, //运费
+                        address_id : 22, //收货地址id
+                       shipping_id : 33, //物流公司id
+                     shipping_name : "中通", //物流公司名
+                      goods_amount : $scope.amountOrder, //商品总金额
+                           surplus : $scope.orderInfo.pay_amount, //实际支付总金额
+                           referer : "手机", //订单来源(本站/手机/APP)
+                        order_mode : $scope.orderInfo.ORDER_TYPE, //订单类型（CE/CM）
+                                pv : $scope.orderInfo.pv, //获得PV
+                    isAccumulative : $scope.orderInfo.LEI_JI_TYPE, //是否累计PV 0-累计 1-不累计
+                   shipping_config : $scope.webConfig.EXEMPT_FREIGHT.PARAM_VALUE, //运费配置（达到指定支付金额免除运费）
+                            pay_id : 1, //余额支付
+                          pay_name : "余额支付", //支付方式名
+                           cart_id : $scope.cartGoods[0].cart_id, //购物车id
+                          LEVEL_TO : $scope.orderInfo.LEVEL_TO, //自动升级目标级别
+                          integral : $scope.orderInfo.integral //累计积分
 
                     }
-
-
 
 
 

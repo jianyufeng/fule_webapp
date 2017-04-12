@@ -84,10 +84,9 @@
 
                     <div class="orderPayModel">
                         <div class="titleArea"><span>支付方式:</span></div>
-                        <div class="payModel"><span>{{payment.pay_name}}</span></div>
-                        <div class="setpayBtn"><img src="resource/images/icon/jiantou_right.png"></div>
+                        <div class="payModel">余额支付<span>(可用余额:<a>{{userInfo.user_money}}</a>)</span></div>
+                        <!--<div class="setpayBtn"><img src="resource/images/icon/jiantou_right.png"></div>-->
                     </div>
-
 
                 </div>
 
@@ -99,8 +98,11 @@
 
             <div class="paySubmit"><b>提交订单</b></div>
             <div class="listInfo">
-                <div class="payAcountPrice">合计 : <span>¥ {{amountOrder}}</span></div>
-                <div class="payGoodsAcount"><span>共{{goodsNumber}}件商品</span></div>
+                <div class="payAcountPrice">合计 : <span>¥ {{orderInfo.pay_amount}}</span></div>
+                <div class="payGoodsAcount">
+                    <div class="goodsCountsPrompt"><span>共 <b>{{goodsNumber}}</b> 件商品</span></div>
+                    <div class="integralPrompt"><span>获得积分: <b>{{orderInfo.integral}}</b></span></div>
+                </div>
             </div>
 
         </div>
