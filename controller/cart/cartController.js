@@ -44,7 +44,10 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		});
 
 		//递增按钮
-		cart_fun.addCartGoodsBtn(function(countMoney,nowNum,gid,cartId){
+		cart_fun.addCartGoodsBtn(POP,function(countMoney,nowNum,gid,cartId,goodsNumber,limitNumber){
+
+			console.log(goodsNumber);
+			console.log(limitNumber);
 
 			var info = User.getInfo();
 			var updateParams = {
@@ -58,7 +61,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 
 
-			cartService.updateCart($scope,updateParams,POP);
+			cartService.updateCart($scope,updateParams,POP,$rootScope);
 
 			
 
@@ -68,7 +71,12 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 
 		//递减按钮
-		cart_fun.reduceCartGoodsBtn(POP,function(countMoney,nowNum,gid,cartId){
+		cart_fun.reduceCartGoodsBtn(POP,function(countMoney,nowNum,gid,cartId,goodsNumber,limitNumber){
+
+			console.log(goodsNumber);
+			console.log(limitNumber);
+
+
 
 			var info = User.getInfo();
 			var updateParams = {
@@ -80,12 +88,12 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 				goods_id : gid
 			};
 			
-			cartService.updateCart($scope,updateParams,POP);
+			cartService.updateCart($scope,updateParams,POP,$rootScope);
 
 		})
 
 		//输入框改变时
-		cart_fun.changeCartGoodsBtn(function(countMoney,nowNum,gid,cartId){
+		cart_fun.changeCartGoodsBtn(POP,function(countMoney,nowNum,gid,cartId){
 
 			var info = User.getInfo();
 			var updateParams = {
@@ -97,7 +105,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 				goods_id : gid
 			};
 
-			cartService.updateCart($scope,updateParams,POP);
+			cartService.updateCart($scope,updateParams,POP,$rootScope);
 
 			
 		});

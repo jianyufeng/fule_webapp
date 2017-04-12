@@ -131,6 +131,22 @@ define(['app'], function (app) {
         }
 
     });
+    //汇款记录状态 过滤器
+
+    app.filter('remittanceRecordStateFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = $.trim(input.toUpperCase());
+            if (v == 'A') {
+                varl = "同意"
+            } else if (v == 'I') {
+                varl = "拒绝"
+            } else {//v=='W'
+                varl = "待审批"
+            }
+            return varl
+        }
+
+    });
 
     /*时间戳 过滤器*/
     app.filter('timeFilter', function ($rootScope) {

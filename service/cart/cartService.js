@@ -60,7 +60,7 @@ define(['app'],function(app){
         };
 
         /*更新购物车信息*/
-        service.updateCart = function($scope,updateParams,POP){
+        service.updateCart = function($scope,updateParams,POP,$rootScope){
 
             POP.StartLoading();
 
@@ -79,11 +79,25 @@ define(['app'],function(app){
                     $scope.cart_info  = data.order_info;
                 });
 
+                 //计算购物车总量
+                var cCount = 0;
+                for(var i=0;i<$scope.cart_goods.length;i++){
+                     cCount += parseInt($scope.cart_goods[i].goods_number);
+				}
+
+                 $scope.$apply(function () {
+                    $rootScope.cartBadge = cCount;
+                 });
+                
+
 				$scope.countPrice = function(){
+                    
 					var moneyCount = 0;
 					for(var i=0;i<$scope.cart_goods.length;i++){
 						moneyCount += parseInt($scope.cart_goods[i].goods_price);
 					}
+
+                    
 					return moneyCount;
 				}
 
@@ -113,7 +127,7 @@ define(['app'],function(app){
                 $(".deleteBox:eq("+_idx+")").parent().slideUp(200);
                 var newArr = _.pullAt($scope.cart_goods,_idx);
                 console.log(1111);
-                console.log($scope.cart_goods);
+                console.log(newArr);
                 if($scope.cart_goods.length<=0){
 
                     $scope.$apply(function () {
@@ -126,6 +140,11 @@ define(['app'],function(app){
                         $(".noCartGoodBox").show();
                         $(".noCartGoodBox").find(".isLoginBox").hide();
                         
+                }else{
+
+                    $scope.$apply(function () {
+                        $rootScope.cartBadge = parseInt($rootScope.cartBadge) - parseInt(newArr[0].goods_number);
+                    });
                 }
                 return;
 				 $scope.$apply(function () {
