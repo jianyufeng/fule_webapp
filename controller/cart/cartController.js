@@ -105,7 +105,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 				goods_id : gid
 			};
 
-			cartService.updateCart($scope,updateParams,POP);
+			cartService.updateCart($scope,updateParams,POP,$rootScope);
 
 			
 		});
