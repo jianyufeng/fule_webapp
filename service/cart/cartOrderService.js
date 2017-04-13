@@ -62,13 +62,15 @@ define(['app'],function(app){
                 console.log(orderAmount);
 
                 $scope.$apply(function () {
-
-                    $scope.address = nowAddress;                   //收货地址和信息
-                    $scope.cartGoods = data.cartInfo.cart_goods;   //购物车订单信息
-                    $scope.payment = data.payment.data[0];         //支付方式
-                    $scope.shipping = data.shipping.data[0];       //快递公司名
-                    $scope.amountOrder = orderAmount;              //合计价格
-                    $scope.goodsNumber = goodsCount;               //购买商品总数
+                    $scope.address     = nowAddress;                  //收货地址和信息
+                    $scope.cartGoods   = data.cartInfo.cart_goods;    //购物车订单信息
+                    $scope.orderInfo   = data.cartInfo.order_info;    //订单价格积分信息
+                    $scope.userInfo    = data.userInfo;               //用户购买能力信息
+                    $scope.payment     = data.payment.data[0];        //支付方式
+                    $scope.deliveryArray    = data.shipping.data;       //快递公司名
+                    $scope.goodsNumber = goodsCount;                  //购买商品总数
+                    $scope.amountOrder = orderAmount;                 //合计价格
+                    $scope.webConfig   = data.webConfig;              //免运费配置/专卖店情况
 
                 });
 
@@ -88,6 +90,8 @@ define(['app'],function(app){
 
                 POP.EndLoading();
 
+                console.log("*******" + data);
+
                 if(e){
                     POP.Hint("密码错误!");
                     return;
@@ -101,12 +105,12 @@ define(['app'],function(app){
 
 
         //生成支付订单(普通商城)
-        service.addCommonPaymentOrder = function($scope,updateParams,POP,fn){
+        service.addCommonPaymentOrder = function($scope,orderParams,POP,fn){
 
             POP.StartLoading();
 
             //更新操作
-            HTTP.post(API.Cart.commonPaymentOrder,updateParams,function(e,data){
+            HTTP.post(API.Cart.commonPaymentOrder,orderParams,function(e,data){
 
                 POP.EndLoading();
 
@@ -122,7 +126,35 @@ define(['app'],function(app){
 
         }
 
+        //计算运费
 
+        service.countFreight = function($scope,freightParams,fn){
+
+            //更新操作
+            HTTP.post(API.Cart.countFreight,freightParams,function(e,data){
+
+                console.log(data);
+                if(e){
+                    $.loadError(function () {
+                        service.countFreight();
+                    });
+
+                    return;
+                }
+                  else {
+                    fn();
+                    $scope.$apply(function () {
+                    $scope.deliveryFreight = data;
+                });
+
+                }
+
+
+
+
+            });
+
+        }
 
 
         return service;

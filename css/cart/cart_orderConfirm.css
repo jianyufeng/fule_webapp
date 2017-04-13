@@ -349,15 +349,24 @@
   float: left;
   line-height: 50px;
 }
+.orderBox .orderDetailBox .scrollV .payInfoBox .orderPayModel .payModel span {
+  font-size: 12px;
+  color: #9a9a9a;
+}
+.orderBox .orderDetailBox .scrollV .payInfoBox .orderPayModel .payModel span a {
+  font-size: 13px;
+  color: red;
+}
 .payAcountBox {
   width: 100%;
   height: 60px;
   position: absolute;
-  background: white;
+  background: #fafafa;
   bottom: 0px;
+  border-top: 1px solid #eeeeee;
 }
 .payAcountBox .paySubmit {
-  width: 120px;
+  width: 100px;
   height: 60px;
   background: #d79ac4;
   float: right;
@@ -373,9 +382,10 @@
 .payAcountBox .listInfo {
   position: absolute;
   left: 0px;
-  right: 120px;
+  right: 100px;
   height: 60px;
   float: right;
+  background: #fafafa;
 }
 .payAcountBox .listInfo .payAcountPrice {
   width: 50%;
@@ -387,18 +397,37 @@
 }
 .payAcountBox .listInfo .payAcountPrice span {
   color: #A92586;
-  font-size: 16px;
+  font-size: 15px;
 }
 .payAcountBox .listInfo .payGoodsAcount {
   width: 50%;
   height: 60px;
   float: right;
   text-align: center;
-  line-height: 60px;
 }
-.payAcountBox .listInfo .payGoodsAcount span {
+.payAcountBox .listInfo .payGoodsAcount .goodsCountsPrompt {
+  padding-top: 5px;
+}
+.payAcountBox .listInfo .payGoodsAcount .goodsCountsPrompt span {
+  height: 30px;
   color: #9e9e9e;
-  font-size: 10px;
+  font-size: 12px;
+}
+.payAcountBox .listInfo .payGoodsAcount .goodsCountsPrompt span b {
+  font-size: 13px;
+  color: #A92586;
+}
+.payAcountBox .listInfo .payGoodsAcount .integralPrompt {
+  width: 100%;
+}
+.payAcountBox .listInfo .payGoodsAcount .integralPrompt span {
+  height: 30px;
+  color: #9e9e9e;
+  font-size: 12px;
+}
+.payAcountBox .listInfo .payGoodsAcount .integralPrompt span b {
+  font-size: 13px;
+  color: #A92586;
 }
 .popBg {
   background-color: #000;
@@ -449,11 +478,15 @@
   font-size: 14px;
   margin-bottom: 1px;
 }
+.popBox .middleBox .deliveryBox .deliveryPrice {
+  width: 100px;
+  height: 36px;
+}
 .popBox .middleBox .deliveryBox .deliveryChoice {
   width: 20px;
   height: 20px;
   float: right;
-  margin-top: 8px;
+  margin-top: -27px;
   text-align: center;
   border: 1px solid #d79ac4;
   border-radius: 10px;
