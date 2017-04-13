@@ -6,7 +6,6 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
 
 
-
 		// 下拉刷新
 		$scope.doRefresh = function(){
 

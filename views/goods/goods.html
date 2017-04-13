@@ -20,7 +20,10 @@
 
 			<!-- 商品列表-->
 			<div class="goodsListBox">
-				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray" name="{{goodsInfo.goods_id}}">
+				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray" name="{{goodsInfo.goods_id}}" number="{{goodsInfo.goods_number}}">
+					<div ng-if="goodsInfo.goods_number <= 0" class="goodsCover">
+						<img src="./resource/images/icon/shouqin.png">
+					</div>
 					<div class="goodsImage">
 						<img src="./resource/images/goods_11.png" />
 					</div>

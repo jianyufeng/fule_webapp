@@ -16,7 +16,11 @@
 
         $(document).on("click", ".goodsItem", function () {
             var goodsId=$(this).attr('name');
-            $state.go("tab.productInfo",{"goodsId":goodsId});
+            var goodsNumber=$(this).attr('number');
+
+            if (goodsNumber>0){
+    $state.go("tab.productInfo",{"goodsId":goodsId});
+}
         });
 
         $(document).on("click", ".goodsCart", function () {
