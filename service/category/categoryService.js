@@ -3,19 +3,17 @@ define(['app'], function (app) {
     app.factory("categoryService", function () {
 
         var service = {};
-
+        var categoryId;
         //  获取头部的分类列表和默认分类货物
-        service.getCategoryListAndCategoryGoodsList = function ($scope,POP) {
+        service.getCategoryListAndCategoryGoodsList = function ($scope, POP) {
             $.initAppStartLoad();
-            HTTP.get(API.Category.category + "/category_id/35", {}, function (e, data) {
-
+            HTTP.get(API.Category.category, {}, function (e, data) {
                 if (e) {
                     $.loadError(function () {
                         service.getCategoryListAndCategoryGoodsList();
                     });
                     return;
                 }
-
                 $scope.$apply(function () {
                     $scope.categorys = data.categoryInfo;
                     $scope.productArray = data.goodsInfo.data;
@@ -23,7 +21,7 @@ define(['app'], function (app) {
                     var obj = a[0];
                     $scope.categoryName = obj.category_name;
                     //  手动请求一下点击事件
-                    var categoryId = obj.category_id;
+                    categoryId = obj.category_id;
                     service.getCategoryGoodsList($scope, categoryId, POP, {}, obj.category_name);
                     $.initAppEndLoad();
                 });
@@ -43,11 +41,11 @@ define(['app'], function (app) {
                         //});
                         return;
                     }
-
                     $scope.$apply(function () {
                         $scope.productArray = data.goodsInfo.data;
                         cacheData[categoryId] = $scope.productArray;
                         $scope.categoryName = categoryName;
+                        $(".lazy").lazyload({effect: "fadeIn"});
                         ;
                     });
                 });
@@ -81,12 +79,8 @@ define(['app'], function (app) {
 
         // 下拉刷新
         service.Refresh = function ($scope) {
-
-            HTTP.get(API.Category.category + "/category_id/35", {}, function (e, data) {
+            HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
                 if (e) {
-                    //$.loadError(function () {
-                    //    service.Refresh();
-                    //});
                     $scope.$broadcast('scroll.refreshComplete');
                     return;
                 }

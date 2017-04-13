@@ -7,28 +7,19 @@
             <ion-scroll class="scrollBox" direction="y">
                 <!--图片详情-->
                 <div class="productImgBox">
-                    <!-- 滑动块-->
-                    <ion-slide-box show-pager="false" on-slide-changed="onSlideChanged($index)">
-                        <ion-slide>
+                    <ion-slide-box show-pager="false" on-slide-changed="onSlideChanged($index)"
+                                   active-slide="myActiveSlide">
+                        <ion-slide ng-repeat=" productImg in goodsImgss " view-on-finish>
                             <div class="productImg">
-                                <img src="./resource/images/goods_1.png">
-                            </div>
-                        </ion-slide>
-                        <ion-slide>
-                            <div class="productImg">
-                                <img src="./resource/images/goods_2.png">
-                            </div>
-                        </ion-slide>
-                        <ion-slide>
-                            <div class="productImg">
-                                <img src="./resource/images/goods_1.png">
+                                <img src={{"http://image.38zs.net:848"+productImg.img_normal}}>
                             </div>
                         </ion-slide>
                     </ion-slide-box>
                     <div class="instructions">
-                        <img src="./resource/images/icon/point_hover.png">
-                        <img src="./resource/images/icon/point_gray.png">
-                        <img src="./resource/images/icon/point_gray.png">
+                        <div ng-repeat="imgv in goodsImgss">
+                            <img ng-if="$index == 0" src="./resource/images/icon/point_hover.png">
+                            <img ng-if="$index != 0" src="./resource/images/icon/point_gray.png">
+                        </div>
                     </div>
                 </div>
 
@@ -38,7 +29,6 @@
                     <div class="productProperty">
                         <span class="productPrice"><span style="font-size: 15px">￥</span>{{productPrice_I}}<span
                                 class="productPrice_decimal_point">{{productPrice_F}}</span></span>
-                        <span class="integral">积分:{{integral}}</span>
                         <span class="freight">快递：支付满{{freight}}免运费</span>
                     </div>
                     <div class="productOtherBox">
@@ -53,10 +43,18 @@
                             <div class="numberBox">
                                 <div class="accountBox" ng-click="reduce()"><img
                                         src="./resource/images/icon/shoppingcar_reduce.png"></div>
-                                <div class="accountBox_number">{{count}}</div>
-                                <div class="accountBox" ng-click="add()"><img
-                                        src="./resource/images/icon/shoppingcar_add.png"></div>
+                                <input type="text" class="accountBox_number"
+                                       onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                       onafterpaste="this.value=this.value.replace(/\D/g,'')" ng-model="count"/>
+                                <div class="accountBox" ng-click="add()">
+                                    <img src="./resource/images/icon/shoppingcar_add.png"></div>
                             </div>
+                        </div>
+                        <div class="productOtherItem">
+                            <span>本商品最大限制购买量:<span class="goodsNumber"> &nbsp;{{limitGoodsNumber}}</span></span>
+                        </div>
+                        <div class="productOtherItem">
+                            <span>本商品单笔订单最低购买量:<span class="goodsNumber"> &nbsp;{{minGoodsNumber}}</span></span>
                         </div>
                     </div>
                 </div>
@@ -72,19 +70,12 @@
                         Detail
                     </span>
                 </div>
-                <div>
-                    <img src="./resource/images/goods_2.png"
-                         style="width: 100%;height: 300px;margin: 0;padding: 0;background-color: red">
-                    <img src="./resource/images/goods_2.png"
-                         style="width: 100%;height: 300px;margin: 0;padding: 0;background-color: red">
-                    <img src="./resource/images/goods_2.png"
-                         style="width: 100%;height: 300px;margin: 0;padding: 0;background-color: red">
-                    <img src="./resource/images/goods_2.png"
-                         style="width: 100%;height: 300px;margin: 0;padding: 0;background-color: red">
-                    <img src="./resource/images/goods_2.png"
-                         style="width: 100%;height: 300px;margin: 0;padding: 0;background-color: red">
 
+                <div ng-repeat="goodsDetailImg in  goodsDetail" style="margin: 0">
+                    <img src={{"http://image.38zs.net:848"+goodsDetailImg.detail_img}} width="100%"
+                         alt={{goodsDetailImg.detail_text}}>
                 </div>
+
 
             </ion-scroll>
             <!-- 加入购物车-->
@@ -96,11 +87,7 @@
                 <div class="line"></div>
                 <div class="addCartBarButton" ng-click="addCartAction()">加入购物车</div>
             </div>
-
-
         </div>
-
-
     </ion-content>
 
 </ion-view>

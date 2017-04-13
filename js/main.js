@@ -30,12 +30,13 @@ require.config({
         'zepto': '../plugin/datePicker/zepto.min',             //加载日期库
         'iscroll': '../plugin/datePicker/iscroll',           //加载日期滑动库
         'datePicker': '../plugin/datePicker/datePicker',		           //加载日期选择器
-		'addressSelect'	    : '../plugin/addressSelect/addressSelect', //加载省市区选择插件
+        'addressSelect': '../plugin/addressSelect/addressSelect', //加载省市区选择插件
         'liweixuanRoutes': './tempRoutes/liweixuan',				   //李蔚轩临时路由
         'lixufengRoutes': './tempRoutes/lixufeng',				   //李旭峰临时路由
         'jianyufengRoutes': './tempRoutes/jianyufeng',				   //简玉峰临时路由
         'xieshaoxiongRoutes': './tempRoutes/xieshaoxiong',			   //谢少雄临时路由
-        'yejingyaRoutes': './tempRoutes/yejingya'				   //叶静雅临时路由
+        'yejingyaRoutes': './tempRoutes/yejingya',				   //叶静雅临时路由
+        'imageLazyLoad': '../lib/js/jquery.lazyload.min'				   //图片懒加载所需的jquery库
     },
 
     //设置优先加载文件
@@ -47,8 +48,8 @@ require.config({
         'jianyufengRoutes': ['routes'],
         'xieshaoxiongRoutes': ['routes'],
         'yejingyaRoutes': ['routes'],
-        'datePicker' : ['zepto'],
-        'datePicker' : ['iscroll']
+        'datePicker': ['zepto'],
+        'datePicker': ['iscroll']
     },
 
     //禁止文件缓存

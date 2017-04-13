@@ -156,4 +156,6 @@ define(['app'], function (app) {
             return now.toLocaleDateString();
         }
     });
+
+
 });

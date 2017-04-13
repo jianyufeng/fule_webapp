@@ -22,6 +22,8 @@ define(['app'], function (app) {
                 }
                 $scope.$apply(function () {
                     var goodsInfo = data.goodsInfo.data.shift();
+                    // 商品的轮播图
+                    $scope.goodsImgss = data.goodsImgs;
                     // 商品名
                     $scope.productName = goodsInfo.goods_name;
                     // 商品编号
@@ -31,13 +33,25 @@ define(['app'], function (app) {
                     goodsId = goodsInfo.goods_id;
                     // 免运费的等级
                     $scope.freight = data.freight;
-
                     //商品价格
                     pri = goodsInfo.shop_price;
                     var index = pri.indexOf(".");
                     $scope.productPrice_I = pri.substr(0, index);
                     $scope.productPrice_F = pri.substr(index, pri.length);
 
+                    // 商品的详情图
+                    $scope.goodsDetail = data.goodsDetail;
+                    // 商品购买的最大数量
+                    if (goodsInfo.limit_num > 0) {
+                        $scope.limitGoodsNumber = goodsInfo.limit_num;
+                    } else {
+                        $scope.limitGoodsNumber = "无限制";
+                    }
+                    if (goodsInfo.min_order_num != undefined && goodsInfo.min_order_num != null) {
+                        $scope.minGoodsNumber = goodsInfo.min_order_num;
+                    } else {
+                        $scope.minGoodsNumber = "无限制";
+                    }
                 });
 
 
@@ -47,30 +61,67 @@ define(['app'], function (app) {
 
         service.setImageMargin = function () {
             $(function () {
-                var maxWidth = $(".productImgBox").width();
-                var maxHeight = $(".productImgBox").height();
-                var imgSrc = $(".productImg img").attr("src");
+                var maxWidth = $(".productImg").width();
+                var maxHeight = $(".productImg").height();
+                var img = $(".productImg img")
+                var imgSrc = img.attr("src");
                 getImageWidth(imgSrc, function (w, h) {
+                    var margin = 10;
+                    var screenWidth = $(document).width();
+                    var eleWidth = screenWidth - 20;
+                    var eleHeight = maxHeight - 20;
+                    var marWidth = (maxWidth - w) / 2;
+                    var marHeight = (maxHeight - h) / 2;
+                    if (w >= h) {
+                        if (w < maxWidth) {
+                            if (marWidth < margin) {
+                                img.css({
+                                    "margin-left": margin + "px",
+                                    "margin-right": margin + "px",
+                                    "width": eleWidth + 'px',
+                                });
+                            } else {
 
-                    if (w < maxWidth) {
-                        var mar = (maxWidth - w) / 2;
-                        $(".productImg img").css({
-                            "margin-left": mar + "px",
-                            "margin-right": mar + "px"
-                        });
+                                img.css({
+                                    "margin-left": marWidth + "px",
+                                    "margin-right": marWidth + "px",
+                                });
+                            }
+
+                        } else {
+                            img.css({
+                                "margin-left": margin + "px",
+                                "margin-right": margin + "px",
+                                "width": eleWidth + 'px',
+                            })
+                        }
+
+                    } else {
+                        if (h < maxHeight) {
+                            if (marHeight < margin) {
+                                img.css({
+                                    "margin-top": margin + "px",
+                                    "margin-bottom": margin + "px",
+                                    "height": eleHeight + 'px',
+                                });
+                            } else {
+                                img.css({
+                                    "margin-left": marHeight + "px",
+                                    "margin-right": marHeight + "px",
+                                });
+                            }
+
+                        } else {
+                            console.log("w >maxWidth");
+                            img.css({
+                                "margin-top": margin + "px",
+                                "margin-bottom": margin + "px",
+                                "height": eleHeight + 'px',
+                            })
+                        }
                     }
-                    if (h < maxHeight) {
-                        var mar = (maxHeight - h) / 2;
-                        $(".productImg img").css({
-                            "margin-top": mar + "px",
-                            "margin-buttom": mar + "px"
-                        });
-                    }
-
-
                 });
             });
-
             /***
              * 获取图片的真实宽高
              * @param url
@@ -98,17 +149,14 @@ define(['app'], function (app) {
          * @param $scope
          * @constructor
          */
-        service.Slide = function ($scope) {
-            $scope.onSlideChanged = function (index) {
-                $scope.index = index;
-                // 获取所有 instructions 的子元素
-                var ch = $(".instructions").children();
-                for (var i = 0; i < ch.length; i++) {
-                    if (index == i) {
-                        ch.eq(i).attr("src", './resource/images/icon/point_hover.png')
-                    } else {
-                        ch.eq(i).attr("src", './resource/images/icon/point_gray.png')
-                    }
+        service.Slide = function ($scope, index) {
+            // 获取所有 instructions 的子元素
+            var ch = $(".instructions").children().children();
+            for (var i = 0; i < ch.length; i++) {
+                if (index == i) {
+                    ch.eq(i).attr('src', './resource/images/icon/point_hover.png');
+                } else {
+                    ch.eq(i).attr('src', './resource/images/icon/point_gray.png');
                 }
             }
 
@@ -119,13 +167,9 @@ define(['app'], function (app) {
          * @param $scope
          */
         service.addAndReduce = function ($scope) {
-            // 减号
+
             $scope.reduce = function () {
-                if ($scope.count <= 1) {
-                    $scope.count = 1;
-                } else {
-                    $scope.count--;
-                }
+
             }
             // 加号
             $scope.add = function () {
@@ -143,48 +187,47 @@ define(['app'], function (app) {
          */
         service.addCartAction = function ($scope, POP) {
             //alert("加入购物车");
-            $scope.addCartAction = function () {
-                if (User.isLogin()) {
-                    var userInfo = User.getInfo();
-                    var goodsName = $scope.productName;
-                    var goodsNumber = $scope.count;
-                    console.log(userInfo.user_name);
-                    console.log(userInfo.user_id);
-                    console.log(goodsId);
-                    console.log(goodsName);
-                    console.log(goodsNumber);
-                    console.log(pri);
-                    HTTP.post(API.Cart.cartAdd, {
-                        "user_name": userInfo.user_name,
-                        "user_id": userInfo.user_id,
-                        "goods_id": goodsId,
-                        "goods_name": goodsName,
-                        "goods_number": goodsNumber,
-                        "goods_price": pri
-                    }, function (e, data) {
+            if (User.isLogin()) {
+                var userInfo = User.getInfo();
+                var goodsName = $scope.productName;
+                var goodsNumber = $scope.count;
+                console.log(userInfo.user_name);
+                console.log(userInfo.user_id);
+                console.log(goodsId);
+                console.log(goodsName);
+                console.log(goodsNumber);
+                console.log(pri);
+                HTTP.post(API.Cart.cartAdd, {
+                    "user_name": userInfo.user_name,
+                    "user_id": userInfo.user_id,
+                    "goods_id": goodsId,
+                    "goods_name": goodsName,
+                    "goods_number": goodsNumber,
+                    "goods_price": pri
+                }, function (e, data) {
 
-                        if (e) {
-                            return;
-                        }
-                        $scope.$apply(function () {
-                            $scope.cartCount += $scope.count;
-                        });
+                    if (e) {
+                        return;
+                    }
+                    $scope.$apply(function () {
+                        $scope.cartCount += $scope.count;
+                    });
 
-                        POP.Hint("添加成功");
-                    })
+                    POP.Hint("添加成功");
+                })
 
-                } else {
-                    POP.Confirm("您未登录，点击确定进入登录页面！", function () {
-                        location.href = "./login/login.html";
-                    })
-                }
+            } else {
+                POP.Confirm("您未登录，点击确定进入登录页面！", function () {
+                    location.href = "./login/login.html";
+                })
             }
+
         }
         /**
          *  获取购物车数量
          * @param $scope
          */
-        service.getCartInfo = function ($scope) {
+        service.getCartInfo = function ($scope, POP) {
             if (User.isLogin()) {
                 var userId = User.getInfo().user_id;
                 HTTP.get(API.Category.getCartNum + "/user_id/" + userId + "/shopping_type/1", {}, function (e, data) {
@@ -202,13 +245,8 @@ define(['app'], function (app) {
                 })
 
             } else {
-                POP.Confirm("您未登录，点击确定进入登录页面！", function () {
-                    location.href = "./login/login.html";
-                })
-
+                $(".cartNumber").css('display', 'none');
             }
-
-
         }
 
 
@@ -217,14 +255,9 @@ define(['app'], function (app) {
          * @param $scope
          */
         service.startPage = function ($scope, $state) {
-            // 减号
-            $scope.startPage = function () {
-                $state.go("tab.cart");
-            }
-
+            $state.go("tab.cart");
         }
         return service;
     });
-
 
 });

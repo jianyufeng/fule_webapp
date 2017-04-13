@@ -14,6 +14,7 @@ define(['app', 'jquery_fly'], function (app) {
             }
             var goodsId = $(this).attr('name');
             $state.go("tab.productInfo", {"goodsId": goodsId});
+            return false;
         });
 
         $(document).on("click", ".cartTagBox", function () {
@@ -33,7 +34,6 @@ define(['app', 'jquery_fly'], function (app) {
             //(* 必须)goods_number  Number商品数量
             //(* 必须)goods_price   Number商品价格
             if (User.isLogin()) {
-                console.log("已经登录了")
                 var userInfo = User.getInfo();
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
@@ -62,14 +62,10 @@ define(['app', 'jquery_fly'], function (app) {
                     },
                     onEnd: function () { //结束回调
                         $scope.$apply(function () {
-
                             $rootScope.cartBadge++;
                         })
-
-
                     }
                 });
-
 
             } else {
                 POP.Confirm("您未登录，点击确定进入登录页面！", function () {

@@ -7,26 +7,36 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  bottom: 55px;
+  bottom: 120px;
 }
 .contentBox .scrollBox .productImgBox {
   background-color: white;
   position: relative;
   width: 100%;
   height: 400px;
-  padding: 0 5%;
+}
+.contentBox .scrollBox .productImgBox .productImg {
+  width: 100%;
+  height: 350px;
+  line-height: 350px;
+  margin: 0 auto;
 }
 .contentBox .scrollBox .productImgBox .productImg img {
-  width: 90%;
-  height: auto;
-  margin: 0 auto;
+  vertical-align: middle;
 }
 .contentBox .scrollBox .productImgBox .instructions {
   width: 100%;
+  height: 20px;
   position: absolute;
   bottom: 10px;
   text-align: center;
-  margin-left: -20px;
+}
+.contentBox .scrollBox .productImgBox .instructions div {
+  margin-left: 45%;
+}
+.contentBox .scrollBox .productImgBox .instructions div img {
+  display: block;
+  float: left;
 }
 .contentBox .scrollBox .productInfoBox {
   margin-top: 5px;
@@ -58,14 +68,6 @@
   font-weight: 500;
   margin-left: 2px;
 }
-.contentBox .scrollBox .productInfoBox .productProperty .integral {
-  width: 20%;
-  display: block;
-  float: left;
-  font-size: 10px;
-  margin-left: 5%;
-  color: #C3C4C4;
-}
 .contentBox .scrollBox .productInfoBox .productProperty .freight {
   width: 50%;
   display: block;
@@ -85,6 +87,11 @@
   height: 40px;
   line-height: 40px;
   position: relative;
+}
+.contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .goodsNumber {
+  color: red;
+  font-size: 16px;
+  font-weight: 500;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .content {
   margin-left: 5px;
@@ -108,6 +115,7 @@
   height: 25px;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox_number {
+  display: block;
   float: left;
   width: 30px;
   height: 25px;
@@ -144,11 +152,12 @@
 .contentBox .addCartBar {
   background-color: white;
   width: 100%;
-  height: 55px;
+  height: 120px;
   padding: 10px;
   position: absolute;
   bottom: 0px;
   left: 0px;
+  z-index: 9999;
   box-shadow: 0px -2px 2px #E0E0E0;
 }
 .contentBox .addCartBar .cartBox {

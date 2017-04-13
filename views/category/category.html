@@ -34,16 +34,17 @@
                 </div>
             </div>
 
-
             <!-- 商品列表-->
-
             <div class="product_list">
-
                 <div class="product_item" ng-repeat="productInfo in productArray" name="{{productInfo.goods_id}}">
                     <div class="backgroudBox" ng-show="productInfo.goods_number>0">
                         <img src="./resource/images/icon/shouqin.png">
                     </div>
-                    <img src={{"http://image.38zs.net:848"+productInfo.img_normal}}>
+                    <img src="./resource/images/icon/timg.jpg" class="lazy"
+                         width="1080"
+                         height="800"
+                         data-original={{"http://image.38zs.net:848"+productInfo.img_normal}}
+                    >
                     <div class="product_item_info">
                         <span class="product_price">￥{{productInfo.shop_price}}</span>
                         <div class="product_item_bottom">
