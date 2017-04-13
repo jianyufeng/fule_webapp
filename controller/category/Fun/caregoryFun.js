@@ -7,6 +7,11 @@ define(['app', 'jquery_fly'], function (app) {
     var caregoryFun = {}
     caregoryFun.addCartFlay = function ($scope, $rootScope, $state, POP) {
         $(document).on("click", ".product_item", function () {
+            var ab = $(this).children(".backgroudBox");
+            var a = ab.is(':visible');
+            if (a) {
+                return false;
+            }
             var goodsId = $(this).attr('name');
             $state.go("tab.productInfo", {"goodsId": goodsId});
         });

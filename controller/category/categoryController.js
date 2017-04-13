@@ -7,7 +7,7 @@ define(['app',"./Fun/caregoryFun"], function (app, caregoryFun) {
         console.log("分类界面控制器...");
         $scope.$on('$ionicView.loaded', function () {
             // 初始化页面数据
-            categoryService.getCategoryListAndCategoryGoodsList($scope);
+            categoryService.getCategoryListAndCategoryGoodsList($scope,POP);
         });
 
         // 页面销毁销毁内存

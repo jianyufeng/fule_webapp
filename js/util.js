@@ -78,9 +78,6 @@ define(function () {
 			timeout	: 150000,  //设置超时时间15秒
 			success	: function (data) {
 
-				console.log(111);
-				console.log(data);
-
 				//判断业务是否成功
 				if (data.success) {
 					_callback(null, data.result);
