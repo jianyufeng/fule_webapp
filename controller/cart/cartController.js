@@ -60,7 +60,6 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 			};
 
 
-
 			cartService.updateCart($scope,updateParams,POP,$rootScope);
 
 			

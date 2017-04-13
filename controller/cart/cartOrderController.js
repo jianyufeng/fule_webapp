@@ -16,6 +16,9 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         // 接收传值页面传过来的地址内容
         $rootScope.$on('changeAddressInfo', function(event, args) {
 
+
+            console.log(args);
+
             //将新的值重新注入页面
             $scope.$apply(function(){
                 $scope.address = args.address;
@@ -35,6 +38,18 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                 return;
 
             }
+
+
+           //验证收货地址
+            if( $scope.address == "NO"){
+
+                POP.Alert("请设置收货地址!");
+
+                return;
+
+            }
+
+
 
             if ($scope.deliveryFreight == undefined){
 
@@ -82,7 +97,6 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
                     }
 
-// alert("###########" + $scope.expressName);
 
                  //提交订单
                     cartOrderService.addCommonPaymentOrder($scope,orderParams,POP,function () {

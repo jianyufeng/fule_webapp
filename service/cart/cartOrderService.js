@@ -35,6 +35,8 @@ define(['app'],function(app){
                         if(data.address[i].is_default == 1){
                             nowAddress = data.address[i];
                             break;
+                        }else {
+                            nowAddress = data.address[0];
                         }
                     }
 
