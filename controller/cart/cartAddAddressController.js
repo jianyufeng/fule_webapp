@@ -149,6 +149,13 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
             if (detailAddress ==null || detailAddress.length <= 0){
                 POP.Hint("详细地址不能为空");
                 return;
+            }else {
+
+                if (detailAddress.length>30){
+                    POP.Hint("详细地址不能超过30字!");
+                    return;
+                }
+
             }
             var info = User.getInfo();
 

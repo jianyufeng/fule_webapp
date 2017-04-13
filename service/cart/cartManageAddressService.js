@@ -74,7 +74,6 @@ define(['app'],function(app){
 
                 POP.EndLoading();
 
-                console.log(data);
                 if (e) {
                     $.loadError(function () {
                         POP.Hint("删除失败!");
@@ -89,9 +88,11 @@ define(['app'],function(app){
                 if($scope.historyAddress.length<=0){
 
                     $scope.$apply(function () {
-                        console.log("清空收货地址...");
                         $scope.historyAddress = [];
                         $scope.righttitleValue = "";
+                        $(".noAddress").show();
+                        $scope.address = "";
+
                     });
 
 
