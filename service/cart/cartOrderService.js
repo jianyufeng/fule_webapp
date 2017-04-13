@@ -142,7 +142,7 @@ define(['app'],function(app){
                     return;
                 }
                   else {
-                    fn();
+                    fn(data);
                     $scope.$apply(function () {
                     $scope.deliveryFreight = data;
                 });

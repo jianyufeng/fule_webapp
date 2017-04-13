@@ -180,9 +180,9 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
             }
 
-        cartOrderService.countFreight ($scope,freightParams,function() {
-            var deliveryFreight = $scope.deliveryFreight;
-            $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + deliveryFreight;
+        cartOrderService.countFreight ($scope,freightParams,function(freight) {
+
+            $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
             $scope.expressName  = $(".deliveryContent").eq(_index).text(); //物流公司名
 
         });
