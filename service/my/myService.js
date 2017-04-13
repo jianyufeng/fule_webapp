@@ -5,9 +5,11 @@ define(['app'], function (app) {
         var service = {};
 
         /*网络获取用户信息*/
+        var firstHttp = 0;
         service.getMyInfo = function ($scope, POP, isRefresh) {
-            if (!isRefresh) {
+            if (firstHttp ==0) {
                 $.initAppStartLoad();
+                firstHttp++;
             }
             //获取用户的账号
             var info = User.getInfo();
