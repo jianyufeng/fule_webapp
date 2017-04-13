@@ -187,7 +187,13 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
             POP.Confirm("您确认要删除掉当前地址?",function () {
 
-                cartManageAddressService.deleteAddress($scope,rrAddress,POP,_idx);
+                cartManageAddressService.deleteAddress($scope,rrAddress,POP,_idx,function (empty) {
+
+                    //将对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
+                    $rootScope.$broadcast('deleteAddress', { "address" : empty,"address_id":rrAddress.address_id});
+
+
+                });
 
 
             })

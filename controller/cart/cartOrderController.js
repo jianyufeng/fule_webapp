@@ -27,6 +27,28 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         });
 
 
+        // 接收传值页面传过来的地址内容
+        $rootScope.$on('deleteAddress', function(event, args) {
+
+            console.log(args);
+
+            if (args.address == "NO"){
+                $scope.address = "NO";
+            }else {
+
+                if ($scope.address.address_id == args.address_id){
+
+                    cartOrderService.getOrderInfo($scope, POP);
+
+                }
+
+
+            }
+
+
+        });
+
+
         //提交订单点击时
         $(".paySubmit").click(function(){
 
