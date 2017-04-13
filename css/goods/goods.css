@@ -32,7 +32,26 @@
   background: #fff;
   margin-right: 2%;
   float: left;
+  position: relative;
   margin-bottom: 10px;
+}
+.goodsListBox .goodsItem .goodsCover {
+  width: 100%;
+  height: 220px;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 9999999;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+.goodsListBox .goodsItem .goodsCover img {
+  width: 131px;
+  height: 106px;
+  position: absolute;
+  top: 50%;
+  margin-left: -65px;
+  margin-top: -53px;
+  left: 50%;
 }
 .goodsListBox .goodsItem .goodsImage {
   width: 100%;

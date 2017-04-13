@@ -151,10 +151,10 @@ app.controller("loginController", function ($scope, POP) {
 
 
     /*忘记密码*/
-    $('.retrievePassword').click(function () {
-        alert($('.retrievePassword').text());
-
-    });
+    //$('.retrievePassword').click(function () {
+    //    alert($('.retrievePassword').text());
+    //
+    //});
 
     /*登录*/
     $('#login').click(function () {
@@ -266,6 +266,14 @@ app.controller("loginController", function ($scope, POP) {
     });
     $('#password').blur(function () {
         $('#passwordIcon').attr("src", "../resource/images/icon/password_head.png");
+    });
+
+    //校验码聚焦变换
+    $('#code').focus(function () {
+        $('#code').css("border", "solid 1px #d98bbc");
+    });
+    $('#code').blur(function () {
+        $('#code').css("border", "solid 1px #eee");
     });
 
 

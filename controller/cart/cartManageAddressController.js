@@ -31,10 +31,14 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
         });
 
+
+
         //将要离开本页面时调用
         $scope.$on('$ionicView.beforeLeave',function () {
 
             editing = false;
+
+
 
         });
 
@@ -66,6 +70,7 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
         //选择收货地址
         $(document).on("click",".shippingAddressItem",function(){
+
 
                 if (!editing){
 
@@ -167,9 +172,6 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
             var rrAddress =  $scope.historyAddress[_idx];
 
-            console.log("******",rrAddress.address_id,$scope.defaultAddressID);
-
-
             var PARAMS = {
                 user_id :rrAddress.user_id,
                 address_id : rrAddress.address_id
@@ -185,7 +187,13 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
             POP.Confirm("您确认要删除掉当前地址?",function () {
 
-                cartManageAddressService.deleteAddress($scope,rrAddress,POP,_idx);
+                cartManageAddressService.deleteAddress($scope,rrAddress,POP,_idx,function (empty) {
+
+                    //将对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
+                    $rootScope.$broadcast('deleteAddress', { "address" : empty,"address_id":rrAddress.address_id});
+
+
+                });
 
 
             })
@@ -199,6 +207,15 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
             $state.go("tab.cart_addAddress");
 
         });
+
+        //添加新地址
+        $(document).on("click",".newAddressBtn",function(){
+
+            $state.go("tab.cart_addAddress");
+
+        });
+
+
 
 
     }

@@ -66,7 +66,7 @@ define(['app'],function(app){
 
 
         /*删除收货地址*/
-        service.deleteAddress = function($scope,deleteParams,POP,_idx){
+        service.deleteAddress = function($scope,deleteParams,POP,_idx,fn){
 
             POP.StartLoading();
             //删除操作
@@ -74,7 +74,6 @@ define(['app'],function(app){
 
                 POP.EndLoading();
 
-                console.log(data);
                 if (e) {
                     $.loadError(function () {
                         POP.Hint("删除失败!");
@@ -86,15 +85,15 @@ define(['app'],function(app){
                 $(".deleteBtnBox:eq("+_idx+")").parent().parent().slideUp(200);
                 var newArr = _.pullAt($scope.historyAddress,_idx);
 
+                   fn("YES");
                 if($scope.historyAddress.length<=0){
-
+                    fn("NO");
                     $scope.$apply(function () {
-                        console.log("清空收货地址...");
-                        $scope.historyAddress = [];
+
                         $scope.righttitleValue = "";
+                        $(".noAddress").show();
+
                     });
-
-
                 }
 
 

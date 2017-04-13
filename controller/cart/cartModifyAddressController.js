@@ -153,6 +153,13 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             if (detailAddress ==null || detailAddress.length <= 0){
                 POP.Hint("详细地址不能为空");
                 return;
+            }else {
+alert(detailAddress.length);
+                if (detailAddress.length>30){
+                    POP.Hint("详细地址不能超过30字!");
+                    return;
+                }
+
             }
 
             var info = User.getInfo();

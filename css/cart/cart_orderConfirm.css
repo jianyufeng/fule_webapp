@@ -76,7 +76,7 @@
   background: white;
 }
 .orderBox .orderDetailBox .scrollV .addressBox .addressContent .addressDetail .personalInfo span {
-  font-size: 16px;
+  font-size: 14px;
 }
 .orderBox .orderDetailBox .scrollV .addressBox .addressContent .addressDetail .personalInfo .personName {
   width: 50%;
@@ -103,7 +103,7 @@
   height: 60px;
   margin-top: 0px;
   float: left;
-  font-size: 16px;
+  font-size: 14px;
 }
 .orderBox .orderDetailBox .scrollV .addressBox .colorLine {
   width: 100%;

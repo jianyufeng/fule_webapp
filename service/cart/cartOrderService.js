@@ -35,6 +35,8 @@ define(['app'],function(app){
                         if(data.address[i].is_default == 1){
                             nowAddress = data.address[i];
                             break;
+                        }else {
+                            nowAddress = data.address[0];
                         }
                     }
 
@@ -133,7 +135,6 @@ define(['app'],function(app){
             //更新操作
             HTTP.post(API.Cart.countFreight,freightParams,function(e,data){
 
-                console.log(data);
                 if(e){
                     $.loadError(function () {
                         service.countFreight();
@@ -142,7 +143,7 @@ define(['app'],function(app){
                     return;
                 }
                   else {
-                    fn();
+                    fn(data);
                     $scope.$apply(function () {
                     $scope.deliveryFreight = data;
                 });

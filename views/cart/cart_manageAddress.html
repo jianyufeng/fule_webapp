@@ -4,15 +4,15 @@
 
         <div class="outBox" set-window-height-no-navigation="">
 
+            <div class="noAddress">
+                <img src="./resource/images/icon/shopping_bg.png">
+                <p>收货地址不存在，去送给谁呢~</p>
+                <p><button class="newAddressBtn">去添加新地址吧~</button></p>
+            </div>
+
             <div class="manageContent">
 
                 <ion-scroll class="manageScroll">
-
-
-                    <div class="noAddress">
-                        <p><a href="#/tab/cart_addAddress"><button>+ 创建收货地址</button></a></p>
-                    </div>
-
 
                     <div class="editBox" ng-repeat="addressItem in historyAddress">
 

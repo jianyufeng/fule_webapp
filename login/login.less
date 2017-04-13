@@ -38,9 +38,9 @@
 .border(@_, @w:1px,@c:#eee) {
 }
 
-.border(@w:1px,@c:#eee) {
-  border: solid @w @c;
-}
+//.border(@w:1px,@c:#eee) {
+//  border: solid @w @c;
+//}
 
 .bc(@c:white) {
   background: @c;
@@ -75,7 +75,7 @@ input{
 /*登录界面的背景*/
 .loginBgBox {
   .wh(100%, 250px);
-  background: url("../../regxTest/login_bg.png") no-repeat;
+  background: url("../resource/images/icon/login_bg.png") no-repeat;
   background-size: cover;
 
 }
@@ -198,7 +198,7 @@ input{
         bottom: 0;
         right: 0;
         left: 0;
-        .border(1px);
+       border: solid 1px #eee;
         border-radius: 5px;
         .pl(40px);
 

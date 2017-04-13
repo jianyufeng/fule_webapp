@@ -16,10 +16,35 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         // 接收传值页面传过来的地址内容
         $rootScope.$on('changeAddressInfo', function(event, args) {
 
+
+            console.log(args);
+
             //将新的值重新注入页面
             $scope.$apply(function(){
                 $scope.address = args.address;
             })
+
+        });
+
+
+        // 接收传值页面传过来的地址内容
+        $rootScope.$on('deleteAddress', function(event, args) {
+
+            console.log(args);
+
+            if (args.address == "NO"){
+                $scope.address = "NO";
+            }else {
+
+                if ($scope.address.address_id == args.address_id){
+
+                    cartOrderService.getOrderInfo($scope, POP);
+
+                }
+
+
+            }
+
 
         });
 
@@ -35,6 +60,18 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                 return;
 
             }
+
+
+           //验证收货地址
+            if( $scope.address == "NO"){
+
+                POP.Alert("请设置收货地址!");
+
+                return;
+
+            }
+
+
 
             if ($scope.deliveryFreight == undefined){
 
@@ -82,7 +119,6 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
                     }
 
-// alert("###########" + $scope.expressName);
 
                  //提交订单
                     cartOrderService.addCommonPaymentOrder($scope,orderParams,POP,function () {
@@ -180,9 +216,9 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
             }
 
-        cartOrderService.countFreight ($scope,freightParams,function() {
-            var deliveryFreight = $scope.deliveryFreight;
-            $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + deliveryFreight;
+        cartOrderService.countFreight ($scope,freightParams,function(freight) {
+
+            $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
             $scope.expressName  = $(".deliveryContent").eq(_index).text(); //物流公司名
 
         });
