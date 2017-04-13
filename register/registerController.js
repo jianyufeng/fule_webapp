@@ -157,6 +157,12 @@ app.controller("registerController", function ($scope, POP) {
         if (CommenFun.isNullObj(email)) {
             POP.Hint("邮箱不为空");
             return;
+        }else {
+            var re = /\w@\w*\.\w/;
+            if (!re.test(email)) {
+                POP.Hint("请填写正确的电子邮箱地址");
+                return;
+            }
         }
         //登录密码不为空
         if (CommenFun.isNullObj(loginPassword)) {
@@ -177,6 +183,12 @@ app.controller("registerController", function ($scope, POP) {
         if (CommenFun.isNullObj(phoneNumber)) {
             POP.Hint("手机号码不为空");
             return;
+        }else{
+            var re = /^1(3|4|5|7|8)\d{9}$/;
+            if (!re.test(phoneNumber)){
+                POP.Hint("请填写正确的手机号码");
+                return;
+            }
         }
 
         //手机验证码不为空
@@ -228,45 +240,10 @@ console.log(data);
 
 
 $('#account').blur(function() {
-    ////内容为空提示信息
-    //if($(this).val() == '') {
-    //    $(this).parent().siblings(".hintF").css('display', 'block');
-    //    $(this).parent().siblings(".hintT").css('display', 'none');
-    //    $(this).css('border', '1px solid #e22');
-    //}
-    ////正则匹配
-    //var pattern_user = /^xlzj/; //用户名
-    //var pattern_userNumber = /^[0-9]/; //数字开头
-    //var pattern_6Number = /^[0-9]([0-9]{5,5})$/; //6位数字
-    //var pattern_Number = /^[0-9]$/; //纯数字
-    //var pattern_wenzi = /[^A-Za-z0-9]/; //文字
-    //var pattern_feifa = /[(,),`,~,-,_,!,#,<,>,\\[,\\],:,;,?,$,%,^,&,*,+,=,\\\\,',\",|,{,},\/]/ ; //非法文字
-    //var pattern_email = /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,5}$/; //邮箱
-    //var pattern_phone = /^0?(13|14|15|18)[0-9]{9}$/; //手机号码
-    //
-    //
-    ////正则匹配值
-    var user_name = $.trim($('#account').val());  //用户名
-    //var email = $('#mailbox').val();    //电子邮箱
-    //var loginPassword = $('#loginPassword').val(); //登录密码
-    //var secondPassword = $('#secondPassword').val(); //二级密码
-    //var threePassword = $('#threePassword').val();  //支付密码
-    //var phoneNumber = $('#phone').val();   //手机号码
-    //var note = $('#note').val();  //短信验证码
-    //
-    ////验证用户名
-    //if ($(this).is('#account')) {
-    //    if (pattern_wenzi.test(user_name)) {
-    //    } else if (this.value.length < 6 || this.value.length > 16) {
-    //    } else if (pattern_user.test(user_name)) {
-    //    } else if (pattern_userNumber.test(user_name)) {
-    //    } else if (pattern_feifa.test(user_name)) {
-    //    } else {
-    //        userRepeat(this.value);
-    //
-    //    }
-    userRepeat(user_name);
 
+    var user_name = $.trim($('#account').val());  //用户名
+
+    userRepeat(user_name);
 
     function userRepeat(user_name) {
         //检查用户名是否存在
