@@ -1,32 +1,35 @@
 <ion-view view-title="充值卡充值" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <ion-content>
-        <navigation-bar  is-back="true" title="充值卡充值" righttitle="充值列表" on-right-click="showList()"></navigation-bar>
-        <div class="contentBox">
-            <div class="hintBox">提示：每个会员只能绑定一张卡号，绑定后可使用卡号登录
-                <div class="line">
+        <navigation-bar is-back="true" title="充值卡充值" righttitle="充值列表" on-right-click="showList()"></navigation-bar>
+        <ion-scroll set-window-height-no-navigation style="width:100%;">
+            <div class="contentBox">
+                <div class="hintBox">提示：每个会员只能绑定一张卡号，绑定后可使用卡号登录
+                    <div class="line">
+                    </div>
+                </div>
+                <div class="cardItem"><span>二 级 密 码：</span> <input type="password" class="text"
+                                                                   ng-model=" rechargeCard.secondPassword">
+                    <div class="line">
+                    </div>
+                </div>
+                <div class="cardItem">
+                    <span>充值卡卡号：</span> <input type="text" class="text" ng-model="rechargeCard.cardNum">
+                    <div class="line">
+                    </div>
+                </div>
+                <div class="cardItem">
+                    <span>充值卡密码：</span>
+                    <input type="password" class="text" ng-model="rechargeCard.cardPassword">
+                    <div class="line">
+                    </div>
+                </div>
+                <div class="buttonBox">
+                    <div ng-click="recharge()">
+                        充值
+                    </div>
                 </div>
             </div>
-            <div class="cardItem"><span>二 级 密 码：</span> <input type="password" class="text"  ng-model=" rechargeCard.secondPassword">
-                <div class="line">
-                </div>
-            </div>
-            <div class="cardItem">
-                <span>充值卡卡号：</span> <input type="text" class="text" ng-model="rechargeCard.cardNum">
-                <div class="line">
-                </div>
-            </div>
-            <div class="cardItem">
-                <span>充值卡密码：</span>
-                <input type="password" class="text" ng-model="rechargeCard.cardPassword">
-                <div class="line">
-                </div>
-            </div>
-            <div class="buttonBox">
-                <div  ng-click="recharge()">
-                    充值
-                </div>
-            </div>
-        </div>
+        </ion-scroll>
     </ion-content>
 </ion-view>

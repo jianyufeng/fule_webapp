@@ -3,22 +3,23 @@
     <ion-content>
 
         <navigation-bar is-back="true" title="未读消息详情"></navigation-bar>
-        <div class="umd_Box">
-            <div class="umd_titleBox">
-                {{title}}
-            </div>
-            <div class="umd_belongBox">
-                <div class="umd_createUser">
-
-                    创建人&nbsp;:&nbsp;{{create_user_name}}
+        <ion-scroll set-window-height-no-navigation style="width:100%;">
+            <div class="umd_Box">
+                <div class="umd_titleBox">
+                    {{title}}
                 </div>
-                <div class="umd_createTime">
-                    时间&nbsp;:&nbsp;{{ add_time|timeFilter}}
-                    <!--{{createTime}}-->
-                </div>
-            </div>
-            <div class="umd_content" ng-bind-html="content"></div>
-        </div>
+                <div class="umd_belongBox">
+                    <div class="umd_createUser">
 
+                        创建人&nbsp;:&nbsp;{{create_user_name}}
+                    </div>
+                    <div class="umd_createTime">
+                        时间&nbsp;:&nbsp;{{ add_time|timeFilter}}
+                        <!--{{createTime}}-->
+                    </div>
+                </div>
+                <div class="umd_content" ng-bind-html="content"></div>
+            </div>
+        </ion-scroll>
     </ion-content>
 </ion-view>

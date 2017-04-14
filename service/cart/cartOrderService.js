@@ -134,9 +134,6 @@ define(['app'],function(app){
 
             //更新操作
             HTTP.post(API.Cart.countFreight,freightParams,function(e,data){
-
-                console.log(data);
-
                 if(e){
                     $.loadError(function () {
                         service.countFreight();
@@ -145,6 +142,9 @@ define(['app'],function(app){
                     return;
                 }
                   else {
+                    if (data == null){
+                        data = "免运费";
+                    }
                     fn(data);
                     $scope.$apply(function () {
                     $scope.deliveryFreight = data;
