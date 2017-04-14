@@ -7,12 +7,19 @@
 define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
     function ctrl($scope, productInfoService, $stateParams, POP, $state, $ionicSlideBoxDelegate) {
-        $scope.count = 1;
-        $scope.$on('$ionicView.loaded', function () {
+        //
+        //$scope.$on('$ionicView.loaded', function () {
+        //    productInfoService.getProductInfo($scope, $stateParams, POP);
+        //    productInfoService.getCartInfo($scope, POP);
+        //
+        //});
+        $scope.$on('$ionicView.beforeEnter', function () {
+            $scope.count = 1;
             productInfoService.getProductInfo($scope, $stateParams, POP);
             productInfoService.getCartInfo($scope, POP);
 
         });
+
 
         $scope.$on("viewOnFinish", function () {
             productInfoService.setImageMargin();

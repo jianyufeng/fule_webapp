@@ -32,7 +32,8 @@ define(['app'], function (app) {
                 // 开户支行
                 var branchBank = $scope.upGrade.branchBank;
                 // 省市地区
-                var address = $("#address").val();
+                var address = $scope.upGrade.address;
+
                 if (recommendP == undefined || recommendP == null) {
                     POP.Hint("推荐人不能为空，请检查！");
                     return;
@@ -77,15 +78,11 @@ define(['app'], function (app) {
                     POP.Hint("请检查，开户支行。");
                     return;
                 }
-                if (address == null || address == "") {
+                if (address == undefined || address == "") {
                     POP.Hint("请检查，地址！");
                     return;
-                } else {
-                    var strArr = address.split("-");
-                    var province = strArr[0];
-                    var city = strArr[1];
-                    var district = strArr[2];
                 }
+
                 var url = null;
                 if (myGrade == 1) {
                     //一键升级
@@ -100,27 +97,6 @@ define(['app'], function (app) {
                     //  批发
                     url = API.My.upgradeToPIFA;
                 }
-
-                //    switch (myGrade) {
-                //    case 1:
-                //
-                //        break;
-                //    case 2:
-                //        //D
-                //        url = API.My.upgradeToD;
-                //        break;
-                //    case 3:
-                //        //VIP
-                //        url = API.My.upgradeToVIP;
-                //        break;
-                //    case 4:
-                //        //  批发
-                //        url = API.My.upgradeToPIFA;
-                //        break;
-                //    default:
-                //        break;
-                //
-                //}
                 POP.StartLoading();
                 console.log("url:" + url);
                 console.log("user_name:" + userInfo.user_name);
@@ -139,9 +115,7 @@ define(['app'], function (app) {
                 console.log("bank:" + bank);
                 console.log("identityCardN:" + identityCardN);
                 console.log("branchBank:" + branchBank);
-                console.log("province:" + province);
-                console.log("city:" + city);
-                console.log("district:" + district);
+                ;
                 console.log("nickName:" + nickName);
 
                 // HTTP 提交
@@ -156,15 +130,14 @@ define(['app'], function (app) {
                     "BANK_NAME": bank,// 开户银行
                     "ID_CARD": identityCardN,  // 省份证
                     "BANK_LOCATION": branchBank,  // 开户支行
-                    "BANK_STATE_ID": province,   // 开户行所在省
-                    "BANK_CITY_ID": city,   // 开户行所在市
-                    "BANK_DISTRICT_ID": district,   // 开户行所在区
+                    "BANK_STATE_ID": address.pid,   // 开户行所在省
+                    "BANK_CITY_ID": address.cid,   // 开户行所在市
+                    "BANK_DISTRICT_ID": address.aid,   // 开户行所在区
                     "MEMBER_NAME": nickName,   // 昵称
                 }, function (e, data) {
                     POP.EndLoading();
-                    console.log(e);
-                    console.log(data);
                     if (e) {
+                        POP.Hint("升级失败！");
                         return;
                     }
                 })

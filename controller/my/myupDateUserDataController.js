@@ -8,6 +8,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
 
         $scope.upGrade = {};
         $scope.upGrade.click = false;
+        $scope.upGrade.address = {};
         $scope.$on('$ionicView.loaded', function () {
             // 页面传值过来的要升级的级别
             var myGrade = $stateParams.grade;
@@ -228,6 +229,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             new AddressSelect({
                 resultBtnClick: function (result) {
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
+                    $scope.upGrade.address = result;
                     $("#address").val(address);
                 }
             })

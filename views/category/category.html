@@ -36,13 +36,14 @@
 
             <!-- 商品列表-->
             <div class="product_list">
-                <div class="product_item" ng-repeat="productInfo in productArray" view-on-finish name="{{productInfo.goods_id}}">
+                <div class="product_item" ng-repeat="productInfo in productArray" view-on-finish
+                     name="{{productInfo.goods_id}}">
                     <div class="backgroudBox" ng-show="productInfo.goods_number==0">
                         <img src="./resource/images/icon/shouqin.png">
                     </div>
-                    <!--src="./resource/images/icon/timg.jpg"-->
                     <div class="goodsImg">
-                        <img data-original='{{productInfo.img_normal}}' src="./resource/images/default/default_image.png" />
+                        <img data-original='{{productInfo.img_normal}}'
+                             src="./resource/images/default/default_image.png"/>
                     </div>
                     <div class="product_item_info">
                         <span class="product_price">￥{{productInfo.shop_price}}</span>
