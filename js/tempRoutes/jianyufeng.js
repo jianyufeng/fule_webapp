@@ -233,7 +233,7 @@ define(['app'], function (app) {
             })
             /*我的 用户激活或者升级是填写信息页面 路由*/
             .state('tab.my-updateUserData', {
-                url: '/my-updateUserData',
+                url: '/my-updateUserData/:grade',
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-updateUserData.html?_r=" + Math.random(),

@@ -9,6 +9,7 @@ define(['app'], function (app) {
             var service = {};
             // 点击 提交按钮
             service.upGradeAction = function ($scope, POP, myGrade) {
+                console.log("myGrade：" + myGrade);
                 var userInfo = User.getInfo();
                 // 推荐人
                 var recommendP = $scope.upGrade.recommendP;
@@ -86,28 +87,63 @@ define(['app'], function (app) {
                     var district = strArr[2];
                 }
                 var url = null;
-                switch (myGrade) {
-                    case 1:
-                        //一键升级
-                        url = API.My.oneUpgrade;
-                        break;
-                    case 2:
-                        //D
-                        url = API.My.upgradeToD;
-                        break;
-                    case 3:
-                        //VIP
-                        url = API.My.upgradeToVIP;
-                        break;
-                    case 4:
-                        //  批发
-                        url = API.My.upgradeToPIFA;
-                        break;
-                    default:
-                        break;
-
+                if (myGrade == 1) {
+                    //一键升级
+                    url = API.My.oneUpgrade;
+                } else if (myGrade == 2) {
+                    //D
+                    url = API.My.upgradeToD;
+                } else if (myGrade == 3) {
+                    //VIP
+                    url = API.My.upgradeToVIP;
+                } else if (myGrade == 4) {
+                    //  批发
+                    url = API.My.upgradeToPIFA;
                 }
+
+                //    switch (myGrade) {
+                //    case 1:
+                //
+                //        break;
+                //    case 2:
+                //        //D
+                //        url = API.My.upgradeToD;
+                //        break;
+                //    case 3:
+                //        //VIP
+                //        url = API.My.upgradeToVIP;
+                //        break;
+                //    case 4:
+                //        //  批发
+                //        url = API.My.upgradeToPIFA;
+                //        break;
+                //    default:
+                //        break;
+                //
+                //}
                 POP.StartLoading();
+                console.log("url:" + url);
+                console.log("user_name:" + userInfo.user_name);
+                console.log("user_id:" + userInfo.user_id);
+                console.log("recommendP:" + recommendP);
+                console.log("nodeP:" + nodeP);
+                console.log("region:" + region);
+                if (region == "左区") {
+                    region = 1;
+                } else {
+                    region = 2;
+                }
+                console.log("region:" + region);
+                console.log("cardName:" + cardName);
+                console.log("bankCardN:" + bankCardN);
+                console.log("bank:" + bank);
+                console.log("identityCardN:" + identityCardN);
+                console.log("branchBank:" + branchBank);
+                console.log("province:" + province);
+                console.log("city:" + city);
+                console.log("district:" + district);
+                console.log("nickName:" + nickName);
+
                 // HTTP 提交
                 HTTP.post(url, {
                     "user_name": userInfo.user_name,// 用户名
@@ -137,11 +173,7 @@ define(['app'], function (app) {
             // 验证推荐人流程
             service.checkingRecommendedMan = function ($scope, ele, eleNode, userName) {
                 HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
-                    console.log(e);
-                    console.log(data);
                     if (e) {
-                        console.log(e);
-                        console.log(data);
                         if (data != null) {
                             eleNode.css('display', 'block');
                             ele.css({
@@ -149,7 +181,7 @@ define(['app'], function (app) {
                                 'line-height': '34px',
                             });
                             $scope.$apply(function () {
-                                $scope.upGrade.team = data
+                                $scope.upGrade.recommendedManError = data
                             });
                         }
                         return
@@ -161,10 +193,10 @@ define(['app'], function (app) {
                 });
             }
             //验证节点人流程
-            service.checkingNodeMan = function (ele, eleNode, userName) {
+            service.checkingNodeMan = function ($scope, ele, eleNode, userName) {
                 // 请求个人信息
                 // 判断 username  是否激活
-                HTTP.get(API.My.searchUserDetail + '/user_name/' + userName, {}, function (e, data) {
+                HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
                     if (e) {
                         if (data != null) {
                             eleNode.css('display', 'block');
@@ -172,16 +204,18 @@ define(['app'], function (app) {
                                 'height': '34px',
                                 'line-height': '34px',
                             });
+                            $scope.$apply(function () {
+                                $scope.upGrade.nodeManError = data;
+                            });
                         }
                         return;
                     }
-                    if (data.REGISTER_GRADE <= 0) {
-                        eleNode.css('display', 'block');
-                        ele.css({
-                            'height': '34px',
-                            'line-height': '34px',
-                        });
-                    }
+
+                    /**
+                     * 让左右区域可以点击
+                     */
+                    $scope.upGrade.click = true;
+
                 })
             }
             // 查询人是否存在
@@ -189,8 +223,6 @@ define(['app'], function (app) {
                 var userName = $scope.upGrade.nodeP;
                 HTTP.get(API.My.searchUserDetail + '/user_name/' + userName, {}, function (e, data) {
                     if (e) {
-                        //console.log(e);
-                        //console.log(data);
                         return;
                     }
                     if (data != null) {
