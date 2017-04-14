@@ -1,32 +1,36 @@
 <ion-view view-title="未读消息" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <ion-content>
+
         <navigation-bar is-back="true" title="未读消息"></navigation-bar>
-        <!--下拉刷新-->
-        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+        <ion-scroll set-window-height-no-navigation style="width:100%;">
+            <!--下拉刷新-->
+            <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
 
-        <div ng-show="isEmptyData"  style="width: 100%;height: 200px;text-align: center;line-height: 200px" class="of_emptyList">
-            暂无数据
-        </div>
-        <!--新消息-->
-        <div class="itemBox" ng-repeat="item in datas" view-on-finish ng-click="showDetail(item)">
-            <div class="leftIconBox">
-                <img class="messageIcon" src="./resource/images/icon/notice.png">
+            <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
+                 class="of_emptyList">
+                暂无数据
             </div>
-            <div class="messageBox">
-                <div class="titleBox">
-                    <div class="title ellipsis">{{item.title}}</div>
-                    <div class="time">{{item.add_time|timeFilter}}</div>
+            <!--新消息-->
+            <div class="itemBox" ng-repeat="item in datas" view-on-finish ng-click="showDetail(item)">
+                <div class="leftIconBox">
+                    <img class="messageIcon" src="./resource/images/icon/notice.png">
+                </div>
+                <div class="messageBox">
+                    <div class="titleBox">
+                        <div class="title ellipsis">{{item.title}}</div>
+                        <div class="time">{{item.add_time|timeFilter}}</div>
+
+                    </div>
+                    <div class="contentBox">
+                        {{item.description}}
+
+                    </div>
 
                 </div>
-                <div class="contentBox">
-                    {{item.description}}
-
-                </div>
-
             </div>
-        </div>
-        <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
-        <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="2%"
-                             immediate-check="false"></ion-infinite-scroll>
+            <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
+            <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="2%"
+                                 immediate-check="false"></ion-infinite-scroll>
+        </ion-scroll>
     </ion-content>
 </ion-view>

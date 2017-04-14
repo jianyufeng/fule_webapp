@@ -2,56 +2,56 @@
 
     <ion-content>
 
-        <navigation-bar  is-back="true" title="汇款记录"></navigation-bar>
-        <div class="contentBox">
-            <div ng-show="isEmptyData"  style="width: 100%;height: 200px;text-align: center;line-height: 200px" class="of_emptyList">
+        <navigation-bar is-back="true" title="汇款记录"></navigation-bar>
+        <ion-scroll set-window-height-no-navigation style="width:100%;">
+            <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
+                 class="of_emptyList">
                 暂无数据
             </div>
-            <div class="listBox">
+            <div class="contentBox">
+                <div class="listBox">
 
-                <div class="ItemBox"   ng-repeat="RemittanceRecordInfo in RemittanceRecordArray">
-                    <div class="ItemBoxItem">
-                        <div class="itemLeft">用户名：</div>
-                        <div class="itemRight">{{RemittanceRecordInfo.USER_NAME}}</div>
-                    </div>
-                    <div class="ItemBoxItem">
-                        <div class="itemLeft">汇入银行：</div>
-                        <div class="itemRight">{{ RemittanceRecordInfo.BANK_NAME+""+ RemittanceRecordInfo.C_ACCOUNT_OWNER +""+RemittanceRecordInfo.C_BANK_ACCOUNT}}</div>
-                    </div>
-                    <div class="ItemBoxItem">
-                        <div class="itemLeft">汇款账户：</div>
-                        <div class="itemRight">{{RemittanceRecordInfo.BANK_ACCOUNT}}</div>
-                    </div>
-                    <div class="ItemBoxItem">
-                        <div class="itemLeft">汇款人：</div>
-                        <div class="itemRight">{{ RemittanceRecordInfo.REMITTANCE_MAN}}</div>
-                    </div>
-                    <div class="ItemBoxItem">
-                        <div class="itemLeft">银行地址：</div>
-                        <div class="itemRight">{{RemittanceRecordInfo.BANK_ADDRESS}}</div>
-                    </div>
-                    <div class="ItemBoxItem">
-                        <div class="itemLeft">汇款金额：</div>
-                        <div class="itemRight">￥ {{RemittanceRecordInfo.AMOUNT}}</div>
-                    </div>
-                    <div class="ItemBoxItem">
-                        <div class="itemLeft">汇款时间：</div>
-                        <div class="itemRight">{{RemittanceRecordInfo.REMITTANCE_DATE}}</div>
-                    </div>
+                    <div class="ItemBox" ng-repeat="RemittanceRecordInfo in RemittanceRecordArray">
+                        <div class="ItemBoxItem">
+                            <div class="itemLeft">用户名：</div>
+                            <div class="itemRight">{{RemittanceRecordInfo.USER_NAME}}</div>
+                        </div>
+                        <div class="ItemBoxItem">
+                            <div class="itemLeft">汇入银行：</div>
+                            <div class="itemRight">{{ RemittanceRecordInfo.BANK_NAME+""+
+                                RemittanceRecordInfo.C_ACCOUNT_OWNER +""+RemittanceRecordInfo.C_BANK_ACCOUNT}}
+                            </div>
+                        </div>
+                        <div class="ItemBoxItem">
+                            <div class="itemLeft">汇款账户：</div>
+                            <div class="itemRight">{{RemittanceRecordInfo.BANK_ACCOUNT}}</div>
+                        </div>
+                        <div class="ItemBoxItem">
+                            <div class="itemLeft">汇款人：</div>
+                            <div class="itemRight">{{ RemittanceRecordInfo.REMITTANCE_MAN}}</div>
+                        </div>
+                        <div class="ItemBoxItem">
+                            <div class="itemLeft">银行地址：</div>
+                            <div class="itemRight">{{RemittanceRecordInfo.BANK_ADDRESS}}</div>
+                        </div>
+                        <div class="ItemBoxItem">
+                            <div class="itemLeft">汇款金额：</div>
+                            <div class="itemRight">￥ {{RemittanceRecordInfo.AMOUNT}}</div>
+                        </div>
+                        <div class="ItemBoxItem">
+                            <div class="itemLeft">汇款时间：</div>
+                            <div class="itemRight">{{RemittanceRecordInfo.REMITTANCE_DATE}}</div>
+                        </div>
 
-                    <div class="line"></div>
-                    <div class="itemState">
-                        <span class="state">{{RemittanceRecordInfo.REMITTANCE_STATUS|remittanceRecordStateFilter}}</span>
-                        <span class="stateText">状态：</span>
-                    </div>
+                        <div class="line"></div>
+                        <div class="itemState">
+                            <span class="state">{{RemittanceRecordInfo.REMITTANCE_STATUS|remittanceRecordStateFilter}}</span>
+                            <span class="stateText">状态：</span>
+                        </div>
 
+                    </div>
                 </div>
-
-
             </div>
-
-
-        </div>
-
+        </ion-scroll>
     </ion-content>
 </ion-view>
