@@ -28,7 +28,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		$(document).on("click",".accountBox",function(){
 
 			POP.Confirm("您确认要购买已选产品?",function(){
-				$state.go("tab.cart_orderConfirm",{UID:1});
+				$state.go("tab.cart_orderConfirm");
 			});
 
 		});

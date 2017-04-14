@@ -2,11 +2,20 @@
  * Created by Administrator on 2017/3/24.
  */
 define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!../../../plugin/datePicker/datePicker.css', 'datePicker', 'addressSelect'],function(app){
-    function ctrl($scope,myElectronicBankTransferService, POP)  {
+    function ctrl($scope,myElectronicBankTransferService, POP , $ionicHistory)  {
 
-        $scope.$on('$ionicView.loaded', function () {
-            /*获取数据*/
-        });
+        $scope.backClick =  function(){
+            POP.Confirm("是否放弃当前操作？", function () {
+
+                },
+                "放弃","继续编辑",  function () {
+                    $("#form1")[0].reset();
+                    $ionicHistory.goBack();
+                });
+        };
+
+
+
         //选择地址
         $("#ert_address").click(function () {
             new AddressSelect({
@@ -174,7 +183,7 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myElectronicBankTransferService', 'POP'];
+    ctrl.$inject = ['$scope', 'myElectronicBankTransferService', 'POP', '$ionicHistory'];
 
     /*动态注册控制器*/
     app.registerController("mySubsidiaryBankTransferController",ctrl);
