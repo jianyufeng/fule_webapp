@@ -179,7 +179,7 @@ define(['app'],function(app){
                 POP.EndLoading();
 
                 if(e){
-                    POP.Hint("订单提交失败");
+                    POP.Alert("订单提交失败");
                     return;
                 }else {
                     fn();
