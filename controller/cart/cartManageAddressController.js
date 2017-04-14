@@ -13,11 +13,12 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
             //初始化
             cartManageAddressService.getShippingAddressList($scope,POP,function () {
 
-                console.log("就是这里"+ $scope.historyAddress);
+                console.log("就是这里"+ $scope.historyAddress.length);
                 //判断是否登录
                 if($scope.historyAddress.length > 0){
                     $(".noAddress").hide();
                     $scope.righttitleValue = "管理";
+
                 }else{
                     $(".noAddress").show();
                     return;
