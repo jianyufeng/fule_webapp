@@ -45,7 +45,7 @@ define(['app'], function (app) {
                         $scope.productArray = data.goodsInfo.data;
                         cacheData[categoryId] = $scope.productArray;
                         $scope.categoryName = categoryName;
-                        $(".lazy").lazyload({effect: "fadeIn"});
+                        //$(".lazy").lazyload({effect: "fadeIn"});
 
                     });
                 });
