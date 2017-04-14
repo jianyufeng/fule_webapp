@@ -135,6 +135,8 @@ define(['app'],function(app){
             //更新操作
             HTTP.post(API.Cart.countFreight,freightParams,function(e,data){
 
+                console.log(data);
+
                 if(e){
                     $.loadError(function () {
                         service.countFreight();

@@ -191,12 +191,6 @@ define(['app'], function (app) {
                 var userInfo = User.getInfo();
                 var goodsName = $scope.productName;
                 var goodsNumber = $scope.count;
-                console.log(userInfo.user_name);
-                console.log(userInfo.user_id);
-                console.log(goodsId);
-                console.log(goodsName);
-                console.log(goodsNumber);
-                console.log(pri);
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
                     "user_id": userInfo.user_id,
