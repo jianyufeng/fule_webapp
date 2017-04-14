@@ -45,7 +45,8 @@ var API = {
         // 升级到批发
         upgradeToPIFA: serverIP + "/upgrade/upgradeToPIFA",
         // 一键升级到D+VIP+批发
-        oneUpgrade: serverIP + "/upgrade/oneUpgrade"
+        oneUpgrade: serverIP + "/upgrade/oneUpgrade",
+        buyGoodsList:"http://umiddle.38zs.net:3101/happyHome/searchGoodsList/user_id/167642/user_name/app001"
     },
 
     Cart: {
