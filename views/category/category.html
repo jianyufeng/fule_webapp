@@ -1,5 +1,5 @@
 <ion-view view-title="商品" hide-nav-bar="{{isNavShow}}">
-    <ion-content class="content">
+    <ion-content class="content" lazy-scroll>
         <navigation-bar title="分类"></navigation-bar>
         <ion-scroll screen-height="0" style="width:100%;">
 
@@ -41,10 +41,11 @@
                         <img src="./resource/images/icon/shouqin.png">
                     </div>
                     <div class="goodsImg">
-                        <!--src="./resource/images/icon/timg.jpg"-->
-                        <img class="lazy"
-                             src={{"http://image.38zs.net:848"+productInfo.img_normal}}
-                        >
+                        <img
+                                src="./resource/images/icon/timg.jpg"
+                                image-lazy-src="{{'http://image.38zs.net:848'+productInfo.img_normal}}"
+                                image-lazy-distance-from-bottom-to-load="100"
+                                image-lazy-loader="android">
                     </div>
                     <div class="product_item_info">
                         <span class="product_price">￥{{productInfo.shop_price}}</span>

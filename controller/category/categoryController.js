@@ -1,4 +1,4 @@
-define(['app', "./Fun/caregoryFun", 'imageLazyLoad'], function (app, caregoryFun) {
+define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
     function ctrl($scope, $rootScope, categoryService, POP, $state) {
 
@@ -29,7 +29,6 @@ define(['app', "./Fun/caregoryFun", 'imageLazyLoad'], function (app, caregoryFun
         }
         // 加入购物车
         caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
-
     }
 
     ctrl.$inject = ['$scope', '$rootScope', 'categoryService', 'POP', '$state'];

@@ -94,12 +94,27 @@
 .content .product_list .product_item .goodsImg {
   width: 100%;
   height: 115px;
+  position: relative;
 }
 .content .product_list .product_item .goodsImg img {
   width: 90%;
   margin-left: 5%;
   height: 90%;
   margin-top: 5%;
+}
+.content .product_list .product_item .goodsImg .image-loader-container {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  left: 45%;
+  top: 50px;
+}
+.content .product_list .product_item .goodsImg .image-loader-container img {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 .content .product_list .product_item .product_item_info {
   width: 100%;
