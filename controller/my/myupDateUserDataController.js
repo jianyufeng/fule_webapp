@@ -7,6 +7,8 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
     function ctrl($scope, myUpdateUserDataService, POP, $stateParams) {
 
         $scope.upGrade = {};
+        $scope.upGrade.click = false;
+        $scope.upGrade.address = {};
         $scope.$on('$ionicView.loaded', function () {
             // 页面传值过来的要升级的级别
             var myGrade = $stateParams.grade;
@@ -31,6 +33,10 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                             'height': '34px',
                             'line-height': '34px',
                         })
+                        $scope.$apply(function () {
+                            $scope.upGrade.recommendedManError = "推荐人格式不正确";
+                        });
+
                     } else {
                         // 验证推荐人
                         myUpdateUserDataService.checkingRecommendedMan($scope, $(this), $("#recommendWaring"), $(this).val());
@@ -41,7 +47,9 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                         'height': '34px',
                         'line-height': '34px',
                     })
-
+                    $scope.$apply(function () {
+                        $scope.upGrade.recommendedManError = "推荐人格式不正确";
+                    });
                 }
 
 
@@ -57,9 +65,13 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                             'height': '34px',
                             'line-height': '34px',
                         })
+                        $scope.$apply(function () {
+                            $scope.upGrade.nodeManError = "节点人格式不正确";
+                        });
+
                     } else {
-                        // 验证推荐人
-                        myUpdateUserDataService.checkingNodeMan($(this), $("#nodeWaring"), $(this).val());
+                        // 验证节点人
+                        myUpdateUserDataService.checkingNodeMan($scope, $(this), $("#nodeWaring"), $(this).val());
                     }
 
                 }
@@ -69,7 +81,9 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                         'height': '34px',
                         'line-height': '34px',
                     })
-
+                    $scope.$apply(function () {
+                        $scope.upGrade.nodeManError = "节点人格式不正确";
+                    });
                 }
 
 
@@ -198,7 +212,11 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         }
         // 选择区域
         $scope.selectRegion = function () {
-            $(".popRegionBox").css("display", "block");
+            if ($scope.upGrade.click) {
+                $(".popRegionBox").css("display", "block");
+            } else {
+                $(".popRegionBox").css("display", "none");
+            }
         }
 
         // 关闭选择区域的弹框
@@ -211,6 +229,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             new AddressSelect({
                 resultBtnClick: function (result) {
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
+                    $scope.upGrade.address = result;
                     $("#address").val(address);
                 }
             })

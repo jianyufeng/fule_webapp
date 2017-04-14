@@ -7,45 +7,45 @@ var API = {
     },
     My: {
         // 个人信息
-        myInfo: serverIP + "/_user/userHome",        myOrderForm: serverIP + "/order/searchList",
+        myInfo: serverIP + "/_user/userHome", myOrderForm: serverIP + "/order/searchList",
         // 查询商品条形码
-        searchBarCodeGoods:serverIP+"/barCode/searchBarCodeGoods",
+        searchBarCodeGoods: serverIP + "/barCode/searchBarCodeGoods",
         // 内部转账
-        internalTransfer:serverIP+"/_money/transferUserMoney",
+        internalTransfer: serverIP + "/_money/transferUserMoney",
         // 充值卡充值
-        prepaidCard:serverIP+"/userCard/bindUser",
+        prepaidCard: serverIP + "/userCard/bindUser",
         // 转账记录
-        remittanceRecord:serverIP+"/banks/searchRemittanceAdvices",
+        remittanceRecord: serverIP + "/banks/searchRemittanceAdvices",
         // 代金券转账
-        voucherTransfer:serverIP+"/_fxp/transferFxpPoints",
+        voucherTransfer: serverIP + "/_fxp/transferFxpPoints",
         // 代金券转账 记录
-        voucherTransferRecord:serverIP+"/fxp/searchAccount",
+        voucherTransferRecord: serverIP + "/fxp/searchAccount",
         //转账记录
-        transferRecord:serverIP+"/_money/searchTransferAccounts" ,
+        transferRecord: serverIP + "/_money/searchTransferAccounts",
         //未读消息
-        unreadMsg:serverIP+"/article/search",
+        unreadMsg: serverIP + "/article/search",
         //未读消息详情
-        unreadMsgInfo:serverIP+"/article/searchInfo",
+        unreadMsgInfo: serverIP + "/article/searchInfo",
         //添加电子币银行汇款
-        eleBankTransfer:serverIP+"/banks/addRemittance",
+        eleBankTransfer: serverIP + "/banks/addRemittance",
         //获取电子币卡记录
-        searchUserAccount:serverIP+"/userCard/searchLogs",
+        searchUserAccount: serverIP + "/userCard/searchLogs",
         //获取银行列表
-        bankList:serverIP+"/banks/search_banks",
+        bankList: serverIP + "/banks/search_banks",
         //查询辅销币流水
-        searchAccountLog:serverIP+"/fxp/searchIntergralLog",
+        searchAccountLog: serverIP + "/fxp/searchIntergralLog",
         //查看推荐人信息
-        recommendedManInfo:serverIP+"/_user/userInfo",
+        recommendedManInfo: serverIP + "/_user/userInfo",
         // 查看接点人信息
-        searchUserDetail:serverIP+"/user/searchUserDetail",
+        searchUserDetail: serverIP + "/user/searchUserDetail",
         //升级到D
-        upgradeToD:"/upgrade/upgradeToD",
+        upgradeToD: serverIP + "/upgrade/upgradeToD",
         // 升级到VIP
-        upgradeToVIP:"/upgrade/upgradeToVIP",
+        upgradeToVIP: serverIP + "/upgrade/upgradeToVIP",
         // 升级到批发
-        upgradeToPIFA:"/upgrade/upgradeToPIFA",
+        upgradeToPIFA: serverIP + "/upgrade/upgradeToPIFA",
         // 一键升级到D+VIP+批发
-        oneUpgrade:"/upgrade/oneUpgrade"
+        oneUpgrade: serverIP + "/upgrade/oneUpgrade"
     },
 
     Cart: {

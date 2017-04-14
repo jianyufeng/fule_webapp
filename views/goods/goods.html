@@ -20,12 +20,13 @@
 
 			<!-- 商品列表-->
 			<div class="goodsListBox">
-				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray" name="{{goodsInfo.goods_id}}" number="{{goodsInfo.goods_number}}">
+				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray" view-on-finish name="{{goodsInfo.goods_id}}" number="{{goodsInfo.goods_number}}">
 					<div ng-if="goodsInfo.goods_number <= 0" class="goodsCover">
 						<img src="./resource/images/icon/shouqin.png">
 					</div>
 					<div class="goodsImage">
-						<img src={{"http://image.38zs.net:848"+goodsInfo.img_normal}} />
+						<!--http://image.38zs.net:848-->
+						<img src="./resource/images/default/default_image.png" data-original='{{goodsInfo.img_normal}}' />
 					</div>
 					<div class="goodsInfo">
 						<div class="goodsMoney">¥ {{goodsInfo.shop_price}}</div>

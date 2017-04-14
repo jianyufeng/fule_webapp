@@ -13,13 +13,13 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         });
         $scope.$on('$ionicView.beforeEnter', function () {
             isLogin = User.isLogin();
-            if(isLogin){
+            if (isLogin) {
                 $('.my_loginBox').show();
                 $('.unLoginBox').hide();
                 $('.myHeaderBox').hide();
                 /*获取数据*/
                 myService.getMyInfo($scope, POP, false);
-            }else {
+            } else {
                 $('.my_loginBox').hide();
                 $('.unLoginBox').show();
                 $('.myHeaderBox').show();
@@ -64,23 +64,21 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         };
 
 
-
-
         // 跳转到升级界面
         $scope.upGrade = function () {
             // 获取gradeButton上的字
             var userLv = $("#gradeButton").text();
-            var garde=null;
+            var garde = null;
             if (userLv == "一键升级") {
-                garde=1;
+                garde = 1;
             } else if (userLv == "升级为志愿者") {
-                garde=2;
+                garde = 2;
             } else if (userLv == "升级为VIP") {
-                garde=3;
+                garde = 3;
             } else if (userLv == "升级为批发") {
-                garde=4;
+                garde = 4;
             }
-            myService.upGrade($scope, $state,garde);
+            myService.upGrade($scope, $state, garde);
 
         };
 
