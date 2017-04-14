@@ -80,7 +80,7 @@
   font-size: 14px;
 }
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsTitleBox {
-  width: 200px;
+  width: auto;
   height: 60px;
   padding-left: 10px;
   padding-top: 20px;
