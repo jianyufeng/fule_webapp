@@ -2,29 +2,31 @@
 
     <ion-content style="background-color: white">
         <navigation-bar is-back="true" title="防伪查询"></navigation-bar>
-        <div class="fangWeiShuoMingBox">
-            <img src="./resource/images/icon/fangweishuoming.png">
-        </div>
+        <ion-scroll set-window-height-no-navigation style="width:100%;">
+            <div class="fangWeiShuoMingBox">
+                <img src="./resource/images/icon/fangweishuoming.png">
+            </div>
 
 
-        <div class="line">
-        </div>
+            <div class="line">
+            </div>
 
-        <div class="selectBox">
-            <div class="hintBox">提示：刮开涂层，输入秘钥，点击查询即可</div>
-            <div class="SNBox">
-                <div class="inputBox">
-                    <img src="./resource/images/icon/fangweima.png" class="fwImg">
-                    <input type="text" class="text" ng-model="barCodeGoods.code"  placeholder="请输入防伪码">
+            <div class="selectBox">
+                <div class="hintBox">提示：刮开涂层，输入秘钥，点击查询即可</div>
+                <div class="SNBox">
+                    <div class="inputBox">
+                        <img src="./resource/images/icon/fangweima.png" class="fwImg">
+                        <input type="text" class="text" ng-model="barCodeGoods.code" placeholder="请输入防伪码">
+                    </div>
+                    <span class="buttonBox" ng-click="searchBarCodeGoods()">查询</span>
                 </div>
-                <span class="buttonBox" ng-click="searchBarCodeGoods()">查询</span>
+                <div class="res">您输入的防伪码不存在，谨防假冒</div>
+                <div class="ser">
+                    尊敬的用户您好，您刚才输入的防伪码 <span style="color: #E1BCD8">{{barCodeGoods.code}}</span>系
+                    <span style="color: #E1BCD8">陕西三八妇乐科技股份公司</span> 生产的产品，属于正品，请放心使用
+                </div>
             </div>
-            <div class="res">您输入的防伪码不存在，谨防假冒</div>
-            <div class="ser">
-                尊敬的用户您好，您刚才输入的防伪码 <span style="color: #E1BCD8">{{barCodeGoods.code}}</span>系
-                <span style="color: #E1BCD8">陕西三八妇乐科技股份公司</span> 生产的产品，属于正品，请放心使用
-            </div>
-        </div>
+        </ion-scroll><!---->
     </ion-content>
 
 </ion-view>

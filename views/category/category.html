@@ -1,5 +1,5 @@
 <ion-view view-title="商品" hide-nav-bar="{{isNavShow}}">
-    <ion-content class="content">
+    <ion-content class="content" lazy-scroll>
         <navigation-bar title="分类"></navigation-bar>
         <ion-scroll screen-height="0" style="width:100%;">
 
@@ -37,14 +37,16 @@
             <!-- 商品列表-->
             <div class="product_list">
                 <div class="product_item" ng-repeat="productInfo in productArray" name="{{productInfo.goods_id}}">
-                    <div class="backgroudBox" ng-show="productInfo.goods_number>0">
+                    <div class="backgroudBox" ng-show="productInfo.goods_number==0">
                         <img src="./resource/images/icon/shouqin.png">
                     </div>
-                    <img src="./resource/images/icon/timg.jpg" class="lazy"
-                         width="1080"
-                         height="800"
-                         data-original={{"http://image.38zs.net:848"+productInfo.img_normal}}
-                    >
+                    <div class="goodsImg">
+                        <img
+                                src="./resource/images/icon/timg.jpg"
+                                image-lazy-src="{{'http://image.38zs.net:848'+productInfo.img_normal}}"
+                                image-lazy-distance-from-bottom-to-load="100"
+                                image-lazy-loader="android">
+                    </div>
                     <div class="product_item_info">
                         <span class="product_price">￥{{productInfo.shop_price}}</span>
                         <div class="product_item_bottom">

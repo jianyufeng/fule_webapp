@@ -5,6 +5,7 @@
 //console.log("[框架]====>[加载启动引导文件]");
 
 define([
+    'ionImageLazyLoad',
     'app',
     'angular_directive',
     'angular_service',

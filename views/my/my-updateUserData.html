@@ -21,133 +21,130 @@
 
     <ion-content style="background-color: white">
         <navigation-bar is-back="true" title="用户资料"></navigation-bar>
+        <ion-scroll set-window-height-no-navigation style="width:100%;">
 
+            <div class="contentBox">
 
-        <div class="contentBox">
-
-            <div class="rowBox" style="margin-top: 5px">
-                <div class="leftBox">
-                    <span class="redStar">*</span>推荐人
-                </div>
-
-                <div class="rightBox">
-                    <input id="recommend" type="text" placeholder="请输入推荐人" ng-model="upGrade.recommendP">
-                    <div class="waring" id="recommendWaring"><i class="icon ion-android-warning"></i> 推荐人格式不正确</div>
-                </div>
-                <div class="line"></div>
-            </div>
-
-            <div class="rowBox" style="margin-top: 5px">
-                <div class="leftBox">
-                    <span class="redStar">*</span>团队
-                </div>
-                <div class="rightBox">
-                    <span>{{upGrade.team}}</span>
-                </div>
-                <div class="line"></div>
-            </div>
-
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>节点人
-                </div>
-
-                <div class="rightBox">
-                    <input id="node" type="text" placeholder="请输入节点人" ng-model="upGrade.nodeP">
-                    <div class="waring" id="nodeWaring"><i class="icon ion-android-warning"></i> 节点人格式不正确</div>
-                </div>
-                <div class="line"></div>
-            </div>
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>所在区域
-                </div>
-
-                <div class="rightBox" ng-click="selectRegion()">
-                    <input type="text" placeholder="---请选择---" id="selectResult"/>
-                </div>
-                <div class="line"></div>
-            </div>
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>昵称
-                </div>
-                <div class="rightBox">
-                    <input type="text" placeholder="可以为数字、字母、下划线组合" ng-model="upGrade.nickName">
-                </div>
-                <div class="line"></div>
-            </div>
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>银行账号
-                </div>
-                <div class="rightBox">
-                    <input type="number" placeholder="请输入银行账号" id="bankCardN" ng-model="upGrade.bankCardN">
-                    <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i> 银行卡号格式不正确</div>
-                </div>
-                <div class="line"></div>
-            </div>
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>开户银行
-                </div>
-                <div class="rightBox">
-                    <input type="text" placeholder="必须为中文" ng-model="upGrade.bank">
-                </div>
-                <div class="line"></div>
-            </div>
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>身份证号
-                </div>
-                <div class="rightBox">
-                    <input type="text" placeholder="请输入身份证号" ng-model="upGrade.identityCardN" id="identityCardN">
-                    <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i> 身份证号格式不正确
+                <div class="rowBox" style="margin-top: 5px">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>推荐人
                     </div>
+
+                    <div class="rightBox">
+                        <input id="recommend" type="text" placeholder="请输入推荐人" ng-model="upGrade.recommendP">
+                        <div class="waring" id="recommendWaring"><i class="icon ion-android-warning"></i> 推荐人格式不正确</div>
+                    </div>
+                    <div class="line"></div>
                 </div>
-                <div class="line"></div>
+
+                <div class="rowBox" style="margin-top: 5px">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>团队
+                    </div>
+                    <div class="rightBox">
+                        <span>{{upGrade.team}}</span>
+                    </div>
+                    <div class="line"></div>
+                </div>
+
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>节点人
+                    </div>
+
+                    <div class="rightBox">
+                        <input id="node" type="text" placeholder="请输入节点人" ng-model="upGrade.nodeP">
+                        <div class="waring" id="nodeWaring"><i class="icon ion-android-warning"></i> 节点人格式不正确</div>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>所在区域
+                    </div>
+
+                    <div class="rightBox" ng-click="selectRegion()">
+                        <input type="text" placeholder="---请选择---" id="selectResult"/>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>昵称
+                    </div>
+                    <div class="rightBox">
+                        <input type="text" placeholder="可以为数字、字母、下划线组合" ng-model="upGrade.nickName">
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>银行账号
+                    </div>
+                    <div class="rightBox">
+                        <input type="number" placeholder="请输入银行账号" id="bankCardN" ng-model="upGrade.bankCardN">
+                        <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i> 银行卡号格式不正确
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>开户银行
+                    </div>
+                    <div class="rightBox">
+                        <input type="text" placeholder="必须为中文" ng-model="upGrade.bank">
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>身份证号
+                    </div>
+                    <div class="rightBox">
+                        <input type="text" placeholder="请输入身份证号" ng-model="upGrade.identityCardN" id="identityCardN">
+                        <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i> 身份证号格式不正确
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>开户姓名
+                    </div>
+
+                    <div class="rightBox">
+                        <input type="text" placeholder="必须为中文" ng-model="upGrade.cardName">
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>开户支行
+                    </div>
+
+                    <div class="rightBox">
+                        <input type="text" placeholder="xx区xx路xx支行" ng-model="upGrade.branchBank">
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBox">
+                    <div class="leftBox">
+                        <span class="redStar">*</span>省市地区
+                    </div>
+
+                    <div class="rightBox">
+                        <input type="text" id="address" placeholder="请选择地址" readonly ng-click="chooseAddress()"
+                               style="background-color: white"/>
+                    </div>
+                    <div class="line"></div>
+                </div>
+                <div class="rowBottomBox">
+                    <div class="submitButton" ng-click="submitUpGradeAction()">提交</div>
+                    <div class="resetButton" ng-click="reset()">重置</div>
+                </div>
             </div>
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>开户姓名
-                </div>
-
-                <div class="rightBox">
-                    <input type="text" placeholder="必须为中文" ng-model="upGrade.cardName">
-                </div>
-                <div class="line"></div>
-            </div>
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>开户支行
-                </div>
-
-                <div class="rightBox">
-                    <input type="text" placeholder="xx区xx路xx支行" ng-model="upGrade.branchBank">
-                </div>
-                <div class="line"></div>
-            </div>
-
-            <div class="rowBox">
-                <div class="leftBox">
-                    <span class="redStar">*</span>省市地区
-                </div>
-
-                <div class="rightBox">
-                    <input  type="text" id="address" placeholder="请选择地址" readonly ng-click="chooseAddress()" style="background-color: white"/>
-                </div>
-                <div class="line"></div>
-            </div>
-
-            <div class="rowBottomBox">
-
-                <div class="submitButton" ng-click="submitUpGradeAction()">提交</div>
-                <div class="resetButton" ng-click="reset()">重置</div>
-            </div>
-
-        </div>
-
-
+        </ion-scroll>
     </ion-content>
 
 </ion-view>

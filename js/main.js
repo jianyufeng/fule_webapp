@@ -36,7 +36,8 @@ require.config({
         'jianyufengRoutes': './tempRoutes/jianyufeng',				   //简玉峰临时路由
         'xieshaoxiongRoutes': './tempRoutes/xieshaoxiong',			   //谢少雄临时路由
         'yejingyaRoutes': './tempRoutes/yejingya',				   //叶静雅临时路由
-        'imageLazyLoad': '../lib/js/jquery.lazyload.min'				   //图片懒加载所需的jquery库
+        'imageLazyLoad': '../lib/js/jquery.lazyload.min',				   //图片懒加载所需的jquery库
+        'ionImageLazyLoad': '../lib/js/ionic-image-lazy-load'				   //图片懒加载所需的jquery库
     },
 
     //设置优先加载文件
