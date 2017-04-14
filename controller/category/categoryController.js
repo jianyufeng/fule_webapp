@@ -1,4 +1,4 @@
-define(['app', "./Fun/caregoryFun",'imageLazyLoad'], function (app, caregoryFun) {
+define(['app', "./Fun/caregoryFun", 'imageLazyLoad'], function (app, caregoryFun) {
 
     function ctrl($scope, $rootScope, categoryService, POP, $state) {
 
