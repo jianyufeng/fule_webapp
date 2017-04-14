@@ -9,8 +9,16 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         $scope.$on('$ionicView.loaded',function () {
 
             cartOrderService.getOrderInfo($scope, POP);
-
+            // console.log("订单更新"+ $scope.cartGoods);
         });
+
+        //每次进入页面
+        $scope.$on('$ionicView.beforeEnter',function () {
+
+            cartOrderService.getPartOrderInfo($scope, POP);
+            // console.log("局部订单更新" + $scope.cartGoods);
+        });
+
 
 
         // 接收传值页面传过来的地址内容
@@ -73,7 +81,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
 
 
-            if ($scope.deliveryFreight == undefined){
+            if ($scope.shippingName == ""){ //$scope.deliveryFreight == undefined 
 
                 POP.Alert("请选择配送方式!");
 
@@ -120,6 +128,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                     }
 
 
+                    alert($scope.expressName);
                  //提交订单
                     cartOrderService.addCommonPaymentOrder($scope,orderParams,POP,function () {
 

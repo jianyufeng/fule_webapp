@@ -4,7 +4,7 @@ define(['app'],function(app){
 
         var service = {};
 
-        /* 获取服务器数据*/
+
         /*网络获取用户信息*/
         service.getOrderInfo = function ($scope, POP) {
 
@@ -69,17 +69,79 @@ define(['app'],function(app){
                     $scope.orderInfo   = data.cartInfo.order_info;    //订单价格积分信息
                     $scope.userInfo    = data.userInfo;               //用户购买能力信息
                     $scope.payment     = data.payment.data[0];        //支付方式
-                    $scope.deliveryArray    = data.shipping.data;       //快递公司名
+                    $scope.deliveryArray = data.shipping.data;       //快递公司名
                     $scope.goodsNumber = goodsCount;                  //购买商品总数
                     $scope.amountOrder = orderAmount;                 //合计价格
                     $scope.webConfig   = data.webConfig;              //免运费配置/专卖店情况
 
                 });
-
+                console.log("订单更新"+ $scope.cartGoods.length);
 
             });
 
         };
+
+
+         //订单局部更新
+        service.getPartOrderInfo = function ($scope, POP) {
+
+
+            POP.StartLoading();
+
+
+
+            //获取用户的账号
+            var info = User.getInfo();
+            HTTP.get(API.Cart.orderInfo + "/user_id/"+info.user_id , {}, function (e, data) {
+
+
+                POP.EndLoading();
+
+                if (e) {
+                    $.loadError(function () {
+                        service.getOrderInfo();
+                    });
+                    return;
+                }
+
+                var orderAmount = 0;
+                var goodsCount = 0;
+                if (data.cartInfo.cart_goods != undefined && data.cartInfo.cart_goods.length > 0){
+
+                    for (var i=0;i<data.cartInfo.cart_goods.length;i++){
+                        console.log(parseFloat(data.cartInfo.cart_goods[i].goods_price));
+
+                        orderAmount +=parseFloat(data.cartInfo.cart_goods[i].goods_price);
+
+                        goodsCount +=parseFloat(data.cartInfo.cart_goods[i].goods_number);
+
+                    }
+
+
+                }
+
+                    $scope.cartGoods   = data.cartInfo.cart_goods;    //购物车订单信息
+                    $scope.orderInfo   = data.cartInfo.order_info;    //订单价格积分信息
+                    $scope.userInfo    = data.userInfo;               //用户购买能力信息
+                    $scope.payment     = data.payment.data[0];        //支付方式
+                    $scope.deliveryArray    = data.shipping.data;     //快递公司名
+                    $scope.goodsNumber = goodsCount;                  //购买商品总数
+                    $scope.amountOrder = orderAmount;                 //合计价格
+                    $scope.webConfig   = data.webConfig;              //免运费配置/专卖店情况
+                    $scope.shippingName = "";
+                    $scope.deliveryFreight = undefined;
+
+
+
+
+                console.log("局部订单更新" + $scope.cartGoods.length);
+            });
+
+        };
+
+
+
+
 
 
         //验证支付密码
