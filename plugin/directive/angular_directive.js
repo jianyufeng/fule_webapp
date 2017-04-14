@@ -67,7 +67,7 @@ define(['app'],function(app){
 	/*
 	 * 自定义导航条
  	 */
-	app.directive('navigationBar',function($ionicHistory){  
+	app.directive('navigationBar',function($ionicHistory,$rootScope){
 		return{  
 			restrict: 'EA',  
 			transclude: true,  
@@ -76,7 +76,9 @@ define(['app'],function(app){
 				isBack      : '@',
 				righttitle  : '@',
 				ishint      : '@',
-				onRightClick : "&onRightClick"
+				isOverBack  : '@',
+				onRightClick : "&onRightClick",
+				onOverBackClick : "&onOverBackClick"
 			},  
 			template:[
 				'<div class="headerBox">',
@@ -88,10 +90,17 @@ define(['app'],function(app){
 			link:function(scope,element,attrs){  
 				scope.rightIconClick = function(){
 					scope.onRightClick();
-				}
+				};
 
 				scope.backBtn = function(){
-					$ionicHistory.goBack();
+
+					if(scope.isOverBack){
+						scope.onOverBackClick();
+					}else{
+						$ionicHistory.goBack();
+					}
+
+
 				}
 			}  
 		}

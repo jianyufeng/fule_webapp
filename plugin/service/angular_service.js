@@ -14,17 +14,19 @@ define(['app'],function(app){
         var service = {};
 
         //确认弹出框
-        service.Confirm = function(content,ok){
+        service.Confirm = function(content,ok,canceltext,oktext,cancel,title){
             var confirmPopup = $ionicPopup.confirm({
-					title: '确认操作',
+					title: title ==undefined ?'确认操作':title,
 					template: content,
-					cancelText : '取消',
-					okText : '确认'
+					cancelText : canceltext == undefined ? '取消' : canceltext,
+					okText : oktext == undefined ? '确认' : oktext
 				});
 				confirmPopup.then(function(res) {
 					if(res){
                         ok();
-					}
+					}else{
+                        cancel();
+                    }
 			});
         },
 
