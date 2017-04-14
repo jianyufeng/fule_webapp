@@ -246,14 +246,14 @@ define(['app'], function (app) {
                 }
             })
             /*我的 喜乐之家 路由*/
-            .state('tab.my-happyHome', {
-                url: '/my-happyHome',
+            .state('tab.my-happyHomeList', {
+                url: '/my-happyHomeList',
                 views: {
                     'tab-my': {
-                        templateUrl: "views/my/my-happyHome.html?_r=" + Math.random(),
-                        controller: 'myHappyHomeController',
+                        templateUrl: "views/my/my-happyHomeList.html?_r=" + Math.random(),
+                        controller: 'myHappyHomeListController',
                         resolve: {
-                            deps: app.loadControllerJs('../controller/my/myHappyHomeController')
+                            deps: app.loadControllerJs('../controller/my/myHappyHomeListController')
                         }
                     }
 

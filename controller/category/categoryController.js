@@ -10,6 +10,17 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
         });
 
+        $scope.$on("viewOnFinish", function () {
+
+			$(".goodsImg img").myImageLazyLoad({
+				//默认三个参数可不传，使用默认参数
+				// imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图
+				// imageServer : "http://image.38zs.net:848",				    //图片服务器地址
+				// animate     : true,											//是否动画显示
+			});
+         
+        });
+
         // 页面销毁销毁内存
         $scope.$on('$onicView.unloaded', function () {
             $rootScope[$state.current.name] = {};

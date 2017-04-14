@@ -23,7 +23,8 @@ define([
     'css',
     'text',
     'API',
-    'business_service'
+    'business_service',
+    'myImageLazyLoad'
 
 ], function () {
     angular.bootstrap(document, ['myApp']);

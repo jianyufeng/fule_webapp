@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/4/14.
  */
-define(['app','css! ../../../css/my/my-happyHome'], function (app) {
+define(['app','css! ../../../css/my/my-happyHomeList'], function (app) {
     function ctrl($scope) {
 
         $scope.$on('$ionicView.loaded', function () {
@@ -14,5 +14,5 @@ define(['app','css! ../../../css/my/my-happyHome'], function (app) {
     ctrl.$inject = ['$scope'];
 
     /*动态注册控制器*/
-    app.registerController('myHappyHomeController', ctrl);
+    app.registerController('myHappyHomeListController', ctrl);
 });
