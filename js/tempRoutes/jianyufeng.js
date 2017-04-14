@@ -245,6 +245,20 @@ define(['app'], function (app) {
 
                 }
             })
+            /*我的 喜乐之家 路由*/
+            .state('tab.my-happyHome', {
+                url: '/my-happyHome',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-happyHome.html?_r=" + Math.random(),
+                        controller: 'myHappyHomeController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myHappyHomeController')
+                        }
+                    }
+
+                }
+            })
 
 
     });

@@ -1,7 +1,7 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
     <ion-content>
         <navigation-bar title="我的" class="myHeaderBox"></navigation-bar>
-        <div class="unLoginBox" >
+        <div class="unLoginBox">
             <img src="./resource/images/icon/shopping_bg.png" style="margin-bottom:30px;"/>
             <button ng-click="goLogin()">登录</button>
             <button ng-click="goRegister()">新用户注册</button>
@@ -32,7 +32,7 @@
                     <img class="levelIcon" alt="等级图标" src="./resource/images/icon/level.png">
                     <span class="levelName">{{userInfo.REGISTER_GRADE | userLevelFilter}}</span>
                 </div>
-                <div  class="gradeBox"  id="gradeButton" ng-click="upGrade()"> </div>
+                <div class="gradeBox" id="gradeButton" ng-click="upGrade()"></div>
             </div>
 
 
@@ -64,72 +64,76 @@
             <!--业务相关-->
             <div class="businessBox">
 
-                    <a href="#/tab/my-orderForm">
-                        <div class="businessColBox" on-touch="onTouch()" on-release="onRelease()">
-                            <img class="indentIcon" alt="我的订单" src="./resource/images/icon/wodedingdan.png">
-                            <div class="indentName">我的订单</div>
-                        </div>
-                    </a>
-                    <a href="#/tab/my-authenticCheck">
-                        <div class="businessColBox">
-                            <img class="indentIcon" alt="防伪查询" src="./resource/images/icon/fangweichaxun.png">
-                            <div class="indentName">防伪查询</div>
-                        </div>
-                    </a>
-                    <a href="#/tab/my-prepaidCardRecharge">
-                        <div class="businessColBox">
-                            <img class="indentIcon" alt="充值卡充值" src="./resource/images/icon/chongzhikachongzhi.png">
-                            <div class="indentName">充值卡充值</div>
-                        </div>
-                    </a>
-
-
-                    <a href="#/tab/my-electronicBankTransfer">
-                        <div class="businessColBox">
-                            <img class="indentIcon" alt="电子币银行汇款" src="./resource/images/icon/dianzibihuikuan.png">
-                            <div class="indentName">电子币银行汇款</div>
-                        </div>
-                    </a>
-                    <a href="#/tab/my-subsidiaryBankTransfer">
-                        <div class="businessColBox">
-                            <img class="indentIcon" alt="辅销币银行汇款" src="./resource/images/icon/fuxiaobihuikuan.png">
-                            <div class="indentName">辅销币银行汇款</div>
-                        </div>
-                    </a>
-                    <a href="#/tab/my-remittanceRecord">
-                        <div class="businessColBox">
-                            <img class="indentIcon" alt="汇款记录" src="./resource/images/icon/huikuanjilu.png">
-                            <div class="indentName">汇款记录</div>
-                        </div>
-                    </a>
-
-
-                    <div class="businessColBox isNotRegister" ng-click="startPage()">
-                        <img class="indentIcon" alt="内部转账" src="./resource/images/icon/neibuzhuanzhang.png">
-                        <div class="indentName">内部转账</div>
+                <a href="#/tab/my-orderForm">
+                    <div class="businessColBox" on-touch="onTouch()" on-release="onRelease()">
+                        <img class="indentIcon" alt="我的订单" src="./resource/images/icon/wodedingdan.png">
+                        <div class="indentName">我的订单</div>
                     </div>
-                    <a href="#/tab/my-transferRecord">
-                        <div class="businessColBox isNotRegister">
-                            <img class="indentIcon" alt="转账记录" src="./resource/images/icon/zhuanzhangjilu.png">
-                            <div class="indentName">转账记录</div>
-                        </div>
-                    </a>
-                    <div class="businessColBox isNotRegister"  ng-click="startVoucherTransferPage(userInfo.fxp_points)">
-                        <img class="indentIcon" alt="代金卷转账" src="./resource/images/icon/daijinjuanzhuanzhang.png">
-                        <div class="indentName">代金卷转账</div>
+                </a>
+                <a href="#/tab/my-authenticCheck">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="防伪查询" src="./resource/images/icon/fangweichaxun.png">
+                        <div class="indentName">防伪查询</div>
                     </div>
+                </a>
+                <a href="#/tab/my-prepaidCardRecharge">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="充值卡充值" src="./resource/images/icon/chongzhikachongzhi.png">
+                        <div class="indentName">充值卡充值</div>
+                    </div>
+                </a>
 
 
-                    <a href="#/tab/my-voucherTransferRecords">
-                        <div class="businessColBox isNotRegister">
-                            <img class="indentIcon" alt="代金卷转账记录"
-                                 src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
-                            <div class="indentName">代金卷转账记录</div>
-                        </div>
-                    </a>
+                <a href="#/tab/my-electronicBankTransfer">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="电子币银行汇款" src="./resource/images/icon/dianzibihuikuan.png">
+                        <div class="indentName">电子币银行汇款</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-subsidiaryBankTransfer">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="辅销币银行汇款" src="./resource/images/icon/fuxiaobihuikuan.png">
+                        <div class="indentName">辅销币银行汇款</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-remittanceRecord">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="汇款记录" src="./resource/images/icon/huikuanjilu.png">
+                        <div class="indentName">汇款记录</div>
+                    </div>
+                </a>
 
 
+                <div class="businessColBox isNotRegister" ng-click="startPage()">
+                    <img class="indentIcon" alt="内部转账" src="./resource/images/icon/neibuzhuanzhang.png">
+                    <div class="indentName">内部转账</div>
+                </div>
+                <a href="#/tab/my-transferRecord">
+                    <div class="businessColBox isNotRegister">
+                        <img class="indentIcon" alt="转账记录" src="./resource/images/icon/zhuanzhangjilu.png">
+                        <div class="indentName">转账记录</div>
+                    </div>
+                </a>
+                <div class="businessColBox isNotRegister" ng-click="startVoucherTransferPage(userInfo.fxp_points)">
+                    <img class="indentIcon" alt="代金卷转账" src="./resource/images/icon/daijinjuanzhuanzhang.png">
+                    <div class="indentName">代金卷转账</div>
+                </div>
+                <a href="#/tab/my-voucherTransferRecords">
+                    <div class="businessColBox isNotRegister">
+                        <img class="indentIcon" alt="代金卷转账记录"
+                             src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
+                        <div class="indentName">代金卷转账记录</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-happyHome">
+                    <div class="businessColBox isNotRegister">
+                        <img class="indentIcon" alt="喜乐之家"
+                             src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
+                        <div class="indentName">喜乐之家</div>
+                    </div>
+                </a>
             </div>
+            <div style="clear: both;height: 20px;width: 100%"></div>
 
         </div>
     </ion-content>
