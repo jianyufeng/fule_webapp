@@ -88,7 +88,7 @@ define(['app'],function (app) {
 
             /*购物车 修改收货地址 路由*/
             .state('tab.cart_modifyAddress', {
-                url: '/cart_modifyAddress/:address/:address_id/:address_name/:best_time/:country/:city_name/:city/:consignee/:district_name/:district/:email/:mobile/:province_name/:province/:sign_building/:tel/:zipcode/:user_id',
+                url: '/cart_modifyAddress/:address/:address_id/:address_name/:best_time/:country/:country_name/:city_name/:city/:consignee/:district_name/:district/:email/:mobile/:province_name/:province/:sign_building/:tel/:zipcode/:user_id',
                 views: {
                     'tab-cart': {
                         templateUrl: "views/cart/cart_modifyAddress.html?_r=" + Math.random(),

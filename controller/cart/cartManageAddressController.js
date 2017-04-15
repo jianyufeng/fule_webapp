@@ -132,9 +132,6 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
                     $(".default:eq("+_idx+")").show();  //根据下标地址获取对应的控件
 
 
-
-
-
             });
 
 
@@ -146,10 +143,13 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
             var _idx = $(".editBtnBox").index(this);
             var RAddress =  $scope.historyAddress[_idx];
 
+            console.log("点击编辑的当前地址" + RAddress);
             $state.go("tab.cart_modifyAddress",{  address:RAddress.address,
                                                address_id:RAddress.address_id,
                                              address_name:RAddress.address_name,
                                                 best_time:RAddress.best_time,
+                                                  country:RAddress.country,
+                                             country_name:RAddress.country_name,
                                                 city_name:RAddress.city_name,
                                                      city:RAddress.city,
                                                 consignee:RAddress.consignee,

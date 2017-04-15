@@ -259,6 +259,20 @@ define(['app'], function (app) {
 
                 }
             })
+            /*我的 喜乐之家购买记录列表 路由*/
+            .state('tab.my-happyHomeLogs', {
+                url: '/my-happyHomeLogs',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-happyHomeLogs.html?_r=" + Math.random(),
+                        controller: 'myHappyHomeLogsController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myHappyHomeLogsController')
+                        }
+                    }
+
+                }
+            })
             /*我的 购买喜乐之家列表 路由*/
             .state('tab.my-buyHappyHome', {
                 url: '/my-buyHappyHome',

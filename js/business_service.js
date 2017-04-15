@@ -47,11 +47,14 @@ define([
     '../service/my/myRechargeableCardListService',
     // 电子币银行汇款
     '../service/my/myElectronicBankTransferService',
-        // 用户激活
+    // 用户激活
     '../service/my/myUpdateUserDataService',
     //获取购买喜乐之家列表
     '../service/my/myBuyHappyHomeServer',
-
+    //获得喜乐之家列表
+    '../service/my/myHappyHomeListService',
+    //购买记录
+    '../service/my/myHappyHomeLogsService',
 
 
     // 商品详情页

@@ -13,7 +13,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
             //初始化
             $scope.righttitleValue = "保存";
-console.log( $stateParams);
+            console.log( $stateParams);
             $('.recieverName').val($stateParams.consignee);
             $('.recieverNumber').val($stateParams.mobile);
             $(".select-location").find("span").text($stateParams.province_name + $stateParams.city_name + $stateParams.district_name);
@@ -39,7 +39,6 @@ console.log( $stateParams);
         var CID = $stateParams.city    ; //市id
         var AID = $stateParams.district     ; //地区id
 
-        alert(AID);
 
         $(".selectAction").click(function(){
             new AddressSelect({
@@ -69,11 +68,7 @@ console.log( $stateParams);
 
             //保存成功后后退到地址管理页面
             var recieverName  = $('.recieverName').val();
-
-
-
-
-
+            alert(recieverName);
             var mobileNumeber = $('.recieverNumber').val();
             var familyPhone   = $('.telNumber').val();
             var location      = $(".select-location").find("span").text();
@@ -186,27 +181,27 @@ console.log( $stateParams);
                 mobile       : mobileNumeber,
                 sign_building: building,
                 best_time    : best_time
-            //
+
             }
 
 
             console.log(newParams);
 
 
-            console.log( "参数" + $stateParams.address_id);
-            console.log( "参数" + categray);
-            console.log( "参数" + info.user_id);
-            console.log( "参数" + recieverName);
-            console.log( "参数" + email);
-            console.log( "参数" + PID);
-            console.log( "参数" + CID);
-            console.log( "参数" + AID);
-            console.log( "参数" + detailAddress);
-            console.log( "参数" + zipCode);
-            console.log( "参数" + familyPhone);
-            console.log( "参数" + mobileNumeber);
-            console.log( "参数" + building);
-
+            console.log( "1参数" + $stateParams.address_id);
+            console.log( "2参数" + categray);
+            console.log( "3参数" + info.user_id);
+            console.log( "4参数" + recieverName);
+            console.log( "5参数" + email);
+            console.log( "6参数" + PID);
+            console.log( "7参数" + CID);
+            console.log( "8参数" + AID);
+            console.log( "9参数" + detailAddress);
+            console.log( "0参数" + zipCode);
+            console.log( "11参数" + familyPhone);
+            console.log( "12参数" + mobileNumeber);
+            console.log( "13参数" + building);
+            console.log( "14参数" + best_time);
 
            // return;
 
