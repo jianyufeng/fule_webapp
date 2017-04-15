@@ -81,7 +81,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
 
 
-            if ($scope.shippingName == ""){ //$scope.deliveryFreight == undefined 
+            if ($scope.shippingName == ""){ //$scope.deliveryFreight == undefined
 
                 POP.Alert("请选择配送方式!");
 
@@ -103,12 +103,12 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                  //验证密码
                 cartOrderService.verifyPayPassword($scope,payParams,POP,function () {
 
-
+                     // alert("5555"+$scope.expressName);
 
                     var orderParams = {
                            user_id : info.user_id, //用户id
                         user_money : $scope.userInfo.user_money, //用户余额
-                      shipping_fee : $scope.deliveryFreight, //运费
+                      shipping_fee : $scope.deliveryFreight == "免运费"?0:$scope.deliveryFreight, //运费
                         address_id : $scope.address.address_id, //收货地址id
                        shipping_id : $scope.shi_id, //物流公司id
                      shipping_name : $scope.expressName, //物流公司名
@@ -123,12 +123,16 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
                           pay_name : "余额支付", //支付方式名
                            cart_id : $scope.cartGoods[0].cart_id, //购物车id
                           LEVEL_TO : $scope.orderInfo.LEVEL_TO, //自动升级目标级别
-                          integral : $scope.orderInfo.integral //累计积分
-
+                          integral : $scope.orderInfo.integral, //累计积分
+                           pay_fee : 0, //支付手续费
+                        insure_fee : 0 //运费险
                     }
 
 
-                    alert($scope.expressName);
+                    console.log(orderParams);
+
+
+
                  //提交订单
                     cartOrderService.addCommonPaymentOrder($scope,orderParams,POP,function () {
 

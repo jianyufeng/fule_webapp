@@ -19,7 +19,8 @@ define(['app'],function(app){
             HTTP.post(API.Cart.updateUserAddress,updateParams,function(e,data){
 
                 POP.EndLoading();
-
+                console.log("编辑地址错误" + e);
+                console.log("编辑地址" + data);
                 if(e){
                     POP.Hint("设置失败");
                     return;

@@ -215,8 +215,6 @@ define(['app'], function (app) {
                 }
             })
 
-
-
             /*我的 充值卡充值列表 路由*/
             .state('tab.my-rechargeableCardList', {
                 url: '/my-rechargeableCardList',
@@ -245,7 +243,7 @@ define(['app'], function (app) {
 
                 }
             })
-            /*我的 喜乐之家 路由*/
+            /*我的 喜乐之家列表 路由*/
             .state('tab.my-happyHomeList', {
                 url: '/my-happyHomeList',
                 views: {
@@ -254,6 +252,20 @@ define(['app'], function (app) {
                         controller: 'myHappyHomeListController',
                         resolve: {
                             deps: app.loadControllerJs('../controller/my/myHappyHomeListController')
+                        }
+                    }
+
+                }
+            })
+            /*我的 购买喜乐之家列表 路由*/
+            .state('tab.my-buyHappyHome', {
+                url: '/my-buyHappyHome',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-buyHappyHome.html?_r=" + Math.random(),
+                        controller: 'myBuyHappyHomeController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myBuyHappyHomeController')
                         }
                     }
 
@@ -273,6 +285,9 @@ define(['app'], function (app) {
 
                 }
             })
+
+
+
 
 
     });

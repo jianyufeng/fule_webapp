@@ -13,7 +13,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
             //初始化
             $scope.righttitleValue = "保存";
-
+console.log( $stateParams);
             $('.recieverName').val($stateParams.consignee);
             $('.recieverNumber').val($stateParams.mobile);
             $(".select-location").find("span").text($stateParams.province_name + $stateParams.city_name + $stateParams.district_name);
@@ -33,11 +33,13 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
         var locationAddress; //详细地址
         var province ; //省
-        var city     ; //市
-        var area     ; //地区
-        var PID      ; //省id
-        var CID      ; //市id
-        var AID      ; //地区id
+        var city ; //市
+        var area ; //地区
+        var PID = $stateParams.province     ; //省id
+        var CID = $stateParams.city    ; //市id
+        var AID = $stateParams.district     ; //地区id
+
+        alert(AID);
 
         $(".selectAction").click(function(){
             new AddressSelect({
@@ -65,9 +67,13 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
         //保存
         $scope.saveAddress = function () {
 
-
             //保存成功后后退到地址管理页面
             var recieverName  = $('.recieverName').val();
+
+
+
+
+
             var mobileNumeber = $('.recieverNumber').val();
             var familyPhone   = $('.telNumber').val();
             var location      = $(".select-location").find("span").text();
@@ -154,7 +160,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                 POP.Hint("详细地址不能为空");
                 return;
             }else {
-alert(detailAddress.length);
+
                 if (detailAddress.length>30){
                     POP.Hint("详细地址不能超过30字!");
                     return;
@@ -183,7 +189,27 @@ alert(detailAddress.length);
             //
             }
 
+
             console.log(newParams);
+
+
+            console.log( "参数" + $stateParams.address_id);
+            console.log( "参数" + categray);
+            console.log( "参数" + info.user_id);
+            console.log( "参数" + recieverName);
+            console.log( "参数" + email);
+            console.log( "参数" + PID);
+            console.log( "参数" + CID);
+            console.log( "参数" + AID);
+            console.log( "参数" + detailAddress);
+            console.log( "参数" + zipCode);
+            console.log( "参数" + familyPhone);
+            console.log( "参数" + mobileNumeber);
+            console.log( "参数" + building);
+
+
+           // return;
+
             //上传数据
             cartModifyAddressService.setModifyAddress($scope,newParams,POP,function () {
 

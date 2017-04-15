@@ -49,6 +49,9 @@ define([
     '../service/my/myElectronicBankTransferService',
         // 用户激活
     '../service/my/myUpdateUserDataService',
+    //获取购买喜乐之家列表
+    '../service/my/myBuyHappyHomeServer',
+
 
 
     // 商品详情页
