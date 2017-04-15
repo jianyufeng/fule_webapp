@@ -1,0 +1,22 @@
+ion-content .of_navBox {
+  height: 50px;
+  width: 1045px;
+  background-color: white;
+}
+ion-content .of_navBox .of_nav {
+  margin-top: 5px;
+  line-height: 40px;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+  border-right: solid 1px #eee;
+  text-align: center;
+  color: #020202;
+}
+ion-content .of_navBox .of_nav:last-child {
+  border: none;
+}
+ion-content .of_navBox .of_nav:first-child {
+  color: #d39bc5;
+}
