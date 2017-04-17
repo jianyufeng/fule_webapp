@@ -50,7 +50,9 @@ var API = {
         //获取喜乐之家配置表
         happyHomeList: "http://userm.38zs.net:3222/buyxlzj/happlyhomelist",
         //喜乐之家购买记录
-        searchHappyHomeLogs:"http://userm.38zs.net:3222/happyHome/searchLogs",
+        // searchHappyHomeLogs:"http://userm.38zs.net:3222/happyHome/searchLogs",
+        searchHappyHomeLogs:"http://192.168.10.90:3000/happyHome/searchLogs/",
+
         //删除喜乐之家购买记录
         deleteHappyHomePurchaseHistory:"http://userm.38zs.net:3222/buyxlzj/delectlog"    },
 
