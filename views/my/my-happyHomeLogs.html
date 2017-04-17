@@ -2,9 +2,29 @@
     <navigation-bar title="购买记录"></navigation-bar>
     <ion-content>
         <navigation-bar is-back="true" title="购买记录" righttitle="{{righttitleValue}}" on-right-click="editLogs()"></navigation-bar>
-        <ion-scroll class="logsScroll" set-window-height-no-navigation style="width:100%;">
+        <ion-scroll class="logsScroll"  set-window-height-no-navigation style="width:100%;">
 
-            <div class="purchaseHistory" ng-repeat="historyItem in happyHomeData">{{historyItem.key_name}}</div>
+             <div class="logsItems"  ng-repeat="item in logsData">
+                 <div class="userData">
+                     <div class="operateTime"><div class="title">操作时间:</div><span>{{item.addtime == 0?"---":item.addtime*1000 | date:'yyyy-MM-dd HH:mm'}}</span></div>
+                     <div class="userName"><div class="title">购买人:</div><span>{{item.user_name}}</span></div>
+                 </div>
+                 <div class="xlzjUsers">
+                     <div class="accounts">
+                         <span class="title">账号:</span>
+                     </div>
+                     <div class="accountsDetail"  ng-repeat="userItem in item.xlzj_user">
+                         <div class="usersAcount">{{userItem}}</div>
+                         <div class="usersStatus" ng-if="item.status == 0">未激活</div>
+                         <div class="usersStatus" ng-if="item.status == 1">已激活</div>
+                     </div>
+
+                 </div>
+
+                 <div style="clear:both"></div>
+
+             </div>
+
         </ion-scroll>
     </ion-content>
 </ion-view>

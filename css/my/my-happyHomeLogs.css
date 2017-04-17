@@ -1,0 +1,91 @@
+.logsScroll {
+  background: #ffffff;
+}
+.logsScroll .logsItems {
+  height: auto;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid #f1f1f1;
+  background-color: #eeeeee;
+  padding: 10px;
+  font-size: 15px;
+}
+.logsScroll .logsItems .userData {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid #eee;
+}
+.logsScroll .logsItems .userData .operateTime {
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  line-height: 40px;
+  float: left;
+}
+.logsScroll .logsItems .userData .operateTime .title {
+  width: 80px;
+  height: 40px;
+  float: left;
+}
+.logsScroll .logsItems .userData .operateTime span {
+  width: auto;
+  height: 40px;
+  color: #676767;
+}
+.logsScroll .logsItems .userData .userName {
+  width: 100%;
+  height: 40px;
+  text-align: left;
+  line-height: 40px;
+  float: left;
+}
+.logsScroll .logsItems .userData .userName .title {
+  width: 80px;
+  height: 40px;
+  float: left;
+}
+.logsScroll .logsItems .userData .userName span {
+  width: auto;
+  height: 40px;
+  color: #676767;
+}
+.logsScroll .logsItems .xlzjUsers {
+  width: 100%;
+  height: auto;
+  float: left;
+}
+.logsScroll .logsItems .xlzjUsers .accounts {
+  width: 80px;
+  height: auto;
+  float: left;
+}
+.logsScroll .logsItems .xlzjUsers .accounts .title {
+  width: 80px;
+  height: 40px;
+  font-size: 15px;
+  float: left;
+  text-align: left;
+  line-height: 40px;
+}
+.logsScroll .logsItems .xlzjUsers .accountsDetail {
+  height: 40px;
+  margin-left: 80px;
+  font-size: 14px;
+}
+.logsScroll .logsItems .xlzjUsers .accountsDetail .usersAcount {
+  width: 60%;
+  height: 40px;
+  float: left;
+  line-height: 40px;
+  color: #676767;
+}
+.logsScroll .logsItems .xlzjUsers .accountsDetail .usersStatus {
+  width: 40%;
+  height: 30px;
+  background: #ccc;
+  float: right;
+  margin-top: 5px;
+  line-height: 30px;
+  color: white;
+  text-align: center;
+}

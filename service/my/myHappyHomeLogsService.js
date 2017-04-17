@@ -13,7 +13,6 @@ define(['app'],function(app){
 
             //获取用户的账号
             var info = User.getInfo()
-            alert(info.user_name);
             HTTP.get(API.My.searchHappyHomeLogs + "/user_name/"+info.user_name , {}, function (e, data) {
 
                 POP.EndLoading();
@@ -26,14 +25,27 @@ define(['app'],function(app){
                     return;
                 }
 
+                for(var i = 0; i < data.count;i++){
 
-                // $scope.$apply(function () {
-                //     //为html页面注入数据
-                //     $scope.historyAddress = data.AddressList;
-                //     $scope.defaultAddressID = data.defaultAddress;
-                //
-                // });
+                    var add_time = data.data[i].addtime;
 
+                    var xlzj_users = data.data[i].xlzj_user;
+
+                     var usersArr = xlzj_users.split(",");
+
+                       data.data[i].xlzj_user = usersArr;
+
+                }
+
+
+
+                $scope.$apply(function () {
+                    //为html页面注入数据
+                    $scope.logsData = data.data;
+
+                });
+
+                console.log($scope.logsData);
 
             });
 
