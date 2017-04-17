@@ -1,13 +1,15 @@
 /**
  * Created by Administrator on 2017/4/14.
  */
-define(['app','css! ../../../css/my/my-buyHappyHome'], function (app) {
-    function ctrl($scope,$rootScope,myBuyHappyHomeServer,POP) {
+define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
+    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $ionicScrollDelegate) {
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
             console.log("dsfs")
         });
+
+
         //// 接收传值页面传过来的地址内容
         //$rootScope.$on('changeAddressInfo', function(event, args) {
         //    console.log(args);
@@ -25,26 +27,39 @@ define(['app','css! ../../../css/my/my-buyHappyHome'], function (app) {
         //    }else {
         //        if ($scope.address.address_id == args.address_id){
         //
-                    //cartOrderService.getOrderInfo($scope, POP);
+        //cartOrderService.getOrderInfo($scope, POP);
         //
         //        }
         //    }
         //});
 
-        myBuyHappyHomeServer.getBuyGoodList($scope,POP);
-        $scope.seeMoreGoods = function (goodId,index) {
-            if ($scope.attrGoods == undefined){
-                console.log(2222);
-                myBuyHappyHomeServer.getBuyGoodMoreAttr($scope,POP,goodId);
-            }else {
-                $('#'+"more_goodsBox_" + index).slideToggle(300);
+
+        myBuyHappyHomeServer.getBuyGoodList($scope, POP);
+        $scope.seeMoreGoods = function (event, goodId, index) {
+            if ($scope.attrGoods == undefined) {
+                myBuyHappyHomeServer.getBuyGoodMoreAttr($scope, POP, goodId, index, $ionicScrollDelegate);
+            } else {
+                var obj = $('#' + "more_goodsBox_" + index);
+                var display = obj.css('display');
+                obj.slideToggle(300, function () {
+                    var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
+                    var scrollPosition = scroller.getScrollPosition();
+                    var currentScroll = scrollPosition.top;
+                    if (display == 'none') {
+                        scroller.scrollTo(0, currentScroll + 60, true);
+                    } else {
+                        scroller.scrollTo(0, currentScroll - 60, true);
+                    }
+                });
+
+
             }
         };
 
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope','$rootScope','myBuyHappyHomeServer','POP'];
+    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$ionicScrollDelegate'];
 
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);
