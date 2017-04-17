@@ -10,7 +10,7 @@ define([
     '../service/goods/goodsService',
 
     //购物车部分
-	'../service/cart/cartService',
+    '../service/cart/cartService',
     '../service/cart/cartOrderService',
     '../service/cart/cartSelectAddressService',
     '../service/cart/cartManageAddressService',
@@ -18,12 +18,11 @@ define([
     '../service/cart/cartModifyAddressService',
 
 
-
     //首页部分
     '../service/home/homeService',
 
     //分类部分
-	'../service/category/categoryService',	
+    '../service/category/categoryService',
 
     //我的部分
     '../service/my/myService',
@@ -51,15 +50,12 @@ define([
     '../service/my/myUpdateUserDataService',
     //获取购买喜乐之家列表
     '../service/my/myBuyHappyHomeServer',
-    //获得喜乐之家列表
-    '../service/my/myHappyHomeListService',
     //购买记录
     '../service/my/myHappyHomeLogsService',
-
-
+    // 喜乐之家升级
+    '../service/my/myHappyHomeUpgradeService',
     // 商品详情页
     '../service/category/productInfoService'
-
 
 
 ]);

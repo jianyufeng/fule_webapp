@@ -215,8 +215,6 @@ define(['app'], function (app) {
                 }
             })
 
-
-
             /*我的 充值卡充值列表 路由*/
             .state('tab.my-rechargeableCardList', {
                 url: '/my-rechargeableCardList',
@@ -287,6 +285,23 @@ define(['app'], function (app) {
 
                 }
             })
+            /*我的 喜乐之家升级 路由*/
+            .state('tab.my-happyHomeUpgrade', {
+                url: '/my-happyHomeUpgrade',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-happyHomeUpgrade.html?_r=" + Math.random(),
+                        controller: 'myHappyHomeUpgradeController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myHappyHomeUpgradeController')
+                        }
+                    }
+
+                }
+            })
+
+
+
 
 
     });
