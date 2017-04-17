@@ -50,9 +50,10 @@ define([
     '../service/my/myUpdateUserDataService',
     //获取购买喜乐之家列表
     '../service/my/myBuyHappyHomeServer',
+    //购买记录
+    '../service/my/myHappyHomeLogsService',
     // 喜乐之家升级
     '../service/my/myHappyHomeUpgradeService',
-
     // 商品详情页
     '../service/category/productInfoService'
 

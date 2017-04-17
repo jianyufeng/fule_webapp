@@ -34,7 +34,7 @@ require.config({
         'liweixuanRoutes': './tempRoutes/liweixuan',				   //李蔚轩临时路由
         'lixufengRoutes': './tempRoutes/lixufeng',				   //李旭峰临时路由
         'jianyufengRoutes': './tempRoutes/jianyufeng',				   //简玉峰临时路由
-        'xieshaoxiongRoutes': './tempRoutes/xieshaoxiong',			   //谢少雄临时路由
+        'xieshaoxiongRoutes': './tempRoutes/xieshaoxiong',			   //解少雄临时路由
         'yejingyaRoutes': './tempRoutes/yejingya',				   //叶静雅临时路由
         'myImageLazyLoad': '../lib/js/myImageLazyLoad'				   //图片懒加载所需的库
 

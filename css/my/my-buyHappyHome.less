@@ -169,13 +169,14 @@
     float: left;
     height: 110px;
     width: 44%;
-    padding: 15px 0;
+    padding: 10px 0;
 
     .bbh_goodName {
       width: 100%;
-      height: 30px;
-      font-size: 15px;
-      line-height: 30px;
+      height: 40px;
+      font-size: 14px;
+      line-height: 17px;
+      overflow: hidden;
     }
     .bbh_goodPrice {
       width: 100%;
@@ -212,34 +213,136 @@
 
 .bhh_goodItemBox1 {
   width: 100%;
-  height: 110px;
-  background-color: white;
+  height: auto;
   margin-bottom: 10px;
 
-
-  .bhh_goodImgBox1 {
-    width: 28%;
+  .bbh_seeMoreGoodsBox {
+    background-color: white;
+    width: 100%;
     height: 110px;
-    float: left;
 
-    .bhh_goodImg1 {
-      margin: 15px 5%;
-      width: 80px;
-      height: 80px;
+    .bhh_goodImgBox1 {
+      width: 28%;
+      height: 110px;
+      float: left;
+      .bhh_goodImg1 {
+        margin: 15px 5%;
+        width: 80px;
+        height: 80px;
+      }
+    }
+    .bhh_goodInfoBox1 {
+      float: left;
+      height: 110px;
+      width: 44%;
+
+      .bhh_goodName {
+        padding-top: 10px;
+        width: 100%;
+        height: 50%;
+      }
+      .bhh_selectNumber {
+        width: 100%;
+        height: 50%;
+      }
+    }
+    .bhh_goodMore {
+      height: 110px;
+      float: left;
+      width: 28%;
+      line-height: 110px;
     }
   }
-  .bhh_goodInfo1 {
-    float: left;
-    height: 110px;
-    width: 44%;
-    line-height: 110px;
-  }
-  .bhh_goodMore {
-    height: 110px;
-    float: left;
-    width: 28%;
-    line-height: 110px;
-    color: gray;
-  }
 
+  .more_goodsBox {
+    background-color: white;
+    width: 100%;
+    height: 110px;
+    .more_goodImgBox {
+      width: 28%;
+      height: 110px;
+      float: left;
+
+    }
+    .more_goodInfo {
+      border-top: solid 1px #eee;
+      float: left;
+      height: 110px;
+      width: 44%;
+      padding: 10px 0;
+
+      .more_goodName {
+        width: 100%;
+        height: 40px;
+        font-size: 14px;
+
+        .goodAttrNameBox{
+          width: 100%;
+          height: 40px;
+        }
+      }
+      .bbh_goodPrice {
+        width: 100%;
+        height: 25px;
+        line-height: 25px;
+        color: gray;
+
+      }
+      .bbh_goodMoney {
+        width: 100%;
+        height: 25px;
+        line-height: 25px;
+      }
+    }
+    .more_buyNumberBox {
+      border-top: solid 1px #eee;
+      height: 110px;
+      float: left;
+      width: 28%;
+
+      .bhh_buyNumber {
+        width: 80%;
+        margin-left: 3%;
+        margin-top: 40px;;
+        height: 30px;
+        border: solid 1px #ccc;
+        text-align: center;
+
+      }
+    }
+  }
+}
+
+.bhh_addBuyAlertBox {
+  margin: auto;
+  padding: 2px 5px;
+  text-align: center;
+  height: 25px;
+  width: 100%;
+
+}
+
+.bbh_bottomSaveBox {
+  height: 50px;
+  width: 100%;
+  background-color: white;
+  .bhh_GoodsAndMoneyBox {
+    color: gray;
+    float: left;
+    width: 80%;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 2px 0 5px;
+  }
+  .bhh_saveBox {
+    float: right;
+    width: 20%;
+    background-color: red;
+    height: 45px;
+    color: white;
+    line-height: 45px;
+    font-size: 15px;
+    text-align: center;
+
+  }
 }

@@ -32,8 +32,14 @@ define(['app','css! ../../../css/my/my-buyHappyHome'], function (app) {
         //});
 
         myBuyHappyHomeServer.getBuyGoodList($scope,POP);
-
-
+        $scope.seeMoreGoods = function (goodId,index) {
+            if ($scope.attrGoods == undefined){
+                console.log(2222);
+                myBuyHappyHomeServer.getBuyGoodMoreAttr($scope,POP,goodId);
+            }else {
+                $('#'+"more_goodsBox_" + index).slideToggle(300);
+            }
+        };
 
     }
 

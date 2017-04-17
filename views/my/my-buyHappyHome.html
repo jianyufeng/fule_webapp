@@ -2,7 +2,7 @@
     <navigation-bar title="购买喜乐之家"></navigation-bar>
     <ion-content>
         <navigation-bar is-back="true" title="购买喜乐之家"></navigation-bar>
-        <ion-scroll set-window-height-no-navigation style="width:100%;">
+        <ion-scroll screen-height style="width:100%;">
             <div class="addressBox">
                 <div class="noAddressContent" ng-if="address == 'NO'" style="color: #BCBCBC"><span>+ 请添加收货地址</span>
                 </div>
@@ -33,37 +33,70 @@
             <div class="bhh_searchBox">
                 <input class="bhh_search" type="text" placeholder="请输入要搜索的商品名称">
             </div>
-            <div>
-                <div class="bhh_goodItemBox">
+            <div ng-repeat="item in goods">
+                <div class="bhh_goodItemBox" ng-if="item.is_product ==0">
                     <div class="bhh_goodImgBox">
                         <img class="bhh_goodImg" alt="商品图"
                              src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
                     </div>
 
                     <div class="bhh_goodInfo">
-                        <div class="bbh_goodName">商品名称</div>
-                        <div class="bbh_goodPrice">单价&nbsp;:&nbsp;430.00</div>
-                        <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;430.00</div>
+                        <div class="bbh_goodName">{{item.goods_name}}</div>
+                        <div class="bbh_goodPrice">单价&nbsp;:&nbsp;{{item.shop_price}}</div>
+                        <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;{{item.market_price}}</div>
                     </div>
                     <div class="bhh_buyNumberBox">
                         <input class="bhh_buyNumber" type="number" placeholder="购买数量">
                     </div>
                 </div>
-                <div class="bhh_goodItemBox1">
-                    <div class="bhh_goodImgBox1">
-                        <img class="bhh_goodImg1" alt="商品图"
-                             src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
+                <div class="bhh_goodItemBox1" ng-if="item.is_product > 0">
+                    <div class="bbh_seeMoreGoodsBox" ng-click="seeMoreGoods(item.goods_id,$index)">
+                        <div class="bhh_goodImgBox1">
+                            <img class="bhh_goodImg1" alt="商品图"
+                                 src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
+                        </div>
+                        <div class="bhh_goodInfoBox1">
+                            <div class="bhh_goodName">{{item.goods_name}}</div>
+                            <div class="bhh_selectNumber">当前商品已选 0 件</div>
+                        </div>
+                        <div class="bhh_goodMore">
+                            查看更多属性
+                        </div>
                     </div>
+                    <div id="more_goodsBox_{{$index}}">
+                        <div class="more_goodsBox" ng-repeat="attrGood in attrGoods">
+                            <div class="more_goodImgBox">
+                            </div>
+                            <div class="more_goodInfo">
+                                <div class="more_goodName">
+                                    <div class="goodAttrNameBox">
+                                        {{attrGood.attr_info[0].attr_name}}&nbsp;:&nbsp;
+                                        <span class="goodAttrVal" ng-repeat="attrVal in attrGood.attr_info">{{attrVal.attr_value}}</span>
+                                    </div>
+                                </div>
+                                <div class="bbh_goodPrice">单价&nbsp;:&nbsp;0</div>
+                                <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;0</div>
+                            </div>
+                            <div class="more_buyNumberBox">
+                                <input class="bhh_buyNumber" type="number" placeholder="购买数量">
+                            </div>
+                        </div>
 
-                    <div class="bhh_goodInfo1">
-                        商品名称
-                    </div>
-                    <div class="bhh_goodMore">
-                        查看更多属性
                     </div>
                 </div>
             </div>
-
         </ion-scroll>
+        <div class="bhh_addBuyAlertBox">
+            您还差 75270元 可以购买喜乐之家
+        </div>
+        <div class="bbh_bottomSaveBox">
+            <div class="bhh_GoodsAndMoneyBox">
+                共计&nbsp;:&nbsp;100000件商品&nbsp;&nbsp;
+                合计&nbsp;:&nbsp;&yen;10000000
+            </div>
+            <div class="bhh_saveBox">
+                保存
+            </div>
+        </div>
     </ion-content>
 </ion-view>

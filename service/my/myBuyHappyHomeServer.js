@@ -4,33 +4,48 @@ define(['app'], function (app) {
 
         var service = {};
         var first = true;
-        /*网络获取未读消息记录 信息*/
+        /*喜乐之家商品列表 信息*/
         service.getBuyGoodList = function ($scope, POP) {
             if (first) {
                 POP.StartLoading();
             }
             //获取用户的账号
             HTTP.get(API.My.buyGoodsList, {}, function (e, data) {
-                POP.EndLoading();
-                if (e) {
-                    POP.Hint("加载失败");
-                    return;
+                    POP.EndLoading();
+                    if (e) {
+                        POP.Hint("加载失败");
+                        return;
+                    }
+                    first = false;
+                    console.log(data);
+                    $scope.$apply(function () {
+                        $scope.goods = data.goodsInfo.data;
+                    })
                 }
-                first = false;
-                console.log(data);
-                $scope.$apply(function () {
-                    //$scope.datas = data.data;
-                })
-            }
-
-        );
-
-};
-return service;
+            );
+        };
 
 
-})
-;
+        /*网络获取商品列表的属性列表 信息*/
+        service.getBuyGoodMoreAttr = function ($scope, POP,goodId) {
+            //获取用户的账号
+            HTTP.get(API.My.buyGoodsMoreAttr +"/goods_id/"+goodId, {}, function (e, data) {
+                    if (e) {
+                        POP.Hint("加载失败");
+                        return;
+                    }
+                    console.log(data);
+                    $scope.$apply(function () {
+                        $scope.attrGoods = data;
+                    })
+                }
+            );
+        };
+        return service;
+
+
+    })
+    ;
 
 
 })
