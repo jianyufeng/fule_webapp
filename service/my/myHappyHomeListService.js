@@ -31,7 +31,6 @@ define(['app'],function(app){
                     //为html页面注入数据
                     $scope.happyHomeData= data.data;
 
-                    console.log($scope.purchaseHistory);
                 });
 
 

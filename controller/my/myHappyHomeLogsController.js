@@ -5,61 +5,65 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
     function ctrl($scope,myHappyHomeLogsService,POP,$state) {
 
         $scope.$on('$ionicView.loaded', function () {
-            /*获取数据*/
-            $scope.righttitleValue = "编辑";
-            //初始化加载喜乐之家
-            myHappyHomeLogsService.getHappyHomeLogs($scope, POP);
 
+            //初始化加载喜乐之家
+            myHappyHomeLogsService.getHappyHomeLogs($scope, POP,function () {
+                console.log($scope.logsData);
+
+                //判断是否登录
+                if($scope.logsData.length >0){
+                    $scope.righttitleValue = "编辑";
+                    $(".noRecord").hide();
+                }else{
+                    $scope.righttitleValue = "";
+                    $(".noRecord").show();
+                    return;
+                }
+
+
+            });
 
         });
 
 
 
 
-        //点击编辑购买记录
-        // var editOpen = false;
-        // $scope.editLogs = function(){
-        //
-        //     if(editOpen){
-        //         $scope.righttitleValue = "编辑";
-        //         my_fun.cartSideslipping(false);
-        //         editOpen = false;
-        //     }else{
-        //         $scope.righttitleValue = "关闭";
-        //         my_fun.cartSideslipping(true);
-        //         editOpen = true;
-        //
-        //
-        //     }
-        //
-        // };
+       // 点击编辑购买记录
+        var editOpen = false;
+        $scope.editLogs = function(){
 
-        //点击删除
-        // my_fun.deleteHappyHomeBtn(function(_idx,_id){
-        //
-        //     var info = User.getInfo();
-        //     var deleteParams = {
-        //         user_id : info.user_id,
-        //         shopping_type : 1,
-        //         id : _id
-        //     }
+            if(editOpen){
+                $scope.righttitleValue = "编辑";
+                my_fun.happyHomeSideslipping(false);
+                editOpen = false;
+            }else{
+                $scope.righttitleValue = "关闭";
+                my_fun.happyHomeSideslipping(true);
+                editOpen = true;
+
+            }
+
+        };
 
 
-            //删除购物车
+         //点击删除
+        my_fun.deleteHappyHomeBtn(function(_indx,_idNum){
 
-            // myHappyHomeLogsService.deleteCart($scope,deleteParams,POP,_idx,$rootScope);
+           // 删除购买记录
+
+            myHappyHomeLogsService.deleteHappyHomeLogs($scope,POP,_idNum,_indx);
 
 
-        // })
+        })
 
-        // //左滑动
-        // $scope.swipLeft = function(idx,id){
-        //     my_fun.happyHomeIdxSideslipping(true,idx);
-        // }
-        //
-        // $scope.swipRight = function(idx,id){
-        //     my_fun.happyHomeIdxSideslipping(false,idx);
-        // };
+        //左滑动
+        $scope.swipLeft = function(_indx,_idNum){
+            my_fun.happyHomeIdxSideslipping(true,_indx);
+        }
+
+        $scope.swipRight = function(_indx,_idNum){
+            my_fun.happyHomeIdxSideslipping(false,_indx);
+        };
 
 
 

@@ -1,11 +1,18 @@
 <ion-view view-title="喜乐之家购买记录" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-    <navigation-bar title="购买记录"></navigation-bar>
-    <ion-content>
+    <ion-content >
         <navigation-bar is-back="true" title="购买记录" righttitle="{{righttitleValue}}" on-right-click="editLogs()"></navigation-bar>
-        <ion-scroll class="logsScroll"  set-window-height-no-navigation style="width:100%;">
+        <ion-scroll set-window-height-no-navigation="" class="logsScroll" id="aaa" delegate-handle="mainScroll">
+
+            <div class="noRecord">
+                <img src="./resource/images/icon/shopping_bg.png">
+                <p>您还没有任何购买记录!</p>
+            </div>
 
             <div class="logsItems" on-swipe-left="swipLeft($index,item.id)" on-swipe-right="swipRight($index,item.id)" ng-repeat="item in logsData">
-                <div class="deleteBox" id="{{item.id}}">删除</div>
+
+                <div class="deleteBox" id="{{item.id}}" ng-if="item.status == 0">删除</div>
+
+              <div class="historyBox">
                  <div class="userData">
                      <div class="operateTime"><div class="title">操作时间:</div><span>{{item.addtime == 0?"---":item.addtime*1000 | date:'yyyy-MM-dd HH:mm'}}</span></div>
                      <div class="userName"><div class="title">购买人:</div><span>{{item.user_name}}</span></div>
@@ -19,11 +26,10 @@
                          <div class="usersStatus" ng-if="item.status == 0">未激活</div>
                          <div class="usersStatus" ng-if="item.status == 1">已激活</div>
                      </div>
-
                  </div>
+              </div>
 
-                 <div style="clear:both"></div>
-
+                <div style="clear:both"></div>
              </div>
 
         </ion-scroll>

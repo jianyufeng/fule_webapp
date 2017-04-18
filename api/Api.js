@@ -53,10 +53,11 @@ var API = {
         happyHomeList: "http://userm.38zs.net:3222/buyxlzj/happlyhomelist",
         //喜乐之家购买记录
         // searchHappyHomeLogs:"http://userm.38zs.net:3222/happyHome/searchLogs",
-        searchHappyHomeLogs:"http://192.168.10.90:3000/happyHome/searchLogs/",
+        searchHappyHomeLogs:"http://192.168.10.90:3000/happyHome/searchLogs",
 
         //删除喜乐之家购买记录
-        deleteHappyHomePurchaseHistory:"http://userm.38zs.net:3222/buyxlzj/delectlog"    },
+        deleteHappyHomePurchaseHistory:"http://192.168.10.90:3000/buyxlzj/delectlog"
+    },
 
     Cart: {
         //购物车信息

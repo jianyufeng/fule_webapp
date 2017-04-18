@@ -52,20 +52,20 @@ define(['animate'],function(){
     myFun.happyHomeSideslipping = function(isOpen){
 
         if(isOpen){
-            $(".logsItems").animate({"left":-100},200);
+            $(".historyBox").animate({"left":-100},200);
             $(".deleteBox").animate({"right":0},200);
         }else{
-            $(".logsItems").animate({"left":0},200);
+            $(".historyBox").animate({"left":0},200);
             $(".deleteBox").animate({"right":-110},200);
         }
     }
 
     myFun.happyHomeIdxSideslipping = function(isOpen,idx){
         if(isOpen){
-            $(".logsItems:eq("+idx+")").animate({"left":-100},200);
+            $(".historyBox:eq("+idx+")").animate({"left":-100},200);
             $(".deleteBox:eq("+idx+")").animate({"right":0},200);
         }else{
-            $(".logsItems:eq("+idx+")").animate({"left":0},200);
+            $(".historyBox:eq("+idx+")").animate({"left":0},200);
             $(".deleteBox:eq("+idx+")").animate({"right":-110},200);
         }
     }
@@ -76,9 +76,7 @@ define(['animate'],function(){
         $(document).on("click",".deleteBox",function(){
             var _idx = $(".deleteBox").index(this);
             var _id = $(this).attr("id");
-            // $(this).parent().slideUp(200,function(){
             fn(_idx,_id);
-            // });
         });
     }
 
