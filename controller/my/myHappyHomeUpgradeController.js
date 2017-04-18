@@ -462,7 +462,49 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             checkIdentityCardN();
             checkCardName();
             checkBankBranch();
+            // 验证所有的user的字段
+            for (var i = 0; i < $scope.userArray.length; i++) {
+                var user = $scope.userArray[i];
+                var userItem = null;
+                for (userItem in user) {
+                    if (user[userItem] == null || user[userItem] == "") {
+                        POP.Hint("请确保所有输入项全部填写。");
+                    }
+                }
+            }
             // 拼参数
+            var array = [];
+            for (var i = 0; i < $scope.userArray.length; i++) {
+                var item = $scope.userArray[i];
+                var user = {
+                    "user_name": "sharelock005",
+                    "RECOMMENDED_MAN": item.recommendP,
+                    "CONTACT_MAN": item.nodeP,
+                    "REGION": 0,
+                    "PASSWORD": item.mallPassWord,
+                    "SECOND_PASSWORD": item.secondPassWord,
+                    "THREE_PASSWORD": item.payPassword,
+                    "email": item.Email,
+                    "mobile_phone": item.phone,
+                    "MEMBER_NAME": item.name,
+                    "BANK_ACCOUNT": item.bankNum,
+                    "BANK_NAME": "1",
+                    "ID_CARD": item.carId,
+                    "ACCOUNT_OWNER": item.bankCardName,
+                    "BANK_LOCATION": item.bankBranch,
+                    "BANK_STATE_ID": "4",
+                    "BANK_CITY_ID": "55",
+                    "BANK_DISTRICT_ID": "540"
+
+                    //"user_name": "sharelock004",
+                    //"RECOMMENDED_MAN": item.recommendP,
+                    //"CONTACT_MAN": item.nodeP,
+                    //"REGION": 0,
+                    //"PASSWORD": item.secondPassWord,
+                }
+            }
+
+            console.log($scope.userArray);
 
 
             // 表单的提价
