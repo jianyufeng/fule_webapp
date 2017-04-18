@@ -260,10 +260,10 @@ $('#account').blur(function() {
 
     //输入框聚焦变换
     $('#account').focus(function () {
-        $('#nameIcon').attr("src", "../resource/images/icon/user_headhover.png");
+        $('#nameIcon').attr("src", "../resource/images/icon/user_head.png");
     });
-    $('#nameIcon').blur(function () {
-        $('#accountIcon').attr("src", "../resource/images/icon/user_head.png");
+    $('#account').blur(function () {
+        $('#nameIcon').attr("src", "../resource/images/icon/user_headhover.png");
     });
 
     $('#mailbox').focus(function () {
