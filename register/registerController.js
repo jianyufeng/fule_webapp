@@ -258,6 +258,56 @@ $('#account').blur(function() {
 
 });
 
+    //输入框聚焦变换
+    $('#account').focus(function () {
+        $('#nameIcon').attr("src", "../resource/images/icon/user_headhover.png");
+    });
+    $('#nameIcon').blur(function () {
+        $('#accountIcon').attr("src", "../resource/images/icon/user_head.png");
+    });
+
+    $('#mailbox').focus(function () {
+        $('#mailIcon').attr("src", "../resource/images/icon/email_hover.png");
+    });
+    $('#mailbox').blur(function () {
+        $('#mailIcon').attr("src", "../resource/images/icon/email.png");
+    });
+
+    $('#loginPassword').focus(function () {
+        $('#passwordIcon').attr("src", "../resource/images/icon/password_headhover.png");
+    });
+    $('#loginPassword').blur(function () {
+        $('#passwordIcon').attr("src", "../resource/images/icon/password_head.png");
+    });
+
+    $('#secondPassword').focus(function () {
+        $('#secondIcon').attr("src", "../resource/images/icon/second_mima_hover.png");
+    });
+    $('#secondPassword').blur(function () {
+        $('#secondIcon').attr("src", "../resource/images/icon/second_mima.png");
+    });
+
+    $('#threePassword').focus(function () {
+        $('#threeIcon').attr("src", "../resource/images/icon/three_mima_hover.png");
+    });
+    $('#threePassword').blur(function () {
+        $('#threeIcon').attr("src", "../resource/images/icon/three_mima.png");
+    });
+
+    $('#phone').focus(function () {
+        $('#phoneIcon').attr("src", "../resource/images/icon/mobile_number_hover.png");
+    });
+    $('#phone').blur(function () {
+        $('#phoneIcon').attr("src", "../resource/images/icon/mobile_number.png");
+    });
+
+    //校验码聚焦变换
+    $('#note').focus(function () {
+        $('#note').css("border", "solid 1px #d98bbc");
+    });
+    $('#note').blur(function () {
+        $('#note').css("border", "solid 1px #eee");
+    });
 
 
 });
