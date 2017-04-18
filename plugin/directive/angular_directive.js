@@ -53,6 +53,20 @@ define(['app'],function(app){
 	});
 
 	/*
+	 * 设置高度与屏幕高度一致
+	 */
+	app.directive('newSetWindowHeight',function($window){
+		return{
+			restrict:'AE',
+			link:function(scope,element,attr){
+				element[0].style.position = "absolute";
+				element[0].style.top      = "60px";
+				element[0].style.height   = ($window.innerHeight - 60)+'px';
+			}
+		}
+	});
+
+	/*
 	 * 设置高度与屏幕高度一致(有导航条)
 	 */
 	app.directive('setWindowHeightNoNavigation',function($window){
@@ -119,5 +133,7 @@ define(['app'],function(app){
 			}
 		};
 	});
+
+
 
 });
