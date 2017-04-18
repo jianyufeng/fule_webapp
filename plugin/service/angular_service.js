@@ -25,7 +25,10 @@ define(['app'],function(app){
 					if(res){
                         ok();
 					}else{
-                        cancel();
+                        if(cancel != undefined){
+                            cancel();
+                        }
+
                     }
 			});
         },

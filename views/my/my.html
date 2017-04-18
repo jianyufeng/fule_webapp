@@ -1,5 +1,7 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
     <ion-content>
+        <!--下拉刷新-->
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
         <navigation-bar title="我的" class="myHeaderBox"></navigation-bar>
         <div class="unLoginBox">
             <img src="./resource/images/icon/shopping_bg.png" style="margin-bottom:30px;"/>
@@ -8,9 +10,6 @@
         </div>
 
         <div class="my_loginBox">
-            <!--下拉刷新-->
-            <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
-
             <!--用户信息-->
             <div class="userBox">
                 <div class="loginOutBox">登出</div>

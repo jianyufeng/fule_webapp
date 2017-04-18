@@ -227,52 +227,48 @@
   line-height: 110px;
 }
 .bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox {
-  background-color: white;
   width: 100%;
-  height: 110px;
+  height: auto;
+  background-color: white;
 }
 .bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodImgBox {
-  width: 28%;
-  height: 110px;
+  width: 36%;
+  min-height: 90px;
   float: left;
+}
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodImgBox .more_goodName {
+  width: 100%;
+  margin: 20px 2px 20px 10%;
+  font-size: 14px;
+  background-color: red;
+}
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodImgBox .more_goodName .goodAttrNameBox {
+  width: 100%;
 }
 .bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodInfo {
   border-top: solid 1px #eee;
   float: left;
-  height: 110px;
-  width: 44%;
-  padding: 10px 0;
-}
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodInfo .more_goodName {
-  width: 100%;
-  height: 40px;
-  font-size: 14px;
-}
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodInfo .more_goodName .goodAttrNameBox {
-  width: 100%;
-  height: 40px;
+  min-height: 90px;
+  width: 36%;
+  padding: 20px 0;
 }
 .bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodInfo .bbh_goodPrice {
   width: 100%;
-  height: 25px;
-  line-height: 25px;
   color: gray;
 }
 .bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodInfo .bbh_goodMoney {
   width: 100%;
-  height: 25px;
-  line-height: 25px;
 }
 .bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_buyNumberBox {
   border-top: solid 1px #eee;
-  height: 110px;
+  min-height: 90px;
   float: left;
   width: 28%;
 }
 .bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_buyNumberBox .bhh_buyNumber {
   width: 80%;
   margin-left: 3%;
-  margin-top: 40px;
+  margin-top: 30px;
   height: 30px;
   border: solid 1px #ccc;
   text-align: center;

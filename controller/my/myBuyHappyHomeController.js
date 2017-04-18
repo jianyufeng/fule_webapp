@@ -2,12 +2,16 @@
  * Created by Administrator on 2017/4/14.
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
-    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $ionicScrollDelegate) {
+    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $ionicScrollDelegate,$compile) {
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
             console.log("dsfs")
         });
+
+        $scope.aaa = function(){
+            alert(123);
+        }
 
 
         //// 接收传值页面传过来的地址内容
@@ -33,13 +37,15 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         //    }
         //});
 
-
+        //获取购买喜乐之家的列表
         myBuyHappyHomeServer.getBuyGoodList($scope, POP);
-        $scope.seeMoreGoods = function (event, goodId, index) {
-            if ($scope.attrGoods == undefined) {
-                myBuyHappyHomeServer.getBuyGoodMoreAttr($scope, POP, goodId, index, $ionicScrollDelegate);
+
+        //出现更多属性的商品
+        $scope.seeMoreGoods = function (goodId) {
+            var obj = $('#' + "more_goodsBox_" + goodId);
+            if (obj.children().length< 1) {
+                myBuyHappyHomeServer.getBuyGoodMoreAttr($scope, POP, goodId, $ionicScrollDelegate,$compile);
             } else {
-                var obj = $('#' + "more_goodsBox_" + index);
                 var display = obj.css('display');
                 obj.slideToggle(300, function () {
                     var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
@@ -48,18 +54,16 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                     if (display == 'none') {
                         scroller.scrollTo(0, currentScroll + 60, true);
                     } else {
-                        scroller.scrollTo(0, currentScroll - 60, true);
+                        scroller.scrollTo(0, currentScroll, true);
                     }
                 });
-
-
             }
         };
 
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$ionicScrollDelegate'];
+    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$ionicScrollDelegate','$compile'];
 
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);
