@@ -1,7 +1,43 @@
 define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
-	function ctrl($rootScope,$scope,cartService,POP,$state){
+	function ctrl($rootScope,$scope,cartService,POP,$state,$ionicScrollDelegate){
 
+		$(document).on("focus",".changeBtn input",function(){
+
+			// 	var scrollTop = $ionicScrollDelegate.$getByHandle('mainScroll');
+			// 	var top = scrollTop.getScrollPosition().top;
+			//  	var offsetTop = ($(this).offset().top - 55);
+
+			// $ionicScrollDelegate.scrollTo(0,top + offsetTop,true);
+
+			//$("#abc").css("height","100%");
+		// 	var showH     = $(window).height() - 55 - 30 - 60 - 60;
+		// 	var offsetTop = ($(this).offset().top - 55);
+
+		// 	var scrollTop = $ionicScrollDelegate.$getByHandle('mainScroll');
+		// 	var top = scrollTop.getScrollPosition().top;
+
+		// 	if(offsetTop > showH/2){
+		// 		$("#abc").height(top + 500)
+
+		// 		console.log(1111);
+
+		// 		$ionicScrollDelegate.scrollTo(0,top + offsetTop+200,true);
+
+		// 	}
+
+		// 	console.log(showH);
+		//	console.log(offsetTop);
+
+			
+
+			// if(top > 50){
+
+			// 	console.log(1)
+			// 	$ionicScrollDelegate.scrollTo(0,200,true);
+
+			// }
+		});
 
 		$scope.$on('$ionicView.beforeEnter', function () {
             //判断是否登录
@@ -157,7 +193,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 	}
 
 
-	ctrl.$inject = ['$rootScope','$scope','cartService', 'POP','$state'];
+	ctrl.$inject = ['$rootScope','$scope','cartService', 'POP','$state','$ionicScrollDelegate'];
 	app.registerController('cartController',ctrl);
 
 

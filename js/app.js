@@ -16,6 +16,7 @@ define(function(){
 		$ionicConfigProvider.navBar.alignTitle('center'); // 标题位置
 		$ionicConfigProvider.navBar.positionPrimaryButtons('left'); // 主要操作按钮位置
 		$ionicConfigProvider.navBar.positionSecondaryButtons('right'); //次要操作按钮位置
+	
 	});
 	
 	return app;

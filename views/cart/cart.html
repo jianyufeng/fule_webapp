@@ -1,4 +1,5 @@
 <ion-view view-title="购物车" hide-nav-bar="{{isNavShow}}">
+
 	<ion-content>
 		<navigation-bar title="购物车" righttitle="{{righttitleValue}}" on-right-click="editCart()"></navigation-bar>
 
@@ -11,12 +12,11 @@
 			</div>
 		</div>
 
-
 		<div class="cartBox" screen-height="-10">
 
 			<div class="buyerListBox">
 
-				<ion-scroll style="width: 100%;height:100%;">
+				<ion-scroll style="width: 100%;height:100%;" id="abc" delegate-handle="mainScroll">
 
 						<div class="buyerItem" on-swipe-left="swipLeft($index,cart_good.id)" on-swipe-right="swipRight($index,cart_good.id)" ng-repeat="cart_good in cart_goods">
 
@@ -90,7 +90,8 @@
 
 		</div>
 
-
-
 	</ion-content>
+
+	
+
 </ion-view>
