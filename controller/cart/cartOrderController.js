@@ -214,8 +214,8 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
         });
 
         //选择配送方式
-        $(document).on("click",".deliveryChoice",function () {
-            var _index = $(".deliveryChoice").index(this);
+        $(document).on("click",".deliveryBox",function () {
+            var _index = $(".deliveryBox").index(this);
             var shipping_id = $(".deliveryChoice").eq(_index).attr("id");
              $scope.shi_id  = $(".deliveryChoice").eq(_index).attr("id"); //当前快递公司id
             var cart_id = $scope.cartGoods[0].cart_id;
@@ -238,13 +238,13 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
             if ($(this).find("img").is(':visible')){
                 $(this).find("img").hide();
-                $(this).css("border", "1px solid #d79ac4");
+                $(this).children(".deliveryChoice").css("border", "1px solid #d79ac4");
 
             }else {
                 $(".deliveryChoice").find("img").hide();
                 $(this).find("img").show();
                 $(".deliveryChoice").css("border", "1px solid #d79ac4");
-                $(this).css("border", "0px");
+                $(this).children(".deliveryChoice").css("border", "0px");
                 var $deliveryPrice = $(".deliveryPrice");
                 $deliveryPrice.css({
                     visibility: "hidden"
