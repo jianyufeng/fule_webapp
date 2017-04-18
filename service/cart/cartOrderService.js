@@ -11,8 +11,6 @@ define(['app'],function(app){
 
             POP.StartLoading();
 
-
-
             //获取用户的账号
             var info = User.getInfo();
             HTTP.get(API.Cart.orderInfo + "/user_id/"+info.user_id , {}, function (e, data) {
@@ -132,9 +130,6 @@ define(['app'],function(app){
                     $scope.deliveryFreight = undefined;
 
 
-
-
-                console.log("局部订单更新" + $scope.cartGoods.length);
             });
 
         };

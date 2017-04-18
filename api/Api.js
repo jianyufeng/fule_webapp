@@ -46,12 +46,13 @@ var API = {
         upgradeToPIFA: serverIP + "/upgrade/upgradeToPIFA",
         // 一键升级到D+VIP+批发
         oneUpgrade: serverIP + "/upgrade/oneUpgrade",
-        buyGoodsMoreAttr: serverIP + "/goods/searchProductInfo",
-        //获取喜乐之家配置表
+        buyGoodsMoreAttr:serverIP+"/goods/searchProductInfo", //购买喜乐之家列表
+        buyGoodsList:serverIP+  "/_happyHome/searchGoodsList/user_id/167642/user_name/app001",        //获取喜乐之家配置表
         happyHomeList: "http://userm.38zs.net:3222/buyxlzj/happlyhomelist",
         //喜乐之家购买记录
         // searchHappyHomeLogs:"http://userm.38zs.net:3222/happyHome/searchLogs",
-        searchHappyHomeLogs: "http://192.168.10.90:3000/happyHome/searchLogs/",
+
+        searchHappyHomeLogs:"http://192.168.10.90:3000/happyHome/searchLogs/",
         //删除喜乐之家购买记录
         deleteHappyHomePurchaseHistory: "http://userm.38zs.net:3222/buyxlzj/delectlog",
         // 喜乐之家升级
