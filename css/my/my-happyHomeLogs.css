@@ -5,15 +5,14 @@
   height: auto;
   margin: 10px;
   border-radius: 5px;
-  border: 1px solid #f1f1f1;
-  background-color: #eeeeee;
+  background-color: #f1f1f1;
   padding: 10px;
   font-size: 15px;
 }
 .logsScroll .logsItems .userData {
   width: 100%;
   height: 80px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ddd;
 }
 .logsScroll .logsItems .userData .operateTime {
   width: 100%;
@@ -30,7 +29,7 @@
 .logsScroll .logsItems .userData .operateTime span {
   width: auto;
   height: 40px;
-  color: #676767;
+  color: #999999;
 }
 .logsScroll .logsItems .userData .userName {
   width: 100%;
@@ -47,7 +46,7 @@
 .logsScroll .logsItems .userData .userName span {
   width: auto;
   height: 40px;
-  color: #676767;
+  color: #999999;
 }
 .logsScroll .logsItems .xlzjUsers {
   width: 100%;
@@ -71,21 +70,22 @@
   height: 40px;
   margin-left: 80px;
   font-size: 14px;
+  padding-right: 10px;
 }
 .logsScroll .logsItems .xlzjUsers .accountsDetail .usersAcount {
   width: 60%;
   height: 40px;
   float: left;
   line-height: 40px;
-  color: #676767;
+  color: #999999;
 }
 .logsScroll .logsItems .xlzjUsers .accountsDetail .usersStatus {
-  width: 40%;
-  height: 30px;
+  width: 30%;
+  height: 26px;
   background: #ccc;
   float: right;
   margin-top: 5px;
-  line-height: 30px;
+  line-height: 26px;
   color: white;
   text-align: center;
 }
