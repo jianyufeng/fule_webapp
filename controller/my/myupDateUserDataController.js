@@ -34,7 +34,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                             'line-height': '34px',
                         })
                         $scope.$apply(function () {
-                            $scope.upGrade.recommendedManError = "推荐人格式不正确";
+                            $scope.upGrade.recommendedManError = "内容不能为空";
                         });
 
                     } else {

@@ -17,7 +17,7 @@ define(['app'], function (app) {
 
             var userName = User.getInfo().user_name;
             POP.StartLoading();
-            HTTP.get(API.My.updateGradeHappyHome + "/config_id/" + configId + "/user_name/" + userName, {}, function (e, data) {
+            HTTP.get(API.My.updateGradeHappyHome + "/config_id/" + configId + "/user_name/" + "liweixuan001", {}, function (e, data) {
                 POP.EndLoading()
                 console.log(e);
                 console.log(data);
@@ -28,7 +28,7 @@ define(['app'], function (app) {
                 var userNameArray = userList.split(",");
                 $scope.$apply(function () {
                     $scope.userNameArray = userNameArray;
-                    $(".of_navBox").css('width', 100 * userNameArray.length + "px");
+                    $(".of_navBox").css('width', 120 * userNameArray.length + "px");
                     // 创建userArray.length个数组
                     for (var i = 0; i < userNameArray.length; i++) {
                         var user = {};
@@ -59,28 +59,30 @@ define(['app'], function (app) {
                             user.carId = "";
                             //开户姓名
                             user.bankCardName = "";
+                            // 开户支行
+                            user.bankBranch = "";
                             //省市地区
                             user.address = "";
                             //标记
-                            user.flag = 1;
+                            user.flag = 0;
                             $scope.userArray.push(user);
                             continue;
                         }
                         // 确定左右区和节点人
                         if (i < 3) {
                             if (i % 2 == 0) {
-                                user.region = "左区";
-                            } else if (i % 2 == 1) {
                                 user.region = "右区";
+                            } else if (i % 2 == 1) {
+                                user.region = "左区";
                             }
                             user.nodeP = userNameArray[0];
                         } else {
                             if (i % 2 == 0) {
-                                user.region = "左区";
+                                user.region = "右区";
                                 var b = (i - 2) / 2;
                                 user.nodeP = userNameArray[b];
                             } else if (i % 2 == 1) {
-                                user.region = "右区";
+                                user.region = "左区";
                                 var b = (i - 1) / 2;
                                 user.nodeP = userNameArray[b];
                             }
@@ -108,10 +110,12 @@ define(['app'], function (app) {
                         user.carId = "";
                         //开户姓名
                         user.bankCardName = "";
+                        // 开户支行
+                        user.bankBranch = "";
                         //省市地区
                         user.address = "";
                         //标记
-                        user.flag = 1;
+                        user.flag = 0;
 
                         $scope.userArray.push(user);
                     }
@@ -136,9 +140,52 @@ define(['app'], function (app) {
                 }
             }
             var info = $scope.userArray[index];
-            $scope.upGrade.recommendP = info.recommendP;
-            $scope.upGrade.nodeP = info.nodeP;
-            $scope.upGrade.region = info.region;
+            $("#recommend").val(info.recommendP);
+            $("#node").val(info.nodeP);
+            $("#selectResult").val(info.region);
+            $("#mallPassWord").val(info.mallPassWord);
+            $("#secondPassWord").val(info.secondPassWord);
+            $("#payPassWord").val(info.payPassword);
+            $("#Email").val(info.Email);
+            $("#phone").val(info.phone);
+            $("#name").val(info.name);
+            $("#bankCardN").val(info.bankNum);
+            $("#bank").val(info.bank);
+            $("#identityCardN").val(info.carId);
+            $("#cardName").val(info.bankCardName);
+            $("#identityCardN").val(info.carId);
+            $("#bankBranch").val(info.bankBranch);
+            $("#bankBranch").val(info.bankBranch);
+            $("#bankBranch").val(info.bankBranch);
+            $("#bankBranch").val(info.bankBranch);
+
+            $scope.index = index;
+        }
+
+
+        /**
+         *
+         * @param str
+         * @param elea   警告框
+         * @param eleb   输入框
+         * @returns {boolean}
+         */
+        service.showEmptyError = function (str, elea, eleb) {
+            if (str == null || str == "") {
+                service.showError(elea, eleb, "内容不能为空");
+                return true;
+            }
+            return false;
+        }
+
+        service.showError = function (elea, eleb, text) {
+            console.log(elea);
+            elea.css('display', 'block');
+            eleb.css({
+                'height': '34px',
+                'line-height': '34px',
+            });
+            elea.html("<i class='icon ion-android-warning'></i> " + text);
         }
         return service;
 
