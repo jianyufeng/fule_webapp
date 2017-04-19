@@ -35,7 +35,7 @@ define(['app'],function(app){
 			restrict:'AE',
 			link:function(scope,element,attr){
 			element[0].style.top=attr.screenHeight+'px';
-			element[0].style.height=($window.innerHeight-55-attr.screenHeight-70)+'px';
+			element[0].style.height=($window.innerHeight-attr.screenHeight-55)+'px';
 			}
 		}
 	});

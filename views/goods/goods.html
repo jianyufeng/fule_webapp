@@ -1,9 +1,10 @@
 <ion-view view-title="商品" hide-nav-bar="{{isNavShow}}">
-	<ion-content>
+	<navigation-bar title="商品"></navigation-bar>
+	<ion-content screen-height="60">
 
-		<navigation-bar title="商品"></navigation-bar>
+		<!-- set-window-height-no-navigation="0" -->
 
-		<ion-scroll style="width:100%;position:absolute;top:60px;">
+		
 			<ion-refresher
 					pulling-text="下拉刷新..."
 					on-refresh="doRefresh()">
@@ -18,7 +19,7 @@
 
 
 			<!-- 商品列表-->
-			<div class="goodsListBox">
+			<div class="goodsListBox" style="">
 				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray" view-on-finish name="{{goodsInfo.goods_id}}" number="{{goodsInfo.goods_number}}">
 					<div ng-if="goodsInfo.goods_number <= 0" class="goodsCover">
 						<img src="./resource/images/icon/shouqin.png">
@@ -34,14 +35,13 @@
 								<img src="./resource/images/icon/shoppingcar.png" id="{{goodsInfo.goods_id}}"/>
 							</div>
 						</div>
-					</div>
 				</div>
 				<div style="clear:both;"></div>
 			</div>
 
 			<!--<ion-infinite-scroll on-infinite="loadMore()" distance="2%" immediate-check="false"></ion-infinite-scroll>-->
 
-		</ion-scroll>
+		
 
 
 	</ion-content>
