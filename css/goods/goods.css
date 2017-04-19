@@ -18,7 +18,7 @@
   border-right: none;
 }
 .goodsMenuBox .goodsMenuItem.selected {
-  color: plum;
+  color: #d39bc5;
 }
 .goodsListBox {
   width: 100%;

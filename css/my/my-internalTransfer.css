@@ -5,7 +5,7 @@
 .contentBox .cardItem {
   padding: 20px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   position: relative;
   clear: both;
   height: 60px;
@@ -71,7 +71,7 @@
   display: block;
   width: 35%;
   height: 40px;
-  background: plum;
+  background: #D39AC5;
   line-height: 40px;
   color: white;
   border-radius: 5px;
