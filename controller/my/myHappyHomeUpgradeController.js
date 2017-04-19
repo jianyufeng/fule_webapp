@@ -4,20 +4,87 @@
  */
 
 
-define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgrade'], function (app, identityCardTest) {
+define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgrade', 'addressSelect'], function (app, identityCardTest) {
     function ctrl($scope, myHappyHomeUpgradeService, POP) {
 
         $scope.userArray = [];
         $scope.upGrade = {};
+        $scope.upGrade.click = false;
         $scope.index = 0;
+        $scope.upGrade.address = null;
         $scope.$on('$ionicView.loaded', function () {
             var configId = 2;
             //获取数据
             myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP);
+
+            $scope.showUser = function (index) {
+                myHappyHomeUpgradeService.showUserGrade($scope, index);
+            }
+
+            $('#abc1').click(function () {
+                $(this).css('color', '#D39AC5');
+                $('#abc2').css('color', 'black');
+                $('#selectResult').val("左区");
+                var user = $scope.userArray[0];
+                user.region = "左区";
+            });
+            $("#abc2").click(function () {
+                $(this).css('color', '#D39AC5');
+                $('#abc1').css('color', 'black');
+                var user = $scope.userArray[0];
+                user.region = "右区";
+            });
+
+            $('#a').click(function () {
+                $(this).css('color', '#D39AC5');
+                $('#b').css('color', 'black');
+                $('#c').css('color', 'black');
+                $('#bank').val($(this).text());
+            });
+            $("#b").click(function () {
+                $(this).css('color', '#D39AC5');
+                $('#a').css('color', 'black');
+                $('#c').css('color', 'black');
+                $('#bank').val($(this).text());
+            });
+            $("#c").click(function () {
+                $(this).css('color', '#D39AC5');
+                $('#a').css('color', 'black');
+                $('#b').css('color', 'black');
+                $('#bank').val($(this).text());
+            });
         });
-        $scope.showUser = function (index) {
-            myHappyHomeUpgradeService.showUserGrade($scope, index);
+
+        // 关闭选择区域的弹框
+        $scope.closepop = function () {
+            $(".popRegionBox").css("display", "none");
         }
+
+        // 推荐人失去焦点
+        $("#recommend").blur(function () {
+            var str = $(this).val().trim();
+            if ($scope.index > 0) {
+                return
+            }
+            if (myHappyHomeUpgradeService.showEmptyError(str,
+                    $("#recommendWaring"), $("#recommend"))) {
+                return;
+            }
+            myHappyHomeUpgradeService.checkingRecommendedMan($scope, $(this), $("#recommendWaring"), $(this).val());
+
+        });
+        // 节点人失去焦点
+        $("#node").blur(function () {
+            var str = $(this).val().trim();
+            if ($scope.index > 0) {
+                return
+            }
+            if (myHappyHomeUpgradeService.showEmptyError(str,
+                    $("#nodeWaring"), $("#node"))) {
+                return;
+            }
+            myHappyHomeUpgradeService.checkingNodeMan($scope, $(this), $("#nodeWaring"), $(this).val());
+        })
 
         // 商城密码失去焦点
         $("#mallPassWord").blur(function () {
@@ -31,7 +98,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             if (!pattern.test(str)) {
                 myHappyHomeUpgradeService.showError($("#mallPassWordWaring"), $("#mallPassWord"), "输入的格式有误请重新输入");
             } else {
-                $("#mallPassWordWaring").css('display', 'none');
                 var user = $scope.userArray[$scope.index];
                 user.flag = $scope.index;
                 if ($scope.index != 0) {
@@ -352,7 +418,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 myHappyHomeUpgradeService.showError($("#identityCardNWaring"), $("#identityCardN"), "您输入的格式不正确请重新输入");
                 return;
             }
-            $("#identityCardNWaring").css('display', 'none');
             var user = $scope.userArray[$scope.index];
             user.flag = $scope.index;
             if ($scope.index != 0) {
@@ -442,10 +507,121 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             }
         }
 
+
+        // 获取焦点
+        $("#recommend").focus(function () {
+            $("#recommendWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#node").focus(function () {
+            $("#nodeWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#mallPassWord").focus(function () {
+            $("#mallPassWordWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#payPassWord").focus(function () {
+            $("#payPassWordWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#Email").focus(function () {
+            $("#EmailWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#phone").focus(function () {
+            $("#phoneWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#name").focus(function () {
+            $("#nameWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#bankCardN").focus(function () {
+            $("#bankCardNWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#bank").focus(function () {
+            $("#bankWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#identityCardN").focus(function () {
+            $("#identityCardNWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#cardName").focus(function () {
+            $("#cardNameWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+        $("#bankBranch").focus(function () {
+            $("#bankBranchWaring").css('display', 'none');
+            $(this).css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        });
+
+
         // 省市地区
-        /******/
+        // 选择地址
+        $scope.chooseAddress = function () {
+            new AddressSelect({
+                resultBtnClick: function (result) {
+                    var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
+                    $("#address").val(address);
+                    var user = $scope.userArray[$scope.index];
+                    user.flag = $scope.index;
+                    if ($scope.index != 0) {
+                        user.address = result;
+                        return;
+                    }
+                    // 输入完成赋值给其他的输入项
+                    for (var i = 0; i < $scope.userArray.length; i++) {
+                        var info = $scope.userArray[i];
+                        if (info.flag == 0) {
+                            info.address = result;
+                            console.log(info);
+                        }
+                    }
+
+                }
+            })
+        }
         /**
-         *
+         *  表单提交
          */
         $scope.submitUpGradeAction = function () {
 
@@ -467,7 +643,10 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 var user = $scope.userArray[i];
                 var userItem = null;
                 for (userItem in user) {
-                    if (user[userItem] == null || user[userItem] == "") {
+
+                    console.log(user[userItem]);
+                    if (user[userItem] == null || user[userItem].length <= 0) {
+                        console.log("为空的项是：" + user[userItem]);
                         POP.Hint("请确保所有输入项全部填写。");
                     }
                 }
@@ -476,11 +655,17 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             var array = [];
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var item = $scope.userArray[i];
+                var region;
+                if (item.region == "左区") {
+                    region = 0;
+                } else if (item.region == "右区") {
+                    region = 1;
+                }
                 var user = {
-                    "user_name": "sharelock005",
+                    "user_name": item.user_name,
                     "RECOMMENDED_MAN": item.recommendP,
                     "CONTACT_MAN": item.nodeP,
-                    "REGION": 0,
+                    "REGION": region,
                     "PASSWORD": item.mallPassWord,
                     "SECOND_PASSWORD": item.secondPassWord,
                     "THREE_PASSWORD": item.payPassword,
@@ -492,38 +677,37 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     "ID_CARD": item.carId,
                     "ACCOUNT_OWNER": item.bankCardName,
                     "BANK_LOCATION": item.bankBranch,
-                    "BANK_STATE_ID": "4",
-                    "BANK_CITY_ID": "55",
-                    "BANK_DISTRICT_ID": "540"
+                    "BANK_STATE_ID": item.address.pid,
+                    "BANK_CITY_ID": item.address.cid,
+                    "BANK_DISTRICT_ID": item.address.aid
 
-                    //"user_name": "sharelock004",
-                    //"RECOMMENDED_MAN": item.recommendP,
-                    //"CONTACT_MAN": item.nodeP,
-                    //"REGION": 0,
-                    //"PASSWORD": item.secondPassWord,
                 }
+                array.push(user);
             }
 
-            console.log($scope.userArray);
+            console.log(array);
 
 
             // 表单的提价
 
 
         };
+        // 选择区域
+        $scope.selectRegion = function () {
+            if ($scope.upGrade.click) {
+                $("#RegionBox").css("display", "block");
+            } else {
+                $("#RegionBox").css("display", "none");
+            }
 
-        //$("#address").blur(function () {
-        //    var str = $(this).val();
-        //
-        //    // 输入完成赋值给其他的输入项
-        //    for (var i = 0; i < $scope.userArray.length; i++) {
-        //        var info = $scope.userArray[i];
-        //        if (info.flag == 0) {
-        //            info.address = str;
-        //            $scope.upGrade.identityCardN = info.address;
-        //        }
-        //    }
-        //});
+        }
+
+        // 选择银行
+        $scope.selectBank = function () {
+            $("#BankBox").css("display", "block");
+        }
+
+
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/

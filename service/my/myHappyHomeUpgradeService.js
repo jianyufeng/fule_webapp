@@ -33,6 +33,7 @@ define(['app'], function (app) {
                     for (var i = 0; i < userNameArray.length; i++) {
                         var user = {};
                         if (i == 0) {
+                            user.user_name = userNameArray[i];
                             // 推荐人
                             user.recommendP = "";
                             //节点人
@@ -88,6 +89,7 @@ define(['app'], function (app) {
                             }
 
                         }
+                        user.user_name = userNameArray[i];
                         // 推荐人
                         user.recommendP = userNameArray[0];
                         //商城密码
@@ -131,6 +133,7 @@ define(['app'], function (app) {
          * @param index
          */
         service.showUserGrade = function ($scope, index) {
+            console.log(index);
             var box = $(".of_navBox").children();
             for (var i = 0; i < box.length; i++) {
                 if (index == i) {
@@ -139,6 +142,7 @@ define(['app'], function (app) {
                     $(box[i]).css("color", "#000000");
                 }
             }
+
             var info = $scope.userArray[index];
             $("#recommend").val(info.recommendP);
             $("#node").val(info.nodeP);
@@ -155,10 +159,22 @@ define(['app'], function (app) {
             $("#cardName").val(info.bankCardName);
             $("#identityCardN").val(info.carId);
             $("#bankBranch").val(info.bankBranch);
-            $("#bankBranch").val(info.bankBranch);
-            $("#bankBranch").val(info.bankBranch);
-            $("#bankBranch").val(info.bankBranch);
+            if (info.address != "") {
+                var address = info.address.provinceName + "-" + info.address.cityName + "-" + info.address.areaName;
+            }
+            $("#address").val(address);
 
+            if (index > 0) {
+                $("#recommend").attr("readonly", "readonly");
+                $("#node").attr("readonly", "readonly");
+                $("#selectResult").attr("disabled", "disabled");
+                $("#recommendWaring").hide();
+                $("#nodeWaring").hide();
+            } else {
+                $("#recommend").removeAttr("readonly");
+                $("#node").removeAttr("readonly");
+                $("#selectResult").removeAttr("readonly");
+            }
             $scope.index = index;
         }
 
@@ -178,8 +194,13 @@ define(['app'], function (app) {
             return false;
         }
 
+        /**
+         *
+         * @param elea 警告框
+         * @param eleb 输入框
+         * @param text 提示文字
+         */
         service.showError = function (elea, eleb, text) {
-            console.log(elea);
             elea.css('display', 'block');
             eleb.css({
                 'height': '34px',
@@ -187,6 +208,46 @@ define(['app'], function (app) {
             });
             elea.html("<i class='icon ion-android-warning'></i> " + text);
         }
+
+
+        // 验证推荐人流程
+        service.checkingRecommendedMan = function ($scope, ele, eleNode, userName) {
+            HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
+                if (e) {
+                    if (data != null) {
+                        service.showError(eleNode, ele, data);
+                    }
+                    return
+                }
+                //为user赋值
+                var user = $scope.userArray[0];
+                user.recommendP = userName;
+
+            });
+        }
+
+        //验证节点人流程
+        service.checkingNodeMan = function ($scope, ele, eleNode, userName) {
+            // 请求个人信息
+            // 判断 username  是否激活
+            HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
+                if (e) {
+                    if (data != null) {
+                        service.showError(eleNode, ele, data);
+                    }
+                    return;
+                }
+                //为user赋值
+                var user = $scope.userArray[0];
+                user.nodeP = userName;
+                /**
+                 * 让左右区域可以点击
+                 */
+                $scope.upGrade.click = true;
+
+            })
+        }
+
         return service;
 
 
