@@ -47,12 +47,12 @@
 
                             <div class="bhh_goodInfo">
                                 <div class="bbh_goodName">{{item.goods_name}}</div>
-                                <div class="bbh_goodPrice">单价&nbsp;:&nbsp;{{item.shop_price}}</div>
-                                <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;{{item.market_price}}</div>
+                                <div class="bbh_goodPrice">单价&nbsp;:&nbsp;<span class="price">{{item.shop_price}}</span></div>
+                                <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;<span class="money">{{goodMoney}}</span></div>
                             </div>
                             <div class="bhh_buyNumberBox">
-                                <div class="bhh_noGoods">商品库存不足</div>
-                                <input class="bhh_buyNumber" type="number" placeholder="购买数量">
+                                <input class="bhh_buyNumber" type="number" placeholder="购买数量" data-price="{{item.shop_price}}" data-number="{{item.goods_number}}" data-oldInput="0" ng-model="goods_number">
+                                <div class="bhh_noGoods" ng-if="( item.goods_number==0 ||((item.goods_number - goods_number) < 0))">商品库存不足</div>
                             </div>
                         </div>
                         <div class="bhh_goodItemBox1" id="bhh_goodItemBox1_{{item.goods_id}}" ng-if="item.is_product > 0">
