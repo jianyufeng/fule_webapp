@@ -37,7 +37,7 @@
                         <input class="bhh_search" type="text" placeholder="请输入要搜索的商品名称">
                     </div>
                     <div ng-repeat="item in goods">
-                        <div class="bhh_goodItemBox" ng-if="item.is_product ==0" ng-click="aa()">
+                        <div class="bhh_goodItemBox" ng-if="item.is_product == 0" >
                             <div class="bhh_goodImgBox">
                                 <img class="bhh_goodImg" alt="商品图"
                                      src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
@@ -52,8 +52,8 @@
                                 <input class="bhh_buyNumber" type="number" placeholder="购买数量">
                             </div>
                         </div>
-                        <div class="bhh_goodItemBox1" ng-if="item.is_product > 0">
-                            <div class="bbh_seeMoreGoodsBox" ng-click="seeMoreGoods($event,item.goods_id,$index)">
+                        <div class="bhh_goodItemBox1" id="bhh_goodItemBox1_{{item.goods_id}}" ng-if="item.is_product > 0">
+                            <div class="bbh_seeMoreGoodsBox" ng-click="seeMoreGoods(item.goods_id,$index,$event)">
                                 <div class="bhh_goodImgBox1">
                                     <img class="bhh_goodImg1" alt="商品图"
                                          src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
@@ -66,24 +66,33 @@
                                     查看更多属性
                                 </div>
                             </div>
-                            <div id="more_goodsBox_{{$index}}" style="display: none">
-                                <div class="more_goodsBox" ng-repeat="attrGood in attrGoods">
-                                    <div class="more_goodImgBox">
-                                    </div>
-                                    <div class="more_goodInfo">
-                                        <div class="more_goodName">
-                                            <div class="goodAttrNameBox">
-                                                {{attrGood.attr_info[0].attr_name}}&nbsp;:&nbsp;
-                                                <span class="goodAttrVal" ng-repeat="attrVal in attrGood.attr_info">{{attrVal.attr_value}}</span>
-                                            </div>
-                                        </div>
-                                        <div class="bbh_goodPrice">单价&nbsp;:&nbsp;{{attrGood.attr_info[0].attr_price}}</div>
-                                        <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;0</div>
-                                    </div>
-                                    <div class="more_buyNumberBox">
-                                        <input class="bhh_buyNumber" type="number" placeholder="购买数量">
-                                    </div>
-                                </div>
+                            <div id="more_goodsBox_{{item.goods_id}}">
+                                <!--<div class="more_goodsBox">-->
+                                    <!--<div class="more_goodImgBox">-->
+                                        <!--<div class="more_goodName">-->
+                                            <!--<div class="goodAttrNameBox">-->
+                                                <!--属性&nbsp;:&nbsp;-->
+                                                <!--<span class="goodAttrVal">值</span>-->
+                                            <!--</div>-->
+                                            <!--<div class="goodAttrNameBox">-->
+                                                <!--属性&nbsp;:&nbsp;-->
+                                                <!--<span class="goodAttrVal">值</span>-->
+                                            <!--</div>-->
+                                            <!--<div class="goodAttrNameBox">-->
+                                                <!--属性&nbsp;:&nbsp;-->
+                                                <!--<span class="goodAttrVal">值</span>-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="more_goodInfo">-->
+                                        <!--<div class="bbh_goodPrice">单价&nbsp;:&nbsp;255</div>-->
+                                        <!--<div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;0</div>-->
+                                    <!--</div>-->
+                                    <!--<div class="more_buyNumberBox">-->
+                                        <!--<input class="bhh_buyNumber" type="number" placeholder="购买数量">-->
+                                    <!--</div>-->
+                                    <!--<div style="clear: both"></div>-->
+                                <!--</div>-->
 
                             </div>
                         </div>

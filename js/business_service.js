@@ -50,6 +50,8 @@ define([
     '../service/my/myUpdateUserDataService',
     //获取购买喜乐之家列表
     '../service/my/myBuyHappyHomeServer',
+    //喜乐之家列表
+    '../service/my/myHappyHomeListService',
     //购买记录
     '../service/my/myHappyHomeLogsService',
     // 喜乐之家升级

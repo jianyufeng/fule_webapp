@@ -48,5 +48,39 @@ define(['animate'],function(){
         });
     };
 
+
+    myFun.happyHomeSideslipping = function(isOpen){
+
+        if(isOpen){
+            $(".historyBox").animate({"left":-100},200);
+            $(".deleteBox").animate({"right":0},200);
+        }else{
+            $(".historyBox").animate({"left":0},200);
+            $(".deleteBox").animate({"right":-110},200);
+        }
+    }
+
+    myFun.happyHomeIdxSideslipping = function(isOpen,idx){
+        if(isOpen){
+            $(".historyBox:eq("+idx+")").animate({"left":-100},200);
+            $(".deleteBox:eq("+idx+")").animate({"right":0},200);
+        }else{
+            $(".historyBox:eq("+idx+")").animate({"left":0},200);
+            $(".deleteBox:eq("+idx+")").animate({"right":-110},200);
+        }
+    }
+
+
+    myFun.deleteHappyHomeBtn = function(fn){
+
+        $(document).on("click",".deleteBox",function(){
+            var _idx = $(".deleteBox").index(this);
+            var _id = $(this).attr("id");
+            fn(_idx,_id);
+        });
+    }
+
+
+
     return myFun;
 });

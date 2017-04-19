@@ -12,18 +12,11 @@ define(['app','css! ../../../css/my/my-happyHomeList'], function (app) {
         });
 
 
-       //添加新地址
-        $(document).on("click",".newAddressBtn",function(){
-
-            $state.go("tab.cart_addAddress");
-
-        });
-
 
         //购买记录
        $scope.toPurchaseHistory  = function () {
 
-           alert("购买记录");
+           $state.go("tab.my-happyHomeLogs");
        };
 
 

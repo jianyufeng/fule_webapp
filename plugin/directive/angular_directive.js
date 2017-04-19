@@ -95,7 +95,7 @@ define(['app'],function(app){
 				onOverBackClick : "&onOverBackClick"
 			},  
 			template:[
-				'<div class="headerBox">',
+				'<div class="headerBox" style="z-index: 99999">',
 					'<div class="leftHeaderBox" ng-click="backBtn()"><img ng-show="{{isBack}}" src="./resource/images/icon/jiantou_left.png" style="width:11px;height:auto;" /></div>',
 					'<div class="middleHeaderBox">{{title}}</div>',
 					'<div class="rightHeaderBox" ng-click="rightIconClick()">{{righttitle}}<div class="iconHint" ng-show="{{ishint}}"></div></div>',
