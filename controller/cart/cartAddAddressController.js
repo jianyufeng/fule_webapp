@@ -1,6 +1,4 @@
-/**
- * Created by charles_xsx on 2017/3/30.
- */
+
 define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(app,cart_fun){
 
 
