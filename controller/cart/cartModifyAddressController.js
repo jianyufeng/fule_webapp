@@ -9,6 +9,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
     function ctrl($scope,cartModifyAddressService,POP,$state,$ionicHistory,$stateParams){
 
 
+        //$stateParams 框架传过来的参数综合对象
         $scope.$on('$ionicView.loaded',function () {
 
             //初始化
@@ -35,15 +36,14 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
         var province ; //省
         var city ; //市
         var area ; //地区
-        var PID = $stateParams.province     ; //省id
-        var CID = $stateParams.city    ; //市id
-        var AID = $stateParams.district     ; //地区id
+        var PID = $stateParams.province; //省id
+        var CID = $stateParams.city;     //市id
+        var AID = $stateParams.district; //地区id
 
 
         $(".selectAction").click(function(){
             new AddressSelect({
                 resultBtnClick : function(result){
-                    console.log(result);
 
                     province = result.provinceName;
                     PID      = result.pid;
