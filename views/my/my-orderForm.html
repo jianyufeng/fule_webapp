@@ -1,8 +1,11 @@
 <ion-view view-title="我的订单" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
+    <!--<navigation-bar title="我的订单"></navigation-bar>-->
+    <!--<ion-content screen-height="60">-->
+    <navigation-bar is-back="true" title="我的订单"></navigation-bar>
 
-    <ion-content>
-        <navigation-bar is-back="true" title="我的订单"></navigation-bar>
-        <ion-scroll style="width:100%;position:absolute;top:60px;">
+    <ion-content style="background-color: white ;top: 60px">
+
+        <!--<ion-scroll style="width:100%;position:absolute;top:60px;">-->
             <ion-scroll zooming="false" direction="x" scrollbar-x="true" style="width: 100%">
                 <div class="of_navBox">
                     <div class="of_nav">商城订单</div>
@@ -80,6 +83,6 @@
             <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
             <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="1%"
                                  immediate-check="false"></ion-infinite-scroll>
-        </ion-scroll>
+        <!--</ion-scroll>-->
     </ion-content>
 </ion-view>
