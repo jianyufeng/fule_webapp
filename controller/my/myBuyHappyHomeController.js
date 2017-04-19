@@ -6,14 +6,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
-            console.log("dsfs")
         });
-
-        $scope.aaa = function(){
-            alert(123);
-        }
-
-
         //// 接收传值页面传过来的地址内容
         //$rootScope.$on('changeAddressInfo', function(event, args) {
         //    console.log(args);
@@ -36,9 +29,28 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         //        }
         //    }
         //});
+        //初始化默认值
+        $scope.bugConfig = {
+            pay_amount:0,
+            goods_pice:0
+        };
+        //配置获取 实际支付金额
+        $scope.bugConfig.pay_amount = 0;
+        //配置获取 至少金额
+        $scope.bugConfig.goods_pice = 0;
+        //一共多少钱
+        $scope.totalMoney = 0;
+        //合计多少商品
+        $scope.totalGoodsNumber = 0;
+
+
+
+
 
         //获取购买喜乐之家的列表
         myBuyHappyHomeServer.getBuyGoodList($scope, POP);
+        //获取购买喜乐之家配置
+        myBuyHappyHomeServer.getBuyGoodConfig($scope, POP,7);
 
         //出现更多属性的商品
         $scope.seeMoreGoods = function (goodId) {

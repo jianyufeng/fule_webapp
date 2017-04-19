@@ -1,8 +1,7 @@
 <ion-view view-title="购买喜乐之家" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-    <navigation-bar title="购买喜乐之家"></navigation-bar>
-    <ion-content overflow-scroll="true" style="overflow: scroll" >
-        <navigation-bar is-back="true" title="购买喜乐之家"></navigation-bar>
-        <div class="bhh_Box" set-window-height-no-navigation="0">
+    <ion-content>
+        <navigation-bar is-back="true"  title="购买喜乐之家"></navigation-bar>
+        <div class="bhh_Box" new-set-window-height="0">
             <div class="bhh_buyListBox">
                 <ion-scroll style="width:100%;height: 100%" delegate-handle="bhh_scroll">
                     <div class="addressBox">
@@ -31,7 +30,7 @@
                         </div>
                     </div>
                     <div class="bhh_titleBox">喜乐之家商品列表</div>
-                    <div class="bhh_alert">您此笔订单金额实际支付金额为60000.00元,本次合计金额至少应为80000元</div>
+                    <div class="bhh_alert">您此笔订单金额实际支付金额为{{bugConfig.pay_amount}}元,本次合计金额至少应为{{bugConfig.goods_pice}}元</div>
 
                     <div class="bhh_searchBox">
                         <input class="bhh_search" type="text" placeholder="请输入要搜索的商品名称">
@@ -49,6 +48,7 @@
                                 <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;{{item.market_price}}</div>
                             </div>
                             <div class="bhh_buyNumberBox">
+                                <div class="bhh_noGoods">商品库存不足</div>
                                 <input class="bhh_buyNumber" type="number" placeholder="购买数量">
                             </div>
                         </div>
@@ -100,12 +100,12 @@
                 </ion-scroll>
             </div>
             <div class="bhh_addBuyAlertBox">
-                您还差 75270元 可以购买喜乐之家
+                您还差{{bugConfig.goods_pice - totalMoney}}元 可以购买喜乐之家
             </div>
             <div class="bbh_bottomSaveBox">
                 <div class="bhh_GoodsAndMoneyBox">
-                    共计&nbsp;:&nbsp;100000件商品&nbsp;&nbsp;
-                    合计&nbsp;:&nbsp;&yen;10000000
+                    共&nbsp;:&nbsp;<span>{{totalGoodsNumber}}</span>&nbsp;件商品&nbsp;&nbsp;
+                    合计&nbsp;:&nbsp;<span>&yen;&nbsp;{{totalMoney}}</span>
                 </div>
                 <div class="bhh_saveBox">
                     保存
