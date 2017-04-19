@@ -1,5 +1,8 @@
 .happyScroll {
+  width: 100%;
+  height: 100%;
   background: #fafafa;
+  margin-top: 60px;
 }
 .happyScroll .happyList {
   height: 150px;
@@ -10,4 +13,23 @@
   line-height: 150px;
   font-size: 18px;
   background-color: #eeeeee;
+}
+.happyScroll .nohappyhome {
+  width: 100%;
+  height: 260px;
+  z-index: 99999;
+  margin-top: 30%;
+  margin-left: 0px;
+  text-align: center;
+}
+.happyScroll .nohappyhome img {
+  width: 200px;
+  height: 200px;
+  margin-left: 10px;
+}
+.happyScroll .nohappyhome p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #999;
 }

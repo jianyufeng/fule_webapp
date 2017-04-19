@@ -7,8 +7,7 @@ define(['app'],function(app){
 
         /* 获取服务器数据*/
         /*网络获取用户信息*/
-        service.getHappyHomeList = function ($scope, POP) {
-
+        service.getHappyHomeList = function ($scope, POP,fn) {
 
             POP.StartLoading();
 
@@ -18,7 +17,7 @@ define(['app'],function(app){
 
                 POP.EndLoading();
 
-                  console.log(data);
+                  // console.log(data);
                 if (e) {
                     $.loadError(function () {
                         service.getHappyHomeList();
@@ -30,6 +29,7 @@ define(['app'],function(app){
                 $scope.$apply(function () {
                     //为html页面注入数据
                     $scope.happyHomeData= data.data;
+                    fn();
 
                 });
 

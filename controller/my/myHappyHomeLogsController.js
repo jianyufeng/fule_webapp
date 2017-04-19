@@ -50,7 +50,6 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
         my_fun.deleteHappyHomeBtn(function(_indx,_idNum){
 
            // 删除购买记录
-
             myHappyHomeLogsService.deleteHappyHomeLogs($scope,POP,_idNum,_indx);
 
 

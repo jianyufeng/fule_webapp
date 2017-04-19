@@ -181,11 +181,12 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 		})
 
-		//左滑动
+		//左滑动出现删除
 		$scope.swipLeft = function(idx,id){
 			cart_fun.cartIdxSideslipping(true,idx);
 		}
 
+		//右滑动还原
 		$scope.swipRight = function(idx,id){
 			cart_fun.cartIdxSideslipping(false,idx);
 		};

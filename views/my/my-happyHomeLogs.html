@@ -1,8 +1,12 @@
 <ion-view view-title="喜乐之家购买记录" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-    <navigation-bar title="购买记录"></navigation-bar>
     <ion-content>
         <navigation-bar is-back="true" title="购买记录" righttitle="{{righttitleValue}}" on-right-click="editLogs()"></navigation-bar>
-        <ion-scroll class="logsScroll"  set-window-height-no-navigation style="width:100%;">
+          <ion-scroll class="logsScroll"  set-window-height-no-navigation style="width:100%;">
+
+              <div class="noRecord">
+                  <img src="./resource/images/icon/shopping_bg.png">
+                  <p>没有收货地址，去送给谁呢~</p>
+              </div>
 
              <div class="logsItems"  ng-repeat="item in logsData">
                  <div class="userData">

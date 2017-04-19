@@ -6,7 +6,22 @@ define(['app','css! ../../../css/my/my-happyHomeList'], function (app) {
             /*获取数据*/
             $scope.righttitleValue = "购买记录";
             //初始化加载喜乐之家
-            myHappyHomeListService.getHappyHomeList($scope, POP);
+            myHappyHomeListService.getHappyHomeList($scope, POP,function () {
+
+                console.log($scope.happyHomeData.length);
+
+                //判断是否登录
+                if($scope.happyHomeData.length >0){
+                    $scope.righttitleValue = "购买记录";
+                    $(".noHappyHome").hide();
+                }else{
+                    $scope.righttitleValue = "";
+                    $(".noHappyHome").show();
+                    return;
+                }
+
+
+            });
 
 
         });
