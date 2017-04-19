@@ -1,229 +1,452 @@
 <ion-view view-title="喜乐之家" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-    <div class="popRegionBox" id="RegionBox" ng-click="closepop()">
-        <div class="selectBox">
-            <ion-radio id="abc1">左区</ion-radio>
-            <ion-radio id="abc2">右区</ion-radio>
-        </div>
-    </div>
+    <!--<div class="popRegionBox" id="RegionBox" ng-click="closepop()">-->
+        <!--<div class="selectBox">-->
+            <!--<ion-radio id="abc1">左区</ion-radio>-->
+            <!--<ion-radio id="abc2">右区</ion-radio>-->
+        <!--</div>-->
+    <!--</div>-->
 
 
-    <div class="popRegionBox" id="BankBox" ng-click="closepop()">
-        <div class="selectBox">
-            <ion-radio id="a">中国工商银行</ion-radio>
-            <ion-radio id="b">中国农业银行</ion-radio>
-            <ion-radio id="c">中国建设银行</ion-radio>
-        </div>
-    </div>
+    <!--<div class="popRegionBox" id="BankBox" ng-click="closepop()">-->
+        <!--<div class="selectBox">-->
+            <!--<ion-radio id="a">中国工商银行</ion-radio>-->
+            <!--<ion-radio id="b">中国农业银行</ion-radio>-->
+            <!--<ion-radio id="c">中国建设银行</ion-radio>-->
+        <!--</div>-->
+    <!--</div>-->
 
-    <ion-content>
-        <navigation-bar is-back="true" title="喜乐之家" righttitle="去购物"></navigation-bar>
-        <div class="title">
-            <ion-scroll zooming="false" direction="x" scrollbar-x="false">
-                <div class="of_navBox">
-                    <div class="of_nav" ng-repeat=" userName in userNameArray" ng-click="showUser($index)">
-                        {{userName}}
-                    </div>
+    <navigation-bar is-back="true" title="喜乐之家" righttitle="去购物"></navigation-bar>
+    <ion-content style="background:#ccc;top:60px;" set-window-height-no-navigation="" scroll="false" overflow-scroll="true">
+
+        <div class="title" style="width:100%;height:50px;background:red;overflow-x:scroll;">
+
+            <div class="of_navBox">
+                <div class="of_nav" ng-repeat=" userName in userNameArray" ng-click="showUser($index)">
+                {{userName}}
                 </div>
-            </ion-scroll>
+            </div>
+            <!--&lt;!&ndash;<ion-scroll zooming="false" direction="x" scrollbar-x="false">&ndash;&gt;-->
+            <!--<div class="of_navBox" style="width:500px;overflow:auto">-->
+                <!--<div class="of_nav" ng-repeat=" userName in userNameArray" ng-click="showUser($index)">-->
+                <!--{{userName}}-->
+                <!--</div>-->
+            <!--</div>-->
+           <!--// </ion-scroll>-->
+
         </div>
-        <div class="content">
-            <ion-scroll  style="width:100%;position:absolute;top:60px;">
+
+
+        <div class="content" style="background:orange;position:absolute;top:50px;left:0px;bottom:0px;right:0px;">
+
+
+            <ion-scroll style="width:100%;height:100%;position:absolute;background-color: white" has-bouncing="true">
                 <div class="contentBox">
-                    <!--推荐人-->
-                    <div class="rowBox" style="margin-top: 5px;height: 46px;">
-                        <div class="line"></div>
-                        <div class="leftBox">
-                            <span class="redStar">*</span>推荐人
-                        </div>
+                <!--推荐人-->
+                <div class="rowBox" style="margin-top: 5px;height: 46px;">
+                <div class="line"></div>
+                <div class="leftBox">
+                <span class="redStar">*</span>推荐人
+                </div>
 
-                        <div class="rightBox">
-                            <input id="recommend" class="inputBox" type="text" class="inputBox" placeholder="请输入推荐人"
-                                   ng-model="upGrade.recommendP">
-                            <div class="waring" id="recommendWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--节点人-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>节点人
-                        </div>
+                <div class="rightBox">
+                <input id="recommend" class="inputBox" type="text" class="inputBox" placeholder="请输入推荐人"
+                ng-model="upGrade.recommendP">
+                <div class="waring" id="recommendWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--节点人-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>节点人
+                </div>
 
-                        <div class="rightBox">
-                            <input id="node" class="inputBox" type="text" placeholder="请输入节点人"
-                                   ng-model="upGrade.nodeP">
-                            <div class="waring" id="nodeWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--区域-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>所在区域
-                        </div>
-                        <div class="rightBox" id="selectResultBox" ng-click="selectRegion()">
-                            <input id="selectResult" class="inputBox" type="text" readonly placeholder="---请选择---"
-                                   style="background-color: white" ng-model="upGrade.region"/>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--商城密码-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>商城密码
-                        </div>
-                        <div class="rightBox">
-                            <input id="mallPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">
-                            <div class="waring" id="mallPassWordWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--二级密码-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>二级密码
-                        </div>
+                <div class="rightBox">
+                <input id="node" class="inputBox" type="text" placeholder="请输入节点人"
+                ng-model="upGrade.nodeP">
+                <div class="waring" id="nodeWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--区域-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>所在区域
+                </div>
+                <div class="rightBox" id="selectResultBox" ng-click="selectRegion()">
+                <input id="selectResult" class="inputBox" type="text" readonly placeholder="---请选择---"
+                style="background-color: white" ng-model="upGrade.region"/>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--商城密码-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>商城密码
+                </div>
+                <div class="rightBox">
+                <input id="mallPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">
+                <div class="waring" id="mallPassWordWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--二级密码-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>二级密码
+                </div>
 
-                        <div class="rightBox">
-                            <input id="secondPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">
-                            <div class="waring" id="secondPassWordWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--支付密码-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>支付密码
-                        </div>
+                <div class="rightBox">
+                <input id="secondPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">
+                <div class="waring" id="secondPassWordWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--支付密码-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>支付密码
+                </div>
 
-                        <div class="rightBox">
-                            <input id="payPassWord" class="inputBox" type="number" placeholder="支持6位数字的组合"
-                            >
-                            <div class="waring" id="payPassWordWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--e-mail-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>e-mail
-                        </div>
-                        <div class="rightBox">
-                            <input id="Email" class="inputBox" type="text" placeholder="建议使用常用邮箱">
-                            <div class="waring" id="EmailWaring"><i class="icon ion-android-warning"></i>
-                                {{upGrade.EmailError}}
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--手机号-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>手机
-                        </div>
+                <div class="rightBox">
+                <input id="payPassWord" class="inputBox" type="number" placeholder="支持6位数字的组合"
+                >
+                <div class="waring" id="payPassWordWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--e-mail-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>e-mail
+                </div>
+                <div class="rightBox">
+                <input id="Email" class="inputBox" type="text" placeholder="建议使用常用邮箱">
+                <div class="waring" id="EmailWaring"><i class="icon ion-android-warning"></i>
+                {{upGrade.EmailError}}
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--手机号-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>手机
+                </div>
 
-                        <div class="rightBox">
-                            <input id="phone" class="inputBox" type="number" placeholder="建议使用常用手机号">
-                            <div class="waring" id="phoneWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--姓名-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>姓名
-                        </div>
-                        <div class="rightBox">
-                            <input id="name" class="inputBox" type="text" placeholder="请输入姓名">
-                            <div class="waring" id="nameWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--银行账号-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>银行账号
-                        </div>
-                        <div class="rightBox">
-                            <input id="bankCardN" class="inputBox" type="number" placeholder="请输入银行账号">
-                            <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--开户银行-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>开户银行
-                        </div>
-                        <div class="rightBox" ng-click="selectBank()">
-                            <input id="bank" class="inputBox" type="text" placeholder="--请选择银行--">
-                            <div class="waring" id="bankWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--身份证号-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>身份证号
-                        </div>
-                        <div class="rightBox">
-                            <input id="identityCardN" class="inputBox" type="text" placeholder="请输入身份证号">
-                            <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--开户姓名-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>开户姓名
-                        </div>
-                        <div class="rightBox">
-                            <input id="cardName" class="inputBox" type="text" placeholder="必须为中文">
-                            <div class="waring" id="cardNameWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--开户支行-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>开户支行
-                        </div>
-                        <div class="rightBox">
-                            <input id="bankBranch" class="inputBox" type="text" placeholder="xx区xx路xx支行">
-                            <div class="waring" id="bankBranchWaring"><i class="icon ion-android-warning"></i>
-                            </div>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <!--省市地区-->
-                    <div class="rowBox">
-                        <div class="leftBox">
-                            <span class="redStar">*</span>省市地区
-                        </div>
-                        <div class="rightBox">
-                            <input id="address" class="inputBox" type="text" placeholder="请选择地址" readonly
-                                   ng-click="chooseAddress()"
-                                   style="background-color: white"/>
-                        </div>
-                        <div class="line"></div>
-                    </div>
-                    <div class="rowBottomBox">
-                        <div class="submitButton" ng-click="submitUpGradeAction()">提交</div>
-                        <div class="resetButton" ng-click="reset()">重置</div>
-                    </div>
+                <div class="rightBox">
+                <input id="phone" class="inputBox" type="number" placeholder="建议使用常用手机号">
+                <div class="waring" id="phoneWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--姓名-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>姓名
+                </div>
+                <div class="rightBox">
+                <input id="name" class="inputBox" type="text" placeholder="请输入姓名">
+                <div class="waring" id="nameWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--银行账号-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>银行账号
+                </div>
+                <div class="rightBox">
+                <input id="bankCardN" class="inputBox" type="number" placeholder="请输入银行账号">
+                <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--开户银行-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>开户银行
+                </div>
+                <div class="rightBox" ng-click="selectBank()">
+                <input id="bank" class="inputBox" type="text" placeholder="--请选择银行--">
+                <div class="waring" id="bankWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--身份证号-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>身份证号
+                </div>
+                <div class="rightBox">
+                <input id="identityCardN" class="inputBox" type="text" placeholder="请输入身份证号">
+                <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--开户姓名-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>开户姓名
+                </div>
+                <div class="rightBox">
+                <input id="cardName" class="inputBox" type="text" placeholder="必须为中文">
+                <div class="waring" id="cardNameWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--开户支行-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>开户支行
+                </div>
+                <div class="rightBox">
+                <input id="bankBranch" class="inputBox" type="text" placeholder="xx区xx路xx支行">
+                <div class="waring" id="bankBranchWaring"><i class="icon ion-android-warning"></i>
+                </div>
+                </div>
+                <div class="line"></div>
+                </div>
+                <!--省市地区-->
+                <div class="rowBox">
+                <div class="leftBox">
+                <span class="redStar">*</span>省市地区
+                </div>
+                <div class="rightBox">
+                <input id="address" class="inputBox" type="text" placeholder="请选择地址" readonly
+                ng-click="chooseAddress()"
+                style="background-color: white"/>
+                </div>
+                <div class="line"></div>
+                </div>
+                <div class="rowBottomBox">
+                <div class="submitButton" ng-click="submitUpGradeAction()">提交</div>
+                <div class="resetButton" ng-click="reset()">重置</div>
+                </div>
                 </div>
             </ion-scroll>
+
+
         </div>
+
+        <!--<div class="title" style="">-->
+            <!--<ion-scroll zooming="false" direction="x" scrollbar-x="false">-->
+                <!--<div class="of_navBox">-->
+                    <!--<div class="of_nav" ng-repeat=" userName in userNameArray" ng-click="showUser($index)">-->
+                        <!--{{userName}}-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</ion-scroll>-->
+        <!--</div>-->
+        <!--<div class="content" style="height:200px;">-->
+            <!--<ion-scroll style="width:100%;position:absolute;background-color: white">-->
+                <!--<div class="contentBox">-->
+                    <!--&lt;!&ndash;推荐人&ndash;&gt;-->
+                    <!--<div class="rowBox" style="margin-top: 5px;height: 46px;">-->
+                        <!--<div class="line"></div>-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>推荐人-->
+                        <!--</div>-->
+
+                        <!--<div class="rightBox">-->
+                            <!--<input id="recommend" class="inputBox" type="text" class="inputBox" placeholder="请输入推荐人"-->
+                                   <!--ng-model="upGrade.recommendP">-->
+                            <!--<div class="waring" id="recommendWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;节点人&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>节点人-->
+                        <!--</div>-->
+
+                        <!--<div class="rightBox">-->
+                            <!--<input id="node" class="inputBox" type="text" placeholder="请输入节点人"-->
+                                   <!--ng-model="upGrade.nodeP">-->
+                            <!--<div class="waring" id="nodeWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;区域&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>所在区域-->
+                        <!--</div>-->
+                        <!--<div class="rightBox" id="selectResultBox" ng-click="selectRegion()">-->
+                            <!--<input id="selectResult" class="inputBox" type="text" readonly placeholder="-&#45;&#45;请选择-&#45;&#45;"-->
+                                   <!--style="background-color: white" ng-model="upGrade.region"/>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;商城密码&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>商城密码-->
+                        <!--</div>-->
+                        <!--<div class="rightBox">-->
+                            <!--<input id="mallPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">-->
+                            <!--<div class="waring" id="mallPassWordWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;二级密码&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>二级密码-->
+                        <!--</div>-->
+
+                        <!--<div class="rightBox">-->
+                            <!--<input id="secondPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">-->
+                            <!--<div class="waring" id="secondPassWordWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;支付密码&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>支付密码-->
+                        <!--</div>-->
+
+                        <!--<div class="rightBox">-->
+                            <!--<input id="payPassWord" class="inputBox" type="number" placeholder="支持6位数字的组合"-->
+                            <!--&gt;-->
+                            <!--<div class="waring" id="payPassWordWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;e-mail&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>e-mail-->
+                        <!--</div>-->
+                        <!--<div class="rightBox">-->
+                            <!--<input id="Email" class="inputBox" type="text" placeholder="建议使用常用邮箱">-->
+                            <!--<div class="waring" id="EmailWaring"><i class="icon ion-android-warning"></i>-->
+                                <!--{{upGrade.EmailError}}-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;手机号&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>手机-->
+                        <!--</div>-->
+
+                        <!--<div class="rightBox">-->
+                            <!--<input id="phone" class="inputBox" type="number" placeholder="建议使用常用手机号">-->
+                            <!--<div class="waring" id="phoneWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;姓名&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>姓名-->
+                        <!--</div>-->
+                        <!--<div class="rightBox">-->
+                            <!--<input id="name" class="inputBox" type="text" placeholder="请输入姓名">-->
+                            <!--<div class="waring" id="nameWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;银行账号&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>银行账号-->
+                        <!--</div>-->
+                        <!--<div class="rightBox">-->
+                            <!--<input id="bankCardN" class="inputBox" type="number" placeholder="请输入银行账号">-->
+                            <!--<div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;开户银行&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>开户银行-->
+                        <!--</div>-->
+                        <!--<div class="rightBox" ng-click="selectBank()">-->
+                            <!--<input id="bank" class="inputBox" type="text" placeholder="&#45;&#45;请选择银行&#45;&#45;">-->
+                            <!--<div class="waring" id="bankWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;身份证号&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>身份证号-->
+                        <!--</div>-->
+                        <!--<div class="rightBox">-->
+                            <!--<input id="identityCardN" class="inputBox" type="text" placeholder="请输入身份证号">-->
+                            <!--<div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;开户姓名&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>开户姓名-->
+                        <!--</div>-->
+                        <!--<div class="rightBox">-->
+                            <!--<input id="cardName" class="inputBox" type="text" placeholder="必须为中文">-->
+                            <!--<div class="waring" id="cardNameWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;开户支行&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>开户支行-->
+                        <!--</div>-->
+                        <!--<div class="rightBox">-->
+                            <!--<input id="bankBranch" class="inputBox" type="text" placeholder="xx区xx路xx支行">-->
+                            <!--<div class="waring" id="bankBranchWaring"><i class="icon ion-android-warning"></i>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;省市地区&ndash;&gt;-->
+                    <!--<div class="rowBox">-->
+                        <!--<div class="leftBox">-->
+                            <!--<span class="redStar">*</span>省市地区-->
+                        <!--</div>-->
+                        <!--<div class="rightBox">-->
+                            <!--<input id="address" class="inputBox" type="text" placeholder="请选择地址" readonly-->
+                                   <!--ng-click="chooseAddress()"-->
+                                   <!--style="background-color: white"/>-->
+                        <!--</div>-->
+                        <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--<div class="rowBottomBox">-->
+                        <!--<div class="submitButton" ng-click="submitUpGradeAction()">提交</div>-->
+                        <!--<div class="resetButton" ng-click="reset()">重置</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</ion-scroll>-->
+        <!--</div>-->
     </ion-content>
 </ion-view>
