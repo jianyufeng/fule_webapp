@@ -2,7 +2,7 @@
 /**
  * Created by charles_xsx on 2017/3/30.
  */
-define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
+define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
 
     function ctrl($rootScope,$scope,myHappyHomeAddressService,POP,$state,$ionicHistory){
 
@@ -12,11 +12,11 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
         $scope.$on('$ionicView.beforeEnter',function () {
 
             //初始化
-            cartManageAddressService.getShippingAddressList($scope,POP,function () {
+            myHappyHomeAddressService.getHappyHomeAddressList($scope,POP,function () {
 
-                console.log("就是这里"+ $scope.historyAddress.length);
+                console.log("就是这里"+ $scope.happyHomeAddress.length);
                 //判断是否登录
-                if($scope.historyAddress.length > 0){
+                if($scope.happyHomeAddress.length > 0){
                     $(".noAddress").hide();
                     $scope.righttitleValue = "管理";
 
@@ -30,7 +30,6 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
             $(".manageContent").css("bottom","0px");
 
 
-
         });
 
 
@@ -39,8 +38,6 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
         $scope.$on('$ionicView.beforeLeave',function () {
 
             editing = false;
-
-
 
         });
 
@@ -73,14 +70,13 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
         //选择收货地址
         $(document).on("click",".shippingAddressItem",function(){
 
-
             if (!editing){
 
                 //选择当前点击的收货地址
                 var _idx = $(".shippingAddressItem").index(this);
 
                 //将数组对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
-                $rootScope.$broadcast('changeAddressInfo', { "address" : $scope.historyAddress[_idx]});
+                $rootScope.$broadcast('changeAddress', { "address" : $scope.happyHomeAddress[_idx]});
 
                 //成功直接返回上一层
                 $ionicHistory.goBack();
@@ -99,7 +95,7 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
             var _idx = $(".selectDefaultBox").index(this);
 
 
-            var addressID =  $scope.historyAddress[_idx].address_id;
+            var addressID =  $scope.happyHomeAddress[_idx].address_id;
             var params = {
 
                 user_id : info.user_id,
@@ -108,7 +104,7 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
             }
 
 
-            if (addressID == $scope.defaultAddressID){
+            if (addressID == $scope.defaultHomeAddressID){
 
                 POP.Hint("已经是默认地址了");
                 return;
@@ -116,9 +112,9 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
             }
 
 
-            cartManageAddressService.setDefaultAddress($scope,params,POP,function(){
+            myHappyHomeAddressService.setDefaultAddress($scope,params,POP,function(){
 
-                $scope.defaultAddressID = addressID;
+                $scope.defaultHomeAddressID = addressID;
 
                 $(".defaultAddress").find("span").text("设为默认");
                 _this.find(".defaultAddress span").text("默认地址");
@@ -142,7 +138,7 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
         $(document).on("click",".editBtnBox",function(){
 
             var _idx = $(".editBtnBox").index(this);
-            var RAddress =  $scope.historyAddress[_idx];
+            var RAddress =  $scope.happyHomeAddress[_idx];
 
             console.log("点击编辑的当前地址" + RAddress);
             $state.go("tab.cart_modifyAddress",{  address:RAddress.address,
@@ -175,14 +171,14 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
 
             var _idx = $(".deleteBtnBox").index(_this);
 
-            var rrAddress =  $scope.historyAddress[_idx];
+            var rrAddress =  $scope.happyHomeAddress[_idx];
 
             var PARAMS = {
                 user_id :rrAddress.user_id,
                 address_id : rrAddress.address_id
             }
 
-            if (rrAddress.address_id == $scope.defaultAddressID){
+            if (rrAddress.address_id == $scope.defaultHomeAddressID){
 
                 POP.Hint("不能删除默认地址");
                 return;
@@ -192,7 +188,7 @@ define(['app','css!../../../css/my/my_happyHomeAddress'],function(app,my_fun){
 
             POP.Confirm("您确认要删除掉当前地址?",function () {
 
-                cartManageAddressService.deleteAddress($scope,rrAddress,POP,_idx,function (empty) {
+                myHappyHomeAddressService.deleteAddress($scope,rrAddress,POP,_idx,function (empty) {
 
                     //将对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
                     $rootScope.$broadcast('deleteAddress', { "address" : empty,"address_id":rrAddress.address_id});

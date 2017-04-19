@@ -13,7 +13,7 @@
 
                 <ion-scroll class="manageScroll">
 
-                    <div class="editBox" ng-repeat="addressItem in historyAddress">
+                    <div class="editBox" ng-repeat="addressItem in happyHomeAddress">
 
                         <div class="shippingAddressItem" >
 
@@ -23,8 +23,8 @@
                             </div>
 
                             <div class="shippingAddressContent">
-                                <span class="default" ng-if="addressItem.address_id == defaultAddressID">[默认地址] </span>
-                                <span class="default" ng-if="addressItem.address_id != defaultAddressID" style="display: none">[默认地址] </span>
+                                <span class="default" ng-if="addressItem.address_id == defaultHomeAddressID">[默认地址] </span>
+                                <span class="default" ng-if="addressItem.address_id != defaultHomeAddressID" style="display: none">[默认地址] </span>
                                 {{addressItem.province_name+"省" + addressItem.city_name +"市"+ addressItem.district_name + addressItem.address}}
                             </div>
 
@@ -34,18 +34,18 @@
 
                             <div class="selectDefaultBox">
 
-                                <div class="selectBtn" ng-if="addressItem.address_id == defaultAddressID">
+                                <div class="selectBtn" ng-if="addressItem.address_id == defaultHomeAddressID">
                                     <img class="imgSelect" src="resource/images/icon/shoppingcar_xuanz.png">
                                 </div>
-                                <div class="selectBtn" ng-if="addressItem.address_id != defaultAddressID">
+                                <div class="selectBtn" ng-if="addressItem.address_id != defaultHomeAddressID">
                                     <img class="imgSelect" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
                                 </div>
 
 
-                                <div class="defaultAddress" ng-if="addressItem.address_id == defaultAddressID">
+                                <div class="defaultAddress" ng-if="addressItem.address_id == defaultHomeAddressID">
                                     <span style="color:#BB55A0">默认地址</span>
                                 </div>
-                                <div class="defaultAddress"  ng-if="addressItem.address_id != defaultAddressID">
+                                <div class="defaultAddress"  ng-if="addressItem.address_id != defaultHomeAddressID">
                                     <span style="color:#BCBCBC">设为默认</span>
                                 </div>
 

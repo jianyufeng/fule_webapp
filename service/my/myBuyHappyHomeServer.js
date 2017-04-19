@@ -5,17 +5,41 @@ define(['app'], function (app) {
         var service = {};
 
         /*喜乐之家商品列表 信息*/
+        //获取用户的账号
+        var info = User.getInfo();
         service.getBuyGoodList = function ($scope, POP) {
             POP.StartLoading();
-            //获取用户的账号
-            HTTP.get(API.My.buyGoodsList, {}, function (e, data) {
+            //获取用户的账号                 /user_id/167642/user_name/app001
+            HTTP.get(API.My.buyGoodsList + "/user_id/"+info.user_id + "/user_name/" + info.user_name, {}, function (e, data) {
                     POP.EndLoading();
+                console.log(data);
                     if (e) {
                         POP.Hint("加载失败");
                         return;
                     }
+
+                console.log(data);
+
+                var nowAddress;
+                if(data.address != undefined && data.address.length > 0){
+                    for(var i=0;i<data.address.length;i++){
+                        if(data.address[i].is_default == 1){
+                            nowAddress = data.address[i];
+                            break;
+                        }else {
+                            nowAddress = data.address[0];
+                        }
+                    }
+
+                }else{
+                    nowAddress = "NO";
+
+                }
+
+
                     $scope.$apply(function () {
                         $scope.goods = data.goodsInfo.data;
+                        $scope.happyAddress = nowAddress;
                     })
                 }
             );

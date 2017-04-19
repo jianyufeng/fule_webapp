@@ -1,9 +1,3 @@
-/**
- * Created by charles_xsx on 2017/4/19.
- */
-/**
- * Created by charles_xsx on 2017/3/30.
- */
 define(['app'],function(app){
 
     app.factory("myHappyHomeAddressService",function(){
@@ -11,7 +5,7 @@ define(['app'],function(app){
         var service = {};
 
         /* 获取服务器数据*/
-        service.getShippingAddressList = function ($scope, POP ,fn) {
+        service.getHappyHomeAddressList = function ($scope, POP ,fn) {
 
             POP.StartLoading();
 
@@ -24,20 +18,18 @@ define(['app'],function(app){
                 console.log(data);
                 if (e) {
                     $.loadError(function () {
-                        service.getShippingAddressList();
+                        service.getHappyHomeAddressList();
                     });
                     return;
                 }
 
-
                 $scope.$apply(function () {
                     //为html页面注入数据
-                    $scope.historyAddress = data.AddressList;
-                    $scope.defaultAddressID = data.defaultAddress;
+                    $scope.happyHomeAddress = data.AddressList;
+                    $scope.defaultHomeAddressID = data.defaultAddress;
                     fn();//回调函数
 
                 });
-
 
             });
 

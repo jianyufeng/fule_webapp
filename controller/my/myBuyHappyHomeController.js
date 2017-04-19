@@ -6,29 +6,37 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
+
+            //获取购买喜乐之家的列表
+            myBuyHappyHomeServer.getBuyGoodList($scope, POP);
+            //获取购买喜乐之家配置
+            myBuyHappyHomeServer.getBuyGoodConfig($scope, POP,7);
+
         });
-        //// 接收传值页面传过来的地址内容
-        //$rootScope.$on('changeAddressInfo', function(event, args) {
-        //    console.log(args);
-        //    //将新的值重新注入页面
-        //    $scope.$apply(function(){
-        //        $scope.address = args.address;
-        //    })
-        //
-        //});
-        //// 接收传值页面传过来的地址内容
-        //$rootScope.$on('deleteAddress', function(event, args) {
-        //    console.log(args);
-        //    if (args.address == "NO"){
-        //        $scope.address = "NO";
-        //    }else {
-        //        if ($scope.address.address_id == args.address_id){
-        //
-        //cartOrderService.getOrderInfo($scope, POP);
-        //
-        //        }
-        //    }
-        //});
+
+
+        // 接收传值页面传过来的地址内容
+        $rootScope.$on('changeAddress', function(event, args) {
+           console.log(args);
+           //将新的值重新注入页面
+           $scope.$apply(function(){
+               $scope.happyAddress = args.address;
+           })
+
+        });
+        // 接收传值页面传过来的地址内容
+        $rootScope.$on('deleteAddress', function(event, args) {
+           console.log(args);
+           if (args.address == "NO"){
+               $scope.happyAddress = "NO";
+           }else {
+               if ($scope.happyAddress.address_id == args.address_id){
+
+                   myBuyHappyHomeServer.getBuyGoodList($scope, POP);
+
+               }
+           }
+        });
         //初始化默认值
         $scope.bugConfig = {
             pay_amount:0,
@@ -43,14 +51,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         //合计多少商品
         $scope.totalGoodsNumber = 0;
 
-
-
-
-
-        //获取购买喜乐之家的列表
-        myBuyHappyHomeServer.getBuyGoodList($scope, POP);
-        //获取购买喜乐之家配置
-        myBuyHappyHomeServer.getBuyGoodConfig($scope, POP,7);
 
         //出现更多属性的商品
         $scope.seeMoreGoods = function (goodId) {

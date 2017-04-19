@@ -4,21 +4,23 @@
         <div class="bhh_Box" new-set-window-height="0">
             <div class="bhh_buyListBox">
                 <ion-scroll style="width:100%;height: 100%" delegate-handle="bhh_scroll">
+
+                  <a href="#/tab/my-happyHomeAddress">
                     <div class="addressBox">
-                        <div class="noAddressContent" ng-if="address == 'NO'" style="color: #BCBCBC">
+                        <div class="noAddressContent" ng-if="happyAddress == 'NO'" style="color: #BCBCBC">
                             <span>+ 请添加收货地址</span>
                         </div>
-                        <div class="addressContent" ng-if="address != 'NO'" style="color: black">
+                        <div class="addressContent" ng-if="happyAddress != 'NO'" style="color: black">
                             <div class="locationImg">
                                 <img src="resource/images/icon/address_icon.png"/>
                             </div>
                             <div class="addressDetail">
                                 <div class="personalInfo">
-                                    <div class="personName"><span>收货人:{{address.consignee}}</span></div>
+                                    <div class="personName ellipsis"><span>收货人:{{happyAddress.consignee}}</span></div>
                                     <div class="personPhone">
-                                        <span>{{address.mobile?address.mobile:address.tel}}&nbsp;&nbsp;</span></div>
+                                        <span>{{happyAddress.mobile?happyAddress.mobile:happyAddress.tel}}&nbsp;&nbsp;</span></div>
                                 </div>
-                                <div class="addressInfo"><span>收货地址 : {{address.province_name+"省"+ address.city_name + address.district_name + address.address}} </span>
+                                <div class="addressInfo"><span>收货地址 : {{happyAddress.province_name+"省"+ happyAddress.city_name + happyAddress.district_name + happyAddress.address}} </span>
                                 </div>
                             </div>
                             <div class="nextBtn">
@@ -29,6 +31,7 @@
                             <img src="resource/images/icon/address.png">
                         </div>
                     </div>
+                   </a>
                     <div class="bhh_titleBox">喜乐之家商品列表</div>
                     <div class="bhh_alert">您此笔订单金额实际支付金额为{{bugConfig.pay_amount}}元,本次合计金额至少应为{{bugConfig.goods_pice}}元</div>
 
