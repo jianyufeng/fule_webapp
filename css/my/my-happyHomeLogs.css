@@ -2,6 +2,7 @@
   width: 100%;
   height: auto;
   background: #ffffff;
+  margin-top: 60px;
 }
 .logsScroll .logsItems {
   height: 280px;

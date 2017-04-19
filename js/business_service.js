@@ -54,6 +54,8 @@ define([
     '../service/my/myHappyHomeListService',
     //购买记录
     '../service/my/myHappyHomeLogsService',
+    //喜乐之家地址
+    '../service/my/myHappyHomeAddressService',
     // 喜乐之家升级
     '../service/my/myHappyHomeUpgradeService',
     // 商品详情页

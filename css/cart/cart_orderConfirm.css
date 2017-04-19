@@ -1,6 +1,7 @@
 .orderBox {
   width: 100%;
   position: relative;
+  margin-top: 60px;
 }
 .orderBox .orderDetailBox {
   width: 100%;
