@@ -1,8 +1,6 @@
 <ion-view view-title="购物车" hide-nav-bar="{{isNavShow}}">
-
+	 <navigation-bar title="购物车" righttitle="{{righttitleValue}}" on-right-click="editCart()"></navigation-bar>
 	<ion-content>
-		<navigation-bar title="购物车" righttitle="{{righttitleValue}}" on-right-click="editCart()"></navigation-bar>
-
 		<div class="noCartGoodBox">
 			<div class="isLoginBox">现在&nbsp;&nbsp;<a href="./login/login.html"><button>登录</button></a>&nbsp;&nbsp; , 您的商品将永久保存在"购物车"中</div>
 			<div class="noCartMain">
@@ -12,7 +10,7 @@
 			</div>
 		</div>
 
-		<div class="cartBox" screen-height="-10">
+		<div class="cartBox" screen-height="">
 
 			<div class="buyerListBox">
 

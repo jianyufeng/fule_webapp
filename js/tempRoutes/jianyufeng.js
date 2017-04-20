@@ -300,7 +300,20 @@ define(['app'], function (app) {
                 }
             })
 
+            /*我的 喜乐之家收货地址 路由*/
+            .state('tab.my-happyHomeAddress', {
+                url: '/my-happyHomeAddress',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-happyHomeAddress.html?_r=" + Math.random(),
+                        controller: 'myHappyHomeAddressController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myHappyHomeAddressController')
+                        }
+                    }
 
+                }
+            })
 
 
 

@@ -1,7 +1,6 @@
 <ion-view view-title="确认订单" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-
+    <navigation-bar title="确认订单" is-back="true"></navigation-bar>
     <ion-content>
-        <navigation-bar title="确认订单" is-back="true"></navigation-bar>
 
         <div class="orderBox" set-window-height-no-navigation="">
 
@@ -24,7 +23,7 @@
                             <div class="addressDetail" >
 
                                 <div class="personalInfo">
-                                     <div class="personName"><span>收货人:{{address.consignee}}</span></div>
+                                     <div class="personName ellipsis"><span>收货人:{{address.consignee}}</span></div>
                                      <div class="personPhone"><span>{{address.mobile?address.mobile:address.tel}}&nbsp;&nbsp;</span></div>
                                 </div>
                             <div class="addressInfo"> <span>收货地址 : {{address.province_name+"省"+ address.city_name + address.district_name + address.address}} </span></div>

@@ -1,6 +1,7 @@
 .orderBox {
   width: 100%;
   position: relative;
+  margin-top: 60px;
 }
 .orderBox .orderDetailBox {
   width: 100%;
@@ -85,9 +86,9 @@
   line-height: 54px;
 }
 .orderBox .orderDetailBox .scrollV .addressBox .addressContent .addressDetail .personalInfo .personPhone {
-  width: 50%;
+  width: 40%;
   height: 54px;
-  float: left;
+  float: right;
   line-height: 54px;
   text-align: right;
 }
