@@ -2,12 +2,11 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
 
     function ctrl($scope, myService, POP, $state) {
         console.log("我的界面控制器...");
-
-
         var isLogin = User.isLogin();
         /*加载界面动画*/
         my_fun.animation();
-
+        $scope.garde = 0;
+        $scope.registerGrade = 0;
         //ionicView的生命周期的事件调用在每个ionicView的controller中使用$scope.$on('$ionicView.enter', function() {});
         $scope.$on('$ionicView.loaded', function () {
         });
@@ -66,20 +65,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
 
         // 跳转到升级界面
         $scope.upGrade = function () {
-            // 获取gradeButton上的字
-            var userLv = $("#gradeButton").text();
-            var garde = null;
-            if (userLv == "一键升级") {
-                garde = 1;
-            } else if (userLv == "升级为志愿者") {
-                garde = 2;
-            } else if (userLv == "升级为VIP") {
-                garde = 3;
-            } else if (userLv == "升级为批发") {
-                garde = 4;
-            }
-            myService.upGrade($scope, $state, garde);
-
+            myService.upGrade($scope, $state,POP);
         };
 
         ////上拉弹出框

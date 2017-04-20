@@ -25,6 +25,7 @@ define(['app'], function (app) {
                     return;
                 }
                 var userList = data.data.xlzj_user;
+                $scope.id = data.data.id;
                 var userNameArray = userList.split(",");
                 $scope.$apply(function () {
                     $scope.userNameArray = userNameArray;
@@ -170,6 +171,7 @@ define(['app'], function (app) {
                 $("#selectResult").attr("disabled", "disabled");
                 $("#recommendWaring").hide();
                 $("#nodeWaring").hide();
+                $scope.upGrade.click = false;
             } else {
                 $("#recommend").removeAttr("readonly");
                 $("#node").removeAttr("readonly");
@@ -248,6 +250,52 @@ define(['app'], function (app) {
             })
         }
 
+        // 查询节点是否可用
+        service.searchUserDetail = function (leftOrRight, $scope, POP) {
+            var userName = $scope.upGrade.nodeP;
+            POP.StartLoading();
+            HTTP.get(API.My.searchUserDetail + '/user_name/' + userName, {}, function (e, data) {
+                POP.EndLoading();
+                console.log(e);
+                console.log(data);
+                if (e) {
+                    return;
+                }
+                if (data != null) {
+                    var left = data.LEFT_REGION_ID;
+                    var right = data.RIGHT_REGION_ID;
+                    if (leftOrRight == "左区") {
+                        if (left != 0) {
+                            alert("左区不可用");
+                        }
+                    } else {
+                        if (right != 0) {
+                            alert("右区不可用");
+                        }
+                    }
+
+                }
+            });
+
+
+        }
+
+        /**
+         * 验证身份证号是否可用
+         * @param str
+         */
+        service.testIdentityCardN = function (str, POP) {
+            POP.StartLoading();
+            HTTP.get(API.My.verifyIdentityCardN + "/id_card/" + str, {}, function (e, data) {
+                POP.EndLoading();
+                console.log(e);
+                console.log(data);
+                if (e) {
+                    $("#identityCardNWaring").html("<i class='icon ion-android-warning'></i>" + "该身份证不可用");
+                }
+            })
+
+        }
         return service;
 
 

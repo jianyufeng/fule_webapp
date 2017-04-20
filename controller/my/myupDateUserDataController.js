@@ -4,12 +4,12 @@
  */
 
 define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData", 'addressSelect'], function (app, identityCardTest) {
-    function ctrl($scope, myUpdateUserDataService, POP, $stateParams, $compile) {
+    function ctrl($scope, myUpdateUserDataService, POP, $stateParams, $state, $compile) {
 
         $scope.upGrade = {};
         $scope.upGrade.click = false;
         $scope.upGrade.address = {};
-
+        var myGrade;
         function showEmptyError(str, elea, eleb) {
             if (str == null || str == "") {
                 showError(elea, eleb, "内容不能为空");
@@ -24,8 +24,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                 'height': '34px',
                 'line-height': '34px',
             });
-            //console.log("aaaa" + elea.text());
-            elea.append(text);
+            elea.html("<i class='icon ion-android-warning'></i>" + text);
         }
 
         function disappearError(eleInput, eleError) {
@@ -38,7 +37,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
 
         $scope.$on('$ionicView.loaded', function () {
             // 页面传值过来的要升级的级别
-            var myGrade = $stateParams.grade;
+            myGrade = $stateParams.grade;
 
         });
         $('#abc1').click(function () {
@@ -62,9 +61,8 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             if (showEmptyError(name, $("#recommendWaring"), $("#recommend"))) {
                 return;
             }
-            console.log("aaaaaa");
             // 验证推荐人
-            myUpdateUserDataService.checkingRecommendedMan($scope, $("#recommend"), $("#recommendWaring"), $("#recommend").val());
+            myUpdateUserDataService.checkingRecommendedMan($scope, $("#recommend"), $("#recommendWaring"), $("#recommend").val(), POP);
         }
 
         // 节点人失去焦点事件
@@ -78,7 +76,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                 return;
             }
             // 验证节点人
-            myUpdateUserDataService.checkingNodeMan($scope, $("#node"), $("#nodeWaring"), $("#node").val());
+            myUpdateUserDataService.checkingNodeMan($scope, $("#node"), $("#nodeWaring"), $("#node").val(), POP);
         }
 
 
@@ -88,7 +86,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             text = _.trim(text);
             if (text != "") {
                 // 查找节点人
-                myUpdateUserDataService.searchUserDetail($(this).val(), $scope);
+                myUpdateUserDataService.searchUserDetail($(this).val(), $scope, POP);
             }
         });
 
@@ -234,8 +232,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             checkBranchBank();
             checkIdentityCardN();
 
-
-            myUpdateUserDataService.upGradeAction($scope, POP, myGrade);
+            myUpdateUserDataService.upGradeAction($scope, POP, myGrade, $state);
         }
 
 
@@ -271,7 +268,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP', '$stateParams', '$compile'];
+    ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP', '$stateParams', '$state', '$compile',];
 
     /*动态注册控制器*/
     app.registerController("myUpdateUserDataController", ctrl);

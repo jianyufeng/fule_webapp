@@ -6,13 +6,36 @@
 define([], function () {
     var identityCardTest = {}
     identityCardTest.test = function (num) {
-        num = num.toUpperCase();
+        // var num= "C668668(9)";
+        var num = num.toUpperCase();
         //身份证号码为15位或者18位，15位时全为数字，18位前17位为数字，最后一位是校验位，可能为数字或字符X。
         // 香港省份证验证   ^[A-Z]{1}\d{6}\([A,0-9]{1}\)$
         // 台湾省份证验证   ^[A-Z]{1}[1,2]\d{8}$
-        if (!(/^(\d{15})$|^(\d{17}([0-9]|X))$|^[A-Z]{1}\d{6}\([A,0-9]{1}\)$ |^[A-Z]{1}[1,2]\d{8}$/.test(num))) {
-            //alert('输入的身份证号长度不对，或者号码不符合规定！\\n15位号码应全为数字，18位号码末位可以为数字或X。');
+        // if (!/^(\d{15})$|^(\d{17}([0-9]|X))$|^[A-Z]{1}[0-9]{6}\([A,0-9]{1}\)$ |^[A-Z]{1}[1,2]\d{8}$/.test(num)) {
+        //     POP.warning('输入的身份证号长度不对，或者号码不符合规定！\\n15位号码应全为数字，18位号码末位可以为数字或X。');
+        //     return false;
+        // }
+
+        if(!/^\d{15}$/){
+
+            POP.warning('输入的身份证号长度不对，或者号码不符合规定！\\n15位号码应全为数字，18位号码末位可以为数字或X。');
             return false;
+
+        }else if(!/^\d{17}([0-9]|X)$/){
+
+            POP.warning('输入的身份证号长度不对，或者号码不符合规定！\\n15位号码应全为数字，18位号码末位可以为数字或X。');
+            return false;
+
+        }else if(!/^[A-Z]{1}[0-9]{6}\([A,0-9]{1}\)$/){
+
+            POP.warning('输入的身份证号长度不对，或者号码不符合规定！\\n15位号码应全为数字，18位号码末位可以为数字或X。');
+            return false;
+
+        }else if(!/^[A-Z]{1}[1,2]\d{8}$/){
+
+            POP.warning('输入的身份证号长度不对，或者号码不符合规定！\\n15位号码应全为数字，18位号码末位可以为数字或X。');
+            return false;
+
         }
         //校验位按照ISO 7064:1983.MOD 11-2的规定生成，X可以认为是数字10。
         //下面分别分析出生日期和校验位
@@ -74,8 +97,10 @@ define([], function () {
                 return true;
             }
         }
+
         // 验证台湾的身份证号
         if (len == 10) {
+
             // 香港身份证验证
             if (num.indexOf("(") > 0) {
 //                  先把首位字母改为数字，即A为1，B为2，C为3...Z为26，再乘以8；
@@ -85,21 +110,16 @@ define([], function () {
 //                  如果余数为1，则校验码为A，
 //                  如果余数为2～10，则用11减去这个余数的差作校验码。
 //例如：P103265（1），P，在字母表中排行16，则以16代表，则计算校验码：
-                //C668668(9)
-                // 3*8+6*7+6*6+8*5+6*4+6*3+8*2=24+42+36+40+24+18+16=
 //16×8＋1×7＋0×6＋3×5＋2×4＋6×3＋5×2＝186
 //                186÷11＝16......余10
-                //200/11=2
-                //11-2=9
 //                11－10＝1，即校验码为1。
+
                 //var num = "P103265（1）";
-                //var num = "";
                 var last = num.substring(num.length - 2, num.length - 1);
-                console.log(last);
-                console.log(num.length);
+
                 var array = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
                 var str = num.charAt(0);
-                console.log(str);
+
                 var j = 0;
                 var sum = 0;
                 for (var i = 0; i < array.length; i++) {
@@ -111,7 +131,7 @@ define([], function () {
                 for (var i = 0; i < 7; i++) {
                     if (i == 0) {
                         sum += Number(j * 8);
-                        console.log(sum);
+
                         continue;
                     }
                     sum += Number(num.charAt(i)) * (8 - i);

@@ -8,7 +8,7 @@ define(['app'], function (app) {
     app.factory("myUpdateUserDataService", function () {
             var service = {};
             // 点击 提交按钮
-            service.upGradeAction = function ($scope, POP, myGrade) {
+            service.upGradeAction = function ($scope, POP, myGrade, $state, POP) {
                 console.log("myGrade：" + myGrade);
                 var userInfo = User.getInfo();
                 // 推荐人
@@ -50,10 +50,6 @@ define(['app'], function (app) {
                     POP.Hint("节点不能为空，请检查！");
                     return;
                 }
-                if (region == undefined || region == null) {
-                    POP.Hint("请选择接点人区域！");
-                    return;
-                }
                 if (nickName == undefined || nickName == null) {
                     POP.Hint("请检查，昵称。");
                     return;
@@ -78,11 +74,11 @@ define(['app'], function (app) {
                     POP.Hint("请检查，开户支行。");
                     return;
                 }
-                if (address == undefined || address == "") {
+
+                if (address == null || address == "") {
                     POP.Hint("请检查，地址！");
                     return;
                 }
-
                 var url = null;
                 if (myGrade == 1) {
                     //一键升级
@@ -105,9 +101,9 @@ define(['app'], function (app) {
                 console.log("nodeP:" + nodeP);
                 console.log("region:" + region);
                 if (region == "左区") {
+                    region = 0;
+                } else if (region == "右区") {
                     region = 1;
-                } else {
-                    region = 2;
                 }
                 console.log("region:" + region);
                 console.log("cardName:" + cardName);
@@ -116,7 +112,7 @@ define(['app'], function (app) {
                 console.log("identityCardN:" + identityCardN);
                 console.log("branchBank:" + branchBank);
                 console.log("nickName:" + nickName);
-
+                POP.StartLoading();
                 // HTTP 提交
                 HTTP.post(url, {
                     "user_name": userInfo.user_name,// 用户名
@@ -136,15 +132,21 @@ define(['app'], function (app) {
                 }, function (e, data) {
                     POP.EndLoading();
                     if (e) {
-                        POP.Hint("升级失败！");
+                        if (data != null) {
+                            POP.Hint("升级失败！" + data);
+                        }
                         return;
                     }
+                    // 跳转界面
+                    $state.go("tab.my");
                 })
 
             }
             // 验证推荐人流程
-            service.checkingRecommendedMan = function ($scope, ele, eleNode, userName) {
+            service.checkingRecommendedMan = function ($scope, ele, eleNode, userName, POP) {
+                POP.StartLoading();
                 HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
+                    POP.EndLoading();
                     if (e) {
                         if (data != null) {
                             eleNode.css('display', 'block');
@@ -152,12 +154,7 @@ define(['app'], function (app) {
                                 'height': '34px',
                                 'line-height': '34px',
                             });
-                            $scope.$apply(function () {
-                                var str = eleNode.text();
-                                console.log("原有的值是"+str);
-                                $scope.upGrade.recommendedManError = data;
-                                console.log("scope对象的值是：" + $scope.upGrade.recommendedManError);
-                            });
+                            eleNode.html("<i class='icon ion-android-warning'></i>" + data);
                         }
                         return
                     }
@@ -168,10 +165,12 @@ define(['app'], function (app) {
                 });
             }
             //验证节点人流程
-            service.checkingNodeMan = function ($scope, ele, eleNode, userName) {
+            service.checkingNodeMan = function ($scope, ele, eleNode, userName, POP) {
                 // 请求个人信息
                 // 判断 username  是否激活
+                POP.StartLoading();
                 HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
+                    POP.EndLoading();
                     if (e) {
                         if (data != null) {
                             eleNode.css('display', 'block');
@@ -179,13 +178,10 @@ define(['app'], function (app) {
                                 'height': '34px',
                                 'line-height': '34px',
                             });
-                            $scope.$apply(function () {
-                                $scope.upGrade.nodeManError = data;
-                            });
+                            eleNode.html("<i class='icon ion-android-warning'></i>" + data);
                         }
                         return;
                     }
-
                     /**
                      * 让左右区域可以点击
                      */
@@ -193,10 +189,14 @@ define(['app'], function (app) {
 
                 })
             }
-            // 查询人是否存在
-            service.searchUserDetail = function (leftOrRight, $scope) {
+            // 查询节点是否可用否存在
+            service.searchUserDetail = function (leftOrRight, $scope, POP) {
                 var userName = $scope.upGrade.nodeP;
+                POP.StartLoading();
                 HTTP.get(API.My.searchUserDetail + '/user_name/' + userName, {}, function (e, data) {
+                    POP.EndLoading();
+                    console.log(e);
+                    console.log(data);
                     if (e) {
                         return;
                     }

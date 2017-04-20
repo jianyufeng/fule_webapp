@@ -11,9 +11,11 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         $scope.upGrade = {};
         $scope.upGrade.click = false;
         $scope.index = 0;
+        $scope.id = 0;
         $scope.upGrade.address = null;
+        var configId = 0;
         $scope.$on('$ionicView.loaded', function () {
-            var configId = 2;
+            configId = 2;
             //获取数据
             myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP);
 
@@ -21,43 +23,49 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 myHappyHomeUpgradeService.showUserGrade($scope, index);
             }
 
-            $('#abc1').click(function () {
-                $(this).css('color', '#D39AC5');
-                $('#abc2').css('color', 'black');
-                $('#selectResult').val("左区");
-                var user = $scope.userArray[0];
-                user.region = "左区";
-            });
-            $("#abc2").click(function () {
-                $(this).css('color', '#D39AC5');
-                $('#abc1').css('color', 'black');
-                var user = $scope.userArray[0];
-                user.region = "右区";
-            });
 
-            $('#a').click(function () {
-                $(this).css('color', '#D39AC5');
-                $('#b').css('color', 'black');
-                $('#c').css('color', 'black');
-                $('#bank').val($(this).text());
-            });
-            $("#b").click(function () {
-                $(this).css('color', '#D39AC5');
-                $('#a').css('color', 'black');
-                $('#c').css('color', 'black');
-                $('#bank').val($(this).text());
-            });
-            $("#c").click(function () {
-                $(this).css('color', '#D39AC5');
-                $('#a').css('color', 'black');
-                $('#b').css('color', 'black');
-                $('#bank').val($(this).text());
-            });
         });
 
+
+        $('#abc1').click(function () {
+            $(this).css('color', '#D39AC5');
+            $('#abc2').css('color', 'black');
+            $('#selectResult').val("左区");
+            var user = $scope.userArray[0];
+            user.region = "左区";
+            console.log("左区");
+        });
+
+        $("#abc2").click(function () {
+            $(this).css('color', '#D39AC5');
+            $('#abc1').css('color', 'black');
+            $('#selectResult').val("右区");
+            var user = $scope.userArray[0];
+            user.region = "右区";
+            console.log("右区");
+        });
+
+        $('#a').click(function () {
+            $(this).css('color', '#D39AC5');
+            $('#b').css('color', 'black');
+            $('#c').css('color', 'black');
+            $('#bank').val($(this).text());
+        });
+        $("#b").click(function () {
+            $(this).css('color', '#D39AC5');
+            $('#a').css('color', 'black');
+            $('#c').css('color', 'black');
+            $('#bank').val($(this).text());
+        });
+        $("#c").click(function () {
+            $(this).css('color', '#D39AC5');
+            $('#a').css('color', 'black');
+            $('#b').css('color', 'black');
+            $('#bank').val($(this).text());
+        });
         // 关闭选择区域的弹框
         $scope.closepop = function () {
-            $(".popRegionBox").css("display", "none");
+            $(".popRegionBox").hide();
         }
 
         // 推荐人失去焦点
@@ -73,6 +81,13 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             myHappyHomeUpgradeService.checkingRecommendedMan($scope, $(this), $("#recommendWaring"), $(this).val());
 
         });
+        function checkRecommend() {
+            var str = $("#recommend").val().trim();
+            myHappyHomeUpgradeService.showEmptyError(str,
+                $("#recommendWaring"), $("#recommend"))
+            return;
+        }
+
         // 节点人失去焦点
         $("#node").blur(function () {
             var str = $(this).val().trim();
@@ -86,6 +101,22 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             myHappyHomeUpgradeService.checkingNodeMan($scope, $(this), $("#nodeWaring"), $(this).val());
         })
 
+        function checkNode() {
+            var str = $("#node").val().trim();
+            myHappyHomeUpgradeService.showEmptyError(str,
+                $("#nodeWaring"), $("#node"))
+        }
+
+        // 节点失去焦点
+        $("#selectResult").blur(function () {
+            var text = $(this).val();
+            text = _.trim(text);
+            console.log(text);
+            if (text != "") {
+                // 查找节点人
+                myHappyHomeUpgradeService.searchUserDetail(text, $scope, POP);
+            }
+        });
         // 商城密码失去焦点
         $("#mallPassWord").blur(function () {
             var str = $(this).val().trim();
@@ -127,8 +158,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             if (!pattern.test(str)) {
                 myHappyHomeUpgradeService.showError($("#mallPassWordWaring"), $("#mallPassWord"), "输入的格式有误请重新输入");
             }
-            $("#mallPassWordWaring").css('display', 'none');
-
         }
 
         // 二级密码失去焦点
@@ -445,6 +474,9 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 myHappyHomeUpgradeService.showError($("#identityCardNWaring"), $("#identityCardN"), "您输入的格式不正确请重新输入");
                 return;
             }
+
+            // 服务端校验
+            myHappyHomeUpgradeService.testIdentityCardN(str, POP);
         }
 
         //开户姓名
@@ -627,6 +659,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
             // 验证所有的输入项
             //一个一个验证
+            checkRecommend();
+            checkNode();
             checkMallPassWord();
             checkSecondPassWord();
             checkPayPassWord();
@@ -643,10 +677,9 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 var user = $scope.userArray[i];
                 var userItem = null;
                 for (userItem in user) {
-
-                    console.log(user[userItem]);
+                    //console.log(user[userItem]);
                     if (user[userItem] == null || user[userItem].length <= 0) {
-                        console.log("为空的项是：" + user[userItem]);
+                        //console.log("为空的项是：" + user[userItem]);
                         POP.Hint("请确保所有输入项全部填写。");
                     }
                 }
@@ -685,7 +718,33 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 array.push(user);
             }
 
-            console.log(array);
+
+            var user_datas = {};
+
+            for (var d in array[0]) {
+
+                var arr = [];
+
+                for (var s = 0; s < array.length; s++) {
+                    //通过赋值
+                    arr.push(array[s][d]);
+                }
+
+                user_datas[d] = arr;
+            }
+            POP.StartLoading();
+            HTTP.post(API.My.updateUserLogs, {
+                "config_id": configId,
+                "id": $scope.id,
+                "user_data": user_datas,
+            }, function (e, data) {
+                console.log(e);
+                console.log(data);
+                if (e) {
+
+                }
+            })
+            console.log(user_datas);
 
 
             // 表单的提价
