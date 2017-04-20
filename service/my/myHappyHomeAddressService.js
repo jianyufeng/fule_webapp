@@ -13,7 +13,6 @@ define(['app'],function(app){
             var info = User.getInfo();
             HTTP.get(API.Cart.shippingAddress + "/user_id/"+info.user_id , {}, function (e, data) {
 
-
                 POP.EndLoading();
                 console.log(data);
                 if (e) {

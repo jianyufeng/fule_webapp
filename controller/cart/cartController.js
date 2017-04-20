@@ -39,6 +39,18 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 			// }
 		});
 
+		$scope.$on("viewOnFinish", function () {
+
+
+			$(".cartGoodsImage img").myImageLazyLoad({
+				//默认三个参数可不传，使用默认参数
+				// imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图
+				// imageServer : "http://image.38zs.net:848",				    //图片服务器地址
+				// animate     : true,											//是否动画显示
+			});
+
+		});
+
 		$scope.$on('$ionicView.beforeEnter', function () {
             //判断是否登录
 			if(User.isLogin()){

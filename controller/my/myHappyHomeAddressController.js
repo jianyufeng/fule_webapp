@@ -14,7 +14,6 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
             //初始化
             myHappyHomeAddressService.getHappyHomeAddressList($scope,POP,function () {
 
-                console.log("就是这里"+ $scope.happyHomeAddress.length);
                 //判断是否登录
                 if($scope.happyHomeAddress.length > 0){
                     $(".noAddress").hide();
@@ -68,15 +67,15 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
         };
 
         //选择收货地址
-        $(document).on("click",".shippingAddressItem",function(){
+        $(document).on("click",".happyHomeAddressItem",function(){
 
             if (!editing){
 
                 //选择当前点击的收货地址
-                var _idx = $(".shippingAddressItem").index(this);
+                var _idx = $(".happyHomeAddressItem").index(this);
 
                 //将数组对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
-                $rootScope.$broadcast('changeAddress', { "address" : $scope.happyHomeAddress[_idx]});
+                $rootScope.$broadcast('changeAddress', { "address":$scope.happyHomeAddress[_idx]});
 
                 //成功直接返回上一层
                 $ionicHistory.goBack();
@@ -96,6 +95,10 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
 
 
             var addressID =  $scope.happyHomeAddress[_idx].address_id;
+
+            alert(_idx);
+            console.log($scope.happyHomeAddress[_idx]);
+
             var params = {
 
                 user_id : info.user_id,

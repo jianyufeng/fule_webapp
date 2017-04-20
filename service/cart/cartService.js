@@ -112,8 +112,6 @@ define(['app'],function(app){
 
 			//更新操作
 			HTTP.get(API.Cart.deleteCart+"/user_id/"+deleteParams.user_id + "/shopping_type/1/id/" + deleteParams.id ,{},function(e,data){
-
-                console.log(e);
                 console.log(data);
 
 
@@ -136,10 +134,10 @@ define(['app'],function(app){
                             $scope.righttitleValue = "";
                             $rootScope.cartBadge = 0;
                     });
-                        
+
                         $(".noCartGoodBox").show();
                         $(".noCartGoodBox").find(".isLoginBox").hide();
-                        
+
                 }else{
 
                     $scope.$apply(function () {
@@ -157,7 +155,7 @@ define(['app'],function(app){
                         $(".noCartGoodBox").find(".isLoginBox").hide();
                         $scope.righttitleValue = "";
                      }
-                    
+
                     $scope.cart_info  = data;
                 });
 

@@ -5,10 +5,12 @@
 
               <div class="noRecord">
                   <img src="./resource/images/icon/shopping_bg.png">
-                  <p>没有收货地址，去送给谁呢~</p>
+                  <p>暂无购买记录...</p>
               </div>
 
-             <div class="logsItems"  ng-repeat="item in logsData">
+             <div class="logsItems" on-swipe-left="swipLeft($index,item.id)" on-swipe-right="swipRight($index,item.id)" ng-repeat="item in logsData">
+                 <div class="deleteBox" id="{{item.id}}">删除</div>
+                 <div class="historyBox">
                  <div class="userData">
                      <div class="operateTime"><div class="title">操作时间:</div><span>{{item.addtime == 0?"---":item.addtime*1000 | date:'yyyy-MM-dd HH:mm'}}</span></div>
                      <div class="userName"><div class="title">购买人:</div><span>{{item.user_name}}</span></div>
@@ -26,7 +28,7 @@
                  </div>
 
                  <div style="clear:both"></div>
-
+               </div>
              </div>
 
         </ion-scroll>
