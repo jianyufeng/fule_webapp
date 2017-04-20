@@ -48,22 +48,20 @@ var API = {
         oneUpgrade: serverIP + "/upgrade/oneUpgrade",
         buyGoodsMoreAttr: serverIP + "/goods/searchProductInfo",
         //购买喜乐之家列表
-   buyGoodsList:serverIP+  "/_happyHome/searchGoodsList",
-        buyGoodsMoreAttr:serverIP+"/goods/searchProductInfo",
+        buyGoodsList: serverIP + "/_happyHome/searchGoodsList",
+        buyGoodsMoreAttr: serverIP + "/goods/searchProductInfo",
 
-        buyGoodsList:serverIP+  "/_happyHome/searchGoodsList",
+        buyGoodsList: serverIP + "/_happyHome/searchGoodsList",
         //
-        buyGoodsMoreAttr:serverIP+"/goods/searchProductInfo",        //获取购买喜乐之家配置
-        buyHappyHomeGoodsConfig:serverIP+"/buyxlzj/happlyhomelist",
+        buyGoodsMoreAttr: serverIP + "/goods/searchProductInfo",        //获取购买喜乐之家配置
+        buyHappyHomeGoodsConfig: serverIP + "/buyxlzj/happlyhomelist",
         //获取喜乐之家配置表
         happyHomeList: "http://userm.38zs.net:3222/buyxlzj/happlyhomelist",
         //喜乐之家购买记录
         // searchHappyHomeLogs:"http://userm.38zs.net:3222/happyHome/searchLogs",
-        searchHappyHomeLogs:"http://192.168.10.90:3000/happyHome/searchLogs",
+        searchHappyHomeLogs: "http://192.168.10.90:3000/happyHome/searchLogs",
         //删除喜乐之家购买记录
-        deleteHappyHomePurchaseHistory:"http://192.168.10.90:3000/buyxlzj/delectlog"
         deleteHappyHomePurchaseHistory: "http://192.168.10.90:3000/buyxlzj/delectlog",
-
         // 校验身份证
         verifyIdentityCardN: serverIP + "/user/verifyIDCard",
         // 切记勿删......
@@ -71,7 +69,6 @@ var API = {
         updateGradeHappyHome: "http://userm.38zs.net:3222/buyxlzj/buyhapply",
         //更新用户信息（喜乐之家）
         updateUserLogs: "http://userm.38zs.net:3222/buyxlzj/updateUserLog"
-
     },
 
     Cart: {
