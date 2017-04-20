@@ -7,20 +7,20 @@
 
                   <a href="#/tab/my-happyHomeAddress">
                     <div class="addressBox">
-                        <div class="noAddressContent" ng-if="happyAddress == 'NO'" style="color: #BCBCBC">
+                        <div class="noAddressContent" ng-if="buyHappyAddress == 'NO'" style="color: #BCBCBC">
                             <span>+ 请添加收货地址</span>
                         </div>
-                        <div class="addressContent" ng-if="happyAddress != 'NO'" style="color: black">
+                        <div class="addressContent" ng-if="buyHappyAddress != 'NO'" style="color: black">
                             <div class="locationImg">
                                 <img src="resource/images/icon/address_icon.png"/>
                             </div>
                             <div class="addressDetail">
                                 <div class="personalInfo">
-                                    <div class="personName ellipsis"><span>收货人:{{happyAddress.consignee}}</span></div>
+                                    <div class="personName ellipsis"><span>收货人:{{buyHappyAddress.consignee}}</span></div>
                                     <div class="personPhone">
-                                        <span>{{happyAddress.mobile?happyAddress.mobile:happyAddress.tel}}&nbsp;&nbsp;</span></div>
+                                        <span>{{buyHappyAddress.mobile?buyHappyAddress.mobile:buyHappyAddress.tel}}&nbsp;&nbsp;</span></div>
                                 </div>
-                                <div class="addressInfo"><span>收货地址 : {{happyAddress.province_name+"省"+ happyAddress.city_name + happyAddress.district_name + happyAddress.address}} </span>
+                                <div class="addressInfo"><span>收货地址 : {{buyHappyAddress.province_name+"省"+ buyHappyAddress.city_name + buyHappyAddress.district_name + buyHappyAddress.address}} </span>
                                 </div>
                             </div>
                             <div class="nextBtn">

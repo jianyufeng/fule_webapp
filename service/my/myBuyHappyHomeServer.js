@@ -9,16 +9,15 @@ define(['app'], function (app) {
         var info = User.getInfo();
         service.getBuyGoodList = function ($scope, POP) {
             POP.StartLoading();
-            //获取用户的账号                 /user_id/167642/user_name/app001
+            //获取用户的账号
             HTTP.get(API.My.buyGoodsList + "/user_id/"+info.user_id + "/user_name/" + info.user_name, {}, function (e, data) {
                     POP.EndLoading();
                 console.log(data);
-                    if (e) {
+
+                if (e) {
                         POP.Hint("加载失败");
                         return;
                     }
-
-                console.log(data);
 
                 var nowAddress;
                 if(data.address != undefined && data.address.length > 0){
@@ -35,11 +34,9 @@ define(['app'], function (app) {
                     nowAddress = "NO";
 
                 }
-
-
                     $scope.$apply(function () {
                         $scope.goods = data.goodsInfo.data;
-                        $scope.happyAddress = nowAddress;
+                        $scope.buyHappyAddress = nowAddress;
                     })
                 }
             );

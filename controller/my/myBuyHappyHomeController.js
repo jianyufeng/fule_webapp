@@ -20,7 +20,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             console.log(args);
             //将新的值重新注入页面
             $scope.$apply(function () {
-                $scope.happyAddress = args.address;
+                $scope.buyHappyAddress = args.address;
             })
 
         });
@@ -28,9 +28,9 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         $rootScope.$on('deleteAddress', function (event, args) {
             console.log(args);
             if (args.address == "NO") {
-                $scope.happyAddress = "NO";
+                $scope.buyHappyAddress = "NO";
             } else {
-                if ($scope.happyAddress.address_id == args.address_id) {
+                if ($scope.buyHappyAddress.address_id == args.address_id) {
 
                     myBuyHappyHomeServer.getBuyGoodList($scope, POP);
 

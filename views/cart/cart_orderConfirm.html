@@ -41,9 +41,9 @@
                 </div>
                     </a>
                 <div class="orderGoodsBox">
-                      <div class="orderGoodsItem" ng-repeat="order_good in cartGoods">
+                      <div class="orderGoodsItem" ng-repeat="order_good in cartGoods" view-on-finish>
                           <div class="orderItemImg">
-                              <img src="resource/images/goods_11.png"/>
+                              <img src="./resource/images/default/default_image.png" data-original='{{order_good.img}}'/>
                           </div>
                           <div class="orderItemInfo">
                               <div class="orderGoodsName"><span>{{order_good.goods_name}}</span></div>

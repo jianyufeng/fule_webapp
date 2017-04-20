@@ -20,18 +20,18 @@
   height: auto;
   margin-bottom: 5px;
 }
-.outBox .manageContent .manageScroll .editBox .shippingAddressItem {
+.outBox .manageContent .manageScroll .editBox .happyHomeAddressItem {
   width: 100%;
   height: 90px;
   background: white;
 }
-.outBox .manageContent .manageScroll .editBox .shippingAddressItem .userInfo {
+.outBox .manageContent .manageScroll .editBox .happyHomeAddressItem .userInfo {
   width: 100%;
   height: 30px;
   float: left;
   margin-top: 5px;
 }
-.outBox .manageContent .manageScroll .editBox .shippingAddressItem .userInfo .name {
+.outBox .manageContent .manageScroll .editBox .happyHomeAddressItem .userInfo .name {
   width: 50%;
   height: 30px;
   float: left;
@@ -39,23 +39,23 @@
   text-align: left;
   padding-left: 10px;
 }
-.outBox .manageContent .manageScroll .editBox .shippingAddressItem .userInfo .name span {
+.outBox .manageContent .manageScroll .editBox .happyHomeAddressItem .userInfo .name span {
   text-align: center;
   font-size: 14px;
 }
-.outBox .manageContent .manageScroll .editBox .shippingAddressItem .userInfo .mobile {
+.outBox .manageContent .manageScroll .editBox .happyHomeAddressItem .userInfo .mobile {
   width: 50%;
   height: 30px;
   float: left;
   line-height: 30px;
   text-align: right;
 }
-.outBox .manageContent .manageScroll .editBox .shippingAddressItem .userInfo .mobile span {
+.outBox .manageContent .manageScroll .editBox .happyHomeAddressItem .userInfo .mobile span {
   padding-right: 10px;
   text-align: center;
   font-size: 14px;
 }
-.outBox .manageContent .manageScroll .editBox .shippingAddressItem .shippingAddressContent {
+.outBox .manageContent .manageScroll .editBox .happyHomeAddressItem .shippingAddressContent {
   width: 100%;
   height: 60px;
   padding-left: 10px;
@@ -65,7 +65,7 @@
   font-size: 14px;
   float: left;
 }
-.outBox .manageContent .manageScroll .editBox .shippingAddressItem .shippingAddressContent span {
+.outBox .manageContent .manageScroll .editBox .happyHomeAddressItem .shippingAddressContent span {
   color: #BB55A0;
 }
 .outBox .manageContent .manageScroll .editOperationArea {

@@ -48,6 +48,7 @@ var API = {
         oneUpgrade: serverIP + "/upgrade/oneUpgrade",
         //购买喜乐之家列表
         buyGoodsList:serverIP+  "/_happyHome/searchGoodsList",
+        //
         buyGoodsMoreAttr:serverIP+"/goods/searchProductInfo",
         //获取购买喜乐之家配置
         buyHappyHomeGoodsConfig:serverIP+"/buyxlzj/happlyhomelist",

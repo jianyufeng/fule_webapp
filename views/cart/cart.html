@@ -16,7 +16,7 @@
 
 				<ion-scroll style="width: 100%;height:100%;" id="abc" delegate-handle="mainScroll">
 
-						<div class="buyerItem" on-swipe-left="swipLeft($index,cart_good.id)" on-swipe-right="swipRight($index,cart_good.id)" ng-repeat="cart_good in cart_goods">
+						<div class="buyerItem" on-swipe-left="swipLeft($index,cart_good.id)" on-swipe-right="swipRight($index,cart_good.id)" ng-repeat="cart_good in cart_goods" view-on-finish>
 
 							<div class="deleteBox" id="{{cart_good.id}}">删除</div>
 
@@ -28,7 +28,7 @@
 									</div>
 								</div>-->
 								<div class="cartGoodsImage">
-									<img src="./resource/images/default/default_image.png" data-original='{{cart_good.img_normal}}'/>
+									<img src="./resource/images/default/default_image.png" data-original='{{cart_good.img}}'/>
 								</div>
 								<div class="cartGoodsInfo">
 									<div class="cartGoodsTitleBox ellipsis"><span>{{cart_good.goods_name}}</span></div>
