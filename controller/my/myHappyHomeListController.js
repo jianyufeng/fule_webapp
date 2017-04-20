@@ -35,6 +35,17 @@ define(['app','css! ../../../css/my/my-happyHomeList'], function (app) {
        };
 
 
+        //点击进入喜乐之家
+        $(document).on("click",".happyList",function(){
+
+            // $state.go("");
+            console.log($scope.happyHomeData);
+        });
+
+
+
+
+
 
 
 
