@@ -17,10 +17,8 @@ define(['app'], function (app) {
 
             var userName = User.getInfo().user_name;
             POP.StartLoading();
-            HTTP.get(API.My.updateGradeHappyHome + "/config_id/" + configId + "/user_name/" + "liweixuan001", {}, function (e, data) {
+            HTTP.get(API.My.updateGradeHappyHome + "/config_id/" + configId + "/user_name/" + userName, {}, function (e, data) {
                 POP.EndLoading()
-                console.log(e);
-                console.log(data);
                 if (e) {
                     return;
                 }
@@ -213,8 +211,10 @@ define(['app'], function (app) {
 
 
         // 验证推荐人流程
-        service.checkingRecommendedMan = function ($scope, ele, eleNode, userName) {
+        service.checkingRecommendedMan = function ($scope, ele, eleNode, userName, POP) {
+            POP.StartLoading();
             HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
+                POP.EndLoading();
                 if (e) {
                     if (data != null) {
                         service.showError(eleNode, ele, data);
@@ -229,10 +229,12 @@ define(['app'], function (app) {
         }
 
         //验证节点人流程
-        service.checkingNodeMan = function ($scope, ele, eleNode, userName) {
+        service.checkingNodeMan = function ($scope, ele, eleNode, userName, POP) {
             // 请求个人信息
             // 判断 username  是否激活
+            POP.StartLoading();
             HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
+                POP.EndLoading();
                 if (e) {
                     if (data != null) {
                         service.showError(eleNode, ele, data);
@@ -256,8 +258,6 @@ define(['app'], function (app) {
             POP.StartLoading();
             HTTP.get(API.My.searchUserDetail + '/user_name/' + userName, {}, function (e, data) {
                 POP.EndLoading();
-                console.log(e);
-                console.log(data);
                 if (e) {
                     return;
                 }
@@ -288,11 +288,12 @@ define(['app'], function (app) {
             POP.StartLoading();
             HTTP.get(API.My.verifyIdentityCardN + "/id_card/" + str, {}, function (e, data) {
                 POP.EndLoading();
-                console.log(e);
-                console.log(data);
                 if (e) {
                     $("#identityCardNWaring").html("<i class='icon ion-android-warning'></i>" + "该身份证不可用");
+                    return true;
                 }
+                return false;
+
             })
 
         }

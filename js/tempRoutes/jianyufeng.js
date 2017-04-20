@@ -287,7 +287,7 @@ define(['app'], function (app) {
             })
             /*我的 喜乐之家升级 路由*/
             .state('tab.my-happyHomeUpgrade', {
-                url: '/my-happyHomeUpgrade',
+                url: '/my-happyHomeUpgrade/:configId',
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-happyHomeUpgrade.html?_r=" + Math.random(),

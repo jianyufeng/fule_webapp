@@ -1,12 +1,13 @@
 <ion-view view-title="喜乐之家" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-    <navigation-bar is-back="true" title="喜乐之家" righttitle="{{righttitleValue}}" on-right-click="toPurchaseHistory()"></navigation-bar>
-       <ion-content  style="background-color: #A92586">
+    <navigation-bar is-back="true" title="喜乐之家" righttitle="{{righttitleValue}}"
+                    on-right-click="toPurchaseHistory()"></navigation-bar>
+    <ion-content style="background-color: #A92586">
         <ion-scroll set-window-height="" class="happyScroll">
             <div class="noHappyHome" style="display: none">
                 <img src="./resource/images/icon/shopping_bg.png">
                 <p>暂无喜乐之家记录</p>
             </div>
-            <div class="happyList" ng-repeat="happyItem in happyHomeData">{{happyItem.key_name}}</div>
+            <div class="happyList"  ng-repeat="happyItem in happyHomeData">{{happyItem.key_name}}</div>
         </ion-scroll>
     </ion-content>
 </ion-view>
