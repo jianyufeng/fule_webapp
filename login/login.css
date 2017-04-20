@@ -134,9 +134,9 @@ input {
   float: right;
   color: white;
   text-align: center;
-  line-height: 40px;
   border-radius: 5px;
   font-size: 13px;
+  border: none;
 }
 .phoneCheckBox .checkBox .sendBox:disabled {
   background: #d9a9cd;
