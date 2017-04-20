@@ -68,7 +68,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
             //保存成功后后退到地址管理页面
             var recieverName  = $('.recieverName').val();
-            alert(recieverName);
             var mobileNumeber = $('.recieverNumber').val();
             var familyPhone   = $('.telNumber').val();
             var location      = $(".select-location").find("span").text();
