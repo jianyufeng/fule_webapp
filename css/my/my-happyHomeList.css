@@ -12,7 +12,8 @@
   border: 1px solid #eee;
   line-height: 150px;
   font-size: 18px;
-  background-color: #eeeeee;
+  background-color: #f1f1f1;
+  color: #D9A8CD;
 }
 .happyScroll .nohappyhome {
   width: 100%;

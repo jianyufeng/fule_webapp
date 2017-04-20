@@ -64,6 +64,8 @@ define(['animate'],function(){
         if(isOpen){
             $(".historyBox:eq("+idx+")").animate({"left":-100},200);
             $(".deleteBox:eq("+idx+")").animate({"right":0},200);
+
+
         }else{
             $(".historyBox:eq("+idx+")").animate({"left":0},200);
             $(".deleteBox:eq("+idx+")").animate({"right":-110},200);
