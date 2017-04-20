@@ -8,13 +8,11 @@
 
 
     </div>
-
+    <navigation-bar is-back="true" title="用户资料"></navigation-bar>
     <ion-content style="background-color: white">
-        <navigation-bar is-back="true" title="用户资料"></navigation-bar>
-        <ion-scroll  style="width:100%;position:absolute;top:60px;">
-
+        <ion-scroll style="width:100%;position:absolute;top:60px;">
             <div class="contentBox">
-
+                <!--推荐人-->
                 <div class="rowBox" style="margin-top: 5px">
                     <div class="leftBox">
                         <span class="redStar">*</span>推荐人
@@ -34,7 +32,9 @@
                         <span class="redStar">*</span>团队
                     </div>
                     <div class="rightBox">
-                        <span>{{upGrade.team}}</span>
+                        <span id="team">{{upGrade.team}}</span>
+                        <div class="waring" id="teamWaring"><i class="icon ion-android-warning"></i>
+                        </div>
                     </div>
                     <div class="line"></div>
                 </div>
@@ -67,7 +67,9 @@
                         <span class="redStar">*</span>昵称
                     </div>
                     <div class="rightBox">
-                        <input type="text" placeholder="可以为数字、字母、下划线组合" ng-model="upGrade.nickName">
+                        <input id="name" type="text" placeholder="可以为数字、字母、下划线组合" ng-model="upGrade.nickName">
+                        <div class="waring" id="nameWaring"><i class="icon ion-android-warning"></i>
+                        </div>
                     </div>
                     <div class="line"></div>
                 </div>
@@ -77,7 +79,7 @@
                     </div>
                     <div class="rightBox">
                         <input type="number" placeholder="请输入银行账号" id="bankCardN" ng-model="upGrade.bankCardN">
-                        <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i> 银行卡号格式不正确
+                        <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i>
                         </div>
                     </div>
                     <div class="line"></div>
@@ -87,7 +89,9 @@
                         <span class="redStar">*</span>开户银行
                     </div>
                     <div class="rightBox">
-                        <input type="text" placeholder="必须为中文" ng-model="upGrade.bank">
+                        <input id="bank" type="text" placeholder="必须为中文" ng-model="upGrade.bank">
+                        <div class="waring" id="bankWaring"><i class="icon ion-android-warning"></i>
+                        </div>
                     </div>
                     <div class="line"></div>
                 </div>
@@ -97,7 +101,7 @@
                     </div>
                     <div class="rightBox">
                         <input type="text" placeholder="请输入身份证号" ng-model="upGrade.identityCardN" id="identityCardN">
-                        <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i> 身份证号格式不正确
+                        <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i>
                         </div>
                     </div>
                     <div class="line"></div>
@@ -108,7 +112,9 @@
                     </div>
 
                     <div class="rightBox">
-                        <input type="text" placeholder="必须为中文" ng-model="upGrade.cardName">
+                        <input id="bankCardName" type="text" placeholder="必须为中文" ng-model="upGrade.cardName">
+                        <div class="waring" id="bankCardNameWaring"><i class="icon ion-android-warning"></i>
+                        </div>
                     </div>
                     <div class="line"></div>
                 </div>
@@ -118,7 +124,9 @@
                     </div>
 
                     <div class="rightBox">
-                        <input type="text" placeholder="xx区xx路xx支行" ng-model="upGrade.branchBank">
+                        <input type="text" id="branchBank" placeholder="xx区xx路xx支行" ng-model="upGrade.branchBank">
+                        <div class="waring" id="branchBankWaring"><i class="icon ion-android-warning"></i>
+                        </div>
                     </div>
                     <div class="line"></div>
                 </div>

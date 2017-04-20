@@ -4,207 +4,240 @@
  */
 
 define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData", 'addressSelect'], function (app, identityCardTest) {
-    function ctrl($scope, myUpdateUserDataService, POP, $stateParams) {
+    function ctrl($scope, myUpdateUserDataService, POP, $stateParams, $compile) {
 
         $scope.upGrade = {};
         $scope.upGrade.click = false;
         $scope.upGrade.address = {};
+
+        function showEmptyError(str, elea, eleb) {
+            if (str == null || str == "") {
+                showError(elea, eleb, "内容不能为空");
+                return true;
+            }
+            return false;
+        }
+
+        function showError(elea, eleb, text) {
+            elea.css('display', 'block');
+            eleb.css({
+                'height': '34px',
+                'line-height': '34px',
+            });
+            //console.log("aaaa" + elea.text());
+            elea.append(text);
+        }
+
+        function disappearError(eleInput, eleError) {
+            eleError.css('display', 'none');
+            eleInput.css({
+                'height': '44px',
+                'line-height': '44px',
+            })
+        }
+
         $scope.$on('$ionicView.loaded', function () {
             // 页面传值过来的要升级的级别
             var myGrade = $stateParams.grade;
-            $('#abc1').click(function () {
-                $(this).css('color', '#D39AC5');
-                $('#abc2').css('color', 'black');
-                $('#selectResult').val("左区");
-            });
-            $("#abc2").click(function () {
-                $(this).css('color', '#D39AC5');
-                $('#abc1').css('color', 'black');
-                $('#selectResult').val("右区");
-            });
-            // 推荐人失去焦点事件
-            $("#recommend").blur(function () {
-                var name = $(this).val();
-                if (name != "") {
-                    name = name.trim();
-                    if (name == "") {
-                        $("#recommendWaring").css('display', 'block');
-                        $(this).css({
-                            'height': '34px',
-                            'line-height': '34px',
-                        })
-                        $scope.$apply(function () {
-                            $scope.upGrade.recommendedManError = "内容不能为空";
-                        });
 
-                    } else {
-                        // 验证推荐人
-                        myUpdateUserDataService.checkingRecommendedMan($scope, $(this), $("#recommendWaring"), $(this).val());
-                    }
-                } else {
-                    $("#recommendWaring").css('display', 'block');
-                    $(this).css({
-                        'height': '34px',
-                        'line-height': '34px',
-                    })
-                    $scope.$apply(function () {
-                        $scope.upGrade.recommendedManError = "推荐人格式不正确";
-                    });
-                }
+        });
+        $('#abc1').click(function () {
+            $(this).css('color', '#D39AC5');
+            $('#abc2').css('color', 'black');
+            $('#selectResult').val("左区");
+        });
+        $("#abc2").click(function () {
+            $(this).css('color', '#D39AC5');
+            $('#abc1').css('color', 'black');
+            $('#selectResult').val("右区");
+        });
+        // 推荐人失去焦点事件
+        $("#recommend").blur(function () {
+            checkRecommend();
+        });
+        function checkRecommend() {
+            var name = $("#recommend").val();
+            name = _.trim(name)
+            console.log(name);
+            if (showEmptyError(name, $("#recommendWaring"), $("#recommend"))) {
+                return;
+            }
+            console.log("aaaaaa");
+            // 验证推荐人
+            myUpdateUserDataService.checkingRecommendedMan($scope, $("#recommend"), $("#recommendWaring"), $("#recommend").val());
+        }
 
-
-            });
-            // 节点人失去焦点事件
-            $("#node").blur(function () {
-                var name = $(this).val();
-                if (name != "") {
-                    name = name.trim();
-                    if (name == "") {
-                        $("#nodeWaring").css('display', 'block');
-                        $(this).css({
-                            'height': '34px',
-                            'line-height': '34px',
-                        })
-                        $scope.$apply(function () {
-                            $scope.upGrade.nodeManError = "节点人格式不正确";
-                        });
-
-                    } else {
-                        // 验证节点人
-                        myUpdateUserDataService.checkingNodeMan($scope, $(this), $("#nodeWaring"), $(this).val());
-                    }
-
-                }
-                else {
-                    $("#nodeWaring").css('display', 'block');
-                    $(this).css({
-                        'height': '34px',
-                        'line-height': '34px',
-                    })
-                    $scope.$apply(function () {
-                        $scope.upGrade.nodeManError = "节点人格式不正确";
-                    });
-                }
+        // 节点人失去焦点事件
+        $("#node").blur(function () {
+            checkNode();
+        });
+        function checkNode() {
+            var name = $("#node").val();
+            name = _.trim(name);
+            if (showEmptyError(name, $("#nodeWaring"), $("#node"))) {
+                return;
+            }
+            // 验证节点人
+            myUpdateUserDataService.checkingNodeMan($scope, $("#node"), $("#nodeWaring"), $("#node").val());
+        }
 
 
-            });
-            // 节点失去焦点事件
-            $("#selectResult").blur(function () {
-                var text = $(this).val();
-                if (text != null) {
-                    // 查找节点人
-                    myUpdateUserDataService.searchUserDetail($(this).val(), $scope);
-                }
-            });
-
-            // 银行账号失去焦点事件
-            $("#bankCardN").blur(function () {
-                var num = $(this).val();
-                if (num == "") {
-                    //显示错误提示
-                    $("#bankCardNWaring").css('display', 'block');
-                    $(this).css({
-                        'height': '34px',
-                        'line-height': '34px',
-                    })
-                }
-                else {
-                    num = num.trim();
-                    if (num == "") {
-                        //显示错误提示
-                        $("#bankCardNWaring").css('display', 'block');
-                        $(this).css({
-                            'height': '34px',
-                            'line-height': '34px',
-                        })
-                    } else {
-                        // 验证银行卡号
-                        if (/^\d{19}$/.test($(this).val())) {
-                            // 格式正确
-                        } else {
-                            // 格式不正确
-                            $("#bankCardNWaring").css('display', 'block');
-                            $(this).css({
-                                'height': '34px',
-                                'line-height': '34px',
-                            })
-                        }
-                    }
-                }
-
-            })
-            // 身份证号失去焦点验证
-            $("#identityCardN").blur(function () {
-                var num = $(this).val();
-                if (num == "") {
-                    //显示错误提示
-                    $("#identityCardNWaring").css('display', 'block');
-                    $(this).css({
-                        'height': '34px',
-                        'line-height': '34px',
-                    })
-                }
-                else {
-                    num = num.trim();
-                    if (num == "") {
-                        //显示错误提示
-                        $("#identityCardNWaring").css('display', 'block');
-                        $(this).css({
-                            'height': '34px',
-                            'line-height': '34px',
-                        })
-                    } else {
-                        // 验证身份证号
-                        if (!identityCardTest.test(num)) {
-                            $("#identityCardNWaring").css('display', 'block');
-                            $(this).css({
-                                'height': '34px',
-                                'line-height': '34px',
-                            })
-                        }
-                    }
-                }
-            });
-
-            //推荐人获取焦点事件
-            $("#recommend").focus(function () {
-                $("#recommendWaring").css('display', 'none');
-                $(this).css({
-                    'height': '44px',
-                    'line-height': '44px',
-                })
-                $scope.upGrade.team = "";
-            });
-            //节点人获取焦点事件
-            $("#node").focus(function () {
-                $("#nodeWaring").css('display', 'none');
-                $(this).css({
-                    'height': '44px',
-                    'line-height': '44px',
-                })
-            });
-            // 银行卡号获取焦点事件
-            $("#bankCardN").focus(function () {
-                $("#bankCardNWaring").css('display', 'none');
-                $(this).css({
-                    'height': '44px',
-                    'line-height': '44px',
-                })
-            });
-            // 省份证号获取焦点事件
-            $("#identityCardN").focus(function () {
-                $("#identityCardNWaring").css('display', 'none');
-                $(this).css({
-                    'height': '44px',
-                    'line-height': '44px',
-                })
-            });
-
-            // 点击提交按钮
-            $scope.submitUpGradeAction = function () {
-                myUpdateUserDataService.upGradeAction($scope, POP, myGrade);
+        // 节点失去焦点事件
+        $("#selectResult").blur(function () {
+            var text = $(this).val();
+            text = _.trim(text);
+            if (text != "") {
+                // 查找节点人
+                myUpdateUserDataService.searchUserDetail($(this).val(), $scope);
             }
         });
+
+        // 昵称失去焦点
+        $("#name").blur(function () {
+            checkNickName();
+        })
+
+        function checkNickName() {
+            var name = $("#name").val();
+            name = _.trim(name);
+            if (showEmptyError(name, $("#nameWaring"), $("#name"))) {
+                return;
+            }
+        }
+
+        // 银行账号失去焦点事件
+        $("#bankCardN").blur(function () {
+            checkBankCardN();
+        });
+
+        function checkBankCardN() {
+            var num = $("#bankCardN").val();
+            var reg = /^\d{19}$/;
+            if (showEmptyError(num, $("#bankCardNWaring"), $("#bankCardN"))) {
+                return;
+            }
+            if (!reg.test(num)) {
+                showError($("#bankCardNWaring"), $("#bankCardN"), "输入格式不正确请检查");
+            }
+        }
+
+        // 开户银行失去焦点事件
+        $("#bank").blur(function () {
+            checkBank();
+        });
+        function checkBank() {
+            var name = $("#bank").val();
+            name = _.trim(name);
+            if (showEmptyError(name, $("#bankWaring"), $("#bank"))) {
+                return;
+            }
+        }
+
+        // 身份证号失去焦点验证
+        $("#identityCardN").blur(function () {
+            checkIdentityCardN();
+        });
+
+        function checkIdentityCardN() {
+            var num = $("#identityCardN").val();
+            num = _.trim(num);
+            if (showEmptyError(num, $("#identityCardNWaring"), $("#identityCardN")))
+                return;
+            if (!identityCardTest.test(num)) {
+                showError($("#identityCardNWaring"), $("#identityCardN"), "身份证格式不正确请检查");
+            }
+        }
+
+        // 开户银行失去焦点事件
+        $("#bankCardName").blur(function () {
+            checkBankCardName();
+        });
+        function checkBankCardName() {
+            var name = $("#bankCardName").val();
+            name = _.trim(name);
+            if (showEmptyError(name, $("#bankCardNameWaring"), $("#bankCardName"))) {
+                return;
+            }
+        }
+
+        // 开户支行失去焦点事件
+        $("#branchBank").blur(function () {
+            checkBranchBank();
+        });
+        function checkBranchBank() {
+            var name = $("#branchBank").val();
+            name = _.trim(name);
+            if (showEmptyError(name, $("#branchBankWaring"), $("#branchBank"))) {
+                return;
+            }
+        }
+
+        //推荐人获取焦点事件
+        $("#recommend").focus(function () {
+            disappearError($("#recommend"), $("#recommendWaring"));
+            $scope.upGrade.team = "";
+        });
+
+        //节点人获取焦点事件
+        $("#node").focus(function () {
+            disappearError($("#node"), $("#nodeWaring"));
+        });
+
+        // 昵称获取焦点事件
+        $("#name").focus(function () {
+            disappearError($("#name"), $("#nameWaring"));
+        });
+        // 银行卡号获取焦点事件
+        $("#bankCardN").focus(function () {
+            disappearError($("#bankCardN"), $("#bankCardNWaring"));
+        });
+        // 开户银行获取焦点事件
+        $("#bank").focus(function () {
+            disappearError($("#bank"), $("#bankWaring"));
+        });
+
+        // 省份证号获取焦点事件
+        $("#identityCardN").focus(function () {
+            disappearError($("#identityCardN"), $("#identityCardNWaring"));
+        });
+
+        // 开户姓名获取焦点事件
+        $("#bankCardName").focus(function () {
+            disappearError($("#bankCardName"), $("#bankCardNameWaring"));
+        });
+
+        // 开户支行获取焦点事件
+        $("#branchBank").focus(function () {
+            disappearError($("#branchBank"), $("#branchBankWaring"));
+        });
+
+        function checkTeam() {
+            if ($scope.upGrade.team == undefined || $scope.upGrade.team == "") {
+                $("#teamWaring").css('display', 'block');
+                $("#team").css({
+                    'height': '34px',
+                    'line-height': '34px',
+                });
+                $("#teamWaring").html("<i class='icon ion-android-warning'></i> " + "内容不能为空");
+            }
+        }
+
+        // 点击提交按钮
+        $scope.submitUpGradeAction = function () {
+            checkRecommend();
+            checkNode();
+            checkTeam();
+            checkNickName();
+            checkBank();
+            checkBankCardN();
+            checkBankCardName();
+            checkBranchBank();
+            checkIdentityCardN();
+
+
+            myUpdateUserDataService.upGradeAction($scope, POP, myGrade);
+        }
+
 
         // 点击重置按钮
         $scope.reset = function () {
@@ -238,7 +271,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP', '$stateParams'];
+    ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP', '$stateParams', '$compile'];
 
     /*动态注册控制器*/
     app.registerController("myUpdateUserDataController", ctrl);

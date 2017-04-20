@@ -115,7 +115,6 @@ define(['app'], function (app) {
                 console.log("bank:" + bank);
                 console.log("identityCardN:" + identityCardN);
                 console.log("branchBank:" + branchBank);
-                ;
                 console.log("nickName:" + nickName);
 
                 // HTTP 提交
@@ -154,7 +153,10 @@ define(['app'], function (app) {
                                 'line-height': '34px',
                             });
                             $scope.$apply(function () {
-                                $scope.upGrade.recommendedManError = data
+                                var str = eleNode.text();
+                                console.log("原有的值是"+str);
+                                $scope.upGrade.recommendedManError = data;
+                                console.log("scope对象的值是：" + $scope.upGrade.recommendedManError);
                             });
                         }
                         return

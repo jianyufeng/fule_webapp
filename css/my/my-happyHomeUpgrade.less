@@ -46,6 +46,9 @@
 ion-content {
   .title {
     width: 100%;
+    height: 50px;
+    //overflow-x:scroll;
+    //style="width:100%;height:50px;background:red;;"
     .of_navBox {
       height: 50px;
       width: 1045px;
@@ -72,84 +75,99 @@ ion-content {
       }
     }
   }
-  .contentBox {
-    position: relative;
-    top: 0;
-    left: 0;
-    .rowBox {
+  .content {
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    ion-scroll {
       width: 100%;
-      height: 45px;
-      .leftBox {
-        padding-left: 10px;
-        width: 25%;
-        float: left;
-        line-height: 44px;
-        .redStar {
-          color: red;
-          margin-right: 5px;
-        }
-      }
-
-      .rightBox {
-        height: 44px;
-        width: 70%;
-        float: left;
-        line-height: 44px;
-        margin-left: 5%;
-        input {
-          background-color: white;
+      height: 100%;
+      position: absolute;
+      background-color: white;
+      .contentBox {
+        position: relative;
+        top: 0;
+        left: 0;
+        .rowBox {
           width: 100%;
-          height: 44px;
-          line-height: 44px;
-          display: block;
+          height: 45px;
+          .leftBox {
+            padding-left: 10px;
+            width: 25%;
+            float: left;
+            line-height: 44px;
+            .redStar {
+              color: red;
+              margin-right: 5px;
+            }
+          }
+
+          .rightBox {
+            height: 44px;
+            width: 70%;
+            float: left;
+            line-height: 44px;
+            margin-left: 5%;
+            input {
+              background-color: white;
+              width: 100%;
+              height: 44px;
+              line-height: 44px;
+              display: block;
+            }
+            .waring {
+              height: 10px;
+              color: red;
+              font-size: 10px;
+              margin-top: -20px;
+              display: none;
+            }
+            .span {
+              height: 44px;
+              line-height: 44px;
+            }
+          }
+          .line {
+            clear: both;
+            background-color: #eeeeee;
+            width: 98%;
+            height: 1px;
+            margin: 0 1%;
+          }
         }
-        .waring {
-          height: 10px;
-          color: red;
-          font-size: 10px;
-          margin-top: -20px;
-          display: none;
+        .rowBottomBox {
+          //background-color: white;
+          margin-top: 15px;
+          width: 100%;
+          height: 50px;
+          padding: 0 5%;
+          .submitButton {
+            width: 48%;
+            height: 35px;
+            background-color: #D39AC5;
+            border-radius: 3px;
+            color: white;
+            float: left;
+            text-align: center;
+            line-height: 35px;
+          }
+          .resetButton {
+            width: 48%;
+            height: 35px;
+            border-radius: 3px;
+            background-color: #AAAAAA;
+            color: white;
+            float: left;
+            text-align: center;
+            line-height: 35px;
+            margin-left: 4%;
+          }
         }
-        .span {
-          height: 44px;
-          line-height: 44px;
-        }
-      }
-      .line {
-        clear: both;
-        background-color: #eeeeee;
-        width: 98%;
-        height: 1px;
-        margin: 0 1%;
       }
     }
-    .rowBottomBox {
-      //background-color: white;
-      margin-top: 15px;
-      width: 100%;
-      height: 50px;
-      padding: 0 5%;
-      .submitButton {
-        width: 48%;
-        height: 35px;
-        background-color: #D39AC5;
-        border-radius: 3px;
-        color: white;
-        float: left;
-        text-align: center;
-        line-height: 35px;
-      }
-      .resetButton {
-        width: 48%;
-        height: 35px;
-        border-radius: 3px;
-        background-color: #AAAAAA;
-        color: white;
-        float: left;
-        text-align: center;
-        line-height: 35px;
-        margin-left: 4%;
-      }
-    }
+
   }
+
 }
