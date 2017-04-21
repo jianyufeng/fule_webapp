@@ -90,9 +90,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
             //计算 差多少可以购买喜乐之间  貌似不需要
 
-
-
-
         });
 
 
