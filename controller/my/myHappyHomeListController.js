@@ -21,7 +21,7 @@ define(['app', 'css! ../../../css/my/my-happyHomeList'], function (app) {
 
 
         });
-        
+
         //购买记录
         $scope.toPurchaseHistory = function () {
 
