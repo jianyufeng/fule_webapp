@@ -1,12 +1,10 @@
 <ion-view view-title="我的" hide-nav-bar="{{isNavShow}}">
-
+    <navigation-bar title="我的" class="myHeaderBox"></navigation-bar>
     <ion-content>
-        <navigation-bar title="我的" class="myHeaderBox"></navigation-bar>
-
         <!--下拉刷新-->
         <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
 
-        <div class="unLoginBox">
+        <div class="unLoginBox"  style="width:100%;position:absolute;top:60px;">
             <img src="./resource/images/waitLoading.png" style="margin-bottom:30px;"/>
             <button ng-click="goLogin()">登录</button>
             <button ng-click="goRegister()">新用户注册</button>
