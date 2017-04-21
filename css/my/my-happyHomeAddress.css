@@ -179,7 +179,6 @@
 }
 .outBox .noAddress {
   width: 220px;
-  height: 260px;
   margin: 0px auto;
   position: absolute;
   top: 40%;
@@ -190,7 +189,6 @@
 }
 .outBox .noAddress img {
   width: 200px;
-  height: 200px;
   margin-left: 10px;
 }
 .outBox .noAddress p {

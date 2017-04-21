@@ -8,24 +8,37 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
     function ctrl($scope,cartModifyAddressService,POP,$state,$ionicHistory,$stateParams){
 
+        $scope.p = {};
 
         //$stateParams 框架传过来的参数综合对象
-        $scope.$on('$ionicView.loaded',function () {
+        $scope.$on('$ionicView.beforeEnter',function () {
+
+            console.log(123123123);
 
             //初始化
             $scope.righttitleValue = "保存";
-            console.log( $stateParams);
-            $('.recieverName').val($stateParams.consignee);
-            $('.recieverNumber').val($stateParams.mobile);
-            $(".select-location").find("span").text($stateParams.province_name + $stateParams.city_name + $stateParams.district_name);
-            $(".select-location").find("span").css("color","#000000");
-            $(".inputArea").val($stateParams.address);
-            $('.email').val($stateParams.email);
-            $('.categray').val($stateParams.address_name);
-            $('.zipcode').val($stateParams.zipcode);
-            $('.building').val($stateParams.sign_building);
-            $('.time').val($stateParams.best_time);
-            $('.telNumber').val($stateParams.tel);
+            $scope.p.recieverName = $stateParams.consignee;
+            $scope.p.mobile = $stateParams.mobile;
+            $scope.p.location = $stateParams.province_name + $stateParams.city_name + $stateParams.district_name;
+            $scope.p.inputArea = $stateParams.address;
+            $scope.p.email = $stateParams.email;
+            $scope.p.address_name = $stateParams.address_name;
+            $scope.p.zipcode = $stateParams.zipcode;
+            $scope.p.sign_building = $stateParams.sign_building;
+            $scope.p.best_time = $stateParams.best_time;
+            $scope.p.tel = $stateParams.tel;
+            
+            //$('.recieverName').val($stateParams.consignee);
+            // $('.recieverNumber').val($stateParams.mobile);
+            // $(".select-location").find("span").text($stateParams.province_name + $stateParams.city_name + $stateParams.district_name);
+            // $(".select-location").find("span").css("color","#000000");
+            // $(".inputArea").val($stateParams.address);
+            // $('.email').val($stateParams.email);
+            // $('.categray').val($stateParams.address_name);
+            // $('.zipcode').val($stateParams.zipcode);
+            // $('.building').val($stateParams.sign_building);
+            // $('.time').val($stateParams.best_time);
+            // $('.telNumber').val($stateParams.tel);
 
         });
 
@@ -66,23 +79,49 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
         //保存
         $scope.saveAddress = function () {
 
-            //保存成功后后退到地址管理页面
-            var recieverName  = $('.recieverName').val();
-            var mobileNumeber = $('.recieverNumber').val();
-            var familyPhone   = $('.telNumber').val();
-            var location      = $(".select-location").find("span").text();
-            var categray      = $('.categray').val();
-            var detailAddress = $(".inputArea").val();
-            var zipCode       = $('.zipcode').val();
-            var email         = $('.email').val();
-            var building      = $('.building').val();
-            var best_time     = $('.time').val();
+            /*
+            $scope.p.mobile = $stateParams.mobile;
+            $scope.p.location = $stateParams.province_name + $stateParams.city_name + $stateParams.district_name;
+            $scope.p.inputArea = $stateParams.address;
+            $scope.p.email = $stateParams.email;
+            $scope.p.address_name = $stateParams.address_name;
+            $scope.p.zipcode = $stateParams.zipcode;
+            $scope.p.sign_building = $stateParams.sign_building;
+            $scope.p.best_time = $stateParams.best_time;
+            $scope.p.tel = $stateParams.tel;
+            */
 
+
+            //保存成功后后退到地址管理页面
+            var recieverName  = $scope.p.recieverName;
+            var mobileNumeber  = $scope.p.mobile;
+            var location  = $scope.p.location;
+            var email  = $scope.p.email;
+            var detailAddress  = $scope.p.address_name;
+            var zipCode  = $scope.p.zipcode;
+            var building  = $scope.p.sign_building;
+            var best_time  = $scope.p.best_time;
+            var familyPhone = $scope.p.tel;
+            var categray = $scope.p.address_name;
+            var detailAddress = $scope.p.inputArea;
+            
+            // var mobileNumeber = $('.recieverNumber').val();
+            // var familyPhone   = $('.telNumber').val();
+            // var location      = $(".select-location").find("span").text();
+            // var categray      = $('.categray').val();
+            // var detailAddress = $(".inputArea").val();
+            // var zipCode       = $('.zipcode').val();
+            // var email         = $('.email').val();
+            // var building      = $('.building').val();
+            // var best_time     = $('.time').val();
+
+            console.log( $scope.p);
+//return;
             //收货人姓名
-            if (recieverName ==null || recieverName.length <= 0){
-                POP.Hint("姓名不能为空");
-                return;
-            }
+            // if (recieverName ==null || recieverName.length <= 0){
+            //     POP.Hint("姓名不能为空");
+            //     return;
+            // }
             //收货人手机号码
             if (mobileNumeber ==null || mobileNumeber.length <= 0){
                 POP.Hint("联系电话不能为空");
@@ -180,35 +219,38 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                 mobile       : mobileNumeber,
                 sign_building: building,
                 best_time    : best_time
-
             }
 
 
-            console.log(newParams);
+                console.log(55555);
+             console.log(newParams);
 
 
-            console.log( "1参数" + $stateParams.address_id);
-            console.log( "2参数" + categray);
-            console.log( "3参数" + info.user_id);
-            console.log( "4参数" + recieverName);
-            console.log( "5参数" + email);
-            console.log( "6参数" + PID);
-            console.log( "7参数" + CID);
-            console.log( "8参数" + AID);
-            console.log( "9参数" + detailAddress);
-            console.log( "0参数" + zipCode);
-            console.log( "11参数" + familyPhone);
-            console.log( "12参数" + mobileNumeber);
-            console.log( "13参数" + building);
-            console.log( "14参数" + best_time);
+        //     console.log( "1参数" + $stateParams.address_id);
+        //     console.log( "2参数" + categray);
+        //     console.log( "3参数" + info.user_id);
+        //     console.log( "4参数" + recieverName);
+        //     console.log( "5参数" + email);
+        //     console.log( "6参数" + PID);
+        //     console.log( "7参数" + CID);
+        //     console.log( "8参数" + AID);
+        //     console.log( "9参数" + detailAddress);
+        //     console.log( "0参数" + zipCode);
+        //     console.log( "11参数" + familyPhone);
+        //     console.log( "12参数" + mobileNumeber);
+        //     console.log( "13参数" + building);
+        //     console.log( "14参数" + best_time);
 
-           // return;
+        //    return;
 
             //上传数据
             cartModifyAddressService.setModifyAddress($scope,newParams,POP,function () {
 
                 //成功直接返回上一层
-                $ionicHistory.goBack();
+                // setTimeout(function(){
+                 $ionicHistory.goBack();
+                // },1000);
+                
 
 
             });

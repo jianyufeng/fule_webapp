@@ -68,6 +68,9 @@ define(function () {
 			//});
 		}
 
+		console.log(88888888);
+		console.log($data);
+
 		// 设置异步请求选项
 		var options = {
 			url			: $url,

@@ -13,7 +13,11 @@ define(['app'],function(app){
         /*设置默认收货地址*/
         service.setModifyAddress = function($scope,updateParams,POP,fn){
 
-            POP.StartLoading();
+            console.log(111111111111);
+            console.log(updateParams);
+            //var p = updateParams;
+      
+            // POP.StartLoading();
 
             //更新操作
             HTTP.post(API.Cart.updateUserAddress,updateParams,function(e,data){
@@ -25,11 +29,9 @@ define(['app'],function(app){
                     POP.Hint("设置失败");
                     return;
                 }else {
+                   
                     fn();
-                    POP.Hint("设置成功");
                 }
-
-
 
             });
 

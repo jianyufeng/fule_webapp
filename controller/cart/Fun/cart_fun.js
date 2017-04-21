@@ -8,8 +8,6 @@ define(function(){
             $(this).css({ background: "#fff" }).transition({ background: "#eee" },1000);
         });
 
-
-
     }
 
 

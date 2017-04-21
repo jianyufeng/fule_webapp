@@ -1,9 +1,9 @@
 <ion-view view-title="选择收货地址" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <navigation-bar is-back="true" title="{{addressTitle}}" righttitle="{{righttitleValue}}" on-right-click="manageAddress()"></navigation-bar>
-    <ion-content>
+    <ion-content scroll="false">
         <div class="outBox" set-window-height-no-navigation="">
 
-            <div class="noAddress">
+            <div class="noAddress" style="display: none">
                 <img src="./resource/images/default/addAddress.png">
                 <p>没有收货地址，去送给谁呢~</p>
                 <p><button class="newAddressBtn">去添加新地址吧~</button></p>
