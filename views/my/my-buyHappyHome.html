@@ -1,69 +1,80 @@
 <ion-view view-title="购买喜乐之家" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
+    <navigation-bar is-back="true" title="购买喜乐之家"></navigation-bar>
     <ion-content>
-        <navigation-bar is-back="true"  title="购买喜乐之家"></navigation-bar>
         <div class="bhh_Box" new-set-window-height="0">
             <div class="bhh_buyListBox">
                 <ion-scroll style="width:100%;height: 100%" delegate-handle="bhh_scroll">
 
-                  <a href="#/tab/my-happyHomeAddress">
-                    <div class="addressBox">
-                        <div class="noAddressContent" ng-if="buyHappyAddress == 'NO'" style="color: #BCBCBC">
-                            <span>+ 请添加收货地址</span>
-                        </div>
-                        <div class="addressContent" ng-if="buyHappyAddress != 'NO'" style="color: black">
-                            <div class="locationImg">
-                                <img src="resource/images/icon/address_icon.png"/>
+                    <a href="#/tab/my-happyHomeAddress">
+                        <div class="addressBox">
+                            <div class="noAddressContent" ng-if="buyHappyAddress == 'NO'" style="color: #BCBCBC">
+                                <span>+ 请添加收货地址</span>
                             </div>
-                            <div class="addressDetail">
-                                <div class="personalInfo">
-                                    <div class="personName ellipsis"><span>收货人:{{buyHappyAddress.consignee}}</span></div>
-                                    <div class="personPhone">
-                                        <span>{{buyHappyAddress.mobile?buyHappyAddress.mobile:buyHappyAddress.tel}}&nbsp;&nbsp;</span></div>
+                            <div class="addressContent" ng-if="buyHappyAddress != 'NO'" style="color: black">
+                                <div class="locationImg">
+                                    <img src="resource/images/icon/address_icon.png"/>
                                 </div>
-                                <div class="addressInfo"><span>收货地址 : {{buyHappyAddress.province_name+"省"+ buyHappyAddress.city_name + buyHappyAddress.district_name + buyHappyAddress.address}} </span>
+                                <div class="addressDetail">
+                                    <div class="personalInfo">
+                                        <div class="personName ellipsis"><span>收货人:{{buyHappyAddress.consignee}}</span>
+                                        </div>
+                                        <div class="personPhone">
+                                            <span>{{buyHappyAddress.mobile?buyHappyAddress.mobile:buyHappyAddress.tel}}&nbsp;&nbsp;</span>
+                                        </div>
+                                    </div>
+                                    <div class="addressInfo"><span>收货地址 : {{buyHappyAddress.province_name+"省"+ buyHappyAddress.city_name + buyHappyAddress.district_name + buyHappyAddress.address}} </span>
+                                    </div>
+                                </div>
+                                <div class="nextBtn">
+                                    <img class="nextBtnImg" src="resource/images/icon/jiantou_right.png">
                                 </div>
                             </div>
-                            <div class="nextBtn">
-                                <img class="nextBtnImg" src="resource/images/icon/jiantou_right.png">
+                            <div class="colorLine">
+                                <img src="resource/images/icon/address.png">
                             </div>
                         </div>
-                        <div class="colorLine">
-                            <img src="resource/images/icon/address.png">
-                        </div>
-                    </div>
-                   </a>
+                    </a>
                     <div class="bhh_titleBox">喜乐之家商品列表</div>
-                    <div class="bhh_alert">您此笔订单金额实际支付金额为{{bugConfig.pay_amount}}元,本次合计金额至少应为{{bugConfig.goods_pice}}元</div>
+                    <div class="bhh_alert">您此笔订单金额实际支付金额为{{bugConfig.pay_amount}}元,本次合计金额至少应为{{bugConfig.goods_pice}}元
+                    </div>
 
                     <div class="bhh_searchBox">
                         <input class="bhh_search" type="text" placeholder="请输入要搜索的商品名称">
                     </div>
-                    <div ng-repeat="item in goods">
-                        <div class="bhh_goodItemBox" ng-if="item.is_product == 0" >
+
+                    <div ng-repeat="item in goods" view-on-finish id="list">
+                        <div class="bhh_goodItemBox" ng-if="item.is_product == 0">
                             <div class="bhh_goodImgBox">
                                 <img class="bhh_goodImg" alt="商品图"
-                                     src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
+                                     src="./resource/images/default/default_image.png" data-original='{{item.img_normal}}'>
                             </div>
 
                             <div class="bhh_goodInfo">
-                                <div class="bbh_goodName">{{item.goods_name}}</div>
-                                <div class="bbh_goodPrice">单价&nbsp;:&nbsp;<span class="price">{{item.shop_price}}</span></div>
-                                <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;<span class="money">{{goodMoney}}</span></div>
+                                <div class="bhh_goodName">{{item.goods_name}}</div>
+                                <div class="bbh_goodPrice">单价&nbsp;:&nbsp;<span class="price">{{item.shop_price}}</span>
+                                </div>
+                                <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;<span class="money">{{goodMoney}}</span>
+                                </div>
                             </div>
                             <div class="bhh_buyNumberBox">
-                                <input class="bhh_buyNumber" type="number" placeholder="购买数量" data-price="{{item.shop_price}}" data-number="{{item.goods_number}}" data-oldInput="0" ng-model="goods_number">
-                                <div class="bhh_noGoods" ng-if="( item.goods_number==0 ||((item.goods_number - goods_number) < 0))">商品库存不足</div>
+                                <input class="bhh_buyNumber" type="number" placeholder="购买数量"
+                                       data-price="{{item.shop_price}}" data-number="{{item.goods_number}}"
+                                       data-oldinput="0" ng-model="goods_number">
+                                <div class="bhh_noGoods"
+                                     ng-if="( item.goods_number==0 ||((item.goods_number - goods_number) < 0))">商品库存不足
+                                </div>
                             </div>
                         </div>
-                        <div class="bhh_goodItemBox1" id="bhh_goodItemBox1_{{item.goods_id}}" ng-if="item.is_product > 0">
-                            <div class="bbh_seeMoreGoodsBox" ng-click="seeMoreGoods(item.goods_id,$index,$event)">
-                                <div class="bhh_goodImgBox1">
-                                    <img class="bhh_goodImg1" alt="商品图"
-                                         src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
+                        <div class="bhh_goodItemBox" id="bhh_goodItemBox1_{{item.goods_id}}"
+                             ng-if="item.is_product > 0">
+                            <div class="bbh_seeMoreGoodsBox" ng-click="seeMoreGoods(item.goods_id,item.shop_price)">
+                                <div class="bhh_goodImgBox">
+                                    <img class="bhh_goodImg" alt="商品图"
+                                         src="./resource/images/default/default_image.png" data-original='{{item.img_normal}}'>
                                 </div>
                                 <div class="bhh_goodInfoBox1">
                                     <div class="bhh_goodName">{{item.goods_name}}</div>
-                                    <div class="bhh_selectNumber">当前商品已选 0 件</div>
+                                    <div class="bhh_selectNumber">当前商品已选 <span class="sel_p_n">0</span> 件</div>
                                 </div>
                                 <div class="bhh_goodMore">
                                     查看更多属性
@@ -71,30 +82,30 @@
                             </div>
                             <div id="more_goodsBox_{{item.goods_id}}">
                                 <!--<div class="more_goodsBox">-->
-                                    <!--<div class="more_goodImgBox">-->
-                                        <!--<div class="more_goodName">-->
-                                            <!--<div class="goodAttrNameBox">-->
-                                                <!--属性&nbsp;:&nbsp;-->
-                                                <!--<span class="goodAttrVal">值</span>-->
-                                            <!--</div>-->
-                                            <!--<div class="goodAttrNameBox">-->
-                                                <!--属性&nbsp;:&nbsp;-->
-                                                <!--<span class="goodAttrVal">值</span>-->
-                                            <!--</div>-->
-                                            <!--<div class="goodAttrNameBox">-->
-                                                <!--属性&nbsp;:&nbsp;-->
-                                                <!--<span class="goodAttrVal">值</span>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="more_goodInfo">-->
-                                        <!--<div class="bbh_goodPrice">单价&nbsp;:&nbsp;255</div>-->
-                                        <!--<div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;0</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="more_buyNumberBox">-->
-                                        <!--<input class="bhh_buyNumber" type="number" placeholder="购买数量">-->
-                                    <!--</div>-->
-                                    <!--<div style="clear: both"></div>-->
+                                <!--<div class="more_goodImgBox">-->
+                                <!--<div class="more_goodName">-->
+                                <!--<div class="goodAttrNameBox">-->
+                                <!--属性&nbsp;:&nbsp;-->
+                                <!--<span class="goodAttrVal">值</span>-->
+                                <!--</div>-->
+                                <!--<div class="goodAttrNameBox">-->
+                                <!--属性&nbsp;:&nbsp;-->
+                                <!--<span class="goodAttrVal">值</span>-->
+                                <!--</div>-->
+                                <!--<div class="goodAttrNameBox">-->
+                                <!--属性&nbsp;:&nbsp;-->
+                                <!--<span class="goodAttrVal">值</span>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="more_goodInfo">-->
+                                <!--<div class="bbh_goodPrice">单价&nbsp;:&nbsp;255</div>-->
+                                <!--<div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;0</div>-->
+                                <!--</div>-->
+                                <!--<div class="more_buyNumberBox">-->
+                                <!--<input class="bhh_buyNumber" type="number" placeholder="购买数量">-->
+                                <!--</div>-->
+                                <!--<div style="clear: both"></div>-->
                                 <!--</div>-->
 
                             </div>
@@ -102,17 +113,23 @@
                     </div>
                 </ion-scroll>
             </div>
-            <div class="bhh_addBuyAlertBox">
-                您还差{{bugConfig.goods_pice - totalMoney}}元 可以购买喜乐之家
+            <div>
+                <div class="bhh_addBuyAlertBox">
+                    您还差{{bugConfig.goods_pice - totalMoney}}元 可以购买喜乐之家
+                </div>
+                <div class="bhh_addBuyAlertBox1" style="display: none">
+                    您可以购买喜乐之家了
+                </div>
             </div>
+
             <div class="bbh_bottomSaveBox">
                 <div class="bhh_GoodsAndMoneyBox">
                     共&nbsp;:&nbsp;<span>{{totalGoodsNumber}}</span>&nbsp;件商品&nbsp;&nbsp;
                     合计&nbsp;:&nbsp;<span>&yen;&nbsp;{{totalMoney}}</span>
                 </div>
-                <div class="bhh_saveBox">
+                <button class="bhh_saveBox" disabled>
                     保存
-                </div>
+                </button>
             </div>
 
         </div>

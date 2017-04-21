@@ -10,30 +10,30 @@ define(['app'], function (app) {
         service.getBuyGoodList = function ($scope, POP) {
             POP.StartLoading();
             //获取用户的账号
-            HTTP.get(API.My.buyGoodsList + "/user_id/"+info.user_id + "/user_name/" + info.user_name, {}, function (e, data) {
+            HTTP.get(API.My.buyGoodsList + "/user_id/" + info.user_id + "/user_name/" + info.user_name, {}, function (e, data) {
                     POP.EndLoading();
-                console.log(data);
+                    console.log(data);
 
-                if (e) {
+                    if (e) {
                         POP.Hint("加载失败");
                         return;
                     }
 
-                var nowAddress;
-                if(data.address != undefined && data.address.length > 0){
-                    for(var i=0;i<data.address.length;i++){
-                        if(data.address[i].is_default == 1){
-                            nowAddress = data.address[i];
-                            break;
-                        }else {
-                            nowAddress = data.address[0];
+                    var nowAddress;
+                    if (data.address != undefined && data.address.length > 0) {
+                        for (var i = 0; i < data.address.length; i++) {
+                            if (data.address[i].is_default == 1) {
+                                nowAddress = data.address[i];
+                                break;
+                            } else {
+                                nowAddress = data.address[0];
+                            }
                         }
+
+                    } else {
+                        nowAddress = "NO";
+
                     }
-
-                }else{
-                    nowAddress = "NO";
-
-                }
                     $scope.$apply(function () {
                         $scope.goods = data.goodsInfo.data;
                         $scope.buyHappyAddress = nowAddress;
@@ -42,9 +42,9 @@ define(['app'], function (app) {
             );
         };
         /*喜乐之家商品列表 信息*/
-        service.getBuyGoodConfig = function ($scope, POP,id) {
+        service.getBuyGoodConfig = function ($scope, POP, id) {
             //获取用户的账号
-            HTTP.get(API.My.buyHappyHomeGoodsConfig +"/id/"+id, {}, function (e, data) {
+            HTTP.get(API.My.buyHappyHomeGoodsConfig + "/id/" + id, {}, function (e, data) {
                     if (e) {
                         POP.Hint("加载失败");
                         return;
@@ -59,7 +59,7 @@ define(['app'], function (app) {
 
 
         /*网络获取商品列表的属性列表 信息*/
-        service.getBuyGoodMoreAttr = function ($scope, POP, goodId, $ionicScrollDelegate, $compile) {
+        service.getBuyGoodMoreAttr = function ($scope, POP, goodId, $ionicScrollDelegate, $compile, price) {
             POP.StartLoading();
             //获取用户的账号
             HTTP.get(API.My.buyGoodsMoreAttr + "/goods_id/" + goodId, {}, function (e, data) {
@@ -72,12 +72,18 @@ define(['app'], function (app) {
 
                         var length = data.length;
                         for (var i = 0; i < length; i++) {
+                            var lth = data[i].attr_info.length;
 
                             var tempHtml = "";
+                            //计算当前产品的单价
+                            var pice = Number.parseFloat(price);
 
-                            var lth = data[i].attr_info.length;
                             for (var j = 0; j < lth; j++) {
                                 var attrInfo = data[i].attr_info[j];
+
+                                //计算附加金额
+                                pice += Number.parseFloat(attrInfo.attr_price);
+
                                 var tem = [
                                     '<div class="goodAttrNameBox">',
                                     attrInfo.attr_name + '&nbsp;:&nbsp;',
@@ -88,25 +94,32 @@ define(['app'], function (app) {
                             }
                             var moreGoodNameObj = "<div class='more_goodName'>" + tempHtml + "</div>";
 
+                            //获取当前属性产品的数量
+                            var goodsNumber = data[i].product_number;
+
+                            //绑定产品的数量
+                            var  bindGoodNumber = "abc"+goodId+ i;
+
+
                             var template = [
                                 '<div class="more_goodsBox">',
                                 '   <div class="more_goodImgBox">',
                                 moreGoodNameObj,
                                 '    </div>',
                                 '    <div class="more_goodInfo">',
-                                '              <div class="bbh_goodPrice">单价&nbsp;:&nbsp;255</div>',
-                                '               <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;0</div>',
+                                '              <div class="bbh_goodPrice">单价&nbsp;:&nbsp;<span class="price">{{'+ pice+'}}</span></div>',
+                                '              <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;<span class="money">{{goodMoney}}</span></div>',
                                 '     </div>',
                                 '     <div class="more_buyNumberBox">',
-                                '           <div class="more_noGoods">商品库存不足</div>',
-                                '           <input class="bhh_buyNumber" type="number" placeholder="购买数量">',
+                                '           <div class="bhh_noGoods" ng-if="( ' + goodsNumber + '==0 ||((' + goodsNumber + ' - '+bindGoodNumber+') < 0))">商品库存不足</div>',
+                                '           <input class="bhh_buyNumber" type="number" placeholder="购买数量" data-price="{{'+ pice+'}}" data-number="{{' + goodsNumber + '}}" data-oldinput="0" ng-model="'+bindGoodNumber+'">',
                                 '     </div>',
                                 '     <div style="clear: both"> ',
                                 '     </div>',
                                 '</div>'
                             ].join("");
-                            // var modelHtml = $compile(template)($scope);
-                            $("#more_goodsBox_" + goodId).append(template);
+                            var modelHtml = $compile(template)($scope);
+                            $("#more_goodsBox_" + goodId).append(modelHtml);
                         }
 
 
