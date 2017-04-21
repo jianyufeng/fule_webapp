@@ -146,7 +146,7 @@
   width: 100%;
   height: 30px;
   position: absolute;
-  bottom: 60px;
+  bottom: 68px;
   line-height: 30px;
 }
 .cartBox .hintBox span {
@@ -161,7 +161,7 @@
   width: 100%;
   height: 60px;
   position: absolute;
-  bottom: 0px;
+  bottom: 8px;
   left: 0px;
 }
 .cartBox .amountBox .selectBox {

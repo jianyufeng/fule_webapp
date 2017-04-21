@@ -216,7 +216,7 @@
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox {
   width: 100%;
-  height: 200px;
+  height: 100px;
   background: white;
   float: left;
   border-top: 5px solid #f8f8f8;
