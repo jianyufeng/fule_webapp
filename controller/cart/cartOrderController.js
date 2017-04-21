@@ -162,9 +162,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
 
         });
-        // $(document).on("click",".orderBox",function(){
-        //     alert("点击收货信息");
-        // });
+        
 
         $(".orderDeliveryModel").click(function(){
         $(".popBg").css({
