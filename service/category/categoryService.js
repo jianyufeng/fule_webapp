@@ -85,7 +85,7 @@ define(['app'], function (app) {
                     $scope.$broadcast('scroll.refreshComplete');
                     $scope.categorys = data.categoryInfo;
                     $scope.productArray = data.goodsInfo.data;
-                    $scope.categoryName = data.categoryInfo.shift().category_name;
+                    $scope.categoryName = data.categoryInfo[0].category_name;
                     $scope.$broadcast('clearCache');
                 });
 

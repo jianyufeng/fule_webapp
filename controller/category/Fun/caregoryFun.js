@@ -19,13 +19,12 @@ define(['app', 'jquery_fly'], function (app) {
 
         $(document).on("click", ".cartTagBox", function () {
             var offset = $(".tab-item:eq(3)").offset();
-            var addcar = $(this).parent().parent().parent();
-            var img = addcar.find('img').attr('src');
+            var addcar = $(this).parent().parent();
+            var img = addcar.find('.goodsImg').find('img').attr('src');
             var flyer = $('<img class="u-flyer" src="' + img + '">');
-            var productPrice = $(this).parent().parent().children(".product_price").text().substring(1);
-            var productName = $(this).parent().children(".product_name").text();
+            var productPrice = $(this).parent().children(".product_price").text().substring(1);
+            var productName = $(this).parent().children(".product_item_bottom").children(".product_name").text();
             var productId = $(this).children(".cartTag2").attr("id");
-            console.log(productPrice);
 
             //(* 必须)user_name     String用户帐号
             //(* 必须)user_id       Number用户ID

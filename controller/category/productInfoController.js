@@ -7,33 +7,31 @@
 define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
     function ctrl($scope, productInfoService, $stateParams, POP, $state, $ionicSlideBoxDelegate) {
-        //
-        //$scope.$on('$ionicView.loaded', function () {
-        //    productInfoService.getProductInfo($scope, $stateParams, POP);
-        //    productInfoService.getCartInfo($scope, POP);
-        //
-        //});
-        $scope.$on('$ionicView.beforeEnter', function () {
+
+        $scope.$on('$ionicView.enter', function () {
             $scope.count = 1;
             productInfoService.getProductInfo($scope, $stateParams, POP);
             productInfoService.getCartInfo($scope, POP);
+            console.log(9999);
 
         });
-
-
-        $scope.$on("viewOnFinish", function () {
-            productInfoService.setImageMargin();
-            $scope.myActiveSlide = 0;
-            $ionicSlideBoxDelegate.update();
+        $scope.$on('$ionicView.leave', function () {
+            $scope.count = 1;
         });
 
         $scope.onSlideChanged = function (index) {
             productInfoService.Slide($scope, index);
         }
 
+        $scope.addCartAction = function () {
+            productInfoService.addCartAction($scope, POP);
+        }
+
+        $scope.startPage = function () {
+            productInfoService.startPage($scope, $state);
+        }
         // 减号
         $scope.reduce = function () {
-            $scope.count = $(".accountBox_number").val();
             if ($scope.minGoodsNumber == "无限制") {
                 $scope.count--;
             } else {
@@ -46,11 +44,9 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
             if ($scope.count <= 1) {
                 $scope.count = 1
             }
-            $(".accountBox_number").val($scope.count);
         }
         // 加号
         $scope.add = function () {
-            $scope.count = $(".accountBox_number").val();
             if ($scope.limitGoodsNumber == "无限制") {
                 $scope.count++;
             } else {
@@ -60,17 +56,14 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
                     $scope.count++;
                 }
             }
-
-            $(".accountBox_number").val($scope.count);
         }
 
-        $scope.addCartAction = function () {
-            productInfoService.addCartAction($scope, POP);
-        }
+        $scope.$on("viewOnFinish", function () {
+            productInfoService.setImageMargin();
+            $scope.myActiveSlide = 0;
+            $ionicSlideBoxDelegate.update();
 
-        $scope.startPage = function () {
-            productInfoService.startPage($scope, $state);
-        }
+        });
 
 
     }

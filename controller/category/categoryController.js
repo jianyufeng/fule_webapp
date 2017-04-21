@@ -8,6 +8,17 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             // 初始化页面数据
             categoryService.getCategoryListAndCategoryGoodsList($scope, POP);
 
+            //更换产品列表
+            $scope.changCategoryList = function (categoryId, categoryName) {
+                categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName);
+            };
+            // 下拉刷新
+            $scope.doRefresh = function () {
+                categoryService.Refresh($scope);
+            }
+            // 加入购物车
+            caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
+
         });
 
         $scope.$on("viewOnFinish", function () {
@@ -29,17 +40,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
         $scope.$on("clearCache", function () {
             $rootScope[$state.current.name] = {};
         })
-        //更换产品列表
-        $scope.changCategoryList = function (categoryId, categoryName) {
-            categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName);
 
-        };
-        // 下拉刷新
-        $scope.doRefresh = function () {
-            categoryService.Refresh($scope);
-        }
-        // 加入购物车
-        caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
     }
 
     ctrl.$inject = ['$scope', '$rootScope', 'categoryService', 'POP', '$state'];

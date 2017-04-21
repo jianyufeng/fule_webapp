@@ -72,6 +72,9 @@ define(['app'], function (app) {
                     var eleHeight = maxHeight - 20;
                     var marWidth = (maxWidth - w) / 2;
                     var marHeight = (maxHeight - h) / 2;
+                    console.log("BoxWidth:" + maxWidth);
+                    console.log("imgWidth:" + w);
+                    console.log("imgBoxWidth:" + eleWidth);
                     if (w >= h) {
                         if (w < maxWidth) {
                             if (marWidth < margin) {

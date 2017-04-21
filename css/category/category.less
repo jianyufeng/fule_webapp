@@ -4,7 +4,6 @@
     display: block;
     width: 100%;
     height: auto;
-
     .category_top_list {
       width: 100%;
       height: auto;
@@ -67,8 +66,14 @@
       letter-spacing: 1px;
     }
   }
-
+  //ion-scroll{
+  //  background-color: red;
+  //  width: 100%;
+  //  height: 1000px;
   .product_list {
+    width: 100%;
+    height: auto;
+    //height: 2000px;
     .product_item {
       width: 50%;
       height: 200px;
@@ -131,9 +136,25 @@
         margin-bottom: 5px;
         .product_price {
           display: block;
+          float: left;
+          width: 65%;
           color: #A92586;
           font-weight: bold;
           font-size: 14px;
+        }
+        .cartTagBox {
+          width: 25%;
+          height: 22px;
+          float: left;
+          z-index: 99999;
+          img {
+            display: block;
+            float: right;
+            margin-right: 10px;
+            width: 25px;
+            height: 22px;
+            margin-bottom: 5px;
+          }
         }
         .product_item_bottom {
           margin-top: 5px;
@@ -145,26 +166,13 @@
             display: block;
             float: left;
           }
-          .cartTagBox {
-            width: 25%;
-            height: 25%;
-            float: left;
-            z-index: 99999;
-            img {
-              display: block;
-              float: right;
-              margin-right: 10px;
-              width: 25px;
-              height: 22px;
-              margin-bottom: 5px;
-            }
-          }
 
         }
       }
     }
 
   }
+
 }
 
 .u-flyer {

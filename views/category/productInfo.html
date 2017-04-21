@@ -1,7 +1,6 @@
 <ion-view view-title="商品" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-
-    <ion-content>
-        <navigation-bar is-back="true" title="商品"></navigation-bar>
+    <navigation-bar is-back="true" title="商品"></navigation-bar>
+    <ion-content  style="width:100%;position:absolute;top:60px;">
         <div class="contentBox" set-window-height-no-navigation="0">
             <ion-scroll class="scrollBox" direction="y" style="width: 100%;height: 100%">
                 <!--图片详情-->
@@ -43,6 +42,7 @@
                                 <div class="accountBox" ng-click="reduce()"><img
                                         src="./resource/images/icon/shoppingcar_reduce.png"></div>
                                 <input type="text" class="accountBox_number"
+                                       id="_number"
                                        onkeyup="this.value=this.value.replace(/\D/g,'')"
                                        onafterpaste="this.value=this.value.replace(/\D/g,'')" ng-model="count"/>
                                 <div class="accountBox" ng-click="add()">
