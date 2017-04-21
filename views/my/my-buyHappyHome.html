@@ -1,9 +1,9 @@
 <ion-view view-title="购买喜乐之家" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <navigation-bar is-back="true" title="购买喜乐之家"></navigation-bar>
-    <ion-content>
+    <ion-content has-bouncing="false" padding="true" overflow-scroll="true">
         <div class="bhh_Box" new-set-window-height="0">
             <div class="bhh_buyListBox">
-                <ion-scroll style="width:100%;height: 100%" delegate-handle="bhh_scroll">
+                <ion-scroll style="width:100%;height: 100%" delegate-handle="bhh_scroll"  on-scroll="blurAction() ">
 
                     <a href="#/tab/my-happyHomeAddress">
                         <div class="addressBox">
@@ -81,33 +81,6 @@
                                 </div>
                             </div>
                             <div id="more_goodsBox_{{item.goods_id}}">
-                                <!--<div class="more_goodsBox">-->
-                                <!--<div class="more_goodImgBox">-->
-                                <!--<div class="more_goodName">-->
-                                <!--<div class="goodAttrNameBox">-->
-                                <!--属性&nbsp;:&nbsp;-->
-                                <!--<span class="goodAttrVal">值</span>-->
-                                <!--</div>-->
-                                <!--<div class="goodAttrNameBox">-->
-                                <!--属性&nbsp;:&nbsp;-->
-                                <!--<span class="goodAttrVal">值</span>-->
-                                <!--</div>-->
-                                <!--<div class="goodAttrNameBox">-->
-                                <!--属性&nbsp;:&nbsp;-->
-                                <!--<span class="goodAttrVal">值</span>-->
-                                <!--</div>-->
-                                <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="more_goodInfo">-->
-                                <!--<div class="bbh_goodPrice">单价&nbsp;:&nbsp;255</div>-->
-                                <!--<div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;0</div>-->
-                                <!--</div>-->
-                                <!--<div class="more_buyNumberBox">-->
-                                <!--<input class="bhh_buyNumber" type="number" placeholder="购买数量">-->
-                                <!--</div>-->
-                                <!--<div style="clear: both"></div>-->
-                                <!--</div>-->
-
                             </div>
                         </div>
                     </div>

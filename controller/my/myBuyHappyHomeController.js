@@ -2,7 +2,13 @@
  * Created by Administrator on 2017/4/14.
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
-    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $ionicScrollDelegate, $compile) {
+    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile,$ionicScrollDelegate) {
+
+        $scope.blurAction = function(){
+            $(".changeBtn input").blur();
+        };
+
+
         //提交是的库存不足判断标记
         var canotSave = "canotSave";
         $scope.$on('$ionicView.loaded', function () {
@@ -73,7 +79,10 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         });
 
+        $(document).on("change",".bhh_buyNumber",function(){
+            alert(888);
 
+        });
         $(document).on("input propertychange", ".bhh_buyNumber", function () {
 
             //获取输入的产品数
@@ -138,7 +147,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 }
             })
         });
-
         $scope.$on("viewOnFinish", function () {
 
             $(".bhh_goodImgBox img").myImageLazyLoad({
@@ -191,7 +199,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$ionicScrollDelegate', '$compile'];
+    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile','$ionicScrollDelegate'];
 
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);
