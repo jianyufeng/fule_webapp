@@ -8,6 +8,11 @@ define(function(){
             provinceAPI : API.Other.getProvinces,
             cityAPI     : API.Other.getCities,
             areaAPI     : API.Other.getCounties,
+
+            provinceid  : 0,
+            cityid      : 0,
+            areaid      : 0,
+
 			resultBtnClick : function(){}
 
 		};
@@ -22,6 +27,7 @@ define(function(){
             this.pValue = "未选择";
             this.cValue = "未选择";
             this.aValue = "未选择";
+            this.paData = null;
 
             //加载锁
             this.lock = false;
@@ -45,7 +51,67 @@ define(function(){
             //创建点击事件
             this.initEvent();
 
+            //初始化已有数据
+
+            console.log(this.paData);
+
+            if(this.paData != null){
+                this.initSelectedData();
+            }
+            
+
 		};
+
+        //初始化已有数据
+        AddressSelect.prototype.initSelectedData = function(){
+
+            var _this = this;
+
+            if(this.options.provinceid != undefined && this.options.provinceid > 0){
+
+                //选中相应省份
+                $(".provinceBox .addressItem").each(function(){
+                    var _id = $(this).attr("id");
+                    console.log(_id);
+                    if(_id == _this.options.provinceid){
+                        $(this).trigger("click");
+                    }
+                })
+               
+            }
+
+            if(this.options.cityid != undefined && this.options.cityid > 0){
+
+                //选中相应省份
+                $(".cityBox .addressItem").each(function(){
+                    var _id = $(this).attr("id");
+                    console.log(_id);
+                    if(_id == _this.options.cityid){
+                        $(this).trigger("click");
+                    }
+                })
+               
+            }
+
+            if(this.options.areaid != undefined && this.options.areaid > 0){
+
+                //选中相应省份
+                $(".areaBox .addressItem").each(function(){
+                    var _id = $(this).attr("id");
+                    console.log(_id);
+                    if(_id == _this.options.areaid){
+                        $(this).trigger("click");
+                    }
+                })
+               
+            }
+
+
+
+
+
+
+        }
 
         //创建视图
         AddressSelect.prototype.createView = function(){
@@ -105,14 +171,23 @@ define(function(){
         }
 
         AddressSelect.prototype.updateProvincesDOM = function(pData){
-            
+
+            var _this = this;
+  
             //清除原有DOM
             $(".provinceBox").find(".addressItem").remove();
 
             //重新渲染数据
             var pDOM = "";
             for(var i= 0;i<pData.length;i++){
-                pDOM += "<div id='"+pData[i].province_id+"' class='addressItem ellipsis'>"+pData[i].province_name+"</div>";
+                 
+                 if(_this.paData != null){
+                    pDOM += "<div id='"+pData[i].region_id+"' class='addressItem ellipsis'>"+pData[i].region_name+"</div>";
+                 }else{
+                    pDOM += "<div id='"+pData[i].province_id+"' class='addressItem ellipsis'>"+pData[i].province_name+"</div>";
+                 }
+                   
+
             }
             
             $(".provinceBox").append(pDOM);
@@ -121,6 +196,8 @@ define(function(){
         }
 
         AddressSelect.prototype.updateCityDOM = function(cData){
+
+            var _this = this;
             
             //清除原有DOM
             $(".cityBox").find(".addressItem").remove();
@@ -130,7 +207,12 @@ define(function(){
             //重新渲染数据
             var pDOM = "";
             for(var i= 0;i<cData.length;i++){
-                pDOM += "<div id='"+cData[i].city_id+"' class='addressItem'>"+cData[i].city_name+"</div>";
+                if(_this.paData != null){
+pDOM += "<div id='"+cData[i].region_id+"' class='addressItem'>"+cData[i].region_name+"</div>";
+                }else{
+pDOM += "<div id='"+cData[i].city_id+"' class='addressItem'>"+cData[i].city_name+"</div>";
+                }
+                
             }
             
             $(".cityBox").append(pDOM);
@@ -139,6 +221,8 @@ define(function(){
         }
 
         AddressSelect.prototype.updateAreaDOM = function(aData){
+
+            var _this = this;
             
             //清除原有DOM
             $(".areaBox").find(".addressItem").remove();
@@ -146,7 +230,12 @@ define(function(){
             //重新渲染数据
             var pDOM = "";
             for(var i= 0;i<aData.length;i++){
-                pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_name+"</div>";
+                if(_this.paData != null){
+pDOM += "<div id='"+aData[i].region_id+"' class='addressItem'>"+aData[i].region_name+"</div>";
+                }else{
+pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_name+"</div>";
+                }
+                
             }
             
             $(".areaBox").append(pDOM);
@@ -158,17 +247,32 @@ define(function(){
 
             var _this = this;
 
-            //获取省份信息
-            HTTP.get(_this.options.provinceAPI,{},function(e,data){
 
-                if(e){
-                    $(".provinceMask").html(_this.errorData);
-                    return;
-                }
+            _this.paData = locationInfo.getProvince();
 
-                _this.updateProvincesDOM(data);
-                
-            });
+
+            if(_this.paData != null){
+                console.log("本地缓存");
+          
+                _this.updateProvincesDOM(_this.paData.items);
+            }else{
+
+                console.log("网络请求");
+
+                //获取省份信息
+                HTTP.get(_this.options.provinceAPI,{},function(e,data){
+
+                    if(e){
+                        $(".provinceMask").html(_this.errorData);
+                        return;
+                    }
+
+                    _this.updateProvincesDOM(data);
+                    
+                });
+
+            }
+            
 
         }
 
@@ -225,21 +329,37 @@ define(function(){
 
                     console.log(33333);
 
-                    //获取城市
-                    HTTP.get(_this.options.cityAPI + "/province/" + pid ,function(e,data){
+                    var cData = locationInfo.getCity(pid);
+
+                    if(cData !=null){
 
                         //恢复滚动
-                        $(".cityBox").css("overflow-y","auto");
-                        $(".areaBox").css("overflow-y","auto");
+                            $(".cityBox").css("overflow-y","auto");
+                            $(".areaBox").css("overflow-y","auto");
 
-                        if(e){
-                            $(".cityMask").html(_this.errorData);
-                            return;
-                        }
+                        _this.updateCityDOM(cData.items);
 
-                        _this.updateCityDOM(data);
-                        
-                    });
+                    }else{
+
+                        //获取城市
+                        HTTP.get(_this.options.cityAPI + "/province/" + pid ,function(e,data){
+
+                            //恢复滚动
+                            $(".cityBox").css("overflow-y","auto");
+                            $(".areaBox").css("overflow-y","auto");
+
+                            if(e){
+                                $(".cityMask").html(_this.errorData);
+                                return;
+                            }
+
+                            _this.updateCityDOM(data);
+                            
+                        });
+
+                    }
+
+                    
 
                 
                //  },2000);
@@ -280,9 +400,22 @@ define(function(){
 
              // setTimeout(function(){
 
-             
+                var aData = locationInfo.getArea(cid);
 
-                    //获取城市
+                    if(aData !=null){
+
+                        console.log("本地获取");
+
+                        //恢复滚动
+                        $(".areaBox").css("overflow-y","auto");
+                        _this.lock = false;
+                        _this.updateAreaDOM(aData.items);
+
+                    }else{
+
+                        console.log("请求区域");
+
+                        //获取城市
                     HTTP.get(_this.options.areaAPI+"/city/" + cid,function(e,data){
 
                         _this.lock = false;
@@ -300,9 +433,17 @@ define(function(){
                             return;
                         }
 
+                        console.log(9999);
+                        console.log(data);
+
                         _this.updateAreaDOM(data);
                         
                     });
+
+
+                    }
+
+                    
 
           
                //  },2000);

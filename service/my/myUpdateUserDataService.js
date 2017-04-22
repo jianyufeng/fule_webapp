@@ -8,7 +8,7 @@ define(['app'], function (app) {
     app.factory("myUpdateUserDataService", function () {
             var service = {};
             // 点击 提交按钮
-            service.upGradeAction = function ($scope, POP, myGrade, $state, POP) {
+            service.upGradeAction = function ($scope, POP, myGrade, $state) {
                 console.log("myGrade：" + myGrade);
                 var userInfo = User.getInfo();
                 // 推荐人
@@ -138,7 +138,11 @@ define(['app'], function (app) {
                         return;
                     }
                     // 跳转界面
-                    $state.go("tab.my");
+                    POP.Hint("升级成功!");
+                    setTimeout(function(){
+                        $state.go("tab.my");
+                    },2000);
+                    
                 })
 
             }

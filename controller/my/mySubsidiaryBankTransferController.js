@@ -14,14 +14,19 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
                 });
         };
 
-
+       //console.log( locationInfo.getAddressName(4,54,531) );
 
         //选择地址
         $("#ert_address").click(function () {
             new AddressSelect({
+                provinceid    : 4,
+                cityid        : 54,
+                areaid        : 531,
                 resultBtnClick: function (result) {
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
                     $("#ert_address").val(address);
+
+                   
                 }
             })
         });

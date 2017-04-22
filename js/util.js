@@ -1,6 +1,6 @@
 //console.log("[框架]====>[加载框架工具包文件]");
 
-define(function () {
+define(['linq'],function () {
 
 	// HTTP 请求封装
 	var HTTP = {};
@@ -175,6 +175,206 @@ define(function () {
 	};
 
 	window.User = User;
+
+
+	/*
+	 * 本地存储工具
+	 */
+  var customStorage = {};
+
+	//session会话存储-保存
+	customStorage.setSessionValue = function(key,value){
+
+		//判断是否支持端session存储
+		if(!window.sessionStorage){
+			POP.error("抱歉您的浏览器不支持端session存储功能!");
+			return;
+		}
+
+		//判断key与value是否有值
+		if(key == undefined || value == undefined){
+			POP.error("请您传递需要缓存的session键名与键值!");
+			return;
+		}
+
+		//存储内容
+		window.sessionStorage.setItem(key,value);
+
+
+	};
+
+	//session会话存储-获取
+	customStorage.getSessionValue = function(key){
+
+		//判断是否支持端session存储
+		if(!window.sessionStorage){
+			POP.error("抱歉您的浏览器不支持端session存储功能!");
+			return;
+		}
+
+		//判断key是否有值
+		if(key == undefined){
+			POP.error("请您传递需要缓存的session键名与键值!");
+			return;
+		}
+
+		//存储内容
+		return window.sessionStorage.getItem(key);
+
+
+	};
+
+	//session会话存储-删除
+	customStorage.deleteSessionValue = function(key){
+		window.sessionStorage.removeItem(key);
+	};
+
+	//session会话存储-删除全部
+	customStorage.deleteSessionValueAll = function(){
+		window.sessionStorage.clear();
+	};
+
+	//本地持久化存储-保存
+	customStorage.setPersistenceValue = function(key,value){
+
+		console.log("本地存储...");
+
+		//判断是否支持端本地存储
+		if(!window.localStorage){
+			POP.error("抱歉您的浏览器不支持端session存储功能!");
+			return;
+		}
+
+		//判断key与value是否有值
+		if(key == undefined || value == undefined){
+			POP.error("请您传递需要缓存的session键名与键值!");
+			return;
+		}
+
+		//存储内容
+		window.localStorage.setItem(key,value);
+
+	};
+
+	//本地持久化存储-获取
+	customStorage.getPersistenceValue = function(key){
+
+		//判断是否支持端本地存储
+		if(!window.localStorage){
+			POP.error("抱歉您的浏览器不支持端session存储功能!");
+			return;
+		}
+
+		//判断key是否有值
+		if(key == undefined){
+			POP.error("请您传递需要缓存的session键名与键值!");
+			return;
+		}
+
+		//存储内容
+		return window.localStorage.getItem(key);
+
+	};
+
+	//本地持久化存储-删除
+	customStorage.deleteLocalStorageValue = function(key){
+		window.localStorage.removeItem(key);
+	};
+
+	//本地持久化存储-删除全部
+	customStorage.deleteLocalStorageValueAll = function(){
+		window.localStorage.clear();
+	};
+
+	window.customStorage = customStorage;
+
+	var locationInfo = {};
+
+	//反回所有省份
+	locationInfo.getProvince = function(){
+
+		var locationData = JSON.parse(customStorage.getPersistenceValue("regionData"));
+
+		if(locationData!=null){
+
+			var exampleArray = JSLINQ(locationData).Where(function(item){ return item.region_type == "1"; })
+		
+			return exampleArray;
+		}
+
+		return null;
+
+	} 
+
+	//反回所有城市
+	locationInfo.getCity = function(pid){
+
+		var locationData = JSON.parse(customStorage.getPersistenceValue("regionData"));
+
+		if(locationData!=null){
+
+			var exampleArray = JSLINQ(locationData)
+			.Where(function(item){ return item.region_type == "2"; })
+			.Where(function(item){ return item.parent_id   == pid; })
+			
+			return exampleArray;
+
+		}
+
+		return null;
+		
+
+	} 
+
+	//反回所有区域
+	locationInfo.getArea = function(pid){
+
+		var locationData = JSON.parse(customStorage.getPersistenceValue("regionData"));
+
+		if(locationData!=null){
+			var exampleArray = JSLINQ(locationData)
+			.Where(function(item){ return item.region_type == "3"; })
+			.Where(function(item){ return item.parent_id   == pid; })
+			
+			return exampleArray;
+		}
+
+		return null;
+	}
+
+	//根据省市区ID 获取 省市区相对应的名称
+	locationInfo.getAddressName = function(pid,cid,aid){
+
+		var locationData = JSON.parse(customStorage.getPersistenceValue("regionData"));
+
+		if(locationData!=null){
+
+			var pname = JSLINQ(locationData).Where(function(item){ return item.region_id == pid; })
+			var cname = JSLINQ(locationData).Where(function(item){ return item.region_id == cid; })
+			var aname = JSLINQ(locationData).Where(function(item){ return item.region_id == aid; })
+
+			var addressStr = "";
+			if(pname.items[0].region_name){
+				addressStr += pname.items[0].region_name;
+			}
+
+			if(cname.items[0].region_name){
+				addressStr += "-" + cname.items[0].region_name;
+			}
+
+			if(aname.items[0].region_name){
+				addressStr += "-" + pname.items[0].region_name;
+			}
+
+			return addressStr;
+
+		}
+		
+		return null;
+
+	}
+
+	window.locationInfo = locationInfo;
 	
 
 });

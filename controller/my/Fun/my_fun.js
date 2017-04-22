@@ -20,14 +20,14 @@ define(['animate'],function(){
             $(this).css("background","#eee").transition({ background: "#fff" },500);
         });
 
-        /*业务相关的 放大 点击效果*/
-        $(document).on("touchstart",".businessColBox" ,function (event) {
-            $(this).transition({ scale: 1.1 });
-        });
+        // /*业务相关的 放大 点击效果*/
+        // $(document).on("touchstart",".businessColBox" ,function (event) {
+        //     $(this).transition({ scale: 1.1 });
+        // });
 
-        $(document).on("touchend",".businessColBox" ,function (event) {
-            $(this).transition({ scale: 1 });
-        });
+        // $(document).on("touchend",".businessColBox" ,function (event) {
+        //     $(this).transition({ scale: 1 });
+        // });
 
         /*未读消息 点击效果*/
         $(document).on("touchstart",".itemBox" ,function (event) {
