@@ -44,6 +44,7 @@
 ion-content .title {
   width: 100%;
   height: 50px;
+  background-color: white;
 }
 ion-content .title .of_navBox {
   height: 50px;

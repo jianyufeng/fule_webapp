@@ -15,7 +15,8 @@
         </div>
     </div>
 
-    <navigation-bar is-back="true" title="喜乐之家" righttitle="去购物"></navigation-bar>
+    <navigation-bar is-back="true" is-over-back="true" on-over-back-click="backClick()" title="喜乐之家"
+                    righttitle={{goShopping}} on-right-click="goToShopping()"></navigation-bar>
     <ion-content style="top:60px;" set-window-height-no-navigation="" scroll="false">
         <div class="title">
             <ion-scroll zooming="false" direction="x" scrollbar-x="false">
