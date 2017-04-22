@@ -162,7 +162,7 @@ define(['app','css!../../../css/cart/cart_orderConfirm'],function(app,cart_fun){
 
 
         });
-        
+
 
         $(".orderDeliveryModel").click(function(){
         $(".popBg").css({

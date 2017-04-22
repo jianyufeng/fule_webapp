@@ -5,18 +5,36 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
 
     function ctrl($scope,cartAddAddressService,POP,$state,$ionicHistory,$stateParams){
 
-
-        $scope.$on('$ionicView.loaded',function () {
+        //初始化 p 绑定
+        $scope.p = {};
+        //初始化默认按钮
+        var isChecked = false;
+        $scope.$on('$ionicView.beforeEnter',function () {
 
             //初始化
             $scope.righttitleValue = "保存";
 
+
+            //初始化
+
+            $scope.p.recieverName = null;
+            $scope.p.mobile = null;
+            $scope.p.tel = null;
+            $scope.p.address_name = null;
+            $scope.p.zipcode = null;
+            $scope.p.email = null;
+            $scope.p.sign_building = null;
+            $scope.p.best_time = null;
+            $scope.p.inputArea = null;
+            isChecked = false;
+
+
+
+
+
         });
 
 
-
-        //初始化默认按钮
-        var isChecked = false;
         $scope.setDefault = function(v){
 
             isChecked = v;
@@ -56,19 +74,19 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
         //保存
         $scope.saveAddress = function () {
 
-
             //保存成功后后退到地址管理页面
-            var recieverName  = $('.recieverName').val();
-            var mobileNumeber = $('.recieverNumber').val();
-            var location      = $(".select-location").find("span").text();
-            var detailAddress = $(".inputArea").val();
-            var email         = $('.email').val();
-            var categray      = $('.categray').val();
-            var zipCode       = $('.zipcode').val();
-            var building      = $('.building').val();
-            var best_time     = $('.time').val();
-            var familyPhone   = $('.telNumber').val();
-            var defaultAddress= isChecked;
+            var recieverName   = $scope.p.recieverName;
+            var mobileNumeber  = $scope.p.mobile;
+            var familyPhone    = $scope.p.tel;
+            var categray       = $scope.p.address_name;
+            var zipCode        = $scope.p.zipcode;
+            var email          = $scope.p.email;
+            var building       = $scope.p.sign_building;
+            var best_time      = $scope.p.best_time;
+            var detailAddress  = $scope.p.inputArea;
+            var defaultAddress = isChecked;
+
+
 
 
             //收货人姓名
@@ -103,9 +121,8 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                 }
 
             }
-
             //收货地址
-            if (location ==null || location.length <= 0){
+            if (locationAddress ==null || locationAddress.length <= 0){
                 POP.Hint("收货地址不能为空");
                 return;
             }
@@ -144,11 +161,10 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                 }
 
             }
-            if (detailAddress ==null || detailAddress.length <= 0){
+            if (detailAddress == null || detailAddress.length <= 0){
                 POP.Hint("详细地址不能为空");
                 return;
             }else {
-
                 if (detailAddress.length>30){
                     POP.Hint("详细地址不能超过30字!");
                     return;
