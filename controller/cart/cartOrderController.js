@@ -26,8 +26,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
         $rootScope.$on('changeAddressInfo', function (event, args) {
 
 
-            console.log(args);
-
             //将新的值重新注入页面
             $scope.$apply(function () {
                 $scope.address = args.address;
@@ -162,6 +160,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
         });
 
 
+        //弹出订单的配送方式选择选择界面
         $(".orderDeliveryModel").click(function () {
             $(".popBg").css({
                 display: "block", height: $(document).height()
@@ -174,7 +173,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
                 $(".popBg,.popBox").css("display", "none");
             });
 
-            //选择配送方式
+            //在配送方式选择界面选择具体的配送方式
             $(document).on("click",".deliveryBox",function () {
                 var _index = $(".deliveryBox").index(this);
                 var shipping_id = $(".deliveryChoice").eq(_index).attr("id");
@@ -190,6 +189,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
                 }
 
+                //计算运费
                 cartOrderService.countFreight($scope, freightParams, function (freight) {
 
                     $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
@@ -221,6 +221,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
         });
 
+        //弹出发货地址选择框(暂时不用)
         $(".orderSendGoodsAddress").click(function () {
             $(".popBg").css({
                 display: "block", height: $(document).height()
@@ -235,7 +236,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
             });
         });
 
-        //选择支付方式
+        //弹出支付方式选择框
         $(".orderPayModel").click(function () {
 
             POP.Alert("抱歉,暂不支持其他支付方式");
@@ -265,7 +266,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
 
 
-
+          //是否使用默认支付方式的选择
         $(".bottomChoice").click(function () {
             if ($(this).find("img").is(':visible')) {
                 $(this).find("img").hide();
@@ -276,6 +277,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
             }
 
         });
+
+        //具体发货地址选择
         $(".choice").click(function () {
             if ($(this).find("img").is(':visible')) {
                 $(this).find("img").hide();
