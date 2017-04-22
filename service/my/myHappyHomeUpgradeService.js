@@ -24,7 +24,6 @@ define(['app'], function (app) {
                 }
                 var userdataArray = data.data.user_date;
                 if (userdataArray != null) {
-                    console.log(4545);
                     $scope.goShopping = "去购物";
                 }
                 var userdataList = JSON.parse(userdataArray);

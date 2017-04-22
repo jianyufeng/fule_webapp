@@ -20,7 +20,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         });
 
         $scope.onSlideChanged = function (index) {
-            productInfoService.Slide($scope, index);
+            productInfoService.Slide(index);
         }
 
         $scope.addCartAction = function () {

@@ -72,9 +72,6 @@ define(['app'], function (app) {
                     var eleHeight = maxHeight - 20;
                     var marWidth = (maxWidth - w) / 2;
                     var marHeight = (maxHeight - h) / 2;
-                    console.log("BoxWidth:" + maxWidth);
-                    console.log("imgWidth:" + w);
-                    console.log("imgBoxWidth:" + eleWidth);
                     if (w >= h) {
                         if (w < maxWidth) {
                             if (marWidth < margin) {
@@ -152,17 +149,11 @@ define(['app'], function (app) {
          * @param $scope
          * @constructor
          */
-        service.Slide = function ($scope, index) {
+        service.Slide = function (index) {
             // 获取所有 instructions 的子元素
             var ch = $(".instructions").children().children();
-            for (var i = 0; i < ch.length; i++) {
-                if (index == i) {
-                    ch.eq(i).attr('src', './resource/images/icon/point_hover.png');
-                } else {
-                    ch.eq(i).attr('src', './resource/images/icon/point_gray.png');
-                }
-            }
-
+            ch.attr('src', './resource/images/icon/point_gray.png');
+            ch.eq(index).attr('src', './resource/images/icon/point_hover.png');
         }
 
         /**
