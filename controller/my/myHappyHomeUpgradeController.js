@@ -250,7 +250,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 for (var i = 0; i < $scope.userArray.length; i++) {
                     var info = $scope.userArray[i];
                     if (info.flag == 0) {
-                        info.payPassword = str;
+                        info.THREE_PASSWORD = str;
                     }
                 }
 
@@ -686,16 +686,20 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
                     $("#address").val(address);
                     var user = $scope.userArray[$scope.index];
+                    if (user.flag == undefined) {
+                        user.address = address;
+                        return;
+                    }
                     user.flag = $scope.index;
                     if ($scope.index != 0) {
-                        user.address = result;
+                        user.address = address;
                         return;
                     }
                     // 输入完成赋值给其他的输入项
                     for (var i = 0; i < $scope.userArray.length; i++) {
                         var info = $scope.userArray[i];
                         if (info.flag == 0) {
-                            info.address = result;
+                            info.address = address;
                         }
                     }
 
@@ -743,12 +747,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     region = 1;
                 }
 
-                //// 推荐人
-                //user.RECOMMENDED_MAN = "";
-                ////节点人
-                //user.CONTACT_MAN = "";
-                //// 区域
-                //user.REGION = "";
                 var user = {
                     "user_name": item.user_name,
                     "RECOMMENDED_MAN": item.RECOMMENDED_MAN,
@@ -768,7 +766,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     //"BANK_STATE_ID": item.address.pid,
                     //"BANK_CITY_ID": item.address.cid,
                     //"BANK_DISTRICT_ID": item.address.aid
-                    //"address":
+                    "address":"dsjafdksl"
 
                 }
                 array.push(user);
@@ -790,19 +788,21 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             }
 
             console.log(user_datas);
-            //POP.StartLoading();
-            //HTTP.post(API.My.updateUserLogs, {
-            //    "config_id": configId,
-            //    "id": $scope.id,
-            //    "user_data": user_datas,
-            //}, function (e, data) {
-            //    POP.EndLoading();
-            //    if (e) {
-            //        return;
-            //    }
-            //    // 跳转界面
-            //    $state.go("tab.my-happyHomeLogs");
-            //})
+            POP.StartLoading();
+            HTTP.post(API.My.updateUserLogs, {
+                "config_id": configId,
+                "id": $scope.id,
+                "user_data": user_datas,
+            }, function (e, data) {
+                console.log(e);
+                console.log(data);
+                POP.EndLoading();
+                if (e) {
+                    return;
+                }
+                // 跳转界面
+                $state.go("tab.my-happyHomeLogs");
+            })
         };
         // 选择区域
         $scope.selectRegion = function () {
