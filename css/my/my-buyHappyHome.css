@@ -1,15 +1,15 @@
 .bhh_Box {
   width: 100%;
   height: 100%;
-  position: relative;
   z-index: -9;
 }
 .bhh_Box .bhh_buyListBox {
+  width: 100%;
   position: absolute;
   top: 0px;
-  left: 0px;
-  right: 0px;
   bottom: 90px;
+  left: 0px;
+  right: 0;
 }
 .bhh_Box .bhh_buyListBox .addressBox {
   width: 100%;
@@ -77,14 +77,14 @@
   width: 50%;
   height: 54px;
   float: left;
-  line-height: 54px;
+  padding-top: 30px;
 }
 .bhh_Box .bhh_buyListBox .addressBox .addressContent .addressDetail .personalInfo .personPhone {
   width: 40%;
   height: 54px;
   float: right;
-  line-height: 54px;
   text-align: right;
+  padding-top: 30px;
 }
 .bhh_Box .bhh_buyListBox .addressBox .addressContent .addressDetail .addressInfo {
   width: 100%;
@@ -135,7 +135,7 @@
 }
 .bhh_Box .bhh_buyListBox .bhh_goodItemBox {
   width: 100%;
-  height: 110px;
+  min-height: 110px;
   background-color: white;
   margin-bottom: 10px;
 }
@@ -144,7 +144,7 @@
   height: 110px;
   float: left;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bhh_goodImgBox .bhh_goodImg {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bhh_goodImgBox img {
   margin: 15px 5%;
   width: 80px;
   height: 80px;
@@ -195,96 +195,96 @@
   border: solid 1px #ccc;
   text-align: center;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox {
   width: 100%;
   height: auto;
   margin-bottom: 10px;
-}
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .bbh_seeMoreGoodsBox {
   background-color: white;
+}
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bbh_seeMoreGoodsBox {
   width: 100%;
   height: 110px;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .bbh_seeMoreGoodsBox .bhh_goodImgBox1 {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bbh_seeMoreGoodsBox .bhh_goodImgBox {
   width: 28%;
   height: 110px;
   float: left;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .bbh_seeMoreGoodsBox .bhh_goodImgBox1 .bhh_goodImg1 {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bbh_seeMoreGoodsBox .bhh_goodImgBox img {
   margin: 15px 5%;
   width: 80px;
   height: 80px;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .bbh_seeMoreGoodsBox .bhh_goodInfoBox1 {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bbh_seeMoreGoodsBox .bhh_goodInfoBox1 {
   float: left;
   height: 110px;
   width: 44%;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .bbh_seeMoreGoodsBox .bhh_goodInfoBox1 .bhh_goodName {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bbh_seeMoreGoodsBox .bhh_goodInfoBox1 .bhh_goodName {
   padding-top: 10px;
   width: 100%;
   height: 50%;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .bbh_seeMoreGoodsBox .bhh_goodInfoBox1 .bhh_selectNumber {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bbh_seeMoreGoodsBox .bhh_goodInfoBox1 .bhh_selectNumber {
   width: 100%;
   height: 50%;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .bbh_seeMoreGoodsBox .bhh_goodMore {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .bbh_seeMoreGoodsBox .bhh_goodMore {
   height: 110px;
   float: left;
   width: 28%;
   line-height: 110px;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox {
   width: 100%;
   height: auto;
   background-color: white;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodImgBox {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_goodImgBox {
   width: 36%;
   min-height: 90px;
   float: left;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodImgBox .more_goodName {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_goodImgBox .more_goodName {
   width: 85%;
   margin: 20px 5% 20px 10%;
   font-size: 14px;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodImgBox .more_goodName .goodAttrNameBox {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_goodImgBox .more_goodName .goodAttrNameBox {
   width: 100%;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodImgBox .more_goodName .goodAttrNameBox .goodAttrVal {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_goodImgBox .more_goodName .goodAttrNameBox .goodAttrVal {
   color: gray;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodInfo {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_goodInfo {
   border-top: solid 1px #eee;
   float: left;
   min-height: 90px;
   width: 36%;
   padding: 20px 0;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodInfo .bbh_goodPrice {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_goodInfo .bbh_goodPrice {
   width: 100%;
   color: gray;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_goodInfo .bbh_goodMoney {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_goodInfo .bbh_goodMoney {
   width: 100%;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_buyNumberBox {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_buyNumberBox {
   border-top: solid 1px #eee;
   min-height: 90px;
   float: left;
   width: 28%;
   position: relative;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_buyNumberBox .more_noGoods {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_buyNumberBox .bhh_noGoods {
   width: 97%;
   margin-left: 3%;
   color: red;
   margin-top: 10px;
   font-size: 12px;
 }
-.bhh_Box .bhh_buyListBox .bhh_goodItemBox1 .more_goodsBox .more_buyNumberBox .bhh_buyNumber {
+.bhh_Box .bhh_buyListBox .bhh_goodItemBox .more_goodsBox .more_buyNumberBox .bhh_buyNumber {
   position: absolute;
   top: 40px;
   width: 80%;
@@ -293,6 +293,7 @@
   border: solid 1px #ccc;
   text-align: center;
 }
+.bhh_Box .bhh_addBuyAlertBox1,
 .bhh_Box .bhh_addBuyAlertBox {
   width: 100%;
   height: 30px;
@@ -325,12 +326,17 @@
   color: #FF6702;
 }
 .bhh_Box .bbh_bottomSaveBox .bhh_saveBox {
-  float: right;
   width: 20%;
-  background-color: red;
-  height: 60px;
+  background-color: #d98bbc;
+  float: right;
   color: white;
+  border-radius: 5px;
+  border: none;
+  height: 60px;
   line-height: 60px;
   font-size: 15px;
   text-align: center;
+}
+.bhh_Box .bbh_bottomSaveBox .bhh_saveBox:disabled {
+  background-color: #d9a9cd;
 }

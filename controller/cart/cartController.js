@@ -2,6 +2,11 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 	function ctrl($rootScope,$scope,cartService,POP,$state,$ionicScrollDelegate){
 
+		$scope.blurAction = function(){
+			$(".changeBtn input").blur();
+		}
+
+
 		$(document).on("focus",".changeBtn input",function(){
 
 			// 	var scrollTop = $ionicScrollDelegate.$getByHandle('mainScroll');
@@ -29,7 +34,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		// 	console.log(showH);
 		//	console.log(offsetTop);
 
-			
+
 
 			// if(top > 50){
 
@@ -40,8 +45,6 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		});
 
 		$scope.$on("viewOnFinish", function () {
-
-
 			$(".cartGoodsImage img").myImageLazyLoad({
 				//默认三个参数可不传，使用默认参数
 				// imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图
@@ -73,7 +76,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 
 		//结算按钮点击时
-		$(document).on("click",".accountBox",function(){
+		$(document).off("click").on("click",".accountBox",function(){
 
 			POP.Confirm("您确认要购买已选产品?",function(){
 				$state.go("tab.cart_orderConfirm");

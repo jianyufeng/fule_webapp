@@ -2,8 +2,15 @@
  * Created by Administrator on 2017/4/14.
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
-    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $ionicScrollDelegate, $compile) {
+    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile,$ionicScrollDelegate) {
 
+        $scope.blurAction = function(){
+            $(".changeBtn input").blur();
+        };
+
+
+        //提交是的库存不足判断标记
+        var canotSave = "canotSave";
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
 
@@ -53,70 +60,108 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         //当前数量产品的金额
         $scope.goodMoney = 0;
 
+        $(document).on("input propertychange", ".bhh_search", function () {
+            var val = $.trim($(this).val());
+            if (val == "") {
+                $("div .bhh_goodItemBox").show();
+            } else {
+                $(".bhh_goodItemBox").each(
+                    function () {
+                        var pinyin = $(this).find('.bhh_goodName').first().text();
+                        if (pinyin.indexOf(val) != -1) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+            }
 
+
+        });
+
+        $(document).on("change",".bhh_buyNumber",function(){
+            alert(888);
+
+        });
         $(document).on("input propertychange", ".bhh_buyNumber", function () {
 
             //获取输入的产品数
-            var input = $(this).val();
+            var input = Number.parseFloat($(this).val());
+            if (isNaN(input)) {
+                input = 0;
+            }
             //最大库存数
-            var number = $(this).data("number");
-            //获取上次输入的值
-            var oldInput = $(this).data("oldInput");
-            console.log(number);
-            //设置最大值为 库存+1  金额为 最后输入未超出库存的数量 的金额
+            var number = Number.parseFloat($(this).data("number"));
+            //检测是否没有库存
             if (input > number) {
                 $(this).css("background-color", "#F0B3C5");
+                $(this).addClass(canotSave);
                 return;
             }
             $(this).css("background-color", "#fff");
+            $(this).removeClass(canotSave);
+
+            //获取上次输入的值
+            var oldInput = Number.parseFloat($(this).data("oldinput"));
             //存输入的值到html中
-            $(this).attr("data-oldInput",input);
+            $(this).data("oldinput", input);
 
             //获取单价
-            var price = $(this).data("price");
+            var price = Number.parseFloat($(this).data("price"));
             //获取金额对象
             var moneyBox = $(this).parent().parent().find(".money").first();
             //获取上次的金额
-            var oldMoney = moneyBox.text();
+            var oldMoney = Number.parseFloat(moneyBox.text());
             //计算金额
             var newMoney = price * input;
             //赋值新的金额
             moneyBox.text(newMoney);
 
-            //计算总金额
-            $scope.totalMoney = $scope.totalMoney - oldMoney + newMoney;
-            //计算总商品
-            $scope.totalGoodsNumber =  $scope.totalGoodsNumber - oldInput;
 
-            //计算 差多少可以购买喜乐之间  貌似不需要
+            //判断是有属性的产品需要添加购买的数量在其视图上
+            if ($(this).parent().attr('class') == "more_buyNumberBox") {
+                var sel = $(this).parent().parent().parent().parent().find(".sel_p_n").first();
+                var n = Number.parseFloat(sel.text());
+                sel.text(n - oldInput + input);
+            }
+
+
+            $scope.$apply(function () {
+                //计算总金额
+                $scope.totalMoney = $scope.totalMoney - oldMoney + newMoney;
+                //计算总商品
+                $scope.totalGoodsNumber = Number.parseFloat($scope.totalGoodsNumber) - oldInput + input;
+
+                //显示比较是否可以购买喜乐之家
+                if ($scope.totalMoney >= $scope.bugConfig.goods_pice) {
+                    //可以购买
+                    $('.bhh_addBuyAlertBox').hide();
+                    $('.bhh_addBuyAlertBox1').show();
+                    $('.bhh_saveBox').removeAttr('disabled');
+                } else {
+                    //差点金额
+                    $('.bhh_addBuyAlertBox').show();
+                    $('.bhh_addBuyAlertBox1').hide();
+                    $('.bhh_saveBox').attr("disabled", true);
+
+                }
+            })
+        });
+        $scope.$on("viewOnFinish", function () {
+
+            $(".bhh_goodImgBox img").myImageLazyLoad({
+                //默认三个参数可不传，使用默认参数
+                // imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图
+                // imageServer : "http://image.38zs.net:848",				    //图片服务器地址
+                // animate     : true,											//是否动画显示
+            });
 
         });
-
-
-        //计算商品金额
-        $scope.calGoodMomey = function (price, numberGood, inputNumber) {
-            //var money = "";
-            //if (numberGood<inputNumber){
-            //    money = price*numberGood
-            //
-            //    return price*numberGood;
-            //}
-            return price * inputNumber;
-        };
-        //$scope.$watch('a.goods_number', function(newValue, oldValue) {
-        //    console.log(newValue);
-        //    console.log(oldValue);
-        //    console.log(112112);
-        //    //if ($scope.input.Tel != oldValue){
-        //    //    //当value改变时执行的代码
-        //    //}
-        //});
-
         //出现更多属性的商品
-        $scope.seeMoreGoods = function (goodId) {
+        $scope.seeMoreGoods = function (goodId, price) {
             var obj = $('#' + "more_goodsBox_" + goodId);
             if (obj.children().length < 1) {
-                myBuyHappyHomeServer.getBuyGoodMoreAttr($scope, POP, goodId, $ionicScrollDelegate, $compile);
+                myBuyHappyHomeServer.getBuyGoodMoreAttr($scope, POP, goodId, $ionicScrollDelegate, $compile, price);
             } else {
                 var display = obj.css('display');
                 obj.slideToggle(300, function () {
@@ -132,10 +177,29 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             }
         };
 
+        //点击保存按钮
+        $(".bhh_saveBox").click(function () {
+            //检测是否有库存不足 根据是否包含类名 canotSave
+            var isSave = $('.' + canotSave + '');
+            console.log(isSave);
+            if (isSave.length > 0) {
+                POP.Confirm("<font color='red'>(您选择的产品超出库存)</font>",function(){
+                    var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
+                    console.log(isSave.offset().top);
+                    console.log(222222);
+                    scroller.scrollTo(0,isSave.offset().top, true);
+
+                });
+                return;
+            }
+
+
+        })
+
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$ionicScrollDelegate', '$compile'];
+    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile','$ionicScrollDelegate'];
 
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);

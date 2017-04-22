@@ -13,7 +13,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
         //$stateParams 框架传过来的参数综合对象
         $scope.$on('$ionicView.beforeEnter',function () {
 
-            console.log(123123123);
 
             //初始化
             $scope.righttitleValue = "保存";
@@ -115,13 +114,11 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             // var building      = $('.building').val();
             // var best_time     = $('.time').val();
 
-            console.log( $scope.p);
-//return;
             //收货人姓名
-            // if (recieverName ==null || recieverName.length <= 0){
-            //     POP.Hint("姓名不能为空");
-            //     return;
-            // }
+            if (recieverName ==null || recieverName.length <= 0){
+                POP.Hint("姓名不能为空");
+                return;
+            }
             //收货人手机号码
             if (mobileNumeber ==null || mobileNumeber.length <= 0){
                 POP.Hint("联系电话不能为空");
@@ -221,27 +218,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                 best_time    : best_time
             }
 
-
-                console.log(55555);
-             console.log(newParams);
-
-
-        //     console.log( "1参数" + $stateParams.address_id);
-        //     console.log( "2参数" + categray);
-        //     console.log( "3参数" + info.user_id);
-        //     console.log( "4参数" + recieverName);
-        //     console.log( "5参数" + email);
-        //     console.log( "6参数" + PID);
-        //     console.log( "7参数" + CID);
-        //     console.log( "8参数" + AID);
-        //     console.log( "9参数" + detailAddress);
-        //     console.log( "0参数" + zipCode);
-        //     console.log( "11参数" + familyPhone);
-        //     console.log( "12参数" + mobileNumeber);
-        //     console.log( "13参数" + building);
-        //     console.log( "14参数" + best_time);
-
-        //    return;
 
             //上传数据
             cartModifyAddressService.setModifyAddress($scope,newParams,POP,function () {
