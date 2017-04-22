@@ -92,18 +92,18 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
 
             //保存成功后后退到地址管理页面
-            var recieverName  = $scope.p.recieverName;
-            var mobileNumeber  = $scope.p.mobile;
-            var location  = $scope.p.location;
-            var email  = $scope.p.email;
-            var detailAddress  = $scope.p.address_name;
-            var zipCode  = $scope.p.zipcode;
-            var building  = $scope.p.sign_building;
-            var best_time  = $scope.p.best_time;
-            var familyPhone = $scope.p.tel;
-            var categray = $scope.p.address_name;
-            var detailAddress = $scope.p.inputArea;
-            
+            var recieverName    = $scope.p.recieverName;
+            var mobileNumeber   = $scope.p.mobile;
+            var familyPhone     = $scope.p.tel;
+            var location        = $scope.p.location;
+            var categray        = $scope.p.address_name;
+            var zipCode         = $scope.p.zipcode;
+            var email           = $scope.p.email;
+            var building        = $scope.p.sign_building;
+            var best_time       = $scope.p.best_time;
+            var detailAddress   = $scope.p.inputArea;
+
+
             // var mobileNumeber = $('.recieverNumber').val();
             // var familyPhone   = $('.telNumber').val();
             // var location      = $(".select-location").find("span").text();

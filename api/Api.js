@@ -119,9 +119,10 @@ var API = {
 
 
     Other: {
-        getProvinces: serverIP + "/region/provinces",
-        getCities: serverIP + "/region/cities",
-        getCounties: serverIP + "/region/counties"
+        getProvinces : serverIP + "/region/provinces",
+        getCities    : serverIP + "/region/cities",
+        getCounties  : serverIP + "/region/counties",
+        getRegion    : serverIP + "/region/searchRegion"
     },
 
     Home: {}

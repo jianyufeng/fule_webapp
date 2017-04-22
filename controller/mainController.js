@@ -8,6 +8,33 @@ define(['app'],function(app){
 
 	function ctrl($scope,$rootScope,$state){
 
+		console.log("mainController......");
+
+		if(customStorage.getPersistenceValue("regionData") == null){
+
+			HTTP.get(API.Other.getRegion,{},function(e,data){
+
+				if(e){
+					console.log("省市区数据请求失败");
+					return;
+				}
+
+				if(data.data.length > 0){
+
+					customStorage.setPersistenceValue("regionData",JSON.stringify(data.data));
+
+				}
+				
+			});
+
+
+		}
+
+		console.log(111111);
+		//console.log(locationInfo.getProvince());
+		//console.log(locationInfo.getCity(5));
+		//console.log(locationInfo.getArea(62));
+
 		//.....
 		//获取购物车总数
 		if (User.isLogin()) {
