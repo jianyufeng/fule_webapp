@@ -22,104 +22,65 @@ define(['app'], function (app) {
                 if (e) {
                     return;
                 }
+                var userdataArray = data.data.user_date;
+                if (userdataArray != null) {
+                    console.log(4545);
+                    $scope.goShopping = "去购物";
+                }
+                var userdataList = JSON.parse(userdataArray);
                 var userList = data.data.xlzj_user;
                 $scope.id = data.data.id;
                 var userNameArray = userList.split(",");
-                $scope.$apply(function () {
-                    $scope.userNameArray = userNameArray;
-                    $(".of_navBox").css('width', 120 * userNameArray.length + "px");
+                if (userdataList != null) {
+                    $scope.userArray = userdataList;
+                    $scope.showRight = true;
+                } else {
                     // 创建userArray.length个数组
                     for (var i = 0; i < userNameArray.length; i++) {
                         var user = {};
+                        user.user_name = userNameArray[i];
                         if (i == 0) {
-                            user.user_name = userNameArray[i];
+
                             // 推荐人
-                            user.recommendP = "";
+                            user.RECOMMENDED_MAN = "";
                             //节点人
-                            user.nodeP = "";
+                            user.CONTACT_MAN = "";
                             // 区域
-                            user.region = "";
-                            //商城密码
-                            user.mallPassWord = "";
-                            //二级密码
-                            user.secondPassWord = "";
-                            //支付密码
-                            user.payPassword = "";
-                            //Email
-                            user.Email = "";
-                            //手机
-                            user.phone = "";
-                            //姓名
-                            user.name = "";
-                            //银行账号
-                            user.bankNum = "";
-                            //开户银行
-                            user.bank = "";
-                            //身份证号
-                            user.carId = "";
-                            //开户姓名
-                            user.bankCardName = "";
-                            // 开户支行
-                            user.bankBranch = "";
-                            //省市地区
-                            user.address = "";
-                            //标记
-                            user.flag = 0;
+                            user.REGION = "";
+                            createUser(user);
                             $scope.userArray.push(user);
                             continue;
                         }
                         // 确定左右区和节点人
                         if (i < 3) {
                             if (i % 2 == 0) {
-                                user.region = "右区";
+                                user.REGION = 1;
                             } else if (i % 2 == 1) {
-                                user.region = "左区";
+                                user.REGION = 0;
                             }
-                            user.nodeP = userNameArray[0];
+                            user.CONTACT_MAN = userNameArray[0];
                         } else {
                             if (i % 2 == 0) {
-                                user.region = "右区";
+                                user.REGION = 1;
                                 var b = (i - 2) / 2;
-                                user.nodeP = userNameArray[b];
+                                user.CONTACT_MAN = userNameArray[b];
                             } else if (i % 2 == 1) {
-                                user.region = "左区";
+                                user.REGION = 0;
                                 var b = (i - 1) / 2;
-                                user.nodeP = userNameArray[b];
+                                user.CONTACT_MAN = userNameArray[b];
                             }
 
                         }
-                        user.user_name = userNameArray[i];
                         // 推荐人
-                        user.recommendP = userNameArray[0];
-                        //商城密码
-                        user.mallPassWord = "";
-                        //二级密码
-                        user.secondPassWord = "";
-                        //支付密码
-                        user.payPassword = "";
-                        //Email
-                        user.Email = "";
-                        //手机
-                        user.phone = "";
-                        //姓名
-                        user.name = "";
-                        //银行账号
-                        user.bankNum = "";
-                        //开户银行
-                        user.bank = "";
-                        //身份证号
-                        user.carId = "";
-                        //开户姓名
-                        user.bankCardName = "";
-                        // 开户支行
-                        user.bankBranch = "";
-                        //省市地区
-                        user.address = "";
-                        //标记
-                        user.flag = 0;
-
+                        user.RECOMMENDED_MAN = userNameArray[0];
+                        createUser(user);
                         $scope.userArray.push(user);
                     }
+                }
+                $scope.$apply(function () {
+                    $scope.userNameArray = userNameArray;
+                    $(".of_navBox").css('width', 120 * userNameArray.length + "px");
+                    service.showUserGrade($scope, 0);
                 })
 
             });
@@ -132,36 +93,31 @@ define(['app'], function (app) {
          * @param index
          */
         service.showUserGrade = function ($scope, index) {
-            console.log(index);
-            var box = $(".of_navBox").children();
-            for (var i = 0; i < box.length; i++) {
-                if (index == i) {
-                    $(box[i]).css("color", "#d39bc5");
-                } else {
-                    $(box[i]).css("color", "#000000");
-                }
-            }
 
+            $(".of_nav").css("color", "#000000")
+            $(".of_nav").eq(index).css("color", "#d39bc5");
             var info = $scope.userArray[index];
-            $("#recommend").val(info.recommendP);
-            $("#node").val(info.nodeP);
-            $("#selectResult").val(info.region);
-            $("#mallPassWord").val(info.mallPassWord);
-            $("#secondPassWord").val(info.secondPassWord);
-            $("#payPassWord").val(info.payPassword);
-            $("#Email").val(info.Email);
-            $("#phone").val(info.phone);
-            $("#name").val(info.name);
-            $("#bankCardN").val(info.bankNum);
-            $("#bank").val(info.bank);
-            $("#identityCardN").val(info.carId);
+            console.log(info);
+            $("#recommend").val(info.RECOMMENDED_MAN);
+            $("#node").val(info.CONTACT_MAN);
+            $("#selectResult").val(info.REGION);
+            $("#mallPassWord").val(info.PASSWORD);
+            $("#secondPassWord").val(info.SECOND_PASSWORD);
+            $("#payPassWord").val(info.THREE_PASSWORD);
+            $("#Email").val(info.email);
+            $("#phone").val(info.mobile_phone);
+            $("#name").val(info.MEMBER_NAME);
+            $("#bankCardN").val(info.BANK_ACCOUNT);
+            $("#bank").val(info.BANK_NAME);
+            $("#identityCardN").val(info.ID_CARD);
             $("#cardName").val(info.bankCardName);
-            $("#identityCardN").val(info.carId);
-            $("#bankBranch").val(info.bankBranch);
-            if (info.address != "") {
-                var address = info.address.provinceName + "-" + info.address.cityName + "-" + info.address.areaName;
-            }
-            $("#address").val(address);
+            $("#cardName").val(info.ACCOUNT_OWNER);
+            $("#bankBranch").val(info.BANK_LOCATION);
+
+            //if (info.address != "") {
+            //    var address = info.address.provinceName + "-" + info.address.cityName + "-" + info.address.areaName;
+            //}
+            //$("#address").val(address);
 
             if (index > 0) {
                 $("#recommend").attr("readonly", "readonly");
@@ -223,7 +179,7 @@ define(['app'], function (app) {
                 }
                 //为user赋值
                 var user = $scope.userArray[0];
-                user.recommendP = userName;
+                user.RECOMMENDED_MAN = userName;
 
             });
         }
@@ -243,7 +199,7 @@ define(['app'], function (app) {
                 }
                 //为user赋值
                 var user = $scope.userArray[0];
-                user.nodeP = userName;
+                user.CONTACT_MAN = userName;
                 /**
                  * 让左右区域可以点击
                  */
@@ -297,6 +253,39 @@ define(['app'], function (app) {
             })
 
         }
+
+
+        function createUser(user) {
+            //商城密码
+            user.PASSWORD = "";
+            //二级密码
+            user.SECOND_PASSWORD = "";
+            //支付密码
+            user.THREE_PASSWORD = "";
+            //Email
+            user.email = "";
+            //手机
+            user.mobile_phone = "";
+            //姓名
+            user.MEMBER_NAME = "";
+            //银行账号
+            user.BANK_ACCOUNT = "";
+            //开户银行
+            user.BANK_NAME = "";
+            //身份证号
+            user.ID_CARD = "";
+            //开户姓名
+            user.ACCOUNT_OWNER = "";
+            // 开户支行
+            user.BANK_LOCATION = "";
+            //省市地区
+            user.BANK_STATE_ID = "";
+            user.BANK_CITY_ID = "";
+            user.BANK_DISTRICT_ID = "";
+            //标记
+            user.flag = 0;
+        }
+
         return service;
 
 
