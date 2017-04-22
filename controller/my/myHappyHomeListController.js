@@ -24,24 +24,14 @@ define(['app', 'css! ../../../css/my/my-happyHomeList'], function (app) {
 
         //购买记录
         $scope.toPurchaseHistory = function () {
-
             $state.go("tab.my-happyHomeLogs");
         };
 
         //点击进入喜乐之家
-        $(document).on("click", ".happyList", function () {
-
-            var text = $(this).text();
-            var configId = null;
-            if (text == "2016喜乐之家") {
-                var data = $scope.happyHomeData[0];
-                configId = data.id;
-            } else if (text == "2017喜乐之家") {
-                var data = $scope.happyHomeData[1];
-                configId = data.id;
-            }
+        $scope.goNext = function (index) {
+            var configId = $scope.happyHomeData[index].id;
             $state.go("tab.my-happyHomeUpgrade", {"configId": configId});
-        });
+        }
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/

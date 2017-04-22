@@ -22,11 +22,18 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
         });
 
+        // 跳转到购物界面
         $scope.goToShopping = function () {
             if ($scope.goShopping == undefined) {
                 return;
             }
-
+            console.log(configId);
+            console.log(44545454545);
+            console.log($scope.id);
+            $state.go("tab.my-buyHappyHome", {
+                "configId": configId,
+                "id": $scope.id
+            });
         }
         $scope.showUser = function (index) {
             myHappyHomeUpgradeService.showUserGrade($scope, index);
@@ -766,7 +773,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     //"BANK_STATE_ID": item.address.pid,
                     //"BANK_CITY_ID": item.address.cid,
                     //"BANK_DISTRICT_ID": item.address.aid
-                    "address":"dsjafdksl"
+                    "address": "dsjafdksl"
 
                 }
                 array.push(user);
