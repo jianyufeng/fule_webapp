@@ -55,6 +55,9 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
         $(".selectAction").click(function(){
             new AddressSelect({
+                provinceid    : PID,
+                cityid        : CID,
+                areaid        : AID,
                 resultBtnClick : function(result){
 
                     province = result.provinceName;
@@ -65,7 +68,8 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                     AID      = result.aid;
                     locationAddress  = province + city + "市" + area;
                     $(".select-location").find("span").css("color","#000000");
-                    $(".select-location").find("span").text(locationAddress);
+                   // $(".select-location").find("span").text("");
+                    $(".select-location").find("span").html(locationAddress);
 
 
                 }
