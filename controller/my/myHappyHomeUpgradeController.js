@@ -50,7 +50,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             $('#abc2').css('color', 'black');
             $('#selectResult').val("左区");
             var user = $scope.userArray[0];
-            user.REGION = "左区";
+            user.REGION = 0;
+            console.log(user);
         });
 
         $("#abc2").click(function () {
@@ -58,7 +59,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             $('#abc1').css('color', 'black');
             $('#selectResult').val("右区");
             var user = $scope.userArray[0];
-            user.REGION = "右区";
+            user.REGION = 1;
+            console.log(user);
         });
 
         $('#a').click(function () {
@@ -817,17 +819,12 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             var array = [];
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var item = $scope.userArray[i];
-                var region;
-                if (item.REGION == "左区") {
-                    region = 0;
-                } else if (item.REGION == "右区") {
-                    region = 1;
-                }
+                console.log(item.REGION);
                 var user = {
                     "user_name": item.user_name,
                     "RECOMMENDED_MAN": item.RECOMMENDED_MAN,
                     "CONTACT_MAN": item.CONTACT_MAN,
-                    "REGION": region,
+                    "REGION": item.REGION,
                     "PASSWORD": item.PASSWORD,
                     "SECOND_PASSWORD": item.SECOND_PASSWORD,
                     "THREE_PASSWORD": item.THREE_PASSWORD,
@@ -873,7 +870,10 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     return;
                 }
                 // 跳转界面
-                $state.go("tab.my-happyHomeLogs");
+                $state.go("tab.my-buyHappyHome", {
+                    "configId": configId,
+                    "id": $scope.id
+                });
             })
         };
         // 选择区域
