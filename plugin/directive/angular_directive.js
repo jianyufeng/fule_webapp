@@ -113,7 +113,7 @@ define(['app'], function (app) {
                     } else {
 
                         console.log(45465);
-                        $ionicHistory.clearCache();
+                        //$ionicHistory.clearCache();
                         //$ionicHistory.clearHistory();
                         $ionicHistory.goBack();
                     }

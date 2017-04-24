@@ -4,6 +4,12 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
         $rootScope[$state.current.name] = {};
         console.log("分类界面控制器...");
+
+        $scope.$on("$ionicView.enter",function(){
+            // 加入购物车
+            caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
+        });
+
         $scope.$on('$ionicView.loaded', function () {
             // 初始化页面数据
             categoryService.getCategoryListAndCategoryGoodsList($scope, POP);
@@ -16,8 +22,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             $scope.doRefresh = function () {
                 categoryService.Refresh($scope);
             }
-            // 加入购物车
-            caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
+
 
         });
 

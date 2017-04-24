@@ -6,9 +6,11 @@
 define(['app', 'jquery_fly'], function (app) {
     var caregoryFun = {}
     caregoryFun.addCartFlay = function ($scope, $rootScope, $state, POP) {
+        console.log("addCard.....Flay.");
         $(document).on("click", ".product_item", function () {
             var ab = $(this).children(".backgroudBox");
             var a = ab.is(':visible');
+            console.log(11111111);
             if (a) {
                 return false;
             }
@@ -18,6 +20,7 @@ define(['app', 'jquery_fly'], function (app) {
         });
 
         $(document).on("click", ".cartTagBox", function () {
+            console.log(22222222222);
             var offset = $(".tab-item:eq(3)").offset();
             var addcar = $(this).parent().parent();
             var img = addcar.find('.goodsImg').find('img').attr('src');
