@@ -218,7 +218,7 @@
   color: #888888;
   font-size: 12px;
 }
-.cartBox .amountBox .accountBox {
+.cartBox .amountBox .cartAccountBox {
   width: 50%;
   height: 100%;
   float: left;
