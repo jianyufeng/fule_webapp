@@ -50,7 +50,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             $('#abc2').css('color', 'black');
             $('#selectResult').val("左区");
             var user = $scope.userArray[0];
-            user.REGION = "左区";
+            user.REGION = 0;
+            console.log(user);
         });
 
         $("#abc2").click(function () {
@@ -58,7 +59,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             $('#abc1').css('color', 'black');
             $('#selectResult').val("右区");
             var user = $scope.userArray[0];
-            user.REGION = "右区";
+            user.REGION = 1;
+            console.log(user);
         });
 
         $('#a').click(function () {
@@ -873,7 +875,10 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     return;
                 }
                 // 跳转界面
-                $state.go("tab.my-happyHomeLogs");
+                $state.go("tab.my-buyHappyHome", {
+                    "configId": configId,
+                    "id": $scope.id
+                });
             })
         };
         // 选择区域
