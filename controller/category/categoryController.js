@@ -33,6 +33,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 				// imageServer : "http://image.38zs.net:848",				    //图片服务器地址
 				// animate     : true,											//是否动画显示
 			});
+
          
         });
 

@@ -210,3 +210,10 @@
   line-height: 35px;
   color: white;
 }
+.goodsDetailBox {
+  margin: -5px;
+}
+.goodsDetailBox img {
+  width: 100%;
+  height: auto;
+}
