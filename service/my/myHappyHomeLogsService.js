@@ -45,7 +45,6 @@ define(['app'],function(app){
                     fn();
                 });
 
-                console.log($scope.logsData);
 
             });
 

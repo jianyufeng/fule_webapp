@@ -76,9 +76,14 @@ define(['animate'],function(){
     myFun.deleteHappyHomeBtn = function(fn){
 
         $(document).on("click",".deleteLogBox",function(){
-            var _idx = $(".deleteBox").index(this);
+            var _idx = $(".deleteLogBox").index(this);
             var _id = $(this).attr("id");
             fn(_idx,_id);
+
+
+
+
+
         });
     }
 

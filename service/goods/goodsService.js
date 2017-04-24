@@ -21,7 +21,7 @@ define(['app'],function(app){
                     return;
                 }
                 $scope.$apply(function () {
-                $scope.goodsArray=data.data;
+                $scope.goodsArray=data.goodsInfo.data;
                     $.initAppEndLoad();
                 });
 
@@ -65,7 +65,7 @@ define(['app'],function(app){
                     }
 
                     $scope.$apply(function () {
-                        $scope.goodsArray = data.data;
+                        $scope.goodsArray = data.goodsInfo.data;
                     });
             });
 
@@ -148,7 +148,7 @@ define(['app'],function(app){
                     return;
                 }
                 $scope.$apply(function () {
-                    $scope.goodsArray=data.data;
+                    $scope.goodsArray=data.goodsInfo.data;
                     $.initAppEndLoad();
                 });
 
