@@ -6,10 +6,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         var configId = $stateParams.configId;
         var id = $stateParams.id;
-        console.log(configId)
-        console.log(id)
-        console.log(333333333);
-
 
         var scrTop = 0;
         $scope.blurAction = function () {
