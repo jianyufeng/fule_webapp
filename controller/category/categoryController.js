@@ -8,6 +8,24 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
         $scope.$on("$ionicView.enter",function(){
             // 加入购物车
             caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
+
+
+            if (User.isLogin()) {
+                var userId = User.getInfo().user_id;
+                HTTP.get(API.Category.getCartNum + "/user_id/" + userId + "/shopping_type/1", {}, function (e, data) {
+
+                    if(e) {
+                        $rootScope.cartBadge = 0;
+                        return;
+                    }
+
+                    data = data == undefined ? 0 : data;
+                    $scope.$apply(function () {
+                        $rootScope.cartBadge = data;
+                    });
+                })
+            }
+
         });
 
         $scope.$on('$ionicView.loaded', function () {

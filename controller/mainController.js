@@ -41,6 +41,11 @@ define(['app'],function(app){
                 var userId = User.getInfo().user_id;
                 HTTP.get(API.Category.getCartNum + "/user_id/" + userId + "/shopping_type/1", {}, function (e, data) {
 
+                	if(e) {
+						$rootScope.cartBadge = 0;
+						return;
+					}
+
 					data = data == undefined ? 0 : data;
 					$scope.$apply(function () {
                         $rootScope.cartBadge = data;
