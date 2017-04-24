@@ -106,7 +106,7 @@ define(['app'],function(app){
         }
 
         /*删除购物车信息*/
-        service.deleteCart = function($scope,deleteParams,POP,_idx,$rootScope){
+        service.deleteCartGood = function($scope,deleteParams,POP,_idx,$rootScope){
 
             POP.StartLoading();
 
@@ -124,8 +124,7 @@ define(['app'],function(app){
 
                 $(".deleteBox:eq("+_idx+")").parent().slideUp(200);
                 var newArr = _.pullAt($scope.cart_goods,_idx);
-                console.log(1111);
-                console.log(newArr);
+
                 if($scope.cart_goods.length<=0){
 
                     $scope.$apply(function () {
@@ -144,28 +143,6 @@ define(['app'],function(app){
                         $rootScope.cartBadge = parseInt($rootScope.cartBadge) - parseInt(newArr[0].goods_number);
                     });
                 }
-                return;
-				 $scope.$apply(function () {
-                     if(newArr.length > 0){
-                        $scope.cart_goods = newArr;
-
-                     }else{
-                        $scope.cart_goods = [];
-                        $(".noCartGoodBox").show();
-                        $(".noCartGoodBox").find(".isLoginBox").hide();
-                        $scope.righttitleValue = "";
-                     }
-
-                    $scope.cart_info  = data;
-                });
-
-				$scope.countPrice = function(){
-					var moneyCount = 0;
-					for(var i=0;i<$scope.cart_goods.length;i++){
-						moneyCount += parseInt($scope.cart_goods[i].goods_price);
-					}
-					return moneyCount;
-				}
 
 			});
 

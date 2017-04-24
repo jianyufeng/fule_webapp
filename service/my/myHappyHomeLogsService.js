@@ -62,7 +62,6 @@ define(['app'],function(app){
 
                 POP.EndLoading();
 
-                console.log(data);
                 if (e) {
 
                     POP.Hint("删除失败!");
@@ -70,20 +69,20 @@ define(['app'],function(app){
                     return;
                 }
 
+                $(".deleteLogBox:eq("+_idx+")").parent().slideUp(200);
 
-                $(".deleteBox:eq("+_idx+")").parent().slideUp(200);
+                 _.pullAt($scope.logsData,_idx);
 
-                var newArr = _.pullAt($scope.logsData,_idx);
-
-                    fn("YES");
                 if($scope.logsData.length<=0){
-                    fn("NO");
+
                     $scope.$apply(function () {
-
+                        console.log("清空喜乐之家购买记录...");
+                        $scope.logsData = [];
                         $scope.righttitleValue = "";
-                        $(".noRecord").show();
-
                     });
+
+                    $(".noRecord").show();
+
                 }
 
                 console.log($scope.logsData);

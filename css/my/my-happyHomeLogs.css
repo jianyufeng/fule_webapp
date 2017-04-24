@@ -12,7 +12,7 @@
   float: left;
   overflow: hidden;
 }
-.logsScroll .logsItems .deleteBox {
+.logsScroll .logsItems .deleteLogBox {
   position: absolute;
   right: -100px;
   top: 10px;
