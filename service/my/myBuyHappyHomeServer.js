@@ -34,6 +34,10 @@ define(['app'], function (app) {
                         nowAddress = "NO";
 
                     }
+
+                //绑定提交订单时使用的数据
+                //用户余额
+                $scope.user_money = data.userInfo.user_money;
                     $scope.$apply(function () {
                         $scope.goods = data.goodsInfo.data;
                         $scope.buyHappyAddress = nowAddress;
@@ -90,6 +94,7 @@ define(['app'], function (app) {
                                     '<span class="goodAttrVal">' + attrInfo.attr_value + '</span>',
                                     '</div>'
                                 ].join("");
+
                                 tempHtml += tem;
                             }
                             var moreGoodNameObj = "<div class='more_goodName'>" + tempHtml + "</div>";
@@ -99,7 +104,6 @@ define(['app'], function (app) {
 
                             //绑定产品的数量
                             var  bindGoodNumber = "abc"+goodId+ i;
-
 
                             var template = [
                                 '<div class="more_goodsBox">',
@@ -112,7 +116,7 @@ define(['app'], function (app) {
                                 '     </div>',
                                 '     <div class="more_buyNumberBox">',
                                 '           <div class="bhh_noGoods" ng-if="( ' + goodsNumber + '==0 ||((' + goodsNumber + ' - '+bindGoodNumber+') < 0))">商品库存不足</div>',
-                                '           <input class="bhh_buyNumber" type="number" placeholder="购买数量" data-price="{{'+ pice+'}}" data-number="{{' + goodsNumber + '}}" data-oldinput="0" ng-model="'+bindGoodNumber+'">',
+                                '           <input data-productid="'+ data[i].product_id +'"  data-goodsprice="'+ price +'" data-goodsattr="'+ data[i].goods_attr +'"  class="bhh_buyNumber" type="number" placeholder="购买数量" data-price="{{'+ pice+'}}" data-number="{{' + goodsNumber + '}}" data-oldinput="0" ng-model="'+bindGoodNumber+'">',
                                 '     </div>',
                                 '     <div style="clear: both"> ',
                                 '     </div>',
@@ -133,6 +137,45 @@ define(['app'], function (app) {
                 }
             );
         };
+
+        service.saveOrderForm = function(param,$scope, POP){
+            //提交订单
+            POP.StartLoading();
+            HTTP.post(API.My.confirmHappyOrder, param, function (e, data) {
+                POP.EndLoading();
+                if (e) {
+                    POP.Hint(data);
+                    return;
+                }
+                //提交成功后  弹框输入密码
+                POP.FormAlert('请输入支付密码',$scope,function(psw){
+                    //verifyPayPassword($scope,)
+                });
+            })
+        };
+        //验证支付密码
+        service.verifyPayPassword = function($scope,updateParams,POP,fn){
+
+            POP.StartLoading();
+
+            //更新操作
+            HTTP.post(API.Cart.verifyUserPassword,updateParams,function(e,data){
+
+                POP.EndLoading();
+
+                console.log("*******" + data);
+
+                if(e){
+                    POP.Hint("密码错误!");
+                    return;
+                }else {
+                    fn();
+                }
+
+            });
+
+        };
+
 
         return service;
 

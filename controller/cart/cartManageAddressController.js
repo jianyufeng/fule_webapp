@@ -145,7 +145,8 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
                     var _idx = $(".editBtnBox").index(this);
                     var RAddress =  $scope.historyAddress[_idx];
 
-                    $state.go("tab.cart_modifyAddress",{  address:RAddress.address,
+                    $state.go("tab.cart_modifyAddress",{
+                        address:RAddress.address,
                         address_id:RAddress.address_id,
                         address_name:RAddress.address_name,
                         best_time:RAddress.best_time,

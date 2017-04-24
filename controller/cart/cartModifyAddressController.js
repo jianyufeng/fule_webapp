@@ -55,6 +55,9 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
         $(".selectAction").click(function(){
             new AddressSelect({
+                provinceid    : PID,
+                cityid        : CID,
+                areaid        : AID,
                 resultBtnClick : function(result){
 
                     province = result.provinceName;
@@ -64,9 +67,8 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                     area     = result.areaName;
                     AID      = result.aid;
                     locationAddress  = province + city + "市" + area;
-                    $(".select-location").find("span").css("color","#000000");
+                    $scope.p.location = locationAddress;
                     $(".select-location").find("span").text(locationAddress);
-
 
                 }
             });
@@ -90,7 +92,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             $scope.p.tel = $stateParams.tel;
             */
 
-
+                 alert($scope.p.location);
             //保存成功后后退到地址管理页面
             var recieverName    = $scope.p.recieverName;
             var mobileNumeber   = $scope.p.mobile;
