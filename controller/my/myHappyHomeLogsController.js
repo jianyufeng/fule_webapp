@@ -25,7 +25,6 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
 
         });
 
-
        // 点击编辑购买记录
         var editOpen = false;
         $scope.editLogs = function(){
