@@ -23,6 +23,9 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 				})
 			}
 
+			// 加入购物车
+			goods_fun.addCart($scope, $rootScope, $state, POP);
+
 		});
 
 
@@ -69,8 +72,7 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
         });
 
 
-		// 加入购物车
-		goods_fun.addCart($scope, $rootScope, $state, POP);
+
 	}
 
 	ctrl.$inject = ['$scope','$rootScope', 'goodsService','POP','$state'];
