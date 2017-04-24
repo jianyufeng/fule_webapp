@@ -26,8 +26,6 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
         });
 
 
-
-
        // 点击编辑购买记录
         var editOpen = false;
         $scope.editLogs = function(){
@@ -47,10 +45,11 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
 
 
          //点击删除
-        my_fun.deleteHappyHomeBtn(function(_indx,_idNum){
+        my_fun.deleteHappyHomeBtn(function(_idx,_id){
 
+            alert(_idx + "*" +_id);
            // 删除购买记录
-            myHappyHomeLogsService.deleteHappyHomeLogs($scope,POP,_idNum,_indx);
+            myHappyHomeLogsService.deleteHappyHomeLogs($scope,POP,_id,_idx);
 
 
         })
