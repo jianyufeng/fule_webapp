@@ -51,7 +51,7 @@ define(['app'], function (app) {
                         $("#gradeButton").text("一键升级");
                         $("#gradeButton").css("display", "block");
                         $scope.garde = 1;
-                    } else if (user_INTEGRAL >= IS_D) {
+                    } else if (user_INTEGRAL >= IS_D && user_INTEGRAL < GAOJI_ZHI_YUAN_ZHE) {
                         // 显示升级D级
                         $("#gradeButton").text("升级为志愿者");
                         $("#gradeButton").css("display", "block");
