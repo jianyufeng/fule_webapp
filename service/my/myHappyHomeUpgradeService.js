@@ -46,7 +46,7 @@ define(['app'], function (app) {
                             //节点人
                             user.CONTACT_MAN = "";
                             // 区域
-                            user.REGION = "";
+                            user.REGION = -1;
                             createUser(user);
                             $scope.userArray.push(user);
                             continue;
@@ -100,9 +100,10 @@ define(['app'], function (app) {
             console.log(info);
             $("#recommend").val(info.RECOMMENDED_MAN);
             $("#node").val(info.CONTACT_MAN);
-            if (info.REGION === 0) {
+            console.log("dafjiosjkd" + info.REGION);
+            if (info.REGION == 0) {
                 $("#selectResult").val("左区");
-            } else if (info.REGION === 1) {
+            } else if (info.REGION == 1) {
                 $("#selectResult").val("右区");
             } else {
                 $("#selectResult").val("");
@@ -118,12 +119,10 @@ define(['app'], function (app) {
             $("#identityCardN").val(info.ID_CARD);
             $("#cardName").val(info.ACCOUNT_OWNER);
             $("#bankBranch").val(info.BANK_LOCATION);
-
-            //if (info.address != "") {
-            //    var address = info.address.provinceName + "-" + info.address.cityName + "-" + info.address.areaName;
-            //}
-            $("#address").val(info.address);
-
+            if (info.BANK_STATE_ID != "") {
+                var address = locationInfo.getAddressName(info.BANK_STATE_ID, info.BANK_CITY_ID, info.BANK_DISTRICT_ID);
+                $("#address").val(address);
+            }
             if (index > 0) {
                 $("#recommend").attr("readonly", "readonly");
                 $("#node").attr("readonly", "readonly");
@@ -284,10 +283,9 @@ define(['app'], function (app) {
             // 开户支行
             user.BANK_LOCATION = "";
             //省市地区
-            //user.BANK_STATE_ID = "";
-            //user.BANK_CITY_ID = "";
-            //user.BANK_DISTRICT_ID = "";
-            user.address = "";
+            user.BANK_STATE_ID = "";
+            user.BANK_CITY_ID = "";
+            user.BANK_DISTRICT_ID = "";
             //标记
             user.flag = 0;
         }

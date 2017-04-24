@@ -1,32 +1,32 @@
 /**
  * Created by Administrator on 2017/3/24.
  */
-define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!../../../plugin/datePicker/datePicker.css', 'datePicker', 'addressSelect'],function(app){
-    function ctrl($scope,myElectronicBankTransferService, POP , $ionicHistory)  {
+define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!../../../plugin/datePicker/datePicker.css', 'datePicker', 'addressSelect'], function (app) {
+    function ctrl($scope, myElectronicBankTransferService, POP, $ionicHistory) {
 
-        $scope.backClick =  function(){
+        $scope.backClick = function () {
             POP.Confirm("是否放弃当前操作？", function () {
 
                 },
-                "放弃","继续编辑",  function () {
+                "放弃", "继续编辑", function () {
                     $("#form1")[0].reset();
                     $ionicHistory.goBack();
                 });
         };
 
-       //console.log( locationInfo.getAddressName(4,54,531) );
+        //console.log( locationInfo.getAddressName(4,54,531) );
 
         //选择地址
         $("#ert_address").click(function () {
             new AddressSelect({
-                provinceid    : 4,
-                cityid        : 54,
-                areaid        : 531,
+                provinceid: 4,
+                cityid: 54,
+                areaid: 531,
                 resultBtnClick: function (result) {
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
                     $("#ert_address").val(address);
 
-                   
+
                 }
             })
         });
@@ -39,21 +39,21 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
         //选择汇入银行
         $('#ert_showBank').click(function () {
             $('.sel_BankBox').fadeIn();
-            if( $scope.bankLists == undefined){
+            if ($scope.bankLists == undefined) {
                 //获取转入银行列表
-                $('.sel_confirmSelect').attr("disabled","true");
-                myElectronicBankTransferService.getBankList($scope, 2,POP);
+                $('.sel_confirmSelect').attr("disabled", "true");
+                myElectronicBankTransferService.getBankList($scope, 2, POP);
 
             }
         });
         //选择汇入银行
         $('.sel_loadTxt').click(function () {
-            if( $scope.bankLists == undefined){
+            if ($scope.bankLists == undefined) {
                 $('.sel_loadImg').show();
                 $('.sel_loadTxt').hide();
-                $('.sel_confirmSelect').attr("disabled","true");
+                $('.sel_confirmSelect').attr("disabled", "true");
                 //获取转入银行列表
-                myElectronicBankTransferService.getBankList($scope, 2,POP);
+                myElectronicBankTransferService.getBankList($scope, 2, POP);
             }
         });
 
@@ -82,8 +82,6 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
         var info = User.getInfo();
         //绑定用户信息
         $scope.userName = info.user_name;
-
-
 
 
         //选择日期
@@ -191,5 +189,5 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
     ctrl.$inject = ['$scope', 'myElectronicBankTransferService', 'POP', '$ionicHistory'];
 
     /*动态注册控制器*/
-    app.registerController("mySubsidiaryBankTransferController",ctrl);
+    app.registerController("mySubsidiaryBankTransferController", ctrl);
 });

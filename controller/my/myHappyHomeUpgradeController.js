@@ -27,9 +27,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             if ($scope.goShopping == undefined) {
                 return;
             }
-            console.log(configId);
-            console.log(44545454545);
-            console.log($scope.id);
             $state.go("tab.my-buyHappyHome", {
                 "configId": configId,
                 "id": $scope.id
@@ -53,8 +50,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             $('#abc2').css('color', 'black');
             $('#selectResult').val("左区");
             var user = $scope.userArray[0];
-            user.region = "左区";
-            console.log("左区");
+            user.REGION = "左区";
         });
 
         $("#abc2").click(function () {
@@ -62,8 +58,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             $('#abc1').css('color', 'black');
             $('#selectResult').val("右区");
             var user = $scope.userArray[0];
-            user.region = "右区";
-            console.log("右区");
+            user.REGION = "右区";
         });
 
         $('#a').click(function () {
@@ -92,6 +87,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         // 推荐人失去焦点
         $("#recommend").blur(function () {
             var str = _.trim($(this).val());
+
             if ($scope.index > 0) {
                 return
             }
@@ -140,6 +136,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         // 商城密码失去焦点
         $("#mallPassWord").blur(function () {
             var str = _.trim($(this).val());
+            console.log(str);
             var pattern = /^[A-Z a-z \d ]{6,16}$/;
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#mallPassWordWaring"), $("#mallPassWord"))) {
@@ -167,6 +164,11 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     }
                 }
 
+                for (var i = 0; i < $scope.userArray.length; i++) {
+                    var info = $scope.userArray[i];
+                    console.log(1111111);
+                    console.log(info.PASSWORD);
+                }
             }
 
         });
@@ -694,25 +696,33 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     $("#address").val(address);
                     var user = $scope.userArray[$scope.index];
                     if (user.flag == undefined) {
-                        user.address = address;
+                        user.BANK_STATE_ID = result.pid;
+                        user.BANK_CITY_ID = result.cid;
+                        user.BANK_DISTRICT_ID = result.aid;
                         return;
                     }
                     user.flag = $scope.index;
                     if ($scope.index != 0) {
-                        user.address = address;
+                        user.BANK_STATE_ID = result.pid;
+                        user.BANK_CITY_ID = result.cid;
+                        user.BANK_DISTRICT_ID = result.aid;
                         return;
                     }
                     // 输入完成赋值给其他的输入项
                     for (var i = 0; i < $scope.userArray.length; i++) {
                         var info = $scope.userArray[i];
                         if (info.flag == 0) {
-                            info.address = address;
+                            info.BANK_STATE_ID = result.pid;
+                            info.BANK_CITY_ID = result.cid;
+                            info.BANK_DISTRICT_ID = result.aid;
                         }
                     }
 
                 }
             })
         }
+
+
         /**
          *  表单提交
          */
@@ -733,12 +743,72 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             checkIdentityCardN();
             checkCardName();
             checkBankBranch();
+            if ($("#recommend").val() == null || $("#recommend").val() == "") {
+                POP.Hint("推荐人不能为空，请检查");
+                return;
+            }
+            if ($("#node").val() == null || $("#node").val() == "") {
+                POP.Hint("节点人不能为空，请检查");
+                return;
+            }
+            if ($("#selectResult").val() == null || $("#selectResult").val() == "") {
+                POP.Hint("节点人节点不能为空，请检查");
+                return;
+            }
+            if ($("#mallPassWord").val() == null || $("#mallPassWord").val() == "") {
+                POP.Hint("商城密码不能为空，请检查");
+                return;
+            }
+            if ($("#secondPassWord").val() == null || $("#secondPassWord").val() == "") {
+                POP.Hint("二级密码不能为空，请检查");
+                return;
+            }
+            if ($("#payPassWord").val() == null || $("#payPassWord").val() == "") {
+                POP.Hint("支付密码不能为空，请检查");
+                return;
+            }
+            if ($("#Email").val() == null || $("#Email").val() == "") {
+                POP.Hint("邮箱不能为空，请检查");
+                return;
+            }
+            if ($("#phone").val() == null || $("#phone").val() == "") {
+                POP.Hint("手机号不能为空，请检查");
+                return;
+            }
+            if ($("#name").val() == null || $("#name").val() == "") {
+                POP.Hint("姓名不能为空，请检查");
+                return;
+            }
+            if ($("#bankCardN").val() == null || $("#bankCardN").val() == "") {
+                POP.Hint("银行账号不能为空，请检查");
+                return;
+            }
+            if ($("#bank").val() == null || $("#bank").val() == "") {
+                POP.Hint("开户银行不能为空，请检查");
+                return;
+            }
+            if ($("#identityCardN").val() == null || $("#identityCardN").val() == "") {
+                POP.Hint("身份证号不能为空，请检查");
+                return;
+            }
+            if ($("#cardName").val() == null || $("#cardName").val() == "") {
+                POP.Hint("开户姓名不能为空，请检查");
+                return;
+            }
+            if ($("#bankBranch").val() == null || $("#bankBranch").val() == "") {
+                POP.Hint("开户支行不能为空，请检查");
+                return;
+            }
+            if ($("#address").val() == null || $("#address").val() == "") {
+                POP.Hint("地址不能为空，请检查");
+                return;
+            }
             // 验证所有的user的字段
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var user = $scope.userArray[i];
                 var userItem = null;
                 for (userItem in user) {
-                    if (user[userItem] == null || user[userItem].length <= 0) {
+                    if (user[userItem] == undefined || user[userItem] == null || user[userItem].length <= 0) {
                         POP.Hint("请确保所有输入项全部填写。");
                     }
                 }
@@ -753,7 +823,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 } else if (item.REGION == "右区") {
                     region = 1;
                 }
-
                 var user = {
                     "user_name": item.user_name,
                     "RECOMMENDED_MAN": item.RECOMMENDED_MAN,
@@ -770,10 +839,9 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     "ID_CARD": item.ID_CARD,
                     "ACCOUNT_OWNER": item.ACCOUNT_OWNER,
                     "BANK_LOCATION": item.BANK_LOCATION,
-                    //"BANK_STATE_ID": item.address.pid,
-                    //"BANK_CITY_ID": item.address.cid,
-                    //"BANK_DISTRICT_ID": item.address.aid
-                    "address": "dsjafdksl"
+                    "BANK_STATE_ID": item.BANK_STATE_ID,
+                    "BANK_CITY_ID": item.BANK_CITY_ID,
+                    "BANK_DISTRICT_ID": item.BANK_DISTRICT_ID
 
                 }
                 array.push(user);
@@ -783,14 +851,11 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             var user_datas = {};
 
             for (var d in array[0]) {
-
                 var arr = [];
-
                 for (var s = 0; s < array.length; s++) {
                     //通过赋值
                     arr.push(array[s][d]);
                 }
-
                 user_datas[d] = arr;
             }
 
