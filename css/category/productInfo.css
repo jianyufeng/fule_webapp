@@ -177,20 +177,15 @@
 .contentBox .addCartBar .cartBox .cartNumber {
   position: relative;
   background-color: #D39AC5;
-  width: 20px;
+  width: auto;
   height: 20px;
   border-radius: 20px;
   top: -5px;
   left: -7px;
   float: left;
-}
-.contentBox .addCartBar .cartBox .cartNumber .num {
-  position: absolute;
-  top: 0px;
-  right: 5px;
-  font-size: 8px;
+  padding: 0 3px;
   color: white;
-  display: block;
+  font-size: 8px;
 }
 .contentBox .addCartBar .line {
   width: 2px;

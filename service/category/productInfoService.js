@@ -184,7 +184,8 @@ define(['app'], function (app) {
             if (User.isLogin()) {
                 var userInfo = User.getInfo();
                 var goodsName = $scope.productName;
-                var goodsNumber = $scope.count;
+                var goodsNumber = Number.parseInt($("#_number").val());
+                $scope.count=goodsNumber;
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
                     "user_id": userInfo.user_id,
