@@ -76,7 +76,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 
 		//结算按钮点击时
-		$(document).off("click").on("click",".accountBox",function(){
+		$(document).off("click").on("click",".cartAccountBox",function(){
 
 			POP.Confirm("您确认要购买已选产品?",function(){
 				$state.go("tab.cart_orderConfirm");
