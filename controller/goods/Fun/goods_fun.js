@@ -19,7 +19,7 @@
             var goodsNumber=$(this).attr('number');
 
             if (goodsNumber>0){
-    $state.go("tab.productInfo",{"goodsId":goodsId});
+    $state.go("tab.goodsDetail",{"goodsId":goodsId});
 }
         });
 

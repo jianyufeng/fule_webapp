@@ -4,6 +4,30 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
 		goods_fun.menuSelected();
 
+		$scope.$on("$ionicView.enter",function(){
+
+
+			if (User.isLogin()) {
+				var userId = User.getInfo().user_id;
+				HTTP.get(API.Category.getCartNum + "/user_id/" + userId + "/shopping_type/1", {}, function (e, data) {
+
+					if(e) {
+						$rootScope.cartBadge = 0;
+						return;
+					}
+
+					data = data == undefined ? 0 : data;
+					$scope.$apply(function () {
+						$rootScope.cartBadge = data;
+					});
+				})
+			}
+
+			// 加入购物车
+			goods_fun.addCart($scope, $rootScope, $state, POP);
+
+		});
+
 
 
 		// 下拉刷新
@@ -48,8 +72,7 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
         });
 
 
-		// 加入购物车
-		goods_fun.addCart($scope, $rootScope, $state, POP);
+
 	}
 
 	ctrl.$inject = ['$scope','$rootScope', 'goodsService','POP','$state'];

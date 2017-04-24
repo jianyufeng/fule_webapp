@@ -15,13 +15,27 @@ define(['app'],function (app) {
         $stateProvider
 
             .state('tab.goods', {
-                url: '/goods',
+            url: '/goods',
+            views: {
+                'tab-goods': {
+                    templateUrl: "views/goods/goods.html?_r=" + Math.random(),
+                    controller: 'goodsController',
+                    resolve: {
+                        deps: app.loadControllerJs('../controller/goods/goodsController')
+                    }
+                }
+
+            }
+        })
+
+            .state('tab.goodsDetail', {
+                url: '/goodsDetail/:goodsId',
                 views: {
                     'tab-goods': {
-                        templateUrl: "views/goods/goods.html?_r=" + Math.random(),
-                        controller: 'goodsController',
+                        templateUrl: "views/category/productInfo.html?_r=" + Math.random(),
+                        controller: 'productInfoController',
                         resolve: {
-                            deps: app.loadControllerJs('../controller/goods/goodsController')
+                            deps: app.loadControllerJs('../controller/category/productInfoController')
                         }
                     }
 

@@ -191,7 +191,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 			//删除购物车
 			
-			cartService.deleteCart($scope,deleteParams,POP,_idx,$rootScope);
+			cartService.deleteCartGood($scope,deleteParams,POP,_idx,$rootScope);
 
 
 		})

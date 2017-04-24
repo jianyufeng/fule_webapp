@@ -12,12 +12,16 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
             $scope.count = 1;
             productInfoService.getProductInfo($scope, $stateParams, POP);
             productInfoService.getCartInfo($scope, POP);
-            console.log(9999);
 
         });
         $scope.$on('$ionicView.leave', function () {
             $scope.count = 1;
+
+
         });
+
+
+
 
         $scope.onSlideChanged = function (index) {
             productInfoService.Slide(index);
