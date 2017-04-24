@@ -59,9 +59,12 @@
                                 </div>
                             </div>
                             <div class="bhh_buyNumberBox">
-                                <input class="bhh_buyNumber" type="number" placeholder="购买数量"
-                                       data-price="{{item.shop_price}}" data-number="{{item.goods_number}}"
-                                       data-oldinput="0" ng-model="goods_number" data-gooditem="{{item}}">
+                                <input
+                                        onkeyup="inputKeyUp(this)"
+                                        onafterpaste="inputKeyUp(this)"
+                                        class="bhh_buyNumber" type="text" placeholder="购买数量"
+                                        data-price="{{item.shop_price}}" data-number="{{item.goods_number}}"
+                                        data-oldinput="0" ng-model="goods_number" data-gooditem="{{item}}">
                                 <div class="bhh_noGoods"
                                      ng-if="( item.goods_number==0 ||((item.goods_number - goods_number) < 0))">商品库存不足
                                 </div>

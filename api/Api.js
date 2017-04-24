@@ -51,6 +51,8 @@ var API = {
         buyGoodsList: serverIP + "/_happyHome/searchGoodsList",
         //提交喜乐之家订单
         confirmHappyOrder: serverIP +"/buyxlzj/updateOrderLog",
+        //验证密码后回调添加购买信息
+        butyHapplyOver:serverIP+'/buyxlzj/happlyOver',
         //获取购买喜乐之家配置
         buyHappyHomeGoodsConfig: serverIP + "/buyxlzj/happlyhomelist",
         //获取喜乐之家配置表
