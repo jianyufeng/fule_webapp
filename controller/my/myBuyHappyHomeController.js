@@ -2,10 +2,16 @@
  * Created by Administrator on 2017/4/14.
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
-    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile,$ionicScrollDelegate) {
+    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate) {
 
-        $scope.blurAction = function(){
-            $(".changeBtn input").blur();
+        $scope.blurAction = function () {
+            var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
+            var scrollPosition = scroller.getScrollPosition();
+            var top = scrollPosition.top;
+
+            //console.log(top);
+
+            //$(".changeBtn input").blur();
         };
 
 
@@ -79,10 +85,10 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         });
 
-        $(document).on("change",".bhh_buyNumber",function(){
-            alert(888);
-
-        });
+        //$(document).on("change",".bhh_buyNumber",function(){
+        //
+        //
+        //});
         $(document).on("input propertychange", ".bhh_buyNumber", function () {
 
             //获取输入的产品数
@@ -183,15 +189,110 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             var isSave = $('.' + canotSave + '');
             console.log(isSave);
             if (isSave.length > 0) {
-                POP.Confirm("<font color='red'>(您选择的产品超出库存)</font>",function(){
+                POP.Confirm("<font color='red'>(您选择的产品超出库存)</font>", function () {
                     var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
                     console.log(isSave.offset().top);
-                    console.log(222222);
-                    scroller.scrollTo(0,isSave.offset().top, true);
+                    scroller.scrollTo(0, isSave.offset().top, true);
 
                 });
                 return;
             }
+            //console。log（）
+            //检测金额数据
+            if ($scope.totalMoney > $scope.user_money) {
+                POP.Confirm("<font color='red'>(余额不足)</font>", function () {
+                });
+                return;
+            }
+            //添加收货地址
+            if ($scope.buyHappyAddress == 'NO') {
+                POP.Confirm("<font color='red'>(请添加收货人信息)</font>", function () {
+                });
+                return;
+            }
+            //收货人 id
+            var addressId = $scope.buyHappyAddress.address_id;
+            console.log("addressId:" + addressId);
+            //钱数
+            var totalMoney = $scope.totalMoney;
+            console.log("totalMoney:" + totalMoney);
+            //商品数
+            var totalGoodsNumber = $scope.totalGoodsNumber;
+            console.log("totalGoodsNumber:" + totalGoodsNumber);
+
+            //获取提交订单需要的数据
+            //循环输入框的数量
+            var goods_infos = [];
+            //获取选着商品的信息
+            $(".bhh_buyNumber").each(
+                function () {
+                    var input = $(this).val();
+
+                    if (input > 0) {
+                        var goodInfo = {};
+                        if ($(this).parent().attr('class') == "more_buyNumberBox") {
+                            //多属性商品  获取item的属性 和属性的item
+                            var item = $(this).parent().parent().parent().parent().data("gooditem");
+                            console.log("多属性属性");
+                            //console.log(item);
+                            //获取属性
+                            var productid = $(this).data("productid");
+                            var goodsprice = $(this).data("goodsprice");
+                            var goodsattr = $(this).data("goodsattr");
+
+                            //var attr = JSON.parse();
+                            console.log(ss);
+                            goodInfo.goods_id = item.goods_id;
+                            goodInfo.product_id = productid;
+                            goodInfo.goods_name = item.goods_name;
+                            goodInfo.extension_code = 0;
+                            goodInfo.goods_number = item.goods_number;
+                            goodInfo.goods_price = item.shop_price;
+                            goodInfo.goods_attr = goodsattr;
+                            goodInfo.goods_sn = item.goods_sn;
+                            goodInfo.market_price = item.market_price;
+                            goodInfo.goods_type = item.goods_type;
+                            goodInfo.goods_attr_id = 0;
+
+                        } else {
+                            //非属性商品  获取item的属性
+                            var item = $(this).data("gooditem");
+                            console.log("单属性");
+                            console.log(item);
+                            goodInfo.goods_id = item.goods_id;
+                            goodInfo.product_id = 0;
+                            goodInfo.goods_name = item.goods_name;
+                            goodInfo.extension_code = 0;
+                            goodInfo.goods_number = item.goods_number;
+                            goodInfo.goods_price = item.shop_price;
+                            goodInfo.goods_attr = 0;
+                            goodInfo.goods_sn = item.goods_sn;
+                            goodInfo.market_price = item.market_price;
+                            goodInfo.goods_type = item.goods_type;
+                            goodInfo.goods_attr_id = 0;
+                        }
+                        goods_infos.push(goodInfo);
+                    }
+                });
+
+            //创建提交信息
+            var info = User.getInfo();
+            var paras = {
+                'order_info': {
+                    'address_id': addressId,
+                    'surplus': totalMoney,
+                    'goods_amount': totalGoodsNumber,
+                    'referer': '手机'
+                },
+                'goods_info': goods_infos,
+                'id': 0,
+                'user_id': info.user_id,
+                'user_name': info.user_name,
+                'config_id': 7
+            };
+
+            //提交订单
+            myBuyHappyHomeServer.saveOrderForm(paras,$scope,POP);
 
 
         })
@@ -199,7 +300,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile','$ionicScrollDelegate'];
+    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile', '$ionicScrollDelegate'];
 
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);

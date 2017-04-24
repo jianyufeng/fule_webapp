@@ -1,9 +1,10 @@
 <ion-view view-title="购买喜乐之家" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <navigation-bar is-back="true" title="购买喜乐之家"></navigation-bar>
-    <ion-content has-bouncing="false" padding="true" overflow-scroll="true">
-        <div class="bhh_Box" new-set-window-height="0">
+    <ion-content scroll="false">
+
+        <div class="bhh_Box" new-set-window-height="">
             <div class="bhh_buyListBox">
-                <ion-scroll style="width:100%;height: 100%" delegate-handle="bhh_scroll"  on-scroll="blurAction() ">
+                <ion-scroll style="width:100%;height: 100%" delegate-handle="bhh_scroll" on-scroll="blurAction()">
 
                     <a href="#/tab/my-happyHomeAddress">
                         <div class="addressBox">
@@ -46,7 +47,8 @@
                         <div class="bhh_goodItemBox" ng-if="item.is_product == 0">
                             <div class="bhh_goodImgBox">
                                 <img class="bhh_goodImg" alt="商品图"
-                                     src="./resource/images/default/default_image.png" data-original='{{item.img_normal}}'>
+                                     src="./resource/images/default/default_image.png"
+                                     data-original='{{item.img_normal}}'>
                             </div>
 
                             <div class="bhh_goodInfo">
@@ -59,18 +61,19 @@
                             <div class="bhh_buyNumberBox">
                                 <input class="bhh_buyNumber" type="number" placeholder="购买数量"
                                        data-price="{{item.shop_price}}" data-number="{{item.goods_number}}"
-                                       data-oldinput="0" ng-model="goods_number">
+                                       data-oldinput="0" ng-model="goods_number" data-gooditem="{{item}}">
                                 <div class="bhh_noGoods"
                                      ng-if="( item.goods_number==0 ||((item.goods_number - goods_number) < 0))">商品库存不足
                                 </div>
                             </div>
                         </div>
                         <div class="bhh_goodItemBox" id="bhh_goodItemBox1_{{item.goods_id}}"
-                             ng-if="item.is_product > 0">
+                             ng-if="item.is_product > 0" data-gooditem="{{item}}">
                             <div class="bbh_seeMoreGoodsBox" ng-click="seeMoreGoods(item.goods_id,item.shop_price)">
                                 <div class="bhh_goodImgBox">
                                     <img class="bhh_goodImg" alt="商品图"
-                                         src="./resource/images/default/default_image.png" data-original='{{item.img_normal}}'>
+                                         src="./resource/images/default/default_image.png"
+                                         data-original='{{item.img_normal}}'>
                                 </div>
                                 <div class="bhh_goodInfoBox1">
                                     <div class="bhh_goodName">{{item.goods_name}}</div>
@@ -106,5 +109,6 @@
             </div>
 
         </div>
+
     </ion-content>
 </ion-view>

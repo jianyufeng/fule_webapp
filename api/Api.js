@@ -49,11 +49,9 @@ var API = {
         buyGoodsMoreAttr: serverIP + "/goods/searchProductInfo",
         //购买喜乐之家列表
         buyGoodsList: serverIP + "/_happyHome/searchGoodsList",
-        buyGoodsMoreAttr: serverIP + "/goods/searchProductInfo",
-
-        buyGoodsList: serverIP + "/_happyHome/searchGoodsList",
-        //
-        buyGoodsMoreAttr: serverIP + "/goods/searchProductInfo",        //获取购买喜乐之家配置
+        //提交喜乐之家订单
+        confirmHappyOrder: serverIP +"/buyxlzj/updateOrderLog",
+        //获取购买喜乐之家配置
         buyHappyHomeGoodsConfig: serverIP + "/buyxlzj/happlyhomelist",
         //获取喜乐之家配置表
         happyHomeList: serverIP + "/buyxlzj/happlyhomelist",
