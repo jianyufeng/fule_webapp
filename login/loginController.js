@@ -119,7 +119,6 @@ app.controller("loginController", function ($scope, POP) {
         //获取验证码
         var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
         HTTP.get(url, {}, function (e, data) {
-            console.log(e);
             if (e) {
                 POP.Hint("data");
                 sendBox.removeAttr("disabled");
@@ -130,12 +129,12 @@ app.controller("loginController", function ($scope, POP) {
             setTime(sendBox);
         });
     });
-    var countdown = 8;
+    var countdown = 60;
     //定时60s
     function setTime(obj) {
         if (countdown == 0) {
             obj.text("发送短信效验码");
-            countdown = 8;
+            countdown = 60;
             obj.removeAttr("disabled");
             return;
         } else {
@@ -156,6 +155,8 @@ app.controller("loginController", function ($scope, POP) {
     //
     //});
 
+    //汉字正则
+    var hzReg = /[^\x00-\xff]/;
     /*登录*/
     $('#login').click(function () {
         //获取账号
@@ -165,6 +166,10 @@ app.controller("loginController", function ($scope, POP) {
             POP.Hint("账号不能为空");
             return;
         }
+        if (hzReg.test(user_name)) {
+            POP.Hint("账号格式不正确");
+            return;
+        }
         //获取密码
         var password = $('#password').val();
         //密码不为空
@@ -172,6 +177,11 @@ app.controller("loginController", function ($scope, POP) {
             POP.Hint("密码不能为空");
             return;
         }
+        if (hzReg.test(password)) {
+            POP.Hint("密码格式不正确");
+            return;
+        }
+
         //获取验证模式
         var isCardCheck = $('#choiceCardCheck').is(':checked');
         var isPhoneCheck = $('#choicePhoneCheck').is(':checked');
@@ -188,14 +198,19 @@ app.controller("loginController", function ($scope, POP) {
                     POP.Hint("密保卡 验证码不能为空");
                     return;
                 }
-                if (isNaN(v)) {
+                if (hzReg.test(v)) {
                     POP.Hint("验证码格式不正确");
                     return;
                 }
+                if (v.length != 2){
+                    POP.Hint("密保卡 验证码长度不正确");
+                    return;
+                }
+
+
                 var name = $('.codeName').eq(i).text();
                 codeValue[name] = v;
             }
-
             codeCheck = codeValue;
             verification_mode = "CARD"
         } else {
@@ -210,8 +225,13 @@ app.controller("loginController", function ($scope, POP) {
                 POP.Hint("验证码格式不正确");
                 return;
             }
+            if(code.length != 6){
+                POP.Hint("验证码长度不正确");
+                verification_mode = "CIPHER"
+            }else {
+                verification_mode = "CODE"
+            }
             codeCheck = code;
-            verification_mode = "CODE"
         }
         var url = "http://192.168.10.123:5000/_user/login";
 
@@ -286,14 +306,14 @@ app.controller("loginController", function ($scope, POP) {
         $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
     });
 
-    /*注册 点击效果*/
-    $(document).on("touchstart", ".registBox", function (event) {
-        $(this).css({background: "#fff"}).transition({background: "#eee"}, 100);
-    });
-
-    $(document).on("touchend", ".registBox", function (event) {
-        $(this).css("background", "#eee").transition({background: "#fff"}, 100);
-    });
+    ///*注册 点击效果*/
+    //$(document).on("touchstart", ".registBox", function (event) {
+    //    $(this).css({background: "#fff"}).transition({background: "#eee"}, 100);
+    //});
+    //
+    //$(document).on("touchend", ".registBox", function (event) {
+    //    $(this).css("background", "#eee").transition({background: "#fff"}, 100);
+    //});
 
     //随机获取 密保卡的码
     function _getRandomString(len) {
