@@ -108,6 +108,15 @@ define(['app'], function (app) {
             } else {
                 $("#selectResult").val("");
             }
+
+            if (info.BANK_NAME == 1) {
+                $("#bank").val("中国工商银行");
+            } else if (info.BANK_NAME == 2) {
+                $("#bank").val("中国农业银行");
+            }
+            if (info.BANK_NAME == 3) {
+                $("#bank").val("中国建设银行");
+            }
             $("#mallPassWord").val(info.PASSWORD);
             $("#secondPassWord").val(info.SECOND_PASSWORD);
             $("#payPassWord").val(info.THREE_PASSWORD);
@@ -115,7 +124,7 @@ define(['app'], function (app) {
             $("#phone").val(info.mobile_phone);
             $("#name").val(info.MEMBER_NAME);
             $("#bankCardN").val(info.BANK_ACCOUNT);
-            $("#bank").val(info.BANK_NAME);
+            //$("#bank").val(info.BANK_NAME);
             $("#identityCardN").val(info.ID_CARD);
             $("#cardName").val(info.ACCOUNT_OWNER);
             $("#bankBranch").val(info.BANK_LOCATION);

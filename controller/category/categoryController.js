@@ -4,7 +4,6 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
         $rootScope[$state.current.name] = {};
 
-
         // 加入购物车
 
         $scope.$on("$ionicView.enter",function(){

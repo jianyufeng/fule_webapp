@@ -47,6 +47,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
 
         $('#abc1').click(function () {
+            $('#RegionBox').fadeOut(300);
             if ($scope.left == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc2').css('color', 'black');
@@ -54,12 +55,13 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 var user = $scope.userArray[0];
                 user.REGION = 0;
             } else {
-                alert("左区不可用");
+                POP.Alert("左区不可用");
             }
 
         });
 
         $("#abc2").click(function () {
+            $('#RegionBox').fadeOut(300);
             if ($scope.right == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc1').css('color', 'black');
@@ -67,40 +69,111 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 var user = $scope.userArray[0];
                 user.REGION = 1;
             } else {
-                alert("右区不可用");
+                POP.Alert("右区不可用");
             }
         });
 
         $('#a').click(function () {
+            $(document).off("click", "#selectBank");
             $(this).css('color', '#D39AC5');
             $('#b').css('color', 'black');
             $('#c').css('color', 'black');
             $('#bank').val($(this).text());
-            $('#BankBox').hide();
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
+
+            var user = $scope.userArray[$scope.index];
+            if (user.flag == undefined) {
+                user.BANK_NAME = 1;
+                return;
+            }
+            user.flag = $scope.index;
+            if ($scope.index != 0) {
+                user.BANK_NAME = 1;
+                return;
+            }
+            //    // 输入完成赋值给其他的输入项
+            for (var i = 0; i < $scope.userArray.length; i++) {
+                var info = $scope.userArray[i];
+                if (info.flag == 0) {
+                    info.BANK_NAME = 1;
+                }
+            }
+
+            return false;
         });
         $("#b").click(function () {
+            $(document).off("click", "#selectBank");
             $(this).css('color', '#D39AC5');
             $('#a').css('color', 'black');
             $('#c').css('color', 'black');
             $('#bank').val($(this).text());
-            $('#BankBox').hide();
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
+
+            var user = $scope.userArray[$scope.index];
+            if (user.flag == undefined) {
+                user.BANK_NAME = 2;
+                return;
+            }
+            user.flag = $scope.index;
+            if ($scope.index != 0) {
+                user.BANK_NAME = 2;
+                return;
+            }
+            //    // 输入完成赋值给其他的输入项
+            for (var i = 0; i < $scope.userArray.length; i++) {
+                var info = $scope.userArray[i];
+                if (info.flag == 0) {
+                    info.BANK_NAME = 2;
+                }
+            }
+
+            return false;
         });
         $("#c").click(function () {
+            $(document).off("click", "#selectBank");
             $(this).css('color', '#D39AC5');
             $('#a').css('color', 'black');
             $('#b').css('color', 'black');
             $('#bank').val($(this).text());
-            $('#BankBox').hide();
-            $scope.upGrade.click = true;
-        });
-        // 关闭选择区域的弹框
-        //$scope.closepop = function () {
-        //    $(".popRegionBox").hide();
-        //}
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
 
+            var user = $scope.userArray[$scope.index];
+            if (user.flag == undefined) {
+                user.BANK_NAME = 3;
+                console.log(1111111111);
+                return;
+            }
+            user.flag = $scope.index;
+            if ($scope.index != 0) {
+                user.BANK_NAME = 3;
+                console.log(222222222222);
+                return;
+            }
+            //    // 输入完成赋值给其他的输入项
+            for (var i = 0; i < $scope.userArray.length; i++) {
+                var info = $scope.userArray[i];
+                if (info.flag == 0) {
+                    info.BANK_NAME = 3;
+                    console.log(3333333333);
+                }
+            }
+
+            return false;
+        });
+        // 选择银行弹框消失
         $("#BankBox").click(function (e) {
             if (e.target.id == "BankBox") {
                 $('#BankBox').hide();
+
             }
         });
 
@@ -842,7 +915,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     "mobile_phone": item.mobile_phone,
                     "MEMBER_NAME": item.MEMBER_NAME,
                     "BANK_ACCOUNT": item.BANK_ACCOUNT,
-                    "BANK_NAME": "1",
+                    "BANK_NAME": item.BANK_NAME,
                     "ID_CARD": item.ID_CARD,
                     "ACCOUNT_OWNER": item.ACCOUNT_OWNER,
                     "BANK_LOCATION": item.BANK_LOCATION,
@@ -897,11 +970,9 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         // 选择银行
-        $scope.selectBank = function () {
-            $("#BankBox").css("display", "block");
-            $("ion-content").attr('tabindex', '999999999999');
-        }
-
+        $("#selectBank").click(function () {
+            $("#BankBox").fadeIn(300);
+        })
 
     }
 
