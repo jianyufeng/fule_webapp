@@ -16,6 +16,7 @@ define(['app'],function (app) {
         $stateProvider
             /*购物车 路由*/
             .state('tab.cart', {
+                cache : false,
                 url: '/cart',
                 views: {
                     'tab-cart': {
@@ -32,6 +33,7 @@ define(['app'],function (app) {
             /*购物车 确认订单 路由*/
             .state('tab.cart_orderConfirm', {
                 url: '/cart_orderConfirm',
+                cache : false,
                 views: {
                     'tab-cart': {
                         templateUrl: "views/cart/cart_orderConfirm.html?_r=" + Math.random(),
@@ -46,6 +48,7 @@ define(['app'],function (app) {
             /*购物车 选择收货地址 路由*/
             .state('tab.cart_selectAddress', {
                 url: '/cart_selectAddress',
+                cache : false,
                 views: {
                     'tab-cart': {
                         templateUrl: "views/cart/cart_selectAddress.html?_r=" + Math.random(),
@@ -60,6 +63,7 @@ define(['app'],function (app) {
             /*购物车 管理收货地址 路由*/
             .state('tab.cart_manageAddress', {
                 url: '/cart_manageAddress',
+                cache : false,
                 views: {
                     'tab-cart': {
                         templateUrl: "views/cart/cart_manageAddress.html?_r=" + Math.random(),
@@ -74,6 +78,7 @@ define(['app'],function (app) {
             // /*购物车 添加新收货地址 路由*/
             .state('tab.cart_addAddress', {
                 url: '/cart_addAddress',
+                cache : false,
                 views: {
                     'tab-cart': {
                         templateUrl: "views/cart/cart_addAddress.html?_r=" + Math.random(),
@@ -88,6 +93,7 @@ define(['app'],function (app) {
 
             /*购物车 修改收货地址 路由*/
             .state('tab.cart_modifyAddress', {
+                cache : false,
                 url: '/cart_modifyAddress/:address/:address_id/:address_name/:best_time/:country/:country_name/:city_name/:city/:consignee/:district_name/:district/:email/:mobile/:province_name/:province/:sign_building/:tel/:zipcode/:user_id',
                 views: {
                     'tab-cart': {

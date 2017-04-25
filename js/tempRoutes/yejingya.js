@@ -16,6 +16,7 @@ define(['app'],function (app) {
 
             .state('tab.goods', {
             url: '/goods',
+                cache : false,
             views: {
                 'tab-goods': {
                     templateUrl: "views/goods/goods.html?_r=" + Math.random(),
@@ -30,6 +31,7 @@ define(['app'],function (app) {
 
             .state('tab.goodsDetail', {
                 url: '/goodsDetail/:goodsId',
+                cache : false,
                 views: {
                     'tab-goods': {
                         templateUrl: "views/category/productInfo.html?_r=" + Math.random(),
@@ -44,6 +46,7 @@ define(['app'],function (app) {
 
             .state('tab.register', {
                 url: '/register',
+                cache : false,
                     views: {
                     'tab-goods': {
                         templateUrl: "register/register.html?_r=" + Math.random(),

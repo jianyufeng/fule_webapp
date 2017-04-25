@@ -180,18 +180,21 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 		//点击删除
 		cart_fun.deleteCartBtn(function(_idx,_id){
-			
-			var info = User.getInfo();
-			var deleteParams = {
-				user_id : info.user_id,
-				shopping_type : 1,
-				id : _id
-			}
 
+			POP.Confirm("您是否放弃购买当前产品?",function(){
 
-			//删除购物车
-			
-			cartService.deleteCartGood($scope,deleteParams,POP,_idx,$rootScope);
+				console.log(7758521);
+				var info = User.getInfo();
+				var deleteParams = {
+					user_id : info.user_id,
+					shopping_type : 1,
+					id : _id
+				}
+
+				//删除购物车
+				cartService.deleteCartGood($scope,deleteParams,POP,_idx,$rootScope);
+
+			});
 
 
 		})

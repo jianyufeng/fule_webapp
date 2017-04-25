@@ -1,4 +1,4 @@
-<ion-view view-title="购物车" hide-nav-bar="{{isNavShow}}">
+<ion-view view-title="购物车" hide-tabs="false" hide-nav-bar="{{isNavShow}}">
 	 <navigation-bar title="购物车" righttitle="{{righttitleValue}}" on-right-click="editCart()"></navigation-bar>
 	<ion-content scroll="false">
 
@@ -80,7 +80,7 @@
 					</div>
 
 				</div>-->
-				<div class="valueBox">合计:&nbsp;&nbsp;<span class="price">¥ {{countPrice()}} </span>
+				<div class="valueBox">合计:&nbsp;&nbsp;<span class = "price">¥ {{countPrice()}} </span>
 				</div>
 				<div class="cartAccountBox">结算</div>
 			</div>
