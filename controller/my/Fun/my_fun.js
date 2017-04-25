@@ -86,7 +86,6 @@ define(['animate'], function () {
             var _id = $(this).attr("id");
             fn(_idx, _id);
 
-
         });
     }
 
