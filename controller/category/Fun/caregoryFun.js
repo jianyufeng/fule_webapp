@@ -6,7 +6,8 @@
 define(['app', 'jquery_fly'], function (app) {
     var caregoryFun = {}
     caregoryFun.addCartFlay = function ($scope, $rootScope, $state, POP) {
-        $(document).on("click", ".product_item", function () {
+        $(document).off("click").on("click", ".product_item", function () {
+            console.log(121121);
             var ab = $(this).children(".backgroudBox");
             var a = ab.is(':visible');
             if (a) {
@@ -14,12 +15,13 @@ define(['app', 'jquery_fly'], function (app) {
             }
             var goodsId = $(this).attr('name');
             $state.go("tab.productInfo", {"goodsId": goodsId});
+
+            $(document).off("click", ".cartTagBox");
             return false;
         });
 
         $(document).on("click", ".cartTagBox", function () {
-
-            console.log("abcabc");
+            console.log(121121);
             var offset = $(".tab-item:eq(3)").offset();
             var addcar = $(this).parent().parent();
             var img = addcar.find('.goodsImg').find('img').attr('src');
@@ -73,8 +75,6 @@ define(['app', 'jquery_fly'], function (app) {
                     location.href = "./login/login.html";
                 })
             }
-
-
             return false;
         });
 

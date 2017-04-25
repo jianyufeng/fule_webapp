@@ -285,8 +285,8 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                     'referer': '手机'
                 },
                 'goods_info': goods_infos,
-                'id': id,
                 'user_id': info.user_id,
+                'id': id,
                 'user_name': info.user_name,
                 'config_id': configId
             };

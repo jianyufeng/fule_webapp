@@ -6,9 +6,9 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
 
         // 加入购物车
-        caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
-        $scope.$on("$ionicView.enter",function(){
 
+        $scope.$on("$ionicView.enter",function(){
+            caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
             if (User.isLogin()) {
                 var userId = User.getInfo().user_id;
                 HTTP.get(API.Category.getCartNum + "/user_id/" + userId + "/shopping_type/1", {}, function (e, data) {

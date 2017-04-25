@@ -63,6 +63,8 @@
 .umd_Box {
   background: white;
   text-align: center;
+  width: 100%;
+  height: 100%;
 }
 .umd_Box .umd_titleBox {
   padding: 10px 20px 0;

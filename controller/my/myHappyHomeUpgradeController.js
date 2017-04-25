@@ -60,7 +60,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         });
 
         $("#abc2").click(function () {
-
             if ($scope.right == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc1').css('color', 'black');
@@ -77,23 +76,33 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             $('#b').css('color', 'black');
             $('#c').css('color', 'black');
             $('#bank').val($(this).text());
+            $('#BankBox').hide();
         });
         $("#b").click(function () {
             $(this).css('color', '#D39AC5');
             $('#a').css('color', 'black');
             $('#c').css('color', 'black');
             $('#bank').val($(this).text());
+            $('#BankBox').hide();
         });
         $("#c").click(function () {
             $(this).css('color', '#D39AC5');
             $('#a').css('color', 'black');
             $('#b').css('color', 'black');
             $('#bank').val($(this).text());
+            $('#BankBox').hide();
+            $scope.upGrade.click = true;
         });
         // 关闭选择区域的弹框
-        $scope.closepop = function () {
-            $(".popRegionBox").hide();
-        }
+        //$scope.closepop = function () {
+        //    $(".popRegionBox").hide();
+        //}
+
+        $("#BankBox").click(function (e) {
+            if (e.target.id == "BankBox") {
+                $('#BankBox').hide();
+            }
+        });
 
         // 推荐人失去焦点
         $("#recommend").blur(function () {
@@ -890,6 +899,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         // 选择银行
         $scope.selectBank = function () {
             $("#BankBox").css("display", "block");
+            $("ion-content").attr('tabindex', '999999999999');
         }
 
 

@@ -23,12 +23,12 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 				})
 			}
 
-			// 加入购物车
-			goods_fun.addCart($scope, $rootScope, $state, POP);
+
 
 		});
 
-
+		// 加入购物车
+		goods_fun.addCart($scope, $rootScope, $state, POP);
 
 		// 下拉刷新
 		$scope.doRefresh = function(){
