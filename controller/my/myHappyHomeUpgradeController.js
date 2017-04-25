@@ -14,6 +14,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         $scope.id = 0;
         $scope.upGrade.address = null;
         $scope.showRight = false;
+        $scope.left = -1;
+        $scope.right = -1;
         var configId = 0;
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
@@ -37,7 +39,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
         $scope.backClick = function () {
             POP.Confirm("是否放弃当前操作？", function () {
-
                 },
                 "放弃", "继续编辑", function () {
                     window.history.back();
@@ -46,21 +47,29 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
 
         $('#abc1').click(function () {
-            $(this).css('color', '#D39AC5');
-            $('#abc2').css('color', 'black');
-            $('#selectResult').val("左区");
-            var user = $scope.userArray[0];
-            user.REGION = 0;
-            console.log(user);
+            if ($scope.left == 0) {
+                $(this).css('color', '#D39AC5');
+                $('#abc2').css('color', 'black');
+                $('#selectResult').val("左区");
+                var user = $scope.userArray[0];
+                user.REGION = 0;
+            } else {
+                alert("左区不可用");
+            }
+
         });
 
         $("#abc2").click(function () {
-            $(this).css('color', '#D39AC5');
-            $('#abc1').css('color', 'black');
-            $('#selectResult').val("右区");
-            var user = $scope.userArray[0];
-            user.REGION = 1;
-            console.log(user);
+
+            if ($scope.right == 0) {
+                $(this).css('color', '#D39AC5');
+                $('#abc1').css('color', 'black');
+                $('#selectResult').val("右区");
+                var user = $scope.userArray[0];
+                user.REGION = 1;
+            } else {
+                alert("右区不可用");
+            }
         });
 
         $('#a').click(function () {
@@ -126,15 +135,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 $("#nodeWaring"), $("#node"))
         }
 
-        // 节点失去焦点
-        $("#selectResult").blur(function () {
-            var text = _.trim($(this).val());
-            console.log(text);
-            if (text != "") {
-                // 查找节点人
-                myHappyHomeUpgradeService.searchUserDetail(text, $scope, POP);
-            }
-        });
+
         // 商城密码失去焦点
         $("#mallPassWord").blur(function () {
             var str = _.trim($(this).val());

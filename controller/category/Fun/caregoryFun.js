@@ -18,6 +18,8 @@ define(['app', 'jquery_fly'], function (app) {
         });
 
         $(document).on("click", ".cartTagBox", function () {
+
+            console.log("abcabc");
             var offset = $(".tab-item:eq(3)").offset();
             var addcar = $(this).parent().parent();
             var img = addcar.find('.goodsImg').find('img').attr('src');

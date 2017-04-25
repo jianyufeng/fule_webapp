@@ -4,10 +4,10 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
         $rootScope[$state.current.name] = {};
 
-        $scope.$on("$ionicView.enter",function(){
-            // 加入购物车
-            caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
 
+        // 加入购物车
+        caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
+        $scope.$on("$ionicView.enter",function(){
 
             if (User.isLogin()) {
                 var userId = User.getInfo().user_id;
