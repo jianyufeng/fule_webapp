@@ -37,7 +37,8 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
             }
         });
         //选择汇入银行
-        $('#ert_showBank').click(function () {
+        //选择汇入银行
+        $(document).on("click","#ert_showBank",function(){
             $('.sel_BankBox').fadeIn();
             if ($scope.bankLists == undefined) {
                 //获取转入银行列表

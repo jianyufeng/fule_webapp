@@ -73,7 +73,7 @@ define(['app'],function(app){
                     $scope.webConfig   = data.webConfig;              //免运费配置/专卖店情况
 
                 });
-                console.log("订单更新"+ $scope.cartGoods.length);
+
 
             });
 

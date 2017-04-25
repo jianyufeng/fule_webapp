@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/4/14.
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
-    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams) {
+    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams, $state) {
 
         var configId = $stateParams.configId;
         var id = $stateParams.id;
@@ -285,8 +285,8 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                     'referer': '手机'
                 },
                 'goods_info': goods_infos,
-                'id': id,
                 'user_id': info.user_id,
+                'id': id,
                 'user_name': info.user_name,
                 'config_id': configId
             };
@@ -310,7 +310,8 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                         };
                         myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
                             //购买完毕
-                            console.log("购买完毕")
+                            POP.Hint("购买成功");
+                            $state.go('tab.my');
                         })
 
 
@@ -326,7 +327,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile', '$ionicScrollDelegate', '$stateParams'];
+    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile', '$ionicScrollDelegate', '$stateParams','$state'];
 
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);

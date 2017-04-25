@@ -16,6 +16,7 @@ define(['app'],function (app) {
 
             .state('tab.home', {
                 url: '/home',
+                cache : false,
                 views: {
                     'tab-home': {
                         templateUrl: "views/home/home.html?_r=" + Math.random(),

@@ -12,14 +12,17 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         });
         $scope.$on('$ionicView.beforeEnter', function () {
             isLogin = User.isLogin();
+            $scope.islogin = isLogin;
             if (isLogin) {
                 $('.my_loginBox').show();
+                $('.xiala').show();
                 $('.unLoginBox').hide();
                 $('.myHeaderBox').hide();
                 /*获取数据*/
                 myService.getMyInfo($scope, POP, false);
             } else {
                 $('.my_loginBox').hide();
+                $('.xiala').hide();
                 $('.unLoginBox').show();
                 $('.myHeaderBox').show();
             }

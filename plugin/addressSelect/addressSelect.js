@@ -8,6 +8,7 @@ define(function(){
             provinceAPI : API.Other.getProvinces,
             cityAPI     : API.Other.getCities,
             areaAPI     : API.Other.getCounties,
+            isSelectedArea : false,
 
             provinceid  : 0,
             cityid      : 0,
@@ -405,6 +406,13 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
                     if(aData !=null){
 
                         console.log("本地获取");
+                        console.log(aData);
+
+                        if(aData.items.length > 0){
+                            _this.options.isSelectedArea = true;
+                        }else{
+                            _this.options.isSelectedArea = false;
+                        }
 
                         //恢复滚动
                         $(".areaBox").css("overflow-y","auto");
@@ -430,11 +438,13 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
 
                         if(data.length<=0){
                             $(".areaMask").html(_this.noData);
+                            _this.options.isSelectedArea = false;
                             return;
+                        }else{
+                            _this.options.isSelectedArea = true;
                         }
 
-                        console.log(9999);
-                        console.log(data);
+
 
                         _this.updateAreaDOM(data);
                         
@@ -469,9 +479,18 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
 
             $(document).on("click","#addressSubmit",function(){
 
+                console.log(_this.aId);
+
                 if(_this.pId == 0||_this.cId==0){
                     _this.noErrorResult();
                     return;
+                }
+
+                if(_this.options.isSelectedArea){
+                    if(_this.aId == 0){
+                        _this.noErrorResult();
+                        return;
+                    }
                 }
 
                 //回传数据
@@ -481,7 +500,7 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
                     aid : _this.aId,
                     provinceName : _this.pValue,
                     cityName     : _this.cValue,
-                    areaName     : _this.aValue,
+                    areaName     : _this.aValue == '未选择' ? '' : _this.aValue ,
                 };
 
                  _this.maskBox.fadeOut(200);
@@ -520,7 +539,7 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
 
         AddressSelect.prototype.noErrorResult = function(){
             
-            $(".addressTabBox").find("#selectResultBox").html("选择 : <font color='red'>请选择相应的省市</font>");
+            $(".addressTabBox").find("#selectResultBox").html("选择 : <font color='red'>请选择相应的省市区</font>");
 
         }
 

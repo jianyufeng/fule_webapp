@@ -3,7 +3,7 @@
 
     <ion-content>
         <!--下拉刷新-->
-        <ion-scroll style="width:100%;position:absolute;top:60px;">
+        <ion-scroll set-window-height-no-navigation="" style="width:100%;position:absolute;top:60px;">
             <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
             <div class="tr_Box">
                 <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"

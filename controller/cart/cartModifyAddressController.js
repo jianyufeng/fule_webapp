@@ -64,8 +64,8 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                     PID      = result.pid;
                     city     = result.cityName;
                     CID      = result.cid;
-                    area     = result.areaName;
-                    AID      = result.aid;
+                    area     = result.areaName == null?"":result.areaName;
+                    AID      = result.aid == null?"":result.aid;
                     locationAddress  = province + city + "市" + area;
                     $scope.p.location = locationAddress;
                     $(".select-location").find("span").text(locationAddress);
@@ -91,8 +91,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             $scope.p.best_time = $stateParams.best_time;
             $scope.p.tel = $stateParams.tel;
             */
-
-                 alert($scope.p.location);
             //保存成功后后退到地址管理页面
             var recieverName    = $scope.p.recieverName;
             var mobileNumeber   = $scope.p.mobile;
