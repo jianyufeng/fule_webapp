@@ -50,9 +50,6 @@ define(['app'],function(app){
             HTTP.post(API.Cart.addNewAddress,newParams,function(e,data){
 
 
-
-                console.log("*************" + data);
-
                 POP.EndLoading();
 
                 if(e){
@@ -62,8 +59,6 @@ define(['app'],function(app){
                     fn();
                     POP.Hint("设置成功");
                 }
-
-
 
             });
 

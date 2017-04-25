@@ -41,7 +41,10 @@ define(['app'],function(app){
                     $scope.righttitleValue = "编辑";
                     $.initAppEndLoad();
 
+
+
                     $scope.countPrice = function(){
+                        
                         var moneyCount = 0;
                         if(cart_goods.length>0){
                             for(var i=0;i<cart_goods.length;i++){

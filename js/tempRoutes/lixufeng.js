@@ -16,6 +16,7 @@ define(['app'],function (app) {
 
             .state('tab.category', {
                 url: '/category',
+                cache : false,
                 views: {
                     'tab-category': {
                         templateUrl: "views/category/category.html?_r=" + Math.random(),
@@ -46,6 +47,30 @@ define(['app'],function (app) {
                     }
                 }
             })
+
+
+            //跳转到购物车
+            /*购物车 路由*/
+            .state('tab.newCart', {
+                url: '/newCart',
+                cache : false,
+                views: {
+                    'tab-category': {
+                        templateUrl: "views/cart/cart.html?_r=" + Math.random(),
+                        controller: 'cartController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/cart/cartController')
+                        }
+                    }
+
+                }
+
+            })
+
+
+
+
+
 
 
     });

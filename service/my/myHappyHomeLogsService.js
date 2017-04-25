@@ -17,7 +17,6 @@ define(['app'],function(app){
 
                 POP.EndLoading();
 
-                  console.log(data);
                 if (e) {
                     $.loadError(function () {
                         service.getHappyHomeLogs();
@@ -45,7 +44,7 @@ define(['app'],function(app){
                     fn();
                 });
 
-                console.log($scope.logsData);
+
 
             });
 
@@ -84,8 +83,6 @@ define(['app'],function(app){
                     $(".noRecord").show();
 
                 }
-
-                console.log($scope.logsData);
 
             });
 

@@ -37,7 +37,8 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
             }
         });
         //选择汇入银行
-        $('#ert_showBank').click(function () {
+        //选择汇入银行
+        $(document).on("click","#ert_showBank",function(){
             $('.sel_BankBox').fadeIn();
             if ($scope.bankLists == undefined) {
                 //获取转入银行列表
@@ -55,6 +56,11 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
                 //获取转入银行列表
                 myElectronicBankTransferService.getBankList($scope, 2, POP);
             }
+        });
+        //获取选择的银行 的点击效果
+        $(document).on('change', '.selec_radio', function () {
+            $('.selec_radio i').css('visibility', 'hidden');
+            $(this).find('i').first().css('visibility', 'visible');
         });
 
         //初始化汇入银行

@@ -108,6 +108,15 @@ define(['app'], function (app) {
             } else {
                 $("#selectResult").val("");
             }
+
+            if (info.BANK_NAME == 1) {
+                $("#bank").val("中国工商银行");
+            } else if (info.BANK_NAME == 2) {
+                $("#bank").val("中国农业银行");
+            }
+            if (info.BANK_NAME == 3) {
+                $("#bank").val("中国建设银行");
+            }
             $("#mallPassWord").val(info.PASSWORD);
             $("#secondPassWord").val(info.SECOND_PASSWORD);
             $("#payPassWord").val(info.THREE_PASSWORD);
@@ -115,7 +124,7 @@ define(['app'], function (app) {
             $("#phone").val(info.mobile_phone);
             $("#name").val(info.MEMBER_NAME);
             $("#bankCardN").val(info.BANK_ACCOUNT);
-            $("#bank").val(info.BANK_NAME);
+            //$("#bank").val(info.BANK_NAME);
             $("#identityCardN").val(info.ID_CARD);
             $("#cardName").val(info.ACCOUNT_OWNER);
             $("#bankBranch").val(info.BANK_LOCATION);
@@ -208,36 +217,10 @@ define(['app'], function (app) {
                  * 让左右区域可以点击
                  */
                 $scope.upGrade.click = true;
+                $scope.left = data.LEFT_REGION_ID;
+                $scope.right = data.RIGHT_REGION_ID;
 
             })
-        }
-
-        // 查询节点是否可用
-        service.searchUserDetail = function (leftOrRight, $scope, POP) {
-            var userName = $scope.upGrade.nodeP;
-            POP.StartLoading();
-            HTTP.get(API.My.searchUserDetail + '/user_name/' + userName, {}, function (e, data) {
-                POP.EndLoading();
-                if (e) {
-                    return;
-                }
-                if (data != null) {
-                    var left = data.LEFT_REGION_ID;
-                    var right = data.RIGHT_REGION_ID;
-                    if (leftOrRight == "左区") {
-                        if (left != 0) {
-                            alert("左区不可用");
-                        }
-                    } else {
-                        if (right != 0) {
-                            alert("右区不可用");
-                        }
-                    }
-
-                }
-            });
-
-
         }
 
         /**

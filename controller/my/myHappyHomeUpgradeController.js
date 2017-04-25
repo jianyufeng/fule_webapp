@@ -14,6 +14,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         $scope.id = 0;
         $scope.upGrade.address = null;
         $scope.showRight = false;
+        $scope.left = -1;
+        $scope.right = -1;
         var configId = 0;
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
@@ -37,7 +39,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
         $scope.backClick = function () {
             POP.Confirm("是否放弃当前操作？", function () {
-
                 },
                 "放弃", "继续编辑", function () {
                     window.history.back();
@@ -46,43 +47,135 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
 
         $('#abc1').click(function () {
-            $(this).css('color', '#D39AC5');
-            $('#abc2').css('color', 'black');
-            $('#selectResult').val("左区");
-            var user = $scope.userArray[0];
-            user.REGION = "左区";
+            $('#RegionBox').fadeOut(300);
+            if ($scope.left == 0) {
+                $(this).css('color', '#D39AC5');
+                $('#abc2').css('color', 'black');
+                $('#selectResult').val("左区");
+                var user = $scope.userArray[0];
+                user.REGION = 0;
+            } else {
+                POP.Alert("左区不可用");
+            }
+
         });
 
         $("#abc2").click(function () {
-            $(this).css('color', '#D39AC5');
-            $('#abc1').css('color', 'black');
-            $('#selectResult').val("右区");
-            var user = $scope.userArray[0];
-            user.REGION = "右区";
+            $('#RegionBox').fadeOut(300);
+            if ($scope.right == 0) {
+                $(this).css('color', '#D39AC5');
+                $('#abc1').css('color', 'black');
+                $('#selectResult').val("右区");
+                var user = $scope.userArray[0];
+                user.REGION = 1;
+            } else {
+                POP.Alert("右区不可用");
+            }
         });
 
         $('#a').click(function () {
+            $(document).off("click", "#selectBank");
             $(this).css('color', '#D39AC5');
             $('#b').css('color', 'black');
             $('#c').css('color', 'black');
             $('#bank').val($(this).text());
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
+
+            var user = $scope.userArray[$scope.index];
+            if (user.flag == undefined) {
+                user.BANK_NAME = 1;
+                return;
+            }
+            user.flag = $scope.index;
+            if ($scope.index != 0) {
+                user.BANK_NAME = 1;
+                return;
+            }
+            //    // 输入完成赋值给其他的输入项
+            for (var i = 0; i < $scope.userArray.length; i++) {
+                var info = $scope.userArray[i];
+                if (info.flag == 0) {
+                    info.BANK_NAME = 1;
+                }
+            }
+
+            return false;
         });
         $("#b").click(function () {
+            $(document).off("click", "#selectBank");
             $(this).css('color', '#D39AC5');
             $('#a').css('color', 'black');
             $('#c').css('color', 'black');
             $('#bank').val($(this).text());
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
+
+            var user = $scope.userArray[$scope.index];
+            if (user.flag == undefined) {
+                user.BANK_NAME = 2;
+                return;
+            }
+            user.flag = $scope.index;
+            if ($scope.index != 0) {
+                user.BANK_NAME = 2;
+                return;
+            }
+            //    // 输入完成赋值给其他的输入项
+            for (var i = 0; i < $scope.userArray.length; i++) {
+                var info = $scope.userArray[i];
+                if (info.flag == 0) {
+                    info.BANK_NAME = 2;
+                }
+            }
+
+            return false;
         });
         $("#c").click(function () {
+            $(document).off("click", "#selectBank");
             $(this).css('color', '#D39AC5');
             $('#a').css('color', 'black');
             $('#b').css('color', 'black');
             $('#bank').val($(this).text());
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
+
+            var user = $scope.userArray[$scope.index];
+            if (user.flag == undefined) {
+                user.BANK_NAME = 3;
+                console.log(1111111111);
+                return;
+            }
+            user.flag = $scope.index;
+            if ($scope.index != 0) {
+                user.BANK_NAME = 3;
+                console.log(222222222222);
+                return;
+            }
+            //    // 输入完成赋值给其他的输入项
+            for (var i = 0; i < $scope.userArray.length; i++) {
+                var info = $scope.userArray[i];
+                if (info.flag == 0) {
+                    info.BANK_NAME = 3;
+                    console.log(3333333333);
+                }
+            }
+
+            return false;
         });
-        // 关闭选择区域的弹框
-        $scope.closepop = function () {
-            $(".popRegionBox").hide();
-        }
+        // 选择银行弹框消失
+        $("#BankBox").click(function (e) {
+            if (e.target.id == "BankBox") {
+                $('#BankBox').hide();
+
+            }
+        });
 
         // 推荐人失去焦点
         $("#recommend").blur(function () {
@@ -124,15 +217,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 $("#nodeWaring"), $("#node"))
         }
 
-        // 节点失去焦点
-        $("#selectResult").blur(function () {
-            var text = _.trim($(this).val());
-            console.log(text);
-            if (text != "") {
-                // 查找节点人
-                myHappyHomeUpgradeService.searchUserDetail(text, $scope, POP);
-            }
-        });
+
         // 商城密码失去焦点
         $("#mallPassWord").blur(function () {
             var str = _.trim($(this).val());
@@ -817,17 +902,12 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             var array = [];
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var item = $scope.userArray[i];
-                var region;
-                if (item.REGION == "左区") {
-                    region = 0;
-                } else if (item.REGION == "右区") {
-                    region = 1;
-                }
+                console.log(item.REGION);
                 var user = {
                     "user_name": item.user_name,
                     "RECOMMENDED_MAN": item.RECOMMENDED_MAN,
                     "CONTACT_MAN": item.CONTACT_MAN,
-                    "REGION": region,
+                    "REGION": item.REGION,
                     "PASSWORD": item.PASSWORD,
                     "SECOND_PASSWORD": item.SECOND_PASSWORD,
                     "THREE_PASSWORD": item.THREE_PASSWORD,
@@ -835,7 +915,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     "mobile_phone": item.mobile_phone,
                     "MEMBER_NAME": item.MEMBER_NAME,
                     "BANK_ACCOUNT": item.BANK_ACCOUNT,
-                    "BANK_NAME": "1",
+                    "BANK_NAME": item.BANK_NAME,
                     "ID_CARD": item.ID_CARD,
                     "ACCOUNT_OWNER": item.ACCOUNT_OWNER,
                     "BANK_LOCATION": item.BANK_LOCATION,
@@ -873,7 +953,10 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     return;
                 }
                 // 跳转界面
-                $state.go("tab.my-happyHomeLogs");
+                $state.go("tab.my-buyHappyHome", {
+                    "configId": configId,
+                    "id": $scope.id
+                });
             })
         };
         // 选择区域
@@ -887,10 +970,9 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         // 选择银行
-        $scope.selectBank = function () {
-            $("#BankBox").css("display", "block");
-        }
-
+        $("#selectBank").click(function () {
+            $("#BankBox").fadeIn(300);
+        })
 
     }
 

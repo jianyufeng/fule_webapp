@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/3/24.
  */
-define(['app'],function(app){
+define(['app',"css! ../../../css/my/unreadMessage"],function(app){
     function ctrl($scope, $state, $stateParams,myUnreadMsgService,POP,$sce) {
         $scope.title = $stateParams.title;
         $scope.add_time = $stateParams.add_time;

@@ -51,6 +51,8 @@ var API = {
         buyGoodsList: serverIP + "/_happyHome/searchGoodsList",
         //提交喜乐之家订单
         confirmHappyOrder: serverIP +"/buyxlzj/updateOrderLog",
+        //验证密码后回调添加购买信息
+        butyHapplyOver:serverIP+'/buyxlzj/happlyOver',
         //获取购买喜乐之家配置
         buyHappyHomeGoodsConfig: serverIP + "/buyxlzj/happlyhomelist",
         //获取喜乐之家配置表
@@ -66,7 +68,9 @@ var API = {
         // 喜乐之家升级
         updateGradeHappyHome:  serverIP +"/buyxlzj/buyhapply",
         //更新用户信息（喜乐之家）
-        updateUserLogs: serverIP +"/buyxlzj/updateUserLog"
+        updateUserLogs: serverIP +"/buyxlzj/updateUserLog",
+        //服务关系
+        serviceRelationShip :serverIP +"/user/searchUserRecommendRelations"
     },
 
     Cart: {

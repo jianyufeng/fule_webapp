@@ -37,8 +37,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
         // 接收传值页面传过来的地址内容
         $rootScope.$on('deleteAddress', function (event, args) {
 
-            console.log(args);
-
             if (args.address == "NO") {
                 $scope.address = "NO";
             } else {

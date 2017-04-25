@@ -195,7 +195,6 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
             }
 
 
-            console.log(newParams);
             //上传数据
             cartAddAddressService.saveAddress($scope,newParams,POP,function () {
 

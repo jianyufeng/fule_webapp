@@ -22,7 +22,6 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
 
 
-
         $scope.onSlideChanged = function (index) {
             productInfoService.Slide(index);
         }

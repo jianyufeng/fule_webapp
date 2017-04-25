@@ -190,38 +190,13 @@ define(['app'], function (app) {
                      * 让左右区域可以点击
                      */
                     $scope.upGrade.click = true;
+                    $scope.left = data.LEFT_REGION_ID;
+                    $scope.right = data.RIGHT_REGION_ID;
+
 
                 })
             }
-            // 查询节点是否可用否存在
-            service.searchUserDetail = function (leftOrRight, $scope, POP) {
-                var userName = $scope.upGrade.nodeP;
-                POP.StartLoading();
-                HTTP.get(API.My.searchUserDetail + '/user_name/' + userName, {}, function (e, data) {
-                    POP.EndLoading();
-                    console.log(e);
-                    console.log(data);
-                    if (e) {
-                        return;
-                    }
-                    if (data != null) {
-                        var left = data.LEFT_REGION_ID;
-                        var right = data.RIGHT_REGION_ID;
-                        if (leftOrRight == "左区") {
-                            if (left != 0) {
-                                alert("左区不可用");
-                            }
-                        } else {
-                            if (right != 0) {
-                                alert("右区不可用");
-                            }
-                        }
 
-                    }
-                });
-
-
-            }
             // 充值按钮
             service.reset = function ($scope) {
                 // 推荐人

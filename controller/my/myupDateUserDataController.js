@@ -9,7 +9,10 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         $scope.upGrade = {};
         $scope.upGrade.click = false;
         $scope.upGrade.address = {};
+        $scope.left = -1;
+        $scope.right = -1;
         var myGrade;
+
         function showEmptyError(str, elea, eleb) {
             if (str == null || str == "") {
                 showError(elea, eleb, "内容不能为空");
@@ -41,14 +44,22 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
 
         });
         $('#abc1').click(function () {
-            $(this).css('color', '#D39AC5');
-            $('#abc2').css('color', 'black');
-            $('#selectResult').val("左区");
+            if ($scope.left == 0) {
+                $(this).css('color', '#D39AC5');
+                $('#abc2').css('color', 'black');
+                $('#selectResult').val("左区");
+            } else {
+                alert("左区不可用");
+            }
         });
         $("#abc2").click(function () {
-            $(this).css('color', '#D39AC5');
-            $('#abc1').css('color', 'black');
-            $('#selectResult').val("右区");
+            if ($scope.right == 0) {
+                $(this).css('color', '#D39AC5');
+                $('#abc1').css('color', 'black');
+                $('#selectResult').val("右区");
+            } else {
+                alert("右区不可用");
+            }
         });
         // 推荐人失去焦点事件
         $("#recommend").blur(function () {
@@ -78,17 +89,6 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             // 验证节点人
             myUpdateUserDataService.checkingNodeMan($scope, $("#node"), $("#nodeWaring"), $("#node").val(), POP);
         }
-
-
-        // 节点失去焦点事件
-        $("#selectResult").blur(function () {
-            var text = $(this).val();
-            text = _.trim(text);
-            if (text != "") {
-                // 查找节点人
-                myUpdateUserDataService.searchUserDetail($(this).val(), $scope, POP);
-            }
-        });
 
         // 昵称失去焦点
         $("#name").blur(function () {

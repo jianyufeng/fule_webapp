@@ -157,5 +157,129 @@ define(['app'], function (app) {
         }
     });
 
+    /*服务关系志愿者级别 过滤器*/
+    app.filter('registerGradeFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  0:
+                    varl = '注册会员';
+                    break;
+                case  1:
+                    varl = 'A级';
+                    break;
+                case  2:
+                    varl = 'B级';
+                    break;
+                case  3:
+                    varl = 'C级';
+                    break;
+                case  4:
+                    varl = 'D级';
+                    break;
+
+            }
+            return varl
+        }
+
+    });
+
+
+    /*服务关系专卖店 过滤器*/
+    app.filter('exclusiveAgencyFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  0:
+                    varl = '默认';
+                    break;
+                case  1:
+                    varl = '专卖店';
+                    break;
+                case  2:
+                    varl = '旗舰店';
+                    break;
+
+            }
+            return varl
+        }
+
+    });
+
+    /*服务关系志愿者级别 过滤器*/
+    app.filter('memberGradeFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  0:
+                    varl = '暂无';
+                    break;
+                case  1:
+                    varl = '尚未开通';
+                    break;
+                case  2:
+                    varl = '见习主任';
+                    break;
+                case  3:
+                    varl = '主任';
+                    break;
+                case  4:
+                    varl = '见习经理';
+                    break;
+                case  5:
+                    varl = '经理';
+                    break;
+                case  6:
+                    varl = '高级经理';
+                    break;
+            }
+            return varl
+        }
+
+    });
+
+
+    /*服务关系管理等级 过滤器*/
+    app.filter('memberManageGradeFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  0:
+                    varl = '暂无';
+                    break;
+                case  1:
+                    varl = '尚未开通';
+                    break;
+                case  2:
+                    varl = '区域总监';
+                    break;
+                case  3:
+                    varl = '全国总监';
+                    break;
+                case  4:
+                    varl = '一星董事';
+                    break;
+                case  5:
+                    varl = '二星董事';
+                    break;
+                case  6:
+                    varl = '三星董事';
+                    break;
+                case  7:
+                    varl = '四星董事';
+                    break;
+                case  8:
+                    varl = '五星董事';
+                    break;
+            }
+            return varl
+        }
+
+    });
+
+
+
+
+
 
 });

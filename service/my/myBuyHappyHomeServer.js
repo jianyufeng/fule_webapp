@@ -35,9 +35,9 @@ define(['app'], function (app) {
 
                     }
 
-                //绑定提交订单时使用的数据
-                //用户余额
-                $scope.user_money = data.userInfo.user_money;
+                    //绑定提交订单时使用的数据
+                    //用户余额
+                    $scope.user_money = data.userInfo.user_money;
                     $scope.$apply(function () {
                         $scope.goods = data.goodsInfo.data;
                         $scope.buyHappyAddress = nowAddress;
@@ -56,6 +56,7 @@ define(['app'], function (app) {
                     console.log(data);
                     $scope.$apply(function () {
                         $scope.bugConfig = data.data[0];
+
                     })
                 }
             );
@@ -103,7 +104,8 @@ define(['app'], function (app) {
                             var goodsNumber = data[i].product_number;
 
                             //绑定产品的数量
-                            var  bindGoodNumber = "abc"+goodId+ i;
+                            var bindGoodNumber = "abc" + goodId + i;
+                            var empty = "";
 
                             var template = [
                                 '<div class="more_goodsBox">',
@@ -111,12 +113,12 @@ define(['app'], function (app) {
                                 moreGoodNameObj,
                                 '    </div>',
                                 '    <div class="more_goodInfo">',
-                                '              <div class="bbh_goodPrice">单价&nbsp;:&nbsp;<span class="price">{{'+ pice+'}}</span></div>',
+                                '              <div class="bbh_goodPrice">单价&nbsp;:&nbsp;<span class="price">{{' + pice + '}}</span></div>',
                                 '              <div class="bbh_goodMoney">实际金额&nbsp;:&nbsp;<span class="money">{{goodMoney}}</span></div>',
                                 '     </div>',
                                 '     <div class="more_buyNumberBox">',
-                                '           <div class="bhh_noGoods" ng-if="( ' + goodsNumber + '==0 ||((' + goodsNumber + ' - '+bindGoodNumber+') < 0))">商品库存不足</div>',
-                                '           <input data-productid="'+ data[i].product_id +'"  data-goodsprice="'+ price +'" data-goodsattr="'+ data[i].goods_attr +'"  class="bhh_buyNumber" type="number" placeholder="购买数量" data-price="{{'+ pice+'}}" data-number="{{' + goodsNumber + '}}" data-oldinput="0" ng-model="'+bindGoodNumber+'">',
+                                '           <div class="bhh_noGoods" ng-if="( ' + goodsNumber + '==0 ||((' + goodsNumber + ' - ' + bindGoodNumber + ') < 0))">商品库存不足</div>',
+                                '           <input onkeyup="inputKeyUp(this)" onafterpaste="inputKeyUp(this)" data-productid="' + data[i].product_id + '"  data-goodsprice="' + price + '" data-goodsattr="' + data[i].goods_attr + '"  class="bhh_buyNumber" type="number" placeholder="购买数量" data-price="{{' + pice + '}}" data-number="{{' + goodsNumber + '}}" data-oldinput="0" ng-model="' + bindGoodNumber + '">',
                                 '     </div>',
                                 '     <div style="clear: both"> ',
                                 '     </div>',
@@ -137,8 +139,8 @@ define(['app'], function (app) {
                 }
             );
         };
-
-        service.saveOrderForm = function(param,$scope, POP){
+        //提交订单
+        service.saveOrderForm = function (param, $scope, POP, fn) {
             //提交订单
             POP.StartLoading();
             HTTP.post(API.My.confirmHappyOrder, param, function (e, data) {
@@ -147,33 +149,39 @@ define(['app'], function (app) {
                     POP.Hint(data);
                     return;
                 }
-                //提交成功后  弹框输入密码
-                POP.FormAlert('请输入支付密码',$scope,function(psw){
-                    //verifyPayPassword($scope,)
-                });
+                fn();
             })
         };
         //验证支付密码
-        service.verifyPayPassword = function($scope,updateParams,POP,fn){
+        service.verifyPayPassword = function ($scope, updateParams, POP, fn) {
 
             POP.StartLoading();
-
             //更新操作
-            HTTP.post(API.Cart.verifyUserPassword,updateParams,function(e,data){
-
+            HTTP.post(API.Cart.verifyUserPassword, updateParams, function (e, data) {
                 POP.EndLoading();
-
                 console.log("*******" + data);
-
-                if(e){
+                if (e) {
                     POP.Hint("密码错误!");
                     return;
-                }else {
+                } else {
                     fn();
                 }
-
             });
 
+        };
+
+        //最后提交订单
+        service.happlyOver = function (param, $scope, POP, fn) {
+            //提交订单
+            POP.StartLoading();
+            HTTP.post(API.My.butyHapplyOver, param, function (e, data) {
+                POP.EndLoading();
+                if (e) {
+                    POP.Hint(data);
+                    return;
+                }
+                fn();
+            })
         };
 
 
