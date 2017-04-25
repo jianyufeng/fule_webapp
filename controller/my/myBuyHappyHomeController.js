@@ -44,9 +44,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 $scope.buyHappyAddress = "NO";
             } else {
                 if ($scope.buyHappyAddress.address_id == args.address_id) {
-
                     myBuyHappyHomeServer.getBuyGoodList($scope, POP);
-
                 }
             }
         });
@@ -81,8 +79,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                         }
                     });
             }
-
-
         });
 
         //$(document).on("change",".bhh_buyNumber",function(){
@@ -200,15 +196,11 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         $(".bhh_saveBox").click(function () {
             //检测是否有库存不足 根据是否包含类名 canotSave
             var isSave = $('.' + canotSave + '');
-            //console.log(isSave);
             if (isSave.length > 0) {
                 POP.Confirm("<font color='red'>(您选择的产品超出库存)</font>", function () {
-
                     var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
-                    //console.log(isSave.first().offset().top);
-                    scroller.scrollTo(0, isSave.first().offset().top, true);
-                    //console.log(888888);
-
+                    console.log(isSave.first().offset().top);
+                    scroller.scrollBy(0, isSave.first().offset().top-100, true);
                 });
                 return;
             }
@@ -222,8 +214,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             if ($scope.buyHappyAddress == 'NO') {
                 POP.Confirm("<font color='red'>(请添加收货人信息)</font>", function () {
                     //滑动到顶部 添加地址信息
-
-
+                   $ionicScrollDelegate.$getByHandle('bhh_scroll').scrollTop();
                 });
                 return;
             }
@@ -264,8 +255,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                             goodInfo.goods_attr = goodsattr;
                             goodInfo.extension_code = 0;
                             goodInfo.goods_attr_id = 0;
-                            //console.log(goodInfo);
-
 
                         } else {
                             //非属性商品  获取item的属性

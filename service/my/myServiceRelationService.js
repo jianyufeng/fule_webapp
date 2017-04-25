@@ -1,7 +1,7 @@
 
 define(['app'],function(app){
 
-    app.factory("myHappyHomeLogsService",function(){
+    app.factory("myServiceRelationService",function(){
 
         var service = {};
 
@@ -14,7 +14,8 @@ define(['app'],function(app){
 
             //获取用户的账号
             var info = User.getInfo()
-            HTTP.get(API.My.serviceRelationShip + "/user_id/"+info.user_id + "/limit/"+10 + "skip" + 0, {}, function (e, data) {
+
+            HTTP.get(API.My.serviceRelationShip + "/user_id/"+info.user_id + "/limit/"+10 + "/skip/" + 0, {}, function (e, data) {
 
                 POP.EndLoading();
 

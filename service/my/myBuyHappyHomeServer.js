@@ -118,7 +118,7 @@ define(['app'], function (app) {
                                 '     </div>',
                                 '     <div class="more_buyNumberBox">',
                                 '           <div class="bhh_noGoods" ng-if="( ' + goodsNumber + '==0 ||((' + goodsNumber + ' - ' + bindGoodNumber + ') < 0))">商品库存不足</div>',
-                                '           <input onkeyup="inputKeyUp(this)" onafterpaste="inputKeyUp(this)" data-productid="' + data[i].product_id + '"  data-goodsprice="' + price + '" data-goodsattr="' + data[i].goods_attr + '"  class="bhh_buyNumber" type="text" placeholder="购买数量" data-price="{{' + pice + '}}" data-number="{{' + goodsNumber + '}}" data-oldinput="0" ng-model="' + bindGoodNumber + '">',
+                                '           <input onkeyup="inputKeyUp(this)" onafterpaste="inputKeyUp(this)" data-productid="' + data[i].product_id + '"  data-goodsprice="' + price + '" data-goodsattr="' + data[i].goods_attr + '"  class="bhh_buyNumber" type="number" placeholder="购买数量" data-price="{{' + pice + '}}" data-number="{{' + goodsNumber + '}}" data-oldinput="0" ng-model="' + bindGoodNumber + '">',
                                 '     </div>',
                                 '     <div style="clear: both"> ',
                                 '     </div>',
