@@ -273,7 +273,7 @@ define(['app'], function (app) {
             })
             /*我的 购买喜乐之家列表 路由*/
             .state('tab.my-buyHappyHome', {
-                url: '/my-buyHappyHome/:configId/:id',
+                url: '/my-buyHappyHome',
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-buyHappyHome.html?_r=" + Math.random(),
@@ -288,7 +288,7 @@ define(['app'], function (app) {
             /*我的 喜乐之家升级 路由*/
             .state('tab.my-happyHomeUpgrade', {
                 url: '/my-happyHomeUpgrade/:configId',
-                cache: false,
+                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-happyHomeUpgrade.html?_r=" + Math.random(),
@@ -310,6 +310,21 @@ define(['app'], function (app) {
                         controller: 'myHappyHomeAddressController',
                         resolve: {
                             deps: app.loadControllerJs('../controller/my/myHappyHomeAddressController')
+                        }
+                    }
+
+                }
+            })
+
+            /*我的 管理关系 路由*/
+            .state('tab.my-manageRelationships', {
+                url: '/my-manageRelationships',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-manageRelationships.html?_r=" + Math.random(),
+                        controller: 'myManageRelationshipsController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myManageRelationshipsController')
                         }
                     }
 
