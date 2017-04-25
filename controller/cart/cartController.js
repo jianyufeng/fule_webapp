@@ -160,10 +160,12 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 			if(editOpen){
 				$scope.righttitleValue = "编辑";
 				cart_fun.cartSideslipping(false);
+				$(".cartShade").hide();
 				editOpen = false;
 			}else{
 				$scope.righttitleValue = "关闭";
 				cart_fun.cartSideslipping(true);
+				$(".cartShade").show();
 				editOpen = true;
 
 				
