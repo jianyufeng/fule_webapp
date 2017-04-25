@@ -1,10 +1,10 @@
 //define(function(){
-    define(['app','jquery_fly'], function (app) {
+define(['app', 'jquery_fly'], function (app) {
     var goodsFun = {};
 
-    goodsFun.menuSelected = function(){
+    goodsFun.menuSelected = function () {
 
-        $(".goodsMenuItem").click(function(){
+        $(".goodsMenuItem").click(function () {
             var _index = $(".goodsMenuItem").index(this);
             $(".goodsMenuItem").removeClass("selected");
             $(".goodsMenuItem").eq(_index).addClass("selected");
@@ -12,15 +12,15 @@
     };
 
 
-    goodsFun.addCart = function ($scope, $rootScope,$state,POP) {
+    goodsFun.addCart = function ($scope, $rootScope, $state, POP) {
 
         $(document).on("click", ".goodsItem", function () {
-            var goodsId=$(this).attr('name');
-            var goodsNumber=$(this).attr('number');
+            var goodsId = $(this).attr('name');
+            var goodsNumber = $(this).attr('number');
 
-            if (goodsNumber>0){
-    $state.go("tab.goodsDetail",{"goodsId":goodsId});
-}
+            if (goodsNumber > 0) {
+                $state.go("tab.goodsDetail", {"goodsId": goodsId});
+            }
         });
 
         $(document).on("click", ".goodsCart", function () {
@@ -74,7 +74,7 @@
                 });
 
 
-            }else {
+            } else {
                 POP.Confirm("您未登录，点击确定进入登录页面！", function () {
                     location.href = "./login/login.html";
                 })

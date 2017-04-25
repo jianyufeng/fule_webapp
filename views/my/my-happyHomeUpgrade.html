@@ -9,9 +9,9 @@
 
     <div class="popRegionBox" id="BankBox" ng-click="closepop()">
         <div class="selectBox">
-            <ion-radio id="a">中国工商银行</ion-radio>
-            <ion-radio id="b">中国农业银行</ion-radio>
-            <ion-radio id="c">中国建设银行</ion-radio>
+            <ion-radio class="a" id="a">中国工商银行</ion-radio>
+            <ion-radio class="a"  id="b">中国农业银行</ion-radio>
+            <ion-radio class="a"  id="c">中国建设银行</ion-radio>
         </div>
     </div>
     <navigation-bar is-back="true" is-over-back="true" on-over-back-click="backClick()" title="喜乐之家"
@@ -167,7 +167,7 @@
                             <span class="redStar">*</span>开户银行
                         </div>
                         <div class="rightBox" ng-click="selectBank()">
-                            <input id="bank" class="inputBox" disabled type="text" placeholder="--请选择银行--">
+                            <input id="bank" class="inputBox" disabled type="text" placeholder="--请选择银行--"/>
                             <div class="waring" id="bankWaring"><i class="icon ion-android-warning"></i>
                             </div>
                         </div>
