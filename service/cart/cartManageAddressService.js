@@ -83,17 +83,16 @@ define(['app'],function(app){
                 }
 
                 $(".deleteBtnBox:eq("+_idx+")").parent().parent().slideUp(200);
-                var newArr = _.pullAt($scope.historyAddress,_idx);
+                 _.pullAt($scope.historyAddress,_idx);
 
                    fn("YES");
                 if($scope.historyAddress.length<=0){
                     fn("NO");
                     $scope.$apply(function () {
-
+                        $scope.historyAddress = [];
                         $scope.righttitleValue = "";
-                        $(".noAddress").show();
-
                     });
+                    $(".noAddress").show();
                 }
 
 

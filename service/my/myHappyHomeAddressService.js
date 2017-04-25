@@ -77,10 +77,10 @@ define(['app'],function(app){
                 }
 
                 $(".deleteBtnBox:eq("+_idx+")").parent().parent().slideUp(200);
-                var newArr = _.pullAt($scope.historyAddress,_idx);
+                 _.pullAt($scope.happyHomeAddress,_idx);
 
-                fn("YES");
-                if($scope.historyAddress.length<=0){
+                    fn("YES");
+                if($scope.happyHomeAddress.length<=0){
                     fn("NO");
                     $scope.$apply(function () {
 

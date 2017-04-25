@@ -186,7 +186,7 @@ define(function () {
     }
 
     cartFun.deleteCartBtn = function (fn) {
-        console.log("删除按钮");
+
         $(document).on("click", ".deleteBox", function () {
             var _idx = $(".deleteBox").index(this);
             var _id = $(this).attr("id");
