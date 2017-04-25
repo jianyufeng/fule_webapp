@@ -152,6 +152,9 @@
 .sel_BankBox .sel_BankMain .sel_BankContBox .sel_BankIconBox {
   margin-top: -10px;
 }
+.sel_BankBox .sel_BankMain .sel_BankContBox i {
+  color: #000;
+}
 .sel_BankBox .sel_BankMain .sel_confirmSelect,
 .sel_BankBox .sel_BankMain .sel_CancelSelect {
   background-color: #d98bbc;

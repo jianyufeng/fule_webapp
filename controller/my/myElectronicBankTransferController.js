@@ -2,22 +2,20 @@
  * Created by Administrator on 2017/3/24.
  */
 define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!../../../plugin/datePicker/datePicker.css', 'datePicker', 'addressSelect'], function (app) {
-    function ctrl($scope, myElectronicBankTransferService, POP,  $ionicHistory) {
+    function ctrl($scope, myElectronicBankTransferService, POP, $ionicHistory) {
 
         //$scope.$on('$ionicView.beforeLeave', function () {
         //    /*获取数据*/
         //});
-        $scope.backClick =  function(){
-                POP.Confirm("是否放弃当前操作？", function () {
+        $scope.backClick = function () {
+            POP.Confirm("是否放弃当前操作？", function () {
 
-                    },
-                    "放弃","继续编辑",  function () {
-                        $("#form1")[0].reset();
-                        $ionicHistory.goBack();
-                    });
+                },
+                "放弃", "继续编辑", function () {
+                    $("#form1")[0].reset();
+                    $ionicHistory.goBack();
+                });
         };
-
-
 
 
         //选择地址
@@ -36,7 +34,7 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
             }
         });
         //选择汇入银行
-        $(document).on("click","#ert_showBank",function(){
+        $(document).on("click", "#ert_showBank", function () {
             $('.sel_BankBox').fadeIn();
             if ($scope.bankLists == undefined) {
                 //获取转入银行列表
@@ -45,6 +43,14 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
 
             }
         });
+
+        //获取选择的银行 的点击效果
+        $(document).on('change', '.selec_radio', function () {
+            $('.selec_radio i').css('visibility', 'hidden');
+            $(this).find('i').first().css('visibility', 'visible');
+        });
+
+
         //选择汇入银行
         $('.sel_loadTxt').click(function () {
             if ($scope.bankLists == undefined) {
@@ -186,7 +192,7 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myElectronicBankTransferService', 'POP',  '$ionicHistory'];
+    ctrl.$inject = ['$scope', 'myElectronicBankTransferService', 'POP', '$ionicHistory'];
 
     /*动态注册控制器*/
     app.registerController("myElectronicBankTransferController", ctrl);

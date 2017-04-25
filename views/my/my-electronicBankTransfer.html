@@ -7,9 +7,10 @@
                 <span class="sel_Title">选择汇入银行</span>
             </div>
             <div class="sel_BankContBox">
-                <ion-radio ng-repeat="bankItem in bankLists"
+                <ion-radio class="selec_radio" ng-repeat="bankItem in bankLists"
                            ng-value="bankItem"
                            ng-model="data.sel_bank"
+                           style="border:none ;margin: 0px;height: 60px;border-bottom: solid 1px #eee"
                           >
                     <div class="sel_BankIconBox">
                         <label class="sel_etr_BankName">银行&nbsp;:&nbsp; {{bankItem.BANK_NAME}}</label>
