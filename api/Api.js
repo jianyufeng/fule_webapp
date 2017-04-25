@@ -70,7 +70,7 @@ var API = {
         //更新用户信息（喜乐之家）
         updateUserLogs: serverIP +"/buyxlzj/updateUserLog",
         //服务关系
-        serviceRelationShip :serverIP +"/user/searchUserRecommendRelations/user_id/167598/limit/10/skip/0"
+        serviceRelationShip :serverIP +"/user/searchUserRecommendRelations"
     },
 
     Cart: {

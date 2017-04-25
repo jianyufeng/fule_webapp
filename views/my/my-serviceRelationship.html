@@ -1,67 +1,81 @@
 <ion-view view-title="我的订单" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-    <!--<navigation-bar title="我的订单"></navigation-bar>-->
-    <!--<ion-content screen-height="60">-->
-    <navigation-bar is-back="true" title="我的订单"></navigation-bar>
+
+    <navigation-bar is-back="true" title="服务关系"></navigation-bar>
 
     <ion-content style="background-color: white ;top: 60px;background:#eee;">
 
         <!--<ion-scroll style="width:100%;position:absolute;top:60px;">-->
 
-        <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
-             class="of_emptyList">
-            暂无数据
-        </div>
-        <div class="of_itemBox" style="margin-bottom:6px;" ng-repeat="item in data">
-            <div class="of_moneyBox">
-                <div class="of_leftBox">
-                    <label class="of_moneyName">金额&nbsp;:&yen;</label>
-                    <label class="of_moneyVal">{{item.goods_amount}}</label>
+        <!--<div ng-show="isEmptyServiceRelation" style="width: 100%;height: 200px;text-align: center;line-height: 200px"-->
+             <!--class="noServiceRelation">-->
+            <!--暂无数据-->
+        <!--</div>-->
+        <div class="serviceRelationBox" style="margin-bottom:6px;" ng-repeat="serviceTerm in relationData">
+            <div class="userInfoBox">
+                <div class="accountName">
+                    <label class="namePrompt">用户名&nbsp;: </label>
+                    <label class="mainName">{{serviceTerm.user_name}}</label>
                 </div>
-                <div class="of_rightBox">
-                    <label class="of_moneyTime">下单时间&nbsp;:&nbsp;{{item.pay_time|timeFilter}}</label>
-                </div>
-
-
             </div>
-            <div class="of_detailBox">
-                <div class="of_termBox">
-                    <div class="of_termNameBox">
-                        订单编号&nbsp;:
+            <div class="serviceRelationshipDetailBox">
+
+                <div class="serviceItem">
+                    <div class="promptTitle">
+                        激活时间&nbsp;:
                     </div>
-                    <div class="of_termValBox">
-                        {{item.order_sn}}
-                    </div>
-                </div>
-                <div class="of_termBox">
-                    <div class="of_termNameBox">
-                        订单状态&nbsp;:
-                    </div>
-                    <div class="of_termValBox">
-                        {{item.order_status|orderStatusFilter}}
+                    <div class="promptContent">
+                        {{serviceTerm.ACTIVATION_TIME}}
                     </div>
                 </div>
-                <div class="of_termBox">
-                    <div class="of_termNameBox">
-                        类型&nbsp;:
+                <div class="serviceItem">
+                    <div class="promptTitle">
+                        级别&nbsp;:
                     </div>
-                    <div class="of_termValBox">
-                        {{item.order_type|orderTypeFilter}}
-                    </div>
-                </div>
-                <div class="of_termBox">
-                    <div class="of_termNameBox">
-                        折扣金额&nbsp;:
-                    </div>
-                    <div class="of_termValBox">
-                        &yen;{{item.discount}}元
+                    <div class="promptContent">
+                        {{serviceTerm.REGISTER_GRADE | registerGradeFilter}}
+
                     </div>
                 </div>
-                <div class="of_termBox">
-                    <div class="of_termNameBox">
-                        积分&nbsp;:
+                <div class="serviceItem">
+                    <div class="promptTitle">
+                        资格&nbsp;:
                     </div>
-                    <div class="of_termValBox">
-                        1447.00
+                    <div class="promptContent">
+                        {{serviceTerm.IS_VIP == 0?"":"VIP"}}&nbsp;{{serviceTerm.IS_PI_FA== 0?"":"批发"}}&nbsp;{{serviceTerm.ZHUAN_MAI_DIAN_GRADE | exclusiveAgencyFilter}}
+
+                    </div>
+                </div>
+                <div class="serviceItem">
+                    <div class="promptTitle">
+                        批发等级&nbsp;:
+                    </div>
+                    <div class="promptContent">
+                        {{serviceTerm.MEMBER_GRADE | memberGradeFilter}}
+
+                    </div>
+                </div>
+                <div class="serviceItem">
+                    <div class="promptTitle">
+                        管理等级&nbsp;:
+                    </div>
+                    <div class="promptContent">
+                        {{serviceTerm.MEMBER_MANAGE_GRADE | memberManageGradeFilter}}
+                    </div>
+                </div>
+                <div class="serviceItem">
+                    <div class="promptTitle">
+                        上级管理人&nbsp;:
+                    </div>
+                    <div class="promptContent">
+                        {{serviceTerm.RECOMMENDED_MAN}}
+                    </div>
+                </div>
+                <div class="serviceItem">
+                    <div class="promptTitle">
+                        层&nbsp;:
+                    </div>
+                    <div class="promptContent">
+                        {{serviceTerm.RECOMMENDED_LAYER_NUM}}
                     </div>
                 </div>
             </div>
