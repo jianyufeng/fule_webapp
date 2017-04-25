@@ -332,6 +332,23 @@ define(['app'], function (app) {
             })
 
 
+            /*我的 服务关系 路由*/
+            .state('tab.my-serviceRelationship', {
+                url: '/my-serviceRelationship',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-serviceRelationship.html?_r=" + Math.random(),
+                        controller: 'myServiceRelationshipController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myServiceRelationshipController')
+                        }
+                    }
+
+                }
+            })
+
+
+
     });
 
 

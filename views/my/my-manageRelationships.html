@@ -1,0 +1,133 @@
+<ion-view view-title="管理关系" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
+
+    <navigation-bar is-back="true" title="管理关系"></navigation-bar>
+
+    <ion-content style="background-color: white ;top: 60px;background:#eee;">
+
+
+        <div class="contentBox">
+
+            <!--<select class="form-control">-->
+                <!--<option value="0" selected="selected">&#45;&#45;请选择&#45;&#45;</option>-->
+                <!--<option value="search_user_name">用户名</option>-->
+            <!--</select>-->
+            <div class="searchBox">
+             <input type="text" class="form-control" placeholder="请输入用户名" id="tableSearchValue" style="position: relative;">
+             <button class="searchButton" id="tableSearchButton">搜索</button>
+            </div>
+
+            <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
+                 class="of_emptyList">
+                暂无数据
+            </div>
+
+<div class="ItemBox" ng-repeat="item in data">
+            <div class="topBox">
+                <div class="accountBox">
+                    <div class="contentItem">
+                        用户名:
+                    </div>
+                    <div class="accountItem">
+                        {{item.user_name}}
+                    </div>
+                </div>
+                <!--<div class="timeBox">-->
+                    <!--<div class="timeItem">-->
+                        <!--激活时间: {{item.ACTIVATION_TIME}}-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+            <div class="bottomBox">
+                <div class="bottomItemBox">
+                    <div class="bottomLeftItem">
+                        激活时间:
+                    </div>
+                    <div class="bottomRightItem">
+                        {{item.ACTIVATION_TIME}}
+                    </div>
+                </div>
+
+                <div class="bottomItemBox">
+                    <div class="bottomLeftItem">
+                        级别:
+                    </div>
+                    <div class="bottomRightItem">
+                        {{item.REGISTER_GRADE}}
+                    </div>
+                </div>
+
+                <div class="bottomItemBox">
+                    <div class="bottomLeftItem">
+                        资格:
+                    </div>
+                    <div class="bottomRightItem">
+                        {{item.IS_PI_FA}}
+
+                    </div>
+                </div>
+
+                <div class="bottomItemBox">
+                    <div class="bottomLeftItem">
+                        批发等级:
+                    </div>
+                    <div class="bottomRightItem">
+                        {{item.ZHUAN_MAI_DIAN_GRADE}}
+
+                    </div>
+                </div>
+
+                <div class="bottomItemBox">
+                    <div class="bottomLeftItem">
+                        管理等级:
+                    </div>
+                    <div class="bottomRightItem">
+                        {{item.MEMBER_GRADE}}
+
+                    </div>
+                </div>
+
+                <div class="bottomItemBox">
+                    <div class="bottomLeftItem">
+                        位置:
+                    </div>
+                    <div class="bottomRightItem">
+                        {{item.REGION}}
+
+                    </div>
+                </div>
+
+                <div class="bottomItemBox">
+                    <div class="bottomLeftItem">
+                        上级管理人:
+                    </div>
+                    <div class="bottomRightItem">
+                        {{item.CONTACT_MAN}}
+
+                    </div>
+                </div>
+
+                <div class="bottomItemBox">
+                    <div class="bottomLeftItem">
+                        层:
+                    </div>
+                    <div class="bottomRightItem">
+                        {{item.LAYER_NUM}}
+
+                    </div>
+                </div>
+
+
+            </div>
+
+</div>
+
+
+
+
+        </div>
+
+
+
+     </ion-content>
+</ion-view>

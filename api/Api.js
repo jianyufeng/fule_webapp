@@ -69,6 +69,8 @@ var API = {
         updateGradeHappyHome:  serverIP +"/buyxlzj/buyhapply",
         //更新用户信息（喜乐之家）
         updateUserLogs: serverIP +"/buyxlzj/updateUserLog",
+        //管理关系
+        manageRelationships :serverIP + "/user/searchUserConnectionRelations",
         //服务关系
         serviceRelationShip :serverIP +"/user/searchUserRecommendRelations"
     },
