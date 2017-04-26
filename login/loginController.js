@@ -166,6 +166,10 @@ app.controller("loginController", function ($scope, POP) {
             POP.Hint("账号不能为空");
             return;
         }
+        if (user_name.length<6){
+            POP.Hint("账号长度不正确");
+            return;
+        }
         if (hzReg.test(user_name)) {
             POP.Hint("账号格式不正确");
             return;
@@ -175,6 +179,10 @@ app.controller("loginController", function ($scope, POP) {
         //密码不为空
         if (CommenFun.isNullObj(password)) {
             POP.Hint("密码不能为空");
+            return;
+        }
+        if (password.length<6){
+            POP.Hint("账号长度不正确");
             return;
         }
         if (hzReg.test(password)) {
