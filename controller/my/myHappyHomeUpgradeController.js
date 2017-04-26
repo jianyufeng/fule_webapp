@@ -5,7 +5,7 @@
 
 
 define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgrade', 'addressSelect'], function (app, identityCardTest) {
-    function ctrl($scope, myHappyHomeUpgradeService, POP, $state, $stateParams) {
+    function ctrl($scope, myHappyHomeUpgradeService, POP, $state, $stateParams, $ionicScrollDelegate) {
 
         $scope.userArray = [];
         $scope.upGrade = {};
@@ -22,7 +22,70 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             //获取数据
             myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP);
 
+            startTagAnimate();
+
         });
+
+        $scope.$on('$ionicView.leave', function () {
+
+            clearInterval(rightTimer);
+            clearInterval(leftTimer);
+        });
+
+
+        var rightflag = 1;
+        var leftFlag = 1;
+        var rightTimer = null;
+        var leftTimer = null;
+
+        function startTagAnimate() {
+
+            rightTimer = setInterval(function () {
+
+                (function () {
+
+                    $("#rightTag").animate({"right": (-5 * rightflag ) + "px"}, 500, function () {
+                        rightflag = -rightflag;
+                    });
+
+                })();
+
+            }, 500);
+
+
+            leftTimer = setInterval(function () {
+
+                (function () {
+
+                    $("#leftTag").animate({"left": (-5 * leftFlag ) + "px"}, 500, function () {
+                        leftFlag = -leftFlag;
+                    });
+
+                })();
+
+            }, 500);
+
+
+        }
+
+        $scope.showLeftOrRight = function () {
+            var delegate = $ionicScrollDelegate.$getByHandle('topScroll');
+            var position = delegate.getScrollPosition();
+            var width = $(".of_navBox").width();
+            var scrWidth = $(document.body).width();
+            if (position.left == 0) {
+                $("#leftTag").hide();
+                $("#rightTag").show();
+                return;
+            }
+            if (position.left == (width - scrWidth)) {
+                $("#rightTag").hide();
+                $("#leftTag").show();
+                return;
+            }
+
+
+        }
 
         // 跳转到购物界面
         $scope.goToShopping = function () {
@@ -977,7 +1040,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myHappyHomeUpgradeService', 'POP', '$state', '$stateParams'];
+    ctrl.$inject = ['$scope', 'myHappyHomeUpgradeService', 'POP', '$state', '$stateParams', '$ionicScrollDelegate'];
 
     /*动态注册控制器*/
     app.registerController('myHappyHomeUpgradeController', ctrl);
