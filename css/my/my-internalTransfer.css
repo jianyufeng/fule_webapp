@@ -1,23 +1,20 @@
-.contentBox {
-  background-color: white;
-  margin: 2px;
-}
-.contentBox .cardItem {
+.cardItem {
   padding: 20px;
   font-size: 16px;
   font-weight: 400;
   position: relative;
   clear: both;
   height: 60px;
+  background-color: white;
 }
-.contentBox .cardItem .left {
+.cardItem .left {
   display: block;
   float: left;
   width: 30%;
   height: 20px;
   line-height: 20px;
 }
-.contentBox .cardItem .right {
+.cardItem .right {
   display: block;
   float: left;
   width: 70%;
@@ -25,29 +22,29 @@
   line-height: 20px;
   color: #D39AC5;
 }
-.contentBox .cardItem .text {
+.cardItem .text {
   display: block;
   float: left;
   height: 20px;
   line-height: 20px;
   width: 70%;
 }
-.contentBox .cardItem .line {
+.cardItem .line {
   background-color: #eeeeee;
   height: 1px;
   width: 100%;
   position: absolute;
   bottom: 0px;
 }
-.contentBox .postNoteBox {
+.postNoteBox {
   width: 100%;
   height: 80px;
   padding: 15px;
 }
-.contentBox .postNoteBox .inputBox {
+.postNoteBox .inputBox {
   position: relative;
 }
-.contentBox .postNoteBox .inputBox img {
+.postNoteBox .inputBox img {
   display: block;
   float: left;
   position: absolute;
@@ -56,7 +53,7 @@
   width: 12px;
   height: 20px;
 }
-.contentBox .postNoteBox .inputBox .note {
+.postNoteBox .inputBox .note {
   display: block;
   width: 60%;
   height: 40px;
@@ -67,7 +64,7 @@
   letter-spacing: 2px;
   color: plum ;
 }
-.contentBox .postNoteBox .postNote {
+.postNoteBox .postNote {
   display: block;
   width: 35%;
   height: 40px;
@@ -82,12 +79,12 @@
   padding-right: 5px;
   border: none;
 }
-.contentBox .buttonBox {
+.buttonBox {
   position: relative;
   height: 70px;
   padding: 0px 8px;
 }
-.contentBox .buttonBox div {
+.buttonBox div {
   background-color: #D39AC5;
   color: white;
   width: 100%;
@@ -96,7 +93,7 @@
   text-align: center;
   line-height: 40px;
 }
-.contentBox .buttonBox .line {
+.buttonBox .line {
   background-color: #eeeeee;
   height: 1px;
   width: 100%;

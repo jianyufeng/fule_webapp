@@ -10,6 +10,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
         $scope.$on('$ionicView.enter', function () {
             $scope.count = 1;
+            $scope.cartCount = 0;
             productInfoService.getProductInfo($scope, $stateParams, POP);
             productInfoService.getCartInfo($scope, POP);
 
@@ -19,7 +20,6 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
 
         });
-
 
 
         $scope.onSlideChanged = function (index) {
