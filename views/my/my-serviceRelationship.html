@@ -2,7 +2,13 @@
 
     <navigation-bar is-back="true" title="服务关系"></navigation-bar>
 
-    <ion-content style="background-color: white ;top: 60px;background:#eee;">
+    <div class="searchBox">
+        <input class="searchInput" type="search" placeholder="输入用户名查询"/>
+        <button class="searchBtn" type="button">查询</button>
+    </div>
+
+
+    <ion-content class="contentOutBox" style="background-color: green ;margin-top: 100px;background:#eee;">
 
         <!--<ion-scroll style="width:100%;position:absolute;top:60px;">-->
 
@@ -10,6 +16,8 @@
              <!--class="noServiceRelation">-->
             <!--暂无数据-->
         <!--</div>-->
+
+
         <div class="serviceRelationBox" style="margin-bottom:6px;" ng-repeat="serviceTerm in relationData">
             <div class="userInfoBox">
                 <div class="accountName">
