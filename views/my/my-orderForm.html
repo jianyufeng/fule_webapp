@@ -1,22 +1,24 @@
 <ion-view view-title="我的订单" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <navigation-bar is-back="true" title="我的订单"></navigation-bar>
-    <ion-content style="top: 60px;background:#eee;">
-            <ion-scroll zooming="false" direction="x" scrollbar-x="true" style="width: 100%;">
-                <div class="of_navBox">
-                    <div class="of_nav">商城订单</div>
-                    <div class="of_nav">提货订单</div>
-                    <div class="of_nav">重复消费订单</div>
-                    <div class="of_nav">申请专柜</div>
-                    <div class="of_nav">申请专卖店</div>
-                    <div class="of_nav">申请旗舰店</div>
-                    <div class="of_nav">辅销品订单</div>
-                    <div class="of_nav">辅销品换购订单</div>
-                    <div class="of_nav">喜乐之家订单</div>
-                    <div class="of_nav">旗舰店报单</div>
-                    <div class="of_nav">超期空升特批</div>
-                </div>
-            </ion-scroll>
+    <ion-content style="top: 60px;background:#eee;" scroll="false">
+        <ion-scroll zooming="false" direction="x" scrollbar-x="true" style="width: 100%;">
+            <div class="of_navBox">
+                <div class="of_nav">商城订单</div>
+                <div class="of_nav">提货订单</div>
+                <div class="of_nav">重复消费订单</div>
+                <div class="of_nav">申请专柜</div>
+                <div class="of_nav">申请专卖店</div>
+                <div class="of_nav">申请旗舰店</div>
+                <div class="of_nav">辅销品订单</div>
+                <div class="of_nav">辅销品换购订单</div>
+                <div class="of_nav">喜乐之家订单</div>
+                <div class="of_nav">旗舰店报单</div>
+                <div class="of_nav">超期空升特批</div>
+            </div>
+        </ion-scroll>
+
+        <ion-scroll class="mo_contentBox">
             <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
                  class="of_emptyList">
                 暂无数据
@@ -78,6 +80,6 @@
             </div>
             <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="1%"
                                  immediate-check="false"></ion-infinite-scroll>
-
+        </ion-scroll>
     </ion-content>
 </ion-view>

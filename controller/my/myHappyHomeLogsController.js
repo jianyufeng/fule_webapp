@@ -8,8 +8,6 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
 
             //初始化加载喜乐之家
             myHappyHomeLogsService.getHappyHomeLogs($scope, POP,function () {
-                console.log(1414141414);
-                console.log($scope.logsData);
                 //判断是否登录
                 if($scope.logsData.length >0){
                     $scope.righttitleValue = "编辑";

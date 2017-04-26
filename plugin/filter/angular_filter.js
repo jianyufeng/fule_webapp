@@ -36,21 +36,30 @@ define(['app'], function (app) {
     });
     /*显示用户等级 过滤器*/
     app.filter('userLevelFilter', function ($rootScope) {
-        return function (input, varl) {
+        return function (input, varl, var2) {
             var v = parseInt(input);
+            var is_vip = parseInt(varl);
+            var is_pi_fa = parseInt(var2);
             switch (v) {
                 case  0:
                     varl = '会员';
                     break;
-                case  1:
-                    varl = '志愿者';
-                    break;
-                case  2:
-                    varl = 'VIP';
-                    break;
-                case  3:
-                    varl = '批发';
-                    break;
+                case 4:
+                    switch (is_vip) {
+                        case 0:
+                            varl="志愿者D";
+                            break;
+                        case 1:
+                            switch (is_pi_fa) {
+                                case 0:
+                                    varl="VIP";
+                                    break;
+                                case 1:
+                                    varl="批发";
+                                    break;
+                            }
+                            break;
+                    }
                     break;
                 default:
                     varl = '会员';
@@ -276,10 +285,6 @@ define(['app'], function (app) {
         }
 
     });
-
-
-
-
 
 
 });

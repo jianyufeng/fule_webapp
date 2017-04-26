@@ -107,6 +107,20 @@ define(['app'],function (app) {
                 }
             })
 
+             //购买成功后跳转到我的界面
+            .state('tab.goMy', {
+                url: '/goMy',
+                views: {
+                    'tab-cart': {
+                        templateUrl: "views/my/my.html?_r=" + Math.random(),
+                        controller: 'myController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myController')
+                        }
+                    }
+
+                }
+            })
 
 
     });
