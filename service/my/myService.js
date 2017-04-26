@@ -5,11 +5,9 @@ define(['app'], function (app) {
         var service = {};
 
         /*网络获取用户信息*/
-        var firstHttp = 0;
         service.getMyInfo = function ($scope, POP, isRefresh) {
-            if (firstHttp == 0) {
+            if (!isRefresh) {
                 $.initAppStartLoad();
-                firstHttp++;
             }
             //获取用户的账号
             var info = User.getInfo();
@@ -24,8 +22,6 @@ define(['app'], function (app) {
                     });
                     return;
                 }
-                ;
-                console.log(data);
                 // D级别的标准
                 var IS_D = data.config.IS_D;
                 // VIP 标准
@@ -94,12 +90,9 @@ define(['app'], function (app) {
                         $.initAppEndLoad();
                     }
                 });
-
                 if (isRefresh) {
                     $scope.$broadcast('scroll.refreshComplete');
                 }
-
-
             });
 
         };

@@ -2,6 +2,7 @@
   height: 55px;
   width: 1045px;
   background-color: white;
+  border-bottom: solid 1px #ddd;
 }
 .of_navBox .of_nav {
   margin-top: 8px;
@@ -19,6 +20,13 @@
 }
 .of_navBox .of_nav:first-child {
   color: #d39bc5;
+}
+.mo_contentBox {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0px;
+  bottom: 0;
 }
 .of_itemBox {
   margin-top: 6px;
