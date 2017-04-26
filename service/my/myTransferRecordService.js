@@ -21,7 +21,7 @@ define(['app'], function (app) {
                 }
                 //如果是上拉则添加到上次数据的后面
 
-
+                console.log(data);
 
                 $scope.$apply(function(){
                     if ($scope.isCanPull) {
