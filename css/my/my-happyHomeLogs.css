@@ -91,6 +91,7 @@
   width: 80px;
   height: auto;
   float: left;
+  background: #fafafa;
 }
 .logsScroll .logsItems .xlzjUsers .accounts .title {
   width: 80px;
@@ -99,6 +100,7 @@
   float: left;
   text-align: left;
   line-height: 40px;
+  background: #fafafa;
 }
 .logsScroll .logsItems .xlzjUsers .accountsDetail {
   height: 40px;
