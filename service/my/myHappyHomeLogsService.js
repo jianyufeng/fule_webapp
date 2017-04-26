@@ -57,8 +57,6 @@ define(['app'],function(app){
 
             POP.StartLoading();
 
-            alert($scope.logsData.length);
-            return;
             HTTP.get(API.My.deleteHappyHomePurchaseHistory + "/log_id/"+_id , {}, function (e, data) {
 
                 POP.EndLoading();
@@ -74,8 +72,6 @@ define(['app'],function(app){
                 $(".deleteLogBox:eq("+_idx+")").parent().slideUp(200);
 
                  _.pullAt($scope.logsData,_idx);
-
-                alert($scope.logsData.length);
 
                 if($scope.logsData.length<=0){
                     $scope.$apply(function () {

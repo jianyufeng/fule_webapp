@@ -58,10 +58,9 @@ var API = {
         //获取喜乐之家配置表
         happyHomeList: serverIP + "/buyxlzj/happlyhomelist",
         //喜乐之家购买记录
-        // searchHappyHomeLogs:"http://userm.38zs.net:3222/happyHome/searchLogs",
-        searchHappyHomeLogs: "http://192.168.10.90:3000/happyHome/searchLogs",
+        searchHappyHomeLogs: serverIP + "/happyHome/searchLogs",
         //删除喜乐之家购买记录
-        deleteHappyHomePurchaseHistory: "http://192.168.10.90:3000/buyxlzj/delectlog",
+        deleteHappyHomePurchaseHistory: serverIP + "/buyxlzj/delectlog",
         // 校验身份证
         verifyIdentityCardN: serverIP + "/_user/verifyIDCard",
         // 切记勿删......
