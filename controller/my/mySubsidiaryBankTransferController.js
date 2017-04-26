@@ -57,6 +57,11 @@ define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!
                 myElectronicBankTransferService.getBankList($scope, 2, POP);
             }
         });
+        //获取选择的银行 的点击效果
+        $(document).on('change', '.selec_radio', function () {
+            $('.selec_radio i').css('visibility', 'hidden');
+            $(this).find('i').first().css('visibility', 'visible');
+        });
 
         //初始化汇入银行
         $scope.data = {sel_bank: ''};

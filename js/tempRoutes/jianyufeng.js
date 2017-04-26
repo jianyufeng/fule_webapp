@@ -15,7 +15,6 @@ define(['app'], function (app) {
         $stateProvider
             .state('tab.my', {
                 url: '/my',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my.html?_r=" + Math.random(),
@@ -30,7 +29,6 @@ define(['app'], function (app) {
             /*我的 未读消息 路由*/
             .state('tab.my-unreadMessage', {
                 url: '/my-unreadMessage',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-unreadMessage.html?_r=" + Math.random(),
@@ -44,7 +42,6 @@ define(['app'], function (app) {
             })
             /*我的 未读消息详情 路由*/
             .state('tab.my-unreadMessageDetail', {
-                cache : false,
                 url: '/my-unreadMessageDetail/:title/:add_time/:create_user_name/:article_id',
                 views: {
                     'tab-my': {
@@ -60,7 +57,6 @@ define(['app'], function (app) {
             /*我的办公室路由*/
             .state('tab.my-office', {
                 url: '/my-office',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-office.html?_r=" + Math.random(),
@@ -77,7 +73,6 @@ define(['app'], function (app) {
             /*我的订单路由*/
             .state('tab.my-orderForm', {
                 url: '/my-orderForm',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-orderForm.html?_r=" + Math.random(),
@@ -92,7 +87,6 @@ define(['app'], function (app) {
             /*我的  防伪查询 路由*/
             .state('tab.my-authenticCheck', {
                 url: '/my-authenticCheck',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-authenticCheck.html?_r=" + Math.random(),
@@ -108,7 +102,6 @@ define(['app'], function (app) {
             /*我的  充值卡充值询路由*/
             .state('tab.my-prepaidCardRecharge', {
                 url: '/my-prepaidCardRecharge',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-prepaidCardRecharge.html?_r=" + Math.random(),
@@ -124,7 +117,6 @@ define(['app'], function (app) {
             /*我的  电子币银行汇款 路由*/
             .state('tab.my-electronicBankTransfer', {
                 url: '/my-electronicBankTransfer',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-electronicBankTransfer.html?_r=" + Math.random(),
@@ -139,7 +131,6 @@ define(['app'], function (app) {
             /*我的  辅销币银行汇款 路由*/
             .state('tab.my-subsidiaryBankTransfer', {
                 url: '/my-subsidiaryBankTransfer',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-subsidiaryBankTransfer.html?_r=" + Math.random(),
@@ -154,7 +145,6 @@ define(['app'], function (app) {
             /*我的  汇款记录 路由*/
             .state('tab.my-remittanceRecord', {
                 url: '/my-remittanceRecord',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-remittanceRecord.html?_r=" + Math.random(),
@@ -169,7 +159,6 @@ define(['app'], function (app) {
             /*我的  内部转账 路由*/
             .state('tab.my-internalTransfer', {
                 url: '/my-internalTransfer/:userName/:userMoney',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-internalTransfer.html?_r=" + Math.random(),
@@ -184,7 +173,6 @@ define(['app'], function (app) {
             /*我的  转账记录 路由*/
             .state('tab.my-transferRecord', {
                 url: '/my-transferRecord',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-transferRecord.html?_r=" + Math.random(),
@@ -199,7 +187,6 @@ define(['app'], function (app) {
             })
             /*我的  代金卷转账 路由*/
             .state('tab.my-voucherTransfer', {
-                cache : false,
                 url: '/my-voucherTransfer/:userVoucher',
                 //url: '/my-voucherTransfer',
                 views: {
@@ -216,7 +203,6 @@ define(['app'], function (app) {
             /*我的  代金卷转账记录 路由*/
             .state('tab.my-voucherTransferRecords', {
                 url: '/my-voucherTransferRecords',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-voucherTransferRecords.html?_r=" + Math.random(),
@@ -232,7 +218,6 @@ define(['app'], function (app) {
             /*我的 充值卡充值列表 路由*/
             .state('tab.my-rechargeableCardList', {
                 url: '/my-rechargeableCardList',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-rechargeableCardList.html?_r=" + Math.random(),
@@ -247,7 +232,6 @@ define(['app'], function (app) {
             /*我的 用户激活或者升级是填写信息页面 路由*/
             .state('tab.my-updateUserData', {
                 url: '/my-updateUserData/:grade',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-updateUserData.html?_r=" + Math.random(),
@@ -262,7 +246,6 @@ define(['app'], function (app) {
             /*我的 喜乐之家列表 路由*/
             .state('tab.my-happyHomeList', {
                 url: '/my-happyHomeList',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-happyHomeList.html?_r=" + Math.random(),
@@ -277,7 +260,6 @@ define(['app'], function (app) {
             /*我的 喜乐之家购买记录列表 路由*/
             .state('tab.my-happyHomeLogs', {
                 url: '/my-happyHomeLogs',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-happyHomeLogs.html?_r=" + Math.random(),
@@ -291,8 +273,7 @@ define(['app'], function (app) {
             })
             /*我的 购买喜乐之家列表 路由*/
             .state('tab.my-buyHappyHome', {
-                url: '/my-buyHappyHome/:configId/:id',
-                cache : false,
+                url: '/my-buyHappyHome',
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-buyHappyHome.html?_r=" + Math.random(),
@@ -306,9 +287,8 @@ define(['app'], function (app) {
             })
             /*我的 喜乐之家升级 路由*/
             .state('tab.my-happyHomeUpgrade', {
-                cache : false,
                 url: '/my-happyHomeUpgrade/:configId',
-                cache: false,
+                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-happyHomeUpgrade.html?_r=" + Math.random(),
@@ -324,7 +304,6 @@ define(['app'], function (app) {
             /*我的 喜乐之家收货地址 路由*/
             .state('tab.my-happyHomeAddress', {
                 url: '/my-happyHomeAddress',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-happyHomeAddress.html?_r=" + Math.random(),
@@ -337,10 +316,25 @@ define(['app'], function (app) {
                 }
             })
 
+            /*我的 管理关系 路由*/
+            .state('tab.my-manageRelationships', {
+                url: '/my-manageRelationships',
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-manageRelationships.html?_r=" + Math.random(),
+                        controller: 'myManageRelationshipsController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myManageRelationshipsController')
+                        }
+                    }
+
+                }
+            })
+
+
             /*我的 服务关系 路由*/
             .state('tab.my-serviceRelationship', {
                 url: '/my-serviceRelationship',
-                cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-serviceRelationship.html?_r=" + Math.random(),
@@ -352,6 +346,7 @@ define(['app'], function (app) {
 
                 }
             })
+
 
 
     });

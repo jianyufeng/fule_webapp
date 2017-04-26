@@ -152,6 +152,8 @@ app.controller("registerController", function ($scope, POP) {
         if (CommenFun.isNullObj(user_name)) {
             POP.Hint("用户名不为空");
             return;
+        }else {
+
         }
         //邮箱不为空
         if (CommenFun.isNullObj(email)) {
@@ -168,7 +170,10 @@ app.controller("registerController", function ($scope, POP) {
         if (CommenFun.isNullObj(loginPassword)) {
             POP.Hint("登录密码不为空");
             return;
+        }else {
+
         }
+
         //二级密码不为空
         if (CommenFun.isNullObj(secondPassword)) {
             POP.Hint("二级密码不为空");
@@ -239,11 +244,11 @@ console.log(data);
 
 
 
-$('#account').blur(function() {
+//$('#account').blur(function() {
+//
+//    var user_name = $.trim($('#account').val());  //用户名
 
-    var user_name = $.trim($('#account').val());  //用户名
-
-    userRepeat(user_name);
+    //userRepeat(user_name);
 
     function userRepeat(user_name) {
         //检查用户名是否存在
@@ -256,7 +261,7 @@ $('#account').blur(function() {
     }
 
 
-});
+//});
 
     //输入框聚焦变换
     $('#account').focus(function () {
@@ -308,6 +313,139 @@ $('#account').blur(function() {
     $('#note').blur(function () {
         $('#note').css("border", "solid 1px #eee");
     });
+
+
+
+    $('input').blur(function() {
+
+        //正则匹配
+        var pattern_user = /^xlzj/; //用户名
+        var pattern_userNumber = /^[0-9]/; //数字开头
+        var pattern_6Number = /^[0-9]([0-9]{5,5})$/; //6位数字
+        var pattern_Number = /^[0-9]$/; //纯数字
+        var pattern_wenzi = /[^A-Za-z0-9]/; //文字
+        var pattern_feifa = /[(,),`,~,-,_,!,#,<,>,\\[,\\],:,;,?,$,%,^,&,*,+,=,\\\\,',\",|,{,},\/]/ ; //非法文字
+        var pattern_email = /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,5}$/; //邮箱
+        var pattern_phone = /^0?(13|14|15|18)[0-9]{9}$/; //手机号码
+        //正则匹配值
+        //var user = $("input[name = 'user']").val(); //用户名
+        //var email = $("input[name = 'email']").val(); //电子邮箱
+        //var passwords = $("input[name = 'passwords']").val(); //登录密码
+        //var password1 = $("input[name = 'password1']").val(); //确认密码
+        //var password2 = $("input[name = 'password2']").val(); //二级密码
+        //var password3 = $("input[name = 'password3']").val(); //支付密码
+        //var phone = $("input[name = 'phone']").val(); //手机号码
+        //var result = $("input[name = 'result']").val(); //短信验证码
+
+
+        var user_name = $.trim($('#account').val());
+        var email = $('#mailbox').val();
+        var loginPassword = $('#loginPassword').val();
+        var secondPassword = $('#secondPassword').val();
+        var threePassword = $('#threePassword').val();
+        var phoneNumber = $('#phone').val();
+        //获取手机验证码
+        var note = $('#note').val();
+
+
+        //验证用户名
+        if($(this).is('#account')) {
+            if(pattern_wenzi.test(user_name)) {
+                POP.Hint("长度只能在6-16位之间且不能有中文和非法字符");
+
+            } else if(this.value.length < 6 || this.value.length > 16 ) {
+                POP.Hint("用户名长度需要在6-16位之间");
+
+            } else if(pattern_user.test(user_name)) {
+                POP.Hint("用户名不能以xlzj开头");
+
+            } else if(pattern_userNumber.test(user_name)) {
+                POP.Hint("用户名不能以数字开头");
+
+            } else if(pattern_feifa.test(user_name)) {
+                POP.Hint("用户名不能有特殊字符");
+
+            } else {
+                userRepeat(user_name);
+            }
+        }
+
+        //验证电子邮箱
+        if($(this).is('#mailbox')) {
+
+            if(!pattern_email.test(email)) {
+                POP.Hint("请正确输入邮箱");
+            }
+        }
+
+        //验证登录密码
+        if($(this).is('#loginPassword')) {
+            if(pattern_wenzi.test(loginPassword)) {
+
+                POP.Hint("密码不能为中文或特殊字符");
+            } else if(this.value.length < 6 || this.value.length > 16) {
+
+                POP.Hint("密码长度需要在6-16位之间");
+            } else {
+
+            }
+        }
+
+
+        //验证二级密码
+        if($(this).is('#secondPassword')) {
+            if(pattern_wenzi.test(secondPassword)) {
+
+                POP.Hint("密码不能为中文或特殊字符");
+
+            } else if(this.value.length < 6 || this.value.length > 16) {
+
+                POP.Hint("密码长度需要在6-16位之间");
+
+
+            } else {
+
+            }
+        }
+
+        //验证支付密码
+        if($(this).is('#threePassword')) {
+            if(pattern_wenzi.test(threePassword)) {
+                POP.Hint("密码不能为中文或特殊字符");
+
+            } else if(this.value.length != 6 || !pattern_6Number.test(threePassword)) {
+                POP.Hint("支付密码只能为6位数字的组合");
+
+            } else {
+
+            }
+        }
+
+        //验证手机号码
+        if($(this).is('#userphone')) {
+            if(!pattern_phone.test(phoneNumber)) {
+                POP.Hint("请输入正确手机号码");
+
+            } else {
+
+            }
+        }
+
+        //验证验证码
+        if($(this).is('#note')) {
+            if(pattern_wenzi.test(note)) {
+                POP.Hint("验证码不能为中文或特殊字符");
+
+            } else if(pattern_feifa.test(note)) {
+                POP.Hint("验证码不能为中文或特殊字符");
+
+            } else {
+
+            }
+        }
+
+    })
+
 
 
 });

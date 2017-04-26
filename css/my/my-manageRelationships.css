@@ -1,0 +1,100 @@
+.of_navBox {
+  height: 55px;
+  width: 1045px;
+  background-color: white;
+}
+.of_navBox .of_nav {
+  margin-top: 8px;
+  line-height: 40px;
+  height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  float: left;
+  border-right: solid 1px #eee;
+  text-align: center;
+  color: #020202;
+}
+.of_navBox .of_nav:last-child {
+  border: none;
+}
+.of_navBox .of_nav:first-child {
+  color: #d39bc5;
+}
+.contentBox {
+  margin-top: 6px;
+  width: 100%;
+  height: auto;
+  background-color: #eee;
+}
+.contentBox .searchBox {
+  width: 100%;
+  height: 50px;
+}
+.contentBox .searchBox .form-control {
+  width: 60%;
+  height: 50px;
+  float: left;
+  margin-left: 10px;
+}
+.contentBox .searchBox .searchButton {
+  width: 30%;
+  height: 50px;
+  float: left;
+  background: palevioletred;
+  margin-right: 10px;
+}
+.contentBox .ItemBox {
+  margin-top: 6px;
+  width: 100%;
+  height: auto;
+  background: white;
+}
+.contentBox .ItemBox .topBox {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: solid 1px #eee;
+}
+.contentBox .ItemBox .topBox .accountBox {
+  width: 50%;
+  height: 50px;
+  float: left;
+  margin-left: 15px;
+}
+.contentBox .ItemBox .topBox .accountBox .contentItem {
+  width: 50%;
+  height: 50px;
+  float: left;
+}
+.contentBox .ItemBox .topBox .accountBox .accountItem {
+  float: left;
+  color: #a92486;
+  font-size: 16px;
+}
+.contentBox .ItemBox .topBox .accountBox .timeBox {
+  float: left;
+  font-size: 12px;
+  color: #999c9c;
+}
+.contentBox .ItemBox .bottomBox {
+  width: 100%;
+  height: auto;
+  margin-left: 15px;
+}
+.contentBox .ItemBox .bottomBox .bottomItemBox {
+  width: 100%;
+  height: 30px;
+  margin-left: 15px;
+}
+.contentBox .ItemBox .bottomBox .bottomItemBox .bottomLeftItem {
+  float: left;
+  line-height: 30px;
+  width: 25%;
+  color: #020202;
+}
+.contentBox .ItemBox .bottomBox .bottomItemBox .bottomRightItem {
+  float: left;
+  line-height: 30px;
+  width: 75%;
+  color: #999c9c;
+}

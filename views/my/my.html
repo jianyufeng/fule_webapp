@@ -2,11 +2,12 @@
     <navigation-bar title="我的" class="myHeaderBox"></navigation-bar>
     <ion-content>
         <!--下拉刷新-->
-        <ion-refresher class="xiala" pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+
         <div class="unLoginBox"  style="width:100%;position:absolute;top:60px;">
             <img src="./resource/images/waitLoading.png" style="margin-bottom:30px;"/>
-            <button class="goLogin" ng-click="goLogin()">登录</button>
-            <button class="goRegister" ng-click="goRegister()">新用户注册</button>
+            <button ng-click="goLogin()">登录</button>
+            <button ng-click="goRegister()">新用户注册</button>
         </div>
 
         <div class="my_loginBox">
@@ -48,7 +49,7 @@
             </div>
 
             <!--我的办公室-->
-            <a href="#/tab/my-office">
+            <a href="#/tab/my-happyHomeUpgrade">
                 <div class="MyOfficeBox">
                     <div class="officeIconNameBox">
                         <img class="officeIcon" alt="办公室" src="./resource/images/icon/myoffice.png">
@@ -132,6 +133,13 @@
                     </div>
                 </a>
                 <a href="#/tab/my-buyHappyHome">
+                    <div class="businessColBox">
+                        <img class="indentIcon" alt="喜乐之家"
+                             src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
+                        <div class="indentName">购买喜乐之家</div>
+                    </div>
+                </a>
+                <a href="#/tab/my-manageRelationships">
                     <div class="businessColBox">
                         <img class="indentIcon" alt="管理关系"
                              src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">

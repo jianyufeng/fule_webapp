@@ -1,6 +1,6 @@
 define(['app', './Fun/my_fun'], function (app, my_fun) {
 
-    function ctrl($scope, myService, POP, $state) {
+    function ctrl($scope, myService, POP, $state,$rootScope) {
         console.log("我的界面控制器...");
         var isLogin = User.isLogin();
         /*加载界面动画*/
@@ -39,7 +39,9 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         $('.loginOutBox').click(function () {
             POP.Confirm("确认退出登录?", function () {
                 $.cookie("userInfo", null, {path: '/'});
+                $rootScope.cartBadge = 0;
                 $state.go("tab.home");
+
             });
 
         });
@@ -85,7 +87,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myService', 'POP', '$state'];
+    ctrl.$inject = ['$scope', 'myService', 'POP', '$state','$rootScope'];
 
     /*动态注册控制器*/
     app.registerController('myController', ctrl);

@@ -54,6 +54,8 @@ define([
     '../service/my/myHappyHomeListService',
     //购买记录
     '../service/my/myHappyHomeLogsService',
+    //管理关系
+    '../service/my/myManageRelationshipsService',
     //服务关系
     '../service/my/myServiceRelationService',
     //喜乐之家地址
