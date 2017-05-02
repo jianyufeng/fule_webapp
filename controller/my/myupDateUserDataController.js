@@ -49,7 +49,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                 $('#abc2').css('color', 'black');
                 $('#selectResult').val("左区");
             } else {
-                alert("左区不可用");
+                POP.Alert("右区不可用");
             }
         });
         $("#abc2").click(function () {
@@ -58,9 +58,52 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                 $('#abc1').css('color', 'black');
                 $('#selectResult').val("右区");
             } else {
-                alert("右区不可用");
+                POP.Alert("右区不可用");
             }
         });
+
+
+
+        $('#a').click(function () {
+            $(document).off("click", "#selectBank");
+            $(this).css('color', '#D39AC5');
+            $('#b').css('color', 'black');
+            $('#c').css('color', 'black');
+            $('#bank').val($(this).text());
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
+
+            return false;
+        });
+        $("#b").click(function () {
+            $(document).off("click", "#selectBank");
+            $(this).css('color', '#D39AC5');
+            $('#a').css('color', 'black');
+            $('#c').css('color', 'black');
+            $('#bank').val($(this).text());
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
+
+            return false;
+        });
+        $("#c").click(function () {
+            $(document).off("click", "#selectBank");
+            $(this).css('color', '#D39AC5');
+            $('#a').css('color', 'black');
+            $('#b').css('color', 'black');
+            $('#bank').val($(this).text());
+            $('#BankBox').fadeOut(300, function () {
+                $(document).on("click", "#selectBank", function () {
+                });
+            });
+            return false;
+        });
+
+
         // 推荐人失去焦点事件
         $("#recommend").blur(function () {
             checkRecommend();
@@ -243,9 +286,9 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         // 选择区域
         $scope.selectRegion = function () {
             if ($scope.upGrade.click) {
-                $(".popRegionBox").css("display", "block");
+                $("#RegionBox").css("display", "block");
             } else {
-                $(".popRegionBox").css("display", "none");
+                $("#RegionBox").css("display", "none");
             }
         }
 
@@ -253,6 +296,11 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         $scope.closepop = function () {
             $(".popRegionBox").css("display", "none");
         }
+
+        // 选择银行
+        $("#selectBank").click(function () {
+            $("#BankBox").fadeIn(300);
+        })
 
         // 选择地址
         $scope.chooseAddress = function () {
@@ -266,6 +314,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         }
 
     }
+
 
     /*给构造函数添加$inject属性,添加注入的服务*/
     ctrl.$inject = ['$scope', 'myUpdateUserDataService', 'POP', '$stateParams', '$state', '$compile',];

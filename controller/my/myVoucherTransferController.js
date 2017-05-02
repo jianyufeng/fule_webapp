@@ -3,7 +3,7 @@
  * 代金券转账controller
  */
 define(['app', 'css! ../../../css/my/my-voucherTransfer'], function (app) {
-    function ctrl($scope, myVoucherTransferService, POP, $stateParams) {
+    function ctrl($scope, myVoucherTransferService, POP, $stateParams,$state) {
 
         $scope.voucher={};
         $scope.$on('$ionicView.loaded', function () {
@@ -14,7 +14,7 @@ define(['app', 'css! ../../../css/my/my-voucherTransfer'], function (app) {
         });
         // 点击提交按钮
         $scope.submitTransfer = function () {
-            myVoucherTransferService.submitVoucherTransfer($scope, POP);
+            myVoucherTransferService.submitVoucherTransfer($scope, POP,$state);
         }
         //点击发送按钮
         $scope.getMessageCode = function () {
@@ -24,7 +24,7 @@ define(['app', 'css! ../../../css/my/my-voucherTransfer'], function (app) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myVoucherTransferService', 'POP', '$stateParams'];
+    ctrl.$inject = ['$scope', 'myVoucherTransferService', 'POP', '$stateParams','$state'];
 
     /*动态注册控制器*/
     app.registerController("myVoucherTransferController", ctrl);

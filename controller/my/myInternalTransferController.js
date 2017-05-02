@@ -3,7 +3,7 @@
  * 内部转账的Controller
  */
 define(['app','css! ../../../css/my/my-internalTransfer'],function(app){
-    function ctrl($scope,myInternalTransferService,$stateParams,POP) {
+    function ctrl($scope,myInternalTransferService,$stateParams,POP,$state) {
      $scope.transformMoney={};
         $scope.$on('$ionicView.loaded', function () {
             // 获取参数
@@ -17,7 +17,7 @@ define(['app','css! ../../../css/my/my-internalTransfer'],function(app){
 
             // 提交
             $scope.transformMoneyAction=function(){
-                myInternalTransferService.submitTransformMoney($scope,POP);
+                myInternalTransferService.submitTransformMoney($scope,POP,$state);
 
             }
 
@@ -25,7 +25,7 @@ define(['app','css! ../../../css/my/my-internalTransfer'],function(app){
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope','myInternalTransferService','$stateParams','POP'];
+    ctrl.$inject = ['$scope','myInternalTransferService','$stateParams','POP','$state'];
 
     /*动态注册控制器*/
     app.registerController("myInternalTransferController",ctrl);

@@ -24,7 +24,7 @@ define(['app'], function (app) {
                 // 银行卡号
                 var bankCardN = $scope.upGrade.bankCardN;
                 // 开户银行
-                var bank = $scope.upGrade.bank;
+                var bank = $("#bank").val();
                 // 身份证号
                 var identityCardN = $scope.upGrade.identityCardN;
                 // 开户姓名
@@ -108,6 +108,13 @@ define(['app'], function (app) {
                 console.log("region:" + region);
                 console.log("cardName:" + cardName);
                 console.log("bankCardN:" + bankCardN);
+                if (bank == "中国工商银行") {
+                    bank = 1;
+                } else if (bank == "中国农业银行") {
+                    bank = 2;
+                } else if (bank == "中国建设银行") {
+                    bank = 3;
+                }
                 console.log("bank:" + bank);
                 console.log("identityCardN:" + identityCardN);
                 console.log("branchBank:" + branchBank);
@@ -139,10 +146,10 @@ define(['app'], function (app) {
                     }
                     // 跳转界面
                     POP.Hint("升级成功!");
-                    setTimeout(function(){
+                    setTimeout(function () {
                         $state.go("tab.my");
-                    },2000);
-                    
+                    }, 2000);
+
                 })
 
             }
@@ -190,9 +197,8 @@ define(['app'], function (app) {
                      * 让左右区域可以点击
                      */
                     $scope.upGrade.click = true;
-                    $scope.left = data.LEFT_REGION_ID;
-                    $scope.right = data.RIGHT_REGION_ID;
-
+                    $scope.left = data.userInfo.LEFT_REGION_ID;
+                    $scope.right = data.userInfo.RIGHT_REGION_ID;
 
                 })
             }

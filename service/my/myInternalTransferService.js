@@ -13,7 +13,7 @@ define(['app'], function (app) {
         /**
          * 获取短信验证码
          */
-        service.getMessageCodeBiz=function($scope,POP){
+        service.getMessageCodeBiz = function ($scope, POP) {
 
             //获取账号
             var user_name = User.getInfo().user_name;
@@ -23,11 +23,11 @@ define(['app'], function (app) {
                 return;
             }
             var sendBox = $('.postNote');
-            sendBox.attr("disabled",true);
+            sendBox.attr("disabled", true);
             sendBox.text("正在发送...");
             //获取验证码
-            var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/"+user_name;
-            HTTP.get(url,{},function (e, data) {
+            var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
+            HTTP.get(url, {}, function (e, data) {
                 if (e) {
                     //POP.Hint("data");
                     console.log(e);
@@ -70,77 +70,65 @@ define(['app'], function (app) {
          * @param verification_code
          * @param POP
          */
-        service.submitTransformMoney=function($scope,POP){
-            var targetName=$scope.transformMoney.targetName;
-            var money=$scope.transformMoney.money;
-            var passWord=$scope.transformMoney.passWord;
-            var reMark=$scope.transformMoney.reMark;
-            var messageCode=$scope.transformMoney.messageCode;
-            if(reMark==undefined)reMark="";
-            if(targetName==undefined||targetName==null){
+        service.submitTransformMoney = function ($scope, POP, $state) {
+            var targetName = $scope.transformMoney.targetName;
+            var money = $scope.transformMoney.money;
+            var passWord = $scope.transformMoney.passWord;
+            var reMark = $scope.transformMoney.reMark;
+            var messageCode = $scope.transformMoney.messageCode;
+            if (reMark == undefined)reMark = "";
+            if (targetName == undefined) {
                 POP.Hint("转账对象不能为空，请检查！");
-                return ;
+                return;
             }
-            if(money==undefined||money==null){
+            if (money == undefined) {
                 POP.Hint("请你填写转账金额！");
-                return ;
+                return;
             }
 
-            if(passWord==undefined||passWord==null){
-                POP.Hint("请填写三级密码！");
-                return ;
+            if (passWord == undefined) {
+                POP.Hint("请填写支付密码！");
+                return;
             }
-            if(messageCode==undefined||messageCode==null){
+            if (messageCode == undefined) {
                 POP.Hint("请填写短信验证码！");
-                return ;
+                return;
             }
-
-
-
-            var userInfo=User.getInfo();
-            var userName=userInfo.user_name;
-            var userId=userInfo.user_id;
-
-            //verificationType:1
-            //user_name:zhoulibo
-            //user_id:145989
-            //SECOND_PASSWORD:asdasd
-            //target_user_name:dadssad
-            //amount:23123
-            //remark:dasdasd
-            //verification_code:123123
-
+            var parrt = /^\d{6}$/;
+            if (!parrt.test(passWord)) {
+                POP.Hint("密码格式不正确，请重新输入！");
+            }
+            var userInfo = User.getInfo();
+            var userName = userInfo.user_name;
+            var userId = userInfo.user_id;
             POP.StartLoading();
-           HTTP.post(API.My.internalTransfer,
-               //+"/verificationType/"+'1'
-               //+"/user_name/"+userName
-               //+"/user_id/"+userId
-               //+"/SECOND_PASSWORD/"+passWord
-               //+"/target_user_name/"+targetName
-               //+"/amount/"+money
-               //+"/remark/"+reMark
-               //+"/verification_code/"+messageCode,
-               {
-               "verificationType":"1",
-               "user_name":userName,
-               "user_id":userId,
-               "SECOND_PASSWORD":passWord,
-               "target_user_name":targetName,
-               "amount":money,
-               "remark":reMark,
-               "verification_code":messageCode
-           },function(e,data){
-               POP.EndLoading()
-               if (e) {
-                  console.log(e);
-                   console.log(data.verifyCode);
-                   POP.Hint(data.verifyCode);
-                   return;
-               }
-               POP.Hint("转账成功");
+            HTTP.post(API.My.internalTransfer,
+                {
+                    "verificationType": "1",
+                    "user_name": userName,
+                    "user_id": userId,
+                    "SECOND_PASSWORD": passWord,
+                    "target_user_name": targetName,
+                    "amount": money,
+                    "remark": reMark,
+                    "verification_code": messageCode
+                }, function (e, data) {
 
+                    POP.EndLoading()
+                    if (e) {
+                        if (data.verifyCode != undefined) {
+                            POP.Hint(data.verifyCode);
+                        } else if (data.transferMoney != undefined) {
+                            POP.Hint(data.transferMoney);
+                        } else {
+                            POP.Hint("转账错误");
+                        }
 
-           });
+                        return;
+                    }
+                    POP.Hint("转账成功");
+                    $state.go("tab.my");
+                });
 
         }
         return service;

@@ -6,10 +6,7 @@ define(['app'], function (app) {
 
 
     app.factory('myRechargeableCardListService', function () {
-
         var service = {};
-
-
         /**
          * 获取电子币卡记录
          *
@@ -22,29 +19,25 @@ define(['app'], function (app) {
                     return;
                 }
                 $scope.$apply(function () {
-                    $scope.rechargeableCardAList = data.data;
+                    var listA = [];
+                    var listB = [];
+                    for (var i = 0; i < data.data.length; i++) {
+                        var item = data.data[i];
+                        console.log(item);
+                        if (item.user_money > 0 && item.fxp_points <= 0) {
+                            listA.push(item);
+                        }
+                        if (item.fxp_points > 0 && item.user_money <= 0) {
+                            listB.push(item);
+                        }
+                    }
+
+                    $scope.rechargeableCardAList = listA;
+                    $scope.rechargeableCardBList = listB;
+
                 });
             });
 
-        }
-
-
-        /**
-         * 获取购物代金劵卡的记录
-         *
-         */
-        service.getBList = function ($scope, POP, userId) {
-            POP.StartLoading();
-            HTTP.get(API.My.searchAccountLog + "/user_id/" + userId, {}, function (e, data) {
-                POP.EndLoading();
-                if (e) {
-                    return;
-                }
-                console.log(data);
-                $scope.$apply(function () {
-                    $scope.rechargeableCardBList = data.data;
-                });
-            });
         }
         return service;
 

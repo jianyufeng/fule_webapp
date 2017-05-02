@@ -15,37 +15,40 @@ define(['app'], function (app) {
          * @param $scope
          * @param POP
          */
-        service.submitVoucherTransfer = function ($scope, POP) {
+        service.submitVoucherTransfer = function ($scope, POP,$state) {
 
-            var targetName=$scope.voucher.targetName;
-            var amount=$scope.voucher.amount;
-            var thirdPassword=$scope.voucher.thirdPassword;
-            var reMark=$scope.voucher.remark;
-            var messageCode=$scope.voucher.messageCode;
-            if(reMark==undefined)reMark="";
-            if(targetName==undefined||targetName==null){
+            var targetName = $scope.voucher.targetName;
+            var amount = $scope.voucher.amount;
+            var thirdPassword = $scope.voucher.thirdPassword;
+            var reMark = $scope.voucher.remark;
+            var messageCode = $scope.voucher.messageCode;
+            if (reMark == undefined)reMark = "";
+            if (targetName == undefined || targetName == null) {
                 POP.Hint("转账对象不能为空，请检查！");
-                return ;
+                return;
             }
-            if(amount==undefined||amount==null){
+            if (amount == undefined) {
                 POP.Hint("请你填写转账金额！");
-                return ;
+                return;
             }
 
-            if(thirdPassword==undefined||thirdPassword==null){
-                POP.Hint("请填写三级密码！");
-                return ;
+            if (thirdPassword == undefined) {
+                POP.Hint("请填写支付密码！");
+                return;
             }
-            if(messageCode==undefined||messageCode==null){
+            if (messageCode == undefined) {
                 POP.Hint("请填写短信验证码！");
-                return ;
+                return;
             }
 
+            var parrt = /^\d{6}$/;
+            if (!parrt.test(thirdPassword)) {
+                POP.Hint("密码格式不正确，请重新输入！");
+            }
 
-
-            var userInfo=User.getInfo();
-            var userName=userInfo.user_name;
-            var userId=userInfo.user_id;
+            var userInfo = User.getInfo();
+            var userName = userInfo.user_name;
+            var userId = userInfo.user_id;
 
             //(* 必须)user_name           String转出账户用户名
             //(* 必须)user_id             Number转出账户用户id
@@ -56,26 +59,26 @@ define(['app'], function (app) {
             //(* 必须)verification_code   Number验证码
             //(- 可选)remark              String转账备注
             POP.StartLoading();
-            HTTP.post(API.My.voucherTransfer,{
-                "user_name":userName,
-                "user_id":userId,
-                "target_user":targetName,
-                "point":amount,
-                "SECOND_PASSWORD":thirdPassword,
-                "verificationType":1,
-                "verification_code":messageCode,
-                "remark":reMark
-            },function(e,data){
+            HTTP.post(API.My.voucherTransfer, {
+                "user_name": userName,
+                "user_id": userId,
+                "target_user": targetName,
+                "point": amount,
+                "SECOND_PASSWORD": thirdPassword,
+                "verificationType": 1,
+                "verification_code": messageCode,
+                "remark": reMark
+            }, function (e, data) {
                 POP.EndLoading()
                 if (e) {
-                 POP.Hint(data);
+                    POP.Hint(data);
                     return;
                 }
+                POP.Hint("转账成功");
+                $state.go("tab.my");
             });
 
         }
-
-
 
 
         /**

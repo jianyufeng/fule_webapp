@@ -322,4 +322,28 @@ define(['app'], function (app) {
 
     })
 
+
+    /***
+     *银行过滤器
+     */
+    app.filter('bankFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  1:
+                    varl = '中国工商银行';
+                    break;
+                case  2:
+                    varl = '中国农业银行';
+                    break;
+                case  3:
+                    varl = '中国建设银行';
+                    break;
+            }
+            return varl
+        }
+
+
+    })
+
 });

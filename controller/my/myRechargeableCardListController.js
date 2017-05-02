@@ -19,14 +19,14 @@ define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
                $(".rightCard").css('color','black');
                $("#listA").css('display','block');
                $("#listB").css('display','none');
-               myRechargeableCardListService.getAList($scope, POP, userId);
+               //myRechargeableCardListService.getAList($scope, POP, userId);
 
            }else {
                $(".rightCard").css('color','#D39AC5');
                $(".leftCard").css('color','black');
                $("#listA").css('display','none');
                $("#listB").css('display','block');
-               myRechargeableCardListService.getBList($scope, POP, userId);
+               //myRechargeableCardListService.getBList($scope, POP, userId);
            }
         }
     }
