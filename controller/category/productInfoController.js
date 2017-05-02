@@ -17,8 +17,6 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         });
         $scope.$on('$ionicView.leave', function () {
             $scope.count = 1;
-
-
         });
 
 
@@ -35,6 +33,9 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         }
         // 减号
         $scope.reduce = function () {
+            var nowNum = parseInt($("#_number").val());
+            console.log(nowNum);
+            $scope.count = nowNum;
             if ($scope.minGoodsNumber == "无限制") {
                 $scope.count--;
             } else {
@@ -47,9 +48,16 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
             if ($scope.count <= 1) {
                 $scope.count = 1
             }
+            $("#_number").val($scope.count);
+
         }
         // 加号
         $scope.add = function () {
+
+            //获取当前的数量
+            var nowNum = parseInt($("#_number").val());
+            console.log(nowNum);
+            $scope.count = nowNum;
             if ($scope.limitGoodsNumber == "无限制") {
                 $scope.count++;
             } else {
@@ -59,6 +67,8 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
                     $scope.count++;
                 }
             }
+
+            $("#_number").val($scope.count);
         }
 
         $scope.$on("viewOnFinish", function () {
