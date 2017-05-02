@@ -104,13 +104,16 @@ define(['app'], function (app) {
             ].join(""),
             link: function (scope, element, attrs) {
 
-                if(scope.isright == 'yes'){
-                    $(".rightHeaderBox").show();
-                }else{
-                    $(".rightHeaderBox").hide();
-                }
+                // if(scope.isright == 'yes'){
+                //     $(".rightHeaderBox").show();
+                // }else{
+                //     $(".rightHeaderBox").hide();
+                // }
 
                 scope.rightIconClick = function () {
+                    if(scope.righttitle==''){
+                        return;
+                    }
                     scope.onRightClick();
                 };
 
