@@ -74,7 +74,7 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
         $ionicLoading.show({
             showBackdrop: false,
             template: msg,
-            duration: 2000
+            duration: 1000
         });
     };
 
@@ -82,36 +82,40 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
 });
 app.controller("registerController", function ($scope, POP) {
 
+    //短信验证码按钮开启 0，关闭 1
+    var messageCode_On = 0;
 
     /*点击发送短信效验码*/
     $('.postNote').click(function () {
         //alert(11);
         var mobile = $('#phone').val();
-        //账号不为空
+        //手机号不为空
         if (CommenFun.isNullObj(mobile)) {
-            POP.Hint("账号不能为空");
+            POP.Hint("手机号不能为空");
             return;
         }
-        var postNote = $('.postNote');
-        postNote.attr("disabled",true);
-        postNote.text("正在发送...");
-        //获取验证码
-        var url = "http://192.168.10.123:5000/sms/registerVerification/mobile/"+mobile;
+        if(messageCode_On == 0) {
+            messageCode_On = 1;
+            var postNote = $('.postNote');
+            postNote.attr("disabled", true);
+            postNote.text("正在发送...");
+            //获取验证码
+            var url = "http://192.168.10.123:5000/sms/registerVerification/mobile/" + mobile;
 
-        HTTP.get(url,{},function (e, data) {
+            HTTP.get(url, {}, function (e, data) {
 
-            if (e) {
-                POP.Hint("data");
-                console.log(e);
-                postNote.removeAttr("disabled");
-                postNote.text("发送短信效验码");
-                return;
-            }
-            POP.Hint(data);
+                if (e) {
+                    POP.Hint(data);
+                    console.log(e);
+                    postNote.removeAttr("disabled");
+                    postNote.text("发送短信效验码");
+                    return;
+                }
+                POP.Hint(data);
 
-            setTime(postNote);
-        });
-
+                setTime(postNote);
+            });
+        }
     });
     var countdown = 8;
     //定时60s
@@ -147,6 +151,124 @@ app.controller("registerController", function ($scope, POP) {
         var phoneNumber = $('#phone').val();
         //获取手机验证码
         var note = $('#note').val();
+
+        //正则匹配
+        var pattern_user = /^xlzj/; //用户名
+        var pattern_userNumber = /^[0-9]/; //数字开头
+        var pattern_6Number = /^[0-9]([0-9]{5,5})$/; //6位数字
+        var pattern_Number = /^[0-9]$/; //纯数字
+        var pattern_wenzi = /[^A-Za-z0-9]/; //文字
+        var pattern_feifa = /[(,),`,~,-,_,!,#,<,>,\\[,\\],:,;,?,$,%,^,&,*,+,=,\\\\,',\",|,{,},\/]/ ; //非法文字
+        var pattern_email = /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,5}$/; //邮箱
+        var pattern_phone = /^0?(13|14|15|18)[0-9]{9}$/; //手机号码
+
+        //验证用户名
+            if(pattern_wenzi.test(user_name)) {
+                POP.Hint("用户名长度只能在6-16位之间且不能有中文和非法字符");
+                return;
+
+            } else if(user_name.length < 6 || user_name.length > 16 ) {
+                POP.Hint("用户名长度需要在6-16位之间");
+                return;
+
+            } else if(pattern_user.test(user_name)) {
+                POP.Hint("用户名不能以xlzj开头");
+                return;
+
+            } else if(pattern_userNumber.test(user_name)) {
+                POP.Hint("用户名不能以数字开头");
+                return;
+
+            } else if(pattern_feifa.test(user_name)) {
+                POP.Hint("用户名不能有特殊字符");
+                return;
+
+            } else {
+                userRepeat(user_name);
+            }
+
+
+        //验证电子邮箱
+
+            if(!pattern_email.test(email)) {
+                POP.Hint("请正确输入邮箱");
+                return;
+
+            }
+
+
+        //验证登录密码
+            if(pattern_wenzi.test(loginPassword)) {
+
+                POP.Hint("密码不能为中文或特殊字符");
+                return;
+
+            } else if(loginPassword.length < 6 || loginPassword.length > 16) {
+
+                POP.Hint("密码长度需要在6-16位之间");
+                return;
+
+            } else {
+
+            }
+
+
+
+        //验证二级密码
+            if(pattern_wenzi.test(secondPassword)) {
+
+                POP.Hint("密码不能为中文或特殊字符");
+                return;
+
+            } else if(secondPassword.length < 6 || secondPassword.length > 16) {
+
+                POP.Hint("密码长度需要在6-16位之间");
+                return;
+
+            } else {
+
+            }
+
+
+        //验证支付密码
+            if(pattern_wenzi.test(threePassword)) {
+                POP.Hint("密码不能为中文或特殊字符");
+                return;
+
+            } else if(threePassword.length != 6 || !pattern_6Number.test(threePassword)) {
+                POP.Hint("支付密码只能为6位数字的组合");
+                return;
+
+            } else {
+
+            }
+
+
+        //验证手机号码
+            if(!pattern_phone.test(phoneNumber)) {
+                POP.Hint("请输入正确手机号码");
+                return;
+
+            } else {
+
+            }
+
+
+        //验证验证码
+            if(pattern_wenzi.test(note)) {
+                POP.Hint("验证码不能为中文或特殊字符");
+                return;
+
+            } else if(pattern_feifa.test(note)) {
+                POP.Hint("验证码不能为中文或特殊字符");
+                return;
+
+            } else {
+
+            }
+
+
+
 
         //用户名不为空
         if (CommenFun.isNullObj(user_name)) {
@@ -327,17 +449,8 @@ console.log(data);
         var pattern_feifa = /[(,),`,~,-,_,!,#,<,>,\\[,\\],:,;,?,$,%,^,&,*,+,=,\\\\,',\",|,{,},\/]/ ; //非法文字
         var pattern_email = /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,5}$/; //邮箱
         var pattern_phone = /^0?(13|14|15|18)[0-9]{9}$/; //手机号码
+
         //正则匹配值
-        //var user = $("input[name = 'user']").val(); //用户名
-        //var email = $("input[name = 'email']").val(); //电子邮箱
-        //var passwords = $("input[name = 'passwords']").val(); //登录密码
-        //var password1 = $("input[name = 'password1']").val(); //确认密码
-        //var password2 = $("input[name = 'password2']").val(); //二级密码
-        //var password3 = $("input[name = 'password3']").val(); //支付密码
-        //var phone = $("input[name = 'phone']").val(); //手机号码
-        //var result = $("input[name = 'result']").val(); //短信验证码
-
-
         var user_name = $.trim($('#account').val());
         var email = $('#mailbox').val();
         var loginPassword = $('#loginPassword').val();

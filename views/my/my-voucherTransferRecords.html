@@ -32,7 +32,7 @@
                             转账金额:
                         </div>
                         <div class="tr_ValueBox">
-                            {{item.amount}}
+                            {{item.point}}
                         </div>
                     </div>
                     <div class="transTimeBox">
@@ -40,7 +40,7 @@
                             转账时间:
                         </div>
                         <div class="tr_ValueBox">
-                            {{item.addtime}}
+                            {{item.addtime == 0?"---":item.addtime*1000 | date:'yyyy-MM-dd HH:mm'}}
                         </div>
                     </div>
                     <div class="transRemarkBox">

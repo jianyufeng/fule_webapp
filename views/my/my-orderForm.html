@@ -18,7 +18,7 @@
             </div>
         </ion-scroll>
 
-        <ion-scroll class="mo_contentBox">
+        <ion-scroll class="mo_contentBox" delegate-handle="small">
             <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
                  class="of_emptyList">
                 暂无数据
@@ -30,7 +30,7 @@
                         <label class="of_moneyVal">{{item.goods_amount}}</label>
                     </div>
                     <div class="of_rightBox">
-                        <label class="of_moneyTime">下单时间&nbsp;:&nbsp;{{item.pay_time|timeFilter}}</label>
+                        <label class="of_moneyTime">下单时间&nbsp;:&nbsp;{{item.pay_time == 0?"---":item.pay_time*1000 | date:'yyyy-MM-dd HH:mm'}}</label>
                     </div>
 
 

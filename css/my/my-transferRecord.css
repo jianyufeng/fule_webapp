@@ -31,13 +31,13 @@
   color: #d39bc5;
 }
 .tr_Box {
-  margin: 5px;
+  margin-top: 6px;
 }
 .tr_itemBox {
   width: 100%;
   min-height: 250px;
   background: white;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 .tr_itemBox .transInPersonBox,
 .tr_itemBox .tr_transOutPersonBox,
@@ -85,7 +85,7 @@
   float: left;
 }
 .tr_itemBox .transRemarkBox .tr_RemarkValue {
-  margin-top: 10px;
+  margin-top: 16px;
   max-width: 67%;
   color: red;
   float: left;

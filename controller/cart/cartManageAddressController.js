@@ -47,11 +47,7 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
                 }
 
-
             });
-
-
-
 
         });
 

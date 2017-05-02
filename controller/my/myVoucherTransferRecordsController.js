@@ -16,13 +16,13 @@ define(['app', "css! ../../../css/my/my-transferRecord"], function (app) {
             $scope.page = 0;
             //重置上拉
             $scope.isCanPull = false;
-            myTransferRecordService.getVouTransferRecord($scope, POP);
+            myTransferRecordService.getVouTransferRecord($scope, POP,false);
         };
         // 默认 获取全部记录
-        myTransferRecordService.getVouTransferRecord($scope, POP);
+        myTransferRecordService.getVouTransferRecord($scope, POP,true);
         //加载更多
         $scope.loadMore = function () {
-            myTransferRecordService.getVouTransferRecord($scope, POP);
+            myTransferRecordService.getVouTransferRecord($scope, POP,false);
         }
     }
 
