@@ -89,9 +89,10 @@ define(['app'], function (app) {
                 title: '@',
                 isBack: '@',
                 righttitle: '@',
+                isright: '@',
                 ishint: '@',
                 isOverBack: '@',
-                onRightClick: "&onRightClick",
+                onRightClick: "&onRightClick", 
                 onOverBackClick: "&onOverBackClick"
             },
             template: [
@@ -102,6 +103,13 @@ define(['app'], function (app) {
                 '</div>'
             ].join(""),
             link: function (scope, element, attrs) {
+
+                if(scope.isright == 'yes'){
+                    $(".rightHeaderBox").show();
+                }else{
+                    $(".rightHeaderBox").hide();
+                }
+
                 scope.rightIconClick = function () {
                     scope.onRightClick();
                 };
