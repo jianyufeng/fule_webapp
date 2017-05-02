@@ -7,14 +7,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         var configId = $stateParams.configId;
         var id = $stateParams.id;
 
-        var scrTop = 0;
-        $scope.blurAction = function () {
-            var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
-            var scrollPosition = scroller.getScrollPosition();
-            scrTop = scrollPosition.top;
-        };
-
-
         //提交是的库存不足判断标记
         var canotSave = "canotSave";
         $scope.$on('$ionicView.loaded', function () {
