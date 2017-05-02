@@ -215,7 +215,7 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
 
         //添加新地址
-        $(".addAddressBtn").click(function(){
+        $(".newAddressBtn").click(function(){
 
             $state.go("tab.cart_addAddress");
 

@@ -30,7 +30,7 @@ define(['app'],function(app){
                 if(cart_goods.length<=0){
                     $(".noCartGoodBox").show();
                     $(".noCartGoodBox").find(".isLoginBox").hide();
-                    $scope.isright = "no";
+                  $scope.righttitleValue = "";
                     $.initAppEndLoad();
                     return;
                 }
@@ -44,7 +44,7 @@ define(['app'],function(app){
 
 
                     $scope.countPrice = function(){
-                        
+
                         var moneyCount = 0;
                         if(cart_goods.length>0){
                             for(var i=0;i<cart_goods.length;i++){

@@ -25,8 +25,6 @@ define(['app'],function(app){
                     });
                     return;
                 }
-
-
                 $scope.$apply(function () {
                     //为html页面注入数据
                     $scope.historyAddress = data.AddressList;
