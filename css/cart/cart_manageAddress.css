@@ -41,7 +41,7 @@
 }
 .outBox .manageContent .manageScroll .editBox .shippingAddressItem .userInfo .name span {
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
 }
 .outBox .manageContent .manageScroll .editBox .shippingAddressItem .userInfo .mobile {
   width: 50%;
@@ -53,7 +53,7 @@
 .outBox .manageContent .manageScroll .editBox .shippingAddressItem .userInfo .mobile span {
   padding-right: 10px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
 }
 .outBox .manageContent .manageScroll .editBox .shippingAddressItem .shippingAddressContent {
   width: 100%;
@@ -62,7 +62,7 @@
   padding-right: 10px;
   padding-top: 8px;
   text-align: left;
-  font-size: 14px;
+  font-size: 16px;
   float: left;
 }
 .outBox .manageContent .manageScroll .editBox .shippingAddressItem .shippingAddressContent span {
@@ -105,7 +105,7 @@
   float: left;
 }
 .outBox .manageContent .manageScroll .editOperationArea .selectDefaultBox .defaultAddress span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .outBox .manageContent .manageScroll .editOperationArea .editBtnBox {
   width: 20%;
@@ -130,7 +130,7 @@
   float: left;
 }
 .outBox .manageContent .manageScroll .editOperationArea .editBtnBox .promptArea span {
-  font-size: 14px;
+  font-size: 16px;
   color: #BCBCBC;
 }
 .outBox .manageContent .manageScroll .editOperationArea .deleteBtnBox {

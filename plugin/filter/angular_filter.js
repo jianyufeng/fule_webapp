@@ -218,7 +218,7 @@ define(['app'], function (app) {
             var v = parseInt(input);
             switch (v) {
                 case  0:
-                    varl = '默认';
+                    varl = '';
                     break;
                 case  1:
                     varl = '专卖店';

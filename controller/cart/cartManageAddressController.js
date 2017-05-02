@@ -20,6 +20,7 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
                 }else{
                     $(".noAddress").show();
+                    $scope.righttitleValue = "";
                     return;
                 }
 

@@ -7,10 +7,8 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-serviceRelationship'], fun
 
             //初始化加载喜乐之家
             myServiceRelationService.getServiceRelationship($scope, POP,function () {
-                console.log(888888888);
+
                 console.log($scope.logsData);
-
-
 
 
             });
