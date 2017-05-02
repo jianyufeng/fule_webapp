@@ -21,6 +21,7 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
 
                 }else{
                     $(".noAddress").show();
+                    $scope.righttitleValue = "";
                     return;
                 }
 

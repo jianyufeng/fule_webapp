@@ -392,13 +392,13 @@
   width: 50%;
   height: 60px;
   float: right;
-  text-align: center;
+  text-align: left;
   line-height: 60px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .payAcountBox .listInfo .payAcountPrice span {
   color: #A92586;
-  font-size: 15px;
+  font-size: 16px;
 }
 .payAcountBox .listInfo .payGoodsAcount {
   width: 50%;
@@ -412,10 +412,10 @@
 .payAcountBox .listInfo .payGoodsAcount .goodsCountsPrompt span {
   height: 30px;
   color: #9e9e9e;
-  font-size: 12px;
+  font-size: 14px;
 }
 .payAcountBox .listInfo .payGoodsAcount .goodsCountsPrompt span b {
-  font-size: 13px;
+  font-size: 14px;
   color: #A92586;
 }
 .payAcountBox .listInfo .payGoodsAcount .integralPrompt {
