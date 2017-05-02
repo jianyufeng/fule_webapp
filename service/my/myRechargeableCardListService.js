@@ -21,9 +21,6 @@ define(['app'], function (app) {
                 if (e) {
                     return;
                 }
-                console.log(data);
-                $(".listBBox").attr('display', 'none');
-                $(".listABox").attr('display', 'block');
                 $scope.$apply(function () {
                     $scope.rechargeableCardAList = data.data;
                 });
@@ -37,19 +34,12 @@ define(['app'], function (app) {
          *
          */
         service.getBList = function ($scope, POP, userId) {
-            $(".listABox").attr('display', 'none');
-            $(".listBBox").attr('display', 'block');
-            console.log(22222222222);
             POP.StartLoading();
             HTTP.get(API.My.searchAccountLog + "/user_id/" + userId, {}, function (e, data) {
                 POP.EndLoading();
                 if (e) {
-                    //console.log("e:"+e+"-------46");
-                    //console.log("data:"+data+"-------47");
                     return;
                 }
-                //RechargeableCard
-                //console.log("data:"+data+"-------50");
                 console.log(data);
                 $scope.$apply(function () {
                     $scope.rechargeableCardBList = data.data;

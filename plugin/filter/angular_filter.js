@@ -305,4 +305,21 @@ define(['app'], function (app) {
     });
 
 
+    app.filter('rechargeableCardFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  0:
+                    varl = '扣除';
+                    break;
+                case  99:
+                    varl = '新增';
+                    break;
+            }
+            return varl
+        }
+
+
+    })
+
 });

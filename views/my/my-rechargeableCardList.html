@@ -10,7 +10,7 @@
                     <div class="rightCard" ng-click="show(2)">换购代金券卡</div>
                 </div>
 
-                <div class="listABox">
+                <div class="listABox" id="listA">
                     <div class="itemACardBox" ng-repeat="rechargeableCardA in rechargeableCardAList">
                         <div class="itemRowBox">
                             <div class="itemRowLeft">
@@ -64,11 +64,10 @@
                                 状态:
                             </div>
                             <div class="itemRowRight" style="color: red">
-                                {{rechargeableCardA.statu}}
+                                已充值
                             </div>
                             <div class="line"></div>
                         </div>
-
 
                         <div class="itemRowBox">
                             <div class="itemRowLeft">
@@ -82,46 +81,46 @@
                 </div>
 
 
-                <div class="listBBox" style="height: 500px;width: 100%;background-color: green"  id="listB">
-                    <!--<div class="itemBCardBox"  ng-repeat="rechargeableCardB in rechargeableCardBList">-->
-                    <!--<div class="itemRowBox">-->
-                    <!--<div class="itemRowLeft">-->
-                    <!--操作时间:-->
-                    <!--</div>-->
-                    <!--<div class="itemRowRight">-->
-                    <!--{{ rechargeableCardB.change_time }}-->
-                    <!--</div>-->
-                    <!--<div class="line"></div>-->
-                    <!--</div>-->
+                <div class="listBBox" id="listB">
+                    <div class="itemBCardBox" ng-repeat="rechargeableCardB in rechargeableCardBList">
+                        <div class="itemRowBox">
+                            <div class="itemRowLeft">
+                                操作时间:
+                            </div>
+                            <div class="itemRowRight">
+                                {{ rechargeableCardB.change_time | dateTimeFilter}}
+                            </div>
+                            <div class="line"></div>
+                        </div>
 
-                    <!--<div class="itemRowBox">-->
-                    <!--<div class="itemRowLeft">-->
-                    <!--类型:-->
-                    <!--</div>-->
-                    <!--<div class="itemRowRight">-->
-                    <!--{{rechargeableCardB.change_type}}-->
-                    <!--</div>-->
-                    <!--<div class="line"></div>-->
-                    <!--</div>-->
-                    <!--<div class="itemRowBox">-->
-                    <!--<div class="itemRowLeft">-->
-                    <!--金额:-->
-                    <!--</div>-->
-                    <!--<div class="itemRowRight">-->
-                    <!--{{rechargeableCardB.fxp_points}}-->
-                    <!--</div>-->
-                    <!--<div class="line"></div>-->
-                    <!--</div>-->
-                    <!--<div class="itemRowBox maxH">-->
-                    <!--<div class="itemRowLeft">-->
-                    <!--备注:-->
-                    <!--</div>-->
-                    <!--<div class="itemRowRight ">-->
-                    <!--{{rechargeableCardB.change_desc}}-->
-                    <!--</div>-->
-                    <!--</div>-->
+                        <div class="itemRowBox">
+                            <div class="itemRowLeft">
+                                类型:
+                            </div>
+                            <div class="itemRowRight">
+                                {{rechargeableCardB.change_type |rechargeableCardFilter}}
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="itemRowBox">
+                            <div class="itemRowLeft">
+                                金额:
+                            </div>
+                            <div class="itemRowRight">
+                                {{rechargeableCardB.fxp_points}}
+                            </div>
+                            <div class="line"></div>
+                        </div>
+                        <div class="itemRowBox maxH">
+                            <div class="itemRowLeft">
+                                备注:
+                            </div>
+                            <div class="itemRowRight ">
+                                {{rechargeableCardB.change_desc}}
+                            </div>
+                        </div>
 
-                    <!--</div>-->
+                    </div>
                 </div>
 
             </div>

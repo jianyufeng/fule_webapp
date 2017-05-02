@@ -24,10 +24,6 @@
   margin-top: 5px;
   background-color: #eeeeee;
 }
-.contentBox .listABox {
-  float: left;
-  width: 100%;
-}
 .contentBox .listABox .itemACardBox {
   background-color: white;
   padding: 5px;
@@ -60,8 +56,7 @@
   box-shadow: 1px 0px 1px #fefefe;
 }
 .contentBox .listBBox {
-  float: left;
-  width: 100%;
+  display: none;
 }
 .contentBox .listBBox .itemBCardBox {
   background-color: white;
