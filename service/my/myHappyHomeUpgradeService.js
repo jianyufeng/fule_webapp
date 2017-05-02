@@ -217,9 +217,8 @@ define(['app'], function (app) {
                  * 让左右区域可以点击
                  */
                 $scope.upGrade.click = true;
-                $scope.left = data.LEFT_REGION_ID;
-                $scope.right = data.RIGHT_REGION_ID;
-
+                $scope.left = data.userInfo.LEFT_REGION_ID;
+                $scope.right = data.userInfo.RIGHT_REGION_ID;
             })
         }
 

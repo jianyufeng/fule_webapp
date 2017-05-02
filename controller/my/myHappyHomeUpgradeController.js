@@ -111,6 +111,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
         $('#abc1').click(function () {
             $('#RegionBox').fadeOut(300);
+            console.log($scope.left);
             if ($scope.left == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc2').css('color', 'black');
@@ -125,6 +126,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
         $("#abc2").click(function () {
             $('#RegionBox').fadeOut(300);
+            console.log($scope.right);
             if ($scope.right == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc1').css('color', 'black');

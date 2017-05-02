@@ -47,15 +47,15 @@ define(['app'], function (app) {
                 case 4:
                     switch (is_vip) {
                         case 0:
-                            varl="志愿者D";
+                            varl = "志愿者D";
                             break;
                         case 1:
                             switch (is_pi_fa) {
                                 case 0:
-                                    varl="VIP";
+                                    varl = "VIP";
                                     break;
                                 case 1:
-                                    varl="批发";
+                                    varl = "批发";
                                     break;
                             }
                             break;
@@ -165,6 +165,24 @@ define(['app'], function (app) {
             return now.toLocaleDateString();
         }
     });
+
+
+    /*时间戳 过滤器*/
+    app.filter('dateTimeFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            var now = new Date(parseInt(v) * 1000);
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            var time = [year, month, date].join('-') + "  " + [hour, minute, second].join(':');
+            return time;
+        }
+    });
+
 
     /*服务关系志愿者级别 过滤器*/
     app.filter('registerGradeFilter', function ($rootScope) {
