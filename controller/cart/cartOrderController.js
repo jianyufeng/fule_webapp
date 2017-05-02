@@ -145,7 +145,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
                             $rootScope.cartBadge = 0;
                         })
 
-                        $state.go("tab.goMy", {});
+                        $state.go('tab.my');
                     });
 
 
