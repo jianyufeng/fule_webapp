@@ -2,7 +2,7 @@
     <navigation-bar is-back="true" title="充值列表"></navigation-bar>
     <ion-content>
 
-        <ion-scroll  style="width:100%;position:absolute;top:60px;">
+        <ion-scroll style="width:100%;position:absolute;top:60px;">
             <div class="contentBox">
                 <div class="title">
                     <div class="leftCard" ng-click="show(1)">电子币卡</div>
@@ -36,7 +36,7 @@
                                 发卡方式:
                             </div>
                             <div class="itemRowRight">
-                                {{rechargeableCardA.ct_id}}
+                                {{rechargeableCardA.send_type}}
                             </div>
                             <div class="line"></div>
                         </div>
@@ -45,16 +45,16 @@
                                 关联活动:
                             </div>
                             <div class="itemRowRight">
-                                {{rechargeableCardA.act_id}}
+                                {{rechargeableCardA.act_name}}
                             </div>
-
+                            <div class="line"></div>
                         </div>
                         <div class="itemRowBox">
                             <div class="itemRowLeft">
                                 使用时间:
                             </div>
                             <div class="itemRowRight">
-                                {{rechargeableCardA.add_time}}
+                                {{rechargeableCardA.bind_time | dateTimeFilter}}
                             </div>
                             <div class="line"></div>
                         </div>
@@ -64,7 +64,7 @@
                                 状态:
                             </div>
                             <div class="itemRowRight" style="color: red">
-                                没有字段
+                                {{rechargeableCardA.statu}}
                             </div>
                             <div class="line"></div>
                         </div>
@@ -75,53 +75,53 @@
                                 备注：
                             </div>
                             <div class="itemRowRight">
-                                没有字段
+
                             </div>
                         </div>
                     </div>
                 </div>
 
 
-                <div class="listBBox" ng-repeat="rechargeableCardB in rechargeableCardBList">
-                    <div class="itemBCardBox">
-                        <div class="itemRowBox">
-                            <div class="itemRowLeft">
-                                操作时间:
-                            </div>
-                            <div class="itemRowRight">
-                                {{ rechargeableCardB.change_time}}
-                            </div>
-                            <div class="line"></div>
-                        </div>
+                <div class="listBBox" style="height: 500px;width: 100%;background-color: green"  id="listB">
+                    <!--<div class="itemBCardBox"  ng-repeat="rechargeableCardB in rechargeableCardBList">-->
+                    <!--<div class="itemRowBox">-->
+                    <!--<div class="itemRowLeft">-->
+                    <!--操作时间:-->
+                    <!--</div>-->
+                    <!--<div class="itemRowRight">-->
+                    <!--{{ rechargeableCardB.change_time }}-->
+                    <!--</div>-->
+                    <!--<div class="line"></div>-->
+                    <!--</div>-->
 
-                        <div class="itemRowBox">
-                            <div class="itemRowLeft">
-                                类型:
-                            </div>
-                            <div class="itemRowRight">
-                                {{rechargeableCardB.change_type}}
-                            </div>
-                            <div class="line"></div>
-                        </div>
-                        <div class="itemRowBox">
-                            <div class="itemRowLeft">
-                                金额:
-                            </div>
-                            <div class="itemRowRight">
-                                {{rechargeableCardB.fxp_points}}
-                            </div>
-                            <div class="line"></div>
-                        </div>
-                        <div class="itemRowBox maxH">
-                            <div class="itemRowLeft">
-                                备注:
-                            </div>
-                            <div class="itemRowRight ">
-                                {{rechargeableCardB.change_desc}}
-                            </div>
-                        </div>
+                    <!--<div class="itemRowBox">-->
+                    <!--<div class="itemRowLeft">-->
+                    <!--类型:-->
+                    <!--</div>-->
+                    <!--<div class="itemRowRight">-->
+                    <!--{{rechargeableCardB.change_type}}-->
+                    <!--</div>-->
+                    <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--<div class="itemRowBox">-->
+                    <!--<div class="itemRowLeft">-->
+                    <!--金额:-->
+                    <!--</div>-->
+                    <!--<div class="itemRowRight">-->
+                    <!--{{rechargeableCardB.fxp_points}}-->
+                    <!--</div>-->
+                    <!--<div class="line"></div>-->
+                    <!--</div>-->
+                    <!--<div class="itemRowBox maxH">-->
+                    <!--<div class="itemRowLeft">-->
+                    <!--备注:-->
+                    <!--</div>-->
+                    <!--<div class="itemRowRight ">-->
+                    <!--{{rechargeableCardB.change_desc}}-->
+                    <!--</div>-->
+                    <!--</div>-->
 
-                    </div>
+                    <!--</div>-->
                 </div>
 
             </div>

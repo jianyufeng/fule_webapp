@@ -15,11 +15,11 @@ define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
         });
         $scope.show = function (index) {
            if(index==1){
-               $(".leftCard").css('color','red');
+               $(".leftCard").css('color','#D39AC5');
                $(".rightCard").css('color','black');
                myRechargeableCardListService.getAList($scope, POP, userId);
            }else {
-               $(".rightCard").css('color','red');
+               $(".rightCard").css('color','#D39AC5');
                $(".leftCard").css('color','black');
                myRechargeableCardListService.getBList($scope, POP, userId);
            }
