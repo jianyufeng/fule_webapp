@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/3/24.
  */
 define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
-    function ctrl($scope, myOrderFormService, POP) {
+    function ctrl($scope, myOrderFormService, POP, $ionicScrollDelegate) {
 
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
@@ -17,6 +17,9 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
         var type =0 ;
         //导航栏的点击事件 获取订单并展示
         $('.of_nav').click(function () {
+            //滚动到顶部
+            smallToTop();
+
             //重置页数
             $scope.page = 0;
             //重置上拉
@@ -25,6 +28,9 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
             var index = allNav.index(this);
             allNav.css("color", "#020202");
             $(this).css("color", "#d39bc5");
+            $scope.$apply(function () {
+                $scope.data = [];
+            });
             switch (index) {
                 case 0:
                     type = 0;
@@ -74,7 +80,9 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
             //获取订单
             myOrderFormService.getShopOrderForm($scope, POP, type);
         });
-
+        var smallToTop =function() {
+            $ionicScrollDelegate.$getByHandle('small').scrollTop();
+        };
         // 默认 获取商城订单
         myOrderFormService.getShopOrderForm($scope, POP, type);
         //加载更多
@@ -86,7 +94,7 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myOrderFormService', 'POP'];
+    ctrl.$inject = ['$scope', 'myOrderFormService', 'POP', '$ionicScrollDelegate'];
 
     /*动态注册控制器*/
     app.registerController("myOrderFormController", ctrl);
