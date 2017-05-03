@@ -90,8 +90,12 @@ app.controller("registerController", function ($scope, POP) {
         //alert(11);
         var mobile = $('#phone').val();
         //手机号不为空
-        if (CommenFun.isNullObj(mobile)) {
-            POP.Hint("手机号不能为空");
+
+        var reg = /^1(3|4|5|7|8)\d{9}/; //验证规则
+        var flag = reg.test(mobile); //true
+        console.log(flag);
+        if (!flag) {
+            POP.Hint("手机号格式不正确");
             return;
         }
         if(messageCode_On == 0) {
@@ -105,25 +109,23 @@ app.controller("registerController", function ($scope, POP) {
             HTTP.get(url, {}, function (e, data) {
 
                 if (e) {
-                    POP.Hint(data);
-                    console.log(e);
+                    POP.Hint("短信验证码发送失败");
                     postNote.removeAttr("disabled");
                     postNote.text("发送短信效验码");
                     return;
                 }
-                POP.Hint(data);
+                POP.Hint("短信发送成功");
 
                 setTime(postNote);
             });
         }
     });
-    var countdown = 8;
+    var countdown = 60;
     //定时60s
     function setTime(obj) {
-        console.log(obj);
         if (countdown == 0) {
             obj.text("发送短信效验码");
-            countdown = 8;
+            countdown = 60;
             obj.removeAttr("disabled");
             return;
         } else {
@@ -259,15 +261,17 @@ app.controller("registerController", function ($scope, POP) {
                 POP.Hint("验证码不能为中文或特殊字符");
                 return;
 
-            } else if(pattern_feifa.test(note)) {
+            }
+            
+            if(pattern_feifa.test(note)) {
                 POP.Hint("验证码不能为中文或特殊字符");
                 return;
-
-            } else {
-
             }
 
-
+            if(!(/^\d{6}$/.test(note))){
+                POP.Hint("验证码必须为6位数字");
+                return;
+            }
 
 
         //用户名不为空

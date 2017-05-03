@@ -26,7 +26,7 @@
             <div class="of_itemBox" style="margin-bottom:6px;" ng-repeat="item in data">
                 <div class="of_moneyBox">
                     <div class="of_leftBox">
-                        <label class="of_moneyName">金额&nbsp;:&yen;</label>
+                        <label class="of_moneyName">总金额&nbsp;:&yen;</label>
                         <label class="of_moneyVal">{{item.goods_amount}}</label>
                     </div>
                     <div class="of_rightBox">
@@ -46,14 +46,6 @@
                     </div>
                     <div class="of_termBox">
                         <div class="of_termNameBox">
-                            订单状态&nbsp;:
-                        </div>
-                        <div class="of_termValBox">
-                            {{item.order_status|orderStatusFilter}}
-                        </div>
-                    </div>
-                    <div class="of_termBox">
-                        <div class="of_termNameBox">
                             类型&nbsp;:
                         </div>
                         <div class="of_termValBox">
@@ -62,20 +54,28 @@
                     </div>
                     <div class="of_termBox">
                         <div class="of_termNameBox">
-                            折扣金额&nbsp;:
+                            订单状态&nbsp;:
                         </div>
                         <div class="of_termValBox">
-                            &yen;{{item.discount}}元
+                            {{item.pay_status|orderPayStatusFilter}}&nbsp;&nbsp;{{item.order_status|orderStatusFilter}}
                         </div>
                     </div>
                     <div class="of_termBox">
                         <div class="of_termNameBox">
-                            积分&nbsp;:
+                            实际金额&nbsp;:
                         </div>
                         <div class="of_termValBox">
-                            1447.00
+                            &yen;{{item.surplus * 1 + item.shipping_fee * 1}}元
                         </div>
                     </div>
+                    <!--<div class="of_termBox">-->
+                        <!--<div class="of_termNameBox">-->
+                            <!--积分&nbsp;:-->
+                        <!--</div>-->
+                        <!--<div class="of_termValBox">-->
+                            <!--1447.00-->
+                        <!--</div>-->
+                    <!--</div>-->
                 </div>
             </div>
             <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="1%"

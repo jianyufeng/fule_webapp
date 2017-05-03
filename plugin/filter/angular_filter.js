@@ -69,8 +69,8 @@ define(['app'], function (app) {
         }
 
     });
-    /*订单状态 过滤器*/
-    app.filter('orderStatusFilter', function ($rootScope) {
+    /*订单类型 过滤器*/
+    app.filter('orderTypeFilter', function ($rootScope) {
         return function (input, varl) {
             var v = parseInt(input);
             switch (v) {
@@ -109,8 +109,8 @@ define(['app'], function (app) {
         }
 
     });
-    /*订单类型 过滤器*/
-    app.filter('orderTypeFilter', function ($rootScope) {
+    /*订单状态 过滤器*/
+    app.filter('orderStatusFilter', function ($rootScope) {
         return function (input, varl) {
             var v = parseInt(input);
             switch (v) {
@@ -134,6 +134,25 @@ define(['app'], function (app) {
                     break;
                 default:
                     varl = '商城订单';
+                    break;
+            }
+            return varl
+        }
+
+    });
+    /*订单支付状态 过滤器*/
+    app.filter('orderPayStatusFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  0:
+                    varl = '未付款';
+                    break;
+                case  1:
+                    varl = '已付款';
+                    break;
+                default:
+                    varl = '未付款';
                     break;
             }
             return varl

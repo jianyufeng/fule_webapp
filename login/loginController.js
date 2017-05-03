@@ -86,6 +86,8 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
 });
 
 app.controller("loginController", function ($scope, POP) {
+    var serverIP = "http://192.168.10.123:5000";
+
     /*点击登录验证模式切换*/
     $('.choiceModel').click(function () {
         var v = $(this).val();
@@ -117,7 +119,7 @@ app.controller("loginController", function ($scope, POP) {
         sendBox.attr("disabled", true);
         sendBox.text("正在发送...");
         //获取验证码
-        var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
+        var url = serverIP+"/_user/getSmsCode/user_name/" + user_name;
         HTTP.get(url, {}, function (e, data) {
             if (e) {
                 POP.Hint("data");
@@ -157,6 +159,7 @@ app.controller("loginController", function ($scope, POP) {
 
     //汉字正则
     var hzReg = /[^\x00-\xff]/;
+    var zmReg = /^[a-zA-Z][a-zA-Z0-9]*$/;
     /*登录*/
     $('#login').click(function () {
         //获取账号
@@ -166,11 +169,11 @@ app.controller("loginController", function ($scope, POP) {
             POP.Hint("账号不能为空");
             return;
         }
-        if (user_name.length<6){
+        if (user_name.length<6 || user_name.length>16){
             POP.Hint("账号长度不正确");
             return;
         }
-        if (hzReg.test(user_name)) {
+        if (hzReg.test(user_name) || !zmReg.test(user_name)) {
             POP.Hint("账号格式不正确");
             return;
         }
@@ -181,8 +184,8 @@ app.controller("loginController", function ($scope, POP) {
             POP.Hint("密码不能为空");
             return;
         }
-        if (password.length<6){
-            POP.Hint("账号长度不正确");
+        if (password.length<6 ||password.length>16){
+            POP.Hint("密码长度不正确");
             return;
         }
         if (hzReg.test(password)) {
@@ -241,7 +244,7 @@ app.controller("loginController", function ($scope, POP) {
             }
             codeCheck = code;
         }
-        var url = "http://192.168.10.123:5000/_user/login";
+        var url =serverIP+ "/_user/login";
 
         //登录的参数
         var param = {
