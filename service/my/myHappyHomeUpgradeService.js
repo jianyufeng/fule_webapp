@@ -13,7 +13,7 @@ define(['app'], function (app) {
          * @param $scope
          * @param configId
          */
-        service.getMyHappyHomeUpgradeInfo = function ($scope, configId, POP) {
+        service.getMyHappyHomeUpgradeInfo = function ($scope, configId, POP, tagAnimateFun) {
 
             var userName = User.getInfo().user_name;
             POP.StartLoading();
@@ -27,7 +27,6 @@ define(['app'], function (app) {
                     $scope.goShopping = "去购物";
                 }
                 var userdataList = JSON.parse(userdataArray);
-                console.log(userdataList);
                 var userList = data.data.xlzj_user;
                 $scope.id = data.data.id;
                 var userNameArray = userList.split(",");
@@ -46,7 +45,7 @@ define(['app'], function (app) {
                             //节点人
                             user.CONTACT_MAN = "";
                             // 区域
-                            user.REGION = -1;
+                            user.REGION = null;
                             createUser(user);
                             $scope.userArray.push(user);
                             continue;
@@ -80,6 +79,14 @@ define(['app'], function (app) {
                 $scope.$apply(function () {
                     $scope.userNameArray = userNameArray;
                     $(".of_navBox").css('width', 120 * userNameArray.length + "px");
+                    var width = $(document.body).width();
+                    if (width < (120 * userNameArray.length + 10)) {
+                        $scope.showAnimate = true;
+                        tagAnimateFun.startTagAnimate();
+                    } else {
+                        $("#leftTag").css('display', 'none');
+                        $("#rightTag").css('display', 'none');
+                    }
                     service.showUserGrade($scope, 0);
                 })
 
@@ -100,13 +107,12 @@ define(['app'], function (app) {
             console.log(info);
             $("#recommend").val(info.RECOMMENDED_MAN);
             $("#node").val(info.CONTACT_MAN);
-            console.log("dafjiosjkd" + info.REGION);
             if (info.REGION == 0) {
                 $("#selectResult").val("左区");
             } else if (info.REGION == 1) {
                 $("#selectResult").val("右区");
             } else {
-                $("#selectResult").val("");
+                $("#selectResult").val("--请选择--");
             }
 
             if (info.BANK_NAME == 1) {
@@ -156,7 +162,9 @@ define(['app'], function (app) {
          * @returns {boolean}
          */
         service.showEmptyError = function (str, elea, eleb) {
+
             if (str == null || str == "") {
+
                 service.showError(elea, eleb, "内容不能为空");
                 return true;
             }
@@ -191,8 +199,7 @@ define(['app'], function (app) {
                     return
                 }
                 //为user赋值
-                var user = $scope.userArray[0];
-                user.RECOMMENDED_MAN = userName;
+                $scope.userArray[0].RECOMMENDED_MAN = userName;
 
             });
         }
@@ -211,8 +218,7 @@ define(['app'], function (app) {
                     return;
                 }
                 //为user赋值
-                var user = $scope.userArray[0];
-                user.CONTACT_MAN = userName;
+                $scope.userArray[0].CONTACT_MAN = userName;
                 /**
                  * 让左右区域可以点击
                  */

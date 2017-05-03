@@ -20,12 +20,12 @@ ion-content .title {
   height: 50px;
   background-color: white;
 }
-ion-content .title .of_navBox {
+ion-content .title ion-scroll .of_navBox {
   height: 50px;
-  width: 1045px;
+  width: 100%;
   background-color: white;
 }
-ion-content .title .of_navBox .of_nav {
+ion-content .title ion-scroll .of_navBox .of_nav {
   margin-top: 5px;
   line-height: 50px;
   width: 120px;
@@ -37,10 +37,10 @@ ion-content .title .of_navBox .of_nav {
   text-align: center;
   color: #020202;
 }
-ion-content .title .of_navBox .of_nav:last-child {
+ion-content .title ion-scroll .of_navBox .of_nav:last-child {
   border: none;
 }
-ion-content .title .of_navBox .of_nav:first-child {
+ion-content .title ion-scroll .of_navBox .of_nav:first-child {
   color: #d39bc5;
 }
 ion-content .content {

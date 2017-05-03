@@ -4,7 +4,7 @@
  */
 
 
-define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgrade', 'addressSelect'], function (app, identityCardTest) {
+define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../css/my/my-happyHomeUpgrade', 'addressSelect'], function (app, identityCardTest, tagAnimateFun) {
     function ctrl($scope, myHappyHomeUpgradeService, POP, $state, $stateParams, $ionicScrollDelegate) {
 
         $scope.userArray = [];
@@ -17,74 +17,21 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         $scope.left = -1;
         $scope.right = -1;
         var configId = 0;
+        $scope.showAnimate = false;
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
             //获取数据
-            myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP);
-
-            startTagAnimate();
+            myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP, tagAnimateFun);
 
         });
-
         $scope.$on('$ionicView.leave', function () {
-
-            clearInterval(rightTimer);
-            clearInterval(leftTimer);
+            if ($scope.showAnimate) {
+                tagAnimateFun.clear();
+            }
         });
-
-
-        var rightflag = 1;
-        var leftFlag = 1;
-        var rightTimer = null;
-        var leftTimer = null;
-
-        function startTagAnimate() {
-
-            rightTimer = setInterval(function () {
-
-                (function () {
-
-                    $("#rightTag").animate({"right": (-5 * rightflag ) + "px"}, 500, function () {
-                        rightflag = -rightflag;
-                    });
-
-                })();
-
-            }, 500);
-
-
-            leftTimer = setInterval(function () {
-
-                (function () {
-
-                    $("#leftTag").animate({"left": (-5 * leftFlag ) + "px"}, 500, function () {
-                        leftFlag = -leftFlag;
-                    });
-
-                })();
-
-            }, 500);
-
-
-        }
 
         $scope.showLeftOrRight = function () {
-            var delegate = $ionicScrollDelegate.$getByHandle('topScroll');
-            var position = delegate.getScrollPosition();
-            var width = $(".of_navBox").width();
-            var scrWidth = $(document.body).width();
-            if (position.left == 0) {
-                $("#leftTag").hide();
-                $("#rightTag").show();
-                return;
-            }
-            if (position.left == (width - scrWidth)) {
-                $("#rightTag").hide();
-                $("#leftTag").show();
-                return;
-            }
-
-
+            tagAnimateFun.showLeftOrRight($scope, $ionicScrollDelegate);
         }
 
         // 跳转到购物界面
@@ -104,7 +51,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             POP.Confirm("是否放弃当前操作？", function () {
                 },
                 "放弃", "继续编辑", function () {
-                    window.history.back();
+                    $state.go("tab.my-happyHomeList", {});
                 });
         };
 
@@ -243,7 +190,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         });
 
         // 推荐人失去焦点
-        $("#recommend").blur(function () {
+        $(document).on("blur", "#recommend", function () {
             var str = _.trim($(this).val());
 
             if ($scope.index > 0) {
@@ -253,7 +200,15 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                     $("#recommendWaring"), $("#recommend"))) {
                 return;
             }
-            myHappyHomeUpgradeService.checkingRecommendedMan($scope, $(this), $("#recommendWaring"), str, POP);
+
+            var pattern = /^[A-Z a-z _ \d ]/;
+
+            if (!pattern.test(str)) {
+                myHappyHomeUpgradeService.showError($("#mallPassWordWaring"), $("#mallPassWord"), "输入的格式有误请重新输入");
+            } else {
+                myHappyHomeUpgradeService.checkingRecommendedMan($scope, $(this), $("#recommendWaring"), str, POP);
+            }
+
 
         });
         function checkRecommend() {
@@ -264,16 +219,27 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         // 节点人失去焦点
-        $("#node").blur(function () {
+        $(document).on("blur", "#node", function () {
             var str = _.trim($(this).val());
             if ($scope.index > 0) {
                 return
             }
+
+            $scope.userArray[$scope.index].REGION = null;
+            $("#selectResult").val("--请选择--");
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#nodeWaring"), $("#node"))) {
                 return;
             }
-            myHappyHomeUpgradeService.checkingNodeMan($scope, $(this), $("#nodeWaring"), str, POP);
+
+            var pattern = /^[A-Z a-z _ \d ]/;
+
+            if (!pattern.test(str)) {
+                myHappyHomeUpgradeService.showError($("#mallPassWordWaring"), $("#mallPassWord"), "输入的格式有误请重新输入");
+            } else {
+                myHappyHomeUpgradeService.checkingNodeMan($scope, $(this), $("#nodeWaring"), str, POP);
+            }
+
         })
 
         function checkNode() {
@@ -284,9 +250,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
 
         // 商城密码失去焦点
-        $("#mallPassWord").blur(function () {
+        $(document).on("input propertychange blur", "#mallPassWord", function () {
             var str = _.trim($(this).val());
-            console.log(str);
             var pattern = /^[A-Z a-z \d ]{6,16}$/;
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#mallPassWordWaring"), $("#mallPassWord"))) {
@@ -295,30 +260,26 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             if (!pattern.test(str)) {
                 myHappyHomeUpgradeService.showError($("#mallPassWordWaring"), $("#mallPassWord"), "输入的格式有误请重新输入");
             } else {
+                $("#mallPassWordWaring").css('display', 'none');
                 var user = $scope.userArray[$scope.index];
 
                 if (user.flag == undefined) {
-                    user.PASSWORD = str;
+                    $scope.userArray[$scope.index].PASSWORD = str;
                     return;
                 }
                 user.flag = $scope.index;
                 if ($scope.index != 0) {
-                    user.PASSWORD = str;
+                    $scope.userArray[$scope.index].PASSWORD = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
                 for (var i = 0; i < $scope.userArray.length; i++) {
                     var info = $scope.userArray[i];
                     if (info.flag == 0) {
-                        info.PASSWORD = str;
+                        $scope.userArray[i].PASSWORD = str;
                     }
                 }
 
-                for (var i = 0; i < $scope.userArray.length; i++) {
-                    var info = $scope.userArray[i];
-                    console.log(1111111);
-                    console.log(info.PASSWORD);
-                }
             }
 
         });
@@ -337,7 +298,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         // 二级密码失去焦点
-        $("#secondPassWord").blur(function () {
+        $(document).on("input propertychange blur", "#secondPassWord", function () {
+            //$("#secondPassWord").blur(function () {
             var str = _.trim($(this).val());
             var pattern = /^[A-Z a-z \d ]{6,16}$/;
             if (myHappyHomeUpgradeService.showEmptyError(str,
@@ -347,23 +309,23 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             if (!pattern.test(str)) {
                 myHappyHomeUpgradeService.showError($("#secondPassWordWaring"), $("#secondPassWord"), "输入的格式有误请重新输入");
             } else {
-
+                $("#secondPassWordWaring").css('display', 'none');
                 var user = $scope.userArray[$scope.index];
 
                 if (user.flag == undefined) {
-                    user.SECOND_PASSWORD = str;
+                    $scope.userArray[$scope.index].SECOND_PASSWORD = str;
                     return;
                 }
                 user.flag = $scope.index;
                 if ($scope.index != 0) {
-                    user.SECOND_PASSWORD = str;
+                    $scope.userArray[$scope.index].SECOND_PASSWORD = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
                 for (var i = 0; i < $scope.userArray.length; i++) {
                     var info = $scope.userArray[i];
                     if (info.flag == 0) {
-                        info.SECOND_PASSWORD = str;
+                        $scope.userArray[i].SECOND_PASSWORD = str;
                     }
                 }
             }
@@ -382,7 +344,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
 
 
         // 支付密码失去焦点
-        $("#payPassWord").blur(function () {
+        $(document).on("input propertychange blur", "#payPassWord", function () {
             var str = $(this).val();
             var pattern = /^\d{6}$/;
             if (myHappyHomeUpgradeService.showEmptyError(str,
@@ -391,25 +353,26 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 return;
             }
             if (!pattern.test(str)) {
-                myHappyHomeUpgradeService.showError(str, $("#payPassWordWaring"),
+                myHappyHomeUpgradeService.showError($("#payPassWordWaring"),
                     $("#payPassWord"), "输入的格式不正确");
             } else {
-
+                $("#payPassWordWaring").css('display', 'none');
                 var user = $scope.userArray[$scope.index];
                 if (user.flag == undefined) {
-                    user.THREE_PASSWORD = str;
+                    $scope.userArray[$scope.index].THREE_PASSWORD = str;
                     return;
                 }
                 user.flag = $scope.index;
                 if ($scope.index != 0) {
-                    user.THREE_PASSWORD = str;
+                    $scope.userArray[$scope.index].THREE_PASSWORD = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
                 for (var i = 0; i < $scope.userArray.length; i++) {
                     var info = $scope.userArray[i];
                     if (info.flag == 0) {
-                        info.THREE_PASSWORD = str;
+                        //info.THREE_PASSWORD = str;
+                        $scope.userArray[i].THREE_PASSWORD = str;
                     }
                 }
 
@@ -430,7 +393,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         // 邮箱失去焦点
-        $("#Email").blur(function () {
+        $(document).on("input propertychange blur", "#Email", function () {
+            //$("#Email").blur(function () {
             var str = _.trim($(this).val());
             var pattern = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g;
             if (myHappyHomeUpgradeService.showEmptyError(str,
@@ -441,21 +405,23 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             if (!pattern.test(str)) {
                 myHappyHomeUpgradeService.showError($("#EmailWaring"), $("#Email"), "输入的格式不正确");
             } else {
+                $("#EmailWaring").css('display', 'none');
                 var user = $scope.userArray[$scope.index];
                 user.flag = $scope.index;
                 if (user.flag == undefined) {
-                    user.email = str;
+                    $scope.userArray[$scope.index].email = str;
                     return;
                 }
                 if ($scope.index != 0) {
-                    user.email = str;
+                    $scope.userArray[$scope.index].email = str;
+                    //user.email = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
                 for (var i = 0; i < $scope.userArray.length; i++) {
                     var info = $scope.userArray[i];
                     if (info.flag == 0) {
-                        info.email = str;
+                        $scope.userArray[i].email = str;
                     }
                 }
 
@@ -476,7 +442,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         // 手机失去焦点
-        $("#phone").blur(function () {
+        $(document).on("input propertychange blur", "#phone", function () {
+            //$("#phone").blur(function () {
             var str = _.trim($(this).val());
             var pattern = /^\d{11}$/;
             if (myHappyHomeUpgradeService.showEmptyError(str,
@@ -490,19 +457,19 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 $("#phoneWaring").css('display', 'none');
                 var user = $scope.userArray[$scope.index];
                 if (user.flag == undefined) {
-                    user.mobile_phone = str;
+                    $scope.userArray[$scope.index].mobile_phone = str;
                     return;
                 }
                 user.flag = $scope.index;
                 if ($scope.index != 0) {
-                    user.mobile_phone = str;
+                    $scope.userArray[$scope.index].mobile_phone = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
                 for (var i = 0; i < $scope.userArray.length; i++) {
                     var info = $scope.userArray[i];
                     if (info.flag == 0) {
-                        info.mobile_phone = str;
+                        $scope.userArray[i].mobile_phone = str;
                     }
                 }
 
@@ -523,7 +490,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         // 姓名失去焦点
-        $("#name").blur(function () {
+        $(document).on("input propertychange blur", "#name", function () {
+            //$("#name").blur(function () {
             var str = _.trim($(this).val());
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#nameWaring"), $("#name"))) {
@@ -531,19 +499,19 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             }
             var user = $scope.userArray[$scope.index];
             if (user.flag == undefined) {
-                user.MEMBER_NAME = str;
+                $scope.userArray[$scope.index].MEMBER_NAME = str;
                 return;
             }
             user.flag = $scope.index;
             if ($scope.index != 0) {
-                user.MEMBER_NAME = str;
+                $scope.userArray[$scope.index].MEMBER_NAME = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var info = $scope.userArray[i];
                 if (info.flag == 0) {
-                    info.MEMBER_NAME = str;
+                    $scope.userArray[i].MEMBER_NAME = str;
                 }
             }
         });
@@ -556,7 +524,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         //银行账号失去焦点
-        $("#bankCardN").blur(function () {
+        $(document).on("input propertychange blur", "#bankCardN", function () {
+            //$("#bankCardN").blur(function () {
             var str = _.trim($(this).val());
             var pattern = /^\d{19}$/;
             if (myHappyHomeUpgradeService.showEmptyError(str,
@@ -570,18 +539,18 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 var user = $scope.userArray[$scope.index];
                 user.flag = $scope.index;
                 if (user.flag == undefined) {
-                    user.BANK_ACCOUNT = str;
+                    $scope.userArray[$scope.index].BANK_ACCOUNT = str;
                     return;
                 }
                 if ($scope.index != 0) {
-                    user.BANK_ACCOUNT = str;
+                    $scope.userArray[$scope.index].BANK_ACCOUNT = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
                 for (var i = 0; i < $scope.userArray.length; i++) {
                     var info = $scope.userArray[i];
                     if (info.flag == 0) {
-                        info.BANK_ACCOUNT = str;
+                        $scope.userArray[i].BANK_ACCOUNT = str;
                     }
                 }
 
@@ -603,7 +572,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         //开户银行失去焦点
-        $("#bank").blur(function () {
+        $(document).on("input propertychange blur", "#bank", function () {
             var str = _.trim($(this).val());
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#bankWaring"), $("#bank"))) {
@@ -612,17 +581,17 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             var user = $scope.userArray[$scope.index];
             user.flag = $scope.index;
             if (user.flag == undefined) {
-                user.BANK_NAME = str;
+                $scope.userArray[$scope.index].BANK_NAME = str;
             }
             if ($scope.index != 0) {
-                user.bank = str;
+                $scope.userArray[$scope.index].BANK_NAME = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var info = $scope.userArray[i];
                 if (info.flag == 0) {
-                    info.bank = str;
+                    $scope.userArray[i].BANK_NAME = str;
                 }
             }
         });
@@ -636,7 +605,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         //身份证号
-        $("#identityCardN").blur(function () {
+        $(document).on("blur", "#identityCardN", function () {
             var str = _.trim($(this).val());
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#identityCardNWaring"), $("#identityCardN"))) {
@@ -649,21 +618,22 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             }
             // 服务端校验
             if (myHappyHomeUpgradeService.testIdentityCardN(str, POP)) return;
+            $("#bankCardNWaring").css('display', 'none');
             var user = $scope.userArray[$scope.index];
             if (user.flag == undefined) {
-                user.ID_CARD = str;
+                $scope.userArray[$scope.index].ID_CARD = str;
                 return;
             }
             user.flag = $scope.index;
             if ($scope.index != 0) {
-                user.ID_CARD = str;
+                $scope.userArray[$scope.index].ID_CARD = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var info = $scope.userArray[i];
                 if (info.flag == 0) {
-                    info.ID_CARD = str;
+                    $scope.userArray[i].ID_CARD = str;
                 }
             }
 
@@ -684,7 +654,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         //开户姓名
-        $("#cardName").blur(function () {
+        $(document).on("input propertychange blur", "#cardName", function () {
             var str = _.trim($(this).val());
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#cardNameWaring"), $("#cardName"))) {
@@ -692,18 +662,18 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             }
             var user = $scope.userArray[$scope.index];
             if (user.flag == undefined) {
-                user.ACCOUNT_OWNER = str;
+                $scope.userArray[$scope.index].ACCOUNT_OWNER = str;
             }
             user.flag = $scope.index;
             if ($scope.index != 0) {
-                user.ACCOUNT_OWNER = str;
+                $scope.userArray[$scope.index].ACCOUNT_OWNER = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var info = $scope.userArray[i];
                 if (info.flag == 0) {
-                    info.ACCOUNT_OWNER = str;
+                    $scope.userArray[i].ACCOUNT_OWNER = str;
                 }
             }
 
@@ -718,7 +688,7 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
         }
 
         //开户支行
-        $("#bankBranch").blur(function () {
+        $(document).on("input propertychange blur", "#bankBranch", function () {
             var str = _.trim($(this).val());
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#bankBranchWaring"), $("#bankBranch"))) {
@@ -726,18 +696,18 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             }
             var user = $scope.userArray[$scope.index];
             if (user.flag == undefined) {
-                user.BANK_LOCATION = str;
+                $scope.userArray[$scope.index].BANK_LOCATION = str;
             }
             user.flag = $scope.index;
             if ($scope.index != 0) {
-                user.BANK_LOCATION = str;
+                $scope.userArray[$scope.index].BANK_LOCATION = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var info = $scope.userArray[i];
                 if (info.flag == 0) {
-                    info.BANK_LOCATION = str;
+                    $scope.userArray[i].BANK_LOCATION = str;
                 }
             }
         });
@@ -954,12 +924,14 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
                 return;
             }
             // 验证所有的user的字段
+
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var user = $scope.userArray[i];
                 var userItem = null;
                 for (userItem in user) {
                     if (user[userItem] == undefined || user[userItem] == null || user[userItem].length <= 0) {
                         POP.Hint("请确保所有输入项全部填写。");
+                        return;
                     }
                 }
             }
@@ -967,7 +939,6 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             var array = [];
             for (var i = 0; i < $scope.userArray.length; i++) {
                 var item = $scope.userArray[i];
-                console.log(item.REGION);
                 var user = {
                     "user_name": item.user_name,
                     "RECOMMENDED_MAN": item.RECOMMENDED_MAN,
@@ -1007,8 +978,8 @@ define(['app', './Fun/identityCardTest', 'css! ../../../css/my/my-happyHomeUpgra
             console.log(user_datas);
             POP.StartLoading();
             HTTP.post(API.My.updateUserLogs, {
-                "config_id": configId,
-                "id": $scope.id,
+                "config_id": Number.parseInt(configId),
+                "id": Number.parseInt($scope.id),
                 "user_data": user_datas,
             }, function (e, data) {
                 console.log(e);
