@@ -80,6 +80,7 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
             //获取订单
             myOrderFormService.getShopOrderForm($scope, POP, type);
         });
+
         var smallToTop =function() {
             $ionicScrollDelegate.$getByHandle('small').scrollTop();
         };

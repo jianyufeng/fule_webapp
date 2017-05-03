@@ -55,7 +55,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
         });
 
         // 页面销毁销毁内存
-        $scope.$on('$onicView.unloaded', function () {
+        $scope.$on('$ionicView.unloaded', function () {
             $rootScope[$state.current.name] = {};
         })
 
