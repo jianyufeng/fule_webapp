@@ -23,7 +23,7 @@
 
 <ion-content>
 <div class="navi">注册<a href="../login/login.html" style="text-decoration:none;">
-    <div class="loginBtn" style="height: 20px;width: 40px; margin-top: -55px;margin-right:20px;color:black;font-size:12px">去登录</div>
+    <div class="loginBtn" style="position:absolute;right:0px;top:0px;right:10px;font-size:14px;color:#333;">去登录</div>
 </a>
 </div>
     <!--注册界面背景-->
@@ -34,7 +34,7 @@
                 <img class="nameIcon" id="nameIcon" alt="账号" src="../resource/images/icon/user_head.png">
             </div>
             <div class="nameBox">
-                <input type="text" class="inputbox" id="account" placeholder="请输入用户名" value="" autofocus>
+                <input type="text" class="inputbox" id="account" placeholder="请输入用户名" value="">
             </div>
         </div>
         <div class="contentBox">
@@ -42,7 +42,7 @@
                 <img style="width: 21px;height: 15px" class="nameIcon" id="mailIcon" alt="邮箱" src="../resource/images/icon/email.png">
             </div>
             <div class="nameBox">
-                <input  type="text" class="inputbox" id="mailbox" placeholder="请填写常用邮箱" value="" autofocus>
+                <input  type="text" class="inputbox" id="mailbox" placeholder="请填写常用邮箱" value="">
             </div>
         </div>
         <div class="contentBox">
@@ -50,7 +50,7 @@
                 <img class="nameIcon" alt="登录密码" id="passwordIcon" src="../resource/images/icon/password_head.png">
             </div>
             <div class="nameBox">
-                <input  type="password" class="inputbox" id="loginPassword" placeholder="请输入登录密码" value="" autofocus>
+                <input  type="password" class="inputbox" id="loginPassword" placeholder="请输入登录密码" value="">
             </div>
         </div>
         <div class="contentBox">
@@ -58,7 +58,7 @@
                 <img class="nameIcon" id="secondIcon" alt="二级密码" src="../resource/images/icon/second_mima.png">
             </div>
             <div class="nameBox">
-                <input  type="password" class="inputbox" id="secondPassword" placeholder="请输入二级密码" value="" autofocus>
+                <input  type="password" class="inputbox" id="secondPassword" placeholder="请输入二级密码" value="">
             </div>
         </div>
         <div class="contentBox">
@@ -66,7 +66,7 @@
                 <img class="nameIcon" id="threeIcon" alt="三级密码" src="../resource/images/icon/three_mima.png">
             </div>
             <div class="nameBox">
-                <input  type="password" class="inputbox" id="threePassword" placeholder="请输入支付密码" value="" autofocus>
+                <input  type="password" class="inputbox" id="threePassword" placeholder="请输入支付密码" value="">
             </div>
         </div>
         <div class="contentBox">
@@ -74,16 +74,16 @@
                 <img style="width: 15px; height: 22px" class="nameIcon" id="phoneIcon" alt="手机号" src="../resource/images/icon/mobile_number.png">
             </div>
             <div class="nameBox">
-                <input  type="text" class="inputbox" id="phone" placeholder="请输入手机号码" value="" autofocus>
+                <input  type="text" class="inputbox" id="phone" placeholder="请输入手机号码">
             </div>
         </div>
     </div>
 <div class="postNoteBox">
     <img class="phoneIcon" alt="校验码" src="../resource/images/icon/login_yanzheng.png">
     <input type="text" class="note" id="note" placeholder="请输入短信校验码">
-    <div class="postNote" id="postNote">
+    <button class="postNote" id="postNote" style="border:none;">
         发送短信校验码
-    </div>
+    </button>
 </div>
     <div class="registerButton" id="register">
         立即注册
