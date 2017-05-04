@@ -26,7 +26,6 @@ define(['app'], function (app) {
                         //加载更多
                         $scope.data = $scope.data.concat(data.data);
                     } else { //根据是否上拉不同处理
-                        var length = data.data.length;
                         if ($scope.isCanPull) {
                             //加载更多
                             $scope.data = $scope.data.concat(data.data);
@@ -39,22 +38,6 @@ define(['app'], function (app) {
                             } else {
                                 $scope.isEmptyData = false;
                             }
-                        }
-                        //判断是否有下页数据
-                        if (length < 10) {
-                            $scope.isCanPull = false;
-                        } else {
-                            $scope.isCanPull = true;
-                            $scope.page++;
-                        }
-                        $scope.$broadcast('scroll.infiniteScrollComplete');
-                        //刷新
-                        $scope.data = data.data;
-                        //判断数据是否为空
-                        if (length <= 0) {
-                            $scope.isEmptyData = true;
-                        } else {
-                            $scope.isEmptyData = false;
                         }
                     }
                     //判断是否有下页数据

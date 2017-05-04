@@ -300,6 +300,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                             'user_id': info.user_id,
                             'log_id': id
                         };
+                        console.log("最后提交");
                         myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
                             console.log("购买成功");
                             //购买完毕
