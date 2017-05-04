@@ -87,7 +87,9 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
 
 app.controller("loginController", function ($scope, POP) {
     var serverIP = "http://192.168.10.123:5000";
-
+    //汉字正则
+    var hzReg = /[^\x00-\xff]/;
+    var zmReg = /^[a-zA-Z][a-zA-Z0-9]*$/;
     /*点击登录验证模式切换*/
     $('.choiceModel').click(function () {
         var v = $(this).val();
@@ -108,11 +110,18 @@ app.controller("loginController", function ($scope, POP) {
 
     /*点击发送短信效验码*/
     $('.sendBox').click(function () {
-        //获取账号
         var user_name = $.trim($('#account').val());
         //账号不为空
         if (CommenFun.isNullObj(user_name)) {
             POP.Hint("账号不能为空");
+            return;
+        }
+        if (user_name.length<6 || user_name.length>16){
+            POP.Hint("账号长度不正确");
+            return;
+        }
+        if (hzReg.test(user_name) || !zmReg.test(user_name)) {
+            POP.Hint("账号格式不正确");
             return;
         }
         var sendBox = $('.sendBox');
@@ -122,7 +131,7 @@ app.controller("loginController", function ($scope, POP) {
         var url = serverIP+"/_user/getSmsCode/user_name/" + user_name;
         HTTP.get(url, {}, function (e, data) {
             if (e) {
-                POP.Hint("data");
+                POP.Hint(data);
                 sendBox.removeAttr("disabled");
                 sendBox.text("发送短信效验码");
                 return;
@@ -157,9 +166,7 @@ app.controller("loginController", function ($scope, POP) {
     //
     //});
 
-    //汉字正则
-    var hzReg = /[^\x00-\xff]/;
-    var zmReg = /^[a-zA-Z][a-zA-Z0-9]*$/;
+
     /*登录*/
     $('#login').click(function () {
         //获取账号

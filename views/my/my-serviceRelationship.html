@@ -1,21 +1,27 @@
-<ion-view view-title="我的订单" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
+<ion-view view-title="服务关系" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
 
     <navigation-bar is-back="true" title="服务关系"></navigation-bar>
 
     <div class="searchBox">
         <input class="searchInput" type="search" placeholder="输入用户名查询"/>
-        <button class="searchBtn" type="button">查询</button>
+        <input class="searchBtn" id = "searchServiceRelationshipId" alt="查询" type="button" ng-click="searchServiceRelationship()" value="查询"/>
     </div>
 
 
-    <ion-content class="contentOutBox"  style="background-color: green ;margin-top: 100px;background:#eee;">
+    <ion-content class="contentOutBox"  style="margin-top: 100px;background:#eee;">
 
         <!--<ion-scroll style="width:100%;position:absolute;top:60px;">-->
+        <ion-refresher
+                pulling-text="下拉刷新..."
+                on-refresh="serviceRelationshipRefresh()">
+        </ion-refresher>
 
-        <!--<div ng-show="isEmptyServiceRelation" style="width: 100%;height: 200px;text-align: center;line-height: 200px"-->
-             <!--class="noServiceRelation">-->
-            <!--暂无数据-->
-        <!--</div>-->
+
+
+        <div ng-show="isEmptyServiceRelation" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
+             class="noServiceRelation">
+            暂无相关信息
+        </div>
 
 
         <div class="serviceRelationBox" style="margin-bottom:6px;" ng-repeat="serviceTerm in relationData">
@@ -89,8 +95,8 @@
             </div>
         </div>
         <!-- ion-infinite-scroll 上拉加载数据指令 distance默认1% nf-if的值为false时，就禁止执行on-infinite  -->
-        <ion-infinite-scroll ng-if="isCanPull" on-infinite="loadMore()" distance="1%"
+        <ion-infinite-scroll ng-if="isPullComplete" on-infinite="loadMoreServiceData()" distance="1%"
                              immediate-check="false"></ion-infinite-scroll>
-        <!--</ion-scroll>-->
+        </ion-scroll>
     </ion-content>
 </ion-view>

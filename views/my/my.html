@@ -2,7 +2,7 @@
     <navigation-bar title="我的" class="myHeaderBox"></navigation-bar>
     <ion-content>
         <!--下拉刷新-->
-        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()"></ion-refresher>
+        <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()" class="xiala" ng-if="islogin"></ion-refresher>
 
         <div class="unLoginBox"  style="width:100%;position:absolute;top:60px;">
             <img src="./resource/images/waitLoading.png" style="margin-bottom:30px;"/>
