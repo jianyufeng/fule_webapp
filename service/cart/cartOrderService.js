@@ -6,9 +6,9 @@ define(['app'],function(app){
 
 
         /*网络获取用户信息*/
-        service.getOrderInfo = function ($scope, POP) {
+        service.getOrderInfo = function ($scope, POP,isUpdateAddress) {
 
-
+            console.log("getOrderInfo..");
             POP.StartLoading();
 
             //获取用户的账号
@@ -62,7 +62,11 @@ define(['app'],function(app){
                 console.log(orderAmount);
 
                 $scope.$apply(function () {
-                    $scope.address     = nowAddress;                  //收货地址和信息
+
+                    if(isUpdateAddress){
+                        $scope.address = nowAddress;                  //收货地址和信息
+                    }
+                    
                     $scope.cartGoods   = data.cartInfo.cart_goods;    //购物车订单信息
                     $scope.orderInfo   = data.cartInfo.order_info;    //订单价格积分信息
                     $scope.userInfo    = data.userInfo;               //用户购买能力信息
@@ -75,21 +79,28 @@ define(['app'],function(app){
                 });
 
                 //默认请求一次运费
-                // var freightParams = {
-                //     shipping_id: $scope.deliveryArray[0].shipping_id,
-                //     cart_id: $scope.cartGoods[0].cart_id,
-                //     payment_amount: $scope.orderInfo.pay_amount
-                // }
-                //
-                // $scope.shi_id = $scope.deliveryArray[0].shipping_id;
-                //
-                // //计算运费
-                // service.countFreight($scope, freightParams, function (freight) {
-                //
-                //     $scope.shippingName = $scope.deliveryArray[0].shipping_name + '¥' + freight;
-                //     $scope.expressName = $scope.deliveryArray[0].shipping_name; //物流公司名
-                //
-                // });
+                    var freightParams = {
+                        shipping_id: $scope.deliveryArray[0].shipping_id,
+                        cart_id: $scope.cartGoods[0].cart_id,
+                        payment_amount: $scope.orderInfo.pay_amount
+                    }
+
+                    $scope.shi_id = $scope.deliveryArray[0].shipping_id;
+
+                    //计算运费
+                    service.countFreight($scope, freightParams, function (freight) {
+
+                        $scope.shippingName = $scope.deliveryArray[0].shipping_name + '¥' + freight;
+                        $scope.expressName = $scope.deliveryArray[0].shipping_name; //物流公司名
+
+                         $(".deliveryBox:eq(0)").children(".deliveryChoice").css("border", "0px");
+                        $(".deliveryBox:eq(0)").find(".deliveryChoice img").show();
+                        $(".deliveryBox:eq(0)").find(".deliveryPrice").css({visibility: "visible"});
+                        $(".deliveryBox:eq(0)").find(".deliveryPrice").html("&nbsp;&nbsp;  ¥ "+freight);
+
+                    });
+
+                   
 
 
             });
@@ -102,8 +113,7 @@ define(['app'],function(app){
 
 
             POP.StartLoading();
-
-
+            console.log("getPartOrderInfo..");
 
             //获取用户的账号
             var info = User.getInfo();
@@ -114,7 +124,7 @@ define(['app'],function(app){
 
                 if (e) {
                     $.loadError(function () {
-                        service.getPartOrderInfo();
+                        service.getOrderInfo();
                     });
                     return;
                 }
@@ -124,6 +134,7 @@ define(['app'],function(app){
                 if (data.cartInfo.cart_goods != undefined && data.cartInfo.cart_goods.length > 0){
 
                     for (var i=0;i<data.cartInfo.cart_goods.length;i++){
+                        console.log(parseFloat(data.cartInfo.cart_goods[i].goods_price));
 
                         orderAmount +=parseFloat(data.cartInfo.cart_goods[i].goods_price);
 
@@ -138,7 +149,7 @@ define(['app'],function(app){
                     $scope.orderInfo   = data.cartInfo.order_info;    //订单价格积分信息
                     $scope.userInfo    = data.userInfo;               //用户购买能力信息
                     $scope.payment     = data.payment.data[0];        //支付方式
-                    $scope.deliveryArray  = data.shipping.data;       //快递公司名
+                    $scope.deliveryArray  = data.shipping.data;     //快递公司名
                     $scope.goodsNumber = goodsCount;                  //购买商品总数
                     $scope.amountOrder = orderAmount;                 //合计价格
                     $scope.webConfig   = data.webConfig;              //免运费配置/专卖店情况
@@ -146,7 +157,27 @@ define(['app'],function(app){
                     $scope.deliveryFreight = undefined;
 
 
+                    console.log(6666666);
+                    console.log($scope.deliveryArray)
 
+                   
+
+                    //默认请求一次运费
+                    // var freightParams = {
+                    //     shipping_id: $scope.deliveryArray[0].shipping_id,
+                    //     cart_id: $scope.cartGoods[0].cart_id,
+                    //     payment_amount: $scope.orderInfo.pay_amount
+                    // }
+
+                    // $scope.shi_id = $scope.deliveryArray[0].shipping_id;
+
+                    // //计算运费
+                    // service.countFreight($scope, freightParams, function (freight) {
+
+                    //     $scope.shippingName = $scope.deliveryArray[0].shipping_name + '¥' + freight;
+                    //     $scope.expressName = $scope.deliveryArray[0].shipping_name; //物流公司名
+
+                    // });
 
 
 

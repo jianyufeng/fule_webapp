@@ -33,7 +33,7 @@ define(['app'],function (app) {
             /*购物车 确认订单 路由*/
             .state('tab.cart_orderConfirm', {
                 url: '/cart_orderConfirm',
-                cache : false,
+                //cache : false,
                 views: {
                     'tab-cart': {
                         templateUrl: "views/cart/cart_orderConfirm.html?_r=" + Math.random(),
