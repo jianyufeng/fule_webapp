@@ -139,16 +139,18 @@ define(['app'], function (app) {
                 $("#address").val(address);
             }
             if (index > 0) {
-                $("#recommend").attr("readonly", "readonly");
-                $("#node").attr("readonly", "readonly");
-                $("#selectResult").attr("disabled", "disabled");
+                console.log(11111111111);
+                $("#recommend").attr("disabled", "true");
+                $("#node").attr("disabled", "true");
+                $("#selectResult").attr("disabled", "true");
                 $("#recommendWaring").hide();
                 $("#nodeWaring").hide();
+                $(".waring").hide();
                 $scope.upGrade.click = false;
             } else {
-                $("#recommend").removeAttr("readonly");
-                $("#node").removeAttr("readonly");
-                $("#selectResult").removeAttr("readonly");
+                $("#recommend").removeAttr("disabled");
+                $("#node").removeAttr("disabled");
+                $("#selectResult").removeAttr("disabled");
             }
             $scope.index = index;
         }

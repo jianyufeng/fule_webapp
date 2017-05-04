@@ -727,6 +727,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 'height': '44px',
                 'line-height': '44px',
             })
+
         });
         $("#node").focus(function () {
             $("#nodeWaring").css('display', 'none');
