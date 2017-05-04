@@ -62,10 +62,7 @@ define(['app'],function(app){
 
                 $scope.$apply(function () {
 
-                   
-                        $scope.address = nowAddress;                  //收货地址和信息
-                   
-                    
+                    $scope.address     = nowAddress;                      //收货地址和信息
                     $scope.cartGoods   = data.cartInfo.cart_goods;    //购物车订单信息
                     $scope.orderInfo   = data.cartInfo.order_info;    //订单价格积分信息
                     $scope.userInfo    = data.userInfo;               //用户购买能力信息
@@ -174,8 +171,6 @@ define(['app'],function(app){
             HTTP.post(API.Cart.verifyUserPassword,updateParams,function(e,data){
 
                 POP.EndLoading();
-
-                console.log("*******" + data);
 
                 if(e){
                     POP.Hint("密码错误!");

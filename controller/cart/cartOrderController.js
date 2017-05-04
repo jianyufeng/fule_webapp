@@ -9,9 +9,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
         $scope.$on('$ionicView.loaded', function () {
 
-
-          
-
             cartOrderService.getOrderInfo($scope, POP);
             // console.log("订单更新"+ $scope.cartGoods);
         });
@@ -20,7 +17,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
         $scope.$on('$ionicView.beforeEnter', function () {
             $(".popBg,.popBox").css("display", "none");
 
-cartOrderService.getPartOrderInfo($scope, POP);
+          cartOrderService.getPartOrderInfo($scope, POP);
+
         });
 
 
