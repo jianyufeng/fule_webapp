@@ -61,51 +61,46 @@ define(['app'], function (app) {
 
         };
 
-        ////搜索内容
-        //service.searchManageAction = function ($scope, POP) {
-        //
-        //    var searchContent = $('.form-control').val();
-        //
-        //    POP.StartLoading();
-        //
-        //    //获取用户的账号
-        //    var info = User.getInfo()
-        //
-        //    HTTP.get(API.My.manageRelationships + "/user_id/"+info.user_id + "/search_user_name/" + searchContent, {}, function (e, data) {
-        //
-        //        POP.EndLoading();
-        //
-        //        console.log(data);
-        //        if (e) {
-        //            POP.Alert("查询有误")
-        //            return;
-        //        }
-        //
-        //        $scope.$apply(function () {
-        //            //为html页面注入数据
-        //            $scope.data  = data.data;
-        //            $scope.relationCount = data.count;
-        //
-        //            if (data.count == 0) {
-        //                $scope.isEmptyData = true;
-        //            } else {
-        //                $scope.isEmptyData = false;
-        //
-        //            }
-        //            $scope.isPullComplete = false;
-        //            $scope.$broadcast('scroll.refreshComplete');
-        //
-        //        });
-        //
-        //    });
-        //
-        //
-        //};
+        //搜索内容
+        service.searchManageAction = function ($scope, POP) {
+
+            var searchContent = $('.form-control').val();
+
+            POP.StartLoading();
+
+            //获取用户的账号
+            var info = User.getInfo()
+
+            HTTP.get(API.My.manageRelationships + "/user_id/"+info.user_id + "/search_user_name/" + searchContent, {}, function (e, data) {
+
+                POP.EndLoading();
+
+                console.log(data);
+                if (e) {
+                    POP.Alert("查询有误")
+                    return;
+                }
+
+                $scope.$apply(function () {
+                    //为html页面注入数据
+                    $scope.data  = data.data;
+                    $scope.relationCount = data.count;
+
+                    if (data.count == 0) {
+                        $scope.isEmptyData = true;
+                    } else {
+                        $scope.isEmptyData = false;
+
+                    }
+                    $scope.isPullComplete = false;
+                    $scope.$broadcast('scroll.refreshComplete');
+
+                });
+
+            });
 
 
-
-
-
+        };
 
 
 
