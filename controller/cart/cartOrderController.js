@@ -19,7 +19,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
             $(".popBg,.popBox").css("display", "none");
 
 
-            
+
 
             cartOrderService.getPartOrderInfo($scope, POP);
 
