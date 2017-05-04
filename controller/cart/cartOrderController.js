@@ -8,6 +8,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
         $scope.$on('$ionicView.loaded', function () {
 
+            
 
             cartOrderService.getOrderInfo($scope, POP);
             // console.log("订单更新"+ $scope.cartGoods);
@@ -17,7 +18,11 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
         $scope.$on('$ionicView.beforeEnter', function () {
             $(".popBg,.popBox").css("display", "none");
 
+
+            
+
             cartOrderService.getPartOrderInfo($scope, POP);
+
             // console.log("局部订单更新" + $scope.cartGoods);
         });
 
@@ -55,6 +60,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
         //图片加载的方法
         $scope.$on("viewOnFinish", function () {
+
 
             $(".orderItemImg img").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数
@@ -193,6 +199,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
                     $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
                     $scope.expressName = $(".deliveryContent").eq(_index).text(); //物流公司名
 
+           
                 });
 
                 if ($(this).find("img").is(':visible')) {

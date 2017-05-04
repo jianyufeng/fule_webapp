@@ -83,7 +83,7 @@ define(['app'],function(app){
         //提示
         service.Hint = function(msg){
             $ionicLoading.show({
-                showBackdrop: false,   
+               // showBackdrop: false,   
                 template: msg,
                 duration : 2000
             });
