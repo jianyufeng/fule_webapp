@@ -235,30 +235,30 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                             var goodsprice = $(this).data("goodsprice");
                             var goodsattr = $(this).data("goodsattr");
                             goodInfo.goods_id = item.goods_id;
+                            goodInfo.product_id = productid;
                             goodInfo.goods_name = item.goods_name;
+                            goodInfo.extension_code = 0;
                             goodInfo.goods_number = input;
+                            goodInfo.goods_price = item.shop_price;
+                            goodInfo.goods_attr = goodsattr;
+                            goodInfo.goods_sn = item.goods_sn;
                             goodInfo.market_price = item.market_price;
                             goodInfo.goods_type = item.goods_type;
-                            goodInfo.goods_price = item.shop_price;
-                            goodInfo.goods_sn = item.goods_sn;
-                            goodInfo.product_id = productid;
-                            goodInfo.goods_attr = goodsattr;
-                            goodInfo.extension_code = 0;
                             goodInfo.goods_attr_id = 0;
 
                         } else {
                             //非属性商品  获取item的属性
                             var item = $(this).data("gooditem");
                             goodInfo.goods_id = item.goods_id;
+                            goodInfo.product_id = 0;
                             goodInfo.goods_name = item.goods_name;
+                            goodInfo.extension_code = 0;
                             goodInfo.goods_number = input;
                             goodInfo.goods_price = item.shop_price;
+                            goodInfo.goods_attr = 0;
                             goodInfo.goods_sn = item.goods_sn;
                             goodInfo.market_price = item.market_price;
                             goodInfo.goods_type = item.goods_type;
-                            goodInfo.product_id = 0;
-                            goodInfo.extension_code = 0;
-                            goodInfo.goods_attr = 0;
                             goodInfo.goods_attr_id = 0;
                         }
                         goods_infos.push(goodInfo);
@@ -275,8 +275,8 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                     'referer': '手机'
                 },
                 'goods_info': goods_infos,
-                'user_id': info.user_id,
                 'id': id,
+                'user_id': info.user_id,
                 'user_name': info.user_name,
                 'config_id': configId
             };
