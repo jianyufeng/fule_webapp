@@ -42,7 +42,7 @@
 }
 .of_itemBox .of_moneyBox .of_leftBox {
   height: 50px;
-  width: 45%;
+  width: 60%;
   float: left;
 }
 .of_itemBox .of_moneyBox .of_leftBox .of_moneyName {
@@ -54,10 +54,10 @@
 }
 .of_itemBox .of_moneyBox .of_rightBox {
   height: 50px;
-  width: 55%;
+  width: 38%;
   float: left;
   text-align: right;
-  padding-right: 5%;
+  margin-right: 2%;
 }
 .of_itemBox .of_moneyBox .of_rightBox .of_moneyTime {
   font-size: 12px;

@@ -177,6 +177,8 @@ define(['app'], function (app) {
             HTTP.post(API.My.butyHapplyOver, param, function (e, data) {
                 POP.EndLoading();
                 if (e) {
+                    console.log("购买shibai");
+
                     POP.Hint(data);
                     return;
                 }

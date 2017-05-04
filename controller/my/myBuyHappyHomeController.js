@@ -301,6 +301,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                             'log_id': id
                         };
                         myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
+                            console.log("购买成功");
                             //购买完毕
                             POP.Hint("购买成功");
                             $state.go('tab.my');
