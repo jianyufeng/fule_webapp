@@ -30,7 +30,6 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-serviceRelationship'], fun
         //上拉加载
         $scope.loadMoreServiceData = function () {
 
-
             myServiceRelationService.loadMoreServiceRelationship($scope, POP,function () {
 
                 console.log("数据上拉加载完成");

@@ -116,12 +116,12 @@ define(['app'],function(app){
         //上拉加载
         service.loadMoreServiceRelationship = function ($scope, POP,fn) {
 
-            if (!$scope.isPullComplete) {
-                $scope.$broadcast('scroll.refreshComplete');
+            if ($scope.isPullComplete == false) {
+                $scope.$broadcast('scroll.infiniteScrollComplete');
                 return;
             }
 
-            var info = User.getInfo()
+            var info = User.getInfo();
 
             HTTP.get(API.My.serviceRelationShip + "/user_id/" + info.user_id + "/limit/10" + "/skip/" + $scope.servicePage * 10, {}, function (e, data) {
 
@@ -130,6 +130,7 @@ define(['app'],function(app){
                     return;
                 }
 
+                console.log(data);
                //添加到上次数据的后面
                 $scope.$apply(function () {
 
@@ -147,14 +148,13 @@ define(['app'],function(app){
 
                     }
 
-                    $scope.$broadcast('scroll.refreshComplete');
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
+                       fn();
+
 
                 });
 
             });
-
-
-            console.log($scope.relationData);
 
 
         }
@@ -200,8 +200,6 @@ define(['app'],function(app){
 
 
         };
-
-
 
 
         return service;
