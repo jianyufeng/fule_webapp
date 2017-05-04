@@ -56,7 +56,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         //当前数量产品的金额
         $scope.goodMoney = 0;
 
-        $(document).on("input propertychange", ".bhh_search", function () {
+        $(document).off("input propertychange", ".bhh_search").on("input propertychange", ".bhh_search", function () {
             var val = $.trim($(this).val());
             if (val == "") {
                 $("div .bhh_goodItemBox").show();
@@ -78,7 +78,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         //
         //});
         var reg = /^[0-9]\d*$/;
-        $(document).on("input propertychange", ".bhh_buyNumber", function () {
+        $(document).off("input propertychange", ".bhh_buyNumber").on("input propertychange", ".bhh_buyNumber", function () {
 
             //获取输入的产品数
             var input = $(this).val();
@@ -128,8 +128,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 var n = Number.parseFloat(sel.text());
                 sel.text(n - oldInput + input);
             }
-
-
             $scope.$apply(function () {
                 //计算总金额
                 $scope.totalMoney = $scope.totalMoney - oldMoney + newMoney;
@@ -302,7 +300,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                         };
                         myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
                             //购买完毕
-                            POP.Hint("购买成功");
                             $state.go('tab.my');
                         })
 

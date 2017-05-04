@@ -2,7 +2,13 @@
 
     <navigation-bar is-back="true" title="管理关系"></navigation-bar>
 
-    <ion-content style="background-color: white ;top: 60px;background:#eee;">
+    <div class="searchBox">
+        <input type="search" class="form-control" placeholder="请输入用户名" id="tableSearchValue" style="position: relative;">
+        <!--<button class="searchButton" id="tableSearchButton">搜索</button>-->
+        <input class="searchButton" id = "searchServiceRelationshipId" alt="查询" type="button" ng-click="searchServiceRelationship()" value="查询"/>
+    </div>
+
+    <ion-content style="background-color: white ;top: 100px;background:#eee;">
 
 
         <div class="contentBox">
@@ -11,10 +17,6 @@
                 <!--<option value="0" selected="selected">&#45;&#45;请选择&#45;&#45;</option>-->
                 <!--<option value="search_user_name">用户名</option>-->
             <!--</select>-->
-            <div class="searchBox">
-             <input type="text" class="form-control" placeholder="请输入用户名" id="tableSearchValue" style="position: relative;">
-             <button class="searchButton" id="tableSearchButton">搜索</button>
-            </div>
 
             <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
                  class="of_emptyList">
@@ -25,10 +27,10 @@
             <div class="topBox">
                 <div class="accountBox">
                     <div class="contentItem">
-                        用户名:
+                        用户名&nbsp;:
                     </div>
                     <div class="accountItem">
-                        {{item.user_name}}
+                        &nbsp;&nbsp;{{item.user_name}}
                     </div>
                 </div>
                 <!--<div class="timeBox">-->
@@ -53,7 +55,7 @@
                         级别:
                     </div>
                     <div class="bottomRightItem">
-                        {{item.REGISTER_GRADE}}
+                        {{item.REGISTER_GRADE | registerGradeFilter}}
                     </div>
                 </div>
 
@@ -62,7 +64,7 @@
                         资格:
                     </div>
                     <div class="bottomRightItem">
-                        {{item.IS_PI_FA}}
+                        {{item.IS_VIP == 0?"":"VIP "}}{{item.IS_PI_FA== 0?"":"批发 "}}{{item.ZHUAN_MAI_DIAN_GRADE | exclusiveAgencyFilter}}
 
                     </div>
                 </div>
@@ -72,7 +74,7 @@
                         批发等级:
                     </div>
                     <div class="bottomRightItem">
-                        {{item.ZHUAN_MAI_DIAN_GRADE}}
+                        {{item.ZHUAN_MAI_DIAN_GRADE | memberGradeFilter}}
 
                     </div>
                 </div>

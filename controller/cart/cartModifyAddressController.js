@@ -118,6 +118,16 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             if (recieverName ==null || recieverName.length <= 0){
                 POP.Hint("姓名不能为空");
                 return;
+            }else {
+                //正则验证用户名为数字、字母或者中文
+                var re = /^[\w\u4e00-\u9fa5]+$/;
+
+                if (!re.test(recieverName)){
+
+                    POP.Hint("收货人姓名出现非法字符");
+                    return;
+                }
+
             }
             //收货人手机号码
             if (mobileNumeber ==null || mobileNumeber.length <= 0){
@@ -149,11 +159,33 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             if (location ==null || location.length <= 0){
                 POP.Hint("收货地址不能为空");
                 return;
+            }else {
+
+                //正则验证用户名为数字、字母或者中文
+                var re = /^[\w\u4e00-\u9fa5]+$/;
+
+                if (!re.test(location)){
+
+                    POP.Hint("收货地址出现非法字符");
+                    return;
+                }
+
+
+
             }
             //地址别名
             if (categray ==null || categray.length <= 0){
                 POP.Hint("地址别名不能为空");
                 return;
+            }else {
+                //正则验证用户名为数字、字母或者中文
+                var re = /^[\w\u4e00-\u9fa5]+$/;
+
+                if (!re.test(categray)){
+
+                    POP.Hint("地址别名出现非法字符");
+                    return;
+                }
             }
             //邮箱地址
             if (email ==null || email.length <= 0){
