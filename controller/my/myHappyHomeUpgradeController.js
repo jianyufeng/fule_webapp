@@ -201,7 +201,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 return;
             }
 
-            var pattern = /^[A-Z a-z _ \d ]/;
+            var pattern = /^[A-Za-z0-9_]+$/;
 
             if (!pattern.test(str)) {
                 myHappyHomeUpgradeService.showError($("#mallPassWordWaring"), $("#mallPassWord"), "输入的格式有误请重新输入");

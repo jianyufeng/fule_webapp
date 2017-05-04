@@ -94,9 +94,23 @@ define(['app'], function (app) {
                 POP.Hint("请填写短信验证码！");
                 return;
             }
+
+            // 验证用户名格式
+
+            var parrt = /^[A-Za-z0-9_]+$/;
+            if (!parrt.test(targetName)) {
+                POP.Hint("转账对象格式不正确，请重新输入！");
+                return;
+            }
+            // 验证转账金额
+            if (money <= 0) {
+                POP.Hint("金额格式不正确，请重新输入！");
+                return;
+            }
             var parrt = /^\d{6}$/;
             if (!parrt.test(passWord)) {
                 POP.Hint("密码格式不正确，请重新输入！");
+                return;
             }
             var userInfo = User.getInfo();
             var userName = userInfo.user_name;
