@@ -174,18 +174,12 @@ define(['app'], function (app) {
         service.happlyOver = function (param, $scope, POP, fn) {
             //提交订单
             POP.StartLoading();
-            console.log("kaishi最后提交");
             HTTP.post(API.My.butyHapplyOver, param, function (e, data) {
                 POP.EndLoading();
-                console.log("最后提交完成");
                 if (e) {
-                    console.log("购买shibai");
-
                     POP.Hint(data);
                     return;
                 }
-                console.log("最后提交完成222");
-
                 fn();
             })
         };
