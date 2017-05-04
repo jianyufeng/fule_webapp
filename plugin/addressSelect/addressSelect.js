@@ -54,7 +54,7 @@ define(function(){
 
             //初始化已有数据
 
-            console.log(this.paData);
+           console.log(this.paData);
 
             if(this.paData != null){
                 this.initSelectedData();
@@ -73,7 +73,7 @@ define(function(){
                 //选中相应省份
                 $(".provinceBox .addressItem").each(function(){
                     var _id = $(this).attr("id");
-                    console.log(_id);
+                   // console.log(_id);
                     if(_id == _this.options.provinceid){
                         $(this).trigger("click");
                     }
@@ -86,7 +86,7 @@ define(function(){
                 //选中相应省份
                 $(".cityBox .addressItem").each(function(){
                     var _id = $(this).attr("id");
-                    console.log(_id);
+                   // console.log(_id);
                     if(_id == _this.options.cityid){
                         $(this).trigger("click");
                     }
@@ -99,7 +99,7 @@ define(function(){
                 //选中相应省份
                 $(".areaBox .addressItem").each(function(){
                     var _id = $(this).attr("id");
-                    console.log(_id);
+                   // console.log(_id);
                     if(_id == _this.options.areaid){
                         $(this).trigger("click");
                     }
@@ -116,6 +116,10 @@ define(function(){
 
         //创建视图
         AddressSelect.prototype.createView = function(){
+
+            //console.log(88888);
+           // console.log(this.maskBox);
+
 
             //创建遮罩
             this.maskBox = $("<div class='addressSelectBox'></div>");
@@ -253,12 +257,12 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
 
 
             if(_this.paData != null){
-                console.log("本地缓存");
+               // console.log("本地缓存");
           
                 _this.updateProvincesDOM(_this.paData.items);
             }else{
 
-                console.log("网络请求");
+               // console.log("网络请求");
 
                 //获取省份信息
                 HTTP.get(_this.options.provinceAPI,{},function(e,data){
@@ -282,10 +286,10 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
             var _this = this;
 
             //省份点击
-            $(document).on("click",".provinceBox .addressItem",function(){
+            $(document).off("click",".provinceBox .addressItem").on("click",".provinceBox .addressItem",function(){
 
                 if(_this.lock){
-                    console.log("被锁");
+                   // console.log("被锁");
                     return false;
                 }
 
@@ -328,7 +332,7 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
 
      //setTimeout(function(){
 
-                    console.log(33333);
+                   // console.log(33333);
 
                     var cData = locationInfo.getCity(pid);
 
@@ -370,7 +374,7 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
 
 
             //城市点击
-            $(document).on("click",".cityBox .addressItem",function(){
+            $(document).off("click",".cityBox .addressItem").on("click",".cityBox .addressItem",function(){
 
                 _this.lock = true;
 
@@ -405,8 +409,8 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
 
                     if(aData !=null){
 
-                        console.log("本地获取");
-                        console.log(aData);
+                       // console.log("本地获取");
+                       // console.log(aData);
 
                         if(aData.items.length > 0){
                             _this.options.isSelectedArea = true;
@@ -462,7 +466,7 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
             });
 
              //区域点击
-            $(document).on("click",".areaBox .addressItem",function(){
+            $(document).off("click",".areaBox .addressItem").on("click",".areaBox .addressItem",function(){
                 $(".areaBox .addressItem").css("background","#FFF");
                 $(this).css("background","#F5F5F5");
 
@@ -477,9 +481,9 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
             
             });
 
-            $(document).on("click","#addressSubmit",function(){
+            $(document).off("click","#addressSubmit").on("click","#addressSubmit",function(){
 
-                console.log(_this.aId);
+              //  console.log(_this.aId);
 
                 if(_this.pId == 0||_this.cId==0){
                     _this.noErrorResult();
@@ -507,22 +511,31 @@ pDOM += "<div id='"+aData[i].county_id+"' class='addressItem'>"+aData[i].county_
                 _this.selectBox.animate({
                     bottom:-350
                 },500);
+                
 
+            
                 _this.options.resultBtnClick(params);
 
-
+                
 
             });
 
-            $(document).on("click",".addressSelectBox",function(e){
+            $(document).off("click",".addressSelectBox").on("click",".addressSelectBox",function(e){
 
                 if(e.target.className == 'addressSelectBox'){
-                _this.maskBox.fadeOut(200);
-                _this.selectBox.animate({
-                    bottom:-350
-                },500);
-                }
+                    _this.maskBox.fadeOut(200);
+                    _this.selectBox.animate({
+                        bottom:-350
+                    },500,function(){
+                        _this.maskBox.remove();
+                        _this.selectBox.remove();
+                    });
 
+                    
+                 }
+            
+            
+                
                 
             });
 
