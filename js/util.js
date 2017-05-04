@@ -85,6 +85,12 @@ define(['linq'],function () {
 				if (data.success) {
 					_callback(null, data.result);
 				} else {
+
+					if(data.result == undefined){
+						_callback(true,"请求失败，请重新尝试");
+						return;
+					}
+
 					if(data.result.message == undefined){
 						_callback(true, data.result);
 					}else{
