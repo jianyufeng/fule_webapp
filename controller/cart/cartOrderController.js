@@ -6,11 +6,16 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
     function ctrl($rootScope, $scope, cartOrderService, POP, $state) {
 
+        isUpdateAddress = true;
+
+        
+
         $scope.$on('$ionicView.loaded', function () {
 
-            
 
-            cartOrderService.getOrderInfo($scope, POP);
+            console.log(isUpdateAddress);    
+
+            cartOrderService.getOrderInfo($scope, POP,isUpdateAddress);
             // console.log("订单更新"+ $scope.cartGoods);
         });
 
@@ -21,7 +26,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
             
 
-            cartOrderService.getPartOrderInfo($scope, POP);
+          //  cartOrderService.getPartOrderInfo($scope, POP);
 
             // console.log("局部订单更新" + $scope.cartGoods);
         });
@@ -30,9 +35,11 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
         // 接收传值页面传过来的地址内容
         $rootScope.$on('changeAddressInfo', function (event, args) {
 
+            console.log("changeAddressInfo..");
 
             //将新的值重新注入页面
             $scope.$apply(function () {
+                isUpdateAddress = false;
                 $scope.address = args.address;
             })
 
