@@ -266,7 +266,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 });
 
             //创建提交信息
-            
+
             var info = User.getInfo();
             var paras = {
                 'order_info': {
