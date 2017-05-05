@@ -23,7 +23,6 @@ define(['app'], function (app) {
                     var listB = [];
                     for (var i = 0; i < data.data.length; i++) {
                         var item = data.data[i];
-                        console.log(item);
                         if (item.user_money > 0 && item.fxp_points <= 0) {
                             listA.push(item);
                         }

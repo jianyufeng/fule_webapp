@@ -51,7 +51,7 @@ define(function () {
             var nowNum = parseInt($(this).next().find("input").val());
 
             //判断手动输入商品数量为空
-            if(_.isNaN(nowNum)){
+            if(_.isNaN(nowNum)|| nowNum == 0){
 
                 nowNum = 1;
                 parseInt($(this).val(nowNum));
@@ -102,7 +102,7 @@ define(function () {
             var nowNum = parseInt($(this).prev().find("input").val());
 
             //判断手动输入商品数量为空
-            if(_.isNaN(nowNum)){
+            if(_.isNaN(nowNum) || nowNum == 0){
 
                 nowNum = 1;
                 parseInt($(this).val(nowNum));
@@ -154,7 +154,7 @@ define(function () {
             var oldNum = $(this).data("oldvalue");
 
             //判断手动输入商品数量为空
-            if(_.isNaN(nowNum)){
+            if(_.isNaN(nowNum)|| nowNum == 0){
 
                 nowNum = oldNum;
                 parseInt($(this).val(oldNum));

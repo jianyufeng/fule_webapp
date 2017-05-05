@@ -126,7 +126,7 @@ define(['app'],function(app){
                     $scope.payment     = data.payment.data[0];        //支付方式
                     $scope.deliveryArray = data.shipping.data;       //快递公司名
                     $scope.goodsNumber = goodsCount;                  //购买商品总数
-                    $scope.amountOrder = orderAmount;                 //合计价格
+                    $scope.amountOrder = $scope.orderInfo.pay_amount;  //合计价格
                     $scope.webConfig   = data.webConfig;              //免运费配置/专卖店情况
 
                 });
@@ -142,9 +142,10 @@ define(['app'],function(app){
 
                     //计算运费
                     service.countFreight($scope, freightParams, function (freight) {
-
                         $scope.shippingName = $scope.deliveryArray[0].shipping_name + '¥' + freight;
-                        $scope.expressName = $scope.deliveryArray[0].shipping_name; //物流公司名
+                        $scope.expressName  = $scope.deliveryArray[0].shipping_name; //物流公司名
+                        $scope.amountOrder  = $scope.orderInfo.pay_amount + freight;
+
 
                         $(".deliveryBox:eq(0)").children(".deliveryChoice").css("border", "0px");
                         $(".deliveryBox:eq(0)").find(".deliveryChoice img").show();

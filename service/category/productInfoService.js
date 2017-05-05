@@ -186,6 +186,10 @@ define(['app'], function (app) {
                 var goodsName = $scope.productName;
                 var goodsNumber = Number.parseInt($("#_number").val());
                 $scope.count=goodsNumber;
+                if($scope.count<1){
+                    POP.Hint("最少添加一个商品！");
+                    return;
+                }
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
                     "user_id": userInfo.user_id,

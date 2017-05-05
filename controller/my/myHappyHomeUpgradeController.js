@@ -99,8 +99,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                         $scope.userArray[i].flag = 0;
                     }
 
-
-
                     myHappyHomeUpgradeService.showUserGrade($scope, $scope.index);
                 });
 
@@ -212,13 +210,11 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             var user = $scope.userArray[$scope.index];
             if (user.flag == undefined) {
                 user.BANK_NAME = 3;
-                console.log(1111111111);
                 return;
             }
             user.flag = $scope.index;
             if ($scope.index != 0) {
                 user.BANK_NAME = 3;
-                console.log(222222222222);
                 return;
             }
             //    // 输入完成赋值给其他的输入项
@@ -226,7 +222,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 var info = $scope.userArray[i];
                 if (info.flag == 0) {
                     info.BANK_NAME = 3;
-                    console.log(3333333333);
                 }
             }
 
