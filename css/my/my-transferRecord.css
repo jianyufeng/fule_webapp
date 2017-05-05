@@ -30,14 +30,11 @@
 .tr_navBox .tr_nav:first-child {
   color: #d39bc5;
 }
-.tr_Box {
-  margin-top: 6px;
-}
 .tr_itemBox {
   width: 100%;
   min-height: 250px;
   background: white;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .tr_itemBox .transInPersonBox,
 .tr_itemBox .tr_transOutPersonBox,

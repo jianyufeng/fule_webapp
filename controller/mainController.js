@@ -30,7 +30,7 @@ define(['app'],function(app){
 
 		}
 
-		console.log(111111);
+		//console.log(111111);
 		//console.log(locationInfo.getProvince());
 		//console.log(locationInfo.getCity(5));
 		//console.log(locationInfo.getArea(62));
@@ -65,8 +65,19 @@ define(['app'],function(app){
 			}else if(index==4) {
 				$state.go('tab.my', {});
 			}
-		}
-
+		};
+		//var refresh = $.cookie('refresh');
+		//if(refresh == undefined || refresh === 'null'){
+		//}else{
+		//	$state.go('tab.home', {});
+		//	window.setTimeout(function(){
+		//		$rootScope.hideTabs = false;
+		//		$ionicHistory.clearHistory();
+		//	},0);
+        //
+        //
+		//}
+		//$.cookie("refresh", 1, {path: '/'});
 	}
 
 	ctrl.$inject = ['$scope','$rootScope','$state'];
