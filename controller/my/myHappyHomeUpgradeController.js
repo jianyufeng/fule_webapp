@@ -30,6 +30,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             }
         });
 
+
         $scope.showLeftOrRight = function () {
             tagAnimateFun.showLeftOrRight($scope, $ionicScrollDelegate);
         }
@@ -54,6 +55,56 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     $state.go("tab.my-happyHomeList", {});
                 });
         };
+
+        $scope.reset = function () {
+            POP.Confirm("是否清除所有的用户信息？", function () {
+                },
+                "清除", "不清除", function () {
+                    // 清楚用户的所有信息
+                    for (var i = 0; i < $scope.userArray.length; i++) {
+                        if (i == 0) {
+                            $scope.userArray[i].RECOMMENDED_MAN = null;
+                            //节点人
+                            $scope.userArray[i].CONTACT_MAN = null;
+                            // 区域
+                            $scope.userArray[i].REGION = null;
+                        }
+                        //商城密码
+                        $scope.userArray[i].PASSWORD = null;
+                        //二级密码
+                        $scope.userArray[i].SECOND_PASSWORD = null;
+                        //支付密码
+                        $scope.userArray[i].THREE_PASSWORD = null;
+                        //Email
+                        $scope.userArray[i].email = null;
+                        //手机
+                        $scope.userArray[i].mobile_phone = null;
+                        //姓名
+                        $scope.userArray[i].MEMBER_NAME = null;
+                        //银行账号
+                        $scope.userArray[i].BANK_ACCOUNT = null;
+                        //开户银行
+                        $scope.userArray[i].BANK_NAME = null;
+                        //身份证号
+                        $scope.userArray[i].ID_CARD = null;
+                        //开户姓名
+                        $scope.userArray[i].ACCOUNT_OWNER = null;
+                        // 开户支行
+                        $scope.userArray[i].BANK_LOCATION = null;
+                        //省市地区
+                        $scope.userArray[i].BANK_STATE_ID = null;
+                        $scope.userArray[i].BANK_CITY_ID = null;
+                        $scope.userArray[i].BANK_DISTRICT_ID = null;
+                        //标记
+                        $scope.userArray[i].flag = 0;
+                    }
+
+
+
+                    myHappyHomeUpgradeService.showUserGrade($scope, $scope.index);
+                });
+
+        }
 
 
         $('#abc1').click(function () {
@@ -232,7 +283,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 return;
             }
 
-            var pattern = /^[A-Z a-z _ \d ]/;
+            var pattern = /^[A-Za-z0-9_]+$/;
 
             if (!pattern.test(str)) {
                 myHappyHomeUpgradeService.showError($("#nodeWaring"), $("#node"), "输入的格式有误请重新输入");
@@ -299,7 +350,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         // 二级密码失去焦点
         $(document).on("input propertychange blur", "#secondPassWord", function () {
-            //$("#secondPassWord").blur(function () {
             var str = _.trim($(this).val());
             var pattern = /^[A-Z a-z \d ]{6,16}$/;
             if (myHappyHomeUpgradeService.showEmptyError(str,
@@ -371,7 +421,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 for (var i = 0; i < $scope.userArray.length; i++) {
                     var info = $scope.userArray[i];
                     if (info.flag == 0) {
-                        //info.THREE_PASSWORD = str;
                         $scope.userArray[i].THREE_PASSWORD = str;
                     }
                 }
@@ -414,7 +463,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 }
                 if ($scope.index != 0) {
                     $scope.userArray[$scope.index].email = str;
-                    //user.email = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项

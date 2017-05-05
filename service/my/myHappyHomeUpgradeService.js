@@ -41,9 +41,9 @@ define(['app'], function (app) {
                         if (i == 0) {
 
                             // 推荐人
-                            user.RECOMMENDED_MAN = "";
+                            user.RECOMMENDED_MAN = null;
                             //节点人
-                            user.CONTACT_MAN = "";
+                            user.CONTACT_MAN = null;
                             // 区域
                             user.REGION = null;
                             createUser(user);
@@ -80,7 +80,7 @@ define(['app'], function (app) {
                     $scope.userNameArray = userNameArray;
                     $(".of_navBox").css('width', 120 * userNameArray.length + "px");
                     var width = $(document.body).width();
-                    if (width < (120 * userNameArray.length + 10)) {
+                    if (width < (120 * userNameArray.length )) {
                         $scope.showAnimate = true;
                         tagAnimateFun.startTagAnimate();
                     } else {
@@ -119,9 +119,10 @@ define(['app'], function (app) {
                 $("#bank").val("中国工商银行");
             } else if (info.BANK_NAME == 2) {
                 $("#bank").val("中国农业银行");
-            }
-            if (info.BANK_NAME == 3) {
+            } else if (info.BANK_NAME == 3) {
                 $("#bank").val("中国建设银行");
+            }else {
+                $("#bank").val("--请选择--");
             }
             $("#mallPassWord").val(info.PASSWORD);
             $("#secondPassWord").val(info.SECOND_PASSWORD);
@@ -134,9 +135,11 @@ define(['app'], function (app) {
             $("#identityCardN").val(info.ID_CARD);
             $("#cardName").val(info.ACCOUNT_OWNER);
             $("#bankBranch").val(info.BANK_LOCATION);
-            if (info.BANK_STATE_ID != "") {
+            if (info.BANK_STATE_ID != null) {
                 var address = locationInfo.getAddressName(info.BANK_STATE_ID, info.BANK_CITY_ID, info.BANK_DISTRICT_ID);
                 $("#address").val(address);
+            }else {
+                $("#address").val("请选择地址");
             }
             if (index > 0) {
                 $("#recommend").attr("disabled", "true");
@@ -248,31 +251,31 @@ define(['app'], function (app) {
 
         function createUser(user) {
             //商城密码
-            user.PASSWORD = "";
+            user.PASSWORD = null;
             //二级密码
-            user.SECOND_PASSWORD = "";
+            user.SECOND_PASSWORD = null;
             //支付密码
-            user.THREE_PASSWORD = "";
+            user.THREE_PASSWORD = null;
             //Email
-            user.email = "";
+            user.email = null;
             //手机
-            user.mobile_phone = "";
+            user.mobile_phone = null;
             //姓名
-            user.MEMBER_NAME = "";
+            user.MEMBER_NAME = null;
             //银行账号
-            user.BANK_ACCOUNT = "";
+            user.BANK_ACCOUNT = null;
             //开户银行
-            user.BANK_NAME = "";
+            user.BANK_NAME = null;
             //身份证号
-            user.ID_CARD = "";
+            user.ID_CARD = null;
             //开户姓名
-            user.ACCOUNT_OWNER = "";
+            user.ACCOUNT_OWNER = null;
             // 开户支行
-            user.BANK_LOCATION = "";
+            user.BANK_LOCATION = null;
             //省市地区
-            user.BANK_STATE_ID = "";
-            user.BANK_CITY_ID = "";
-            user.BANK_DISTRICT_ID = "";
+            user.BANK_STATE_ID = null;
+            user.BANK_CITY_ID = null;
+            user.BANK_DISTRICT_ID = null;
             //标记
             user.flag = 0;
         }
