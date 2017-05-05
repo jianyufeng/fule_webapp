@@ -235,7 +235,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             var pattern = /^[A-Z a-z _ \d ]/;
 
             if (!pattern.test(str)) {
-                myHappyHomeUpgradeService.showError($("#mallPassWordWaring"), $("#mallPassWord"), "输入的格式有误请重新输入");
+                myHappyHomeUpgradeService.showError($("#nodeWaring"), $("#node"), "输入的格式有误请重新输入");
             } else {
                 myHappyHomeUpgradeService.checkingNodeMan($scope, $(this), $("#nodeWaring"), str, POP);
             }
