@@ -1,8 +1,21 @@
 define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
-	function ctrl($scope, $rootScope, goodsService, POP, $state){
+	function ctrl($scope, $rootScope, goodsService, POP, $state,$ionicScrollDelegate){
 
 		goods_fun.menuSelected();
+
+		var nowSreenH = $("#goodContentBox").height();
+		$scope.goodListScrollEvent = function(){
+			var scrollTop = $ionicScrollDelegate.getScrollPosition().top;
+			if(parseInt(scrollTop) > parseInt(nowSreenH)){
+				 $(".goTop").fadeIn(200);
+			}else{
+				$(".goTop").fadeOut(200);
+			}
+		}
+		$(".goTop").click(function(){
+			$ionicScrollDelegate.scrollTop(true);
+		});
 
 		$scope.$on("$ionicView.enter",function(){
 
@@ -73,9 +86,10 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
 
 
+
 	}
 
-	ctrl.$inject = ['$scope','$rootScope', 'goodsService','POP','$state'];
+	ctrl.$inject = ['$scope','$rootScope', 'goodsService','POP','$state','$ionicScrollDelegate'];
 	app.registerController('goodsController',ctrl);
 
 

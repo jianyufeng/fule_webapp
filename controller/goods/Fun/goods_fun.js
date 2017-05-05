@@ -23,7 +23,7 @@ define(['app', 'jquery_fly'], function (app) {
             }
         });
 
-        $(document).on("click", ".goodsCart", function () {
+        $(document).off("click", ".goodsCart").on("click", ".goodsCart", function () {
 
 
             var offset = $(".tab-item:eq(3)").offset();
