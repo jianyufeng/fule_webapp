@@ -7,6 +7,20 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         var configId = $stateParams.configId;
         var id = $stateParams.id;
 
+        //回到顶部
+        var nowSreenH = $("#bhh_ContentBox").height();
+        $scope.bhh_ListScrollEvent = function(){
+            var scrollTop = $ionicScrollDelegate.$getByHandle('bhh_scroll').getScrollPosition().top;
+            if(parseInt(scrollTop) > parseInt(nowSreenH)){
+                $(".goToTop").fadeIn(200);
+            }else{
+                $(".goToTop").fadeOut(200);
+            }
+        };
+        $(".goToTop").click(function(){
+            $ionicScrollDelegate.scrollTop(true);
+        });
+
         //提交是的库存不足判断标记
         var canotSave = "canotSave";
         $scope.$on('$ionicView.loaded', function () {

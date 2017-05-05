@@ -337,3 +337,16 @@
 .bhh_Box .bbh_bottomSaveBox .bhh_saveBox:disabled {
   background-color: #d9a9cd;
 }
+.goToTop {
+  width: 60px;
+  text-align: center;
+  line-height: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: 150px;
+  border-radius: 30px;
+  right: 30px;
+  z-index: 99999999;
+  background: #aaa;
+  display: none;
+}
