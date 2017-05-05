@@ -291,6 +291,9 @@ app.controller("loginController", function ($scope, POP) {
     $('.registBox').click(function () {
         location.href = "../register/register.html";
     });
+    $('.goHomeBox').click(function () {
+        location.href = "../index.html";
+    });
     //输入框聚焦变换
     $('#account').focus(function () {
         $('#accountIcon').attr("src", "../resource/images/icon/user_head.png");
@@ -316,11 +319,11 @@ app.controller("loginController", function ($scope, POP) {
 
 
     /*登录 点击效果*/
-    $(document).on("touchstart", "#login", function (event) {
+    $(document).off("touchstart", "#login").on("touchstart", "#login", function (event) {
         $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);
     });
 
-    $(document).on("touchend", "#login", function (event) {
+    $(document).off("touchend", "#login").on("touchend", "#login", function (event) {
         $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
     });
 
