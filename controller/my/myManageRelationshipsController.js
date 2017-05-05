@@ -5,7 +5,7 @@ define(['app', "css! ../../../css/my/my-manageRelationships"],function(app){
         //默认不能上拉
         $scope.isCanPull = false;
         //默认服务关系页码
-        $scope.managePage = 2;
+        $scope.managePage = 0;
 
 
         //// 下拉刷新
