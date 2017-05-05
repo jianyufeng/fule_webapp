@@ -195,7 +195,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
                     $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
                     $scope.expressName = $(".deliveryContent").eq(_index).text(); //物流公司名
-
+                    $scope.amountOrder = $scope.orderInfo.pay_amount + freight;
            
                 });
 

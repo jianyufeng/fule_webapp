@@ -53,7 +53,7 @@
                                  </span>
                               </div>
                               <div class="orderGoodsPrice">
-                                  <div class="orderPrice">¥<span>{{order_good.shop_price}}</span></div>
+                                  <div class="orderPrice">¥&nbsp;<span>{{order_good.shop_price}}</span></div>
                                   <div class="orderAcount"><span>x{{order_good.goods_number}}</span></div>
                               </div>
 
@@ -96,7 +96,7 @@
         <div class="payAcountBox">
             <div class="paySubmit"><b>提交订单</b></div>
             <div class="listInfo">
-                <div class="payAcountPrice">合计 : <span>¥ {{orderInfo.pay_amount}}</span></div>
+                <div class="payAcountPrice">合计 : <span>¥ {{amountOrder}}</span></div>
                 <div class="payGoodsAcount">
                     <div class="goodsCountsPrompt"><span>共 <b>{{goodsNumber}}</b> 件商品</span></div>
                     <div class="integralPrompt"><span>获得积分: <b>{{orderInfo.integral}}</b></span></div>
