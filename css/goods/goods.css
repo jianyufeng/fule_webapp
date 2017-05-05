@@ -118,3 +118,16 @@
   position: fixed;
   z-index: 9999;
 }
+.goTop {
+  width: 60px;
+  display: none;
+  text-align: center;
+  line-height: 60px;
+  height: 60px;
+  position: absolute;
+  bottom: 150px;
+  border-radius: 30px;
+  right: 30px;
+  z-index: 99999999;
+  background: #eee;
+}
