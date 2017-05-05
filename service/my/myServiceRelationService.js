@@ -176,7 +176,7 @@ define(['app'],function(app){
 
                 console.log(data);
                 if (e) {
-                    POP.Alert("查询有误")
+                    POP.Alert("查询条件有误")
                     return;
                 }
 
