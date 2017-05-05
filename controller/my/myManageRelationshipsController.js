@@ -2,6 +2,19 @@ define(['app', "css! ../../../css/my/my-manageRelationships"],function(app){
 
     function ctrl($scope ,myManageRelationshipsService, POP) {
 
+        //默认不能上拉
+        $scope.isCanPull = false;
+        //默认服务关系页码
+        $scope.managePage = 2;
+
+
+        //// 下拉刷新
+        //$scope.doRefresh = function(){
+        //
+        //    myManageRelationshipsService.getManageRelationships($scope,true);
+        //
+        //
+        //}
         $scope.$on('$ionicView.loaded', function() {
             myManageRelationshipsService.getManageRelationships($scope, POP, function () {
             });
@@ -36,7 +49,9 @@ define(['app', "css! ../../../css/my/my-manageRelationships"],function(app){
 
 
 
-
+        $scope.loadMore = function () {
+            myManageRelationshipsService.getManageRelationships($scope, POP);
+        }
 
     }
 
