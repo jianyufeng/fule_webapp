@@ -140,12 +140,12 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 			var info = User.getInfo();
 			var updateParams = {
-				user_id : info.user_id,
+				user_id       : info.user_id,
 				shopping_type : 1,
-				id : cartId,
-				goods_number : nowNum,
-				goods_price :countMoney,
-				goods_id : gid
+				id            : cartId,
+				goods_number  : nowNum,
+				goods_price   :countMoney,
+				goods_id      : gid
 			};
 
 			cartService.updateCart($scope,updateParams,POP,$rootScope);

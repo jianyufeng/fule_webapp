@@ -134,6 +134,15 @@ define(function () {
             //原始数量
             var oldNum = $(this).data("oldvalue");
 
+            //判断手动输入商品数量为空
+            if(_.isNaN(nowNum)){
+
+                nowNum = oldNum;
+                parseInt($(this).val(oldNum));
+                POP.Hint("商品数量不能少于1");
+                return;
+            }
+
             //获取商品ID
             var gid = $(this).parent().parent().attr("id");
 

@@ -39,7 +39,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
                 return;
             }
             var nowNum = parseInt($("#_number").val());
-            if (nowNum == NaN) {
+            if (_.isNaN(nowNum)) {
                 nowNum = 1;
             }
             $scope.count = nowNum;
