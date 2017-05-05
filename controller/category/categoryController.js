@@ -31,8 +31,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             categoryService.getCategoryListAndCategoryGoodsList($scope, POP);
 
             //更换产品列表
-            $scope.changCategoryList = function (categoryId, categoryName) {
-                categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName);
+            $scope.changCategoryList = function (categoryId, categoryName,index) {
+                categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName,index);
             };
             // 下拉刷新
             $scope.doRefresh = function () {

@@ -22,7 +22,7 @@ define(['app'], function (app) {
                     $scope.categoryName = obj.category_name;
                     //  手动请求一下点击事件
                     categoryId = obj.category_id;
-                    service.getCategoryGoodsList($scope, categoryId, POP, {}, obj.category_name);
+                    service.getCategoryGoodsList($scope, categoryId, POP, {}, obj.category_name, 0);
                     $.initAppEndLoad();
                 });
 
@@ -30,7 +30,7 @@ define(['app'], function (app) {
         };
 
         // 点击按钮后实现分类货物的切换
-        service.getCategoryGoodsList = function ($scope, categoryId, POP, cacheData, categoryName) {
+        service.getCategoryGoodsList = function ($scope, categoryId, POP, cacheData, categoryName, index) {
             if (CommenFun.isNullObj(cacheData)) {
                 POP.StartLoading();
                 HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
@@ -41,10 +41,13 @@ define(['app'], function (app) {
                         //});
                         return;
                     }
+
                     $scope.$apply(function () {
                         $scope.productArray = data.goodsInfo.data;
                         cacheData[categoryId] = $scope.productArray;
                         $scope.categoryName = categoryName;
+                        $(".categoryName").css("color", "#999999");
+                        $(".categoryName").eq(index).css("color", "#D39AC5");
                     });
                 });
             } else {
@@ -62,6 +65,8 @@ define(['app'], function (app) {
                             $scope.productArray = data.goodsInfo.data;
                             cacheData[categoryId] = $scope.productArray;
                             $scope.categoryName = categoryName;
+                            $(".categoryName").css("color", "#999999");
+                            $(".categoryName").eq(index).css("color", "#D39AC5");
                         });
 
 
@@ -70,6 +75,8 @@ define(['app'], function (app) {
                 } else {
                     $scope.productArray = cacheData[categoryId];
                     $scope.categoryName = categoryName;
+                    $(".categoryName").css("color", "#999999");
+                    $(".categoryName").eq(index).css("color", "#D39AC5");
                 }
             }
         }
