@@ -301,6 +301,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                         };
                         myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
                             //购买完毕
+                            POP.Hint("购买成功");
                             $state.go('tab.my');
                         })
 
