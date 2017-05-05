@@ -139,12 +139,9 @@ define(['app'], function (app) {
                 $("#address").val(address);
             }
             if (index > 0) {
-                console.log(11111111111);
                 $("#recommend").attr("disabled", "true");
                 $("#node").attr("disabled", "true");
                 $("#selectResult").attr("disabled", "true");
-                $("#recommendWaring").hide();
-                $("#nodeWaring").hide();
                 $(".waring").hide();
                 $scope.upGrade.click = false;
             } else {

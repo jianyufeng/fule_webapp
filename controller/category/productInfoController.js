@@ -33,8 +33,15 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         }
         // 减号
         $scope.reduce = function () {
+            var str = $("#_number").val();
+            if (str == "") {
+                $("#_number").val("1")
+                return;
+            }
             var nowNum = parseInt($("#_number").val());
-            console.log(nowNum);
+            if (nowNum == NaN) {
+                nowNum = 1;
+            }
             $scope.count = nowNum;
             if ($scope.minGoodsNumber == "无限制") {
                 $scope.count--;
@@ -53,10 +60,14 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         }
         // 加号
         $scope.add = function () {
-
             //获取当前的数量
+            var str = $("#_number").val();
+            if (str == "") {
+                $("#_number").val("1")
+                return;
+            }
             var nowNum = parseInt($("#_number").val());
-            console.log(nowNum);
+
             $scope.count = nowNum;
             if ($scope.limitGoodsNumber == "无限制") {
                 $scope.count++;
