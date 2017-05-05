@@ -1038,10 +1038,16 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     return;
                 }
                 // 跳转界面
-                $state.go("tab.my-buyHappyHome", {
-                    "configId": configId,
-                    "id": $scope.id
-                });
+
+                POP.Hint("提交成功");
+                setTimeout(function () {
+                    $state.go("tab.my-buyHappyHome", {
+                        "configId": configId,
+                        "id": $scope.id
+                    });
+                }, 2000);
+
+
             })
         };
         // 选择区域

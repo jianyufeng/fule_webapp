@@ -8,7 +8,7 @@ define(['app'], function (app) {
 
         var service = {};
 
-        service.rechargeBiz = function ($scope, POP,$state) {
+        service.rechargeBiz = function ($scope, POP, $state) {
             var secondPassword = $scope.rechargeCard.secondPassword;
             var cardNum = $scope.rechargeCard.cardNum;
             var cardPassword = $scope.rechargeCard.cardPassword;
@@ -52,8 +52,10 @@ define(['app'], function (app) {
                     return;
                 }
                 POP.Hint("充值成功！！");
+                setTimeout(function () {
+                    $state.go("tab.my-rechargeableCardList");
+                }, 2000);
 
-                $state.go("tab.my-rechargeableCardList");
 
             })
 

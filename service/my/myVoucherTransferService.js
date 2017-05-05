@@ -75,7 +75,10 @@ define(['app'], function (app) {
                     return;
                 }
                 POP.Hint("转账成功");
-                $state.go("tab.my");
+                setTimeout(function(){
+                    $state.go("tab.my");
+                },2000);
+
             });
 
         }
