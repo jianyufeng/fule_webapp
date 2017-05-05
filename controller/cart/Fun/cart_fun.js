@@ -50,6 +50,15 @@ define(function () {
             //获取当前的数量
             var nowNum = parseInt($(this).next().find("input").val());
 
+            //判断手动输入商品数量为空
+            if(_.isNaN(nowNum)){
+
+                nowNum = 1;
+                parseInt($(this).val(nowNum));
+                POP.Hint("商品数量不能少于1");
+                return;
+            }
+
             //获取商品ID
             var gid = $(this).parent().attr("id");
 
@@ -91,6 +100,16 @@ define(function () {
 
             //获取当前的数量
             var nowNum = parseInt($(this).prev().find("input").val());
+
+            //判断手动输入商品数量为空
+            if(_.isNaN(nowNum)){
+
+                nowNum = 1;
+                parseInt($(this).val(nowNum));
+                POP.Hint("商品数量不能少于1");
+                return;
+            }
+
 
             //获取商品ID
             var gid = $(this).parent().attr("id");
