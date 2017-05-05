@@ -7,58 +7,54 @@ define(['app'], function (app) {
         service.getManageRelationships = function ($scope, POP ) {
 
 
+            if (!$scope.isCanPull) {
                 POP.StartLoading();
-
+            }
 
             //获取用户的账号
             var info = User.getInfo()
 
-            HTTP.get(API.My.manageRelationships + "/user_id/"+info.user_id + "/limit/"+10 + "/skip/" + 0, {}, function (e, data) {
+            HTTP.get(API.My.manageRelationships + "/user_id/"+info.user_id + "/limit/"+10 + "/skip/" + $scope.managePage * 10, {}, function (e, data) {
                 POP.EndLoading();
                 if (e) {
-                    $.loadError(function () {
-                        service.getManageRelationships();
-                    });
+
                     POP.Hint("加载失败");
 
                     return;
                 }
-                //如果是上拉则添加到上次数据的后面
-
                 $scope.$apply(function () {
-                    //if ($scope.isCanPull) {
-                    //    $scope.data = $scope.data.concat(data.data);
-                    //} else {
-                        $scope.data = data.data;
-                    //}
+                    //根据是否上拉不同处理
+                    var length = data.data.length;
+                    console.log(length);
+                    if ($scope.isCanPull) {
+                        //加载更多
+                        $scope.data = $scope.data.concat(data.data);
+                    } else { //根据是否上拉不同处理
+                        if ($scope.isCanPull) {
+                            //加载更多
+                            $scope.data = $scope.data.concat(data.data);
+                        } else {
+                            //刷新
+                            $scope.data = data.data;
+                            //判断数据是否为空
+                            if (length <= 0) {
+                                $scope.isEmptyData = true;
+                            } else {
+                                $scope.isEmptyData = false;
+                            }
+                        }
+                    }
+                    //判断是否有下页数据
+                    if (length < 10) {
+                        $scope.isCanPull = false;
+                    } else {
+                        $scope.isCanPull = true;
+                        $scope.managePage++;
+                    }
+                    $scope.$broadcast('scroll.infiniteScrollComplete');
                 });
 
-                //var length = data.data.length;
-                //
-                ////判断数据是否为空
-                //if (length <= 0) {
-                //    $scope.$apply(function () {
-                //        $scope.isEmptyData = true;
-                //    });
-                //} else {
-                //    $scope.$apply(function () {
-                //        $scope.isEmptyData = false;
-                //    });
-                //}
-                //
-                ////判断是否有下页数据
-                //if (length < 10) {
-                //    $scope.isCanPull = false;
-                //} else {
-                //    $scope.isCanPull = true;
-                //    $scope.page++;
-                //}
-                //$scope.$broadcast('scroll.infiniteScrollComplete');
-
-
             });
-
-
         };
 
         //搜索内容
@@ -92,7 +88,7 @@ define(['app'], function (app) {
                         $scope.isEmptyData = false;
 
                     }
-                    $scope.isPullComplete = false;
+                    $scope.isCanPull = false;
                     $scope.$broadcast('scroll.refreshComplete');
 
                 });

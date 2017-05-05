@@ -8,9 +8,7 @@ var app = angular.module("loginApp", ['ionic']);
  * 作用:弹出框服务封装
  */
 app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
-
     var service = {};
-
     //确认弹出框
     service.Confirm = function (content, ok) {
         var confirmPopup = $ionicPopup.confirm({
