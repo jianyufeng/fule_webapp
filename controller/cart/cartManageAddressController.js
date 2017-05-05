@@ -217,6 +217,13 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
         });
 
+        //添加新地址
+        $(document).on("click",".newAddressBtn",function(){
+
+            $state.go("tab.cart_addAddress");
+
+        });
+
     }
 
 

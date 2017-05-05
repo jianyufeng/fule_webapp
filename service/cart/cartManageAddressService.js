@@ -87,10 +87,10 @@ define(['app'],function(app){
                 if($scope.historyAddress.length<=0){
                     fn("NO");
                     $scope.$apply(function () {
-                        $scope.historyAddress = [];
                         $scope.righttitleValue = "";
                     });
                     $(".noAddress").show();
+                    $(".addAddressBtn").hide(); //初始添加新地址隐藏
                 }
 
 
