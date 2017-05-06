@@ -139,9 +139,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $(this).css('color', '#D39AC5');
             $('#b').css('color', 'black');
             $('#c').css('color', 'black');
-            $('#bank').val($(this).text());
+            $('#bank').text($(this).text());
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
+                    //if ($("#BankBox").is(":visible")) {
+                      console.log("aaaaaaaaaaaa");
+                    //}
+                    return false;
                 });
             });
 
@@ -170,9 +174,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $(this).css('color', '#D39AC5');
             $('#a').css('color', 'black');
             $('#c').css('color', 'black');
-            $('#bank').val($(this).text());
+            $('#bank').text($(this).text());
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
+                    //if ($("#BankBox").is(":visible")) {
+                        console.log("bbbbbbbbbbb");
+                    //}
+                    return false;
                 });
             });
 
@@ -201,9 +209,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $(this).css('color', '#D39AC5');
             $('#a').css('color', 'black');
             $('#b').css('color', 'black');
-            $('#bank').val($(this).text());
+            $('#bank').text($(this).text());
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
+                    //if ($("#BankBox").is(":visible")) {
+                        console.log("cccccccccccccccc");
+                    //}
+                    return false;
                 });
             });
 
@@ -229,9 +241,9 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         });
         // 选择银行弹框消失
         $("#BankBox").click(function (e) {
-            if (e.target.id == "BankBox") {
+            if ($("#BankBox").is(":visible")) {
                 $('#BankBox').hide();
-
+                return;
             }
         });
 
@@ -1057,7 +1069,14 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         // 选择银行
         $("#selectBank").click(function () {
-            $("#BankBox").fadeIn(300);
+
+            if ($("#BankBox").is(":visible")) {
+                console.log(11111111);
+            }
+            if($("#BankBox").is(":hidden")){
+
+                $("#BankBox").fadeIn(300);
+            }
         })
 
     }

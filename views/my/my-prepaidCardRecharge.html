@@ -1,25 +1,25 @@
 <ion-view view-title="储值卡充值" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <navigation-bar is-back="true" title="储值卡充值" righttitle="充值列表" on-right-click="showList()"></navigation-bar>
 
-    <ion-content style="background-color: white">
-        <ion-scroll set-window-height-no-navigation="" style="width:100%;position:absolute;top:60px;">
+    <ion-content style="background-color: white" scroll="false">
+        <ion-scroll style="width:100%;position:absolute;top:60px;left: 0px; bottom: 0px">
             <div class="contentBox" style="background-color: white">
                 <div class="cardItem" style="margin-top: 20px">
                     <span>二 级 密 码：</span>
                     <input type="password" class="text"
-                           ng-model=" rechargeCard.secondPassword">
+                           ng-model=" rechargeCard.secondPassword"  placeholder="请输入二级密码">
                     <div class="line">
                     </div>
                 </div>
                 <div class="cardItem">
                     <span>储值卡卡号：</span>
-                    <input type="text" class="text" ng-model="rechargeCard.cardNum">
+                    <input type="text" class="text" ng-model="rechargeCard.cardNum" placeholder="请输入储值卡卡号">
                     <div class="line">
                     </div>
                 </div>
                 <div class="cardItem">
                     <span>储值卡密码：</span>
-                    <input type="password" class="text" ng-model="rechargeCard.cardPassword">
+                    <input type="password" class="text" ng-model="rechargeCard.cardPassword" placeholder="请输入储值卡密码">
                     <div class="line">
                     </div>
                 </div>

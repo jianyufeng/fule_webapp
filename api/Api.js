@@ -10,7 +10,8 @@ var API = {
         myInfo: serverIP + "/_user/userHome", myOrderForm: serverIP + "/order/searchList",
         // 查询商品条形码
         searchBarCodeGoods: serverIP + "/barCode/searchBarCodeGoods",
-        // 内部转账
+        // 内部转账  获取短信验证码
+        internalTransferGetSmsCode:"/_user/getSmsCode",
         internalTransfer: serverIP + "/_money/transferUserMoney",
         // 充值卡充值
         prepaidCard: serverIP + "/userCard/bindUser",

@@ -116,13 +116,13 @@ define(['app'], function (app) {
             }
 
             if (info.BANK_NAME == 1) {
-                $("#bank").val("中国工商银行");
+                $("#bank").text("中国工商银行");
             } else if (info.BANK_NAME == 2) {
-                $("#bank").val("中国农业银行");
+                $("#bank").text("中国农业银行");
             } else if (info.BANK_NAME == 3) {
-                $("#bank").val("中国建设银行");
+                $("#bank").text("中国建设银行");
             }else {
-                $("#bank").val("--请选择--");
+                $("#bank").text("--请选择--");
             }
             $("#mallPassWord").val(info.PASSWORD);
             $("#secondPassWord").val(info.SECOND_PASSWORD);

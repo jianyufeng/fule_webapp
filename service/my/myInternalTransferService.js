@@ -26,8 +26,8 @@ define(['app'], function (app) {
             sendBox.attr("disabled", true);
             sendBox.text("正在发送...");
             //获取验证码
-            var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
-            HTTP.get(url, {}, function (e, data) {
+            //var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
+            HTTP.get(Api.internalTransferGetSmsCode+ "/user_name/" + user_name, {}, function (e, data) {
                 if (e) {
                     //POP.Hint("data");
                     console.log(e);
@@ -144,7 +144,7 @@ define(['app'], function (app) {
 
                     setTimeout(function () {
                         $state.go("tab.my");
-                    }, 2000);
+                    }, 200);
 
 
                 });

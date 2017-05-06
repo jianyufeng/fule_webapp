@@ -145,7 +145,9 @@ define(['app'],function(app){
                         $scope.shippingName = $scope.deliveryArray[0].shipping_name + '¥' + freight;
                         $scope.expressName  = $scope.deliveryArray[0].shipping_name; //物流公司名
                         $scope.amountOrder  = $scope.orderInfo.pay_amount + freight;
-
+                        if(freight == "免运费"){
+                            $scope.amountOrder = $scope.orderInfo.pay_amount
+                        }
 
                         $(".deliveryBox:eq(0)").children(".deliveryChoice").css("border", "0px");
                         $(".deliveryBox:eq(0)").find(".deliveryChoice img").show();
