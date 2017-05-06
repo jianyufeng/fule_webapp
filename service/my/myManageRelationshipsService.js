@@ -30,10 +30,10 @@ define(['app'], function (app) {
                         //加载更多
                         $scope.data = $scope.data.concat(data.data);
                     } else { //根据是否上拉不同处理
-                        if ($scope.isCanPull) {
-                            //加载更多
-                            $scope.data = $scope.data.concat(data.data);
-                        } else {
+                        //if ($scope.isCanPull) {
+                        //    //加载更多
+                        //    $scope.data = $scope.data.concat(data.data);
+                        //} else {
                             //刷新
                             $scope.data = data.data;
                             //判断数据是否为空
@@ -42,7 +42,7 @@ define(['app'], function (app) {
                             } else {
                                 $scope.isEmptyData = false;
                             }
-                        }
+                        //}
                     }
                     //判断是否有下页数据
                     if (length < 10) {
