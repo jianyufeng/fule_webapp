@@ -165,6 +165,15 @@ define(['app'],function(app){
 
             var searchContent = $('.searchInput').val();
 
+            //正则验证用户名为数字、字母或者中文
+            var re = /^[\w]+$/;
+
+            if (!re.test(searchContent) || searchContent == 0 ||searchContent == "0"){
+
+                POP.Hint("请输入正确的用户名");
+                return;
+            }
+
             POP.StartLoading();
 
             //获取用户的账号
@@ -176,7 +185,7 @@ define(['app'],function(app){
 
                 console.log(data);
                 if (e) {
-                    POP.Alert("查询条件有误")
+                    POP.Hint("请输入正确的用户名")
                     return;
                 }
 
