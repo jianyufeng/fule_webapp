@@ -51,10 +51,14 @@ ion-content .content {
   left: 0px;
   bottom: 0px;
   right: 0px;
+  background-color: white;
 }
 ion-content .content ion-scroll {
   width: 100%;
   height: 100%;
+  background-color: white;
+}
+ion-content .content ion-scroll .contentBox {
   background-color: white;
 }
 ion-content .content ion-scroll .contentBox .rowBox {
