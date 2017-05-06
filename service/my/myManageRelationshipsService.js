@@ -26,14 +26,13 @@ define(['app'], function (app) {
                     //根据是否上拉不同处理
                     var length = data.data.length;
                     console.log(length);
+
+
                     if ($scope.isCanPull) {
-                        //加载更多
-                        $scope.data = $scope.data.concat(data.data);
-                    } else { //根据是否上拉不同处理
-                        //if ($scope.isCanPull) {
-                        //    //加载更多
-                        //    $scope.data = $scope.data.concat(data.data);
-                        //} else {
+                            //加载更多
+                            $scope.data = $scope.data.concat(data.data);
+
+                    } else {
                             //刷新
                             $scope.data = data.data;
                             //判断数据是否为空
@@ -45,8 +44,10 @@ define(['app'], function (app) {
                         //}
                     }
                     //判断是否有下页数据
-                    if (length < 10) {
+                    if (length <= 10) {
                         $scope.isCanPull = false;
+                        $scope.managePage = 0;
+
                     } else {
                         $scope.isCanPull = true;
                         $scope.managePage++;
