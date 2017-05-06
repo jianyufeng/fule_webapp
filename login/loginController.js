@@ -3,7 +3,7 @@
  */
 
 var app = angular.module("loginApp", ['ionic']);
-
+var serverIP = "http://192.168.10.123:5000";
 /*
  * 作用:弹出框服务封装
  */
@@ -84,7 +84,7 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
 });
 
 app.controller("loginController", function ($scope, POP) {
-    var serverIP = "http://192.168.10.123:5000";
+
     //汉字正则
     var hzReg = /[^\x00-\xff]/;
     var zmReg = /^[a-zA-Z][a-zA-Z0-9]*$/;
@@ -114,7 +114,7 @@ app.controller("loginController", function ($scope, POP) {
             POP.Hint("账号不能为空");
             return;
         }
-        if (user_name.length<6 || user_name.length>16){
+        if (user_name.length < 6 || user_name.length > 16) {
             POP.Hint("账号长度不正确");
             return;
         }
@@ -126,7 +126,7 @@ app.controller("loginController", function ($scope, POP) {
         sendBox.attr("disabled", true);
         sendBox.text("正在发送...");
         //获取验证码
-        var url = serverIP+"/_user/getSmsCode/user_name/" + user_name;
+        var url = serverIP + "/_user/getSmsCode/user_name/" + user_name;
         HTTP.get(url, {}, function (e, data) {
             if (e) {
                 POP.Hint(data);
@@ -174,7 +174,7 @@ app.controller("loginController", function ($scope, POP) {
             POP.Hint("账号不能为空");
             return;
         }
-        if (user_name.length<6 || user_name.length>16){
+        if (user_name.length < 6 || user_name.length > 16) {
             POP.Hint("账号长度不正确");
             return;
         }
@@ -189,7 +189,7 @@ app.controller("loginController", function ($scope, POP) {
             POP.Hint("密码不能为空");
             return;
         }
-        if (password.length<6 ||password.length>16){
+        if (password.length < 6 || password.length > 16) {
             POP.Hint("密码长度不正确");
             return;
         }
@@ -218,7 +218,7 @@ app.controller("loginController", function ($scope, POP) {
                     POP.Hint("验证码格式不正确");
                     return;
                 }
-                if (v.length != 2){
+                if (v.length != 2) {
                     POP.Hint("密保卡 验证码长度不正确");
                     return;
                 }
@@ -241,15 +241,15 @@ app.controller("loginController", function ($scope, POP) {
                 POP.Hint("验证码格式不正确");
                 return;
             }
-            if(code.length != 6){
+            if (code.length != 6) {
                 POP.Hint("验证码长度不正确");
                 verification_mode = "CIPHER"
-            }else {
+            } else {
                 verification_mode = "CODE"
             }
             codeCheck = code;
         }
-        var url =serverIP+ "/_user/login";
+        var url = serverIP + "/_user/login";
 
         //登录的参数
         var param = {

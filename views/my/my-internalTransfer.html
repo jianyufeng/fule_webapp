@@ -1,8 +1,8 @@
 <ion-view view-title="内部转账" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <navigation-bar is-back="true" title="内部转账"></navigation-bar>
 
-    <ion-content style="background-color: white">
-        <ion-scroll set-window-height-no-navigation="" style="width:100%;position:absolute;top:60px;">
+    <ion-content style="background-color: white" scroll="false">
+        <ion-scroll style="width:100%;position:absolute;top:60px;left: 0px; bottom: 0px">
 
             <div class="cardItem" style="margin-top: 20px">
                 <span class="left">用 户 名 ：</span>
@@ -19,27 +19,27 @@
             </div>
             <div class="cardItem">
                 <span class="left">转账对象：</span>
-                <input type="text" class="text" ng-model="transformMoney.targetName">
+                <input type="text" class="text" ng-model="transformMoney.targetName" placeholder="请输入转账对象">
                 <div class="line">
                 </div>
             </div>
             <div class="cardItem">
                 <span class="left">转账金额：</span>
-                <input type="number" class="text" ng-model="transformMoney.money">
+                <input type="number" class="text" ng-model="transformMoney.money" placeholder="请输入转账金额">
                 <div class="line">
                 </div>
             </div>
 
             <div class="cardItem">
                 <span class="left">支付密码：</span>
-                <input type="password" class="text" ng-model="transformMoney.passWord">
+                <input type="password" class="text" ng-model="transformMoney.passWord" placeholder="请输入支付密码">
                 <div class="line">
                 </div>
             </div>
 
             <div class="cardItem">
                 <span class="left">转账备注：</span>
-                <input type="text" class="text" ng-model="transformMoney.reMark">
+                <input type="text" class="text" ng-model="transformMoney.reMark" placeholder="请输入转账备注">
                 <div class="line">
                 </div>
             </div>

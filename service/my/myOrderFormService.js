@@ -25,19 +25,15 @@ define(['app'], function (app) {
                     if ($scope.isCanPull) {
                         //加载更多
                         $scope.data = $scope.data.concat(data.data);
-                    } else { //根据是否上拉不同处理
-                        if ($scope.isCanPull) {
-                            //加载更多
-                            $scope.data = $scope.data.concat(data.data);
+                    } else {
+                        //刷新
+                        $scope.data = data.data;
+                        //判断数据是否为空
+                        if (length <= 0) {
+                            $scope.isEmptyData = true;
                         } else {
-                            //刷新
-                            $scope.data = data.data;
-                            //判断数据是否为空
-                            if (length <= 0) {
-                                $scope.isEmptyData = true;
-                            } else {
-                                $scope.isEmptyData = false;
-                            }
+                            $scope.isEmptyData = false;
+
                         }
                     }
                     //判断是否有下页数据

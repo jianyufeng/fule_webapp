@@ -29,7 +29,7 @@ define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'
         //
         //});
         /*获取数据*/
-        myUnreadMsgService.getUnreadMsg($scope, POP);
+        myUnreadMsgService.getUnreadMsg($scope, POP,true);
 
         /*下拉刷新*/
         $scope.doRefresh = function () {
@@ -38,11 +38,11 @@ define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'
             //重置上拉
             $scope.isCanPull = false;
 
-            myUnreadMsgService.getUnreadMsg($scope, POP);
+            myUnreadMsgService.getUnreadMsg($scope, POP,false);
         };
         //加载更多
         $scope.loadMore = function () {
-            myUnreadMsgService.getUnreadMsg($scope, POP);
+            myUnreadMsgService.getUnreadMsg($scope, POP,false);
         };
         //跳转详情
         $scope.showDetail = function (item) {
