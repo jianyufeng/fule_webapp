@@ -74,10 +74,6 @@ define(['app'],function(app){
 
                 });
 
-                
-                   
-
-
             });
 
         };

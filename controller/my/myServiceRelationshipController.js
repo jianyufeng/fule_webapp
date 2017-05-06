@@ -49,7 +49,6 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-serviceRelationship'], fun
 
          //监听搜索框输入的内容
         $(document).on('input propertychange','.searchInput',function(){
-           console.log($(this).val());
 
             var content = $(this).val();
 
