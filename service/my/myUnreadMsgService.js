@@ -3,10 +3,10 @@ define(['app'], function (app) {
     app.factory("myUnreadMsgService", function () {
 
         var service = {};
-        var first = true;
+
         /*网络获取未读消息记录 信息*/
-        service.getUnreadMsg = function ($scope, POP) {
-            if (first) {
+        service.getUnreadMsg = function ($scope, POP,isLoading) {
+            if (isLoading) {
                 POP.StartLoading();
             }
 
@@ -17,28 +17,21 @@ define(['app'], function (app) {
                     POP.Hint("加载失败");
                     return;
                 }
-                first = false;
                 //如果是上拉则添加到上次数据的后面
-                console.log($scope.isCanPull);
-                if ($scope.isCanPull) {
-                    $scope.datas = $scope.datas.concat(data.data);
-                } else {
-                    $scope.$apply(function () {
+                $scope.$apply(function () {
+                    var length = data.data.length;
+                    if ($scope.isCanPull) {
+                        $scope.datas = $scope.datas.concat(data.data);
+                    } else {
                         $scope.datas = data.data;
-                    })
-                }
-                //判断数据是否为空
-                var length = data.data.length;
-                //判断数据是否为空
-                if(length<=0){
-                    $scope.$apply(function() {
-                        $scope.isEmptyData = true;
-                    });
-                }else {
-                    $scope.$apply(function() {
-                        $scope.isEmptyData = false;
-                    });
-                }
+                        //判断数据是否为空
+                        if (length <= 0) {
+                            $scope.isEmptyData = true;
+                        } else {
+                            $scope.isEmptyData = false;
+                        }
+                    }
+                });
                 //判断是否有下页数据
                 if (length < 10) {
                     $scope.isCanPull = false;
@@ -53,7 +46,7 @@ define(['app'], function (app) {
         };
 
         /*网络获取未读消息详情 信息*/
-        service.getUnreadMsgInfo = function ($scope,$sce, POP, article_id) {
+        service.getUnreadMsgInfo = function ($scope, $sce, POP, article_id) {
             POP.StartLoading();
             HTTP.get(API.My.unreadMsgInfo + "/type/2/article_id/" + article_id, {}, function (e, data) {
                 POP.EndLoading();
@@ -62,7 +55,7 @@ define(['app'], function (app) {
                     return;
                 }
 
-                $scope.$apply(function(){
+                $scope.$apply(function () {
                     //如果是上拉则添加到上次数据的后面
                     $scope.content = $sce.trustAsHtml(data.data[0].content);
                 });

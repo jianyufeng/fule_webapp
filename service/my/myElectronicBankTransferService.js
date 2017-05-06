@@ -23,10 +23,10 @@ define(['app'], function (app) {
                     //确定按钮可点击
                     $('.sel_confirmSelect').removeAttr("disabled");
                     //确定按钮的 点击效果
-                    $(document).on("touchstart", ".sel_confirmSelect", function (event) {
+                    $(document).off("touchstart", ".sel_confirmSelect").on("touchstart", ".sel_confirmSelect", function (event) {
                         $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 100);
                     });
-                    $(document).on("touchend", ".sel_confirmSelect", function (event) {
+                    $(document).off("touchend", ".sel_confirmSelect").on("touchend", ".sel_confirmSelect", function (event) {
                         $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 100);
                     });
                 }
