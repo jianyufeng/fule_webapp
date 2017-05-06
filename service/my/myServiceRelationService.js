@@ -165,7 +165,7 @@ define(['app'],function(app){
 
             var searchContent = $('.searchInput').val();
 
-            //正则验证用户名为数字、字母或者中文
+            //正则验证用户名为数字、字母
             var re = /^[\w]+$/;
 
             if (!re.test(searchContent) || searchContent == 0 ||searchContent == "0"){
