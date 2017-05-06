@@ -48,7 +48,13 @@ define(['app', "css! ../../../css/my/my-manageRelationships"],function(app){
         });
 
 
+// 下拉刷新
+        $scope.doRefresh = function(){
 
+            myManageRelationshipsService.getManageRelationships($scope, POP);
+
+
+        }
         $scope.loadMore = function () {
             myManageRelationshipsService.getManageRelationships($scope, POP);
         }

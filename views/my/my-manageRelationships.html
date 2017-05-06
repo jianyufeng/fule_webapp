@@ -10,7 +10,10 @@
 
     <ion-content style="background-color: white ;top: 100px;background:#eee;">
 
-
+        <ion-refresher
+                pulling-text="下拉刷新..."
+                on-refresh="doRefresh()">
+        </ion-refresher>
         <div class="contentBox">
 
             <!--<select class="form-control">-->
