@@ -63,6 +63,15 @@ define(['app'], function (app) {
 
             var searchContent = $('.form-control').val();
 
+            //正则验证用户名为数字、字母
+            var re = /^[\w]+$/;
+
+            if (!re.test(searchContent) || searchContent == 0 ||searchContent == "0"){
+
+                POP.Hint("请输入正确的用户名");
+                return;
+            }
+
             POP.StartLoading();
 
             //获取用户的账号
