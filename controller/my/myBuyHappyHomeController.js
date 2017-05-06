@@ -6,7 +6,10 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         var configId = $stateParams.configId;
         var id = $stateParams.id;
-
+        //移动时所有的input失去焦点
+        $(document).off('touchmove').on('touchmove',function(){
+           $(":focus").blur();
+        });
         //回到顶部
         var nowSreenH = $("#bhh_ContentBox").height();
         $scope.bhh_ListScrollEvent = function(){
@@ -69,7 +72,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         $scope.totalGoodsNumber = 0;
         //当前数量产品的金额
         $scope.goodMoney = 0;
-
         $(document).off("input propertychange", ".bhh_search").on("input propertychange", ".bhh_search", function () {
             var val = $.trim($(this).val());
             if (val == "") {
