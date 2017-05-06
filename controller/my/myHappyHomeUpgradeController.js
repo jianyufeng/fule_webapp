@@ -628,7 +628,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         //开户银行失去焦点
         $(document).on("input propertychange blur", "#bank", function () {
-            var str = _.trim($(this).val());
+            var str = _.trim($(this).text());
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#bankWaring"), $("#bank"))) {
                 return;
@@ -652,7 +652,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         });
 
         function checkBank() {
-            var str = $("#bank").val();
+            var str = $("#bank").text();
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#bankWaring"), $("#bank"))) {
                 return;
@@ -959,7 +959,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 POP.Hint("银行账号不能为空，请检查");
                 return;
             }
-            if ($("#bank").val() == null || $("#bank").val() == "") {
+            if ($("#bank").text() == null || $("#bank").text() == "") {
                 POP.Hint("开户银行不能为空，请检查");
                 return;
             }

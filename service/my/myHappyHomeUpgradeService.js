@@ -100,11 +100,9 @@ define(['app'], function (app) {
          * @param index
          */
         service.showUserGrade = function ($scope, index) {
-
             $(".of_nav").css("color", "#000000")
             $(".of_nav").eq(index).css("color", "#d39bc5");
             var info = $scope.userArray[index];
-            console.log(info);
             $("#recommend").val(info.RECOMMENDED_MAN);
             $("#node").val(info.CONTACT_MAN);
             if (info.REGION == 0) {
@@ -121,7 +119,7 @@ define(['app'], function (app) {
                 $("#bank").text("中国农业银行");
             } else if (info.BANK_NAME == 3) {
                 $("#bank").text("中国建设银行");
-            }else {
+            } else {
                 $("#bank").text("--请选择--");
             }
             $("#mallPassWord").val(info.PASSWORD);
@@ -138,9 +136,10 @@ define(['app'], function (app) {
             if (info.BANK_STATE_ID != null) {
                 var address = locationInfo.getAddressName(info.BANK_STATE_ID, info.BANK_CITY_ID, info.BANK_DISTRICT_ID);
                 $("#address").val(address);
-            }else {
+            } else {
                 $("#address").val("请选择地址");
             }
+
             if (index > 0) {
                 $("#recommend").attr("disabled", "true");
                 $("#node").attr("disabled", "true");
@@ -153,6 +152,7 @@ define(['app'], function (app) {
                 $("#selectResult").removeAttr("disabled");
             }
             $scope.index = index;
+
         }
 
 
