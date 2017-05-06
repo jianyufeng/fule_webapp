@@ -39,9 +39,9 @@ define(['app', "css! ../../../css/my/my-manageRelationships"],function(app){
 
             if (content == null || content == undefined || content.length <=0){
 
-            //    myManageRelationshipsService.getManageRelationships($scope, POP,function () {
-            //
-            //    });
+                myManageRelationshipsService.getManageRelationships($scope, POP,function () {
+
+                });
             }
 
 

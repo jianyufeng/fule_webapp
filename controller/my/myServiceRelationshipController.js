@@ -54,9 +54,8 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-serviceRelationship'], fun
 
             if (content == null || content == undefined || content.length <=0){
 
-                myServiceRelationService.getServiceRelationship($scope, POP,function () {
+                myServiceRelationService.ServiceRefresh($scope);
 
-                });
             }
 
 

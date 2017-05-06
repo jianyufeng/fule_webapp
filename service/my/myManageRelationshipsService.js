@@ -26,14 +26,13 @@ define(['app'], function (app) {
                     //根据是否上拉不同处理
                     var length = data.data.length;
                     console.log(length);
+
+
                     if ($scope.isCanPull) {
-                        //加载更多
-                        $scope.data = $scope.data.concat(data.data);
-                    } else { //根据是否上拉不同处理
-                        if ($scope.isCanPull) {
                             //加载更多
                             $scope.data = $scope.data.concat(data.data);
-                        } else {
+
+                    } else {
                             //刷新
                             $scope.data = data.data;
                             //判断数据是否为空
@@ -42,11 +41,13 @@ define(['app'], function (app) {
                             } else {
                                 $scope.isEmptyData = false;
                             }
-                        }
+                        //}
                     }
                     //判断是否有下页数据
-                    if (length < 10) {
+                    if (length <= 10) {
                         $scope.isCanPull = false;
+                        $scope.managePage = 0;
+
                     } else {
                         $scope.isCanPull = true;
                         $scope.managePage++;
@@ -61,6 +62,15 @@ define(['app'], function (app) {
         service.searchManageAction = function ($scope, POP) {
 
             var searchContent = $('.form-control').val();
+
+            //正则验证用户名为数字、字母
+            var re = /^[\w]+$/;
+
+            if (!re.test(searchContent) || searchContent == 0 ||searchContent == "0"){
+
+                POP.Hint("请输入正确的用户名");
+                return;
+            }
 
             POP.StartLoading();
 
