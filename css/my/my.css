@@ -21,7 +21,7 @@
   width: 100%;
   position: relative;
 }
-.userBox .usrIconBox img {
+.userBox .usrIconBox .usrIcon {
   margin-top: 5px;
   width: 90px;
   height: 90px;
