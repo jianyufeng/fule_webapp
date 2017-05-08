@@ -16,7 +16,7 @@
                 <div class="loginOutBox">登出</div>
                 <div class="usrIconBox">
                     <img class="usrIcon" alt="用户图像" src="./resource/images/icon/jingcainanshi.png"
-                         ng-click="selectIcon()">
+                         ng-click="selectIcon()"  data-original='{{item.headerUrl}}'>
                     <!--<div class="storeLevel">{{userInfo.ZHUAN_MAI_DIAN_GRADE | storeLevelFilter}}</div>-->
                     <a href="#/tab/my-unreadMessage">
                         <div class="unreadBox">
@@ -26,7 +26,7 @@
                     </a>
                 </div>
                 <div class="userAccountBox">
-                    {{userInfo.user_name}}
+                    {{userInfo.user_name}}&nbsp;&nbsp;<span class="userSex" style="color: black;font-size:medium;">{{userInfo.sex|userSexFilter}}</span>
                 </div>
                 <div class="levelBox">
                     <img class="levelIcon" alt="等级图标" src="./resource/images/icon/level.png">
