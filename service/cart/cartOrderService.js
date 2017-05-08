@@ -212,10 +212,7 @@ define(['app'],function(app){
             //更新操作
             HTTP.post(API.Cart.countFreight,freightParams,function(e,data){
                 if(e){
-                    $.loadError(function () {
-                        service.countFreight();
-                    });
-
+                    POP.Alert("运费计算失败");
                     return;
                 }
                   else {

@@ -14,7 +14,7 @@ define(['app'],function(app){
             var info = User.getInfo();
             HTTP.get(API.Cart.cartSearch + "/shopping_type/1/user_id/"+info.user_id , {}, function (e, data) {
                 console.log(data);
-                console.log(e);
+                console.log(5555555555);
                 if (e) {
                     $.loadError(function () {
                         service.getCartGoods();
