@@ -10,7 +10,7 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
             myHappyHomeLogsService.getHappyHomeLogs($scope, POP,function () {
                 //判断是否登录
                 if($scope.logsData.length >0){
-                    $scope.righttitleValue = "编辑";
+                    $scope.righttitleValue = "删除";
                     $(".noRecord").hide();
                 }else{
                     $scope.righttitleValue = "";
@@ -28,7 +28,7 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
         $scope.editLogs = function(){
 
             if(editOpen){
-                $scope.righttitleValue = "编辑";
+                $scope.righttitleValue = "删除";
                 my_fun.happyHomeSideslipping(false);
                 editOpen = false;
             }else{

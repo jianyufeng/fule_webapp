@@ -73,11 +73,10 @@ define(['app'],function(app){
                 POP.EndLoading();
 
                 if (e) {
-                    $.loadError(function () {
+
                         POP.Hint("删除失败!");
                         return;
-                    });
-                    return;
+
                 }
 
                 $(".deleteBtnBox:eq("+_idx+")").parent().parent().slideUp(200);
