@@ -39,36 +39,6 @@ define(['app'], function (app) {
                 var user_IS_PI_FA = data.userInfo.IS_PI_FA;
                 // 升级积分
                 var user_INTEGRAL = data.userInfo.INTEGRAL;
-
-                if (lv < 4) {
-                    // 判断一键升级
-                    if (user_INTEGRAL >= GAOJI_ZHI_YUAN_ZHE) {
-                        // 显示一键升级
-                        $("#gradeButton").text("一键升级");
-                        $("#gradeButton").css("display", "block");
-                        $scope.garde = 1;
-                    } else if (user_INTEGRAL >= IS_D && user_INTEGRAL < GAOJI_ZHI_YUAN_ZHE) {
-                        // 显示升级D级
-                        $("#gradeButton").text("升级为志愿者");
-                        $("#gradeButton").css("display", "block");
-                        $scope.garde = 2;
-                    } else {
-                        $("#gradeButton").css("display", "none");
-                    }
-
-                } else if (lv = 4 && user_IS_VIP == 0 && user_INTEGRAL >= IS_VIP) {
-                    // 显示升级VIP
-                    $("#gradeButton").text("升级为VIP");
-                    $("#gradeButton").css("display", "block");
-                    $scope.garde = 3;
-                } else if (lv = 4 && user_IS_VIP == 1 && user_IS_PI_FA == 0 && user_INTEGRAL >= IS_PI_FA) {
-                    //  显示升级批发
-                    $("#gradeButton").text("升级为批发");
-                    $("#gradeButton").css("display", "block");
-                    $scope.garde = 4;
-                } else {
-                    $("#gradeButton").css("display", "none");
-                }
                 $scope.$apply(function () {
                     $scope.userInfo = data.userInfo;
                     $scope.travel_points = data.travel_points;
@@ -93,10 +63,42 @@ define(['app'], function (app) {
                         $('.isNotRegister').show();
                     }
 
+                    if (lv < 4) {
+                        // 判断一键升级
+                        if (user_INTEGRAL >= GAOJI_ZHI_YUAN_ZHE) {
+                            // 显示一键升级
+                            $("#gradeButton").text("一键升级");
+                            $("#gradeButton").css("display", "block");
+                            $scope.garde = 1;
+                        } else if (user_INTEGRAL >= IS_D && user_INTEGRAL < GAOJI_ZHI_YUAN_ZHE) {
+                            // 显示升级D级
+                            $("#gradeButton").text("升级为志愿者");
+                            $("#gradeButton").css("display", "block");
+                            $scope.garde = 2;
+                        } else {
+                            $("#gradeButton").css("display", "none");
+                        }
+
+                    } else if (lv = 4 && user_IS_VIP == 0 && user_INTEGRAL >= IS_VIP) {
+                        // 显示升级VIP
+                        $("#gradeButton").text("升级为VIP");
+                        $("#gradeButton").css("display", "block");
+                        $scope.garde = 3;
+                    } else if (lv = 4 && user_IS_VIP == 1 && user_IS_PI_FA == 0 && user_INTEGRAL >= IS_PI_FA) {
+                        //  显示升级批发
+                        $("#gradeButton").text("升级为批发");
+                        $("#gradeButton").css("display", "block");
+                        $scope.garde = 4;
+                    } else {
+                        $("#gradeButton").css("display", "none");
+                    }
+
 
                     if (!isRefresh) {
                         $.initAppEndLoad();
                     }
+
+
                 });
                 if (isRefresh) {
                     $scope.$broadcast('scroll.refreshComplete');
