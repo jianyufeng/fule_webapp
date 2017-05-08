@@ -93,7 +93,6 @@ define(['app'], function (app) {
                     //  批发
                     url = API.My.upgradeToPIFA;
                 }
-                POP.StartLoading();
                 console.log("url:" + url);
                 console.log("user_name:" + userInfo.user_name);
                 console.log("user_id:" + userInfo.user_id);
