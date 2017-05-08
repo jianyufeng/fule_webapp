@@ -15,7 +15,9 @@ define(['app'], function (app) {
             var info = User.getInfo()
 
             HTTP.get(API.My.manageRelationships + "/user_id/"+info.user_id + "/limit/"+10 + "/skip/" + $scope.managePage * 10, {}, function (e, data) {
+
                 POP.EndLoading();
+
                 if (e) {
 
                     POP.Hint("加载失败");
@@ -23,9 +25,11 @@ define(['app'], function (app) {
                     return;
                 }
                 $scope.$apply(function () {
+                    $scope.$broadcast('scroll.refreshComplete');
+
                     //根据是否上拉不同处理
                     var length = data.data.length;
-                    console.log(length);
+                    console.log('12123'+length);
 
 
                     if ($scope.isCanPull) {
@@ -41,16 +45,15 @@ define(['app'], function (app) {
                             } else {
                                 $scope.isEmptyData = false;
                             }
-                        //}
                     }
                     //判断是否有下页数据
-                    if (length <= 10) {
+                    if (length < 10) {
                         $scope.isCanPull = false;
                         $scope.managePage = 0;
 
                     } else {
                         $scope.isCanPull = true;
-                        $scope.managePage++;
+                           $scope.managePage++;
                     }
                     $scope.$broadcast('scroll.infiniteScrollComplete');
                 });

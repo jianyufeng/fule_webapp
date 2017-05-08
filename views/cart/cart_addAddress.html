@@ -3,20 +3,20 @@
     <ion-content style="background: #f5f5f5" set-window-height="">
             <div class="newAddressBox">
                 <div class="reciever">
-                    <div class="title"><span>收货人<b style="color: red">*</b></span></div>
+                    <div class="title"><span><b style="color: red">*</b> 收货人</span></div>
                     <input class="recieverName" type="text" ng-model="p.recieverName"  placeholder="可以是中文、数字、字母"/>
                 </div>
                 <div class="mobile">
-                    <div class="title"><span>手机号码<b style="color: red">*</b></span></div>
+                    <div class="title"><span><b style="color: red">*</b> 手机号码</span></div>
                     <input class="recieverNumber" type="text" ng-model="p.mobile" placeholder="未填写(必填)"/>
                 </div>
                 <div class="familyNumber">
-                    <div class="title"><span>家庭电话<b style="color: red">*</b></span></div>
+                    <div class="title"><span><b style="color: red">*</b> 家庭电话</span></div>
                     <input class="telNumber" type="text" ng-model="p.tel" placeholder="未填写(选填)"/>
                 </div>
                 <div class="location">
                     <div class="title">
-                        <span>所在地区<b style="color: red">*</b></span>
+                        <span><b style="color: red">*</b> 所在地区</span>
                     </div>
                     <div class="selectAction">
                         <div class="next"><img class="nextBtnImg" src="resource/images/icon/jiantou_right.png"></div>
@@ -24,30 +24,30 @@
                     </div>
                 </div>
                 <div class="address_categray">
-                        <div class="title"><span>地址别名<b style="color: red">*</b></span></div>
+                        <div class="title"><span><b style="color: red">*</b> 地址别名</span></div>
                         <input class="categray" type="text" ng-model="p.address_name" placeholder="可以为中文、数字、字母组合"/>
                 </div>
 
                 <div class="address_zipcode">
-                    <div class="title"><span>邮政编码<b style="color: red">*</b></span></div>
+                    <div class="title"><span><b style="color: red">*</b> 邮政编码</span></div>
                     <input class="zipcode" type="text" ng-model="p.zipcode" placeholder="请输入6位邮编"/>
                 </div>
                 <div class="address_email">
-                    <div class="title"><span>电子邮箱<b style="color: red">*</b></span></div>
+                    <div class="title"><span><b style="color: red">*</b> 电子邮箱</span></div>
                     <input class="email" type="text" ng-model="p.email" placeholder="请输入正确的邮箱"/>
                 </div>
                 <div class="sign_building">
-                    <div class="title"><span>标志建筑<b style="color: red">*</b></span></div>
+                    <div class="title"><span><b style="color: red">*</b> 标志建筑</span></div>
                     <input class="building" type="text" ng-model="p.sign_building" placeholder="可以为中文、数字、字母组合"/>
                 </div>
                 <div class="best_time">
-                    <div class="title"><span>最佳送货时间<b style="color: red">*</b></span></div>
+                    <div class="title"><span><b style="color: red">*</b> 最佳送货时间</span></div>
                     <input class="time" type="text" ng-model="p.best_time" placeholder="可以为中文、数字、字母组合"/>
                 </div>
 
 
                 <div class="street" style="display: none">
-                    <div class="title"><span>所在街道<b style="color: red">*</b></span></div>
+                    <div class="title"><span><b style="color: red">*</b> 所在街道</span></div>
                     <div class="selectAction">
                         <div class="next"><img class="nextBtnImg" src="resource/images/icon/jiantou_right.png"></div>
                         <div class="select-street"><span>请选择</span></div>
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="detail">
-                    <textarea class="inputArea" ng-model="p.inputArea" placeholder="请认真填写详细地址,不超过20个字(必填)" rows="3" wrap="hard"></textarea>
+                    <textarea class="inputArea" ng-model="p.inputArea" placeholder="(必填)请认真填写详细地址,不超过20个字" rows="3" wrap="hard"></textarea>
                 </div>
             </div>
             <div class="setDefault">

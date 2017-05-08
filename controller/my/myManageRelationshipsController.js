@@ -8,13 +8,13 @@ define(['app', "css! ../../../css/my/my-manageRelationships"],function(app){
         $scope.managePage = 0;
 
 
-        //// 下拉刷新
-        //$scope.doRefresh = function(){
-        //
-        //    myManageRelationshipsService.getManageRelationships($scope,true);
-        //
-        //
-        //}
+        // 下拉刷新
+        $scope.doRefresh = function(){
+
+            myManageRelationshipsService.getManageRelationships($scope,true);
+
+
+        }
         $scope.$on('$ionicView.loaded', function() {
             myManageRelationshipsService.getManageRelationships($scope, POP, function () {
             });
