@@ -118,7 +118,7 @@ define(['app'], function (app) {
                 console.log("identityCardN:" + identityCardN);
                 console.log("branchBank:" + branchBank);
                 console.log("nickName:" + nickName);
-                POP.StartLoading();
+
                 // HTTP 提交
                 HTTP.post(url, {
                     "user_name": userInfo.user_name,// 用户名
@@ -137,6 +137,8 @@ define(['app'], function (app) {
                     "MEMBER_NAME": nickName,   // 昵称
                 }, function (e, data) {
                     POP.EndLoading();
+                    console.log(111111111111111);
+                    console.log(data);
                     if (e) {
                         if (data != null) {
                             POP.Hint("升级失败！" + data);
@@ -154,9 +156,7 @@ define(['app'], function (app) {
             }
             // 验证推荐人流程
             service.checkingRecommendedMan = function ($scope, ele, eleNode, userName, POP) {
-                POP.StartLoading();
                 HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
-                    POP.EndLoading();
                     if (e) {
                         if (data != null) {
                             eleNode.css('display', 'block');
@@ -178,9 +178,8 @@ define(['app'], function (app) {
             service.checkingNodeMan = function ($scope, ele, eleNode, userName, POP) {
                 // 请求个人信息
                 // 判断 username  是否激活
-                POP.StartLoading();
                 HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
-                    POP.EndLoading();
+                    console.log(data);
                     if (e) {
                         if (data != null) {
                             eleNode.css('display', 'block');
@@ -200,6 +199,45 @@ define(['app'], function (app) {
                     $scope.right = data.userInfo.RIGHT_REGION_ID;
 
                 })
+            }
+
+            service.checking = function () {
+                var name = $("#recommend").val();
+                name = _.trim(name);
+                HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
+                    if (e) {
+                        if (data != null) {
+                            $("#recommendWaring").css('display', 'block');
+                            $("#recommend").css({
+                                'height': '34px',
+                                'line-height': '34px',
+                            });
+                            $("#recommendWaring").html("<i class='icon ion-android-warning'></i>" + data);
+                        }
+                        return
+                    }
+
+                    var name = $("#node").val();
+                    name = _.trim(name);
+
+                    HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
+                        if (e) {
+                            if (data != null) {
+                                $("#nodeWaring").css('display', 'block');
+                                $("#node").css({
+                                    'height': '34px',
+                                    'line-height': '34px',
+                                });
+                                $("#nodeWaring").html("<i class='icon ion-android-warning'></i>" + data);
+                            }
+                            return;
+                        }
+                        service.upGradeAction();
+
+                    })
+                });
+
+
             }
 
             // 充值按钮

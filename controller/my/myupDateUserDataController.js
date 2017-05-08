@@ -116,7 +116,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                 return;
             }
             // 验证推荐人
-            myUpdateUserDataService.checkingRecommendedMan($scope, $("#recommend"), $("#recommendWaring"), $("#recommend").val(), POP);
+            myUpdateUserDataService.checkingRecommendedMan($scope, $("#recommend"), $("#recommendWaring"), name, POP);
         }
 
         // 节点人失去焦点事件
@@ -130,7 +130,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                 return;
             }
             // 验证节点人
-            myUpdateUserDataService.checkingNodeMan($scope, $("#node"), $("#nodeWaring"), $("#node").val(), POP);
+            myUpdateUserDataService.checkingNodeMan($scope, $("#node"), $("#nodeWaring"), name, POP);
         }
 
         // 昵称失去焦点
@@ -265,8 +265,8 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
 
         // 点击提交按钮
         $scope.submitUpGradeAction = function () {
-            checkRecommend();
-            checkNode();
+
+            // 串行操作
             checkTeam();
             checkNickName();
             checkBank();
@@ -274,10 +274,57 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             checkBankCardName();
             checkBranchBank();
             checkIdentityCardN();
-
-            myUpdateUserDataService.upGradeAction($scope, POP, myGrade, $state);
+            //
+            //myUpdateUserDataService.checking();
+            //checkRecommend();
+            //checkNode();
+            //myUpdateUserDataService.upGradeAction($scope, POP, myGrade, $state);
+            checking();
         }
+         function checking() {
+            var name = $("#recommend").val();
+            name = _.trim(name);
+             POP.StartLoading();
+            HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
+               console.log(data);
+                if (e) {
+                    POP.EndLoading();
+                    if (data != null) {
+                        $("#recommendWaring").css('display', 'block');
+                        $("#recommend").css({
+                            'height': '34px',
+                            'line-height': '34px',
+                        });
+                        $("#recommendWaring").html("<i class='icon ion-android-warning'></i>" + data);
+                    }
+                    return
+                }
 
+                var name = $("#node").val();
+                name = _.trim(name);
+               console.log(111111111111111111111);
+                HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
+                    console.log(data);
+                    if (e) {
+                        POP.EndLoading();
+                        if (data != null) {
+                            $("#nodeWaring").css('display', 'block');
+                            $("#node").css({
+                                'height': '34px',
+                                'line-height': '34px',
+                            });
+                            $("#nodeWaring").html("<i class='icon ion-android-warning'></i>" + data);
+                        }
+                        return;
+                    }
+                    console.log(2222222222222222222222);
+                    myUpdateUserDataService.upGradeAction($scope, POP, myGrade, $state);
+
+                })
+            });
+
+
+        }
 
         // 点击重置按钮
         $scope.reset = function () {
