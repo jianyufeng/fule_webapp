@@ -15,11 +15,14 @@ define(['app'], function (app) {
             HTTP.get(API.Category.productInfo + "/goods_id/" + $stateParams.goodsId, {}, function (e, data) {
                 POP.EndLoading();
                 if (e) {
+                    console.log(e);
                     $.loadError(function () {
                         service.getProductInfo();
                     });
                     return;
                 }
+
+
                 $scope.$apply(function () {
                     var goodsInfo = data.goodsInfo.data.shift();
                     // 商品的轮播图
