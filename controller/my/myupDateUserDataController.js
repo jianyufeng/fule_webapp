@@ -49,7 +49,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                 $('#abc2').css('color', 'black');
                 $('#selectResult').val("左区");
             } else {
-                POP.Alert("右区不可用");
+                POP.Alert("左区不可用");
             }
         });
         $("#abc2").click(function () {
@@ -274,11 +274,6 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             checkBankCardName();
             checkBranchBank();
             checkIdentityCardN();
-            //
-            //myUpdateUserDataService.checking();
-            //checkRecommend();
-            //checkNode();
-            //myUpdateUserDataService.upGradeAction($scope, POP, myGrade, $state);
             checking();
         }
          function checking() {

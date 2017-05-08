@@ -234,15 +234,15 @@ define(['app'], function (app) {
          * 验证身份证号是否可用
          * @param str
          */
-        service.testIdentityCardN = function (str, POP) {
+        service.testIdentityCardN = function (str, POP,fc) {
             POP.StartLoading();
             HTTP.get(API.My.verifyIdentityCardN + "/id_card/" + str, {}, function (e, data) {
                 POP.EndLoading();
                 if (e) {
                     $("#identityCardNWaring").html("<i class='icon ion-android-warning'></i>" + "该身份证不可用");
-                    return true;
+
                 }
-                return false;
+                fc();
 
             })
 

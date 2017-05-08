@@ -143,7 +143,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
                     //if ($("#BankBox").is(":visible")) {
-                      console.log("aaaaaaaaaaaa");
+                    console.log("aaaaaaaaaaaa");
                     //}
                     return false;
                 });
@@ -178,7 +178,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
                     //if ($("#BankBox").is(":visible")) {
-                        console.log("bbbbbbbbbbb");
+                    console.log("bbbbbbbbbbb");
                     //}
                     return false;
                 });
@@ -213,7 +213,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
                     //if ($("#BankBox").is(":visible")) {
-                        console.log("cccccccccccccccc");
+                    console.log("cccccccccccccccc");
                     //}
                     return false;
                 });
@@ -662,6 +662,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         //身份证号
         $(document).on("blur", "#identityCardN", function () {
             var str = _.trim($(this).val());
+            identityCardN
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#identityCardNWaring"), $("#identityCardN"))) {
                 return;
@@ -672,25 +673,28 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 return;
             }
             // 服务端校验
-            if (myHappyHomeUpgradeService.testIdentityCardN(str, POP)) return;
-            $("#bankCardNWaring").css('display', 'none');
-            var user = $scope.userArray[$scope.index];
-            if (user.flag == undefined) {
-                $scope.userArray[$scope.index].ID_CARD = str;
-                return;
-            }
-            user.flag = $scope.index;
-            if ($scope.index != 0) {
-                $scope.userArray[$scope.index].ID_CARD = str;
-                return;
-            }
-            // 输入完成赋值给其他的输入项
-            for (var i = 0; i < $scope.userArray.length; i++) {
-                var info = $scope.userArray[i];
-                if (info.flag == 0) {
-                    $scope.userArray[i].ID_CARD = str;
+            myHappyHomeUpgradeService.testIdentityCardN(str, POP, function () {
+                $("#bankCardNWaring").css('display', 'none');
+                var user = $scope.userArray[$scope.index];
+                if (user.flag == undefined) {
+                    $scope.userArray[$scope.index].ID_CARD = str;
+                    return;
                 }
-            }
+                user.flag = $scope.index;
+                if ($scope.index != 0) {
+                    $scope.userArray[$scope.index].ID_CARD = str;
+                    return;
+                }
+                // 输入完成赋值给其他的输入项
+                for (var i = 0; i < $scope.userArray.length; i++) {
+                    var info = $scope.userArray[i];
+                    if (info.flag == 0) {
+                        $scope.userArray[i].ID_CARD = str;
+                    }
+                }
+
+            });
+
 
         });
 
@@ -916,9 +920,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             checkPhone();
             checkBanlCardN();
             checkBank();
-            checkIdentityCardN();
             checkCardName();
             checkBankBranch();
+            checkIdentityCardN();
+            submitUpGrade();
+        };
+
+        function submitUpGrade() {
             if ($("#recommend").val() == null || $("#recommend").val() == "") {
                 POP.Hint("推荐人不能为空，请检查");
                 return;
@@ -1018,10 +1026,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 }
                 array.push(user);
             }
-
-
             var user_datas = {};
-
             for (var d in array[0]) {
                 var arr = [];
                 for (var s = 0; s < array.length; s++) {
@@ -1030,7 +1035,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 }
                 user_datas[d] = arr;
             }
-
             console.log(user_datas);
             POP.StartLoading();
             HTTP.post(API.My.updateUserLogs, {
@@ -1056,7 +1060,10 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
 
             })
-        };
+
+        }
+
+
         // 选择区域
         $scope.selectRegion = function () {
             if ($scope.upGrade.click) {
@@ -1073,7 +1080,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             if ($("#BankBox").is(":visible")) {
                 console.log(11111111);
             }
-            if($("#BankBox").is(":hidden")){
+            if ($("#BankBox").is(":hidden")) {
 
                 $("#BankBox").fadeIn(300);
             }
