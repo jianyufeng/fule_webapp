@@ -163,6 +163,11 @@ app.controller("loginController", function ($scope, POP) {
     //    alert($('.retrievePassword').text());
     //
     //});
+    //聚焦
+    setTimeout(function () {
+            $('#account').focus();
+        }
+        , 500);
 
 
     /*登录*/

@@ -34,6 +34,28 @@ define(['app'], function (app) {
         }
 
     });
+    /*性别 过滤器*/
+    app.filter('userSexFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  0:
+                    varl = '';
+                    break;
+                case  1:
+                    varl = '男';
+                    break;
+                case  2:
+                    varl = '女';
+                    break;
+                default:
+                    varl = '';
+                    break;
+            }
+            return varl
+        }
+
+    });
     /*显示用户等级 过滤器*/
     app.filter('userLevelFilter', function ($rootScope) {
         return function (input, varl, var2) {
