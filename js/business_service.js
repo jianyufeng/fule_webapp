@@ -63,7 +63,9 @@ define([
     // 喜乐之家升级
     '../service/my/myHappyHomeUpgradeService',
     // 商品详情页
-    '../service/category/productInfoService'
+    '../service/category/productInfoService',
+    // 奖金币转电子币
+    '../service/my/myAwardGoldCOINSTransferElectronicTokenService'
 
 
 ]);
