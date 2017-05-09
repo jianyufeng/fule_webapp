@@ -25,15 +25,20 @@
   clear: both;
   height: 60px;
 }
-.contentBox .cardItem span {
-  width: 35%;
+.contentBox .cardItem .left {
+  width: 40%;
   display: block;
   float: left;
   height: 20px;
   line-height: 20px;
 }
+.contentBox .cardItem .left .redStar {
+  float: left;
+  color: red;
+  margin-right: 3px;
+}
 .contentBox .cardItem .text {
-  width: 65%;
+  width: 60%;
   display: block;
   float: left;
   height: 20px;

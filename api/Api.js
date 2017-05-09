@@ -11,7 +11,7 @@ var API = {
         // 查询商品条形码
         searchBarCodeGoods: serverIP + "/barCode/searchBarCodeGoods",
         // 内部转账  获取短信验证码
-        internalTransferGetSmsCode:"/_user/getSmsCode",
+        internalTransferGetSmsCode:serverIP+"/_user/getSmsCode",
         internalTransfer: serverIP + "/_money/transferUserMoney",
         // 充值卡充值
         prepaidCard: serverIP + "/userCard/bindUser",
@@ -72,7 +72,10 @@ var API = {
         //管理关系
         manageRelationships :serverIP + "/user/searchUserConnectionRelations",
         //服务关系
-        serviceRelationShip :serverIP +"/user/searchUserRecommendRelations"
+        serviceRelationShip :serverIP +"/user/searchUserRecommendRelations",
+        // 奖金币转电子币
+        bonusOnUserMoney:serverIP+"/_bonus/bonusOnUserMoney"
+
     },
 
     Cart: {

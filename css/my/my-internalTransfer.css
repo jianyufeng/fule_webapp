@@ -10,14 +10,19 @@
 .cardItem .left {
   display: block;
   float: left;
-  width: 30%;
+  width: 35%;
   height: 20px;
   line-height: 20px;
+}
+.cardItem .left .redStar {
+  float: left;
+  color: red;
+  margin-right: 3px;
 }
 .cardItem .right {
   display: block;
   float: left;
-  width: 70%;
+  width: 65%;
   height: 20px;
   line-height: 20px;
   color: #D39AC5;
@@ -27,7 +32,7 @@
   float: left;
   height: 20px;
   line-height: 20px;
-  width: 70%;
+  width: 65%;
 }
 .cardItem .line {
   background-color: #eeeeee;

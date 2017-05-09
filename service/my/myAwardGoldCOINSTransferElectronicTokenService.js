@@ -17,9 +17,24 @@ define(['app'], function (app) {
 
             //获取账号
             var user_name = User.getInfo().user_name;
-            //账号不为空
-            if (CommenFun.isNullObj(user_name) || user_name == undefined || user_name == null || user_name == "") {
-                POP.Hint("账号不能为空");
+            var password = $scope.transform.password;
+            var money = $scope.transform.money;
+            var pattern = /^\d{6}$/;
+            if (money == undefined) {
+                POP.Hint("请你填写转账金额！");
+                return;
+            }
+            if (password == undefined) {
+                POP.Hint("请填写支付密码！");
+                return;
+            }
+            // 验证转账金额
+            if (money <= 0) {
+                POP.Hint("金额格式不正确，请重新输入！");
+                return;
+            }
+            if (!pattern.test(password)) {
+                POP.Hint("密码格式不正确，请重新输入！");
                 return;
             }
             var sendBox = $('.postNote');
@@ -27,11 +42,8 @@ define(['app'], function (app) {
             sendBox.text("正在发送...");
             //获取验证码
             //var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
-            HTTP.get(Api.My.internalTransferGetSmsCode + "/user_name/" + user_name, {}, function (e, data) {
+            HTTP.get(API.My.internalTransferGetSmsCode + "/user_name/" + user_name, {}, function (e, data) {
                 if (e) {
-                    //POP.Hint("data");
-                    console.log(e);
-                    console.log(data);
                     sendBox.removeAttr("disabled");
                     sendBox.text("发送短信效验码");
                     return;
@@ -46,7 +58,6 @@ define(['app'], function (app) {
         var countdown = 60;
         //定时60s
         function setTime(obj) {
-            console.log(obj);
             if (countdown == 0) {
                 obj.text("发送短信效验码");
                 countdown = 60;
@@ -71,23 +82,17 @@ define(['app'], function (app) {
          * @param POP
          */
         service.submitTransformMoney = function ($scope, POP, $state) {
-            var targetName = $scope.transformMoney.targetName;
-            var money = $scope.transformMoney.money;
-            var passWord = $scope.transformMoney.passWord;
-            var reMark = $scope.transformMoney.reMark;
-            var messageCode = $scope.transformMoney.messageCode;
+            var money = $scope.transform.money;
+            var passWord = $scope.transform.password;
+            var reMark = $scope.transform.reMark;
+            var messageCode = $scope.transform.messageCode;
             if (reMark == undefined)reMark = "";
-            if (targetName == undefined) {
-                POP.Hint("转账对象不能为空，请检查！");
+            if (passWord == undefined) {
+                POP.Hint("请填写支付密码！");
                 return;
             }
             if (money == undefined) {
                 POP.Hint("请你填写转账金额！");
-                return;
-            }
-
-            if (passWord == undefined) {
-                POP.Hint("请填写支付密码！");
                 return;
             }
             if (messageCode == undefined) {
@@ -95,11 +100,9 @@ define(['app'], function (app) {
                 return;
             }
 
-            // 验证用户名格式
-
-            var parrt = /^[A-Za-z0-9_]+$/;
-            if (!parrt.test(targetName)) {
-                POP.Hint("转账对象格式不正确，请重新输入！");
+            var parrt = /^\d{6}$/;
+            if (!parrt.test(passWord)) {
+                POP.Hint("密码格式不正确，请重新输入！");
                 return;
             }
             // 验证转账金额
@@ -107,27 +110,20 @@ define(['app'], function (app) {
                 POP.Hint("金额格式不正确，请重新输入！");
                 return;
             }
-            var parrt = /^\d{6}$/;
-            if (!parrt.test(passWord)) {
-                POP.Hint("密码格式不正确，请重新输入！");
-                return;
-            }
+
             var userInfo = User.getInfo();
-            var userName = userInfo.user_name;
             var userId = userInfo.user_id;
             POP.StartLoading();
-            HTTP.post(API.My.internalTransfer,
+            HTTP.post(API.My.bonusOnUserMoney,
                 {
-                    "verificationType": "1",
-                    "user_name": userName,
                     "user_id": userId,
-                    "SECOND_PASSWORD": passWord,
-                    "target_user_name": targetName,
-                    "amount": money,
+                    "bonus": money,
+                    "THREE_PASSWORD": passWord,
+                    "verification_type": "1",
+                    "verification_code": messageCode,
                     "remark": reMark,
-                    "verification_code": messageCode
                 }, function (e, data) {
-
+                    console.log(data);
                     POP.EndLoading()
                     if (e) {
                         if (data.verifyCode != undefined) {
@@ -135,7 +131,7 @@ define(['app'], function (app) {
                         } else if (data.transferMoney != undefined) {
                             POP.Hint(data.transferMoney);
                         } else {
-                            POP.Hint("转账错误");
+                            POP.Hint("转账失败");
                         }
 
                         return;
@@ -144,7 +140,7 @@ define(['app'], function (app) {
 
                     setTimeout(function () {
                         $state.go("tab.my");
-                    }, 200);
+                    }, 2000);
 
 
                 });

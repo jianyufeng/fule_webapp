@@ -27,7 +27,7 @@ define(['app'], function (app) {
             sendBox.text("正在发送...");
             //获取验证码
             //var url = "http://192.168.10.123:5000/_user/getSmsCode/user_name/" + user_name;
-            HTTP.get(Api.My.internalTransferGetSmsCode + "/user_name/" + user_name, {}, function (e, data) {
+            HTTP.get(API.My.internalTransferGetSmsCode + "/user_name/" + user_name, {}, function (e, data) {
                 if (e) {
                     //POP.Hint("data");
                     console.log(e);
@@ -144,7 +144,7 @@ define(['app'], function (app) {
 
                     setTimeout(function () {
                         $state.go("tab.my");
-                    }, 200);
+                    }, 2000);
 
 
                 });
