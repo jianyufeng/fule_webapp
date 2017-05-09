@@ -55,6 +55,10 @@ define(['app'],function(app){
         /*删除喜乐之家购买记录*/
         service.deleteHappyHomeLogs = function ($scope, POP,_id,_idx) {
 
+            // console.log(_id);
+            // alert(_idx);
+
+
             POP.StartLoading();
 
             HTTP.get(API.My.deleteHappyHomePurchaseHistory + "/log_id/"+_id , {}, function (e, data) {

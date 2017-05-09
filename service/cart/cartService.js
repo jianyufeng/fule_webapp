@@ -5,7 +5,6 @@ define(['app'],function(app){
          var service = {};
 
         /* 获取服务器数据*/
-        /*网络获取用户信息*/
         service.getCartGoods = function ($scope, POP) {
           
             $.initAppStartLoad();
@@ -99,7 +98,6 @@ define(['app'],function(app){
 						moneyCount += parseInt($scope.cart_goods[i].goods_price);
 					}
 
-                    
 					return moneyCount;
 				}
 
