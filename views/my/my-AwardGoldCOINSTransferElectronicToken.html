@@ -1,0 +1,48 @@
+
+<ion-view view-title="奖金币转电子币" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
+    <navigation-bar is-back="true" title="奖金币转电子币"></navigation-bar>
+
+    <ion-content style="background-color: white" scroll="false">
+        <ion-scroll style="width:100%;position:absolute;top:60px;left: 0px; bottom: 0px">
+
+            <div class="cardItem" style="margin-top: 20px">
+                <span class="left">三级密码 ：</span>
+                <input type="password" class="text" ng-model="transformMoney.targetName" >
+                <div class="line">
+                </div>
+            </div>
+
+            <div class="cardItem">
+                <span class="left">转账金额：</span>
+                <input type="number" class="text" ng-model="transformMoney.money" placeholder="请输入转账金额">
+                <div class="line">
+                </div>
+            </div>
+
+            <div class="cardItem">
+                <span class="left">转账备注：</span>
+                <input type="text" class="text" ng-model="transformMoney.reMark" placeholder="请输入转账备注">
+                <div class="line">
+                </div>
+            </div>
+            <div class="postNoteBox">
+                <div class="inputBox">
+                    <img src="./resource/images/icon/login_yanzheng.png">
+                    <input type="text" class="note" placeholder="请输入短信校验码" ng-model="transformMoney.messageCode">
+                </div>
+
+                <button class="postNote" ng-click="getMessageCode()">
+                    发送短信校验码
+                </button>
+            </div>
+
+            <div class="buttonBox">
+                <div ng-click="transformMoneyAction()">
+                    提交
+                </div>
+            </div>
+
+
+        </ion-scroll>
+    </ion-content>
+</ion-view>

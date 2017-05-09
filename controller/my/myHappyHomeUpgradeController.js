@@ -1046,6 +1046,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 console.log(data);
                 POP.EndLoading();
                 if (e) {
+                    POP.Hint("升级失败，请重新尝试");
                     return;
                 }
                 // 跳转界面
@@ -1078,7 +1079,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $("#selectBank").click(function () {
 
             if ($("#BankBox").is(":visible")) {
-                console.log(11111111);
             }
             if ($("#BankBox").is(":hidden")) {
 

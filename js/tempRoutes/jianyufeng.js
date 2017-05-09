@@ -368,7 +368,21 @@ define(['app'], function (app) {
                 }
             })
 
+            /*我的 奖金币转电子币 路由*/
+            .state('tab.my-AwardGoldCOINSTransferElectronicToken', {
+                url: '/my-AwardGoldCOINSTransferElectronicToken',
+                cache : false,
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-AwardGoldCOINSTransferElectronicToken.html?_r=" + Math.random(),
+                        controller: 'myAwardGoldCOINSTransferElectronicTokenController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myAwardGoldCOINSTransferElectronicTokenController')
+                        }
+                    }
 
+                }
+            })
 
     });
 

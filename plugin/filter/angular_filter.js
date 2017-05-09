@@ -223,7 +223,22 @@ define(['app'], function (app) {
             return time;
         }
     });
+    /*管理关系位置 过滤器*/
+    app.filter('locationFilter', function ($rootScope) {
+        return function (input, varl) {
+            var v = parseInt(input);
+            switch (v) {
+                case  0:
+                    varl = '左区';
+                    break;
+                case  1:
+                    varl = '右区';
+                    break;
+            }
+            return varl
+        }
 
+    });
 
     /*服务关系志愿者级别 过滤器*/
     app.filter('registerGradeFilter', function ($rootScope) {

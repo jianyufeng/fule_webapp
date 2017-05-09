@@ -1,11 +1,11 @@
 /**
- * Created by ShareLock on 2017/3/30.
- * 内部转账Service
+ * Created by ShareLock on 2017/5/9.
+ *  奖金币转电子币
  */
 
 define(['app'], function (app) {
 
-    app.factory("myInternalTransferService", function () {
+    app.factory("myAwardGoldCOINSTransferElectronicTokenService", function () {
 
         var service = {};
 
@@ -18,7 +18,7 @@ define(['app'], function (app) {
             //获取账号
             var user_name = User.getInfo().user_name;
             //账号不为空
-            if (CommenFun.isNullObj(user_name)|| user_name==undefined||user_name==null||user_name=="") {
+            if (CommenFun.isNullObj(user_name) || user_name == undefined || user_name == null || user_name == "") {
                 POP.Hint("账号不能为空");
                 return;
             }
