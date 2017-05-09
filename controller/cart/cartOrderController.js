@@ -164,18 +164,21 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
         //弹出订单的配送方式选择选择界面
         $(".orderDeliveryModel").click(function () {
             $(".popBg").css({
+
                 display: "block", height: $(document).height()
             });
+
             var $popBox = $(".popBox");
-            $popBox.css({
-                display: "block"
-            });
+
+                $popBox.css({
+                    display: "block"
+                 });
             $(".closeButton").click(function () {
                 $(".popBg,.popBox").css("display", "none");
             });
 
             //在配送方式选择界面选择具体的配送方式
-            $(document).on("click",".deliveryBox",function () {
+            $(document).on("click", ".deliveryBox", function () {
                 var _index = $(".deliveryBox").index(this);
                 var shipping_id = $(".deliveryChoice").eq(_index).attr("id");
                 $scope.shi_id = $(".deliveryChoice").eq(_index).attr("id"); //当前快递公司id
@@ -191,17 +194,15 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
                 }
 
                 //计算运费
-                cartOrderService.countFreight($scope, freightParams, function (freight) {
+                cartOrderService.countFreightAction($scope, freightParams, POP, function (freight) {
 
                     $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
                     $scope.expressName = $(".deliveryContent").eq(_index).text(); //物流公司名
                     $scope.amountOrder = $scope.orderInfo.pay_amount + freight;
 
-                    if(freight == "免运费"){
+                    if (freight == "免运费") {
                         $scope.amountOrder = $scope.orderInfo.pay_amount
                     }
-
-
 
                 });
 
