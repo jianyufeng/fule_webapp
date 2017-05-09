@@ -43,14 +43,12 @@ define(['app'], function (app) {
                     $scope.userInfo = data.userInfo;
                     $scope.travel_points = data.travel_points;
                     //判断添加个人图像
-                    var headerUrl=data.userInfo.headerUrl;
-                    if (headerUrl==undefined || headerUrl==null || headerUrl.length==0) {
-                        $(".usrIcon").attr('src',"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3557371746,1385116483&fm=117&gp=0.jpg");
-                    }else {
-                        $(".usrIcon").attr('src',headerUrl);
+                    var headerUrl = data.userInfo.headerUrl;
+                    if (headerUrl == undefined || headerUrl == null || headerUrl.length == 0) {
+                        $(".usrIcon").attr('src', "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3557371746,1385116483&fm=117&gp=0.jpg");
+                    } else {
+                        $(".usrIcon").attr('src', headerUrl);
                     }
-
-
                     //判断是否显示部分功能
                     if (data.userInfo.ZHUAN_MAI_DIAN_GRADE > 0) {
                         //专卖店 或 旗舰店
@@ -62,7 +60,6 @@ define(['app'], function (app) {
                         //其他等级的会员
                         $('.isNotRegister').show();
                     }
-
                     if (lv < 4) {
                         // 判断一键升级
                         if (user_INTEGRAL >= GAOJI_ZHI_YUAN_ZHE) {
