@@ -106,6 +106,7 @@ define(['app'], function (app) {
             var info = $scope.userArray[index];
             $("#recommend").val(info.RECOMMENDED_MAN);
             $("#node").val(info.CONTACT_MAN);
+            console.log(info);
             if (info.REGION == 0) {
                 $("#selectResult").val("左区");
             } else if (info.REGION == 1) {
@@ -201,7 +202,6 @@ define(['app'], function (app) {
         // 验证推荐人流程
         service.checkingRecommendedMan = function ($scope, ele, eleNode, userName, POP) {
             POP.StartLoading();
-            console.log(3.1415926);
             HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
                 POP.EndLoading();
                 if (e) {
@@ -220,7 +220,6 @@ define(['app'], function (app) {
         service.checkingNodeMan = function ($scope, ele, eleNode, userName, POP) {
             // 请求个人信息
             // 判断 username  是否激活
-            console.log(3.1415);
             POP.StartLoading();
             HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
                 POP.EndLoading();

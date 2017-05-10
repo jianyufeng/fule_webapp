@@ -107,13 +107,12 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         $('#abc1').click(function () {
             $('#RegionBox').fadeOut(300);
-            console.log($scope.left);
             if ($scope.left == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc2').css('color', 'black');
                 $('#selectResult').val("左区");
-                var user = $scope.userArray[0];
-                user.REGION = 0;
+                $scope.userArray[0].REGION=0;
+
             } else {
                 POP.Alert("左区不可用");
             }
@@ -122,13 +121,11 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         $("#abc2").click(function () {
             $('#RegionBox').fadeOut(300);
-            console.log($scope.right);
             if ($scope.right == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc1').css('color', 'black');
                 $('#selectResult').val("右区");
-                var user = $scope.userArray[0];
-                user.REGION = 1;
+                $scope.userArray[0].REGION=1;
             } else {
                 POP.Alert("右区不可用");
             }
@@ -207,7 +204,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
                     //if ($("#BankBox").is(":visible")) {
-                    console.log("cccccccccccccccc");
+
                     //}
                     return false;
                 });
@@ -247,6 +244,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             if ($scope.dex > 0) {
                 return;
             }
+
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#recommendWaring"), $("#recommend"))) {
                 return;
@@ -276,8 +274,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             if ($scope.dex > 0) {
                 return
             }
-            $scope.userArray[$scope.dex].REGION = null;
-            $("#selectResult").val("--请选择--");
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#nodeWaring"), $("#node"))) {
                 return;
@@ -1009,15 +1005,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 }
                 user_datas[d] = arr;
             }
-            console.log(user_datas);
+
             POP.StartLoading();
             HTTP.post(API.My.updateUserLogs, {
                 "config_id": Number.parseInt(configId),
                 "id": Number.parseInt($scope.id),
                 "user_data": user_datas,
             }, function (e, data) {
-                console.log(e);
-                console.log(data);
                 POP.EndLoading();
                 if (e) {
                     POP.Hint("升级失败，请重新尝试");
