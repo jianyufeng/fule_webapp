@@ -141,6 +141,7 @@ define(['app'], function (app) {
                     }
                     //按钮消失
                     $("#gradeButton").css("display", "none");
+                    myService.getMyInfo($scope, POP, true);
                 })
 
         }

@@ -33,6 +33,11 @@ define(['app'], function (app) {
 
                     $scope.rechargeableCardAList = listA;
                     $scope.rechargeableCardBList = listB;
+                    if(data.data.length<=0){
+                        $scope.isEmptyData=true;
+                    }else{
+                        $scope.isEmptyData=false;
+                    }
 
                 });
             });

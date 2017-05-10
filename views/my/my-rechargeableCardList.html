@@ -8,6 +8,11 @@
                 <div class="rightCard" ng-click="show(2)">换购代金券卡</div>
             </div>
 
+            <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
+                 class="tr_emptyList">
+                暂无数据
+            </div>
+
             <div class="listABox" id="listA">
                 <div class="itemACardBox" ng-repeat="rechargeableCardA in rechargeableCardAList">
                     <div class="itemRowBox">
