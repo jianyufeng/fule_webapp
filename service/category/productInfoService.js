@@ -196,6 +196,8 @@ define(['app'], function (app) {
                 var goodsName = $scope.productName;
                 var goodsNumber = Number.parseInt($("#_number").val());
                 $scope.count = goodsNumber;
+                console.log(111111111);
+                console.log(pri);
                 if ($scope.count < 1) {
                     POP.Hint("最少添加一个商品！");
                     return;
@@ -206,9 +208,8 @@ define(['app'], function (app) {
                     "goods_id": goodsId,
                     "goods_name": goodsName,
                     "goods_number": goodsNumber,
-                    "goods_price": pri
+                    "goods_price": pri*goodsNumber
                 }, function (e, data) {
-
                     if (e) {
                         return;
                     }

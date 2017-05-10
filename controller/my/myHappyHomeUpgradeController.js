@@ -244,7 +244,8 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             if ($scope.dex > 0) {
                 return;
             }
-
+            console.log($scope.dex);
+            console.log("-------------");
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#recommendWaring"), $("#recommend"))) {
                 return;
@@ -274,6 +275,8 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             if ($scope.dex > 0) {
                 return
             }
+            console.log($scope.dex);
+            console.log("-------------");
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#nodeWaring"), $("#node"))) {
                 return;
