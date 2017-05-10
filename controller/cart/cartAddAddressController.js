@@ -125,7 +125,7 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
 
                 if (!re.test(familyPhone)){
 
-                    POP.Hint("请填写正确的电话号码");
+                    POP.Hint("请填写正确的家庭电话");
                     return;
                 }
 
