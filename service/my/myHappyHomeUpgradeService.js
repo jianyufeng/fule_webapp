@@ -13,7 +13,7 @@ define(['app'], function (app) {
          * @param $scope
          * @param configId
          */
-        service.getMyHappyHomeUpgradeInfo = function ($scope, configId, POP, tagAnimateFun) {
+        service.getMyHappyHomeUpgradeInfo = function ($scope, configId, POP, tagAnimateFun,$ionicScrollDelegate) {
 
             var userName = User.getInfo().user_name;
             POP.StartLoading();
@@ -87,7 +87,7 @@ define(['app'], function (app) {
                         $("#leftTag").css('display', 'none');
                         $("#rightTag").css('display', 'none');
                     }
-                    service.showUserGrade($scope, 0);
+                    service.showUserGrade($scope, 0,$ionicScrollDelegate);
                 })
 
             });
@@ -99,7 +99,8 @@ define(['app'], function (app) {
          * @param $scope
          * @param index
          */
-        service.showUserGrade = function ($scope, index) {
+        service.showUserGrade = function ($scope, index, scrollhand) {
+
             $(".of_nav").css("color", "#000000")
             $(".of_nav").eq(index).css("color", "#d39bc5");
             var info = $scope.userArray[index];
@@ -145,20 +146,22 @@ define(['app'], function (app) {
                 $("#node").attr("disabled", "true");
                 $("#selectResult").attr("disabled", "true");
                 $scope.upGrade.click = false;
-                $("#recommend").css('color',"#d39bc5");
-                $("#node").css('color',"#d39bc5");
-                $("#selectResult").css('color',"#d39bc5");
+                $("#recommend").css('color', "#d39bc5");
+                $("#node").css('color', "#d39bc5");
+                $("#selectResult").css('color', "#d39bc5");
             } else {
                 $("#recommend").removeAttr("disabled");
                 $("#node").removeAttr("disabled");
                 $("#selectResult").removeAttr("disabled");
-                $("#recommend").css('color',"#000000");
-                $("#node").css('color',"#000000");
-                $("#selectResult").css('color',"#000000");
+                $("#recommend").css('color', "#000000");
+                $("#node").css('color', "#000000");
+                $("#selectResult").css('color', "#000000");
             }
             $scope.dex = index;
             $("input").blur();
             $(".waring").hide();
+            var delegate = scrollhand.$getByHandle('back');
+            delegate.scrollTop();
         }
 
 

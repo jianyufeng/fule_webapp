@@ -134,7 +134,9 @@ define(['app'], function (app) {
                             POP.Hint(data.verifyCode);
                         } else if (data.transferMoney != undefined) {
                             POP.Hint(data.transferMoney);
-                        } else {
+                        } else if(data.sendSmsCode!=undefined){
+                            POP.Hint(data.sendSmsCode);
+                        }else {
                             POP.Hint("转账错误");
                         }
 

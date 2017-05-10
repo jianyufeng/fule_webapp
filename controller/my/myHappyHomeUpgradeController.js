@@ -21,7 +21,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
             //获取数据
-            myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP, tagAnimateFun);
+            myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP, tagAnimateFun,$ionicScrollDelegate);
 
         });
         $scope.$on('$ionicView.leave', function () {
@@ -46,7 +46,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             });
         }
         $scope.showUser = function (index) {
-            myHappyHomeUpgradeService.showUserGrade($scope, index);
+            myHappyHomeUpgradeService.showUserGrade($scope, index,$ionicScrollDelegate);
         }
         $scope.backClick = function () {
             POP.Confirm("是否放弃当前操作？", function () {
