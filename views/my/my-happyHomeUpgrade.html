@@ -38,21 +38,22 @@
 
 
         <div class="content">
-           <ion-scroll overflow-scroll="true">
+            <ion-scroll overflow-scroll="true">
                 <div class="contentBox">
                     <!--推荐人-->
-                    <div class="rowBox" style="margin-top: 5px;height: 46px;">
-                        <div class="line"></div>
+                    <div class="rowBox" style="margin-top: 5px;height: 56px;">
+
                         <div class="leftBox">
                             <span class="redStar">*</span>推荐人
                         </div>
-
-                        <div class="rightBox" id="recommendBox">
-                            <input id="recommend" class="inputBox" type="text" class="inputBox" placeholder="请输入推荐人"
-                                   ng-model="upGrade.recommendP">
-                            <div class="waring" id="recommendWaring"><i class="icon ion-android-warning"></i>
+                        <label for="recommendBox">
+                            <div class="rightBox" id="recommendBox">
+                                <input id="recommend" class="inputBox" type="text" class="inputBox" placeholder="请输入推荐人"
+                                       ng-model="upGrade.recommendP">
+                                <div class="waring" id="recommendWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--节点人-->
@@ -60,13 +61,14 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>节点人
                         </div>
-
-                        <div class="rightBox" id="nodeBox">
-                            <input id="node" class="inputBox" type="text" placeholder="请输入节点人"
-                                   ng-model="upGrade.nodeP">
-                            <div class="waring" id="nodeWaring"><i class="icon ion-android-warning"></i>
+                        <label for="node">
+                            <div class="rightBox" id="nodeBox">
+                                <input id="node" class="inputBox" type="text" placeholder="请输入节点人"
+                                       ng-model="upGrade.nodeP">
+                                <div class="waring" id="nodeWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--区域-->
@@ -74,10 +76,12 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>所在区域
                         </div>
-                        <div class="rightBox" id="selectResultBox" ng-click="selectRegion()">
-                            <input id="selectResult" readonly class="inputBox" type="text" placeholder="---请选择---"
-                                   style="background-color: white"/>
-                        </div>
+                        <label for="selectResult">
+                            <div class="rightBox" id="selectResultBox" ng-click="selectRegion()">
+                                <input id="selectResult" readonly class="inputBox" type="text" placeholder="---请选择---"
+                                       style="background-color: white"/>
+                            </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--商城密码-->
@@ -85,11 +89,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>商城密码
                         </div>
-                        <div class="rightBox">
-                            <input id="mallPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">
-                            <div class="waring" id="mallPassWordWaring"><i class="icon ion-android-warning"></i>
+                        <label for="mallPassWord">
+                            <div class="rightBox">
+                                <input id="mallPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">
+                                <div class="waring" id="mallPassWordWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--二级密码-->
@@ -97,12 +103,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>二级密码
                         </div>
-
-                        <div class="rightBox">
-                            <input id="secondPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">
-                            <div class="waring" id="secondPassWordWaring"><i class="icon ion-android-warning"></i>
+                        <label for="secondPassWord">
+                            <div class="rightBox">
+                                <input id="secondPassWord" class="inputBox" type="text" placeholder="6-16位 支持字母数字">
+                                <div class="waring" id="secondPassWordWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--支付密码-->
@@ -110,13 +117,14 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>支付密码
                         </div>
-
-                        <div class="rightBox">
-                            <input id="payPassWord" class="inputBox" type="number" placeholder="支持6位数字的组合"
-                            >
-                            <div class="waring" id="payPassWordWaring"><i class="icon ion-android-warning"></i>
+                        <label for="payPassWord">
+                            <div class="rightBox">
+                                <input id="payPassWord" class="inputBox" type="number" placeholder="支持6位数字的组合"
+                                >
+                                <div class="waring" id="payPassWordWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--e-mail-->
@@ -124,12 +132,14 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>e-mail
                         </div>
-                        <div class="rightBox">
-                            <input id="Email" class="inputBox" type="text" placeholder="建议使用常用邮箱">
-                            <div class="waring" id="EmailWaring"><i class="icon ion-android-warning"></i>
-                                {{upGrade.EmailError}}
+                        <label for="Email">
+                            <div class="rightBox">
+                                <input id="Email" class="inputBox" type="text" placeholder="建议使用常用邮箱">
+                                <div class="waring" id="EmailWaring"><i class="icon ion-android-warning"></i>
+                                    {{upGrade.EmailError}}
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--手机号-->
@@ -137,12 +147,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>手机
                         </div>
-
-                        <div class="rightBox">
-                            <input id="phone" class="inputBox" type="number" placeholder="建议使用常用手机号">
-                            <div class="waring" id="phoneWaring"><i class="icon ion-android-warning"></i>
+                        <label for="phone">
+                            <div class="rightBox">
+                                <input id="phone" class="inputBox" type="number" placeholder="建议使用常用手机号">
+                                <div class="waring" id="phoneWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--姓名-->
@@ -150,11 +161,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>姓名
                         </div>
-                        <div class="rightBox">
-                            <input id="name" class="inputBox" type="text" placeholder="请输入姓名">
-                            <div class="waring" id="nameWaring"><i class="icon ion-android-warning"></i>
+                        <label for="name">
+                            <div class="rightBox">
+                                <input id="name" class="inputBox" type="text" placeholder="请输入姓名">
+                                <div class="waring" id="nameWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--银行账号-->
@@ -162,11 +175,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>银行账号
                         </div>
-                        <div class="rightBox">
-                            <input id="bankCardN" class="inputBox" type="number" placeholder="请输入银行账号">
-                            <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i>
+                        <label for="bankCardN">
+                            <div class="rightBox">
+                                <input id="bankCardN" class="inputBox" type="number" placeholder="请输入银行账号">
+                                <div class="waring" id="bankCardNWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--开户银行-->
@@ -174,11 +189,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>开户银行
                         </div>
-                        <div class="rightBox" id="selectBank">
-                            <span id="bank" class="inputBox"  >--请选择银行--</span>
-                            <div class="waring" id="bankWaring"><i class="icon ion-android-warning"></i>
+                        <label for="bank">
+                            <div class="rightBox" id="selectBank">
+                                <span id="bank" class="inputBox">--请选择银行--</span>
+                                <div class="waring" id="bankWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--身份证号-->
@@ -186,11 +203,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>身份证号
                         </div>
-                        <div class="rightBox">
-                            <input id="identityCardN" class="inputBox" type="text" placeholder="请输入身份证号">
-                            <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i>
+                        <label for="identityCardN">
+                            <div class="rightBox">
+                                <input id="identityCardN" class="inputBox" type="text" placeholder="请输入身份证号">
+                                <div class="waring" id="identityCardNWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--开户姓名-->
@@ -198,11 +217,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>开户姓名
                         </div>
-                        <div class="rightBox">
-                            <input id="cardName" class="inputBox" type="text" placeholder="必须为中文">
-                            <div class="waring" id="cardNameWaring"><i class="icon ion-android-warning"></i>
+                        <label for="cardName">
+                            <div class="rightBox">
+                                <input id="cardName" class="inputBox" type="text" placeholder="必须为中文">
+                                <div class="waring" id="cardNameWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--开户支行-->
@@ -210,11 +231,13 @@
                         <div class="leftBox">
                             <span class="redStar">*</span>开户支行
                         </div>
-                        <div class="rightBox">
-                            <input id="bankBranch" class="inputBox" type="text" placeholder="xx区xx路xx支行">
-                            <div class="waring" id="bankBranchWaring"><i class="icon ion-android-warning"></i>
+                        <label for="bankBranch">
+                            <div class="rightBox">
+                                <input id="bankBranch" class="inputBox" type="text" placeholder="xx区xx路xx支行">
+                                <div class="waring" id="bankBranchWaring"><i class="icon ion-android-warning"></i>
+                                </div>
                             </div>
-                        </div>
+                        </label>
                         <div class="line"></div>
                     </div>
                     <!--省市地区-->

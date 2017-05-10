@@ -63,14 +63,14 @@ ion-content .content ion-scroll .contentBox {
 }
 ion-content .content ion-scroll .contentBox .rowBox {
   width: 100%;
-  height: 45px;
+  height: 55px;
   background-color: white;
 }
 ion-content .content ion-scroll .contentBox .rowBox .leftBox {
   padding-left: 10px;
   width: 25%;
   float: left;
-  line-height: 44px;
+  line-height: 54px;
   background-color: white;
 }
 ion-content .content ion-scroll .contentBox .rowBox .leftBox .redStar {
@@ -78,30 +78,30 @@ ion-content .content ion-scroll .contentBox .rowBox .leftBox .redStar {
   margin-right: 5px;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox {
-  height: 44px;
+  height: 54px;
   width: 70%;
   float: left;
-  line-height: 44px;
+  line-height: 54px;
   margin-left: 5%;
   background-color: white;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox input {
   background-color: white;
   width: 100%;
-  height: 44px;
-  line-height: 44px;
+  height: 54px;
+  line-height: 54px;
   display: block;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox .waring {
   height: 10px;
   color: red;
   font-size: 10px;
-  margin-top: -20px;
+  margin-top: -25px;
   display: none;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox .span {
-  height: 44px;
-  line-height: 44px;
+  height: 54px;
+  line-height: 54px;
 }
 ion-content .content ion-scroll .contentBox .rowBox .line {
   clear: both;

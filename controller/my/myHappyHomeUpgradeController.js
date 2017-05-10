@@ -783,86 +783,86 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $("#recommend").focus(function () {
             $("#recommendWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
 
         });
         $("#node").focus(function () {
             $("#nodeWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#mallPassWord").focus(function () {
             $("#mallPassWordWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#payPassWord").focus(function () {
             $("#payPassWordWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#Email").focus(function () {
             $("#EmailWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#phone").focus(function () {
             $("#phoneWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#name").focus(function () {
             $("#nameWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#bankCardN").focus(function () {
             $("#bankCardNWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#bank").focus(function () {
             $("#bankWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#identityCardN").focus(function () {
             $("#identityCardNWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#cardName").focus(function () {
             $("#cardNameWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
         $("#bankBranch").focus(function () {
             $("#bankBranchWaring").css('display', 'none');
             $(this).css({
-                'height': '44px',
-                'line-height': '44px',
+                'height': '54px',
+                'line-height': '54px',
             })
         });
 

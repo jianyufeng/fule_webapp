@@ -182,8 +182,8 @@ define(['app'], function (app) {
         service.showError = function (elea, eleb, text) {
             elea.css('display', 'block');
             eleb.css({
-                'height': '34px',
-                'line-height': '34px',
+                'height': '44px',
+                'line-height': '44px',
             });
             elea.html("<i class='icon ion-android-warning'></i> " + text);
         }
@@ -234,7 +234,7 @@ define(['app'], function (app) {
          * 验证身份证号是否可用
          * @param str
          */
-        service.testIdentityCardN = function (str, POP,fc) {
+        service.testIdentityCardN = function (str, POP, fc) {
             POP.StartLoading();
             HTTP.get(API.My.verifyIdentityCardN + "/id_card/" + str, {}, function (e, data) {
                 POP.EndLoading();
