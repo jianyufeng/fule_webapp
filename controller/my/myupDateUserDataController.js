@@ -47,7 +47,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             if ($scope.left == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc2').css('color', 'black');
-                $('#selectResult').val("左区");
+                $('#selectResult').text("左区");
             } else {
                 POP.Alert("左区不可用");
             }
@@ -56,7 +56,7 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             if ($scope.right == 0) {
                 $(this).css('color', '#D39AC5');
                 $('#abc1').css('color', 'black');
-                $('#selectResult').val("右区");
+                $('#selectResult').text("右区");
             } else {
                 POP.Alert("右区不可用");
             }

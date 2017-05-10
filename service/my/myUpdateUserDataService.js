@@ -9,7 +9,6 @@ define(['app'], function (app) {
             var service = {};
             // 点击 提交按钮
             service.upGradeAction = function ($scope, POP, myGrade, $state) {
-                console.log("myGrade：" + myGrade);
                 var userInfo = User.getInfo();
                 // 推荐人
                 var recommendP = $scope.upGrade.recommendP;
@@ -18,7 +17,7 @@ define(['app'], function (app) {
                 // 节点人体系
                 var team = $scope.upGrade.team;
                 // 节点
-                var region = $("#selectResult").val();
+                var region = $("#selectResult").text();
                 // 昵称
                 var nickName = $scope.upGrade.nickName;
                 // 银行卡号
@@ -93,20 +92,11 @@ define(['app'], function (app) {
                     //  批发
                     url = API.My.upgradeToPIFA;
                 }
-                console.log("url:" + url);
-                console.log("user_name:" + userInfo.user_name);
-                console.log("user_id:" + userInfo.user_id);
-                console.log("recommendP:" + recommendP);
-                console.log("nodeP:" + nodeP);
-                console.log("region:" + region);
                 if (region == "左区") {
                     region = 0;
                 } else if (region == "右区") {
                     region = 1;
                 }
-                console.log("region:" + region);
-                console.log("cardName:" + cardName);
-                console.log("bankCardN:" + bankCardN);
                 if (bank == "中国工商银行") {
                     bank = 1;
                 } else if (bank == "中国农业银行") {
@@ -114,10 +104,6 @@ define(['app'], function (app) {
                 } else if (bank == "中国建设银行") {
                     bank = 3;
                 }
-                console.log("bank:" + bank);
-                console.log("identityCardN:" + identityCardN);
-                console.log("branchBank:" + branchBank);
-                console.log("nickName:" + nickName);
 
                 // HTTP 提交
                 HTTP.post(url, {
@@ -137,8 +123,6 @@ define(['app'], function (app) {
                     "MEMBER_NAME": nickName,   // 昵称
                 }, function (e, data) {
                     POP.EndLoading();
-                    console.log(111111111111111);
-                    console.log(data);
                     if (e) {
                         if (data != null) {
                             POP.Hint("升级失败！" + data);
@@ -249,7 +233,7 @@ define(['app'], function (app) {
                 // 节点人体系
                 $scope.upGrade.team = null;
                 // 节点
-                $("#selectResult").val("");
+                $("#selectResult").text("---请选择---");
                 // 昵称
                 $scope.upGrade.nickName = null;
                 // 银行卡号

@@ -21,7 +21,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
             //获取数据
-            myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP, tagAnimateFun,$ionicScrollDelegate);
+            myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP, tagAnimateFun, $ionicScrollDelegate);
 
         });
         $scope.$on('$ionicView.leave', function () {
@@ -46,7 +46,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             });
         }
         $scope.showUser = function (index) {
-            myHappyHomeUpgradeService.showUserGrade($scope, index,$ionicScrollDelegate);
+            myHappyHomeUpgradeService.showUserGrade($scope, index, $ionicScrollDelegate);
         }
         $scope.backClick = function () {
             POP.Confirm("是否放弃当前操作？", function () {
@@ -619,31 +619,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         }
 
-        //开户银行失去焦点
-        $(document).on("input propertychange blur", "#bank", function () {
-            var str = _.trim($(this).text());
-            if (myHappyHomeUpgradeService.showEmptyError(str,
-                    $("#bankWaring"), $("#bank"))) {
-                return;
-            }
-            var user = $scope.userArray[$scope.dex];
-            user.flag = $scope.dex;
-            if (user.flag == undefined) {
-                $scope.userArray[$scope.dex].BANK_NAME = str;
-            }
-            if ($scope.dex != 0) {
-                $scope.userArray[$scope.dex].BANK_NAME = str;
-                return;
-            }
-            // 输入完成赋值给其他的输入项
-            for (var i = 0; i < $scope.userArray.length; i++) {
-                var info = $scope.userArray[i];
-                if (info.flag == 0) {
-                    $scope.userArray[i].BANK_NAME = str;
-                }
-            }
-        });
-
         function checkBank() {
             var str = $("#bank").text();
             if (myHappyHomeUpgradeService.showEmptyError(str,
@@ -1076,7 +1051,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         // 选择银行
         $("#selectBank").click(function () {
-
             if ($("#BankBox").is(":visible")) {
             }
             if ($("#BankBox").is(":hidden")) {
