@@ -113,28 +113,28 @@ ion-content .content ion-scroll .contentBox .rowBox .line {
 ion-content .content ion-scroll .contentBox .rowBottomBox {
   margin-top: 15px;
   width: 100%;
-  height: 50px;
+  height: 65px;
   padding: 0 5%;
   background-color: white;
 }
 ion-content .content ion-scroll .contentBox .rowBottomBox .submitButton {
   width: 48%;
-  height: 35px;
+  height: 50px;
   background-color: #D39AC5;
   border-radius: 3px;
   color: white;
   float: left;
   text-align: center;
-  line-height: 35px;
+  line-height: 50px;
 }
 ion-content .content ion-scroll .contentBox .rowBottomBox .resetButton {
   width: 48%;
-  height: 35px;
+  height: 50px;
   border-radius: 3px;
   background-color: #AAAAAA;
   color: white;
   float: left;
   text-align: center;
-  line-height: 35px;
+  line-height: 50px;
   margin-left: 4%;
 }

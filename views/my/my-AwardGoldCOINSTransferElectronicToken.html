@@ -4,7 +4,22 @@
     <ion-content style="background-color: white" scroll="false">
         <ion-scroll style="width:100%;position:absolute;top:60px;left: 0px; bottom: 0px">
 
+
             <div class="cardItem" style="margin-top: 20px">
+                <span class="left">用 户 名 ：</span>
+                <span class="right"> {{userName}}</span>
+                <div class="line">
+                </div>
+            </div>
+
+            <div class="cardItem">
+                <span class="left">奖金币余额：</span>
+                <span class="right"> {{userBonus}}</span>
+                <div class="line">
+                </div>
+            </div>
+
+            <div class="cardItem">
                 <span class="left"> <span class="redStar">*</span>支付密码 ：</span>
                 <input type="password" class="text" ng-model="transform.password">
                 <div class="line">

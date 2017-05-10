@@ -4,9 +4,16 @@
  */
 
 define(['app', 'css! ../../../css/my/my-internalTransfer'], function (app) {
-    function ctrl($scope, myAwardGoldCOINSTransferElectronicTokenService,POP, $state) {
+    function ctrl($scope, myAwardGoldCOINSTransferElectronicTokenService, POP, $state) {
         $scope.transform = {};
 
+
+        $scope.$on('$ionicView.loaded', function () {
+            // 获取参数
+            // 显示
+            $scope.userName=User.getInfo().user_name;
+            myAwardGoldCOINSTransferElectronicTokenService.getBouns($scope, POP);
+        })
         //    // 获取短信验证码
         $scope.getMessageCode = function () {
             myAwardGoldCOINSTransferElectronicTokenService.getMessageCodeBiz($scope, POP);
@@ -21,7 +28,7 @@ define(['app', 'css! ../../../css/my/my-internalTransfer'], function (app) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myAwardGoldCOINSTransferElectronicTokenService','POP', '$state'];
+    ctrl.$inject = ['$scope', 'myAwardGoldCOINSTransferElectronicTokenService', 'POP', '$state'];
 
     /*动态注册控制器*/
     app.registerController("myAwardGoldCOINSTransferElectronicTokenController", ctrl);

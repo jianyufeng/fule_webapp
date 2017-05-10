@@ -27,29 +27,29 @@ ion-content .contentBox {
 }
 ion-content .contentBox .rowBox {
   width: 100%;
-  height: 45px;
+  height: 55px;
 }
 ion-content .contentBox .rowBox .leftBox {
   padding-left: 10px;
   width: 25%;
   float: left;
-  line-height: 44px;
+  line-height: 54px;
 }
 ion-content .contentBox .rowBox .leftBox .redStar {
   color: red;
   margin-right: 5px;
 }
 ion-content .contentBox .rowBox .rightBox {
-  height: 44px;
+  height: 54px;
   width: 70%;
   float: left;
-  line-height: 44px;
+  line-height: 54px;
   margin-left: 5%;
 }
 ion-content .contentBox .rowBox .rightBox input {
   width: 100%;
-  height: 44px;
-  line-height: 44px;
+  height: 54px;
+  line-height: 54px;
   display: block;
   margin: 0;
   padding: 0;
@@ -58,13 +58,13 @@ ion-content .contentBox .rowBox .rightBox .waring {
   height: 10px;
   color: red;
   font-size: 10px;
-  margin-top: -20px;
+  margin-top: -25px;
   display: none;
 }
 ion-content .contentBox .rowBox .rightBox span {
   width: 100%;
-  height: 44px;
-  line-height: 44px;
+  height: 54px;
+  line-height: 54px;
   display: block;
 }
 ion-content .contentBox .rowBox .line {
@@ -77,27 +77,27 @@ ion-content .contentBox .rowBox .line {
 ion-content .contentBox .rowBottomBox {
   margin-top: 15px;
   width: 100%;
-  height: 50px;
+  height: 65px;
   padding: 0 5%;
 }
 ion-content .contentBox .rowBottomBox .submitButton {
   width: 48%;
-  height: 35px;
+  height: 50px;
   background-color: #D39AC5;
   border-radius: 3px;
   color: white;
   float: left;
   text-align: center;
-  line-height: 35px;
+  line-height: 50px;
 }
 ion-content .contentBox .rowBottomBox .resetButton {
   width: 48%;
-  height: 35px;
+  height: 50px;
   border-radius: 3px;
   background-color: #AAAAAA;
   color: white;
   float: left;
   text-align: center;
-  line-height: 35px;
+  line-height: 50px;
   margin-left: 4%;
 }

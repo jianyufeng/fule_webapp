@@ -70,13 +70,16 @@
                     </span>
                 </div>
 
-                <div ng-repeat="goodsDetailImg in  goodsDetail" class="goodsDetailBox" view-on-finish>
-                    <img class="productInfoImg"
-                         data-original='{{goodsDetailImg.detail_img}}'
-                         src="./resource/images/default/default_image.png"
-                         alt={{goodsDetailImg.detail_text}}
-                    />
+                <div style="margin-bottom: 60px">
+                    <div ng-repeat="goodsDetailImg in  goodsDetail" class="goodsDetailBox" view-on-finish>
+                        <img class="productInfoImg"
+                             data-original='{{goodsDetailImg.detail_img}}'
+                             src="./resource/images/default/default_image.png"
+                             alt={{goodsDetailImg.detail_text}}
+                        />
+                    </div>
                 </div>
+
             </ion-scroll>
             <!-- 加入购物车-->
             <div class="addCartBar">

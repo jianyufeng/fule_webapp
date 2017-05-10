@@ -10,7 +10,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $scope.userArray = [];
         $scope.upGrade = {};
         $scope.upGrade.click = false;
-        $scope.index = 0;
+        $scope.dex = 0;
         $scope.id = 0;
         $scope.upGrade.address = null;
         $scope.showRight = false;
@@ -99,7 +99,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                         $scope.userArray[i].flag = 0;
                     }
 
-                    myHappyHomeUpgradeService.showUserGrade($scope, $scope.index);
+                    myHappyHomeUpgradeService.showUserGrade($scope, $scope.dex);
                 });
 
         }
@@ -142,20 +142,17 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $('#bank').text($(this).text());
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
-                    //if ($("#BankBox").is(":visible")) {
-                    console.log("aaaaaaaaaaaa");
-                    //}
                     return false;
                 });
             });
 
-            var user = $scope.userArray[$scope.index];
+            var user = $scope.userArray[$scope.dex];
             if (user.flag == undefined) {
                 user.BANK_NAME = 1;
                 return;
             }
-            user.flag = $scope.index;
-            if ($scope.index != 0) {
+            user.flag = $scope.dex;
+            if ($scope.dex != 0) {
                 user.BANK_NAME = 1;
                 return;
             }
@@ -177,20 +174,17 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             $('#bank').text($(this).text());
             $('#BankBox').fadeOut(300, function () {
                 $(document).on("click", "#selectBank", function () {
-                    //if ($("#BankBox").is(":visible")) {
-                    console.log("bbbbbbbbbbb");
-                    //}
                     return false;
                 });
             });
 
-            var user = $scope.userArray[$scope.index];
+            var user = $scope.userArray[$scope.dex];
             if (user.flag == undefined) {
                 user.BANK_NAME = 2;
                 return;
             }
-            user.flag = $scope.index;
-            if ($scope.index != 0) {
+            user.flag = $scope.dex;
+            if ($scope.dex != 0) {
                 user.BANK_NAME = 2;
                 return;
             }
@@ -219,13 +213,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 });
             });
 
-            var user = $scope.userArray[$scope.index];
+            var user = $scope.userArray[$scope.dex];
             if (user.flag == undefined) {
                 user.BANK_NAME = 3;
                 return;
             }
-            user.flag = $scope.index;
-            if ($scope.index != 0) {
+            user.flag = $scope.dex;
+            if ($scope.dex != 0) {
                 user.BANK_NAME = 3;
                 return;
             }
@@ -250,9 +244,8 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         // 推荐人失去焦点
         $(document).on("blur", "#recommend", function () {
             var str = _.trim($(this).val());
-
-            if ($scope.index > 0) {
-                return
+            if ($scope.dex > 0) {
+                return;
             }
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#recommendWaring"), $("#recommend"))) {
@@ -264,6 +257,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             if (!pattern.test(str)) {
                 myHappyHomeUpgradeService.showError($("#recommendWaring"), $("#recommend"), "输入的格式有误请重新输入");
             } else {
+
                 myHappyHomeUpgradeService.checkingRecommendedMan($scope, $(this), $("#recommendWaring"), str, POP);
             }
 
@@ -279,11 +273,10 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         // 节点人失去焦点
         $(document).on("blur", "#node", function () {
             var str = _.trim($(this).val());
-            if ($scope.index > 0) {
+            if ($scope.dex > 0) {
                 return
             }
-
-            $scope.userArray[$scope.index].REGION = null;
+            $scope.userArray[$scope.dex].REGION = null;
             $("#selectResult").val("--请选择--");
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#nodeWaring"), $("#node"))) {
@@ -319,15 +312,15 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 myHappyHomeUpgradeService.showError($("#mallPassWordWaring"), $("#mallPassWord"), "输入的格式有误请重新输入");
             } else {
                 $("#mallPassWordWaring").css('display', 'none');
-                var user = $scope.userArray[$scope.index];
+                var user = $scope.userArray[$scope.dex];
 
                 if (user.flag == undefined) {
-                    $scope.userArray[$scope.index].PASSWORD = str;
+                    $scope.userArray[$scope.dex].PASSWORD = str;
                     return;
                 }
-                user.flag = $scope.index;
-                if ($scope.index != 0) {
-                    $scope.userArray[$scope.index].PASSWORD = str;
+                user.flag = $scope.dex;
+                if ($scope.dex != 0) {
+                    $scope.userArray[$scope.dex].PASSWORD = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
@@ -367,15 +360,15 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 myHappyHomeUpgradeService.showError($("#secondPassWordWaring"), $("#secondPassWord"), "输入的格式有误请重新输入");
             } else {
                 $("#secondPassWordWaring").css('display', 'none');
-                var user = $scope.userArray[$scope.index];
+                var user = $scope.userArray[$scope.dex];
 
                 if (user.flag == undefined) {
-                    $scope.userArray[$scope.index].SECOND_PASSWORD = str;
+                    $scope.userArray[$scope.dex].SECOND_PASSWORD = str;
                     return;
                 }
-                user.flag = $scope.index;
-                if ($scope.index != 0) {
-                    $scope.userArray[$scope.index].SECOND_PASSWORD = str;
+                user.flag = $scope.dex;
+                if ($scope.dex != 0) {
+                    $scope.userArray[$scope.dex].SECOND_PASSWORD = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
@@ -414,14 +407,14 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     $("#payPassWord"), "输入的格式不正确");
             } else {
                 $("#payPassWordWaring").css('display', 'none');
-                var user = $scope.userArray[$scope.index];
+                var user = $scope.userArray[$scope.dex];
                 if (user.flag == undefined) {
-                    $scope.userArray[$scope.index].THREE_PASSWORD = str;
+                    $scope.userArray[$scope.dex].THREE_PASSWORD = str;
                     return;
                 }
-                user.flag = $scope.index;
-                if ($scope.index != 0) {
-                    $scope.userArray[$scope.index].THREE_PASSWORD = str;
+                user.flag = $scope.dex;
+                if ($scope.dex != 0) {
+                    $scope.userArray[$scope.dex].THREE_PASSWORD = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
@@ -462,14 +455,14 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 myHappyHomeUpgradeService.showError($("#EmailWaring"), $("#Email"), "输入的格式不正确");
             } else {
                 $("#EmailWaring").css('display', 'none');
-                var user = $scope.userArray[$scope.index];
-                user.flag = $scope.index;
+                var user = $scope.userArray[$scope.dex];
+                user.flag = $scope.dex;
                 if (user.flag == undefined) {
-                    $scope.userArray[$scope.index].email = str;
+                    $scope.userArray[$scope.dex].email = str;
                     return;
                 }
-                if ($scope.index != 0) {
-                    $scope.userArray[$scope.index].email = str;
+                if ($scope.dex != 0) {
+                    $scope.userArray[$scope.dex].email = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
@@ -510,14 +503,14 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 myHappyHomeUpgradeService.showError($("#phoneWaring"), $("#phone"), "输入的格式不正确");
             } else {
                 $("#phoneWaring").css('display', 'none');
-                var user = $scope.userArray[$scope.index];
+                var user = $scope.userArray[$scope.dex];
                 if (user.flag == undefined) {
-                    $scope.userArray[$scope.index].mobile_phone = str;
+                    $scope.userArray[$scope.dex].mobile_phone = str;
                     return;
                 }
-                user.flag = $scope.index;
-                if ($scope.index != 0) {
-                    $scope.userArray[$scope.index].mobile_phone = str;
+                user.flag = $scope.dex;
+                if ($scope.dex != 0) {
+                    $scope.userArray[$scope.dex].mobile_phone = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
@@ -552,14 +545,14 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     $("#nameWaring"), $("#name"))) {
                 return;
             }
-            var user = $scope.userArray[$scope.index];
+            var user = $scope.userArray[$scope.dex];
             if (user.flag == undefined) {
-                $scope.userArray[$scope.index].MEMBER_NAME = str;
+                $scope.userArray[$scope.dex].MEMBER_NAME = str;
                 return;
             }
-            user.flag = $scope.index;
-            if ($scope.index != 0) {
-                $scope.userArray[$scope.index].MEMBER_NAME = str;
+            user.flag = $scope.dex;
+            if ($scope.dex != 0) {
+                $scope.userArray[$scope.dex].MEMBER_NAME = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
@@ -591,14 +584,14 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 myHappyHomeUpgradeService.showError($("#bankCardNWaring"), $("#bankCardN"), "输入的格式不正确");
             } else {
                 $("#bankCardNWaring").css('display', 'none');
-                var user = $scope.userArray[$scope.index];
-                user.flag = $scope.index;
+                var user = $scope.userArray[$scope.dex];
+                user.flag = $scope.dex;
                 if (user.flag == undefined) {
-                    $scope.userArray[$scope.index].BANK_ACCOUNT = str;
+                    $scope.userArray[$scope.dex].BANK_ACCOUNT = str;
                     return;
                 }
-                if ($scope.index != 0) {
-                    $scope.userArray[$scope.index].BANK_ACCOUNT = str;
+                if ($scope.dex != 0) {
+                    $scope.userArray[$scope.dex].BANK_ACCOUNT = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
@@ -633,13 +626,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     $("#bankWaring"), $("#bank"))) {
                 return;
             }
-            var user = $scope.userArray[$scope.index];
-            user.flag = $scope.index;
+            var user = $scope.userArray[$scope.dex];
+            user.flag = $scope.dex;
             if (user.flag == undefined) {
-                $scope.userArray[$scope.index].BANK_NAME = str;
+                $scope.userArray[$scope.dex].BANK_NAME = str;
             }
-            if ($scope.index != 0) {
-                $scope.userArray[$scope.index].BANK_NAME = str;
+            if ($scope.dex != 0) {
+                $scope.userArray[$scope.dex].BANK_NAME = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
@@ -662,7 +655,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         //身份证号
         $(document).on("blur", "#identityCardN", function () {
             var str = _.trim($(this).val());
-            identityCardN
             if (myHappyHomeUpgradeService.showEmptyError(str,
                     $("#identityCardNWaring"), $("#identityCardN"))) {
                 return;
@@ -675,14 +667,14 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             // 服务端校验
             myHappyHomeUpgradeService.testIdentityCardN(str, POP, function () {
                 $("#bankCardNWaring").css('display', 'none');
-                var user = $scope.userArray[$scope.index];
+                var user = $scope.userArray[$scope.dex];
                 if (user.flag == undefined) {
-                    $scope.userArray[$scope.index].ID_CARD = str;
+                    $scope.userArray[$scope.dex].ID_CARD = str;
                     return;
                 }
-                user.flag = $scope.index;
-                if ($scope.index != 0) {
-                    $scope.userArray[$scope.index].ID_CARD = str;
+                user.flag = $scope.dex;
+                if ($scope.dex != 0) {
+                    $scope.userArray[$scope.dex].ID_CARD = str;
                     return;
                 }
                 // 输入完成赋值给其他的输入项
@@ -719,13 +711,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     $("#cardNameWaring"), $("#cardName"))) {
                 return;
             }
-            var user = $scope.userArray[$scope.index];
+            var user = $scope.userArray[$scope.dex];
             if (user.flag == undefined) {
-                $scope.userArray[$scope.index].ACCOUNT_OWNER = str;
+                $scope.userArray[$scope.dex].ACCOUNT_OWNER = str;
             }
-            user.flag = $scope.index;
-            if ($scope.index != 0) {
-                $scope.userArray[$scope.index].ACCOUNT_OWNER = str;
+            user.flag = $scope.dex;
+            if ($scope.dex != 0) {
+                $scope.userArray[$scope.dex].ACCOUNT_OWNER = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
@@ -753,13 +745,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     $("#bankBranchWaring"), $("#bankBranch"))) {
                 return;
             }
-            var user = $scope.userArray[$scope.index];
+            var user = $scope.userArray[$scope.dex];
             if (user.flag == undefined) {
-                $scope.userArray[$scope.index].BANK_LOCATION = str;
+                $scope.userArray[$scope.dex].BANK_LOCATION = str;
             }
-            user.flag = $scope.index;
-            if ($scope.index != 0) {
-                $scope.userArray[$scope.index].BANK_LOCATION = str;
+            user.flag = $scope.dex;
+            if ($scope.dex != 0) {
+                $scope.userArray[$scope.dex].BANK_LOCATION = str;
                 return;
             }
             // 输入完成赋值给其他的输入项
@@ -797,6 +789,13 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         });
         $("#mallPassWord").focus(function () {
             $("#mallPassWordWaring").css('display', 'none');
+            $(this).css({
+                'height': '54px',
+                'line-height': '54px',
+            })
+        });
+        $("#secondPassWord").focus(function () {
+            $("#secondPassWordWaring").css('display', 'none');
             $(this).css({
                 'height': '54px',
                 'line-height': '54px',
@@ -874,15 +873,15 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 resultBtnClick: function (result) {
                     var address = result.provinceName + "-" + result.cityName + "-" + result.areaName;
                     $("#address").val(address);
-                    var user = $scope.userArray[$scope.index];
+                    var user = $scope.userArray[$scope.dex];
                     if (user.flag == undefined) {
                         user.BANK_STATE_ID = result.pid;
                         user.BANK_CITY_ID = result.cid;
                         user.BANK_DISTRICT_ID = result.aid;
                         return;
                     }
-                    user.flag = $scope.index;
-                    if ($scope.index != 0) {
+                    user.flag = $scope.dex;
+                    if ($scope.dex != 0) {
                         user.BANK_STATE_ID = result.pid;
                         user.BANK_CITY_ID = result.cid;
                         user.BANK_DISTRICT_ID = result.aid;

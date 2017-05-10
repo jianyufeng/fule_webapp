@@ -144,15 +144,21 @@ define(['app'], function (app) {
                 $("#recommend").attr("disabled", "true");
                 $("#node").attr("disabled", "true");
                 $("#selectResult").attr("disabled", "true");
-                $(".waring").hide();
                 $scope.upGrade.click = false;
+                $("#recommend").css('color',"#d39bc5");
+                $("#node").css('color',"#d39bc5");
+                $("#selectResult").css('color',"#d39bc5");
             } else {
                 $("#recommend").removeAttr("disabled");
                 $("#node").removeAttr("disabled");
                 $("#selectResult").removeAttr("disabled");
+                $("#recommend").css('color',"#000000");
+                $("#node").css('color',"#000000");
+                $("#selectResult").css('color',"#000000");
             }
-            $scope.index = index;
-
+            $scope.dex = index;
+            $("input").blur();
+            $(".waring").hide();
         }
 
 
@@ -192,6 +198,7 @@ define(['app'], function (app) {
         // 验证推荐人流程
         service.checkingRecommendedMan = function ($scope, ele, eleNode, userName, POP) {
             POP.StartLoading();
+            console.log(3.1415926);
             HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
                 POP.EndLoading();
                 if (e) {
@@ -210,6 +217,7 @@ define(['app'], function (app) {
         service.checkingNodeMan = function ($scope, ele, eleNode, userName, POP) {
             // 请求个人信息
             // 判断 username  是否激活
+            console.log(3.1415);
             POP.StartLoading();
             HTTP.get(API.My.recommendedManInfo + '/userName/' + userName, {}, function (e, data) {
                 POP.EndLoading();

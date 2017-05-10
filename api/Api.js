@@ -74,7 +74,9 @@ var API = {
         //服务关系
         serviceRelationShip :serverIP +"/user/searchUserRecommendRelations",
         // 奖金币转电子币
-        bonusOnUserMoney:serverIP+"/_bonus/bonusOnUserMoney"
+        bonusOnUserMoney:serverIP+"/_bonus/bonusOnUserMoney",
+        //  查看奖金币
+        showUserBonus:serverIP+"/_bonus/showWithdrawal"
 
     },
 

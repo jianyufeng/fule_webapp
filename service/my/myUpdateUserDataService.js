@@ -161,8 +161,8 @@ define(['app'], function (app) {
                         if (data != null) {
                             eleNode.css('display', 'block');
                             ele.css({
-                                'height': '34px',
-                                'line-height': '34px',
+                                'height': '44px',
+                                'line-height': '44px',
                             });
                             eleNode.html("<i class='icon ion-android-warning'></i>" + data);
                         }
@@ -184,8 +184,8 @@ define(['app'], function (app) {
                         if (data != null) {
                             eleNode.css('display', 'block');
                             ele.css({
-                                'height': '34px',
-                                'line-height': '34px',
+                                'height': '44px',
+                                'line-height': '44px',
                             });
                             eleNode.html("<i class='icon ion-android-warning'></i>" + data);
                         }
@@ -209,8 +209,8 @@ define(['app'], function (app) {
                         if (data != null) {
                             $("#recommendWaring").css('display', 'block');
                             $("#recommend").css({
-                                'height': '34px',
-                                'line-height': '34px',
+                                'height': '44px',
+                                'line-height': '44px',
                             });
                             $("#recommendWaring").html("<i class='icon ion-android-warning'></i>" + data);
                         }
@@ -225,8 +225,8 @@ define(['app'], function (app) {
                             if (data != null) {
                                 $("#nodeWaring").css('display', 'block');
                                 $("#node").css({
-                                    'height': '34px',
-                                    'line-height': '34px',
+                                    'height': '44px',
+                                    'line-height': '44px',
                                 });
                                 $("#nodeWaring").html("<i class='icon ion-android-warning'></i>" + data);
                             }

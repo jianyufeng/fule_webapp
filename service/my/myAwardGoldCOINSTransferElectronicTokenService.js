@@ -146,6 +146,24 @@ define(['app'], function (app) {
                 });
 
         }
+
+        service.getBouns = function ($scope, POP) {
+
+            var userId = User.getInfo().user_id;
+            POP.StartLoading();
+            HTTP.get(API.My.showUserBonus + "/user_id/" + userId, {}, function (e, data) {
+                POP.EndLoading();
+                if (e) {
+                    POP.Hint("获取奖金币失败");
+                    return;
+                }
+                $scope.$apply(function () {
+                    $scope.userBonus = data.userInfo.BONUS;
+                });
+
+            });
+
+        }
         return service;
 
 
