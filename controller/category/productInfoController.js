@@ -7,6 +7,7 @@
 define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
     function ctrl($scope, productInfoService, $stateParams, POP, $state, $ionicSlideBoxDelegate) {
+     $scope.showImg=false;
 
         $scope.$on('$ionicView.enter', function () {
             $scope.count = 1;

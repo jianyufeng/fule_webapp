@@ -27,6 +27,13 @@ define(['app'], function (app) {
                     var goodsInfo = data.goodsInfo.data.shift();
                     // 商品的轮播图
                     $scope.goodsImgss = data.goodsImgs;
+                    if ($scope.goodsImgss.length > 0) {
+                        $scope.showImg = true;
+                        $("#noImg").hide();
+                    } else {
+                        $scope.showImg = false;
+                        $("#noImg").show();
+                    }
                     // 商品名
                     $scope.productName = goodsInfo.goods_name;
                     // 商品编号
@@ -188,8 +195,8 @@ define(['app'], function (app) {
                 var userInfo = User.getInfo();
                 var goodsName = $scope.productName;
                 var goodsNumber = Number.parseInt($("#_number").val());
-                $scope.count=goodsNumber;
-                if($scope.count<1){
+                $scope.count = goodsNumber;
+                if ($scope.count < 1) {
                     POP.Hint("最少添加一个商品！");
                     return;
                 }
