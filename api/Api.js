@@ -1,4 +1,5 @@
-var serverIP = "http://192.168.10.123:5000";
+//var serverIP = "http://192.168.10.123:5000";
+var serverIP = "http://192.168.10.70:3313";
 
 var API = {
 
