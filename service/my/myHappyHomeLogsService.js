@@ -44,8 +44,6 @@ define(['app'],function(app){
                     fn();
                 });
 
-
-
             });
 
         };
@@ -75,7 +73,7 @@ define(['app'],function(app){
 
                 $(".deleteLogBox:eq("+_idx+")").parent().slideUp(200);
 
-                 _.pullAt($scope.logsData,_idx);
+               var arra =   _.pullAt($scope.logsData,_idx);
 
                 if($scope.logsData.length<=0){
                     $scope.$apply(function () {
