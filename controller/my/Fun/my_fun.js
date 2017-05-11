@@ -71,7 +71,6 @@ define(['animate'], function () {
             $(".historyBox:eq(" + idx + ")").animate({"left": -100}, 200);
             $(".deleteLogBox:eq(" + idx + ")").animate({"right": 0}, 200);
 
-
         } else {
             $(".historyBox:eq(" + idx + ")").animate({"left": 0}, 200);
             $(".deleteLogBox:eq(" + idx + ")").animate({"right": -110}, 200);
@@ -83,7 +82,7 @@ define(['animate'], function () {
 
         $(document).on("click", ".deleteLogBox", function () {
             var _idx = $(".deleteLogBox").index(this);
-            var _id = $(this).attr("id");
+            var _id  = $(this).attr("id");
             fn(_idx, _id);
 
         });

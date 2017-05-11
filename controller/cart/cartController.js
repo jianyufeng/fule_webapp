@@ -74,7 +74,6 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		//初始化
 		var editOpen = false;
 
-
 		//结算按钮点击时
 		$(document).off("click").on("click",".cartAccountBox",function(){
 
