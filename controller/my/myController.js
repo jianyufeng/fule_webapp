@@ -1,6 +1,6 @@
 define(['app', './Fun/my_fun'], function (app, my_fun) {
 
-    function ctrl($scope, myService, POP, $state,$rootScope) {
+    function ctrl($scope, myService, POP, $state, $rootScope) {
         var isLogin = User.isLogin();
         /*加载界面动画*/
         my_fun.animation();
@@ -61,17 +61,62 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
             $state.go("tab.my-internalTransfer", {"userName": userName, "userMoney": userMoney});
 
         };
+        //跳转界面 代金卷转账
         $scope.startVoucherTransferPage = function (fxp_points) {
 
             $state.go("tab.my-voucherTransfer", {"userVoucher": fxp_points});
+        };
+        //跳转界面  奖金币转电子币
+        $scope.startJJBZDZB = function () {
+            POP.FormAlert("请输入二级支付密码", $scope, function (v) {
+                var info = User.getInfo();
+                var payParams = {
+                    user_id: info.user_id,
+                    password: v,
+                    type: "SECOND_PASSWORD"
+                };
+                //验证二级密码
+                myService.verifyPayPassword($scope, payParams,POP,function(){
+                    $state.go("tab.my-AwardGoldCOINSTransferElectronicToken");
+                });
+            });
+        };
+        //跳转界面 管理关系
+        $scope.startGLGX = function () {
+            POP.FormAlert("请输入二级支付密码", $scope, function (v) {
+                var info = User.getInfo();
+                var payParams = {
+                    user_id: info.user_id,
+                    password: v,
+                    type: "SECOND_PASSWORD"
+                };
+                //验证二级密码
+                myService.verifyPayPassword($scope, payParams,POP,function(){
+                    $state.go("tab.my-manageRelationships");
+                });
+            });
+        };
+        //跳转界面 服务关系
+        $scope.startFWGX = function () {
+            POP.FormAlert("请输入二级支付密码", $scope, function (v) {
+                var info = User.getInfo();
+                var payParams = {
+                    user_id: info.user_id,
+                    password: v,
+                    type: "SECOND_PASSWORD"
+                };
+                //验证二级密码
+                myService.verifyPayPassword($scope, payParams,POP,function(){
+                    $state.go("tab.my-serviceRelationship");
+                });
+            });
         };
 
 
         // 跳转到升级界面
         $scope.upGrade = function () {
-            myService.upGrade($scope, $state,POP);
+            myService.upGrade($scope, $state, POP);
         };
-
 
 
         ////上拉弹出框
@@ -88,7 +133,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myService', 'POP', '$state','$rootScope'];
+    ctrl.$inject = ['$scope', 'myService', 'POP', '$state', '$rootScope'];
 
     /*动态注册控制器*/
     app.registerController('myController', ctrl);

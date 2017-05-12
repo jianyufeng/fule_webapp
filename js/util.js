@@ -78,7 +78,7 @@ define(['linq'],function () {
 			data		: $data,
 			dataType : "json",
 			jsonp		: true,
-			timeout	: 150000,  //设置超时时间15秒
+			timeout	: 15000,  //设置超时时间15秒
 			success	: function (data) {
 
 				//判断业务是否成功

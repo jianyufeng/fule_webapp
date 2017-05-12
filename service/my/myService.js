@@ -144,7 +144,28 @@ define(['app'], function (app) {
                     service.getMyInfo($scope, POP, true);
                 })
 
-        }
+        };
+
+        //验证二级密码
+        service.verifyPayPassword = function ($scope, updateParams, POP, fn) {
+
+            POP.StartLoading();
+
+            //更新操作
+            HTTP.post(API.Cart.verifyUserPassword, updateParams, function (e, data) {
+
+                POP.EndLoading();
+
+                if (e) {
+                    POP.Hint("密码错误!");
+                    return;
+                } else {
+                    fn();
+                }
+
+            });
+
+        };
         return service;
 
 
