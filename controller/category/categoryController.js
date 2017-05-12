@@ -27,6 +27,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
         });
 
         $scope.$on('$ionicView.loaded', function () {
+
             // 初始化页面数据
             categoryService.getCategoryListAndCategoryGoodsList($scope, POP);
 
@@ -37,20 +38,27 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             // 下拉刷新
             $scope.doRefresh = function () {
                 categoryService.Refresh($scope);
+
+
             }
 
 
         });
 
         $scope.$on("viewOnFinish", function () {
-
-			$(".goodsImg img").myImageLazyLoad({
+            $(".goodsImg img").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数
                 // imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图
                 // imageServer : "http://image.38zs.net:848",				    //图片服务器地址
                 // animate     : true,											//是否动画显示
             });
 
+
+
+        });
+
+
+        $scope.$on("viewOnFinishTwo", function () {
 
             $(".categoryImageBox img").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数
@@ -59,7 +67,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
                 // animate     : true,											//是否动画显示
             });
 
-         
+            $(".categoryName").css("color", "#999999");
+            $(".categoryName").eq(0).css("color", "#D39AC5");
         });
 
         // 页面销毁销毁内存

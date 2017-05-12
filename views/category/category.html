@@ -8,16 +8,14 @@
         <!-- 头部的分类-->
         <div class="category_top_block">
             <ul class="category_top_list">
-                <li class="category_top_list_item" ng-repeat="categoryItem in categorys">
+                <li class="category_top_list_item" ng-repeat="categoryItem in categorys" view-on-finish-two>
                     <div class="category_top_list_item_block"
                          ng-click="changCategoryList(categoryItem.category_id,categoryItem.category_name,$index)">
                         <div>
                             <div class="categoryImageBox">
                              <img src="./resource/images/default/default_image.png" data-original='{{categoryItem.category_img}}' />
                             </div>
-                                <!--<img class="category_top_list_item_image"-->
-                                     <!--src={{"http://image.38zs.net:38888"+categoryItem.category_img}}>-->
-                            <span class="categoryName"> {{categoryItem.category_name}}</span>
+                            <span class="categoryName colorNameA"> {{categoryItem.category_name}}</span>
                         </div>
                     </div>
                 </li>
@@ -36,8 +34,7 @@
         </div>
         <!-- 商品列表-->
         <div class="product_list">
-            <div class="product_item" ng-repeat="productInfo in productArray" view-on-finish
-                 name="{{productInfo.goods_id}}">
+            <div class="product_item" ng-repeat="productInfo in productArray" view-on-finish name="{{productInfo.goods_id}}">
                 <div class="backgroudBox" ng-show="productInfo.goods_number==0">
                     <img src="./resource/images/icon/shouqin.png">
                 </div>

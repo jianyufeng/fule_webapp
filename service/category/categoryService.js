@@ -83,6 +83,7 @@ define(['app'], function (app) {
 
         // 下拉刷新
         service.Refresh = function ($scope) {
+
             HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
                 if (e) {
                     $scope.$broadcast('scroll.refreshComplete');
