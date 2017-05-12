@@ -29,9 +29,11 @@ define(['app', 'css! ../../../css/my/my-happyHomeList'], function (app) {
 
         //点击进入喜乐之家
         $scope.goNext = function (index) {
-            var configId = $scope.happyHomeData[index].id;
 
-            $state.go("tab.my-happyHomeUpgrade", {"configId": configId});
+            console.log($scope.happyHomeData);
+            var configId = $scope.happyHomeData[index].id;
+            var barTitle = $scope.happyHomeData[index].key_name;
+            $state.go("tab.my-happyHomeUpgrade", {"configId": configId,"barTitle":barTitle});
         }
     }
 

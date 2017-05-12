@@ -14,16 +14,8 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $scope.right = -1;
         var configId = 0;
         $scope.showAnimate = false;
-
-        if ($stateParams.configId == 1){
-            $scope.titleName = "2016喜乐之家";
-
-        }
-        if ($stateParams.configId == 7){
-            $scope.titleName = "2017喜乐之家";
-
-        }
-
+        
+        $scope.titleName = $stateParams.barTitle;
 
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
