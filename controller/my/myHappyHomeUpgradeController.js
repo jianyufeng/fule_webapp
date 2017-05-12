@@ -1,7 +1,3 @@
-/**
- * Created by ShareLock on 2017/4/14.
- * 喜乐之家升级的Controller
- */
 
 
 define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../css/my/my-happyHomeUpgrade', 'addressSelect'], function (app, identityCardTest, tagAnimateFun) {
@@ -18,6 +14,9 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $scope.right = -1;
         var configId = 0;
         $scope.showAnimate = false;
+        
+        $scope.titleName = $stateParams.barTitle;
+
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
             //获取数据
