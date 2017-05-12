@@ -40,14 +40,14 @@
                         <div class="productOtherItem">
                             <div class="number">数量:</div>
                             <div class="numberBox">
-                                <div class="accountBox" ng-click="add()">
-                                    <img src="./resource/images/icon/shoppingcar_add.png"></div>
+                                <div class="accountBox" ng-click="reduce()"><img
+                                        src="./resource/images/icon/shoppingcar_reduce.png"></div>
                                 <input type="text" class="accountBox_number"
                                        id="_number"
                                        onkeyup="this.value=this.value.replace(/\D/g,'')"
                                        onafterpaste="this.value=this.value.replace(/\D/g,'')" ng-model="count"/>
-                                <div class="accountBox" ng-click="reduce()"><img
-                                        src="./resource/images/icon/shoppingcar_reduce.png"></div>
+                                <div class="accountBox" ng-click="add()">
+                                    <img src="./resource/images/icon/shoppingcar_add.png"></div>
                             </div>
                         </div>
                         <div class="productOtherItem">
