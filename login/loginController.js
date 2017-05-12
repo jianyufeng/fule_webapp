@@ -3,7 +3,7 @@
  */
 
 var app = angular.module("loginApp", ['ionic']);
-var serverIP = "http://192.168.10.123:5000";
+var serverIP = "../transmit/save.php";
 /*
  * 作用:弹出框服务封装
  */

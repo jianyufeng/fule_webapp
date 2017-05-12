@@ -104,7 +104,7 @@ app.controller("registerController", function ($scope, POP) {
             postNote.attr("disabled", true);
             postNote.text("正在发送...");
             //获取验证码
-            var url = "http://192.168.10.123:5000/sms/registerVerification/mobile/" + mobile;
+            var url = "../transmit/save.php/sms/registerVerification/mobile/" + mobile;
 
             HTTP.get(url, {}, function (e, data) {
 
@@ -328,7 +328,7 @@ app.controller("registerController", function ($scope, POP) {
             return;
         }
         var verification_mode = "CODE";
-        var url = "http://192.168.10.123:5000/_user/register";
+        var url = "../transmit/save.php/_user/register";
         var param = {
             'user_name':user_name,
             'email':email,
@@ -378,7 +378,7 @@ console.log(data);
 
     function userRepeat(user_name) {
         //检查用户名是否存在
-        var url = "http://192.168.10.123:5000/_user/verifyUserName/user_name/" + user_name;
+        var url = "../transmit/save.php/_user/verifyUserName/user_name/" + user_name;
         HTTP.get(url, function (e, data) {
             if (e) {
                 POP.Hint(data);
