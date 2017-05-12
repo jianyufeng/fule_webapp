@@ -1,7 +1,7 @@
 <?php
 
 
-$url='http://127.0.0.1:5000/';
+$url='http://192.168.10.123:5000/';
 
 $u=str_replace('/fule_webapp/transmit/save.php/',$url,$_SERVER['REQUEST_URI']);
 
