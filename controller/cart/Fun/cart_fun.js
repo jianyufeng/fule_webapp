@@ -43,12 +43,11 @@ define(function () {
 
         $(document).on("click", ".addBtn", function () {
 
-
             //获取单价
             var moneyValue = parseInt($(this).parent().data("price"));
 
             //获取当前的数量
-            var nowNum = parseInt($(this).next().find("input").val());
+            var nowNum = parseInt($(this).prev().find("input").val());
 
             //判断手动输入商品数量为空
             if(_.isNaN(nowNum)|| nowNum == 0){
@@ -81,7 +80,7 @@ define(function () {
                 return POP.Hint("对不起，已超出该商品最大购买量");
             }
 
-            $(this).next().text(nowNum);
+            $(this).prev().text(nowNum);
 
             countMoneyValue = moneyValue * nowNum;
 
@@ -99,7 +98,10 @@ define(function () {
             var moneyValue = parseInt($(this).parent().data("price"));
 
             //获取当前的数量
-            var nowNum = parseInt($(this).prev().find("input").val());
+            var nowNum = parseInt($(this).next().find("input").val());
+
+
+
 
             //判断手动输入商品数量为空
             if(_.isNaN(nowNum) || nowNum == 0){
@@ -130,7 +132,8 @@ define(function () {
                 return;
             }
 
-            $(this).prev().text(nowNum);
+
+            $(this).next().text(nowNum);
 
             countMoneyValue = moneyValue * nowNum;
 
