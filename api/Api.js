@@ -1,5 +1,7 @@
 
-var serverIP = "http://192.168.10.123:5000";
+// var serverIP = "http://192.168.10.123:5000";
+
+var serverIP = "transmit/save.php";
 var API = {
 
     Goods: {
