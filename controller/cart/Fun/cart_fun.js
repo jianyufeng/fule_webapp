@@ -128,7 +128,7 @@ define(function () {
             nowNum--;
 
             if (nowNum <= 0) {
-                POP.Hint("数量不能小余1");
+                POP.Hint("数量不能小于1");
                 return;
             }
 
