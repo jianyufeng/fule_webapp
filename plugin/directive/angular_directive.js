@@ -97,13 +97,12 @@ define(['app'], function (app) {
             },
             template: [
                 '<div class="headerBox" style="z-index: 99999">',
-                '<div class="leftHeaderBox" ng-click="backBtn()"><img ng-show="{{isBack}}"  src="./resource/images/icon/jiantou_left.png" style="width:11px;height:auto;" /></div>',
+                '<div class="leftHeaderBox" on-touch="backTouch($event)" on-release="backRelease($event)"  ng-click="backBtn()"><img ng-show="{{isBack}}"  src="./resource/images/icon/jiantou_left.png" style="width:11px;height:auto;" /></div>',
                 '<div class="middleHeaderBox">{{title}}</div>',
-                '<div class="rightHeaderBox" style="font-size:16px;" ng-click="rightIconClick()">{{righttitle}}<div class="iconHint" ng-show="{{ishint}}"></div></div>',
+                '<div class="rightHeaderBox" style="font-size:16px;" on-touch="rightIconTouch($event)" on-release="rightIconRelease($event)" ng-click="rightIconClick()">{{righttitle}}<div class="iconHint" ng-show="{{ishint}}"></div></div>',
                 '</div>'
             ].join(""),
             link: function (scope, element, attrs) {
-
                 // if(scope.isright == 'yes'){
                 //     $(".rightHeaderBox").show();
                 // }else{
@@ -111,13 +110,29 @@ define(['app'], function (app) {
                 // }
 
                 scope.rightIconClick = function () {
-                    if(scope.righttitle==''){
-                        return;
-                    }
-                    scope.onRightClick();
+                    // if(scope.righttitle==''){
+                    //     return;
+                    // }
+                    // scope.onRightClick();
                 };
 
                 scope.backBtn = function () {
+
+                    // if (scope.isOverBack) {
+                    //     scope.onOverBackClick();
+                    // } else {
+                    //     if (scope.isBack) {
+                    //         $ionicHistory.goBack();
+                    //     }
+                    // }
+                }
+
+                scope.backTouch = function($event){
+                    $($event.target).find("img").attr("src","./resource/images/icon/jiantou_left_high.png")
+                }
+
+                scope.backRelease = function($event){
+                    $($event.target).find("img").attr("src","./resource/images/icon/jiantou_left.png")
 
                     if (scope.isOverBack) {
                         scope.onOverBackClick();
@@ -126,6 +141,19 @@ define(['app'], function (app) {
                             $ionicHistory.goBack();
                         }
                     }
+                }
+
+                scope.rightIconTouch = function($event){
+                    $($event.target).css("color","#999")
+                }
+
+                scope.rightIconRelease = function($event){
+                    $($event.target).css("color","#000")
+
+                    if(scope.righttitle==''){
+                        return;
+                    }
+                    scope.onRightClick();
                 }
             }
         }
