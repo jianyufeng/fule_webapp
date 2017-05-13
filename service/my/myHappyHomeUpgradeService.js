@@ -13,7 +13,7 @@ define(['app'], function (app) {
          * @param $scope
          * @param configId
          */
-        service.getMyHappyHomeUpgradeInfo = function ($scope, configId, POP, tagAnimateFun,$ionicScrollDelegate) {
+        service.getMyHappyHomeUpgradeInfo = function ($scope, configId, POP, tagAnimateFun, $ionicScrollDelegate) {
 
             var userName = User.getInfo().user_name;
             POP.StartLoading();
@@ -87,7 +87,7 @@ define(['app'], function (app) {
                         $("#leftTag").css('display', 'none');
                         $("#rightTag").css('display', 'none');
                     }
-                    service.showUserGrade($scope, 0,$ionicScrollDelegate);
+                    service.showUserGrade($scope, 0, $ionicScrollDelegate);
                 })
 
             });
@@ -158,7 +158,8 @@ define(['app'], function (app) {
                 $("#node").css('color', "#000000");
                 $("#selectResult").css('color', "#000000");
             }
-            $scope.dex = index;
+
+            dex = index;
             $("input").blur();
             $(".waring").hide();
             var delegate = scrollhand.$getByHandle('back');

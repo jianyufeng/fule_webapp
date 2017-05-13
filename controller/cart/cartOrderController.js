@@ -28,10 +28,10 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
             console.log("changeAddressInfo..");
 
             //将新的值重新注入页面
-            $scope.$apply(function () {
+            //$scope.$apply(function () {
               
                 $scope.address = args.address;
-            })
+           // })
 
         });
 
