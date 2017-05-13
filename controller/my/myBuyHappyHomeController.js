@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/4/14.
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
-    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams, $state) {
+    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams, $state,$ionicHistory) {
 
         var configId = $stateParams.configId;
         var id = $stateParams.id;
@@ -23,7 +23,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         $(".goToTop").click(function(){
             $ionicScrollDelegate.scrollTop(true);
         });
-
         //提交是的库存不足判断标记
         var canotSave = "canotSave";
         $scope.$on('$ionicView.loaded', function () {
@@ -318,7 +317,10 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                         myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
                             //购买完毕
                             POP.Hint("购买成功");
-                            $state.go('tab.my');
+                            $ionicHistory.clearCache();
+                            setTimeout(function(){
+                                $state.go('tab.my');
+                            },1000);
                         })
 
 
@@ -334,7 +336,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile', '$ionicScrollDelegate', '$stateParams','$state'];
+    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile', '$ionicScrollDelegate', '$stateParams','$state','$ionicHistory'];
 
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);
