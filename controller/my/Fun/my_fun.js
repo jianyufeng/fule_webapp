@@ -33,6 +33,7 @@ define(['animate'], function () {
              $(this).css("background-color","#fff").transition({background: "#F5F5F5"},200);
          });
          $(document).off("touchend",".businessColBox").on("touchend",".businessColBox" ,function (event) {
+
              $(this).css("background-color", "#F5F5F5").transition({background: "#fff"}, 200);
          });
 

@@ -169,6 +169,7 @@
   /*每一个块的*/
 }
 .businessBox .businessColBox {
+  background-color: white;
   color: #676767;
   height: 90px;
   width: 33.3%;
