@@ -3,7 +3,7 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
 
 
 
-    function ctrl($scope,cartAddAddressService,POP,$state,$ionicHistory,$stateParams){
+    function ctrl($scope,$rootScope,cartAddAddressService,POP,$state,$ionicHistory,$stateParams){
 
         //初始化 p 绑定
         $scope.p = {};
@@ -67,7 +67,6 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                 }
             });
         });
-
 
 
 
@@ -226,6 +225,7 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
             cartAddAddressService.saveAddress($scope,newParams,POP,function () {
 
                 //成功直接返回上一层
+                $rootScope.selectOnlyAddress = 0;
                 $ionicHistory.goBack();
 
 
@@ -239,6 +239,6 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
 
     }
 
-    ctrl.$inject = ['$scope','cartAddAddressService', 'POP','$state','$ionicHistory','$stateParams'];
+    ctrl.$inject = ['$scope','$rootScope','cartAddAddressService', 'POP','$state','$ionicHistory','$stateParams'];
     app.registerController('cartAddAddressController',ctrl);
 });

@@ -14,6 +14,24 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
             //初始化
             myHappyHomeAddressService.getHappyHomeAddressList($scope,POP,function () {
 
+                //如果是从新添加地址处保存过来的,并且地址唯一,那么直接跳转到订单页面
+                if($rootScope.selectOnlyAddress == 0 && $scope.happyHomeAddress.length == 1){
+
+                    if (!editing){
+
+                        //将数组对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
+                        $rootScope.$broadcast('changeAddress', { "address" : $scope.happyHomeAddress[0]});
+
+                        $rootScope.selectOnlyAddress = null;
+                        //成功直接返回上一层
+                        $ionicHistory.goBack();
+
+                    }
+
+
+                }
+
+
                 //判断是否登录
                 if($scope.happyHomeAddress.length > 0){
                     $(".noAddress").hide();

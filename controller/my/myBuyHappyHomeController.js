@@ -41,9 +41,9 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         $rootScope.$on('changeAddress', function (event, args) {
             //console.log(args);
             //将新的值重新注入页面
-            $scope.$apply(function () {
+            // $scope.$apply(function () {
                 $scope.buyHappyAddress = args.address;
-            })
+            // })
 
         });
         // 接收传值页面传过来的地址内容
