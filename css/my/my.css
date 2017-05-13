@@ -14,6 +14,7 @@
   padding: 10px;
   font-size: 15px;
   z-index: 9999;
+  color: #000;
 }
 .userBox .usrIconBox {
   text-align: center;
@@ -169,10 +170,10 @@
   /*每一个块的*/
 }
 .businessBox .businessColBox {
+  background-color: white;
   color: #676767;
   height: 90px;
   width: 33.3%;
-  background-color: white;
   float: left;
   text-align: center;
   border-bottom: solid 1px #eee;

@@ -1015,8 +1015,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             }, function (e, data) {
                 POP.EndLoading();
                 if (e) {
-                    console.log(data["1"] );
-                    if (data["1"] != null) {
+ if (data["1"] != null) {
                         POP.Confirm("提交失败请删除后再提交！", function () {
                             setTimeout(function () {
                                 $state.go("tab.my-happyHomeLogs");
@@ -1034,8 +1033,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                         POP.Hint(data["6"]);
                     } else {
                         POP.Hint("信息保存失败，请检查输入项");
-                    }
-                    return;
+                    }                    return;
                 }
                 // 跳转界面
 

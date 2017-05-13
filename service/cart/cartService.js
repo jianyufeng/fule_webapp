@@ -124,6 +124,10 @@ define(['app'],function(app){
 
                 $(".deleteBox:eq("+_idx+")").parent().slideUp(200);
                 var newArr = _.pullAt($scope.cart_goods,_idx);
+                $scope.$apply(function () {
+                    $scope.cart_info.content = data.content;
+                });
+
 
                 if($scope.cart_goods.length<=0){
 
