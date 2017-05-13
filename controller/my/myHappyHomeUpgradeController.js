@@ -1016,6 +1016,8 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             }, function (e, data) {
                 POP.EndLoading();
                 if (e) {
+                    console.log(56565656);
+                    console.log(data);
                     POP.Hint("升级失败，请重新尝试");
                     return;
                 }

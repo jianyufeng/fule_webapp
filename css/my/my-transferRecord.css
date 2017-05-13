@@ -11,7 +11,7 @@
   width: 100%;
   height: 54px;
   background: white;
-  border-bottom: solid 1px #ddd;
+  border-bottom: solid 1px #E0E0E0;
 }
 .tr_navBox .tr_nav {
   padding: 10px 0px;
@@ -19,8 +19,7 @@
   width: 33.3%;
   height: 54px;
   float: left;
-  border-right: solid 1px #eee;
-  border: solid r #eee;
+  border-right: solid 1px #E0E0E0;
   color: #020202;
   line-height: 34px;
 }
