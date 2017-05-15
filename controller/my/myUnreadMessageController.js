@@ -50,7 +50,7 @@ define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'
             $state.go('tab.my-unreadMessageDetail', {
                 title: item.title,
                 add_time: item.add_time,
-                create_user_name: item.create_user_name,
+                create_user_name: item.approve_user_name,
                 article_id:item.id
             });
         };
