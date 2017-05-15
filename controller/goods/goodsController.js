@@ -2,7 +2,7 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
 	function ctrl($scope, $rootScope, goodsService, POP, $state,$ionicScrollDelegate){
 
-		goods_fun.menuSelected();
+		goods_fun.menuSelected($ionicScrollDelegate);
 
 		var nowSreenH = $("#goodContentBox").height();
 		$scope.goodListScrollEvent = function(){

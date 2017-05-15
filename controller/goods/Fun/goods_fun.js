@@ -2,9 +2,10 @@
 define(['app', 'jquery_fly'], function (app) {
     var goodsFun = {};
 
-    goodsFun.menuSelected = function () {
+    goodsFun.menuSelected = function ($ionicScrollDelegate) {
 
         $(".goodsMenuItem").click(function () {
+            $ionicScrollDelegate.scrollTop(true);
             var _index = $(".goodsMenuItem").index(this);
             $(".goodsMenuItem").removeClass("selected");
             $(".goodsMenuItem").eq(_index).addClass("selected");
