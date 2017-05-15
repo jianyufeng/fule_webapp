@@ -40,7 +40,7 @@ define(['app'], function (app) {
             var v = parseInt(input);
             switch (v) {
                 case  0:
-                    varl = '';
+                    varl = '保密';
                     break;
                 case  1:
                     varl = '男';
@@ -49,7 +49,7 @@ define(['app'], function (app) {
                     varl = '女';
                     break;
                 default:
-                    varl = '';
+                    varl = '保密';
                     break;
             }
             return varl
