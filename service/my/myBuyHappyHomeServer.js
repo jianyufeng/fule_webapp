@@ -22,12 +22,25 @@ define(['app'], function (app) {
                     var nowAddress;
                     if (data.address != undefined && data.address.length > 0) {
                         for (var i = 0; i < data.address.length; i++) {
-                            if (data.address[i].is_default == 1) {
-                                nowAddress = data.address[i];
-                                break;
-                            } else {
-                                nowAddress = data.address[0];
+
+                            if($scope.jugdeXlzjAddress.length >0 && $scope.jugdeXlzjAddress.length != null && $scope.jugdeXlzjAddress != undefined){
+
+                                if ($scope.jugdeXlzjAddress == data.address[i].address_id){
+
+                                    nowAddress = data.address[i];
+                                    $scope.jugdeXlzjAddress = null;
+                                    break;
+                                }
+                            }else {
+                                if (data.address[i].is_default == 1) {
+                                    nowAddress = data.address[i];
+                                    break;
+                                } else {
+                                    nowAddress = data.address[0];
+                                }
+
                             }
+
                         }
 
                     } else {

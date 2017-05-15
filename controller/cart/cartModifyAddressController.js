@@ -174,8 +174,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                     return;
                 }
 
-
-
             }
             //地址别名
             if (categray ==null || categray.length <= 0){
@@ -260,7 +258,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
                 //成功直接返回上一层
                 // setTimeout(function(){
-
 
                 // 保存成功后发送通知
                 $rootScope.$broadcast('modifyAddressUptate', {"addressId":$stateParams.address_id});

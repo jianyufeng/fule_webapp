@@ -6,6 +6,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
     function ctrl($rootScope, $scope, cartOrderService, POP, $state) {
 
+        //修改显示地址刷新后用来判断要显示的地址
+        $scope.jugdeAddress = "";
 
         $scope.$on('$ionicView.loaded', function () {
 
@@ -42,15 +44,13 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
             console.log("modifyAddressUptate..");
 
+            $scope.jugdeAddress = args.addressId;
             //将新的值重新注入页面
-            //$scope.$apply(function () {
            if($scope.address.address_id == args.addressId){
 
                cartOrderService.getOrderInfo($scope, POP);
 
            }
-
-            // })
 
         });
 
