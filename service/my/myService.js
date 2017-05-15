@@ -45,7 +45,7 @@ define(['app'], function (app) {
                     //判断添加个人图像
                     var headerUrl = data.userInfo.headerUrl;
                     if (headerUrl == undefined || headerUrl == null || headerUrl.length == 0) {
-                        $(".usrIcon").attr('src', "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3557371746,1385116483&fm=117&gp=0.jpg");
+                        //$(".usrIcon").attr('src', "https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3557371746,1385116483&fm=117&gp=0.jpg");
                     } else {
                         $(".usrIcon").attr('src', headerUrl);
                     }
