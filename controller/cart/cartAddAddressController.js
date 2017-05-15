@@ -57,9 +57,9 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                     PID      = result.pid;
                     city     = result.cityName;
                     CID      = result.cid;
-                    area     = result.areaName;
-                    AID      = result.aid;
-                    locationAddress  = province +"省"+ city + "市" + area;
+                    area     = result.areaName== null?"":result.areaName;
+                    AID      = result.aid == null?"":result.aid;
+                    locationAddress  = province + city + "市" + area;
                     $(".select-location").find("span").css("color","#000000");
                     $(".select-location").find("span").text(locationAddress);
 

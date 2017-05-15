@@ -6,7 +6,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
 
 
-    function ctrl($scope,cartModifyAddressService,POP,$state,$ionicHistory,$stateParams){
+    function ctrl($scope, $rootScope,cartModifyAddressService,POP,$state,$ionicHistory,$stateParams){
 
         $scope.p = {};
 
@@ -260,6 +260,11 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
                 //成功直接返回上一层
                 // setTimeout(function(){
+
+
+                // 保存成功后发送通知
+                $rootScope.$broadcast('modifyAddressUptate', {"addressId":$stateParams.address_id});
+
                  $ionicHistory.goBack();
                 // },1000);
                 
@@ -275,6 +280,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
 
     }
 
-    ctrl.$inject = ['$scope','cartModifyAddressService', 'POP','$state','$ionicHistory','$stateParams'];
+    ctrl.$inject = ['$scope', '$rootScope','cartModifyAddressService', 'POP','$state','$ionicHistory','$stateParams'];
     app.registerController('cartModifyAddressController',ctrl);
 });

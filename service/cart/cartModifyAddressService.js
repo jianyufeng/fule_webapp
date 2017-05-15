@@ -15,14 +15,15 @@ define(['app'],function(app){
             //更新操作
             HTTP.post(API.Cart.updateUserAddress,updateParams,function(e,data){
 
+
                 POP.EndLoading();
                 if(e){
                     POP.Hint("设置失败");
                     return;
-                }else {
+                }
                    
                     fn();
-                }
+
 
             });
 

@@ -22,7 +22,7 @@
   background: white;
 }
 .newAddressBox .reciever .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .reciever .recieverName {
   width: 180px;
@@ -47,7 +47,7 @@
   background: white;
 }
 .newAddressBox .mobile .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .mobile .recieverNumber {
   width: 180px;
@@ -72,7 +72,7 @@
   background: white;
 }
 .newAddressBox .familyNumber .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .familyNumber .telNumber {
   width: 180px;
@@ -97,7 +97,7 @@
   background: white;
 }
 .newAddressBox .location .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .location .selectAction {
   width: 180px;
@@ -141,7 +141,7 @@
   float: left;
 }
 .newAddressBox .street .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .street .selectAction {
   width: 180px;
@@ -186,7 +186,7 @@
   background: white;
 }
 .newAddressBox .address_categray .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .address_categray .categray {
   width: 180px;
@@ -211,7 +211,7 @@
   background: white;
 }
 .newAddressBox .address_zipcode .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .address_zipcode .zipcode {
   width: 180px;
@@ -236,7 +236,7 @@
   background: white;
 }
 .newAddressBox .address_email .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .address_email .email {
   width: 180px;
@@ -261,7 +261,7 @@
   background: white;
 }
 .newAddressBox .sign_building .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .sign_building .building {
   width: 180px;
@@ -286,7 +286,7 @@
   background: white;
 }
 .newAddressBox .best_time .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .newAddressBox .best_time .time {
   width: 180px;
@@ -308,7 +308,7 @@
   padding-right: 15px;
   padding-top: 10px;
   padding-bottom: 10px;
-  font-size: 14px;
+  font-size: 16px;
 }
 .setDefault {
   width: 100%;
@@ -326,7 +326,7 @@
   float: left;
 }
 .setDefault .title span {
-  font-size: 14px;
+  font-size: 16px;
 }
 .setDefault .openBtn {
   width: 49px;

@@ -7,9 +7,9 @@ define(['app'],function(app){
 //获取商品列表
         service.getGoodList = function($scope,isRefresh){
 
-            //if(!isRefresh){
-            //    $.initcAppStartLoad();
-            //}
+            if(!isRefresh){
+                $.initAppStartLoad();
+            }
 
 
             HTTP.get(API.Goods.goods + "/skip/0/limit/100",{},function(e,data){
@@ -59,7 +59,8 @@ define(['app'],function(app){
 
             HTTP.get(url, {}, function (e, data) {
                     POP.EndLoading();
-                    if (e) {
+
+                if (e) {
                         POP.Hint("商品信息获取失败");
                         return;
                     }
