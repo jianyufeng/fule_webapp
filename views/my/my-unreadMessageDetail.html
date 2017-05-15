@@ -12,7 +12,7 @@
                         创建人&nbsp;:&nbsp;{{create_user_name}}
                     </div>
                     <div class="umd_createTime">
-                        时间&nbsp;:&nbsp;{{ add_time|timeFilter}}
+                        时间&nbsp;:&nbsp;{{add_time == 0?"---":add_time*1000 | date:'yyyy-MM-dd HH:mm'}}
                         <!--{{createTime}}-->
                     </div>
                 </div>

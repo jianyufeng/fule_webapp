@@ -7,11 +7,30 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
         $scope.addressTitle = "选择收货地址";
         var editing = false;  //管理状态
-
         $scope.$on('$ionicView.beforeEnter',function () {
 
             //初始化
             cartManageAddressService.getShippingAddressList($scope,POP,function () {
+
+
+                //如果是从新添加地址处保存过来的,并且地址唯一,那么直接跳转到订单页面
+               if($rootScope.selectOnlyAddress == 0 && $scope.historyAddress.length == 1){
+
+                   if (!editing){
+
+                        //将数组对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
+                       $rootScope.$broadcast('changeAddressInfo', { "address" : $scope.historyAddress[0]});
+
+                        $rootScope.selectOnlyAddress = null;
+                        //成功直接返回上一层
+                        $ionicHistory.goBack();
+
+                   }
+
+
+                }
+
+
 
                 //判断是否登录
                 if($scope.historyAddress.length > 0){

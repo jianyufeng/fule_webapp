@@ -9,7 +9,7 @@
 
 	<div class="goTop"><i class="icon ion-arrow-up-c"></i>顶部</div>
 
-	<ion-content screen-height="60" id="goodContentBox" on-scroll="goodListScrollEvent()">
+	<ion-content screen-height="110" id="goodContentBox" on-scroll="goodListScrollEvent()">
 
 		<!-- set-window-height-no-navigation="0" -->
 
@@ -23,7 +23,7 @@
 
 
 			<!-- 商品列表-->
-			<div class="goodsListBox" style="">
+			<div class="goodsListBox" >
 				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray" view-on-finish name="{{goodsInfo.goods_id}}" number="{{goodsInfo.goods_number}}">
 					<div ng-if="goodsInfo.goods_number <= 0" class="goodsCover">
 						<img src="./resource/images/icon/shouqin.png">

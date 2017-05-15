@@ -10,6 +10,10 @@ define(['jquery','loading','app'],function(N,N,app){
 		//购物车归0
 		$rootScope.cartBadge = 0;
 
+
+		$rootScope.selectOnlyAddress = 1;
+
+
 	}]);
 
     //初始化界面
