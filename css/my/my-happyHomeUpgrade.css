@@ -62,53 +62,54 @@ ion-content .content ion-scroll .contentBox {
   background-color: white;
 }
 ion-content .content ion-scroll .contentBox .rowBox {
-  width: 100%;
-  height: 55px;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  position: relative;
+  clear: both;
+  height: 60px;
   background-color: white;
 }
 ion-content .content ion-scroll .contentBox .rowBox .leftBox {
-  padding-left: 10px;
-  width: 25%;
+  display: block;
   float: left;
-  line-height: 54px;
-  background-color: white;
+  width: 35%;
+  height: 20px;
+  line-height: 20px;
 }
 ion-content .content ion-scroll .contentBox .rowBox .leftBox .redStar {
   color: red;
-  margin-right: 5px;
+  margin-right: 3px;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox {
-  height: 54px;
-  width: 70%;
+  display: block;
   float: left;
-  line-height: 54px;
-  margin-left: 5%;
-  background-color: white;
+  width: 65%;
+  height: 20px;
+  line-height: 20px;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox input {
   background-color: white;
-  width: 100%;
-  height: 54px;
-  line-height: 54px;
+  float: left;
+  height: 20px;
+  line-height: 20px;
   display: block;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox .waring {
   height: 10px;
   color: red;
   font-size: 10px;
-  margin-top: -25px;
-  display: none;
+  float: left;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox .span {
-  height: 54px;
-  line-height: 54px;
+  height: 20px;
+  line-height: 20px;
 }
-ion-content .content ion-scroll .contentBox .rowBox .line {
+ion-content .content ion-scroll .contentBox .line {
   clear: both;
   background-color: #eeeeee;
   width: 98%;
   height: 1px;
-  margin: 0 1%;
 }
 ion-content .content ion-scroll .contentBox .rowBottomBox {
   margin-top: 15px;

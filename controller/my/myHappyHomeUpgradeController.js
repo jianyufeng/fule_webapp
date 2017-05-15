@@ -746,95 +746,56 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         // 获取焦点
         $("#recommend").focus(function () {
             $("#recommendWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
 
         });
         $("#node").focus(function () {
             $("#nodeWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#mallPassWord").focus(function () {
             $("#mallPassWordWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#secondPassWord").focus(function () {
             $("#secondPassWordWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#payPassWord").focus(function () {
             $("#payPassWordWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#Email").focus(function () {
             $("#EmailWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#phone").focus(function () {
             $("#phoneWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#name").focus(function () {
             $("#nameWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#bankCardN").focus(function () {
             $("#bankCardNWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#bank").focus(function () {
             $("#bankWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#identityCardN").focus(function () {
             $("#identityCardNWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#cardName").focus(function () {
             $("#cardNameWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
         $("#bankBranch").focus(function () {
             $("#bankBranchWaring").css('display', 'none');
-            $(this).css({
-                'height': '54px',
-                'line-height': '54px',
-            })
+
         });
 
 
@@ -1015,7 +976,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             }, function (e, data) {
                 POP.EndLoading();
                 if (e) {
- if (data["1"] != null) {
+                    if (data["1"] != null) {
                         POP.Confirm("提交失败请删除后再提交！", function () {
                             setTimeout(function () {
                                 $state.go("tab.my-happyHomeLogs");
@@ -1027,13 +988,14 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                         POP.Hint(data["3"]);
                     } else if (data["4"] != null) {
                         POP.Hint(data["4"]);
-                    } else if (data["5"]!= null) {
+                    } else if (data["5"] != null) {
                         POP.Hint(data["5"]);
                     } else if (data["6"] != null) {
                         POP.Hint(data["6"]);
                     } else {
                         POP.Hint("信息保存失败，请检查输入项");
-                    }                    return;
+                    }
+                    return;
                 }
                 // 跳转界面
 

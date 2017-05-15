@@ -192,10 +192,6 @@ define(['app'], function (app) {
          */
         service.showError = function (elea, eleb, text) {
             elea.css('display', 'block');
-            eleb.css({
-                'height': '44px',
-                'line-height': '44px',
-            });
             elea.html("<i class='icon ion-android-warning'></i> " + text);
         }
 

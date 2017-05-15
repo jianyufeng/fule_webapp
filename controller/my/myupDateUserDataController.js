@@ -23,19 +23,11 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
 
         function showError(elea, eleb, text) {
             elea.css('display', 'block');
-            eleb.css({
-                'height': '44px',
-                'line-height': '44px',
-            });
             elea.html("<i class='icon ion-android-warning'></i>" + text);
         }
 
         function disappearError(eleInput, eleError) {
             eleError.css('display', 'none');
-            eleInput.css({
-                'height': '44px',
-                'line-height': '44px',
-            })
         }
 
         $scope.$on('$ionicView.loaded', function () {
@@ -255,10 +247,6 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         function checkTeam() {
             if ($scope.upGrade.team == undefined || $scope.upGrade.team == "") {
                 $("#teamWaring").css('display', 'block');
-                $("#team").css({
-                    'height': '44px',
-                    'line-height': '44px',
-                });
                 $("#teamWaring").html("<i class='icon ion-android-warning'></i> " + "内容不能为空");
             }
         }
@@ -286,10 +274,6 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                     POP.EndLoading();
                     if (data != null) {
                         $("#recommendWaring").css('display', 'block');
-                        $("#recommend").css({
-                            'height': '44px',
-                            'line-height': '44px',
-                        });
                         $("#recommendWaring").html("<i class='icon ion-android-warning'></i>" + data);
                     }
                     return
@@ -303,10 +287,6 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
                         POP.EndLoading();
                         if (data != null) {
                             $("#nodeWaring").css('display', 'block');
-                            $("#node").css({
-                                'height': '44px',
-                                'line-height': '44px',
-                            });
                             $("#nodeWaring").html("<i class='icon ion-android-warning'></i>" + data);
                         }
                         return;
