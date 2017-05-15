@@ -36,6 +36,27 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
         });
 
 
+
+        //修改的地址为当前显示的地址
+        $rootScope.$on('modifyAddressUptate', function (event, args) {
+
+            console.log("modifyAddressUptate..");
+
+            //将新的值重新注入页面
+            //$scope.$apply(function () {
+           if($scope.address.address_id == args.addressId){
+
+               cartOrderService.getOrderInfo($scope, POP);
+
+           }
+
+            // })
+
+        });
+
+
+
+
         // 接收传值页面传过来的地址内容
         $rootScope.$on('deleteAddress', function (event, args) {
 
