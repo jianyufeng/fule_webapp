@@ -94,6 +94,7 @@ ion-content .content ion-scroll .contentBox .rowBox .rightBox input {
   height: 20px;
   line-height: 20px;
   display: block;
+  width: 100%;
 }
 ion-content .content ion-scroll .contentBox .rowBox .rightBox .waring {
   height: 10px;
