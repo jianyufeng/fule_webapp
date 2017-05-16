@@ -24,6 +24,17 @@ define(['app'],function(app){
                     return;
                 }
 
+
+                if (data.count <= 0){
+
+                    $(".noRecord").show();
+
+
+                }else {
+                    $(".noRecord").hide();
+                }
+
+
                 for(var i = 0; i < data.count;i++){
 
                     var add_time = data.data[i].addtime;
@@ -70,6 +81,8 @@ define(['app'],function(app){
 
                     var arra =   _.pullAt($scope.logsData,_idx);
 
+                    console.log("2."+$scope.logsData.length);
+
                     if($scope.logsData.length<=0){
                         $scope.$apply(function () {
                             console.log("清空喜乐之家购买记录...");
@@ -79,9 +92,14 @@ define(['app'],function(app){
                         $(".noRecord").show();
 
                     }else {
+                        $scope.$apply(function () {
+                            $scope.logsData = $scope.logsData;
+                        });
+
                         $(".noRecord").hide();
 
                     }
+
                 }
 
 
