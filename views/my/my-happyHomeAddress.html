@@ -22,10 +22,10 @@
                                 <div class="mobile"><span>{{addressItem.mobile?addressItem.mobile:addressItem.tel}}</span></div>
                             </div>
 
-                            <div class="shippingAddressContent ellipsis">
+                            <div class="shippingAddressContent ellipsis"  ng-init="dis = buyHappyAddress.district_name == null? '':buyHappyAddress.district_name">
                                 <span class="default" ng-if="addressItem.address_id == defaultHomeAddressID">[默认地址] </span>
                                 <span class="default" ng-if="addressItem.address_id != defaultHomeAddressID" style="display: none">[默认地址] </span>
-                                {{addressItem.province_name+"省" + addressItem.city_name +"市"+ addressItem.district_name + addressItem.address}}
+                                {{addressItem.province_name+"省" + addressItem.city_name +"市"+ dis + addressItem.address}}
                             </div>
 
                         </div>

@@ -6,6 +6,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
     function ctrl($rootScope, $scope, cartOrderService, POP, $state) {
 
+        //修改显示地址刷新后用来判断要显示的地址
+        $scope.jugdeAddress = "";
 
         $scope.$on('$ionicView.loaded', function () {
 
@@ -42,15 +44,13 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
             console.log("modifyAddressUptate..");
 
+            $scope.jugdeAddress = args.addressId;
             //将新的值重新注入页面
-            //$scope.$apply(function () {
            if($scope.address.address_id == args.addressId){
 
                cartOrderService.getOrderInfo($scope, POP);
 
            }
-
-            // })
 
         });
 
@@ -184,18 +184,25 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
         //弹出订单的配送方式选择选择界面
         $(".orderDeliveryModel").click(function () {
-            $(".popBg").css({
+            // $(".popBg").css({
+            //
+            //     height: $(document).height()
+            // });
 
-                display: "block", height: $(document).height()
-            });
+            $(".popBg").fadeIn(200);
 
             var $popBox = $(".popBox");
 
                 $popBox.css({
                     display: "block"
                  });
+            $popBox.animate({"bottom":0},300);
+
+
             $(".closeButton").click(function () {
-                $(".popBg,.popBox").css("display", "none");
+               // $(".popBg").css("display", "none");
+                $(".popBg").fadeOut(200);
+                $popBox.animate({"bottom":-1000},200);
             });
 
             //在配送方式选择界面选择具体的配送方式

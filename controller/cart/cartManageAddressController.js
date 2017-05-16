@@ -98,8 +98,8 @@ define(['app','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun)
 
                 editing = true;
                 $scope.righttitleValue = "关闭";
-                $(".editOperationArea").show();
-                $(".addAddressBtn").show();
+                $(".editOperationArea").fadeIn(300);
+                $(".addAddressBtn").fadeIn(300);
 
                 $(".manageContent").css("bottom","50px");
 

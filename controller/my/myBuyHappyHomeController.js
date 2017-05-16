@@ -6,6 +6,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         var configId = $stateParams.configId;
         var id = $stateParams.id;
+        $scope.jugdeXlzjAddress = "";
         //移动时所有的input失去焦点
         $(document).off('touchmove').on('touchmove',function(){
            $(":focus").blur();
@@ -56,6 +57,28 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 }
             }
         });
+
+        //修改的地址为当前显示的地址
+        $rootScope.$on('modifyAddressUptate', function (event, args) {
+
+            console.log("modifyAddressUptate..");
+
+
+            $scope.jugdeXlzjAddress = args.addressId;
+
+            alert($scope.jugdeXlzjAddress);
+
+            //将新的值重新注入页面
+            if($scope.buyHappyAddress.address_id == args.addressId){
+
+                myBuyHappyHomeServer.getBuyGoodList($scope, POP);
+
+            }
+
+        });
+
+
+
         //初始化默认值
         $scope.bugConfig = {
             pay_amount: 0,

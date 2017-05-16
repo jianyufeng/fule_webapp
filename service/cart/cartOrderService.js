@@ -25,17 +25,30 @@ define(['app'], function (app) {
                     return;
                 }
 
-                console.log(data);
-
                 var nowAddress;
                 if (data.address != undefined && data.address.length > 0) {
                     for (var i = 0; i < data.address.length; i++) {
-                        if (data.address[i].is_default == 1) {
-                            nowAddress = data.address[i];
-                            break;
-                        } else {
-                            nowAddress = data.address[0];
+
+                        if($scope.jugdeAddress.length >0 && $scope.jugdeAddress.length != null && $scope.jugdeAddress != undefined){
+
+                            if ($scope.jugdeAddress == data.address[i].address_id){
+
+                                nowAddress = data.address[i];
+                                $scope.jugdeAddress = null;
+                                break;
+
+                            }
+                        }else {
+                            if (data.address[i].is_default == 1) {
+                                nowAddress = data.address[i];
+                                break;
+                            } else {
+                                nowAddress = data.address[0];
+                            }
+
+
                         }
+
                     }
 
                 } else {
@@ -48,7 +61,6 @@ define(['app'], function (app) {
                 if (data.cartInfo.cart_goods != undefined && data.cartInfo.cart_goods.length > 0) {
 
                     for (var i = 0; i < data.cartInfo.cart_goods.length; i++) {
-                        console.log(parseFloat(data.cartInfo.cart_goods[i].goods_price));
 
                         orderAmount += parseFloat(data.cartInfo.cart_goods[i].goods_price);
 

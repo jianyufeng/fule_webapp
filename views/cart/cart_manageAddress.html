@@ -22,9 +22,9 @@
                                 <div class="mobile"><span>{{addressItem.mobile?addressItem.mobile:addressItem.tel}}</span></div>
                             </div>
 
-                            <div class="shippingAddressContent" >
+                            <div class="shippingAddressContent" ng-init="dis = addressItem.district_name == null? '':addressItem.district_name" >
                                 <span class="default" ng-if="addressItem.address_id == defaultAddressID">[默认地址] </span>
-                                <span class="default" ng-if="addressItem.address_id != defaultAddressID" style="display: none" ng-init="dis = addressItem.district_name == null? '':addressItem.district_name">[默认地址] </span>
+                                <span class="default" ng-if="addressItem.address_id != defaultAddressID" style="display: none" >[默认地址] </span>
                                 {{addressItem.province_name+"省" + addressItem.city_name +"市"+ dis + addressItem.address}}
                             </div>
 
