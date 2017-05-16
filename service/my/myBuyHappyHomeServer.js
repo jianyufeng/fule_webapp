@@ -50,7 +50,8 @@ define(['app'], function (app) {
 
                     //绑定提交订单时使用的数据
                     //用户余额
-                    $scope.user_money = data.userInfo.user_money;
+                    xilzj_user_money =  data.userInfo.user_money;
+                    //$scope.user_money = data.userInfo.user_money;
                     $scope.$apply(function () {
                         $scope.goods = data.goodsInfo.data;
                         $scope.buyHappyAddress = nowAddress;

@@ -16,19 +16,23 @@ define(['app', 'jquery_fly'], function (app) {
             var goodsId = $(this).attr('name');
             $state.go("tab.productInfo", {"goodsId": goodsId});
 
-            $(document).off("click", ".cartTagBox");
+            $(document).off("click", ".goodsCart");
             return false;
         });
 
-        $(document).on("click", ".cartTagBox", function () {
-            console.log(121121);
+        $(document).on("click", ".goodsCart", function () {
             var offset = $(".tab-item:eq(3)").offset();
-            var addcar = $(this).parent().parent();
-            var img = addcar.find('.goodsImg').find('img').attr('src');
+            var addcar = $(this).parent().parent().prev();
+            var img = addcar.find('img').attr('src');
             var flyer = $('<img class="u-flyer" src="' + img + '">');
-            var productPrice = $(this).parent().children(".product_price").text().substring(1);
-            var productName = $(this).parent().children(".product_item_bottom").children(".product_name").text();
+            var productPrice = $(this).parent().children(".goodsMoney").text().substring(2);
+            var productName = $(this).parent().children(".goodsDesc").text();
             var productId = $(this).children(".cartTag2").attr("id");
+
+            //var goodsPrice = $(this).parent().children(".goodsMoney").text().substring(2);
+            //var goodsName = $(this).parent().children(".goodsDesc").text();
+            //var goodsId = $(this).find('img').attr('id');
+
 
             //(* 必须)user_name     String用户帐号
             //(* 必须)user_id       Number用户ID

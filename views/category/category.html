@@ -13,7 +13,8 @@
                          ng-click="changCategoryList(categoryItem.category_id,categoryItem.category_name,$index)">
                         <div>
                             <div class="categoryImageBox">
-                             <img src="./resource/images/default/default_image.png" data-original='{{categoryItem.category_img}}' />
+                                <img src="./resource/images/default/default_image.png"
+                                     data-original='{{categoryItem.category_img}}'/>
                             </div>
                             <span class="categoryName colorNameA"> {{categoryItem.category_name}}</span>
                         </div>
@@ -33,7 +34,8 @@
         </div>
         <!-- 商品列表-->
         <div class="product_list">
-            <div class="product_item" ng-repeat="productInfo in productArray" view-on-finish name="{{productInfo.goods_id}}">
+            <div class="product_item" ng-repeat="productInfo in productArray" view-on-finish
+                 name="{{productInfo.goods_id}}">
                 <div class="backgroudBox" ng-show="productInfo.goods_number==0">
                     <img src="./resource/images/icon/shouqin.png">
                 </div>
@@ -52,7 +54,6 @@
                 </div>
                 <div style="clear:both;"></div>
             </div>
-        </div>
         </div>
     </ion-content>
 </ion-view>

@@ -1,5 +1,7 @@
 .content {
   background-color: white;
+  margin: 0px;
+  padding: 0px;
   .category_top_block {
     display: block;
     width: 100%;
@@ -21,20 +23,12 @@
           margin-left: 10%;
           margin-top: 10%;
           .categoryImageBox {
-
             img {
               display: block;
               width: 45px;
               height: 45px;
               margin: 0 auto;
             }
-            img {
-              display: block;
-              width: 45px;
-              height: 45px;
-              margin: 0 auto;
-            }
-
           }
 
           span {
@@ -56,26 +50,19 @@
     height: 35px;
     margin-top: -10px;
     float: left;
-    padding: 0 5%;
-    //padding: 0 10px;
-
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
     .line {
       margin: 17px 0;
       height: 1px;
-      width: 20%;
       width: 90%;
-      position: absolute;
-      top: 17px;
       background-color: #BCBCBC;
       float: left;
 
     }
     .midd_text {
       height: 35px;
-      width: 60%;
       background-color: #F4F4F4;
       width: auto;
       position: absolute;
@@ -83,7 +70,6 @@
       font-size: 12px;
       padding-left: 10px;
       padding-right: 10px;
-      text-align: center;
       line-height: 35px;
       color: #878787;
       float: left;
@@ -95,56 +81,37 @@
     width: 100%;
     height: auto;
     background: #F5F5F5;
-    padding: 10px;
-    margin: 0px;
+    float: left;
     .product_item {
       width: 50%;
-      height: 200px;
-      width: 48.5%;
-      height: 220px;
-      background: #fff;
-      margin-right: 1.5%;
+      padding: 0 5px;
+      height: 230px;
+      margin-bottom: 5px;
       float: left;
       position: relative;
-      border-right: solid 1px #F2F2F2;
-      border-bottom: solid 1px #F2F2F2;
-      margin-bottom: 10px;
       .backgroudBox {
-        display: block;
         width: 100%;
-        height: 220px;
+        height: 230px;
         background-color: rgba(0, 0, 0, 0.3);
-        width: 100%;
-        height: 100%;
-        margin: 0;
         z-index: 9999999;
         position: absolute;
         top: 0px;
         left: 0px;
-        text-align: center;
-        top: 0px;
-        z-index: 9999;
-        position: absolute;
         img {
           width: 131px;
-          height: 105px;
           height: 106px;
           position: absolute;
           top: 50%;
           margin-left: -65px;
           margin-top: -53px;
           left: 50%;
-          margin-left: -65px;
-          margin-top: -52px;
         }
       }
       .goodsImg {
         width: 100%;
-        height: 140px;
-        position: relative;
-        //border-bottom: 1px solid #eee;
         height: 150px;
         border-bottom: 1px solid #eee;
+        background-color: #fff;
         img {
           width: 90%;
           margin-left: 5%;
@@ -154,97 +121,66 @@
 
       }
 
-      .product_item_info {
-        .goodsInfo {
+      .goodsInfo {
+        width: 100%;
+        height: 70px;
+        background-color: #fff;
+        .goodsMoney {
           width: 100%;
-          height: 45px;
-          margin-left: 10%;
-          margin-bottom: 5px;
-          .product_price {
-            display: block;
+          height: 35px;
+          font-size: 15px;
+          padding-left: 10px;
+          font-weight: bold;
+          color: #A92586;
+          line-height: 35px;
+          text-align: left;
+        }
+
+        .goodsContent {
+          width: 100%;
+          height: 35px;
+          position: relative;
+          .goodsDesc {
+            width: 80%;
+            height: 35px;
             float: left;
-            width: 65%;
-            height: 70px;
-            .goodsMoney {
-              width: 100%;
-              height: 35px;
-              font-size: 14px;
-              padding-left: 10px;
-              font-weight: bold;
-              color: #A92586;
-              font-weight: bold;
-              font-size: 14px;
-              line-height: 35px;
-
-            }
-            .cartTagBox {
-              width: 25%;
+            color: #878787;
+            font-size: 14px;
+            line-height: 35px;
+            padding-left: 10px;
+            text-align: left;
+          }
+          .goodsCart {
+            width: 20%;
+            height: 55px;
+            position: absolute;
+            z-index: 99999;
+            line-height: 80px;
+            top: -30px;
+            text-align: center;
+            right: 5px;
+            img {
+              width: 25px;
               height: 22px;
-              .goodsContent {
-                width: 100%;
-                height: 35px;
-                position: relative;
-
-              }
-              .goodsDesc {
-                width: 80%;
-                height: 35px;
-                float: left;
-                color: #878787;
-                font-size: 10px;
-                line-height: 35px;
-                padding-left: 10px;
-              }
-              .goodsCart {
-                width: 20%;
-                height: 55px;
-                position: absolute;
-                z-index: 99999;
-                line-height: 80px;
-                top: -30px;
-                text-align: center;
-                right: 5px;
-                img {
-                  display: block;
-                  float: right;
-                  margin-right: 10px;
-                  width: 25px;
-                  height: 22px;
-                  margin-bottom: 5px;
-                  line-height: 20px;
-                  text-align: center;
-                }
-
-              }
-              .product_item_bottom {
-                margin-top: 5px;
-                .product_name {
-                  height: auto;
-                  font-size: 10px;
-                  color: #878787;
-                  display: block;
-                  float: left;
-                  width: 65%;
-                }
-
-              }
-
+              line-height: 20px;
+              text-align: center;
             }
           }
 
         }
-
-        .u-flyer {
-          display: block;
-          width: 50px;
-          height: 50px;
-          border-radius: 50px;
-          position: fixed;
-          z-index: 9999;
-        }
-
       }
 
     }
+
   }
+
+}
+
+.u-flyer {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  position: fixed;
+  z-index: 9999;
 }

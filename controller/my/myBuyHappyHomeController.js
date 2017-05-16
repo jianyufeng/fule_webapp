@@ -6,6 +6,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         var configId = $stateParams.configId;
         var id = $stateParams.id;
+        xilzj_user_money = 0;
         $scope.jugdeXlzjAddress = "";
         //移动时所有的input失去焦点
         $(document).off('touchmove').on('touchmove',function(){
@@ -26,7 +27,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         });
         //提交是的库存不足判断标记
         var canotSave = "canotSave";
-        $scope.$on('$ionicView.loaded', function () {
+        $scope.$on('$ionicView.enter', function () {
             /*获取数据*/
 
             //获取购买喜乐之家的列表
@@ -233,7 +234,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 return;
             }
             //检测金额数据
-            if ($scope.totalMoney > $scope.user_money) {
+            if ($scope.totalMoney > xilzj_user_money) {
                 POP.Confirm("<font color='red'>(余额不足)</font>", function () {
                 });
                 return;

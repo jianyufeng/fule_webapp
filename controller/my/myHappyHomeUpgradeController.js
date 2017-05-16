@@ -860,14 +860,11 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         };
         function checking() {
-            //$scope.userArray[i].RECOMMENDED_MAN = null;
-            ////节点人
-            //$scope.userArray[i].CONTACT_MAN = null;
-            //// 区域
-            //$scope.userArray[i].REGION = null;
             var name = $scope.userArray[0].RECOMMENDED_MAN;
+            console.log(name);
             POP.StartLoading();
             HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
+            console.log(111111111111);
                 console.log(data);
                 if (e) {
                     POP.EndLoading();
@@ -881,6 +878,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
                 var name = $scope.userArray[0].CONTACT_MAN;
                 HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
+                    console.log(22222222222222222);
                     console.log(data);
                     if (e) {
                         POP.EndLoading();
@@ -894,6 +892,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     // 验证节点
                     var left = data.userInfo.LEFT_REGION_ID;
                     var right = data.userInfo.RIGHT_REGION_ID;
+                    console.log($scope.userArray[0].REGION);
                     if ($scope.userArray[0].REGION == 0 && left != 0) {
                         POP.Alert("左区不可用");
                         return;
@@ -902,6 +901,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                         POP.Alert("右区不可用");
                         return;
                     }
+                    console.log($scope.userArray[0].ID_CARD);
                     var str = $scope.userArray[0].ID_CARD;
                     // 服务端验证身份证
                     myHappyHomeUpgradeService.testIdentityCardN(str, POP, function () {
