@@ -448,7 +448,7 @@
   background: white;
   position: absolute;
   z-index: 99999;
-  bottom: 0;
+  bottom: -600px;
   left: 0;
   float: left;
 }

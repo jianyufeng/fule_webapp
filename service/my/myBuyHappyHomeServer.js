@@ -190,7 +190,14 @@ define(['app'], function (app) {
             HTTP.post(API.My.butyHapplyOver, param, function (e, data) {
                 POP.EndLoading();
                 if (e) {
-                    POP.Hint(data);
+
+                    var msg = "";
+                    if(data == undefined || data == "" || data == null){
+                        msg = "购买失败";
+                    }else{
+                        msg = data;
+                    }
+                    POP.Hint(msg);
                     return;
                 }
                 fn();

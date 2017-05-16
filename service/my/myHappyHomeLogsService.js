@@ -53,10 +53,6 @@ define(['app'],function(app){
         /*删除喜乐之家购买记录*/
         service.deleteHappyHomeLogs = function ($scope, POP,_id,_idx) {
 
-            // console.log(_id);
-            // alert(_idx);
-
-
             POP.StartLoading();
 
             HTTP.get(API.My.deleteHappyHomePurchaseHistory + "/log_id/"+_id , {}, function (e, data) {
@@ -68,25 +64,27 @@ define(['app'],function(app){
                     POP.Hint("删除失败!");
 
                     return;
-                }
-
-
-                $(".deleteLogBox:eq("+_idx+")").parent().slideUp(200);
-
-               var arra =   _.pullAt($scope.logsData,_idx);
-
-                if($scope.logsData.length<=0){
-                    $scope.$apply(function () {
-                        console.log("清空喜乐之家购买记录...");
-                        $scope.logsData = [];
-                        $scope.righttitleValue = "";
-                    });
-                    $(".noRecord").show();
-
                 }else {
-                    $(".noRecord").hide();
 
+                    $(".deleteLogBox:eq("+_idx+")").parent().slideUp(200);
+
+                    var arra =   _.pullAt($scope.logsData,_idx);
+
+                    if($scope.logsData.length<=0){
+                        $scope.$apply(function () {
+                            console.log("清空喜乐之家购买记录...");
+                            $scope.logsData = [];
+                            $scope.righttitleValue = "";
+                        });
+                        $(".noRecord").show();
+
+                    }else {
+                        $(".noRecord").hide();
+
+                    }
                 }
+
+
 
             });
 

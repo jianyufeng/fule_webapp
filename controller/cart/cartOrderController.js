@@ -184,18 +184,25 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
         //弹出订单的配送方式选择选择界面
         $(".orderDeliveryModel").click(function () {
-            $(".popBg").css({
+            // $(".popBg").css({
+            //
+            //     height: $(document).height()
+            // });
 
-                display: "block", height: $(document).height()
-            });
+            $(".popBg").fadeIn(200);
 
             var $popBox = $(".popBox");
 
                 $popBox.css({
                     display: "block"
                  });
+            $popBox.animate({"bottom":0},300);
+
+
             $(".closeButton").click(function () {
-                $(".popBg,.popBox").css("display", "none");
+               // $(".popBg").css("display", "none");
+                $(".popBg").fadeOut(200);
+                $popBox.animate({"bottom":-1000},200);
             });
 
             //在配送方式选择界面选择具体的配送方式
