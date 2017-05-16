@@ -46,7 +46,6 @@ define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'
         };
         //跳转详情
         $scope.showDetail = function (item) {
-
             $state.go('tab.my-unreadMessageDetail', {
                 title: item.title,
                 add_time: item.add_time,

@@ -1,12 +1,12 @@
 .logsScroll {
   width: 100%;
   height: auto;
-  background: #f1f1f1;
+  background: #eee;
   margin-top: 60px;
 }
 .logsScroll .logsItems {
-  height: 280px;
-  background: #f1f1f1;
+  height: 250px;
+  background: #eee;
   width: 100%;
   position: relative;
   float: left;
@@ -15,7 +15,8 @@
 .logsScroll .logsItems .deleteLogBox {
   position: absolute;
   right: -100px;
-  margin-top: 3%;
+  margin-top: 5px;
+  margin-bottom: 5px;
   width: 100px;
   height: 260px;
   line-height: 260px;
@@ -27,17 +28,19 @@
 }
 .logsScroll .logsItems .historyBox {
   width: 100%;
-  height: 260px;
+  height: 240px;
   position: absolute;
-  margin-top: 3%;
-  background-color: #fafafa;
-  padding: 10px;
-  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  background-color: #fff;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 16px;
 }
 .logsScroll .logsItems .userData {
   width: 100%;
   height: 80px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #eee;
   background: #fafafa;
 }
 .logsScroll .logsItems .userData .operateTime {
@@ -46,13 +49,13 @@
   text-align: left;
   line-height: 40px;
   float: left;
-  background: #fafafa;
+  background: #fff;
 }
 .logsScroll .logsItems .userData .operateTime .title {
   width: 80px;
   height: 40px;
   float: left;
-  background: #fafafa;
+  background: #fff;
 }
 .logsScroll .logsItems .userData .operateTime span {
   width: auto;
@@ -65,14 +68,14 @@
   text-align: left;
   line-height: 40px;
   float: left;
-  background: #fafafa;
+  background: #fff;
   border-bottom: 1px solid #eeeeee;
 }
 .logsScroll .logsItems .userData .userName .title {
   width: 80px;
   height: 40px;
   float: left;
-  background: #fafafa;
+  background: #fff;
   border-bottom: 1px solid #eeeeee;
 }
 .logsScroll .logsItems .userData .userName span {
@@ -84,29 +87,29 @@
   width: 100%;
   height: auto;
   float: left;
-  background: #fafafa;
+  background: #fff;
 }
 .logsScroll .logsItems .xlzjUsers .accounts {
   width: 80px;
   height: auto;
   float: left;
-  background: #fafafa;
+  background: #fff;
 }
 .logsScroll .logsItems .xlzjUsers .accounts .title {
   width: 80px;
   height: 40px;
-  font-size: 15px;
+  font-size: 16px;
   float: left;
   text-align: left;
   line-height: 40px;
-  background: #fafafa;
+  background: #fff;
 }
 .logsScroll .logsItems .xlzjUsers .accountsDetail {
   height: 40px;
   margin-left: 80px;
-  font-size: 14px;
+  font-size: 16px;
   padding-right: 10px;
-  background: #fafafa;
+  background: #fff;
 }
 .logsScroll .logsItems .xlzjUsers .accountsDetail .usersAcount {
   width: 60%;
@@ -114,7 +117,7 @@
   float: left;
   line-height: 40px;
   color: #999999;
-  background: #fafafa;
+  background: #fff;
 }
 .logsScroll .logsItems .xlzjUsers .accountsDetail .usersStatus {
   width: 30%;
@@ -124,7 +127,7 @@
   line-height: 26px;
   color: white;
   text-align: center;
-  background: #fafafa;
+  background: #fff;
 }
 .logsScroll .noRecord {
   width: 100%;

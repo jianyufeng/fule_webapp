@@ -15,7 +15,7 @@
 
                     <div class="editBox" ng-repeat="addressItem in historyAddress">
 
-                        <div class="shippingAddressItem" >
+                        <div class="shippingAddressItem" ng-click="selectAddress()">
 
                             <div class="userInfo ellipsis">
                                 <div class="name"><span>{{addressItem.consignee}}</span></div>

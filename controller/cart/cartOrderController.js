@@ -189,7 +189,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
             //     height: $(document).height()
             // });
 
-            $(".popBg").fadeIn(200);
+            $(".popBg").fadeIn(300);
 
             var $popBox = $(".popBox");
 
