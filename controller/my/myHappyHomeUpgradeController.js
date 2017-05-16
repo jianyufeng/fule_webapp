@@ -894,10 +894,12 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                     var right = data.userInfo.RIGHT_REGION_ID;
                     console.log($scope.userArray[0].REGION);
                     if ($scope.userArray[0].REGION == 0 && left != 0) {
+                        POP.EndLoading();
                         POP.Alert("左区不可用");
                         return;
                     }
                     if ($scope.userArray[0].REGION == 1 && right != 0) {
+                        POP.EndLoading();
                         POP.Alert("右区不可用");
                         return;
                     }
@@ -908,6 +910,10 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                         // 开始提交
 
                         submitUpGrade();
+                    },function(){
+                        POP.EndLoading();
+                        POP.Hint("身份证不可用");
+                        return;
                     });
 
                 })
@@ -919,62 +925,77 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
         function submitUpGrade() {
             if ($("#recommend").val() == null || $("#recommend").val() == "") {
+                POP.EndLoading();
                 POP.Hint("推荐人不能为空，请检查");
                 return;
             }
             if ($("#node").val() == null || $("#node").val() == "") {
+                POP.EndLoading();
                 POP.Hint("节点人不能为空，请检查");
                 return;
             }
             if ($("#selectResult").val() == null || $("#selectResult").val() == "") {
+                POP.EndLoading();
                 POP.Hint("节点人节点不能为空，请检查");
                 return;
             }
             if ($("#mallPassWord").val() == null || $("#mallPassWord").val() == "") {
+                POP.EndLoading();
                 POP.Hint("商城密码不能为空，请检查");
                 return;
             }
             if ($("#secondPassWord").val() == null || $("#secondPassWord").val() == "") {
+                POP.EndLoading();
                 POP.Hint("二级密码不能为空，请检查");
                 return;
             }
             if ($("#payPassWord").val() == null || $("#payPassWord").val() == "") {
+                POP.EndLoading();
                 POP.Hint("支付密码不能为空，请检查");
                 return;
             }
             if ($("#Email").val() == null || $("#Email").val() == "") {
+                POP.EndLoading();
                 POP.Hint("邮箱不能为空，请检查");
                 return;
             }
             if ($("#phone").val() == null || $("#phone").val() == "") {
+                POP.EndLoading();
                 POP.Hint("手机号不能为空，请检查");
                 return;
             }
             if ($("#name").val() == null || $("#name").val() == "") {
+                POP.EndLoading();
                 POP.Hint("姓名不能为空，请检查");
                 return;
             }
             if ($("#bankCardN").val() == null || $("#bankCardN").val() == "") {
+                POP.EndLoading();
                 POP.Hint("银行账号不能为空，请检查");
                 return;
             }
             if ($("#bank").text() == null || $("#bank").text() == "") {
+                POP.EndLoading();
                 POP.Hint("开户银行不能为空，请检查");
                 return;
             }
             if ($("#identityCardN").val() == null || $("#identityCardN").val() == "") {
+                POP.EndLoading();
                 POP.Hint("身份证号不能为空，请检查");
                 return;
             }
             if ($("#cardName").val() == null || $("#cardName").val() == "") {
+                POP.EndLoading();
                 POP.Hint("开户姓名不能为空，请检查");
                 return;
             }
             if ($("#bankBranch").val() == null || $("#bankBranch").val() == "") {
+                POP.EndLoading();
                 POP.Hint("开户支行不能为空，请检查");
                 return;
             }
             if ($("#address").val() == null || $("#address").val() == "") {
+                POP.EndLoading();
                 POP.Hint("地址不能为空，请检查");
                 return;
             }
@@ -985,6 +1006,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 var userItem = null;
                 for (userItem in user) {
                     if (user[userItem] == undefined || user[userItem] == null || user[userItem].length <= 0) {
+                        POP.EndLoading();
                         POP.Hint("请确保所有输入项全部填写。");
                         return;
                     }
