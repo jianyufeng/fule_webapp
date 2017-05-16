@@ -29,8 +29,7 @@
             <div class="midd_text">
                 <span>{{categoryName}}</span>
             </div>
-            <div class="line">
-            </div>
+
         </div>
         <!-- 商品列表-->
         <div class="product_list">
@@ -42,21 +41,18 @@
                     <img data-original='{{productInfo.img_normal}}'
                          src="./resource/images/default/default_image.png"/>
                 </div>
-                <div class="product_item_info">
-                    <span class="product_price">￥{{productInfo.shop_price}}</span>
-                    <div class="cartTagBox">
-                        <img src="./resource/images/icon/shoppingcar.png" class="cartTag2"
-                             id="{{productInfo.goods_id}}">
-                    </div>
-                    <div class="product_item_bottom">
-                        <span class="product_name ellipsis ">{{productInfo.goods_name}}</span>
+                <div class="goodsInfo">
+                    <div class="goodsMoney">¥ {{productInfo.shop_price}}</div>
+                    <div class="goodsContent">
+                        <div class="goodsDesc ellipsis">{{productInfo.goods_name}}</div>
+                        <div class="goodsCart">
+                            <img src="./resource/images/icon/shoppingcar.png" id="{{productInfo.goods_id}}"/>
+                        </div>
                     </div>
                 </div>
-
+                <div style="clear:both;"></div>
             </div>
         </div>
-        <div style="width:100%;height: 30px;float: left">
-
         </div>
     </ion-content>
 </ion-view>

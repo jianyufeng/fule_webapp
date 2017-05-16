@@ -16,12 +16,15 @@ define(['app'], function (app) {
         service.getMyHappyHomeUpgradeInfo = function ($scope, configId, POP, tagAnimateFun, $ionicScrollDelegate) {
 
             var userName = User.getInfo().user_name;
-            POP.StartLoading();
+            $.initAppStartLoad();
             HTTP.get(API.My.updateGradeHappyHome + "/config_id/" + configId + "/user_name/" + userName, {}, function (e, data) {
-                POP.EndLoading()
                 if (e) {
+                    $.loadError(function () {
+                        service.getMyHappyHomeUpgradeInfo();
+                    });
                     return;
                 }
+
                 var userdataArray = data.data.user_date;
                 if (userdataArray != null) {
                     $scope.goShopping = "去购物";
@@ -164,6 +167,7 @@ define(['app'], function (app) {
             $(".waring").hide();
             var delegate = scrollhand.$getByHandle('back');
             delegate.scrollTop();
+            $.initAppEndLoad();
         }
 
 
@@ -242,9 +246,7 @@ define(['app'], function (app) {
          * @param str
          */
         service.testIdentityCardN = function (str, POP, fc) {
-            POP.StartLoading();
             HTTP.get(API.My.verifyIdentityCardN + "/id_card/" + str, {}, function (e, data) {
-                POP.EndLoading();
                 if (e) {
                     $("#identityCardNWaring").html("<i class='icon ion-android-warning'></i>" + "该身份证不可用");
 

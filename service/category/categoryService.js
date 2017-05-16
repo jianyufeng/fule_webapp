@@ -48,7 +48,20 @@ define(['app'], function (app) {
                         $scope.categoryName = categoryName;
                         $(".categoryName").css("color", "#999999");
                         $(".categoryName").eq(index).css("color", "#D39AC5");
+
+                        //alert(left);
                     });
+
+                    var divWidth = $(".midd_text_contant").innerWidth();
+                    var textWidth = $(".midd_text").innerWidth();
+                    var left = (divWidth - textWidth) / 2;
+                    console.log(divWidth);
+                    console.log(textWidth);
+                    $(".midd_text").css("left", left);
+
+
+
+
                 });
             } else {
                 if (cacheData[categoryId] == undefined) {
@@ -67,7 +80,18 @@ define(['app'], function (app) {
                             $scope.categoryName = categoryName;
                             $(".categoryName").css("color", "#999999");
                             $(".categoryName").eq(index).css("color", "#D39AC5");
+
                         });
+
+
+
+                        //var divWidth = $(".midd_text_contant").innerWidth();
+                        //var textWidth = $(".midd_text").innerWidth();
+                        //var left = (divWidth - textWidth) / 2;
+                        //console.log(divWidth);
+                        //console.log(textWidth);
+                        //$(".midd_text").css("left", left);
+
 
 
                     });
@@ -77,8 +101,14 @@ define(['app'], function (app) {
                     $scope.categoryName = categoryName;
                     $(".categoryName").css("color", "#999999");
                     $(".categoryName").eq(index).css("color", "#D39AC5");
+
+
+
                 }
             }
+
+
+
         }
 
         // 下拉刷新
@@ -95,6 +125,8 @@ define(['app'], function (app) {
                     $scope.productArray = data.goodsInfo.data;
                     $scope.categoryName = data.categoryInfo[0].category_name;
                     $scope.$broadcast('clearCache');
+                    var left = $(".midd_text_contant").outerWidth() / 2 - $(".midd_text").outerWidth() / 2;
+                    $(".midd_text").css("left", left);
                 });
 
             });

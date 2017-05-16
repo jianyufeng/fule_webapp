@@ -855,8 +855,67 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
             checkCardName();
             checkBankBranch();
             checkIdentityCardN();
-            submitUpGrade();
+            // 验证推荐人 节点人 节点
+            checking();
+
         };
+        function checking() {
+            //$scope.userArray[i].RECOMMENDED_MAN = null;
+            ////节点人
+            //$scope.userArray[i].CONTACT_MAN = null;
+            //// 区域
+            //$scope.userArray[i].REGION = null;
+            var name = $scope.userArray[0].RECOMMENDED_MAN;
+            POP.StartLoading();
+            HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
+                console.log(data);
+                if (e) {
+                    POP.EndLoading();
+                    if (data != null) {
+                        $("#recommendWaring").css('display', 'block');
+                        $("#recommendWaring").html("<i class='icon ion-android-warning'></i>" + data);
+                    }
+                    POP.Hint("推荐人不可用");
+                    return
+                }
+
+                var name = $scope.userArray[0].CONTACT_MAN;
+                HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
+                    console.log(data);
+                    if (e) {
+                        POP.EndLoading();
+                        if (data != null) {
+                            $("#nodeWaring").css('display', 'block');
+                            $("#nodeWaring").html("<i class='icon ion-android-warning'></i>" + data);
+                        }
+                        POP.Hint("节点人不可用");
+                        return;
+                    }
+                    // 验证节点
+                    var left = data.userInfo.LEFT_REGION_ID;
+                    var right = data.userInfo.RIGHT_REGION_ID;
+                    if ($scope.userArray[0].REGION == 0 && left != 0) {
+                        POP.Alert("左区不可用");
+                        return;
+                    }
+                    if ($scope.userArray[0].REGION == 1 && right != 0) {
+                        POP.Alert("右区不可用");
+                        return;
+                    }
+                    var str = $scope.userArray[0].ID_CARD;
+                    // 服务端验证身份证
+                    myHappyHomeUpgradeService.testIdentityCardN(str, POP, function () {
+                        // 开始提交
+
+                        submitUpGrade();
+                    });
+
+                })
+            });
+
+
+        }
+
 
         function submitUpGrade() {
             if ($("#recommend").val() == null || $("#recommend").val() == "") {
@@ -967,8 +1026,6 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 }
                 user_datas[d] = arr;
             }
-
-            POP.StartLoading();
             HTTP.post(API.My.updateUserLogs, {
                 "config_id": Number.parseInt(configId),
                 "id": Number.parseInt($scope.id),

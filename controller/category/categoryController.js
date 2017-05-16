@@ -80,6 +80,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             $rootScope[$state.current.name] = {};
         })
 
+
+
     }
 
     ctrl.$inject = ['$scope', '$rootScope', 'categoryService', 'POP', '$state'];
