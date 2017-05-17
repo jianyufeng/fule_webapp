@@ -248,6 +248,8 @@ define(['app'], function (app) {
         service.testIdentityCardN = function (str, POP, fc,fa) {
             HTTP.get(API.My.verifyIdentityCardN + "/id_card/" + str, {}, function (e, data) {
                 if (e) {
+                    console.log(7777777777);
+                    console.log(data);
                     $("#identityCardNWaring").html("<i class='icon ion-android-warning'></i>" + "该身份证不可用");
                     fa();
                 }

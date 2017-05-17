@@ -27,16 +27,18 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         });
         //提交是的库存不足判断标记
         var canotSave = "canotSave";
-        $scope.$on('$ionicView.enter', function () {
-            /*获取数据*/
-
+        $scope.$on('$ionicView.loaded', function () {
+            /*获取数据 本次进来的遵守规则*/
             //获取购买喜乐之家的列表
             myBuyHappyHomeServer.getBuyGoodList($scope, POP);
             //获取购买喜乐之家配置
             myBuyHappyHomeServer.getBuyGoodConfig($scope, POP, configId);
 
         });
-
+        $scope.$on('$ionicView.enter', function () {
+           //每次进来获取要改变的数据User //获取用户
+            myBuyHappyHomeServer.getUserInfo($scope, POP, true);
+        });
 
         // 接收传值页面传过来的地址内容
         $rootScope.$on('changeAddress', function (event, args) {

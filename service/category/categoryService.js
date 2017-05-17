@@ -84,7 +84,12 @@ define(['app'], function (app) {
                         });
 
 
-
+                        var divWidth = $(".midd_text_contant").innerWidth();
+                        var textWidth = $(".midd_text").innerWidth();
+                        var left = (divWidth - textWidth) / 2;
+                        console.log(divWidth);
+                        console.log(textWidth);
+                        $(".midd_text").css("left", left);
                         //var divWidth = $(".midd_text_contant").innerWidth();
                         //var textWidth = $(".midd_text").innerWidth();
                         //var left = (divWidth - textWidth) / 2;
@@ -102,8 +107,12 @@ define(['app'], function (app) {
                     $(".categoryName").css("color", "#999999");
                     $(".categoryName").eq(index).css("color", "#D39AC5");
 
-
-
+                    var divWidth = $(".midd_text_contant").innerWidth();
+                    var textWidth = $(".midd_text").innerWidth();
+                    var left = (divWidth - textWidth) / 2;
+                    console.log(divWidth);
+                    console.log(textWidth);
+                    $(".midd_text").css("left", left);
                 }
             }
 
