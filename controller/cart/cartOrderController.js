@@ -133,8 +133,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
                 //验证密码
                 cartOrderService.verifyPayPassword($scope, payParams, POP, function () {
 
-                    // alert("5555"+$scope.expressName);
-
                     var orderParams = {
                         user_id: info.user_id, //用户id
                         user_money: $scope.userInfo.user_money, //用户余额
