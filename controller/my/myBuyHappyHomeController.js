@@ -241,7 +241,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 });
                 return;
             }
-             return;
             //添加收货地址
             if ($scope.buyHappyAddress == 'NO') {
                 POP.Confirm("<font color='red'>(请添加收货人信息)</font>", function () {
