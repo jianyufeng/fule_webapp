@@ -1,7 +1,7 @@
 /**
  * Created by charles_xsx on 2017/3/30.
  */
-define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress'],function(app,cart_fun){
+define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','animate'],function(app,cart_fun){
 
     function ctrl($rootScope,$scope,cartManageAddressService,POP,$state,$ionicHistory){
 
@@ -31,7 +31,6 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress'],funct
                 }
 
 
-
                 //判断是否登录
                 if($scope.historyAddress.length > 0){
                     $(".noAddress").hide();
@@ -48,13 +47,19 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress'],funct
             $(".manageContent").css("bottom","0px");
 
 
+             //选择地址的点击背景变色效果
+            $(document).off("touchstart", ".shippingAddressItem").on("touchstart", ".shippingAddressItem", function (event) {
+                if(!editing){
+                    $(this).css({background: "#fff"}).transition({background: "#eee"}, 10);
+                }
 
-            //选择收货地址
-            $(document).on("click",".shippingAddressItem",function(){
+            });
+
+            $(document).off("touchend", ".shippingAddressItem").on("touchend", ".shippingAddressItem", function (event) {
 
 
                 if (!editing){
-
+                    $(this).css("background", "#eee").transition({background: "#fff"}, 10);
                     //选择当前点击的收货地址
                     var _idx = $(".shippingAddressItem").index(this);
 
@@ -63,10 +68,13 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress'],funct
 
                     //成功直接返回上一层
                     $ionicHistory.goBack();
+                    console.log(event);
 
                 }
 
+
             });
+
 
         });
 
@@ -248,6 +256,6 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress'],funct
 
 
 
-    ctrl.$inject = ['$rootScope','$scope','cartManageAddressService', 'POP','$state','$ionicHistory'];
+    ctrl.$inject = ['$rootScope','$scope','cartManageAddressService', 'POP','$state','$ionicHistory','animate'];
     app.registerController('cartManageAddressController',ctrl);
 });
