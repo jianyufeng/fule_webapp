@@ -256,6 +256,6 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','anima
 
 
 
-    ctrl.$inject = ['$rootScope','$scope','cartManageAddressService', 'POP','$state','$ionicHistory','animate'];
+    ctrl.$inject = ['$rootScope','$scope','cartManageAddressService', 'POP','$state','$ionicHistory'];
     app.registerController('cartManageAddressController',ctrl);
 });
