@@ -60,8 +60,8 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                     area     = result.areaName== null?"":result.areaName;
                     AID      = result.aid == null?"":result.aid;
                     locationAddress  = province + city + "市" + area;
-                    $(".select-location").find("span").css("color","#000000");
-                    $(".select-location").find("span").text(locationAddress);
+                    $(".select-location2").find("span").css("color","#000000");
+                    $(".select-location2").find("span").text(locationAddress);
 
 
                 }
