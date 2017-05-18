@@ -5,16 +5,23 @@
   line-height: 50px;
   font-weight: 500;
 }
-.contentBox .title .leftCard {
+.contentBox .title .ACard {
   border-bottom: solid 1px #E0E0E0;
-  width: 50%;
+  width: 33%;
   text-align: center;
   float: left;
   color: #D39AC5;
 }
-.contentBox .title .rightCard {
+.contentBox .title .BCard {
   border-bottom: solid 1px #E0E0E0;
-  width: 49%;
+  width: 33%;
+  text-align: center;
+  float: left;
+  color: black;
+}
+.contentBox .title .CCard {
+  border-bottom: solid 1px #E0E0E0;
+  width: 33%;
   text-align: center;
   float: left;
   color: black;
@@ -26,94 +33,32 @@
   float: left;
   background-color: #E0E0E0;
 }
-.contentBox .listABox {
+.contentBox .listBox {
   width: 100%;
   height: 100%;
 }
-.contentBox .listABox .itemACardBox {
+.contentBox .listBox .re_itemCardBox {
   background-color: white;
   padding: 5px;
   height: auto;
   border-radius: 5px;
   margin: 20px 2px;
-  box-shadow: 2px 2px 2px #dddddd;
 }
-.contentBox .listABox .itemACardBox .itemRowBox {
+.contentBox .listBox .re_itemCardBox .re_itemRowBox {
   height: 35px;
   position: relative;
   line-height: 35px;
 }
-.contentBox .listABox .itemACardBox .itemRowBox .itemRowLeft {
+.contentBox .listBox .re_itemCardBox .re_itemRowBox .re_itemRowLeft {
   float: left;
   width: 25%;
   margin-left: 5%;
 }
-.contentBox .listABox .itemACardBox .itemRowBox .itemRowRight {
+.contentBox .listBox .re_itemCardBox .re_itemRowBox .re_itemRowRight {
   float: left;
   width: 65%;
 }
-.contentBox .listABox .itemACardBox .itemRowBox .line {
-  height: 1px;
-  width: 100%;
-  background-color: #eeeeee;
-  clear: both;
-  position: absolute;
-  bottom: 0px;
-  box-shadow: 1px 0px 1px #fefefe;
-}
-.contentBox .listBBox {
-  display: none;
-  width: 100%;
-  height: 100%;
-}
-.contentBox .listBBox .itemBCardBox {
-  background-color: white;
-  padding: 5px;
-  height: auto;
-  border-radius: 5px;
-  margin: 20px 2px;
-  box-shadow: 2px 2px 2px #dddddd;
-}
-.contentBox .listBBox .itemBCardBox .itemRowBox {
-  height: 35px;
-  position: relative;
-  line-height: 35px;
-}
-.contentBox .listBBox .itemBCardBox .itemRowBox .itemRowLeft {
-  float: left;
-  width: 20%;
-  margin-left: 5%;
-}
-.contentBox .listBBox .itemBCardBox .itemRowBox .itemRowRight {
-  float: left;
-  width: 70%;
-}
-.contentBox .listBBox .itemBCardBox .itemRowBox .line {
-  height: 1px;
-  width: 100%;
-  background-color: #eeeeee;
-  clear: both;
-  position: absolute;
-  bottom: 0px;
-  box-shadow: 1px 0px 1px #fefefe;
-}
-.contentBox .listBBox .itemBCardBox .maxH {
-  position: relative;
-  height: auto;
-  min-height: 50px;
-}
-.contentBox .listBBox .itemBCardBox .maxH .itemRowLeft {
-  float: left;
-  width: 20%;
-  line-height: 60px;
-  margin-left: 5%;
-}
-.contentBox .listBBox .itemBCardBox .maxH .itemRowRight {
-  float: left;
-  width: 70%;
-  height: 75px;
-}
-.contentBox .listBBox .itemBCardBox .maxH .line {
+.contentBox .listBox .re_itemCardBox .re_itemRowBox .re_line {
   height: 1px;
   width: 100%;
   background-color: #eeeeee;

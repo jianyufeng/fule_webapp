@@ -3,135 +3,199 @@
     <ion-content style="background-color: white;width:100%;position:absolute;top:60px;">
         <div class="contentBox">
             <div class="title">
-                <div class="leftCard" ng-click="show(1)">电子币卡</div>
+                <div class="ACard" ng-click="show(1)">电子币卡</div>
                 <div class="line"></div>
-                <div class="rightCard" ng-click="show(2)">换购代金券卡</div>
+                <div class="BCard" ng-click="show(2)">辅销币卡</div>
+                <div class="line"></div>
+                <div class="CCard" ng-click="show(3)">换购代金券卡</div>
             </div>
 
-            <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;line-height: 200px"
+            <div ng-show="isEmptyData" style="width: 100%;height: 200px;text-align: center;re_line-height: 200px"
                  class="tr_emptyList">
                 暂无数据
             </div>
 
-            <div class="listABox" id="listA">
-                <div class="itemACardBox" ng-repeat="rechargeableCardA in rechargeableCardAList">
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+            <div class="listBox" id="listA">
+                <div class="re_itemCardBox" ng-repeat="rechargeableCardA in rechargeableCardAList">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             卡号:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{ rechargeableCardA.card_no }}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
 
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             金额:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{ rechargeableCardA.user_money}}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             发卡方式:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{rechargeableCardA.send_type}}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             关联活动:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{rechargeableCardA.act_name}}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             使用时间:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{rechargeableCardA.bind_time | dateTimeFilter}}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
 
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             状态:
                         </div>
-                        <div class="itemRowRight" style="color: red">
+                        <div class="re_itemRowRight" style="color: red">
                             已充值
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
                 </div>
             </div>
 
 
-            <div class="listBBox" id="listB">
-                <div class="itemBCardBox" ng-repeat="rechargeableCardB in rechargeableCardBList">
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+            <div class="listBox"  id="listB"  style="display: none;">
+                <div class="re_itemCardBox" ng-repeat="rechargeableCardB in rechargeableCardBList">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             卡号:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{ rechargeableCardB.card_no }}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
 
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             金额:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{ rechargeableCardB.fxp_points}}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             发卡方式:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{rechargeableCardB.send_type}}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             关联活动:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{rechargeableCardB.act_name}}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             使用时间:
                         </div>
-                        <div class="itemRowRight">
+                        <div class="re_itemRowRight">
                             {{rechargeableCardB.bind_time | dateTimeFilter}}
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
                     </div>
 
-                    <div class="itemRowBox">
-                        <div class="itemRowLeft">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
                             状态:
                         </div>
-                        <div class="itemRowRight" style="color: red">
+                        <div class="re_itemRowRight" style="color: red">
                             已充值
                         </div>
-                        <div class="line"></div>
+                        <div class="re_line"></div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="listBox" id="listC"  style="display: none;">
+                <div class="re_itemCardBox" ng-repeat="rechargeableCardC in rechargeableCardCList">
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
+                            卡号:
+                        </div>
+                        <div class="re_itemRowRight">
+                            {{ rechargeableCardC.card_no }}
+                        </div>
+                        <div class="re_line"></div>
+                    </div>
+
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
+                            金额:
+                        </div>
+                        <div class="re_itemRowRight">
+                            {{ rechargeableCardC.fxp_money}}
+                        </div>
+                        <div class="re_line"></div>
+                    </div>
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
+                            发卡方式:
+                        </div>
+                        <div class="re_itemRowRight">
+                            {{rechargeableCardC.send_type}}
+                        </div>
+                        <div class="re_line"></div>
+                    </div>
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
+                            关联活动:
+                        </div>
+                        <div class="re_itemRowRight">
+                            {{rechargeableCardC.act_name}}
+                        </div>
+                        <div class="re_line"></div>
+                    </div>
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
+                            使用时间:
+                        </div>
+                        <div class="re_itemRowRight">
+                            {{rechargeableCardC.bind_time | dateTimeFilter}}
+                        </div>
+                        <div class="re_line"></div>
+                    </div>
+
+                    <div class="re_itemRowBox">
+                        <div class="re_itemRowLeft">
+                            状态:
+                        </div>
+                        <div class="re_itemRowRight" style="color: red">
+                            已充值
+                        </div>
+                        <div class="re_line"></div>
                     </div>
 
                 </div>

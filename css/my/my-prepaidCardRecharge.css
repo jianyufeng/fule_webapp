@@ -17,7 +17,7 @@
   position: absolute;
   bottom: 0px;
 }
-.contentBox .cardItem {
+.contentBox .re_cardItem {
   padding: 20px;
   font-size: 16px;
   font-weight: 400;
@@ -25,26 +25,26 @@
   clear: both;
   height: 60px;
 }
-.contentBox .cardItem .left {
+.contentBox .re_cardItem .re_left {
   width: 40%;
   display: block;
   float: left;
   height: 20px;
   line-height: 20px;
 }
-.contentBox .cardItem .left .redStar {
+.contentBox .re_cardItem .re_left .redStar {
   float: left;
   color: red;
   margin-right: 3px;
 }
-.contentBox .cardItem .text {
+.contentBox .re_cardItem .text {
   width: 60%;
   display: block;
   float: left;
   height: 20px;
   line-height: 20px;
 }
-.contentBox .cardItem .line {
+.contentBox .re_cardItem .line {
   background-color: #eeeeee;
   height: 1px;
   width: 100%;
