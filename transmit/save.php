@@ -15,13 +15,13 @@ $fule_key="jinwandalaohu";
 		   exit;
 }
 //验证路由是否存在
-/*
+
 if($_SERVER['HTTP_REFERER']==""){
 	
 	echo false; 
 	exit;
 }
-*/
+
 //get方式处理
 if($_SERVER['REQUEST_METHOD']=="GET")
 {

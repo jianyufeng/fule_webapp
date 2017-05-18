@@ -270,7 +270,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $(document).on("blur", "#node", function () {
             var str = _.trim($(this).val());
             if (dex > 0) {
-                return
+                return;
             }
             console.log(dex);
             console.log("-------------");

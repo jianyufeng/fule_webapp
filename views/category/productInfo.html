@@ -5,8 +5,8 @@
             <ion-scroll class="scrollBox" direction="y" style="width: 100%;height: 100%">
                 <!--图片详情-->
                 <div class="productImgBox">
-                   <span id="noImg" style="display: none">暂无图片</span>
-                    <ion-slide-box  ng-show="showImg" show-pager="false" on-slide-changed="onSlideChanged($index)"
+                    <span id="noImg" style="display: none">暂无图片</span>
+                    <ion-slide-box ng-show="showImg" show-pager="false" on-slide-changed="onSlideChanged($index)"
                                    active-slide="myActiveSlide">
                         <ion-slide ng-repeat=" productImg in goodsImgss " view-on-finish>
                             <div class="productImg">
@@ -78,6 +78,11 @@
                              src="./resource/images/default/default_image.png"
                              alt={{goodsDetailImg.detail_text}}
                         />
+                    </div>
+
+                    <div ng-show="goodsDetailImg"
+                         style="width: 100%;height: 200px;text-align: center ;line-height: 200px;background-color: white">
+                        暂无详情
                     </div>
                 </div>
 
