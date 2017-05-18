@@ -115,13 +115,13 @@
   height: 20px;
   margin-top: 15px;
 }
-.newAddressBox .location .selectAction .select-location {
+.newAddressBox .location .selectAction .select-location2 {
   width: 150px;
   height: 50px;
   float: left;
   text-align: left;
 }
-.newAddressBox .location .selectAction .select-location span {
+.newAddressBox .location .selectAction .select-location2 span {
   font-size: 13px;
   color: #BCBCBC;
 }

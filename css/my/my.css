@@ -18,12 +18,12 @@
 }
 .userBox .usrIconBox {
   text-align: center;
-  height: 100px;
+  height: 120px;
   width: 100%;
   position: relative;
 }
 .userBox .usrIconBox .usrIcon {
-  margin-top: 5px;
+  margin-top: 15px;
   width: 90px;
   height: 90px;
   border-radius: 90px;
@@ -91,7 +91,6 @@
 .moneyAndScoreBox {
   background: white;
   margin-top: 10px;
-  border-bottom: solid 1px #eee;
   border-top: solid 1px #eee;
   height: 70px;
   text-align: center;
@@ -122,6 +121,42 @@
 }
 /*去掉积分的右边线*/
 .moneyAndScoreBox :last-child {
+  border: none;
+}
+/*辅销品*/
+.fxp_moneyScoreBox {
+  background: white;
+  border-bottom: solid 1px #eee;
+  border-top: solid 1px #eee;
+  height: 70px;
+  text-align: center;
+  position: relative;
+  /*金额容器  积分容器*/
+}
+.fxp_moneyScoreBox .moneyBox {
+  height: 50px;
+  width: 50%;
+  text-align: center;
+  float: left;
+  margin-top: 10px;
+  border-right: 1px solid #eee;
+  /*金额 积分*/
+  /*金额数量 积分数量*/
+}
+.fxp_moneyScoreBox .moneyBox .moneyName {
+  color: #9a9a9a;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+}
+.fxp_moneyScoreBox .moneyBox .moneyCount {
+  font-size: x-large;
+  line-height: 25px;
+  width: 100%;
+  height: 25px;
+}
+/*去掉积分的右边线*/
+.fxp_moneyScoreBox :last-child {
   border: none;
 }
 /*我的办公室*/

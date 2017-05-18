@@ -291,7 +291,7 @@ define(['app'], function (app) {
             /*我的 购买喜乐之家列表 路由*/
             .state('tab.my-buyHappyHome', {
                 url: '/my-buyHappyHome/:configId/:id',
-                cache : false,
+               // cache : false,
                 views: {
                     'tab-my': {
                         templateUrl: "views/my/my-buyHappyHome.html?_r=" + Math.random(),

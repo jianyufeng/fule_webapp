@@ -23,15 +23,15 @@ define(['app'], function (app) {
                     if (data.address != undefined && data.address.length > 0) {
                         for (var i = 0; i < data.address.length; i++) {
 
-                            if($scope.jugdeXlzjAddress.length >0 && $scope.jugdeXlzjAddress.length != null && $scope.jugdeXlzjAddress != undefined){
+                            if ($scope.jugdeXlzjAddress.length > 0 && $scope.jugdeXlzjAddress.length != null && $scope.jugdeXlzjAddress != undefined) {
 
-                                if ($scope.jugdeXlzjAddress == data.address[i].address_id){
+                                if ($scope.jugdeXlzjAddress == data.address[i].address_id) {
 
                                     nowAddress = data.address[i];
                                     $scope.jugdeXlzjAddress = null;
                                     break;
                                 }
-                            }else {
+                            } else {
                                 if (data.address[i].is_default == 1) {
                                     nowAddress = data.address[i];
                                     break;
@@ -50,7 +50,7 @@ define(['app'], function (app) {
 
                     //绑定提交订单时使用的数据
                     //用户余额
-                    xilzj_user_money =  data.userInfo.user_money;
+                    xilzj_user_money = data.userInfo.user_money;
                     //$scope.user_money = data.userInfo.user_money;
                     $scope.$apply(function () {
                         $scope.goods = data.goodsInfo.data;
@@ -75,7 +75,22 @@ define(['app'], function (app) {
                 }
             );
         };
+        //获取用户信息 主要是获取用户余额
+        /*网络获取用户信息*/
+        service.getUserInfo = function ($scope, POP) {
+            //获取用户的账号
+            var info = User.getInfo();
+            HTTP.get(API.My.myInfo + "/user_name/" + info.user_name, {}, function (e, data) {
+                if (e) {
+                    POP.Hint("用户信获取失败");
+                    return
+                }
+                $scope.$apply(function () {
+                    xilzj_user_money = data.userInfo.user_money;
+                });
 
+            })
+        };
 
         /*网络获取商品列表的属性列表 信息*/
         service.getBuyGoodMoreAttr = function ($scope, POP, goodId, $ionicScrollDelegate, $compile, price) {
@@ -193,9 +208,9 @@ define(['app'], function (app) {
                 if (e) {
 
                     var msg = "";
-                    if(data == undefined || data == "" || data == null){
+                    if (data == undefined || data == "" || data == null) {
                         msg = "购买失败";
-                    }else{
+                    } else {
                         msg = data;
                     }
                     POP.Hint(msg);

@@ -14,20 +14,28 @@ define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
 
         });
         $scope.show = function (index) {
-           if(index==1){
-               $(".leftCard").css('color','#D39AC5');
-               $(".rightCard").css('color','black');
-               $("#listA").css('display','block');
-               $("#listB").css('display','none');
-               //myRechargeableCardListService.getAList($scope, POP, userId);
-
-           }else {
-               $(".rightCard").css('color','#D39AC5');
-               $(".leftCard").css('color','black');
-               $("#listA").css('display','none');
-               $("#listB").css('display','block');
-               //myRechargeableCardListService.getBList($scope, POP, userId);
-           }
+            if (index == 1) {
+                $(".ACard").css('color', '#D39AC5');
+                $(".BCard").css('color', 'black');
+                $(".CCard").css('color', 'black');
+                $("#listA").css('display', 'block');
+                $("#listB").css('display', 'none');
+                $("#listC").css('display', 'none');
+            } else if (index == 2) {
+                $(".BCard").css('color', '#D39AC5');
+                $(".ACard").css('color', 'black');
+                $(".CCard").css('color', 'black');
+                $("#listA").css('display', 'none');
+                $("#listB").css('display', 'block');
+                $("#listC").css('display', 'none');
+            } else if (index == 3) {
+                $(".CCard").css('color', '#D39AC5');
+                $(".BCard").css('color', 'black');
+                $(".ACard").css('color', 'black');
+                $("#listC").css('display', 'block');
+                $("#listB").css('display', 'none');
+                $("#listA").css('display', 'none');
+            }
         }
     }
 

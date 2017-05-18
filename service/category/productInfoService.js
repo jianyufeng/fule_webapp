@@ -51,6 +51,11 @@ define(['app'], function (app) {
 
                     // 商品的详情图
                     $scope.goodsDetail = data.goodsDetail;
+                    if ($scope.goodsDetail.length > 0) {
+                        $scope.goodsDetailImg = false;
+                    } else {
+                        $scope.goodsDetailImg = true;
+                    }
                     // 商品购买的最大数量
                     if (goodsInfo.limit_num > 0) {
                         $scope.limitGoodsNumber = goodsInfo.limit_num;
@@ -208,7 +213,7 @@ define(['app'], function (app) {
                     "goods_id": goodsId,
                     "goods_name": goodsName,
                     "goods_number": goodsNumber,
-                    "goods_price": pri*goodsNumber
+                    "goods_price": pri * goodsNumber
                 }, function (e, data) {
                     if (e) {
                         return;

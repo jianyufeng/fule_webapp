@@ -49,24 +49,35 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
 
 
             //选择收货地址
-            $(document).on("click",".happyHomeAddressItem",function(){
+
+
+            //选择地址的点击背景变色效果
+            $(document).off("touchstart", ".happyHomeAddressItem").on("touchstart", ".happyHomeAddressItem", function (event) {
+                if(!editing){
+                    $(this).css({background: "#fff"}).transition({background: "#eee"}, 10);
+                }
+
+            });
+
+            $(document).off("touchend", ".happyHomeAddressItem").on("touchend", ".happyHomeAddressItem", function (event) {
+
 
                 if (!editing){
-
+                    $(this).css("background", "#eee").transition({background: "#fff"}, 10);
                     //选择当前点击的收货地址
                     var _idx = $(".happyHomeAddressItem").index(this);
 
                     //将数组对应的地址信息拿到并绑定成全局变量(相当于变量绑定通知)
-                    $rootScope.$broadcast('changeAddress', { "address":$scope.happyHomeAddress[_idx]});
+                    $rootScope.$broadcast('changeAddress', { "address" : $scope.happyHomeAddress[_idx]});
 
                     //成功直接返回上一层
                     $ionicHistory.goBack();
+
 
                 }
 
 
             });
-
 
 
         });
@@ -97,8 +108,8 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
 
                 editing = true;
                 $scope.righttitleValue = "关闭";
-                $(".editOperationArea").show();
-                $(".addAddressBtn").show();
+                $(".editOperationArea").fadeIn(300);
+                $(".addAddressBtn").fadeIn(300);
                 $scope.addressTitle = "管理收货地址";
                 $(".manageContent").css("bottom","50px");
 

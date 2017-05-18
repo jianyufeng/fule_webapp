@@ -63,12 +63,6 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-serviceRelationship'], fun
 
 
 
-
-
-
-
-
-
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
