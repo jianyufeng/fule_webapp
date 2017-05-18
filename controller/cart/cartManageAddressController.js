@@ -108,7 +108,7 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','anima
                 $scope.righttitleValue = "关闭";
                 $(".editOperationArea").fadeIn(300);
                 $(".addAddressBtn").fadeIn(300);
-
+                $scope.addressTitle = "管理收货地址";
                 $(".manageContent").css("bottom","50px");
 
 
