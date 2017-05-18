@@ -69,8 +69,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
             $scope.jugdeXlzjAddress = args.addressId;
 
-            alert($scope.jugdeXlzjAddress);
-
             //将新的值重新注入页面
             if($scope.buyHappyAddress.address_id == args.addressId){
 
