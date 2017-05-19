@@ -60,7 +60,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 			var _this = $(this);
 
-			_this.css('border','1px solid #d98bbc');
+			_this.css('border','2px solid #d98bbc');
 
 		});
 
