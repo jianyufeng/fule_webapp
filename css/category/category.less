@@ -1,50 +1,34 @@
 .content {
-  background-color: white;
   margin: 0px;
   padding: 0px;
-  .category_top_block {
-    display: block;
+  .category_top_list {
     width: 100%;
-    height:100px;
-    //height: auto;
-    .category_top_list {
-      width: 100%;
+    height: auto;
+    min-height: 90px;
+    background-color: white;
+    .category_top_list_item {
+      width: 25%;
       height: auto;
-      list-style: none;
-      .category_top_list_item {
-        background-color: white;
-        float: left;
-        width: 25%;
-        height: 90px;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        .category_top_list_item_block {
-          width: 85%;
-          height: 85%;
-          margin-left: 10%;
-          margin-top: 15px;
-          .categoryImageBox {
-            img {
-              display: block;
-              width: 45px;
-              height: 45px;
-              margin: 0 auto;
-            }
-          }
-
-          span {
-            text-align: center;
-            color: #999999;
-            font-size: 10px;
-            display: block;
-          }
-
+      float: left;
+      padding: 10px;
+      background-color: white;
+      .categoryImageBox {
+        img {
+          display: block;
+          width: 45px;
+          height: 45px;
+          margin: 0 auto;
         }
-
+      }
+      .categoryName {
+        text-align: center;
+        color: #999999;
+        font-size: 10px;
+        width: 100%;
+        display: block;
       }
     }
   }
-
   .midd_text_contant {
     width: 100%;
     background-color: #F4F4F4;
@@ -59,27 +43,27 @@
       height: 1px;
       width: 96%;
       background-color: #BCBCBC;
-      position:absolute;
-      left:2%;
-      margin-top:-1px;
-      top:50%;
-      z-index:999999;
+      position: absolute;
+      left: 2%;
+      //margin-top: -1px;
+      top: 50%;
+      z-index: 999999;
 
     }
     .midd_text {
-      display:block;
-      width:auto;
-      left:50%;
-      position:absolute;
-      height:35px;
-      padding-left:10px;
-      padding-right:10px;
-      background:#F4F4F4;
-      line-height:35px;
+      display: block;
+      width: auto;
+      left: 50%;
+      position: absolute;
+      height: 35px;
+      padding-left: 10px;
+      padding-right: 10px;
+      background: #F4F4F4;
+      line-height: 35px;
       font-size: 12px;
       text-align: center;
       color: #878787;
-      z-index:99999999;
+      z-index: 99999999;
     }
   }
 

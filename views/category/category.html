@@ -6,21 +6,17 @@
                 on-refresh="doRefresh()">
         </ion-refresher>
         <!-- 头部的分类-->
-        <div class="category_top_block">
-            <ul class="category_top_list">
-                <li class="category_top_list_item" ng-repeat="categoryItem in categorys" view-on-finish-two>
-                    <div class="category_top_list_item_block"
-                         ng-click="changCategoryList(categoryItem.category_id,categoryItem.category_name,$index)">
-                        <div>
-                            <div class="categoryImageBox">
-                                <img src="./resource/images/default/default_image.png"
-                                     data-original='{{categoryItem.category_img}}'/>
-                            </div>
-                            <span class="categoryName colorNameA ellipsis"> {{categoryItem.category_name}}</span>
-                        </div>
-                    </div>
-                </li>
-            </ul>
+        <div class="category_top_list">
+            <div class="category_top_list_item" ng-repeat="categoryItem in categorys" view-on-finish-two
+                 ng-click="changCategoryList(categoryItem.category_id,categoryItem.category_name,$index)"
+            >
+                <div class="categoryImageBox">
+                    <img src="./resource/images/default/default_image.png"
+                         data-original='{{categoryItem.category_img}}'/>
+                </div>
+                <span class="categoryName colorNameA ellipsis"> {{categoryItem.category_name}}</span>
+
+            </div>
         </div>
 
         <!--中间的文字-->
@@ -30,8 +26,7 @@
             <div class="midd_text">
                 <span>{{categoryName}}</span>
             </div>
-       </div>
-
+        </div>
 
 
         <!-- 商品列表-->
