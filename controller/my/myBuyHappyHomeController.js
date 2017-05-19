@@ -3,7 +3,13 @@
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
     function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams, $state,$ionicHistory) {
-
+        //输入框聚焦变换
+        $(document).off('focus','input').on('focus','input',function () {
+            $(this).css("border", "solid 1px #d98bbc");
+        });
+        $(document).off('blur','input').on('blur','input',function () {
+            $(this).css("border", "solid 1px #ccc");
+        });
         var configId = $stateParams.configId;
         var id = $stateParams.id;
         xilzj_user_money = 0;

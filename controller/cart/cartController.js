@@ -7,7 +7,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		}
 
 
-		$(document).on("focus",".changeBtn input",function(){
+		// $(document).on("focus",".changeBtn input",function(){
 
 			// 	var scrollTop = $ionicScrollDelegate.$getByHandle('mainScroll');
 			// 	var top = scrollTop.getScrollPosition().top;
@@ -42,7 +42,31 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 			// 	$ionicScrollDelegate.scrollTo(0,200,true);
 
 			// }
+		// });
+
+
+		//获取数量手动输入是去焦点
+		$(document).on("blur",".changeBtn",function () {
+
+			var _this = $(this);
+
+			_this.css('border','1px solid #cccccc');
+
+
+
 		});
+		//手动输入商品数量获取焦点
+		$(document).on("focus",".changeBtn",function () {
+
+			var _this = $(this);
+
+			_this.css('border','2px solid #d98bbc');
+
+		});
+
+
+
+
 
 		$scope.$on("viewOnFinish", function () {
 			$(".cartGoodsImage img").myImageLazyLoad({

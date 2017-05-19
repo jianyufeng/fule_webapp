@@ -273,6 +273,10 @@ app.controller("loginController", function ($scope, POP) {
         HTTP.post(url, param, function (e, data) {
             POP.EndLoading();
             if (e) {
+                if (data==undefined || data ==null ||  !(typeof data =='string')){
+                    POP.Hint("登录失败");
+                    return
+                }
                 POP.Hint(data);
                 return;
             }

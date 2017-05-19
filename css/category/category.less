@@ -5,7 +5,8 @@
   .category_top_block {
     display: block;
     width: 100%;
-    height: auto;
+    height:100px;
+    //height: auto;
     .category_top_list {
       width: 100%;
       height: auto;
@@ -21,7 +22,7 @@
           width: 85%;
           height: 85%;
           margin-left: 10%;
-          margin-top: 10%;
+          margin-top: 15px;
           .categoryImageBox {
             img {
               display: block;
@@ -53,27 +54,32 @@
     padding-left: 5%;
     padding-right: 5%;
     position: relative;
+
     .line {
-      margin: 17px 0;
       height: 1px;
-      width: 90%;
+      width: 96%;
       background-color: #BCBCBC;
-      float: left;
+      position:absolute;
+      left:2%;
+      margin-top:-1px;
+      top:50%;
+      z-index:999999;
 
     }
     .midd_text {
-      height: 35px;
-      background-color: #F4F4F4;
-      width: auto;
-      position: absolute;
-      left: 0px;
+      display:block;
+      width:auto;
+      left:50%;
+      position:absolute;
+      height:35px;
+      padding-left:10px;
+      padding-right:10px;
+      background:#F4F4F4;
+      line-height:35px;
       font-size: 12px;
-      padding-left: 10px;
-      padding-right: 10px;
-      line-height: 35px;
+      text-align: center;
       color: #878787;
-      float: left;
-      letter-spacing: 1px;
+      z-index:99999999;
     }
   }
 
@@ -184,3 +190,4 @@
   position: fixed;
   z-index: 9999;
 }
+

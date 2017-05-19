@@ -57,15 +57,15 @@ define(['linq'],function () {
 		if($method == 'post'){
 
 			//取出本地token信息
-			//var employeesInfo = JSON.parse($.cookie("employeesInfo"));
+			var userInfo = JSON.parse($.cookie("userInfo"));
 
 			//获取token
-			//var tokenValue = employeesInfo.token;
+			var tokenValue = userInfo.token;
 
 			//设置在ajax的请求头中
-			//$.ajaxSetup({
-			//    headers: {'x-token': tokenValue}
-			//});
+			$.ajaxSetup({
+			   headers: {'x-token': tokenValue}
+			});
 		}
 
 		console.log(88888888);
