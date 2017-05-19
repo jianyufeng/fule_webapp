@@ -795,9 +795,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         });
         $("#bankBranch").focus(function () {
             $("#bankBranchWaring").css('display', 'none');
-
         });
-
 
         // 省市地区
         // 选择地址
