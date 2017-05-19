@@ -14,10 +14,12 @@ define(['app'], function (app) {
                     });
                     return;
                 }
+
                 $scope.$apply(function () {
                     $scope.categorys = data.categoryInfo;
                     $scope.productArray = data.goodsInfo.data;
                     var a = data.categoryInfo;
+                    
                     var obj = a[0];
                     $scope.categoryName = obj.category_name;
                     //  手动请求一下点击事件
@@ -31,6 +33,9 @@ define(['app'], function (app) {
 
         // 点击按钮后实现分类货物的切换
         service.getCategoryGoodsList = function ($scope, categoryId, POP, cacheData, categoryName, index) {
+            
+            
+            
             if (CommenFun.isNullObj(cacheData)) {
                 POP.StartLoading();
                 HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
@@ -49,17 +54,10 @@ define(['app'], function (app) {
                         $(".categoryName").css("color", "#999999");
                         $(".categoryName").eq(index).css("color", "#D39AC5");
 
-                        //alert(left);
                     });
 
-                    var divWidth = $(".midd_text_contant").innerWidth();
-                    var textWidth = $(".midd_text").innerWidth();
-                    var left = (divWidth - textWidth) / 2;
-                    console.log(divWidth);
-                    console.log(textWidth);
-                    $(".midd_text").css("left", left);
 
-
+                   
 
 
                 });
@@ -84,20 +82,7 @@ define(['app'], function (app) {
                         });
 
 
-                        var divWidth = $(".midd_text_contant").innerWidth();
-                        var textWidth = $(".midd_text").innerWidth();
-                        var left = (divWidth - textWidth) / 2;
-                        console.log(divWidth);
-                        console.log(textWidth);
-                        $(".midd_text").css("left", left);
-                        //var divWidth = $(".midd_text_contant").innerWidth();
-                        //var textWidth = $(".midd_text").innerWidth();
-                        //var left = (divWidth - textWidth) / 2;
-                        //console.log(divWidth);
-                        //console.log(textWidth);
-                        //$(".midd_text").css("left", left);
-
-
+                      
 
                     });
 
@@ -107,12 +92,7 @@ define(['app'], function (app) {
                     $(".categoryName").css("color", "#999999");
                     $(".categoryName").eq(index).css("color", "#D39AC5");
 
-                    var divWidth = $(".midd_text_contant").innerWidth();
-                    var textWidth = $(".midd_text").innerWidth();
-                    var left = (divWidth - textWidth) / 2;
-                    console.log(divWidth);
-                    console.log(textWidth);
-                    $(".midd_text").css("left", left);
+                  
                 }
             }
 
@@ -134,8 +114,6 @@ define(['app'], function (app) {
                     $scope.productArray = data.goodsInfo.data;
                     $scope.categoryName = data.categoryInfo[0].category_name;
                     $scope.$broadcast('clearCache');
-                    var left = $(".midd_text_contant").outerWidth() / 2 - $(".midd_text").outerWidth() / 2;
-                    $(".midd_text").css("left", left);
                 });
 
             });

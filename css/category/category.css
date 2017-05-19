@@ -6,7 +6,7 @@
 .content .category_top_block {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100px;
 }
 .content .category_top_block .category_top_list {
   width: 100%;
@@ -25,7 +25,7 @@
   width: 85%;
   height: 85%;
   margin-left: 10%;
-  margin-top: 10%;
+  margin-top: 15px;
 }
 .content .category_top_block .category_top_list .category_top_list_item .category_top_list_item_block .categoryImageBox img {
   display: block;
@@ -50,25 +50,29 @@
   position: relative;
 }
 .content .midd_text_contant .line {
-  margin: 17px 0;
   height: 1px;
-  width: 90%;
+  width: 96%;
   background-color: #BCBCBC;
-  float: left;
+  position: absolute;
+  left: 2%;
+  margin-top: -1px;
+  top: 50%;
+  z-index: 999999;
 }
 .content .midd_text_contant .midd_text {
-  height: 35px;
-  background-color: #F4F4F4;
+  display: block;
   width: auto;
+  left: 50%;
   position: absolute;
-  left: 0px;
-  font-size: 12px;
+  height: 35px;
   padding-left: 10px;
   padding-right: 10px;
+  background: #F4F4F4;
   line-height: 35px;
+  font-size: 12px;
+  text-align: center;
   color: #878787;
-  float: left;
-  letter-spacing: 1px;
+  z-index: 99999999;
 }
 .content .product_list {
   width: 100%;

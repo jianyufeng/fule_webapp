@@ -53,7 +53,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
                 // animate     : true,											//是否动画显示
             });
 
-
+            var textWidth = $(".midd_text").outerWidth();
+             $(".midd_text").css("marginLeft",-(textWidth/2));
 
         });
 
@@ -69,6 +70,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
             $(".categoryName").css("color", "#999999");
             $(".categoryName").eq(0).css("color", "#D39AC5");
+
+             
         });
 
         // 页面销毁销毁内存

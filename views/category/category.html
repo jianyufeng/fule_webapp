@@ -16,7 +16,7 @@
                                 <img src="./resource/images/default/default_image.png"
                                      data-original='{{categoryItem.category_img}}'/>
                             </div>
-                            <span class="categoryName colorNameA"> {{categoryItem.category_name}}</span>
+                            <span class="categoryName colorNameA ellipsis"> {{categoryItem.category_name}}</span>
                         </div>
                     </div>
                 </li>
@@ -24,14 +24,16 @@
         </div>
 
         <!--中间的文字-->
-        <div class=" midd_text_contant">
+        <div class="midd_text_contant">
             <div class="line">
             </div>
             <div class="midd_text">
                 <span>{{categoryName}}</span>
             </div>
+       </div>
 
-        </div>
+
+
         <!-- 商品列表-->
         <div class="product_list">
             <div class="product_item" ng-repeat="productInfo in productArray" view-on-finish
