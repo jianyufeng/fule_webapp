@@ -16,7 +16,6 @@ define(['app'], function (app) {
         service.getMyHappyHomeUpgradeInfo = function ($scope, configId, POP, tagAnimateFun, $ionicScrollDelegate) {
 
             var userName = User.getInfo().user_name;
-            $.initAppStartLoad();
             HTTP.get(API.My.updateGradeHappyHome + "/config_id/" + configId + "/user_name/" + userName, {}, function (e, data) {
                 if (e) {
                     $.loadError(function () {

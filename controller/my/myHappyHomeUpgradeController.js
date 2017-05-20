@@ -14,7 +14,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $scope.showAnimate = false;
 
         $scope.titleName = $stateParams.barTitle;
-
+        $.initAppStartLoad();
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
             //获取数据
