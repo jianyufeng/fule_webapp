@@ -222,15 +222,21 @@
 }
 /*遮盖层*/
 .unLoginBox {
+  vertical-align: middle;
+  margin: 0px auto;
   width: 100%;
-  margin-top: 10px;
   z-index: 99999;
+  position: absolute;
+  top: 50%;
+  margin-top: -180px;
+  height: 360px;
 }
 .unLoginBox img {
-  margin: 10px auto;
+  margin: auto;
   display: block;
   width: auto;
   height: 300px;
+  margin-bottom: 5px;
 }
 .unLoginBox button {
   margin-left: 10%;
