@@ -8,6 +8,10 @@ define(['app'],function(app){
 
 	function ctrl($scope,$rootScope,$state){
 
+
+
+
+
 		console.log("mainController......");
 
 		if(customStorage.getPersistenceValue("regionData") == null){
@@ -78,6 +82,9 @@ define(['app'],function(app){
         //
 		//}
 		//$.cookie("refresh", 1, {path: '/'});
+
+
+		$.initAppEndLoad();
 	}
 
 	ctrl.$inject = ['$scope','$rootScope','$state'];

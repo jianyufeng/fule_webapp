@@ -3,7 +3,7 @@
 define(['jquery','loading','app'],function(N,N,app){
 
     //在此初始化全局配置数据
-	app.run(['$rootScope',function($rootScope){
+	app.run(['$rootScope','POP',function($rootScope,POP){
 
 		$rootScope.isNavShow = true;
 
@@ -12,6 +12,9 @@ define(['jquery','loading','app'],function(N,N,app){
 
 
 		$rootScope.selectOnlyAddress = 1;
+
+
+		$.initAppStartLoad();
 
 
 	}]);
