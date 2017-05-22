@@ -15,14 +15,14 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
             if (isLogin) {
                 $('.my_loginBox').show();
                 $('.xiala').show();
-                $('.unLoginBox').hide();
+                $('.unLoginBoxP').hide();
                 $('.myHeaderBox').hide();
                 /*获取数据*/
                 myService.getMyInfo($scope, POP, false);
             } else {
                 $('.my_loginBox').hide();
                 $('.xiala').hide();
-                $('.unLoginBox').show();
+                $('.unLoginBoxP').show();
                 $('.myHeaderBox').show();
             }
         });
