@@ -264,7 +264,7 @@ define(['app'], function (app) {
          * @param $scope
          */
         service.startPage = function ($scope, $state) {
-            $state.go("tab.cart");
+            $state.go("tab.newCart");
         }
         return service;
     });
