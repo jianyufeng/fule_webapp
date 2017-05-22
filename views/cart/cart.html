@@ -30,13 +30,13 @@
 										<img src="resource/images/icon/shoppingcar_xuanz.png">
 									</div>
 								</div>-->
-								<div class="cartGoodsImage">
+								<div class="cartGoodsImage turnProduct" data-id="{{cart_good.goods_id}}">
 									<img src="./resource/images/default/default_image.png" data-original='{{cart_good.img}}'/>
 								</div>
 								<div class="cartGoodsInfo">
-									<div class="cartGoodsTitleBox ellipsis"><span>{{cart_good.goods_name}}</span></div>
+									<div class="cartGoodsTitleBox turnProduct ellipsis"data-id="{{cart_good.goods_id}}"><span>{{cart_good.goods_name}}</span></div>
 									<div class="cartGoodsInfoBox">
-										<div class="cartGoodsMoneyBox">
+										<div class="cartGoodsMoneyBox turnProduct" data-id="{{cart_good.goods_id}}">
 											<span><strong>¥ </strong><b>{{cart_good.goods_price}}</b></span>
 										</div>
 										<div class="cartArrtGoodsBox">

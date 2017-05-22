@@ -122,6 +122,21 @@ define(['app'],function (app) {
                 }
             })
 
+            //点击跳转详情
+            .state('tab.goProductInfo', {
+                url: '/goProductInfo/:goodsId',
+                views: {
+                    'tab-cart': {
+                        templateUrl: "views/category/productInfo.html?_r=" + Math.random(),
+                        controller: 'productInfoController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/category/productInfoController')
+                        }
+                    }
+
+                }
+            })
+
 
     });
    
