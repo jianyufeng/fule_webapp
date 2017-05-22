@@ -263,8 +263,9 @@ define(['app'], function (app) {
          * 点击购物车跳转页面
          * @param $scope
          */
-        service.startPage = function ($scope, $state) {
+        service.startPage = function ($scope, $state,$ionicTabsDelegate) {
             $state.go("tab.newCart");
+            $ionicTabsDelegate.select(3);
         }
         return service;
     });

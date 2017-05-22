@@ -6,7 +6,7 @@
 
 define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
-    function ctrl($scope, productInfoService, $stateParams, POP, $state, $ionicSlideBoxDelegate) {
+    function ctrl($scope, productInfoService, $stateParams, POP, $state, $ionicSlideBoxDelegate,$ionicTabsDelegate) {
      $scope.showImg=false;
      POP.StartLoading();
         $scope.$on('$ionicView.enter', function () {
@@ -53,7 +53,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         }
 
         $scope.startPage = function () {
-            productInfoService.startPage($scope, $state);
+            productInfoService.startPage($scope, $state,$ionicTabsDelegate);
         }
         // 减号
         $scope.reduce = function () {
@@ -122,7 +122,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
     }
 
 
-    ctrl.$inject = ['$scope', 'productInfoService', '$stateParams', 'POP', '$state', '$ionicSlideBoxDelegate'];
+    ctrl.$inject = ['$scope', 'productInfoService', '$stateParams', 'POP', '$state', '$ionicSlideBoxDelegate','$ionicTabsDelegate'];
     app.registerController('productInfoController', ctrl);
 
 
