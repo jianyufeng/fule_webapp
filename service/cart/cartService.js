@@ -13,6 +13,9 @@ define(['app'],function(app){
             var info = User.getInfo();
             HTTP.get(API.Cart.cartSearch + "/shopping_type/1/user_id/"+info.user_id , {}, function (e, data) {
 
+                console.log(data);
+
+
                 if (e) {
                     $.loadError(function () {
                         service.getCartGoods();
@@ -32,6 +35,9 @@ define(['app'],function(app){
                     $.initAppEndLoad();
                     return;
                 }
+
+                //计算购物车总量
+                var cCount = 0;
 
                 $scope.$apply(function () {
                     $scope.cart_goods = cart_goods;

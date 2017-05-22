@@ -1,4 +1,4 @@
-define(['app',"./Fun/cart_fun"],function(app,cart_fun){
+define(['app',"./Fun/cart_fun",'animate'],function(app,cart_fun){
 
 	function ctrl($rootScope,$scope,cartService,POP,$state,$ionicScrollDelegate){
 
@@ -66,8 +66,6 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 
 
-
-
 		$scope.$on("viewOnFinish", function () {
 			$(".cartGoodsImage img").myImageLazyLoad({
 				//默认三个参数可不传，使用默认参数
@@ -79,18 +77,31 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 		});
 
 		$scope.$on('$ionicView.beforeEnter', function () {
+
+
             //判断是否登录
 			if(User.isLogin()){
 				$(".noCartGoodBox").hide();
+				//加载数据
+				cartService.getCartGoods($scope, POP, false);
+					var userId = User.getInfo().user_id;
+					HTTP.get(API.Category.getCartNum + "/user_id/" + userId + "/shopping_type/1", {}, function (e, data) {
+
+						if(e) {
+							$rootScope.cartBadge = 0;
+							return;
+						}
+						data = data == undefined ? 0 : data;
+						$scope.$apply(function () {
+							$rootScope.cartBadge = data;
+						});
+					})
+
 			}else{
 				$(".noCartGoodBox").show();
 				return;
 			}
 
-			//加载数据
-			if(User.isLogin()){
-				cartService.getCartGoods($scope, POP, false);
-			}
 
         });
 
@@ -136,8 +147,8 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 
 			
 
-		})
-		
+		});
+
 		
 
 
@@ -156,7 +167,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 			
 			cartService.updateCart($scope,updateParams,POP,$rootScope);
 
-		})
+		});
 
 		//输入框改变时
 		cart_fun.changeCartGoodsBtn(POP,function(countMoney,nowNum,gid,cartId){
@@ -206,7 +217,7 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 					user_id : info.user_id,
 					shopping_type : 1,
 					id : _id
-				}
+				};
 
 				//删除购物车
 				cartService.deleteCartGood($scope,deleteParams,POP,_idx,$rootScope);
@@ -214,12 +225,28 @@ define(['app',"./Fun/cart_fun"],function(app,cart_fun){
 			});
 
 
-		})
+		});
+
+
+        //进入商品详情
+		$(document).off("touchend", ".turnProduct").on("touchend", ".turnProduct", function (event) {
+
+			if (!editOpen){
+
+				var goodsId = $(this).attr("data-id");
+
+				$state.go("tab.goProductInfo", {"goodsId": goodsId});
+			}
+
+
+		});
+
+
 
 		//左滑动出现删除
 		$scope.swipLeft = function(idx,id){
 			cart_fun.cartIdxSideslipping(true,idx);
-		}
+		};
 
 		//右滑动还原
 		$scope.swipRight = function(idx,id){

@@ -78,7 +78,7 @@ define(['app'], function (app) {
             $(function () {
                 var maxWidth = $(".productImg").width();
                 var maxHeight = $(".productImg").height();
-                var img = $(".productImg img")
+                var img = $(".productImg img");
                 var imgSrc = img.attr("src");
                 getImageWidth(imgSrc, function (w, h) {
                     var margin = 10;
@@ -201,8 +201,6 @@ define(['app'], function (app) {
                 var goodsName = $scope.productName;
                 var goodsNumber = Number.parseInt($("#_number").val());
                 $scope.count = goodsNumber;
-                console.log(111111111);
-                console.log(pri);
                 if ($scope.count < 1) {
                     POP.Hint("最少添加一个商品！");
                     return;
