@@ -3,7 +3,7 @@
     <ion-content>
         <!--下拉刷新-->
         <ion-refresher pulling-text="下拉刷新" on-refresh="doRefresh()" class="xiala" ng-if="islogin"></ion-refresher>
-        <div style="text-align: center;vertical-align: middle ;position: absolute;left: 0px;top:60px;right: 0px;bottom: 55px;" screen-height="60">
+        <div class="unLoginBoxP" style="text-align: center;vertical-align: middle ;position: absolute;left: 0px;top:60px;right: 0px;bottom: 55px;" screen-height="60">
             <div class="unLoginBox">
                 <img src="./resource/images/waitLoading.png"/>
                 <button ng-click="goLogin()">登录</button>

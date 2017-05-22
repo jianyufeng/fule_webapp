@@ -11,7 +11,7 @@ define(['app'], function (app) {
             }
 
             //获取用户的账号
-            HTTP.get(API.My.unreadMsg + "/is_notification/1/skip/" + $scope.page * 10 + "/limit/10/", {}, function (e, data) {
+            HTTP.get(API.My.unreadMsg + "/is_notification/1/skip/" + $scope.page * 10 + "/limit/10", {}, function (e, data) {
                 POP.EndLoading();
                 if (e) {
                     POP.Hint("加载失败");
