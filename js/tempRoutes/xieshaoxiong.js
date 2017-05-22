@@ -125,6 +125,7 @@ define(['app'],function (app) {
             //点击跳转详情
             .state('tab.goProductInfo', {
                 url: '/goProductInfo/:goodsId',
+                cache : false,
                 views: {
                     'tab-cart': {
                         templateUrl: "views/category/productInfo.html?_r=" + Math.random(),
