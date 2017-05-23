@@ -2,7 +2,7 @@
  * Created by charles_xsx on 2017/3/27.
  */
 
-define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_fun) {
+define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
     function ctrl($rootScope, $scope, cartOrderService, POP, $state) {
 
@@ -73,12 +73,10 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app, cart_f
 
             }
 
-
         });
 
-        //图片加载的方法
+        //图片懒加载的方法
         $scope.$on("viewOnFinish", function () {
-
 
             $(".orderItemImg img").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数

@@ -27,18 +27,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             $scope.p.sign_building = $stateParams.sign_building;
             $scope.p.best_time = $stateParams.best_time;
             $scope.p.tel = $stateParams.tel;
-            
-            //$('.recieverName').val($stateParams.consignee);
-            // $('.recieverNumber').val($stateParams.mobile);
-            // $(".select-location").find("span").text($stateParams.province_name + $stateParams.city_name + $stateParams.district_name);
-            // $(".select-location").find("span").css("color","#000000");
-            // $(".inputArea").val($stateParams.address);
-            // $('.email').val($stateParams.email);
-            // $('.categray').val($stateParams.address_name);
-            // $('.zipcode').val($stateParams.zipcode);
-            // $('.building').val($stateParams.sign_building);
-            // $('.time').val($stateParams.best_time);
-            // $('.telNumber').val($stateParams.tel);
+
 
         });
 
@@ -84,17 +73,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
         //保存
         $scope.saveAddress = function () {
 
-            /*
-            $scope.p.mobile = $stateParams.mobile;
-            $scope.p.location = $stateParams.province_name + $stateParams.city_name + $stateParams.district_name;
-            $scope.p.inputArea = $stateParams.address;
-            $scope.p.email = $stateParams.email;
-            $scope.p.address_name = $stateParams.address_name;
-            $scope.p.zipcode = $stateParams.zipcode;
-            $scope.p.sign_building = $stateParams.sign_building;
-            $scope.p.best_time = $stateParams.best_time;
-            $scope.p.tel = $stateParams.tel;
-            */
             //保存成功后后退到地址管理页面
             var recieverName    = $scope.p.recieverName;
             var mobileNumeber   = $scope.p.mobile;
@@ -107,16 +85,6 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             var best_time       = $scope.p.best_time;
             var detailAddress   = $scope.p.inputArea;
 
-
-            // var mobileNumeber = $('.recieverNumber').val();
-            // var familyPhone   = $('.telNumber').val();
-            // var location      = $(".select-location").find("span").text();
-            // var categray      = $('.categray').val();
-            // var detailAddress = $(".inputArea").val();
-            // var zipCode       = $('.zipcode').val();
-            // var email         = $('.email').val();
-            // var building      = $('.building').val();
-            // var best_time     = $('.time').val();
 
             //收货人姓名
             if (recieverName ==null || recieverName.length <= 0){

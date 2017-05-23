@@ -45,21 +45,7 @@ define(['app'],function (app) {
 
                 }
             })
-            /*购物车 选择收货地址 路由*/
-            .state('tab.cart_selectAddress', {
-                url: '/cart_selectAddress',
-                cache : false,
-                views: {
-                    'tab-cart': {
-                        templateUrl: "views/cart/cart_selectAddress.html?_r=" + Math.random(),
-                        controller: 'cartSelectAddressController',
-                        resolve: {
-                            deps: app.loadControllerJs('../controller/cart/cartSelectAddressController')
-                        }
-                    }
 
-                }
-            })
             /*购物车 管理收货地址 路由*/
             .state('tab.cart_manageAddress', {
                 url: '/cart_manageAddress',
