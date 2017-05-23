@@ -48,7 +48,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         // 接收传值页面传过来的地址内容
         $rootScope.$on('changeAddress', function (event, args) {
-            //console.log(args);
             //将新的值重新注入页面
             // $scope.$apply(function () {
                 $scope.buyHappyAddress = args.address;
@@ -57,7 +56,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         });
         // 接收传值页面传过来的地址内容
         $rootScope.$on('deleteAddress', function (event, args) {
-            //console.log(args);
             if (args.address == "NO") {
                 $scope.buyHappyAddress = "NO";
             } else {
@@ -66,26 +64,14 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 }
             }
         });
-
         //修改的地址为当前显示的地址
         $rootScope.$on('modifyAddressUptate', function (event, args) {
-
-            console.log("modifyAddressUptate..");
-
-
             $scope.jugdeXlzjAddress = args.addressId;
-
             //将新的值重新注入页面
             if($scope.buyHappyAddress.address_id == args.addressId){
-
                 myBuyHappyHomeServer.getBuyGoodList($scope, POP);
-
             }
-
         });
-
-
-
         //初始化默认值
         $scope.bugConfig = {
             pay_amount: 0,
@@ -117,29 +103,20 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                     });
             }
         });
-
-        //$(document).on("change",".bhh_buyNumber",function(){
-        //
-        //
-        //});
         var reg = /^[0-9]\d*$/;
         $(document).off("input propertychange", ".bhh_buyNumber").on("input propertychange", ".bhh_buyNumber", function () {
-
             //获取输入的产品数
             var input = $(this).val();
             var result = reg.test(input);
             if (input == "") {
                 input = 0;
             } else if (!result) {
-                // input = 0;
-                // $(this).val(0);
-                //console.log("不满足");
                 return;
             }
             input = Number.parseFloat(input);
             //获取上次输入的值
             var oldInput = Number.parseFloat($(this).data("oldinput"));
-            //console.log(input);
+
             //最大库存数
             var number = Number.parseFloat($(this).data("number"));
             //检测是否没有库存
@@ -150,11 +127,8 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             }
             $(this).css("background-color", "#fff");
             $(this).removeClass(canotSave);
-
-
             //存输入的值到html中
             $(this).data("oldinput", input);
-
             //获取单价
             var price = Number.parseFloat($(this).data("price"));
             //获取金额对象
@@ -165,8 +139,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             var newMoney = price * input;
             //赋值新的金额
             moneyBox.text(newMoney);
-
-
             //判断是有属性的产品需要添加购买的数量在其视图上
             if ($(this).parent().attr('class') == "more_buyNumberBox") {
                 var sel = $(this).parent().parent().parent().parent().find(".sel_p_n").first();
@@ -195,14 +167,12 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             })
         });
         $scope.$on("viewOnFinish", function () {
-
             $(".bhh_goodImgBox img").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数
                 // imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图
                 // imageServer : "http://image.38zs.net:848",				    //图片服务器地址
                 // animate     : true,											//是否动画显示
             });
-
         });
         //出现更多属性的商品
         $scope.seeMoreGoods = function (goodId, price) {
@@ -234,7 +204,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             if (isSave.length > 0) {
                 POP.Confirm("<font color='red'>(您选择的产品超出库存)</font>", function () {
                     var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
-                    console.log(isSave.first().offset().top);
                     scroller.scrollBy(0, isSave.first().offset().top-100, true);
                 });
                 return;
@@ -255,14 +224,9 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             }
             //收货人 id
             var addressId = $scope.buyHappyAddress.address_id;
-            //console.log("addressId:" + addressId);
             //钱数
             var totalMoney = $scope.totalMoney;
-            //console.log("totalMoney:" + totalMoney);
             //商品数
-            //var totalGoodsNumber = $scope.totalGoodsNumber;
-            //console.log("totalGoodsNumber:" + totalGoodsNumber);
-
             //获取提交订单需要的数据
             //循环输入框的数量
             var goods_infos = [];
@@ -270,7 +234,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             $(".bhh_buyNumber").each(
                 function () {
                     var input = $(this).val();
-
                     if (input > 0) {
                         var goodInfo = {};
                         if ($(this).parent().attr('class') == "more_buyNumberBox") {
@@ -290,7 +253,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                             goodInfo.market_price = item.market_price;
                             goodInfo.goods_type = item.goods_type;
                             goodInfo.goods_attr_id = 0;
-
                         } else {
                             //非属性商品  获取item的属性
                             var item = $(this).data("gooditem");
@@ -309,9 +271,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                         goods_infos.push(goodInfo);
                     }
                 });
-
             //创建提交信息
-
             var info = User.getInfo();
             var paras = {
                 'order_info': {
@@ -326,7 +286,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                 'user_name': info.user_name,
                 'config_id': configId
             };
-            //console.log(paras);
             //提交订单
             myBuyHappyHomeServer.saveOrderForm(paras, $scope, POP, function () {
                 //提交成功的回调  弹框验证密码
@@ -352,22 +311,13 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                                 $state.go('tab.my');
                             },1000);
                         })
-
-
                     })
                 });
-
-
             });
-
-
         })
-
     }
-
     /*给构造函数添加$inject属性,添加注入的服务*/
     ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile', '$ionicScrollDelegate', '$stateParams','$state','$ionicHistory'];
-
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);
 });

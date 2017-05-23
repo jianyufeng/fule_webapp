@@ -3,13 +3,11 @@ define(['app'], function (app) {
     app.factory("myUnreadMsgService", function () {
 
         var service = {};
-
         /*网络获取未读消息记录 信息*/
         service.getUnreadMsg = function ($scope, POP,isLoading) {
             if (isLoading) {
                 POP.StartLoading();
             }
-
             //获取用户的账号
             HTTP.get(API.My.unreadMsg + "/is_notification/1/skip/" + $scope.page * 10 + "/limit/10", {}, function (e, data) {
                 POP.EndLoading();
@@ -44,7 +42,6 @@ define(['app'], function (app) {
             });
 
         };
-
         /*网络获取未读消息详情 信息*/
         service.getUnreadMsgInfo = function ($scope, $sce, POP, article_id) {
             POP.StartLoading();
@@ -54,7 +51,6 @@ define(['app'], function (app) {
                     POP.Hint("加载失败");
                     return;
                 }
-
                 $scope.$apply(function () {
                     //如果是上拉则添加到上次数据的后面
                     $scope.content = $sce.trustAsHtml(data.data[0].content);

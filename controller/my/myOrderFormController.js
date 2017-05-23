@@ -3,12 +3,6 @@
  */
 define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
     function ctrl($scope, myOrderFormService, POP, $ionicScrollDelegate) {
-
-        $scope.$on('$ionicView.loaded', function () {
-            /*获取数据*/
-            console.log("myOrderFormController")
-        });
-
         //默认不可以拉上
         $scope.isCanPull = false;
         //默认页数
@@ -19,7 +13,6 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
         $('.of_nav').click(function () {
             //滚动到顶部
             smallToTop();
-
             //重置页数
             $scope.page = 0;
             //重置上拉
@@ -90,8 +83,6 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
         $scope.loadMore = function () {
             myOrderFormService.getShopOrderForm($scope, POP, type);
         }
-
-
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/

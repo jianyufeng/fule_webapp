@@ -156,8 +156,6 @@ app.controller("loginController", function ($scope, POP) {
             }
             , 1000)
     }
-
-
     /*忘记密码*/
     //$('.retrievePassword').click(function () {
     //    alert($('.retrievePassword').text());
@@ -327,22 +325,12 @@ app.controller("loginController", function ($scope, POP) {
 
     /*登录 点击效果*/
     $(document).off("touchstart", "#login").on("touchstart", "#login", function (event) {
-        $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);
+        $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 200);
     });
 
     $(document).off("touchend", "#login").on("touchend", "#login", function (event) {
-        $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 500);
+        $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 200);
     });
-
-    ///*注册 点击效果*/
-    //$(document).on("touchstart", ".registBox", function (event) {
-    //    $(this).css({background: "#fff"}).transition({background: "#eee"}, 100);
-    //});
-    //
-    //$(document).on("touchend", ".registBox", function (event) {
-    //    $(this).css("background", "#eee").transition({background: "#fff"}, 100);
-    //});
-
     //随机获取 密保卡的码
     function _getRandomString(len) {
         var loginCard = [];

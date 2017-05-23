@@ -12,22 +12,10 @@ define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'
                 wrap: 'letter'
             });
         });
-
         //默认不可以拉上
         $scope.isCanPull = false;
         //默认页数
         $scope.page = 0;
-        //默认获取商城订单
-
-        //生命周期
-        //$scope.$on('$ionicView.enter', function () {
-        //    /*获取数据*/
-        //
-        //});
-        //生命周期
-        //$scope.$on('$ionicView.beforeEnter', function () {
-        //
-        //});
         /*获取数据*/
         myUnreadMsgService.getUnreadMsg($scope, POP,true);
 
@@ -37,7 +25,6 @@ define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'
             $scope.page = 0;
             //重置上拉
             $scope.isCanPull = false;
-
             myUnreadMsgService.getUnreadMsg($scope, POP,false);
         };
         //加载更多
