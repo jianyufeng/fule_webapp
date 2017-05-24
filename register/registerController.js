@@ -141,12 +141,12 @@ app.controller("registerController", function ($scope, POP) {
     }
 
 
-//点击跟换图片验证码
-    $('.imgNote').click(function () {
-
-
-
-    })
+////点击跟换图片验证码
+//    $('.imgNote').click(function () {
+//
+//
+//
+//    })
 
     //注册
     $('#register').click(function () {
