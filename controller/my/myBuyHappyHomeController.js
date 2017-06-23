@@ -4,10 +4,10 @@
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
     function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams, $state,$ionicHistory) {
         //输入框聚焦变换
-        $(document).off('focus','input').on('focus','input',function () {
+        $(document).off('focus','.bhh_search input , bhh_goodItemBox_P input').on('focus','.bhh_search input  , bhh_goodItemBox_P input',function () {
             $(this).css("border", "solid 1px #d98bbc");
         });
-        $(document).off('blur','input').on('blur','input',function () {
+        $(document).off('blur','.bhh_search input  , bhh_goodItemBox_P input').on('blur','.bhh_search input  , bhh_goodItemBox_P input',function () {
             $(this).css("border", "solid 1px #ccc");
         });
         var configId = $stateParams.configId;
