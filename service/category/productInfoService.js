@@ -74,99 +74,99 @@ define(['app'], function (app) {
 
         }
 
-        service.setImageMargin = function () {
-            $(function () {
-                var maxWidth = $(".productImg").width();
-                var maxHeight = $(".productImg").height();
-                console.log("maxHeight=" + maxHeight);
-                console.log("maxWidth=" + maxWidth);
-                var img = $(".productImg img");
-                var imgSrc = img.attr("src");
-                getImageWidth(imgSrc, function (w, h) {
-                    var margin = 10;
-                    var screenWidth = $(document).width();
-                    //var eleWidth = screenWidth - 20;
-                    var eleWidth = maxWidth - 20;
-                    var eleHeight = maxHeight - 20;
-                    var marWidth = (maxWidth - w) / 2;
-                    var marHeight = (maxHeight - h) / 2;
-                    console.log("ImageWidth=" + w);
-                    console.log("ImageHeight=" + h);
-                    if (w >= h) {
-                        if (w < maxWidth) {
-                            console.log(22222222)
-                            if (marWidth < margin) {
-                                console.log(11111111)
-                                img.css({
-                                    "margin-left": margin + "px",
-                                    "margin-right": margin + "px",
-                                    "width": eleWidth + 'px',
-                                });
-                            } else {
-                                console.log(3333333)
-                                console.log(marWidth);
-                                img.css({
-                                    "margin-left": marWidth + "px",
-                                    "margin-right": marWidth + "px",
-                                });
-                            }
-
-                        } else {
-                            img.css({
-                                "margin-left": margin + "px",
-                                "margin-right": margin + "px",
-                                "width": eleWidth + 'px',
-                            })
-                        }
-
-                    } else {
-                        if (h < maxHeight) {
-                            if (marHeight < margin) {
-                                img.css({
-                                    "margin-top": margin + "px",
-                                    "margin-bottom": margin + "px",
-                                    "height": eleHeight + 'px',
-                                });
-                            } else {
-                                img.css({
-                                    "margin-left": marHeight + "px",
-                                    "margin-right": marHeight + "px",
-                                });
-                            }
-
-                        } else {
-                            console.log("w >maxWidth");
-                            img.css({
-                                "margin-top": margin + "px",
-                                "margin-bottom": margin + "px",
-                                "height": eleHeight + 'px',
-                            })
-                        }
-                    }
-                });
-            });
-            /***
-             * 获取图片的真实宽高
-             * @param url
-             * @param callback
-             */
-            function getImageWidth(url, callback) {
-                var img = new Image();
-                img.src = url;
-
-                // 如果图片被缓存，则直接返回缓存数据
-                if (img.complete) {
-                    callback(img.width, img.height);
-                } else {
-                    // 完全加载完毕的事件
-                    img.onload = function () {
-                        callback(img.width, img.height);
-                    }
-                }
-
-            }
-
-        }
+        //service.setImageMargin = function () {
+        //    $(function () {
+        //        var maxWidth = $(".productImg").width();
+        //        var maxHeight = $(".productImg").height();
+        //        console.log("maxHeight=" + maxHeight);
+        //        console.log("maxWidth=" + maxWidth);
+        //        var img = $(".productImg img");
+        //        var imgSrc = img.attr("src");
+        //        getImageWidth(imgSrc, function (w, h) {
+        //            var margin = 10;
+        //            var screenWidth = $(document).width();
+        //            //var eleWidth = screenWidth - 20;
+        //            var eleWidth = maxWidth - 20;
+        //            var eleHeight = maxHeight - 20;
+        //            var marWidth = (maxWidth - w) / 2;
+        //            var marHeight = (maxHeight - h) / 2;
+        //            console.log("ImageWidth=" + w);
+        //            console.log("ImageHeight=" + h);
+        //            if (w >= h) {
+        //                if (w < maxWidth) {
+        //                    console.log(22222222)
+        //                    if (marWidth < margin) {
+        //                        console.log(11111111)
+        //                        img.css({
+        //                            "margin-left": margin + "px",
+        //                            "margin-right": margin + "px",
+        //                            "width": eleWidth + 'px',
+        //                        });
+        //                    } else {
+        //                        console.log(3333333)
+        //                        console.log(marWidth);
+        //                        img.css({
+        //                            "margin-left": marWidth + "px",
+        //                            "margin-right": marWidth + "px",
+        //                        });
+        //                    }
+        //
+        //                } else {
+        //                    img.css({
+        //                        "margin-left": margin + "px",
+        //                        "margin-right": margin + "px",
+        //                        "width": eleWidth + 'px',
+        //                    })
+        //                }
+        //
+        //            } else {
+        //                if (h < maxHeight) {
+        //                    if (marHeight < margin) {
+        //                        img.css({
+        //                            "margin-top": margin + "px",
+        //                            "margin-bottom": margin + "px",
+        //                            "height": eleHeight + 'px',
+        //                        });
+        //                    } else {
+        //                        img.css({
+        //                            "margin-left": marHeight + "px",
+        //                            "margin-right": marHeight + "px",
+        //                        });
+        //                    }
+        //
+        //                } else {
+        //                    console.log("w >maxWidth");
+        //                    img.css({
+        //                        "margin-top": margin + "px",
+        //                        "margin-bottom": margin + "px",
+        //                        "height": eleHeight + 'px',
+        //                    })
+        //                }
+        //            }
+        //        });
+        //    });
+        //    /***
+        //     * 获取图片的真实宽高
+        //     * @param url
+        //     * @param callback
+        //     */
+        //    function getImageWidth(url, callback) {
+        //        var img = new Image();
+        //        img.src = url;
+        //
+        //        // 如果图片被缓存，则直接返回缓存数据
+        //        if (img.complete) {
+        //            callback(img.width, img.height);
+        //        } else {
+        //            // 完全加载完毕的事件
+        //            img.onload = function () {
+        //                callback(img.width, img.height);
+        //            }
+        //        }
+        //
+        //    }
+        //
+        //}
         /**
          * 滑动图片切换导航
          * @param $scope

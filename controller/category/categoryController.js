@@ -4,9 +4,9 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
         $rootScope[$state.current.name] = {};
 
+        refreshIndex = 0;
         var allProduct = {};
         // 加入购物车
-
         $scope.$on("$ionicView.enter", function () {
             caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
             if (User.isLogin()) {
@@ -41,8 +41,6 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             // 下拉刷新
             $scope.doRefresh = function () {
                 categoryService.Refresh($scope);
-
-
             }
 
 
@@ -63,7 +61,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
 
         $scope.$on("viewOnFinishTwo", function () {
-
+            categoryService.showDef(refreshIndex);
+            console.log(8888888888);
             $(".categoryImageBox img").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数
                 // imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图
@@ -71,8 +70,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
                 // animate     : true,											//是否动画显示
             });
 
-            $(".categoryName").css("color", "#999999");
-            $(".categoryName").eq(0).css("color", "#D39AC5");
+            //$(".categoryName").css("color", "#999999");
+            //$(".categoryName").eq(0).css("color", "#D39AC5");
 
 
         });

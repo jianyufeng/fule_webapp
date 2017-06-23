@@ -1,4 +1,3 @@
-
 var serverIP = "transmit/save.php";
 var API = {
 
@@ -12,7 +11,7 @@ var API = {
         // 查询商品条形码
         searchBarCodeGoods: serverIP + "/barCode/searchBarCodeGoods",
         // 内部转账  获取短信验证码
-        internalTransferGetSmsCode:serverIP+"/_user/getSmsCode",
+        internalTransferGetSmsCode: serverIP + "/_user/getSmsCode",
         internalTransfer: serverIP + "/_money/transferUserMoney",
         // 充值卡充值
         prepaidCard: serverIP + "/userCard/bindUser",
@@ -52,9 +51,9 @@ var API = {
         //购买喜乐之家列表
         buyGoodsList: serverIP + "/_happyHome/searchGoodsList",
         //提交喜乐之家订单
-        confirmHappyOrder: serverIP +"/buyxlzj/updateOrderLog",
+        confirmHappyOrder: serverIP + "/buyxlzj/updateOrderLog",
         //验证密码后回调添加购买信息
-        butyHapplyOver:serverIP+'/buyxlzj/happlyOver',
+        butyHapplyOver: serverIP + '/buyxlzj/happlyOver',
         //获取购买喜乐之家配置
         buyHappyHomeGoodsConfig: serverIP + "/buyxlzj/happlyhomelist",
         //获取喜乐之家配置表
@@ -67,18 +66,19 @@ var API = {
         verifyIdentityCardN: serverIP + "/_user/verifyIDCard",
         // 切记勿删......
         // 喜乐之家升级
-        updateGradeHappyHome:  serverIP +"/buyxlzj/buyhapply",
+        updateGradeHappyHome: serverIP + "/buyxlzj/buyhapply",
         //更新用户信息（喜乐之家）
-        updateUserLogs: serverIP +"/buyxlzj/updateUserLog",
+        updateUserLogs: serverIP + "/buyxlzj/updateUserLog",
         //管理关系
-        manageRelationships :serverIP + "/user/searchUserConnectionRelations",
+        manageRelationships: serverIP + "/user/searchUserConnectionRelations",
         //服务关系
-        serviceRelationShip :serverIP +"/user/searchUserRecommendRelations",
+        serviceRelationShip: serverIP + "/user/searchUserRecommendRelations",
         // 奖金币转电子币
-        bonusOnUserMoney:serverIP+"/_bonus/bonusOnUserMoney",
+        bonusOnUserMoney: serverIP + "/_bonus/bonusOnUserMoney",
         //  查看奖金币
-        showUserBonus:serverIP+"/_bonus/showWithdrawal"
-
+        showUserBonus: serverIP + "/_bonus/showWithdrawal",
+        // 获取银行
+        searchBanksDic: serverIP + "/banks/searchBanksDic"
     },
 
     Cart: {
@@ -129,10 +129,10 @@ var API = {
 
 
     Other: {
-        getProvinces : serverIP + "/region/provinces",
-        getCities    : serverIP + "/region/cities",
-        getCounties  : serverIP + "/region/counties",
-        getRegion    : serverIP + "/region/searchRegion"
+        getProvinces: serverIP + "/region/provinces",
+        getCities: serverIP + "/region/cities",
+        getCounties: serverIP + "/region/counties",
+        getRegion: serverIP + "/region/searchRegion"
     },
 
     Home: {}

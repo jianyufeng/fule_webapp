@@ -4,6 +4,9 @@ define(['app'], function (app) {
 
         var service = {};
         var categoryId;
+        var refreshCaregoryId;
+        var refreshCaregoryName;
+        //var refreshIndex;
         //  获取头部的分类列表和默认分类货物
         service.getCategoryListAndCategoryGoodsList = function ($scope, POP) {
             $.initAppStartLoad();
@@ -41,7 +44,7 @@ define(['app'], function (app) {
             });
         };
 
-        function showDef(index) {
+        service.showDef = function(index) {
             var id = "item" + index;
             $(".category_top_list_item").css(
                 {
@@ -51,27 +54,31 @@ define(['app'], function (app) {
             )
             $("#" + id).css({
                 "z-index": -9999,
-                "background-color": "#F5F5F5"
+                "background-color": "#E4E4E4"
             });
-        }
+        };
 
         // 点击按钮后实现分类货物的切换
         service.getCategoryGoodsList = function ($scope, categoryId, POP, cacheData, categoryName, index) {
 
+            console.log(123123123);
+            console.log("categoryId=" + categoryId);
+            refreshCaregoryId = categoryId;
+            refreshCaregoryName = categoryName;
+            refreshIndex = index;
+            console.log("refreshCaregoryId" + refreshCaregoryId)
             //点击全部
             if (categoryId == -1) {
                 console.log($scope.allProduct);
                 $scope.productArray = $scope.allProduct;
                 $scope.categoryName = "全部";
-                showDef(index);
+                service.showDef(index);
                 $(".categoryName").css("color", "#999999");
                 $(".categoryName").eq(index).css("color", "#D39AC5");
                 return;
             }
             if (CommenFun.isNullObj(cacheData)) {
                 POP.StartLoading();
-                console.log(123123123);
-                console.log("categoryId=" + categoryId);
                 HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
                     POP.EndLoading();
                     if (e) {
@@ -85,7 +92,7 @@ define(['app'], function (app) {
                         $scope.productArray = data.goodsInfo.data;
                         cacheData[categoryId] = $scope.productArray;
                         $scope.categoryName = categoryName;
-                        showDef(index);
+                        service.showDef(index);
                         $(".categoryName").css("color", "#999999");
                         $(".categoryName").eq(index).css("color", "#D39AC5");
 
@@ -108,7 +115,7 @@ define(['app'], function (app) {
                             $scope.productArray = data.goodsInfo.data;
                             cacheData[categoryId] = $scope.productArray;
                             $scope.categoryName = categoryName;
-                            showDef(index);
+                            service.showDef(index);
                             $(".categoryName").css("color", "#999999");
                             $(".categoryName").eq(index).css("color", "#D39AC5");
 
@@ -120,7 +127,7 @@ define(['app'], function (app) {
                 } else {
                     $scope.productArray = cacheData[categoryId];
                     $scope.categoryName = categoryName;
-                    showDef(index);
+                    service.showDef(index);
                     $(".categoryName").css("color", "#999999");
                     $(".categoryName").eq(index).css("color", "#D39AC5");
 
@@ -133,8 +140,12 @@ define(['app'], function (app) {
 
         // 下拉刷新
         service.Refresh = function ($scope) {
-
-            HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
+            console.log(55555555555555555);
+            console.log("当前的index=" + refreshIndex);
+            if (refreshCaregoryId == -1) {
+                //请求全部
+            }
+            HTTP.get(API.Category.category + "/category_id/" + refreshCaregoryId, {}, function (e, data) {
                 if (e) {
                     $scope.$broadcast('scroll.refreshComplete');
                     return;
@@ -149,11 +160,8 @@ define(['app'], function (app) {
                     $scope.categorys = data.categoryInfo;
                     $scope.categorys.push(last);
                     $scope.productArray = data.goodsInfo.data;
-                    //$scope.allProduct = data.goodsInfo.data;
-                    $scope.categoryName = data.categoryInfo[0].category_name;
-                    console.log($scope.categorys);
-                    console.log($scope.productArray);
-                    console.log($scope.categoryName);
+                    $scope.categoryName = refreshCaregoryName;
+
                     $scope.$broadcast('clearCache');
                 });
 
