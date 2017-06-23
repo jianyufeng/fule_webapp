@@ -15,7 +15,7 @@ define(['app'], function (app) {
             var info = User.getInfo();
             HTTP.get(API.Cart.orderInfo + "/user_id/" + info.user_id, {}, function (e, data) {
 
-
+// console.log(data);
                 POP.EndLoading();
 
                 if (e) {
@@ -83,6 +83,8 @@ define(['app'], function (app) {
                     $scope.goodsNumber = goodsCount;                  //购买商品总数
                     $scope.amountOrder = orderAmount;                 //合计价格
                     $scope.webConfig = data.webConfig;              //免运费配置/专卖店情况
+
+                    console.log($scope.address);
 
                 });
 

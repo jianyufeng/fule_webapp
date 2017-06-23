@@ -140,19 +140,19 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                 }
             }
             //地址别名
-            if (categray ==null || categray.length <= 0){
-                POP.Hint("地址别名不能为空");
-                return;
-            }else {
-                //正则验证用户名为数字、字母或者中文
-                var re = /^[\w\u4e00-\u9fa5]+$/;
-
-                if (!re.test(categray)){
-
-                    POP.Hint("地址别名出现非法字符");
-                    return;
-                }
-            }
+            // if (categray ==null || categray.length <= 0){
+            //     POP.Hint("地址别名不能为空");
+            //     return;
+            // }else {
+            //     //正则验证用户名为数字、字母或者中文
+            //     var re = /^[\w\u4e00-\u9fa5]+$/;
+            //
+            //     if (!re.test(categray)){
+            //
+            //         POP.Hint("地址别名出现非法字符");
+            //         return;
+            //     }
+            // }
             //邮箱地址
             if (email ==null || email.length <= 0){
                 POP.Hint("邮箱地址不能为空");

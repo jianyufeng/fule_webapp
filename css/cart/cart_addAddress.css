@@ -28,7 +28,7 @@
   width: 180px;
   height: 50px;
   float: right;
-  font-size: 13px;
+  font-size: 15px;
 }
 .newAddressBox .mobile {
   width: 100%;
@@ -53,7 +53,7 @@
   width: 180px;
   height: 50px;
   float: right;
-  font-size: 13px;
+  font-size: 15px;
 }
 .newAddressBox .familyNumber {
   width: 100%;
@@ -78,7 +78,7 @@
   width: 180px;
   height: 50px;
   float: right;
-  font-size: 13px;
+  font-size: 15px;
 }
 .newAddressBox .location {
   width: 100%;
@@ -122,7 +122,7 @@
   text-align: left;
 }
 .newAddressBox .location .selectAction .select-location2 span {
-  font-size: 13px;
+  font-size: 15px;
   color: #BCBCBC;
 }
 .newAddressBox .street {
@@ -166,7 +166,7 @@
   text-align: right;
 }
 .newAddressBox .street .selectAction .select-street span {
-  font-size: 13px;
+  font-size: 15px;
   color: #BCBCBC;
 }
 .newAddressBox .address_categray {
@@ -192,7 +192,7 @@
   width: 180px;
   height: 50px;
   float: right;
-  font-size: 13px;
+  font-size: 15px;
 }
 .newAddressBox .address_zipcode {
   width: 100%;
@@ -217,7 +217,7 @@
   width: 180px;
   height: 50px;
   float: right;
-  font-size: 13px;
+  font-size: 15px;
 }
 .newAddressBox .address_email {
   width: 100%;
@@ -242,7 +242,7 @@
   width: 180px;
   height: 50px;
   float: right;
-  font-size: 13px;
+  font-size: 15px;
 }
 .newAddressBox .sign_building {
   width: 100%;
@@ -267,7 +267,7 @@
   width: 180px;
   height: 50px;
   float: right;
-  font-size: 13px;
+  font-size: 15px;
 }
 .newAddressBox .best_time {
   width: 100%;
@@ -292,7 +292,7 @@
   width: 180px;
   height: 50px;
   float: right;
-  font-size: 13px;
+  font-size: 15px;
 }
 .newAddressBox .detail {
   width: 100%;

@@ -24,6 +24,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         });
 
 
+
+
         // 接收传值页面传过来的地址内容
         $rootScope.$on('changeAddressInfo', function (event, args) {
 

@@ -14,7 +14,7 @@
                     <div class="noAddressContent" ng-if="address == 'NO'" style="color: #BCBCBC"> <span>+ 请添加收货地址</span></div>
 
 
-                    <div class="addressContent" ng-if="address != 'NO'" style="color: black" ng-init="dis = address.district_name == null? '':address.district_name">
+                    <div class="addressContent" ng-if="address != 'NO'" style="color: black">
 
 
                         <div class="locationImg">
@@ -26,7 +26,7 @@
                                      <div class="personName ellipsis"><span>收货人:{{address.consignee}}</span></div>
                                      <div class="personPhone"><span>{{address.mobile?address.mobile:address.tel}}&nbsp;&nbsp;</span></div>
                                 </div>
-                            <div class="addressInfo"> <span>收货地址 : {{address.province_name+"省"+ address.city_name + dis + address.address}} </span></div>
+                            <div class="addressInfo"> <span>收货地址 : {{address.province_name+"省"+ address.city_name + (address.district == '0'?"":address.district_name) + address.address}} </span></div>
                             </div>
                         <div class="nextBtn">
                             <img class="nextBtnImg" src="resource/images/icon/jiantou_right.png">
