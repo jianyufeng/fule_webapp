@@ -2,7 +2,7 @@
 
 define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function (app,my_fun) {
 
-    function ctrl($scope,myHappyHomeLogsService,POP,$state) {
+    function ctrl($scope,myHappyHomeLogsService,POP) {
 
         $scope.$on('$ionicView.beforeEnter', function () {
 
@@ -17,7 +17,6 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
                     $(".noRecord").show();
                     return;
                 }
-
 
             });
 
@@ -67,7 +66,7 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope','myHappyHomeLogsService','POP','$state'];
+    ctrl.$inject = ['$scope','myHappyHomeLogsService','POP'];
     /*动态注册控制器*/
     app.registerController('myHappyHomeLogsController', ctrl);
 

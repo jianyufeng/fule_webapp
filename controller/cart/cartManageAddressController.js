@@ -1,7 +1,7 @@
 /**
  * Created by charles_xsx on 2017/3/30.
  */
-define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','animate'],function(app,cart_fun){
+define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','animate'],function(app){
 
     function ctrl($rootScope,$scope,cartManageAddressService,POP,$state,$ionicHistory){
 

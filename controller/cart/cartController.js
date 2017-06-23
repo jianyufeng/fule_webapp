@@ -1,48 +1,10 @@
 define(['app',"./Fun/cart_fun",'animate'],function(app,cart_fun){
 
-	function ctrl($rootScope,$scope,cartService,POP,$state,$ionicScrollDelegate){
+	function ctrl($rootScope,$scope,cartService,POP,$state){
 
 		$scope.blurAction = function(){
 			$(".changeBtn input").blur();
 		}
-
-
-		// $(document).on("focus",".changeBtn input",function(){
-
-			// 	var scrollTop = $ionicScrollDelegate.$getByHandle('mainScroll');
-			// 	var top = scrollTop.getScrollPosition().top;
-			//  	var offsetTop = ($(this).offset().top - 55);
-
-			// $ionicScrollDelegate.scrollTo(0,top + offsetTop,true);
-
-			//$("#abc").css("height","100%");
-		// 	var showH     = $(window).height() - 55 - 30 - 60 - 60;
-		// 	var offsetTop = ($(this).offset().top - 55);
-
-		// 	var scrollTop = $ionicScrollDelegate.$getByHandle('mainScroll');
-		// 	var top = scrollTop.getScrollPosition().top;
-
-		// 	if(offsetTop > showH/2){
-		// 		$("#abc").height(top + 500)
-
-		// 		console.log(1111);
-
-		// 		$ionicScrollDelegate.scrollTo(0,top + offsetTop+200,true);
-
-		// 	}
-
-		// 	console.log(showH);
-		//	console.log(offsetTop);
-
-
-
-			// if(top > 50){
-
-			// 	console.log(1)
-			// 	$ionicScrollDelegate.scrollTo(0,200,true);
-
-			// }
-		// });
 
 
 		//获取数量手动输入是去焦点
@@ -256,7 +218,7 @@ define(['app',"./Fun/cart_fun",'animate'],function(app,cart_fun){
 	}
 
 
-	ctrl.$inject = ['$rootScope','$scope','cartService', 'POP','$state','$ionicScrollDelegate'];
+	ctrl.$inject = ['$rootScope','$scope','cartService', 'POP','$state'];
 	app.registerController('cartController',ctrl);
 
 

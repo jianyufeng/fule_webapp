@@ -165,10 +165,6 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
 
                 });
 
-
-
-
-
                 //点击编辑
                 $(document).on("click",".editBtnBox",function(){
 

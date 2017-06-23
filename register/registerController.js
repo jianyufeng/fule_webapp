@@ -80,6 +80,7 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
 
     return service;
 });
+
 app.controller("registerController", function ($scope, POP) {
 
     //短信验证码按钮开启 0，关闭 1
@@ -140,7 +141,12 @@ app.controller("registerController", function ($scope, POP) {
     }
 
 
-
+////点击跟换图片验证码
+//    $('.imgNote').click(function () {
+//
+//
+//
+//    })
 
     //注册
     $('#register').click(function () {
