@@ -2,12 +2,12 @@
  * Created by Administrator on 2017/4/14.
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
-    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams, $state,$ionicHistory) {
+    function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams, $state, $ionicHistory) {
         //输入框聚焦变换
-        $(document).off('focus','.bhh_search input , bhh_goodItemBox_P input').on('focus','.bhh_search input  , bhh_goodItemBox_P input',function () {
+        $(document).off('focus', '.bhh_search, .bhh_goodItemBox_P input').on('focus', '.bhh_search  , .bhh_goodItemBox_P input', function () {
             $(this).css("border", "solid 1px #d98bbc");
         });
-        $(document).off('blur','.bhh_search input  , bhh_goodItemBox_P input').on('blur','.bhh_search input  , bhh_goodItemBox_P input',function () {
+        $(document).off('blur', '.bhh_search , .bhh_goodItemBox_P input').on('blur', '.bhh_search  , .bhh_goodItemBox_P input', function () {
             $(this).css("border", "solid 1px #ccc");
         });
         var configId = $stateParams.configId;
@@ -15,20 +15,20 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         xilzj_user_money = 0;
         $scope.jugdeXlzjAddress = "";
         //移动时所有的input失去焦点
-        $(document).off('touchmove').on('touchmove',function(){
-           $(":focus").blur();
+        $(document).off('touchmove').on('touchmove', function () {
+            $(":focus").blur();
         });
         //回到顶部
         var nowSreenH = $("#bhh_ContentBox").height();
-        $scope.bhh_ListScrollEvent = function(){
+        $scope.bhh_ListScrollEvent = function () {
             var scrollTop = $ionicScrollDelegate.$getByHandle('bhh_scroll').getScrollPosition().top;
-            if(parseInt(scrollTop) > parseInt(nowSreenH)){
+            if (parseInt(scrollTop) > parseInt(nowSreenH)) {
                 $(".goToTop").fadeIn(200);
-            }else{
+            } else {
                 $(".goToTop").fadeOut(200);
             }
         };
-        $(".goToTop").click(function(){
+        $(".goToTop").click(function () {
             $ionicScrollDelegate.scrollTop(true);
         });
         //提交是的库存不足判断标记
@@ -42,7 +42,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
 
         });
         $scope.$on('$ionicView.enter', function () {
-           //每次进来获取要改变的数据User //获取用户
+            //每次进来获取要改变的数据User //获取用户
             myBuyHappyHomeServer.getUserInfo($scope, POP, true);
         });
 
@@ -50,7 +50,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         $rootScope.$on('changeAddress', function (event, args) {
             //将新的值重新注入页面
             // $scope.$apply(function () {
-                $scope.buyHappyAddress = args.address;
+            $scope.buyHappyAddress = args.address;
             // })
 
         });
@@ -68,7 +68,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         $rootScope.$on('modifyAddressUptate', function (event, args) {
             $scope.jugdeXlzjAddress = args.addressId;
             //将新的值重新注入页面
-            if($scope.buyHappyAddress.address_id == args.addressId){
+            if ($scope.buyHappyAddress.address_id == args.addressId) {
                 myBuyHappyHomeServer.getBuyGoodList($scope, POP);
             }
         });
@@ -204,7 +204,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             if (isSave.length > 0) {
                 POP.Confirm("<font color='red'>(您选择的产品超出库存)</font>", function () {
                     var scroller = $ionicScrollDelegate.$getByHandle('bhh_scroll');
-                    scroller.scrollBy(0, isSave.first().offset().top-100, true);
+                    scroller.scrollBy(0, isSave.first().offset().top - 100, true);
                 });
                 return;
             }
@@ -218,7 +218,7 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             if ($scope.buyHappyAddress == 'NO') {
                 POP.Confirm("<font color='red'>(请添加收货人信息)</font>", function () {
                     //滑动到顶部 添加地址信息
-                   $ionicScrollDelegate.$getByHandle('bhh_scroll').scrollTop();
+                    $ionicScrollDelegate.$getByHandle('bhh_scroll').scrollTop();
                 });
                 return;
             }
@@ -307,17 +307,18 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                             //购买完毕
                             POP.Hint("购买成功");
                             $ionicHistory.clearCache();
-                            setTimeout(function(){
+                            setTimeout(function () {
                                 $state.go('tab.my');
-                            },1000);
+                            }, 1000);
                         })
                     })
                 });
             });
         })
     }
+
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile', '$ionicScrollDelegate', '$stateParams','$state','$ionicHistory'];
+    ctrl.$inject = ['$scope', '$rootScope', 'myBuyHappyHomeServer', 'POP', '$compile', '$ionicScrollDelegate', '$stateParams', '$state', '$ionicHistory'];
     /*动态注册控制器*/
     app.registerController('myBuyHappyHomeController', ctrl);
 });
