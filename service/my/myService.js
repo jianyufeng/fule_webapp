@@ -22,6 +22,12 @@ define(['app'], function (app) {
                     });
                     return;
                 }
+                //获取用户图像
+                if(data.userInfo.headerUrl != undefined && data.userInfo.headerUrl != null && data.userInfo.headerUrl.length >4){
+                    $("#usrIcon").attr('src',"http://image.38zs.net:38888" + data.userInfo.headerUrl);
+                }else {
+                    $("#usrIcon").attr('src',"./resource/images/default/user_default_icon.png");
+                }
                 // D级别的标准
                 var IS_D = data.config.IS_D;
                 // VIP 标准
@@ -103,8 +109,6 @@ define(['app'], function (app) {
             });
 
         };
-
-
         service.upGrade = function ($scope, $state, POP) {
             // 判断是否要填写用户资料
             if ($scope.registerGrade > 0) {

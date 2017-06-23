@@ -22,7 +22,7 @@
   width: 100%;
   position: relative;
 }
-.userBox .usrIconBox .usrIcon {
+.userBox .usrIconBox #usrIcon {
   margin-top: 15px;
   width: 90px;
   height: 90px;
@@ -239,7 +239,6 @@
   margin-bottom: 5px;
 }
 .unLoginBox button {
-  margin-left: 10%;
   width: 35%;
   height: 35px;
   vertical-align: middle;

@@ -69,6 +69,10 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
                     //超期空升特批
                     type = 10;
                     break;
+                case 11:
+                    //批发积分订单
+                    type = 11;
+                    break;
             }
             //获取订单
             myOrderFormService.getShopOrderForm($scope, POP, type);

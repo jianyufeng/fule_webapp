@@ -6,14 +6,14 @@
             <div class="unLoginBox">
                 <img src="./resource/images/waitLoading.png"/>
                 <button ng-click="goLogin()">登录</button>
-                <button ng-click="goRegister()">新用户注册</button>
+                <button ng-click="goRegister()" style="margin-left: 10%">新用户注册</button>
             </div>
         </div>
         <div class="my_loginBox">
             <div class="userBox">
                 <div class="loginOutBox">登出</div>
                 <div class="usrIconBox">
-                    <img class="usrIcon" alt="用户图像" src="./resource/images/default/user_default_icon.png"
+                    <img id="usrIcon" alt="用户图像" src="./resource/images/default/user_default_icon.png"
                          ng-click="selectIcon()">
                     <a href="#/tab/my-unreadMessage">
                         <div class="unreadBox">
@@ -33,17 +33,17 @@
             </div>
             <div class="moneyAndScoreBox">
                 <div class="moneyBox">
-                    <div class="moneyName">金额(元)</div>
+                    <div class="moneyName">电子币(元)</div>
                     <div class="moneyCount ellipsis">{{userInfo.user_money}}</div>
                 </div>
                 <div class="moneyBox scoreBox">
-                    <div class="moneyName scoreName">积分</div>
+                    <div class="moneyName scoreName">升级积分</div>
                     <div class="moneyCount scoreCount ellipsis">{{userInfo.INTEGRAL}}</div>
                 </div>
             </div>
             <div class="fxp_moneyScoreBox">
                 <div class="moneyBox">
-                    <div class="moneyName">辅销品金额(元)</div>
+                    <div class="moneyName">辅销品币(元)</div>
                     <div class="moneyCount ellipsis">{{userInfo.fxp_money}}</div>
                 </div>
                 <div class="moneyBox scoreBox">
