@@ -78,25 +78,33 @@ define(['app'], function (app) {
             $(function () {
                 var maxWidth = $(".productImg").width();
                 var maxHeight = $(".productImg").height();
+                console.log("maxHeight=" + maxHeight);
+                console.log("maxWidth=" + maxWidth);
                 var img = $(".productImg img");
                 var imgSrc = img.attr("src");
                 getImageWidth(imgSrc, function (w, h) {
                     var margin = 10;
                     var screenWidth = $(document).width();
-                    var eleWidth = screenWidth - 20;
+                    //var eleWidth = screenWidth - 20;
+                    var eleWidth = maxWidth - 20;
                     var eleHeight = maxHeight - 20;
                     var marWidth = (maxWidth - w) / 2;
                     var marHeight = (maxHeight - h) / 2;
+                    console.log("ImageWidth=" + w);
+                    console.log("ImageHeight=" + h);
                     if (w >= h) {
                         if (w < maxWidth) {
+                            console.log(22222222)
                             if (marWidth < margin) {
+                                console.log(11111111)
                                 img.css({
                                     "margin-left": margin + "px",
                                     "margin-right": margin + "px",
                                     "width": eleWidth + 'px',
                                 });
                             } else {
-
+                                console.log(3333333)
+                                console.log(marWidth);
                                 img.css({
                                     "margin-left": marWidth + "px",
                                     "margin-right": marWidth + "px",
@@ -169,6 +177,7 @@ define(['app'], function (app) {
             var ch = $(".instructions").children().children();
             ch.attr('src', './resource/images/icon/point_gray.png');
             ch.eq(index).attr('src', './resource/images/icon/point_hover.png');
+            //service.setImageMargin();
         }
 
         /**
@@ -201,6 +210,16 @@ define(['app'], function (app) {
                 var goodsName = $scope.productName;
                 var goodsNumber = Number.parseInt($("#_number").val());
                 $scope.count = goodsNumber;
+
+                // 判断最低购买量和最大购买量
+                if ($scope.count > $scope.limitGoodsNumber) {
+                    POP.Hint("本商品的最大限制购买量为" + "&nbsp" + "<span style='color: red'>" + $scope.limitGoodsNumber + "</span>");
+                    return;
+                }
+                if ($scope.count < $scope.minGoodsNumber) {
+                    POP.Hint("本商品的最低购买量为" + "&nbsp" + "<span style='color: red'>" + $scope.minGoodsNumber + "</span>");
+                    return;
+                }
                 if ($scope.count < 1) {
                     POP.Hint("最少添加一个商品！");
                     return;
@@ -261,7 +280,7 @@ define(['app'], function (app) {
          * 点击购物车跳转页面
          * @param $scope
          */
-        service.startPage = function ($scope, $state,$ionicTabsDelegate) {
+        service.startPage = function ($scope, $state, $ionicTabsDelegate) {
             $state.go("tab.newCart");
             $ionicTabsDelegate.select(3);
         }

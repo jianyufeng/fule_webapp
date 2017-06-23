@@ -4,9 +4,10 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
         $rootScope[$state.current.name] = {};
 
+        var allProduct = {};
         // 加入购物车
 
-        $scope.$on("$ionicView.enter",function(){
+        $scope.$on("$ionicView.enter", function () {
             caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
             if (User.isLogin()) {
                 var userId = User.getInfo().user_id;
@@ -14,7 +15,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
                     console.log(data);
 
-                    if(e) {
+                    if (e) {
                         $rootScope.cartBadge = 0;
                         return;
                     }
@@ -34,8 +35,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             categoryService.getCategoryListAndCategoryGoodsList($scope, POP);
 
             //更换产品列表
-            $scope.changCategoryList = function (categoryId, categoryName,index) {
-                categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName,index);
+            $scope.changCategoryList = function (categoryId, categoryName, index) {
+                categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName, index);
             };
             // 下拉刷新
             $scope.doRefresh = function () {
@@ -56,7 +57,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             });
 
             var textWidth = $(".midd_text").outerWidth();
-             $(".midd_text").css("marginLeft",-(textWidth/2));
+            $(".midd_text").css("marginLeft", -(textWidth / 2));
 
         });
 
@@ -73,7 +74,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             $(".categoryName").css("color", "#999999");
             $(".categoryName").eq(0).css("color", "#D39AC5");
 
-             
+
         });
 
         // 页面销毁销毁内存
@@ -84,7 +85,6 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
         $scope.$on("clearCache", function () {
             $rootScope[$state.current.name] = {};
         })
-
 
 
     }

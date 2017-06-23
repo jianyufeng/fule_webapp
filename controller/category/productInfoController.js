@@ -24,8 +24,6 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         //获取数量手动输入是去焦点
         $(document).on("blur","#_number",function () {
 
-            // var _this = $(this);
-
             $("#_number").css('border','1px solid #cccccc');
 
 
@@ -33,8 +31,6 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         });
         //手动输入商品数量获取焦点
         $(document).on("focus","#_number",function () {
-
-            // var _this = $(this);
 
             $("#_number").css('border','2px solid #d98bbc');
 
@@ -105,9 +101,9 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
             $("#_number").val($scope.count);
         }
-
+        var i=0;
         $scope.$on("viewOnFinish", function () {
-            productInfoService.setImageMargin();
+            //productInfoService.setImageMargin();
             $scope.myActiveSlide = 0;
             $ionicSlideBoxDelegate.update();
             $(".productInfoImg").myImageLazyLoad({

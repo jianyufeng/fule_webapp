@@ -6,7 +6,6 @@
   width: 100%;
   height: auto;
   min-height: 90px;
-  background-color: white;
 }
 .content .category_top_list .category_top_list_item {
   width: 25%;
@@ -14,6 +13,8 @@
   float: left;
   padding: 10px;
   background-color: white;
+  z-index: 0;
+  box-shadow: 0px -2px 2px #F5F5F5 inset;
 }
 .content .category_top_list .category_top_list_item .categoryImageBox img {
   display: block;

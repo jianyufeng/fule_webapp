@@ -7,7 +7,6 @@
   top: 0px;
   left: 0px;
   right: 0px;
-  bottom: 60px;
   height: auto;
   width: 100%;
 }
@@ -25,9 +24,12 @@
   height: 350px;
   line-height: 350px;
   margin: 0 auto;
+  text-align: center;
 }
 .contentBox .scrollBox .productImgBox .productImg img {
   vertical-align: middle;
+  height: 260px;
+  width: auto;
 }
 .contentBox .scrollBox .productImgBox .instructions {
   width: 100%;
