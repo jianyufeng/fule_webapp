@@ -17,6 +17,8 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         $.initAppStartLoad();
         $scope.$on('$ionicView.enter', function () {
             configId = $stateParams.configId;
+            //获取银行
+
             //获取数据
             myHappyHomeUpgradeService.getMyHappyHomeUpgradeInfo($scope, configId, POP, tagAnimateFun, $ionicScrollDelegate);
 

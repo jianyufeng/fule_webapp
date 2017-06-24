@@ -8,6 +8,22 @@ define(['app'], function (app) {
 
         var service = {};
 
+
+        /**
+         *
+         */
+        service.getBankList = function () {
+
+            HTTP.get(API.My.searchBanksDic, {}, function (data, e) {
+
+                if(e){
+
+                }
+                console.log(data);
+
+            })
+
+        }
         /***
          * 获取页面的初始信息
          * @param $scope
@@ -244,7 +260,7 @@ define(['app'], function (app) {
          * 验证身份证号是否可用
          * @param str
          */
-        service.testIdentityCardN = function (str, POP, fc,fa) {
+        service.testIdentityCardN = function (str, POP, fc, fa) {
             HTTP.get(API.My.verifyIdentityCardN + "/id_card/" + str, {}, function (e, data) {
                 if (e) {
                     console.log(7777777777);
