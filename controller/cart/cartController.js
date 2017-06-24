@@ -191,7 +191,7 @@ define(['app',"./Fun/cart_fun",'animate'],function(app,cart_fun){
 
 
         //进入商品详情
-		$(document).off("touchend", ".turnProduct").on("touchend", ".turnProduct", function (event) {
+		$(document).off("click", ".turnProduct").on("click", ".turnProduct", function (event) {
 
 			if (!editOpen){
 
