@@ -26,6 +26,18 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                 $('.myHeaderBox').show();
             }
         });
+
+        /*登录 新用户 点击效果*/
+        $(document).off("touchstart", "#my_login,#my_register").on("touchstart", "#my_login,#my_register", function (event) {
+            $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 200);
+        });
+
+        $(document).off("touchend", "#my_login,#my_register").on("touchend", "#my_login,#my_register", function (event) {
+            $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 200);
+        });
+
+
+
         /*下拉刷新*/
         $scope.doRefresh = function () {
             if (isLogin) {
