@@ -11,7 +11,9 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         $scope.upGrade.address = {};
         $scope.left = -1;
         $scope.right = -1;
+        $scope.bankList = null;
         var myGrade;
+
 
         function showEmptyError(str, elea, eleb) {
             if (str == null || str == "") {
@@ -33,68 +35,79 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         $scope.$on('$ionicView.loaded', function () {
             // 页面传值过来的要升级的级别
             myGrade = $stateParams.grade;
+            // 获取银行列表
+            myUpdateUserDataService.searchBanksDic($scope);
 
         });
-        $('#abc1').click(function () {
+
+
+        /**
+         *选择银行
+         */
+        $("#selectBank").click(function () {
+            if ($scope.bankList == null) {
+                POP.Hint("未获取银行信息，请刷新页面");
+            } else {
+                myUpdateUserDataService.showPop($scope, POP);
+            }
+            return false;
+        })
+
+        /**
+         * 银行列表的点击事件
+         */
+        $(document).on("click", ".bankName", function () {
+            var bankName = $(this).text();
+            $(".bankName").css("color", "black");
+            $(this).css("color", "#D39AC5");
+            $('#bank').val(bankName);
+            // POP 消失
+            POP.Close();
+            $scope.upGrade.bank = bankName;
+            return false;
+
+        });
+
+        /**
+         * 选择节点
+         */
+        $(document).on("click", "#selectResultBox", function () {
+            if ($scope.upGrade.click) {
+                myUpdateUserDataService.showNodePop($scope, POP);
+            }
+            return false
+        })
+        // 左区
+        $(document).on("click", "#nodeLeft", function () {
             if ($scope.left == 0) {
                 $(this).css('color', '#D39AC5');
-                $('#abc2').css('color', 'black');
+                $('#nodeRight').css('color', 'black');
                 $('#selectResult').text("左区");
             } else {
                 POP.Alert("左区不可用");
             }
-        });
-        $("#abc2").click(function () {
+            POP.Close();
+            return false;
+        })
+
+        //右区
+        $(document).on("click", "#nodeRight", function () {
             if ($scope.right == 0) {
                 $(this).css('color', '#D39AC5');
-                $('#abc1').css('color', 'black');
+                $('#nodeLeft').css('color', 'black');
                 $('#selectResult').text("右区");
             } else {
                 POP.Alert("右区不可用");
             }
-        });
+            POP.Close();
+            return false;
+        })
 
 
-
-        $('#a').click(function () {
-            $(document).off("click", "#selectBank");
-            $(this).css('color', '#D39AC5');
-            $('#b').css('color', 'black');
-            $('#c').css('color', 'black');
-            $('#bank').val($(this).text());
-            $('#BankBox').fadeOut(300, function () {
-                $(document).on("click", "#selectBank", function () {
-                });
-            });
-
+        $(document).on("click", $(".popup-container").prev(), function () {
+            POP.Close();
             return false;
         });
-        $("#b").click(function () {
-            $(document).off("click", "#selectBank");
-            $(this).css('color', '#D39AC5');
-            $('#a').css('color', 'black');
-            $('#c').css('color', 'black');
-            $('#bank').val($(this).text());
-            $('#BankBox').fadeOut(300, function () {
-                $(document).on("click", "#selectBank", function () {
-                });
-            });
-
-            return false;
-        });
-        $("#c").click(function () {
-            $(document).off("click", "#selectBank");
-            $(this).css('color', '#D39AC5');
-            $('#a').css('color', 'black');
-            $('#b').css('color', 'black');
-            $('#bank').val($(this).text());
-            $('#BankBox').fadeOut(300, function () {
-                $(document).on("click", "#selectBank", function () {
-                });
-            });
-            return false;
-        });
-
 
         // 推荐人失去焦点事件
         $("#recommend").blur(function () {
@@ -264,12 +277,12 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
             checkIdentityCardN();
             checking();
         }
-         function checking() {
+        function checking() {
             var name = $("#recommend").val();
             name = _.trim(name);
-             POP.StartLoading();
+            POP.StartLoading();
             HTTP.get(API.My.recommendedManInfo + '/userName/' + name, {}, function (e, data) {
-               console.log(data);
+                console.log(data);
                 if (e) {
                     POP.EndLoading();
                     if (data != null) {
@@ -303,24 +316,6 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         $scope.reset = function () {
             myUpdateUserDataService.reset($scope);
         }
-        // 选择区域
-        $scope.selectRegion = function () {
-            if ($scope.upGrade.click) {
-                $("#RegionBox").css("display", "block");
-            } else {
-                $("#RegionBox").css("display", "none");
-            }
-        }
-
-        // 关闭选择区域的弹框
-        $scope.closepop = function () {
-            $(".popRegionBox").css("display", "none");
-        }
-
-        // 选择银行
-        $("#selectBank").click(function () {
-            $("#BankBox").fadeIn(300);
-        })
 
         // 选择地址
         $scope.chooseAddress = function () {

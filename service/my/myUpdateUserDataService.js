@@ -7,6 +7,39 @@ define(['app'], function (app) {
 
     app.factory("myUpdateUserDataService", function () {
             var service = {};
+
+            // 获取银行列表
+            service.searchBanksDic = function ($scope) {
+                HTTP.get(API.My.searchBanksDic, {}, function (e, data) {
+                    if (e) {
+                        return;
+                    }
+                    $scope.bankList = data;
+                });
+
+            }
+
+            // 显示银行列表
+            service.showPop = function ($scope, POP) {
+                var data = $scope.bankList;
+                var HTML = "";
+                HTML += "<div style='margin: -10px'>"
+                for (var i = 0; i < data.length; i++) {
+                    HTML += '<div  class="bankName" id="bank_' + i + '" style="height: 50px;line-height: 50px;color: black;text-align: center;border-bottom: #eeeeee solid 2px;margin: 0px">' + data[i].bank_name + '</div>';
+                }
+                HTML += "</div>";
+                POP.ListContent(HTML, "请选择银行");
+            };
+
+            //  显示节点列表
+            service.showNodePop = function ($scope, POP) {
+                var HTML = ""
+                HTML += "<div style='margin: -10px'>"
+                HTML += '<div   id="nodeLeft" style="height: 50px;line-height: 50px;color: black;text-align: center;border-bottom: #eeeeee solid 2px;margin: 0px">' + "左区" + '</div>';
+                HTML += '<div   id="nodeRight" style="height: 50px;line-height: 50px;color: black;text-align: center;border-bottom: #eeeeee solid 2px;margin: 0px">' + "右区" + '</div>';
+                HTML += "</div>";
+                POP.ListContent(HTML, "请选择节点");
+            }
             // 点击 提交按钮
             service.upGradeAction = function ($scope, POP, myGrade, $state) {
                 var userInfo = User.getInfo();
@@ -23,7 +56,8 @@ define(['app'], function (app) {
                 // 银行卡号
                 var bankCardN = $scope.upGrade.bankCardN;
                 // 开户银行
-                var bank = $("#bank").val();
+                var bank = $scope.upGrade.bank;
+                console.log(bank);
                 // 身份证号
                 var identityCardN = $scope.upGrade.identityCardN;
                 // 开户姓名
@@ -97,13 +131,7 @@ define(['app'], function (app) {
                 } else if (region == "右区") {
                     region = 1;
                 }
-                if (bank == "中国工商银行") {
-                    bank = 1;
-                } else if (bank == "中国农业银行") {
-                    bank = 2;
-                } else if (bank == "中国建设银行") {
-                    bank = 3;
-                }
+
 
                 // HTTP 提交
                 HTTP.post(url, {

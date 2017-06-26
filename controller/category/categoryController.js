@@ -11,9 +11,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             caregoryFun.addCartFlay($scope, $rootScope, $state, POP);
             if (User.isLogin()) {
                 var userId = User.getInfo().user_id;
+                console.log(userId);
                 HTTP.get(API.Category.getCartNum + "/user_id/" + userId + "/shopping_type/1", {}, function (e, data) {
-
-                    console.log(data);
 
                     if (e) {
                         $rootScope.cartBadge = 0;

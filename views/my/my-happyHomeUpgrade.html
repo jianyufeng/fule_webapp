@@ -1,18 +1,5 @@
 <ion-view view-title="喜乐之家" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
-    <div class="popRegionBox" id="RegionBox">
-        <div class="selectBox" style="height: 100px;margin-top: -50px">
-            <ion-radio id="abc1">左区</ion-radio>
-            <ion-radio id="abc2">右区</ion-radio>
-        </div>
-    </div>
 
-    <div class="popRegionBox" id="BankBox">
-        <div class="selectBox" style="height: 150px;margin-top: -75px">
-            <ion-radio class="a" id="a">中国工商银行</ion-radio>
-            <ion-radio class="a" id="b">中国农业银行</ion-radio>
-            <ion-radio class="a" id="c">中国建设银行</ion-radio>
-        </div>
-    </div>
     <navigation-bar is-back="true" is-over-back="true" on-over-back-click="backClick()" title={{titleName}}
                     righttitle={{goShopping}} on-right-click="goToShopping()"></navigation-bar>
     <ion-content style="top:60px;" set-window-height-no-navigation="" scroll="false">
