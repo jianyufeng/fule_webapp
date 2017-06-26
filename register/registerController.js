@@ -88,6 +88,23 @@ app.controller("registerController", function ($scope, POP) {
 
     /*点击发送短信效验码*/
     $('.postNote').click(function () {
+
+
+        var yanzhengma = $('#img').val();
+
+
+        if (yanzhengma == '') {
+            $('#img').focus();
+            POP.Hint('请填写图形验证码');
+            return;
+        }
+        if (yanzhengma.toUpperCase() != $.cookie('web_key')) {
+            $('#img').focus();
+            POP.Hint('图形验证码填写错误');
+            return;
+        }
+
+
         //alert(11);
         var mobile = $('#phone').val();
         //手机号不为空
@@ -100,17 +117,45 @@ app.controller("registerController", function ($scope, POP) {
             return;
         }
         if(messageCode_On == 0) {
+        //    二次验证手机位数
+        //    if(flag.length == 11) {
             messageCode_On = 1;
             var postNote = $('.postNote');
-            postNote.attr("disabled", true);
-            postNote.text("正在发送...");
+            //postNote.attr("disabled", true);
+            //postNote.text("正在发送...");
+             postNote.css({
+                 'background': '#d9d6d0',
+                 'border': '#d9d6d0'
+             });
+
+
+            //修改为倒计时
+            var timess = 59;
+            var timessBox = setInterval(function() {
+                $('.postNote').html(timess + 's');
+                timess = timess - 1;
+                //计时结束
+                if(timess == -1) {
+                    messageCode_On = 0;
+                    clearInterval(timessBox);
+                    $('.postNote').html('发送短信验证码');
+                    $('.postNote').css({
+                        'background': '#d79ac4',
+                        'border': '#f55c86'
+                    });
+                }
+            }, 1000)
+
+
+
+
+
             //获取验证码
             var url = "../transmit/save.php/sms/registerVerification/mobile/" + mobile;
-
             HTTP.get(url, {}, function (e, data) {
 
                 if (e) {
-                    POP.Hint("短信验证码发送失败");
+                    POP.Hint(data);
                     postNote.removeAttr("disabled");
                     postNote.text("发送短信效验码");
                     return;
@@ -119,45 +164,52 @@ app.controller("registerController", function ($scope, POP) {
 
                 setTime(postNote);
             });
+
         }
+
+
     });
-    var countdown = 60;
-    //定时60s
-    function setTime(obj) {
-        if (countdown == 0) {
-            obj.text("发送短信效验码");
-            countdown = 60;
-            obj.removeAttr("disabled");
-            return;
-        } else {
-            obj.attr("disabled", true);
-            obj.text("重新发送(" + countdown + ")");
-            countdown--;
-        }
-        setTimeout(function () {
-                setTime(obj)
-            }
-            , 1000)
-    }
+
+    //var countdown = 60;
+    ////定时60s
+    //function setTime(obj) {
+    //    if (countdown == 0) {
+    //        obj.text("发送短信效验码");
+    //        countdown = 60;
+    //        obj.removeAttr("disabled");
+    //        return;
+    //    } else {
+    //        obj.attr("disabled", true);
+    //        obj.text("重新发送(" + countdown + ")");
+    //        countdown--;
+    //    }
+    //    setTimeout(function () {
+    //            setTime(obj)
+    //        }
+    //        , 1000)
+    //}
 
 
-////点击跟换图片验证码
-//    $('.imgNote').click(function () {
-//
-//
-//
-//    })
+//点击更换图片验证码
+    $('.imgNote').click(function () {
+
+        var change = $('.imgNote')[0];
+
+        change.src="../save/yanzhengma.php?random="+Date.parse(new Date());
+
+    });
+
 
     //注册
     $('#register').click(function () {
 
         var user_name = $.trim($('#account').val());
         var email = $('#mailbox').val();
+        var sex = parseInt($("input[name = '1']:checked").val());
         var loginPassword = $('#loginPassword').val();
         var secondPassword = $('#secondPassword').val();
         var threePassword = $('#threePassword').val();
         var phoneNumber = $('#phone').val();
-        //获取手机验证码
         var note = $('#note').val();
 
         //正则匹配
@@ -327,7 +379,11 @@ app.controller("registerController", function ($scope, POP) {
                 return;
             }
         }
-
+        ////图片校验码不为空
+        //if (CommenFun.isNullObj(yanzhengma)) {
+        //    POP.Hint("图片校验码不能为空");
+        //    return;
+        //}
         //手机验证码不为空
         if (CommenFun.isNullObj(note)) {
             POP.Hint("验证码不能为空");
@@ -338,6 +394,7 @@ app.controller("registerController", function ($scope, POP) {
         var param = {
             'user_name':user_name,
             'email':email,
+            'sex':sex,
             'password':loginPassword,
             'confirm_password':loginPassword,
             'SECOND_PASSWORD':secondPassword,
@@ -445,7 +502,13 @@ console.log(data);
     $('#note').blur(function () {
         $('#note').css("border", "solid 1px #eee");
     });
-
+//校验码聚焦变换
+    $('#img').focus(function () {
+        $('#img').css("border", "solid 1px #d98bbc");
+    });
+    $('#img').blur(function () {
+        $('#img').css("border", "solid 1px #eee");
+    });
 
 
     $('input').blur(function() {
@@ -572,3 +635,4 @@ console.log(data);
 
 
 });
+

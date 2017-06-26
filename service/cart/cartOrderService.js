@@ -223,11 +223,10 @@ define(['app'], function (app) {
 
         service.countFreightAction = function ($scope,freightParams,POP,fn) {
 
+
             //更新操作
             HTTP.post(API.Cart.countFreight, freightParams, function (e, data) {
-                console.log("**************");
-                console.log(data);
-
+//alert(data);
                 if (e) {
                     POP.Alert("获取运费失败");
                     return;
@@ -240,7 +239,7 @@ define(['app'], function (app) {
                     fn(data);
 
                     $scope.$apply(function () {
-                        $scope.deliveryFreight = data;
+                        //$scope.deliveryFreight = data;
                     });
 
                 }

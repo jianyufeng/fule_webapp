@@ -2,6 +2,8 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
 	function ctrl($scope, $rootScope, goodsService, POP, $state,$ionicScrollDelegate){
 
+		var _type = 'ALL';
+
 		goods_fun.menuSelected($ionicScrollDelegate);
 
 		var nowSreenH = $("#goodContentBox").height();
@@ -46,7 +48,13 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 		// 下拉刷新
 		$scope.doRefresh = function(){
 
-			goodsService.getGoodList($scope,true);
+			if(_type!= 'ALL'){
+				goodsService.getCategoryGoodList($scope,_type,POP)
+			}else{
+				goodsService.getGoodList($scope,true);
+			}
+
+
 
 
 		}
@@ -62,7 +70,7 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 		//根据条件获取相应商品
 		$(".goodsMenuItem").click(function(){
 
-			var _type = $(this).attr("id");
+			_type = $(this).attr("id");
 
 			goodsService.getCategoryGoodList($scope,_type,POP)
 

@@ -218,11 +218,18 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                     payment_amount: payment_amount
 
                 }
+;
 
                 //计算运费
                 cartOrderService.countFreightAction($scope, freightParams, POP, function (freight) {
+                    //alert(freightParams['shipping_id']);
 
-                    $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
+if (freightParams['shipping_id'] == 1){
+    $scope.shippingName =  $(".deliveryContent").eq(_index).text();
+}else {
+    $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
+
+}
                     $scope.expressName = $(".deliveryContent").eq(_index).text(); //物流公司名
                     $scope.amountOrder = $scope.orderInfo.pay_amount + freight;
 

@@ -60,6 +60,8 @@ define(['app'],function(app){
             HTTP.get(url, {}, function (e, data) {
                     POP.EndLoading();
 
+                $scope.$broadcast('scroll.refreshComplete');
+
                 if (e) {
                         POP.Hint("商品信息获取失败");
                         return;
