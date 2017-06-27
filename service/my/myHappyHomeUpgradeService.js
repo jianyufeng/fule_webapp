@@ -8,22 +8,54 @@ define(['app'], function (app) {
 
         var service = {};
 
-
         /**
-         *
+         * 获取银行数据
          */
-        service.getBankList = function () {
+        service.getBankList = function ($scope) {
 
-            HTTP.get(API.My.searchBanksDic, {}, function (data, e) {
-
-                if(e){
-
+            HTTP.get(API.My.searchBanksDic, {}, function (e, data) {
+                if (e) {
+                    return;
                 }
-                console.log(data);
-
+                $scope.bankList = data;
+                console.log($scope.bankList);
             })
 
         }
+
+
+        /**
+         *  显示节点POP
+         * @param POP
+         */
+        service.showNodePOP = function (POP) {
+            var HTML = "";
+            HTML += "<div style='margin: -10px'>"
+            HTML += '<div   id="nodeLeft" style="height: 50px;line-height: 50px;color: black;text-align: center;border-bottom: #eeeeee solid 2px;margin: 0px">' + "左区" + '</div>';
+            HTML += '<div   id="nodeRight" style="height: 50px;line-height: 50px;color: black;text-align: center;border-bottom: #eeeeee solid 2px;margin: 0px">' + "右区" + '</div>';
+            HTML += "</div>";
+            POP.ListContent(HTML, "请选择节点");
+
+        }
+
+        /**
+         *  显示银行 POP
+         * @param $scope
+         * @param POP
+         */
+        service.showBankPOP = function ($scope, POP) {
+            var data = $scope.bankList;
+            var HTML = "";
+            HTML += "<div style='margin: -10px'>"
+            for (var i = 0; i < data.length; i++) {
+                HTML += '<div  class="bankName" id="bank_' + i + '" style="height: 50px;line-height: 50px;color: black;text-align: center;border-bottom: #eeeeee solid 2px;margin: 0px">' + data[i].bank_name + '</div>';
+            }
+            HTML += "</div>";
+            POP.ListContent(HTML, "请选择银行");
+
+        }
+
+
         /***
          * 获取页面的初始信息
          * @param $scope
@@ -132,16 +164,14 @@ define(['app'], function (app) {
             } else {
                 $("#selectResult").val("--请选择--");
             }
-
-            if (info.BANK_NAME == 1) {
-                $("#bank").text("中国工商银行");
-            } else if (info.BANK_NAME == 2) {
-                $("#bank").text("中国农业银行");
-            } else if (info.BANK_NAME == 3) {
-                $("#bank").text("中国建设银行");
-            } else {
+            console.log(123456456);
+            console.log(info.BANK_NAME);
+            if (info.BANK_NAME == null) {
                 $("#bank").text("--请选择--");
+            } else {
+                $("#bank").text(info.BANK_NAME);
             }
+            $("#bank").text();
             $("#mallPassWord").val(info.PASSWORD);
             $("#secondPassWord").val(info.SECOND_PASSWORD);
             $("#payPassWord").val(info.THREE_PASSWORD);
@@ -149,7 +179,6 @@ define(['app'], function (app) {
             $("#phone").val(info.mobile_phone);
             $("#name").val(info.MEMBER_NAME);
             $("#bankCardN").val(info.BANK_ACCOUNT);
-            //$("#bank").val(info.BANK_NAME);
             $("#identityCardN").val(info.ID_CARD);
             $("#cardName").val(info.ACCOUNT_OWNER);
             $("#bankBranch").val(info.BANK_LOCATION);
@@ -197,7 +226,7 @@ define(['app'], function (app) {
 
             if (str == null || str == "") {
 
-                service.showError(elea, eleb, "内容不能为空");
+                service.showError(elea, "内容不能为空");
                 return true;
             }
             return false;
@@ -209,7 +238,7 @@ define(['app'], function (app) {
          * @param eleb 输入框
          * @param text 提示文字
          */
-        service.showError = function (elea, eleb, text) {
+        service.showError = function (elea, text) {
             elea.css('display', 'block');
             elea.html("<i class='icon ion-android-warning'></i> " + text);
         }
@@ -222,7 +251,7 @@ define(['app'], function (app) {
                 POP.EndLoading();
                 if (e) {
                     if (data != null) {
-                        service.showError(eleNode, ele, data);
+                        service.showError(eleNode, data);
                     }
                     return
                 }
@@ -241,7 +270,7 @@ define(['app'], function (app) {
                 POP.EndLoading();
                 if (e) {
                     if (data != null) {
-                        service.showError(eleNode, ele, data);
+                        service.showError(eleNode, data);
                     }
                     return;
                 }

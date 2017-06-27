@@ -92,6 +92,8 @@
   width: 50%;
   height: 200px;
   float: left;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .productListBox .leftProductBox .productTitle {
   width: 100%;

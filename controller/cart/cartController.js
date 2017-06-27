@@ -149,6 +149,9 @@ define(['app',"./Fun/cart_fun",'animate'],function(app,cart_fun){
 			
 		});
 
+
+
+
 		//编辑购物车
 		var editOpen = false;
 		$scope.editCart = function(){

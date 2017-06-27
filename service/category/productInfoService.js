@@ -224,6 +224,13 @@ define(['app'], function (app) {
                     POP.Hint("最少添加一个商品！");
                     return;
                 }
+
+                //console.log("user_name=", userInfo.user_name);
+                //console.log("user_id=", userInfo.user_id);
+                //console.log("goods_id=", goodsId);
+                //console.log("goods_name=", goodsName);
+                //console.log("goods_number=", 1);
+                //console.log("goods_price", pri * goodsNumber);
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
                     "user_id": userInfo.user_id,

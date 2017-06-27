@@ -2,7 +2,8 @@ var serverIP = "transmit/save.php";
 var API = {
 
     Goods: {
-        goods: serverIP + "/_goods/search"
+        goods: serverIP + "/_goods/search",
+        searchList : serverIP + "/_goods/searchList"
     },
     My: {
         // 个人信息
@@ -135,6 +136,8 @@ var API = {
         getRegion: serverIP + "/region/searchRegion"
     },
 
-    Home: {}
+    Home: {
+        getHomeInfo : serverIP + "/_goods/home"
+    }
 
 }

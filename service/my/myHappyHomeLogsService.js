@@ -17,6 +17,9 @@ define(['app'],function(app){
 
                 POP.EndLoading();
 
+                console.log(data);
+
+
                 if (e) {
                     $.loadError(function () {
                         service.getHappyHomeLogs();

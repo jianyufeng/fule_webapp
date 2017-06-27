@@ -129,7 +129,7 @@ app.controller("loginController", function ($scope, POP) {
         var url = serverIP + "/_user/getSmsCode/user_name/" + user_name;
         HTTP.get(url, {}, function (e, data) {
             if (e) {
-                POP.Hint(data);
+                POP.Hint("短信验证码发送失败，请重新尝试");
                 sendBox.removeAttr("disabled");
                 sendBox.text("发送短信效验码");
                 return;

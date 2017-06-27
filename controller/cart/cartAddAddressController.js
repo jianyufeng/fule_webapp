@@ -159,7 +159,8 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
                 return;
             }else {
                 //正则匹配邮箱地址
-                var  re= /\w@\w*\.\w/;
+                // var  re= /\w@\w*\.\w/;
+                var re = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
                 if (!re.test(email)){
 
                     POP.Hint("请填写正确的电子邮箱地址");

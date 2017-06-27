@@ -10,15 +10,15 @@
   height: 100%;
 }
 .popRegionBox .selectBox {
-  width: 80%;
-  position: absolute;
-  z-index: 9999999999;
-  top: 50%;
-  left: 10%;
-  background: red;
+  background-color: red;
+  color: blue;
 }
-.popRegionBox .selectBox ion-radio {
+.popRegionBox .selectBox div {
   text-align: center;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: #000000 1px solid;
+  font-size: 16px;
 }
 ion-content .contentBox {
   position: relative;

@@ -34,8 +34,22 @@ define(['app', 'jquery_fly'], function (app) {
             //(* 必须)goods_name    String商品名称
             //(* 必须)goods_number  Number商品数量
             //(* 必须)goods_price   Number商品价格
+            console.log("加入购物车");
             if (User.isLogin()) {
                 var userInfo = User.getInfo();
+
+                //"user_name": userInfo.user_name,
+                //    "user_id": userInfo.user_id,
+                //    "goods_id": goodsId,
+                //    "goods_name": goodsName,
+                //    "goods_number": goodsNumber,
+                //    "goods_price": pri * goodsNumber
+                //console.log("user_name=",userInfo.user_name);
+                //console.log("user_id=",userInfo.user_id);
+                //console.log("goods_id=",productId);
+                //console.log("goods_name=",productName);
+                //console.log("goods_number=",1);
+                //console.log("goods_price",productPrice);
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
                     "user_id": userInfo.user_id,
@@ -47,6 +61,7 @@ define(['app', 'jquery_fly'], function (app) {
                     if (e) {
                         return;
                     }
+                    console.log(data);
                 });
                 flyer.fly({
                     start: {
