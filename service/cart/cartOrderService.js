@@ -226,7 +226,8 @@ define(['app'], function (app) {
 
             //更新操作
             HTTP.post(API.Cart.countFreight, freightParams, function (e, data) {
-//alert(data);
+                console.log("#############");
+console.log(data);
                 if (e) {
                     POP.Alert("获取运费失败");
                     return;
