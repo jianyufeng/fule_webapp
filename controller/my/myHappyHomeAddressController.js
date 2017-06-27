@@ -52,14 +52,14 @@ define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
 
 
             //选择地址的点击背景变色效果
-            $(document).off("touchstart", ".happyHomeAddressItem").on("touchstart", ".happyHomeAddressItem", function (event) {
+            $(document).off("click", ".happyHomeAddressItem").on("click", ".happyHomeAddressItem", function (event) {
                 if(!editing){
                     $(this).css({background: "#fff"}).transition({background: "#eee"}, 10);
                 }
 
             });
 
-            $(document).off("touchend", ".happyHomeAddressItem").on("touchend", ".happyHomeAddressItem", function (event) {
+            $(document).off("click", ".happyHomeAddressItem").on("click", ".happyHomeAddressItem", function (event) {
 
 
                 if (!editing){
