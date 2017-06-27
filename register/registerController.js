@@ -170,24 +170,6 @@ app.controller("registerController", function ($scope, POP) {
 
     });
 
-    //var countdown = 60;
-    ////定时60s
-    //function setTime(obj) {
-    //    if (countdown == 0) {
-    //        obj.text("发送短信效验码");
-    //        countdown = 60;
-    //        obj.removeAttr("disabled");
-    //        return;
-    //    } else {
-    //        obj.attr("disabled", true);
-    //        obj.text("重新发送(" + countdown + ")");
-    //        countdown--;
-    //    }
-    //    setTimeout(function () {
-    //            setTime(obj)
-    //        }
-    //        , 1000)
-    //}
 
 
 //点击更换图片验证码
@@ -409,14 +391,16 @@ app.controller("registerController", function ($scope, POP) {
         HTTP.post(url, param, function (e, data) {
             POP.EndLoading();
 console.log(data);
-                if (e) {
-                    if (typeof (data) == "string"){
-                        POP.Hint(data);
-                    }else {
-                        POP.Hint(data['userRegister']);
-                    }
-                return;
-            }
+            //    if (e) {
+            //        if (typeof (data) == "string"){
+            //            POP.Hint(data);
+            //        }else {
+            //            //POP.Hint(data['userRegister']);
+            //            POP.Hint(data);
+            //
+            //        }
+            //    return;
+            //}
             //POP.Hint(data);
             var userInfo = JSON.stringify(data);
 
