@@ -1,0 +1,33 @@
+<ion-view view-title="搜索商品结果" hide-tabs="false" hide-nav-bar="{{isNavShow}}">
+    <!--<navigation-bar is-back="true" title="商品搜索"></navigation-bar>-->
+    <div class="headerBox" style="z-index: 99999">
+        <div class="leftHeaderBox" style="width:10%;" ng-click="searchBackBtn()"><img  src="./resource/images/icon/jiantou_left.png" style="width:11px;height:auto;" /></div>
+            <div class="middleHeaderBox" style="width:75%;">
+                <input type="text" id="seachInput" style="float:left;height:40px;width:100%;margin-top:10px;padding-left:10px;paddig-right:10px;border-radius:5px;" />
+            </div>
+        <div class="rightHeaderBox" style="font-size:16px;width:15%;"  ng-click="goodsSearchClick()">搜索</div>
+    </div>
+    <ion-content  style="width:100%;position:absolute;top:60px;">
+        <!-- 商品列表-->
+			<div class="goodsListBox" style="padding:0px;" >
+				<div class="goodsItem" ng-repeat="goodsInfo in goodsArray" view-on-finish name="{{goodsInfo.goods_id}}" number="{{goodsInfo.goods_number}}">
+					<div ng-if="goodsInfo.goods_number <= 0" class="goodsCover">
+						<img src="./resource/images/icon/shouqin.png">
+					</div>
+					<div class="goodsImage">
+						<img src="./resource/images/default/default_image.png" data-original='{{goodsInfo.img_normal}}' />
+					</div>
+					<div class="goodsInfo">
+						<div class="goodsMoney">¥ {{goodsInfo.shop_price}}</div>
+						<div class="goodsContent">
+							<div class="goodsDesc ellipsis">{{goodsInfo.goods_name}}</div>
+							<div class="goodsCart">
+								<img src="./resource/images/icon/shoppingcar.png" id="{{goodsInfo.goods_id}}"/>
+							</div>
+						</div>
+					</div>
+				<div style="clear:both;"></div>
+			</div>
+    </ion-content>
+
+</ion-view>

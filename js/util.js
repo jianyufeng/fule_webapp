@@ -54,18 +54,25 @@ define(['linq'],function () {
 		console.log("请求的接口地址为:" + $url);
 
 		//查看是否为POST请求,如果是则取出token并设置在头信息中
-		if($method == 'post'){
+		if($method == 'post' || $method == 'get'){
 
-			//取出本地token信息
-			var userInfo = JSON.parse($.cookie("userInfo"));
+			if ($.cookie("userInfo") != undefined){
 
-			//获取token
-			var tokenValue = userInfo.token;
+				console.log($.cookie("userInfo"))
 
-			//设置在ajax的请求头中
-			$.ajaxSetup({
-			   headers: {'x-token': tokenValue}
-			});
+				//取出本地token信息
+				var userInfo = JSON.parse($.cookie("userInfo"));
+
+				//获取token
+				var tokenValue = userInfo.token;
+
+				//设置在ajax的请求头中
+				$.ajaxSetup({
+				headers: {'x-token': tokenValue}
+				});
+			}
+
+			
 		}
 
 		console.log(88888888);

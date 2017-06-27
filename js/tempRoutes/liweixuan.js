@@ -30,6 +30,37 @@ define(['app'],function (app) {
 
             })
 
+            .state('tab.homeSearch', {
+                url: '/homeSearch',
+                cache : false,
+                views: {
+                    'tab-home': {
+                        templateUrl: "views/home/homeSearch.html?_r=" + Math.random(),
+                        controller: 'homeSearchController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/home/homeSearchController')
+                        }
+                    }
+
+                }
+
+            })
+
+            .state('tab.searchGoodsDetail', {
+                url: '/searchGoodsDetail/:goodsId',
+                cache : false,
+                views: {
+                    'tab-home': {
+                        templateUrl: "views/category/productInfo.html?_r=" + Math.random(),
+                        controller: 'productInfoController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/category/productInfoController')
+                        }
+                    }
+
+                }
+            })
+
     });
    
 
