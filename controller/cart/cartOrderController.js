@@ -33,8 +33,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             //$scope.$apply(function () {
             $scope.address = args.address;
             // })
-            $scope.address = args.address;
-            // })
 
         });
 
@@ -104,7 +102,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         });
         //点击密码框清除密码
         $('.passwordDiv ul').click(function () {
-            alert(33333333333);
+            //alert(33333333333);
             $("input[name = 'password']").val('');
             $('#password').focus();
             $('.passwordDiv ul li').text('')
@@ -114,6 +112,9 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         $("#nor").click(function () {
             $("#myPop").removeClass("popup-showing");
             $("#myPop").removeClass("active");
+            $("input[name = 'password']").val('');
+            $('#password').focus();
+            $('.passwordDiv ul li').text('')
         });
         $("#pos").click(function () {
             var pw = $("#ipt").val();
@@ -129,11 +130,18 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             }
             //验证密码
             cartOrderService.verifyPayPassword($scope, payParams, POP, function () {
+                var deliveryFit = 0 ;
+                var delivery = $scope.deliveryFreight;
+                if(delivery == "" || delivery.indexOf("免运费")>0){
+                    deliveryFit = 0;
 
+                }else {
+                    deliveryFit = delivery.substr(1,delivery.length);
+                }
                 var orderParams = {
                     user_id: info.user_id, //用户id
                     user_money: $scope.userInfo.user_money, //用户余额
-                    shipping_fee: $scope.deliveryFreight == "免运费" ? 0 : $scope.deliveryFreight, //运费
+                    shipping_fee: deliveryFit, //运费
                     address_id: $scope.address.address_id, //收货地址id
                     shipping_id: $scope.shi_id, //物流公司id
                     shipping_name: $scope.expressName, //物流公司名
@@ -211,13 +219,13 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             $popBox.css({
                 display: "block"
             });
-            $popBox.animate({"bottom":0},300);
+            $popBox.animate({"bottom": 0}, 300);
 
 
             $(".closeButton").click(function () {
                 // $(".popBg").css("display", "none");
                 $(".popBg").fadeOut(200);
-                $popBox.animate({"bottom":-1000},200);
+                $popBox.animate({"bottom": -1000}, 200);
             });
 
             //在配送方式选择界面选择具体的配送方式
@@ -245,14 +253,14 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                     var deliverymoney;
                     $scope.$apply(function () {
 
-                        if(freightParams.shipping_id == "1" ||freightParams.shipping_id == "23") {
+                        if (freightParams.shipping_id == "1" || freightParams.shipping_id == "23") {
 
                             deliverymoney = "";
-                            $scope.amountOrder = $scope.orderInfo.pay_amount;
-                        }else {
+                            //$scope.amountOrder = $scope.orderInfo.pay_amount;
+                        } else {
 
                             deliverymoney = "¥" + freight;
-                            $scope.amountOrder = $scope.orderInfo.pay_amount + freight; //合计总额
+                            //$scope.amountOrder = $scope.orderInfo.pay_amount + freight; //合计总额
                         }
 
                         $scope.shippingName = $(".deliveryContent").eq(_index).text() + deliverymoney; //物流公司名
@@ -260,7 +268,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
                     })
                 });
-
 
 
                 if ($(this).find("img").is(':visible')) {
@@ -331,7 +338,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         });
 
 
-
         //是否使用默认支付方式的选择
         $(".bottomChoice").click(function () {
             if ($(this).find("img").is(':visible')) {
@@ -358,7 +364,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
 
     }
-            ctrl.$inject = ['$rootScope', '$scope', 'cartOrderService', 'POP', '$state'];
-            app.registerController('cartOrderController', ctrl);
+
+    ctrl.$inject = ['$rootScope', '$scope', 'cartOrderService', 'POP', '$state'];
+    app.registerController('cartOrderController', ctrl);
 });
 
