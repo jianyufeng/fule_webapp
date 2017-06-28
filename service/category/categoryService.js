@@ -44,7 +44,7 @@ define(['app'], function (app) {
             });
         };
 
-        service.showDef = function(index) {
+        service.showDef = function (index) {
             var id = "item" + index;
             $(".category_top_list_item").css(
                 {
@@ -78,9 +78,8 @@ define(['app'], function (app) {
                 return;
             }
             if (CommenFun.isNullObj(cacheData)) {
-                POP.StartLoading();
+                //POP.StartLoading();
                 HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
-                    POP.EndLoading();
                     if (e) {
                         //$.loadError(function () {
                         //    service.getCategoryGoodsList();

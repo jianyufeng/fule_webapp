@@ -3,10 +3,10 @@
 
     <ion-content scroll="false">
         <div class="popup-container " id="myPop">
-            <div class="popup" style="padding: 10px;opacity: 0">
-                <div class="popup-head">请输入密码</div>
-                <div class="popup-body">
-                    <div class="passwordDiv" style="margin-top: 20px">
+            <div class="popup" style="opacity: 1;background-color: white">
+                <div class="popup-head" style="background-color: white">请输入密码</div>
+                <div class="popup-body" style="background-color: white">
+                    <div class="passwordDiv" style="margin-top: 20px;margin-left: 10px">
                         <label for="ipt" class="passwordLabel">
                             <ul>
                                 <li></li>
@@ -21,7 +21,7 @@
                     </div>
 
                 </div>
-                <div id="button" class="popup-buttons">
+                <div id="button" class="popup-buttons" style="background-color: white">
                     <button id="nor">放弃</button>
                     <button id="pos">确认</button>
                 </div>
@@ -30,29 +30,32 @@
 
         <div class="orderBox" set-window-height-no-navigation="">
 
-            <div class="orderDetailBox" >
+            <div class="orderDetailBox">
                 <ion-scroll class="scrollV">
 
                     <a href="#/tab/cart_manageAddress">
                         <div class="addressBox">
 
 
-                            <div class="noAddressContent" ng-if="address == 'NO'" style="color: #BCBCBC"> <span>+ 请添加收货地址</span></div>
+                            <div class="noAddressContent" ng-if="address == 'NO'" style="color: #BCBCBC">
+                                <span>+ 请添加收货地址</span></div>
 
 
                             <div class="addressContent" ng-if="address != 'NO'" style="color: black">
 
 
                                 <div class="locationImg">
-                                    <img  src="resource/images/icon/address_icon.png"/>
+                                    <img src="resource/images/icon/address_icon.png"/>
                                 </div>
-                                <div class="addressDetail" >
+                                <div class="addressDetail">
 
                                     <div class="personalInfo">
                                         <div class="personName ellipsis"><span>收货人:{{address.consignee}}</span></div>
-                                        <div class="personPhone"><span>{{address.mobile?address.mobile:address.tel}}&nbsp;&nbsp;</span></div>
+                                        <div class="personPhone"><span>{{address.mobile?address.mobile:address.tel}}&nbsp;&nbsp;</span>
+                                        </div>
                                     </div>
-                                    <div class="addressInfo"> <span>收货地址 : {{address.province_name+"省"+ address.city_name + (address.district == '0'?"":address.district_name) + address.address}} </span></div>
+                                    <div class="addressInfo"><span>收货地址 : {{address.province_name+"省"+ address.city_name + (address.district == '0'?"":address.district_name) + address.address}} </span>
+                                    </div>
                                 </div>
                                 <div class="nextBtn">
                                     <img class="nextBtnImg" src="resource/images/icon/jiantou_right.png">
@@ -69,7 +72,8 @@
                     <div class="orderGoodsBox">
                         <div class="orderGoodsItem" ng-repeat="order_good in cartGoods" view-on-finish>
                             <div class="orderItemImg">
-                                <img src="./resource/images/default/default_image.png" data-original='{{order_good.img}}'/>
+                                <img src="./resource/images/default/default_image.png"
+                                     data-original='{{order_good.img}}'/>
                             </div>
                             <div class="orderItemInfo">
                                 <div class="orderGoodsName"><span>{{order_good.goods_name}}</span></div>
@@ -86,7 +90,6 @@
                             </div>
 
                         </div>
-
 
 
                     </div>
@@ -134,8 +137,6 @@
         </div>
 
 
-
-
         <!--配送方式-->
         <div class="popBg" style="display: none"></div>
         <div class="popBox" style="display: none">
@@ -143,10 +144,10 @@
                 配送方式
             </div>
             <!--<ion-scroll>-->
-            <div class="middleBox" >
+            <div class="middleBox">
                 <div class="deliveryBox" ng-repeat="deliveryInfo in deliveryArray">
                     <div class="deliveryContent">{{deliveryInfo.shipping_name}}</div>
-                    <div class="deliveryPrice" style="visibility:hidden";>&nbsp;&nbsp; {{deliveryFreight}}</div>
+                    <div class="deliveryPrice" style="visibility:hidden" ;>&nbsp;&nbsp; {{deliveryFreight}}</div>
                     <div class="deliveryChoice" id="{{deliveryInfo.shipping_id}}">
                         <img class="xuanImg" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
                     </div>
@@ -230,7 +231,6 @@
                 </div>
             </div>
         </div>
-
 
 
     </ion-content>

@@ -107,10 +107,10 @@ define(['app'], function (app) {
         //输入
         service.FormAlert = function (msg, $scope, fn) {
            var passWordPop= $ionicPopup.show({
-                //template: '<input type="password" id="pwdInput" style="border: 1px solid #e8e8e8;">',
+                template: '<input type="password" id="pwdInput" style="border: 1px solid #e8e8e8;">',
                 title: msg,
                 scope: $scope,
-                templateUrl:"passWordPop.html",
+                //templateUrl:"passWordPop.html",
                 buttons: [
                     {text: '放弃'},
                     {
