@@ -157,10 +157,9 @@ app.controller("loginController", function ($scope, POP) {
             , 1000)
     }
     /*忘记密码*/
-    //$('.retrievePassword').click(function () {
-    //    alert($('.retrievePassword').text());
-    //
-    //});
+    $('.forgetPasswordBox').click(function () {
+        location.href = "retrievePass/retrievePass.html";
+    });
     //聚焦
     setTimeout(function () {
             $('#account').focus();

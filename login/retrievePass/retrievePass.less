@@ -1,0 +1,191 @@
+.wh(@w:100%,@h:100%) {
+  width: @w;
+  height: @h;
+}
+
+.mt(@top:0px) {
+  margin-top: @top;
+}
+
+.mb(@bottom:0px) {
+  margin-bottom: @bottom;
+}
+
+.mr(@right:0px) {
+  margin-right: @right;
+}
+
+.ml(@l:0px) {
+  margin-left: @l;
+}
+
+.border(b ,@w:1px ,@c:#eee) {
+  border-bottom: solid @w @c;
+}
+
+.border(t ,@w:1px ,@c:#eee) {
+  border-top: solid @w @c;
+}
+
+.border(r ,@w:1px ,@c:#eee) {
+  border-right: solid @w @c;
+}
+
+.border(l ,@w:1px ,@c:#eee) {
+  border-left: solid @w @c;
+}
+
+.border(@_, @w:1px,@c:#eee) {
+}
+
+//.border(@w:1px,@c:#eee) {
+//  border: solid @w @c;
+//}
+
+.bc(@c:white) {
+  background: @c;
+}
+
+.pl(@l:01px) {
+  padding-left: @l;
+}
+
+.pr(@r:0px) {
+  padding-right: @r;
+}
+
+.pt(@t:0px) {
+  padding-top: @t;
+}
+
+/*浮动 默认左浮动*/
+.f(@d:left) {
+  float: @d;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.navm {
+  width: 100%;
+  height: 60px;
+  background: url("../../resource/images/icon/top_background.png") no-repeat;
+  background-size: cover;
+  text-align: center;
+  line-height: 60px;
+  color: black;
+  font-size: 16px;
+  z-index: 99999999999999;
+
+}
+
+.mi_box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 100px auto;
+  width: 80%;
+  height: auto;
+
+  .mi_name {
+    line-height: 40px;
+    width: 20%;
+    height: 40px;
+    float: left;
+  }
+  .mi_account {
+    border: solid 1px #eee;
+    border-radius: 5px;
+    width: 80%;
+    float: left;
+    height: 40px;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  /*发送验证码*/
+  .sendBox {
+    margin-top: 40px;
+    .bc(#d98bbc);
+    .wh(80%, 40px);
+    float: right;
+    color: white;
+    text-align: center;
+    .border(1px);
+    border-radius: 5px;
+    font-size: 13px;
+    border: none;
+  }
+  .sendBox:disabled {
+    .bc(#d9a9cd);
+  }
+  .sendBox:active {
+    .bc(#d95067);
+  }
+}
+
+.change_box {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 100px auto;
+  width: 100%;
+  height: auto;
+  .change_mi_box {
+    margin: 10px auto;
+    width: 90%;
+    height: 40px;
+
+    .mi_name {
+      line-height: 40px;
+      width: 30%;
+      height: 40px;
+      float: left;
+    }
+    .mi_account {
+      border: solid 1px #eee;
+      border-radius: 5px;
+      width: 70%;
+      float: left;
+      height: 40px;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+
+  }
+  .changBtn_Box{
+    margin: 30px auto;
+    width: 90%;
+    height: auto;
+    /*发送验证码*/
+    .changBtn {
+      float: left;
+      .bc(#d98bbc);
+      .wh(50%, 40px);
+      color: white;
+      text-align: center;
+      .border(1px);
+      border-radius: 5px;
+      font-size: 13px;
+      border: none;
+    }
+    .changBtn:disabled {
+      .bc(#d9a9cd);
+    }
+    .changBtn:active {
+      .bc(#d95067);
+    }
+    .no_re_code{
+      font-size: 14px;
+      color: #d98bbc;;
+      line-height: 60px;
+      margin-left: 5%;
+      float: left;
+      .wh(40%, 40px);
+    }
+  }
+}
