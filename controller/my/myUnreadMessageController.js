@@ -1,10 +1,17 @@
 /**
  * Created by Administrator on 2017/3/24.
  */
-define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'], function (app, my_fun) {
+define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'], function (app) {
     function ctrl($scope, myUnreadMsgService, POP, $state) {
         /*加载界面动画*/
-        my_fun.animation();
+        /*未读消息 点击效果*/
+        $(document).off("touchstart", ".itemBox").on("touchstart", ".itemBox", function (event) {
+            $(this).css({background: "#fff"}).transition({background: "#eee"}, 10);
+        });
+
+        $(document).off("touchend", ".itemBox").on("touchend", ".itemBox", function (event) {
+            $(this).css("background", "#eee").transition({background: "#fff"}, 10);
+        });
 
         $scope.$on("viewOnFinish", function () {
             //显示省略号

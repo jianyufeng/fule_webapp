@@ -36,16 +36,6 @@ define(['animate'], function () {
 
              $(this).css("background-color", "#F5F5F5").transition({background: "#fff"}, 200);
          });
-
-        /*未读消息 点击效果*/
-        $(document).off("touchstart", ".itemBox").on("touchstart", ".itemBox", function (event) {
-            $(this).css({background: "#fff"}).transition({background: "#eee"}, 10);
-        });
-
-        $(document).off("touchend", ".itemBox").on("touchend", ".itemBox", function (event) {
-            $(this).css("background", "#eee").transition({background: "#fff"}, 10);
-        });
-
         /*登录 注册点击效果*/
         $(document).off("touchstart", ".goLogin").on("touchstart", ".goLogin", function (event) {
             $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 500);

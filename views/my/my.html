@@ -38,7 +38,7 @@
                 </div>
                 <div class="moneyBox scoreBox">
                     <div class="moneyName scoreName">升级积分</div>
-                    <div class="moneyCount scoreCount ellipsis">{{userInfo.INTEGRAL}}</div>
+                    <div class="moneyCount scoreCount ellipsis">{{userInfo.INTEGRAL/1}}</div>
                 </div>
             </div>
             <div class="fxp_moneyScoreBox">
@@ -48,7 +48,7 @@
                 </div>
                 <div class="moneyBox scoreBox">
                     <div class="moneyName scoreName">辅销品积分</div>
-                    <div class="moneyCount scoreCount ellipsis">{{userInfo.fxp_points}}</div>
+                    <div class="moneyCount scoreCount ellipsis">{{userInfo.fxp_points/1}}</div>
                 </div>
             </div>
             <a href="#/tab/my-office">
@@ -112,13 +112,13 @@
                 </a>
                 <div class="businessColBox isNotRegister" ng-click="startVoucherTransferPage(userInfo.fxp_points)">
                     <img class="indentIcon" alt="代金劵转账" src="./resource/images/icon/daijinjuanzhuanzhang.png">
-                    <div class="indentName">代金卷转账</div>
+                    <div class="indentName">代金劵转账</div>
                 </div>
                 <a href="#/tab/my-voucherTransferRecords">
                     <div class="businessColBox isNotRegister">
                         <img class="indentIcon" alt="代金劵转账记录"
                              src="./resource/images/icon/daijinjuanzhuanzhangjilu.png">
-                        <div class="indentName">代金卷转账记录</div>
+                        <div class="indentName">代金劵转账记录</div>
                     </div>
                 </a>
                 <div class="businessColBox isNotRegister" ng-click="startJJBZDZB()">

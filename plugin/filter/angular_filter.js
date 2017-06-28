@@ -123,8 +123,17 @@ define(['app'], function (app) {
                 case  8:
                     varl = '喜乐之家订单';
                     break;
+                case  9:
+                    varl = '旗舰店报单';
+                    break;
+                case  10:
+                    varl = '超期空升特批';
+                    break;
+                case  11:
+                    varl = '批发积分订单';
+                    break;
                 default:
-                    varl = '未发货';
+                    varl = '商城订单';
                     break;
             }
             return varl
@@ -155,7 +164,7 @@ define(['app'], function (app) {
                     varl = '已收货';
                     break;
                 default:
-                    varl = '商城订单';
+                    varl = '未发货';
                     break;
             }
             return varl
