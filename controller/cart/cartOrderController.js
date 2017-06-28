@@ -242,11 +242,11 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             if(freightParams.shipping_id == "1" ||freightParams.shipping_id == "23") {
 
                 deliverymoney = "";
-
+                $scope.amountOrder = $scope.orderInfo.pay_amount;
             }else {
 
                 deliverymoney = "¥" + freight;
-
+                $scope.amountOrder = $scope.orderInfo.pay_amount + freight; //合计总额
             }
 
                 $scope.shippingName = $(".deliveryContent").eq(_index).text() + deliverymoney; //物流公司名
@@ -255,15 +255,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
     })
     });
 
-
-
-
-
-
-
-                    //if (freight == "" || freight == null || freight == undefined) {
-                    //    $scope.amountOrder = $scope.orderInfo.pay_amount
-                    //}
 
 
                 if ($(this).find("img").is(':visible')) {
