@@ -56,7 +56,7 @@ define(['linq'],function () {
 		//查看是否为POST请求,如果是则取出token并设置在头信息中
 		if($method == 'post' || $method == 'get'){
 
-			if ($.cookie("userInfo") != undefined){
+			if ($.cookie("userInfo") != undefined && $.cookie("userInfo") != 'null'){
 
 				console.log($.cookie("userInfo"))
 
