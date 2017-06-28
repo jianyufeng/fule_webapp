@@ -84,8 +84,6 @@ define(['app'], function (app) {
                     $scope.amountOrder = orderAmount;                 //合计价格
                     $scope.webConfig = data.webConfig;              //免运费配置/专卖店情况
 
-                    console.log($scope.address);
-
                 });
 
             });
@@ -156,7 +154,6 @@ define(['app'], function (app) {
                     $scope.$apply(function () {
 
                         if(freight == "" || freight == null|| freight == undefined){
-
                             $scope.shippingName = $scope.deliveryArray[0].shipping_name;
                             $scope.amountOrder = $scope.orderInfo.pay_amount;
                             $scope.expressName = $scope.deliveryArray[0].shipping_name; //物流公司名
@@ -249,8 +246,6 @@ define(['app'], function (app) {
                 $scope.$apply(function () {
                     $scope.deliveryFreight = "";
                 });
-
-
 
             }else {
 

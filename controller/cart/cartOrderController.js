@@ -136,13 +136,9 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                     var deliveryFit = 0 ;
                     var delivery = $scope.deliveryFreight;
                     if(delivery == "" || delivery.indexOf("免运费")>0){
-
-                        alert(delivery.indexOf("免运费"));
                         deliveryFit = 0;
 
                     }else {
-
-
                         deliveryFit = delivery.substr(1,delivery.length);
                     }
 
@@ -240,9 +236,9 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
     cartOrderService.countFreightAction($scope, freightParams, POP, function (freight) {
 
 
-        alert($scope.deliveryFreight);
-var deliverymoney;
+         var deliverymoney;
         $scope.$apply(function () {
+
             if(freightParams.shipping_id == "1" ||freightParams.shipping_id == "23") {
 
                 deliverymoney = "";
