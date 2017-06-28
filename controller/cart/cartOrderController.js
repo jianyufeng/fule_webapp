@@ -133,10 +133,25 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                 //验证密码
                 cartOrderService.verifyPayPassword($scope, payParams, POP, function () {
 
+                    var deliveryFit = 0 ;
+                    var delivery = $scope.deliveryFreight;
+                    if(delivery == "" || delivery.indexOf("免运费")>0){
+
+                        alert(delivery.indexOf("免运费"));
+                        deliveryFit = 0;
+
+                    }else {
+
+
+                        deliveryFit = delivery.substr(1,delivery.length);
+                    }
+
+
+
                     var orderParams = {
                         user_id: info.user_id, //用户id
                         user_money: $scope.userInfo.user_money, //用户余额
-                        shipping_fee: $scope.deliveryFreight == "免运费" ? 0 : $scope.deliveryFreight, //运费
+                        shipping_fee: deliveryFit, //运费
                         address_id: $scope.address.address_id, //收货地址id
                         shipping_id: $scope.shi_id, //物流公司id
                         shipping_name: $scope.expressName, //物流公司名
@@ -221,23 +236,39 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 ;
 
                 //计算运费
-                cartOrderService.countFreightAction($scope, freightParams, POP, function (freight) {
-                    //alert(freightParams['shipping_id']);
 
-if (freightParams['shipping_id'] == 1){
-    $scope.shippingName =  $(".deliveryContent").eq(_index).text();
-}else {
-    $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
+    cartOrderService.countFreightAction($scope, freightParams, POP, function (freight) {
 
-}
-                    $scope.expressName = $(".deliveryContent").eq(_index).text(); //物流公司名
-                    $scope.amountOrder = $scope.orderInfo.pay_amount + freight;
 
-                    if (freight == "免运费") {
-                        $scope.amountOrder = $scope.orderInfo.pay_amount
-                    }
+        alert($scope.deliveryFreight);
+var deliverymoney;
+        $scope.$apply(function () {
+            if(freightParams.shipping_id == "1" ||freightParams.shipping_id == "23") {
 
-                });
+                deliverymoney = "";
+
+            }else {
+
+                deliverymoney = "¥" + freight;
+
+            }
+
+                $scope.shippingName = $(".deliveryContent").eq(_index).text() + deliverymoney; //物流公司名
+
+
+    })
+    });
+
+
+
+
+
+
+
+                    //if (freight == "" || freight == null || freight == undefined) {
+                    //    $scope.amountOrder = $scope.orderInfo.pay_amount
+                    //}
+
 
                 if ($(this).find("img").is(':visible')) {
                     $(this).find("img").show();

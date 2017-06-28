@@ -48,14 +48,14 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','anima
 
 
              //选择地址的点击背景变色效果
-            $(document).off("touchstart", ".shippingAddressItem").on("touchstart", ".shippingAddressItem", function (event) {
+            $(document).off("click", ".shippingAddressItem").on("click", ".shippingAddressItem", function (event) {
                 if(!editing){
                     $(this).css({background: "#fff"}).transition({background: "#eee"}, 10);
                 }
 
             });
 
-            $(document).off("touchend", ".shippingAddressItem").on("touchend", ".shippingAddressItem", function (event) {
+            $(document).off("click", ".shippingAddressItem").on("click", ".shippingAddressItem", function (event) {
 
 
                 if (!editing){

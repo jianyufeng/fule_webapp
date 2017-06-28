@@ -23,24 +23,27 @@
 				
 			</ion-slide-box>
 		</div>
-		
-		<div class="newProductBox">
-			<div class="productLeftBox">
-				<img src="./resource/images/goods_1.png" />
 
+		<div class="newProductBox" ng-if="newsGoodsData.length > 0">
+			<div class="productLeftBox homeImage_0">
+				<!--<img src="./resource/images/goods_1.png" />-->
+				<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{newsGoodsData[0].img_normal}}' />
 				
 				<div class="newIcon">
 					
 				</div>
  			</div>
 			<div class="productContent">
-				<div class="productTitle">木糖醇 山药枸杞</div>
-				<div class="productDesc_1">颗粒植物固体饮料</div>
+				<div class="productTitle">{{newsGoodsData[0].brand_name}}</div>
+				<div class="productDesc_1">{{newsGoodsData[0].goods_name}}</div>
 				<div class="productDesc_2">健康新升级</div>
 			</div>
 		</div>
 
-		<div class="productListBox">
+		<div style="width:100%;height:20px;" ng-if="newsGoodsData.length == 0"></div>
+	
+
+		<!--<div class="productListBox">
 			<div class="leftProductBox">
 				<div class="productTitle">爱她爱他</div>
 				<div class="productDesc">玫瑰黑枣复合果汁饮料</div>
@@ -70,39 +73,61 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 
 		<div class="productListBox2">
-			<div class="leftProductBox" style="border-right:1px solid #eee;">
-				<div class="productTitle">爱她爱他</div>
-				<div class="productDesc">玫瑰黑枣复合果汁饮料</div>
-				<div class="productImage">
-					<img src="./resource/images/goods_2.png" />
+			<div class="leftProductBox goodsItem" style="border-right:1px solid #eee;padding-left:20px;padding-right:20px;" name="{{hotGoodsData[0].goods_id}}">
+				<div class="productTitle ellipsis">{{hotGoodsData[0].brand_name}}</div>
+				<div class="productDesc ellipsis">{{hotGoodsData[0].goods_name}}</div>
+				<div class="productImage homeImage_1">
+					<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[0].img_normal}}' />
 				</div>
 
 				
 			</div>
-			 <div class="leftProductBox">
-				<div class="productTitle">爱她爱他</div>
-				<div class="productDesc">玫瑰黑枣复合果汁饮料</div>
-				<div class="productImage">
-					<img src="./resource/images/goods_2.png" />
+			 <div class="leftProductBox goodsItem" style="padding-left:20px;padding-right:20px;" name="{{hotGoodsData[1].goods_id}}">
+				<div class="productTitle ellipsis">{{hotGoodsData[1].brand_name}}</div>
+				<div class="productDesc ellipsis">{{hotGoodsData[1].goods_name}}</div>
+				<div class="productImage homeImage_2">
+					<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[1].img_normal}}' />
 				</div>
 
 				
 			</div>
 		</div>
 
-		<div class="productListBox3">
+		<div class="productListBox2" style="margin-top:0px;border-top:1px solid #eee;">
+			<div class="leftProductBox goodsItem" style="border-right:1px solid #eee;padding-left:20px;padding-right:20px;"  name="{{hotGoodsData[2].goods_id}}">
+				<div class="productTitle ellipsis">{{hotGoodsData[2].brand_name}}</div>
+				<div class="productDesc ellipsis">{{hotGoodsData[2].goods_name}}</div>
+				<div class="productImage homeImage_3">
+					<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[2].img_normal}}' />
+				</div>
+
+				
+			</div>
+			 <div class="leftProductBox goodsItem" style="padding-left:20px;padding-right:20px;" name="{{hotGoodsData[3].goods_id}}">
+				<div class="productTitle ellipsis">{{hotGoodsData[3].brand_name}}</div>
+				<div class="productDesc ellipsis">{{hotGoodsData[3].goods_name}}</div>
+				<div class="productImage homeImage_4">
+					<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[3].img_normal}}' />
+				</div>
+
+				
+			</div>
+		</div>
+
+		<!--<div class="productListBox3">
 			
 			<div class="rightProductBox">
 				<div class="topProductBox">
-					<div class="leftProductImage">
-						<img src="./resource/images/goods_3.png" />
+					<div class="leftProductImage homeImage_3">
+						<img src="./resource/images/default/default_image.png" data-original='{{hotGoodsData[2].img_normal}}' />
+					
 					</div>
 					<div class="rightProductInfo">
-						<div class="rightProductTitle">爱她爱他</div>
-						<div class="rightProductDesc ellipsis">胶原蛋白果汁饮料</div>
+						<div class="rightProductTitle ellipsis">{{hotGoodsData[2].brand_name}}</div>
+						<div class="rightProductDesc ellipsis">{{hotGoodsData[2].brand_name}}</div>
 					</div>
 				</div>
 				<div class="topProductBox" style="border:none;">
@@ -126,7 +151,7 @@
 				
 			</div>
 
-		</div>
+		</div>-->
 
 		<div class="recommendTitleBox">
 			<div class="middleLine"></div>
@@ -135,46 +160,49 @@
 
 		<div class="recommendGoodsBox">
 			<div class="recommendGoodsItem">
-				<div class="recommendGoodsItemBox">
-					<div class="recommendImage">
-						<img src="./resource/images/goods_111.png" />
-						<p style="font-size:16px;margin-top:5px;padding-left:10px;">亲情免洗消毒喷雾</p>
-						<p style="color:#a82285;font-size:18px;padding-left:10px;">￥238.00
-							
-						</p>
+				<div class="recommendGoodsItemBox goodsItem" name="{{hotGoodsData[4].goods_id}}">
+					<div class="recommendImage homeImage_5">
+						<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[4].img_normal}}' />
+						
 					</div>
-					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" />
+					<p style="font-size:16px;margin-top:5px;padding-left:10px;">{{hotGoodsData[4].goods_name}}</p>
+					<p style="color:#a82285;font-size:18px;padding-left:10px;">￥{{hotGoodsData[4].shop_price}}
+							</p>
+					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" data-goodsprice="{{hotGoodsData[4].shop_price}}" data-goodsname="{{hotGoodsData[4].goods_name}}" data-goodsid="{{hotGoodsData[4].goods_id}}" />
 				</div>
 			</div>
 			<div class="recommendGoodsItem">
-				<div class="recommendGoodsItemBox">
-					<div class="recommendImage">
-						<img src="./resource/images/goods_111.png" />
-						<p style="font-size:16px;margin-top:5px;padding-left:10px;">亲情免洗消毒喷雾</p>
-						<p style="color:#a82285;font-size:18px;padding-left:10px;">￥238.00</p>
+				<div class="recommendGoodsItemBox goodsItem" name="{{hotGoodsData[5].goods_id}}">
+					<div class="recommendImage homeImage_6">
+						<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[5].img_normal}}' />
+						
 					</div>
-					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" />
+					<p style="font-size:16px;margin-top:5px;padding-left:10px;">{{hotGoodsData[5].goods_name}}</p>
+						<p style="color:#a82285;font-size:18px;padding-left:10px;">￥{{hotGoodsData[5].shop_price}}</p>
+					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" data-goodsprice="{{hotGoodsData[5].shop_price}}" data-goodsname="{{hotGoodsData[5].goods_name}}" data-goodsid="{{hotGoodsData[5].goods_id}}" />
 				</div>
 				
 			</div>
 			<div class="recommendGoodsItem">
-				<div class="recommendGoodsItemBox">
-					<div class="recommendImage">
-						<img src="./resource/images/goods_111.png" />
-						<p style="font-size:16px;margin-top:5px;padding-left:10px;">亲情免洗消毒喷雾</p>
-						<p style="color:#a82285;font-size:18px;padding-left:10px;">￥238.00</p>
+				<div class="recommendGoodsItemBox goodsItem" name="{{hotGoodsData[6].goods_id}}">
+					<div class="recommendImage homeImage_7">
+						<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[6].img_normal}}' />
+						
 					</div>
-					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" />
+					<p style="font-size:16px;margin-top:5px;padding-left:10px;">{{hotGoodsData[6].goods_name}}</p>
+						<p style="color:#a82285;font-size:18px;padding-left:10px;">￥{{hotGoodsData[6].shop_price}}</p>
+					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" data-goodsprice="{{hotGoodsData[6].shop_price}}" data-goodsname="{{hotGoodsData[6].goods_name}}" data-goodsid="{{hotGoodsData[6].goods_id}}" />
 				</div>
 			</div>
 			<div class="recommendGoodsItem">
-				<div class="recommendGoodsItemBox">
-					<div class="recommendImage">
-						<img src="./resource/images/goods_111.png" />
-						<p style="font-size:16px;margin-top:5px;padding-left:10px;">亲情免洗消毒喷雾</p>
-						<p style="color:#a82285;font-size:18px;padding-left:10px;">￥238.00</p>
+				<div class="recommendGoodsItemBox goodsItem" name="{{hotGoodsData[7].goods_id}}">
+					<div class="recommendImage homeImage_8">
+						<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[7].img_normal}}' />
+	
 					</div>
-					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" />
+										<p style="font-size:16px;margin-top:5px;padding-left:10px;">{{hotGoodsData[7].goods_name}}</p>
+						<p style="color:#a82285;font-size:18px;padding-left:10px;">￥{{hotGoodsData[7].shop_price}}</p>
+					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" data-goodsprice="{{hotGoodsData[7].shop_price}}" data-goodsname="{{hotGoodsData[7].goods_name}}" data-goodsid="{{hotGoodsData[7].goods_id}}" />
 				</div>
 			</div>
 		</div>
