@@ -10,7 +10,7 @@ define(['app'], function (app) {
         var goodsId;
         var pri;
         // 获取产品详情
-        service.getProductInfo = function ($scope, $stateParams, POP) {
+        service.getProductInfo = function ($scope, $stateParams, POP,$compile) {
             POP.StartLoading();
             HTTP.get(API.Category.productInfo + "/goods_id/" + $stateParams.goodsId, {}, function (e, data) {
                 POP.EndLoading();
@@ -50,11 +50,15 @@ define(['app'], function (app) {
                     $scope.productPrice_F = pri.substr(index, pri.length);
 
                     // 商品的详情图
-                    $scope.goodsDetail = data.goodsDetail;
-                    if ($scope.goodsDetail.length > 0) {
+                    var str = data.goodsDetail[0].detail_text;
+                    console.log(66666666666);
+                    console.log(str);
+                    if(str!=null&&str.length>0){
+                        //正则替换
+                        str = str.replace(/Image_Image/, "image.38zs.net:38888");
+                        var test = $compile(str)($scope);
+                        $("#goodsDetailBox").append(test);
                         $scope.goodsDetailImg = false;
-                    } else {
-                        $scope.goodsDetailImg = true;
                     }
                     // 商品购买的最大数量
                     if (goodsInfo.limit_num > 0) {
@@ -73,100 +77,6 @@ define(['app'], function (app) {
             })
 
         }
-
-        //service.setImageMargin = function () {
-        //    $(function () {
-        //        var maxWidth = $(".productImg").width();
-        //        var maxHeight = $(".productImg").height();
-        //        console.log("maxHeight=" + maxHeight);
-        //        console.log("maxWidth=" + maxWidth);
-        //        var img = $(".productImg img");
-        //        var imgSrc = img.attr("src");
-        //        getImageWidth(imgSrc, function (w, h) {
-        //            var margin = 10;
-        //            var screenWidth = $(document).width();
-        //            //var eleWidth = screenWidth - 20;
-        //            var eleWidth = maxWidth - 20;
-        //            var eleHeight = maxHeight - 20;
-        //            var marWidth = (maxWidth - w) / 2;
-        //            var marHeight = (maxHeight - h) / 2;
-        //            console.log("ImageWidth=" + w);
-        //            console.log("ImageHeight=" + h);
-        //            if (w >= h) {
-        //                if (w < maxWidth) {
-        //                    console.log(22222222)
-        //                    if (marWidth < margin) {
-        //                        console.log(11111111)
-        //                        img.css({
-        //                            "margin-left": margin + "px",
-        //                            "margin-right": margin + "px",
-        //                            "width": eleWidth + 'px',
-        //                        });
-        //                    } else {
-        //                        console.log(3333333)
-        //                        console.log(marWidth);
-        //                        img.css({
-        //                            "margin-left": marWidth + "px",
-        //                            "margin-right": marWidth + "px",
-        //                        });
-        //                    }
-        //
-        //                } else {
-        //                    img.css({
-        //                        "margin-left": margin + "px",
-        //                        "margin-right": margin + "px",
-        //                        "width": eleWidth + 'px',
-        //                    })
-        //                }
-        //
-        //            } else {
-        //                if (h < maxHeight) {
-        //                    if (marHeight < margin) {
-        //                        img.css({
-        //                            "margin-top": margin + "px",
-        //                            "margin-bottom": margin + "px",
-        //                            "height": eleHeight + 'px',
-        //                        });
-        //                    } else {
-        //                        img.css({
-        //                            "margin-left": marHeight + "px",
-        //                            "margin-right": marHeight + "px",
-        //                        });
-        //                    }
-        //
-        //                } else {
-        //                    console.log("w >maxWidth");
-        //                    img.css({
-        //                        "margin-top": margin + "px",
-        //                        "margin-bottom": margin + "px",
-        //                        "height": eleHeight + 'px',
-        //                    })
-        //                }
-        //            }
-        //        });
-        //    });
-        //    /***
-        //     * 获取图片的真实宽高
-        //     * @param url
-        //     * @param callback
-        //     */
-        //    function getImageWidth(url, callback) {
-        //        var img = new Image();
-        //        img.src = url;
-        //
-        //        // 如果图片被缓存，则直接返回缓存数据
-        //        if (img.complete) {
-        //            callback(img.width, img.height);
-        //        } else {
-        //            // 完全加载完毕的事件
-        //            img.onload = function () {
-        //                callback(img.width, img.height);
-        //            }
-        //        }
-        //
-        //    }
-        //
-        //}
         /**
          * 滑动图片切换导航
          * @param $scope
@@ -211,6 +121,10 @@ define(['app'], function (app) {
                 var goodsNumber = Number.parseInt($("#_number").val());
                 $scope.count = goodsNumber;
 
+                if (pri * goodsNumber > 1000000) {
+                    POP.Hint("商品数量不合法");
+                    return;
+                }
                 // 判断最低购买量和最大购买量
                 if ($scope.count > $scope.limitGoodsNumber) {
                     POP.Hint("本商品的最大限制购买量为" + "&nbsp" + "<span style='color: red'>" + $scope.limitGoodsNumber + "</span>");
@@ -240,6 +154,7 @@ define(['app'], function (app) {
                     "goods_price": pri * goodsNumber
                 }, function (e, data) {
                     if (e) {
+                        POP.Hint("添加失败");
                         return;
                     }
                     $scope.$apply(function () {

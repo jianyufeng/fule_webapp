@@ -106,17 +106,18 @@ define(['app'], function (app) {
 
         //输入
         service.FormAlert = function (msg, $scope, fn) {
-            $ionicPopup.show({
-                template: '<input type="password" id="pwdInput" style="border: 1px solid #e8e8e8;">',
+           var passWordPop= $ionicPopup.show({
+                //template: '<input type="password" id="pwdInput" style="border: 1px solid #e8e8e8;">',
                 title: msg,
                 scope: $scope,
+                templateUrl:"passWordPop.html",
                 buttons: [
                     {text: '放弃'},
                     {
                         text: '<b>提交</b>',
                         type: 'button-positive',
                         onTap: function (e) {
-                            var pwdValue = $("#pwdInput").val();
+                            var pwdValue = $("#password").val();
                             if (pwdValue.length <= 0) {
                                 $ionicLoading.show({
                                     showBackdrop: false,
@@ -130,6 +131,13 @@ define(['app'], function (app) {
                         }
                     },
                 ]
+            });
+
+
+
+            passWordPop.then(function (res) {
+
+                console.log("----------------")
             });
         }
 

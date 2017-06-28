@@ -1,6 +1,32 @@
 <ion-view view-title="确认订单" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <navigation-bar title="确认订单" is-back="true"></navigation-bar>
+
     <ion-content scroll="false">
+        <div class="popup-container " id="myPop">
+            <div class="popup" style="padding: 10px;opacity: 0">
+                <div class="popup-head">请输入密码</div>
+                <div class="popup-body">
+                    <div class="passwordDiv" style="margin-top: 20px">
+                        <label for="ipt" class="passwordLabel">
+                            <ul>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </label>
+                        <input type="password" id="ipt" name="password" maxlength="6">
+                    </div>
+
+                </div>
+                <div id="button" class="popup-buttons">
+                    <button id="nor">放弃</button>
+                    <button id="pos">确认</button>
+                </div>
+            </div>
+        </div>
 
         <div class="orderBox" set-window-height-no-navigation="">
 
@@ -8,166 +34,166 @@
                 <ion-scroll class="scrollV">
 
                     <a href="#/tab/cart_manageAddress">
-                <div class="addressBox">
+                        <div class="addressBox">
 
 
-                    <div class="noAddressContent" ng-if="address == 'NO'" style="color: #BCBCBC"> <span>+ 请添加收货地址</span></div>
+                            <div class="noAddressContent" ng-if="address == 'NO'" style="color: #BCBCBC"> <span>+ 请添加收货地址</span></div>
 
 
-                    <div class="addressContent" ng-if="address != 'NO'" style="color: black">
+                            <div class="addressContent" ng-if="address != 'NO'" style="color: black">
 
 
-                        <div class="locationImg">
-                            <img  src="resource/images/icon/address_icon.png"/>
-                        </div>
-                            <div class="addressDetail" >
-
-                                <div class="personalInfo">
-                                     <div class="personName ellipsis"><span>收货人:{{address.consignee}}</span></div>
-                                     <div class="personPhone"><span>{{address.mobile?address.mobile:address.tel}}&nbsp;&nbsp;</span></div>
+                                <div class="locationImg">
+                                    <img  src="resource/images/icon/address_icon.png"/>
                                 </div>
-                            <div class="addressInfo"> <span>收货地址 : {{address.province_name+"省"+ address.city_name + (address.district == '0'?"":address.district_name) + address.address}} </span></div>
+                                <div class="addressDetail" >
+
+                                    <div class="personalInfo">
+                                        <div class="personName ellipsis"><span>收货人:{{address.consignee}}</span></div>
+                                        <div class="personPhone"><span>{{address.mobile?address.mobile:address.tel}}&nbsp;&nbsp;</span></div>
+                                    </div>
+                                    <div class="addressInfo"> <span>收货地址 : {{address.province_name+"省"+ address.city_name + (address.district == '0'?"":address.district_name) + address.address}} </span></div>
+                                </div>
+                                <div class="nextBtn">
+                                    <img class="nextBtnImg" src="resource/images/icon/jiantou_right.png">
+                                </div>
+
                             </div>
-                        <div class="nextBtn">
-                            <img class="nextBtnImg" src="resource/images/icon/jiantou_right.png">
+
+                            <div class="colorLine">
+                                <img src="resource/images/icon/address.png">
+                            </div>
+
                         </div>
-
-                    </div>
-
-                    <div class="colorLine">
-                        <img src="resource/images/icon/address.png">
-                    </div>
-
-                </div>
                     </a>
-                <div class="orderGoodsBox">
-                      <div class="orderGoodsItem" ng-repeat="order_good in cartGoods" view-on-finish>
-                          <div class="orderItemImg">
-                              <img src="./resource/images/default/default_image.png" data-original='{{order_good.img}}'/>
-                          </div>
-                          <div class="orderItemInfo">
-                              <div class="orderGoodsName"><span>{{order_good.goods_name}}</span></div>
-                              <div class="orderGoodsStyle" ng-if="order_good.attrInfo != undefined">
+                    <div class="orderGoodsBox">
+                        <div class="orderGoodsItem" ng-repeat="order_good in cartGoods" view-on-finish>
+                            <div class="orderItemImg">
+                                <img src="./resource/images/default/default_image.png" data-original='{{order_good.img}}'/>
+                            </div>
+                            <div class="orderItemInfo">
+                                <div class="orderGoodsName"><span>{{order_good.goods_name}}</span></div>
+                                <div class="orderGoodsStyle" ng-if="order_good.attrInfo != undefined">
                                  <span ng-repeat="attr in order_good.attrInfo">
                                      {{attr.attr_name}} : {{attr.attr_value}}
                                  </span>
-                              </div>
-                              <div class="orderGoodsPrice">
-                                  <div class="orderPrice">¥&nbsp;<span>{{order_good.shop_price}}</span></div>
-                                  <div class="orderAcount"><span>x{{order_good.goods_number}}</span></div>
-                              </div>
+                                </div>
+                                <div class="orderGoodsPrice">
+                                    <div class="orderPrice">¥&nbsp;<span>{{order_good.shop_price}}</span></div>
+                                    <div class="orderAcount"><span>x{{order_good.goods_number}}</span></div>
+                                </div>
 
-                          </div>
+                            </div>
 
-                      </div>
+                        </div>
 
 
 
-                </div>
-
-                <div class="payInfoBox">
-                    <div class="orderDeliveryModel">
-                        <div class="titleArea"><span>配送方式:</span></div>
-                        <div class="deliveryModel"><span>{{shippingName}}</span></div>
-                        <div class="setDeliveryBtn"><img src="resource/images/icon/jiantou_right.png"></div>
                     </div>
-                    <!--<div class="orderSendGoodsAddress">-->
+
+                    <div class="payInfoBox">
+                        <div class="orderDeliveryModel">
+                            <div class="titleArea"><span>配送方式:</span></div>
+                            <div class="deliveryModel"><span>{{shippingName}}</span></div>
+                            <div class="setDeliveryBtn"><img src="resource/images/icon/jiantou_right.png"></div>
+                        </div>
+                        <!--<div class="orderSendGoodsAddress">-->
                         <!--<div class="titleArea"><span>选择发货地址:</span></div>-->
                         <!--<div class="sendAddressDetail">-->
-                            <!--<div class="shopName"><span>专卖店名:三八妇乐(官方旗舰店)</span></div>-->
-                            <!--<div class="negozianteName"><span>店长:38fule</span></div>-->
-                            <!--<div class="address"><span>地址:科技路旺座国际</span></div>-->
+                        <!--<div class="shopName"><span>专卖店名:三八妇乐(官方旗舰店)</span></div>-->
+                        <!--<div class="negozianteName"><span>店长:38fule</span></div>-->
+                        <!--<div class="address"><span>地址:科技路旺座国际</span></div>-->
                         <!--</div>-->
                         <!--<div class="setSendAddressBtn"><img src="resource/images/icon/jiantou_right.png"></div>-->
-                    <!--</div>-->
+                        <!--</div>-->
 
-                    <div class="orderPayModel">
-                        <div class="titleArea"><span>支付方式:</span></div>
-                        <div class="payModel">余额支付<span>(可用余额:<a>{{userInfo.user_money}}</a>)</span></div>
-                        <!--<div class="setpayBtn"><img src="resource/images/icon/jiantou_right.png"></div>-->
+                        <div class="orderPayModel">
+                            <div class="titleArea"><span>支付方式:</span></div>
+                            <div class="payModel">余额支付<span>(可用余额:<a>{{userInfo.user_money}}</a>)</span></div>
+                            <!--<div class="setpayBtn"><img src="resource/images/icon/jiantou_right.png"></div>-->
+                        </div>
+
                     </div>
 
-                </div>
-
                 </ion-scroll>
-             </div>
+            </div>
 
 
-        <div class="payAcountBox">
-            <div class="paySubmit"><b>提交订单</b></div>
-            <div class="listInfo">
-                <div class="payAcountPrice ellipsis">合计 : <span>¥ {{amountOrder}}</span></div>
-                <div class="payGoodsAcount">
-                    <div class="goodsCountsPrompt"><span>共 <b>{{goodsNumber}}</b> 件商品</span></div>
-                    <div class="integralPrompt"><span>获得积分: <b>{{orderInfo.pv}}</b></span></div>
+            <div class="payAcountBox">
+                <div class="paySubmit"><b>提交订单</b></div>
+                <div class="listInfo">
+                    <div class="payAcountPrice ellipsis">合计 : <span>¥ {{amountOrder}}</span></div>
+                    <div class="payGoodsAcount">
+                        <div class="goodsCountsPrompt"><span>共 <b>{{goodsNumber}}</b> 件商品</span></div>
+                        <div class="integralPrompt"><span>获得积分: <b>{{orderInfo.pv}}</b></span></div>
+                    </div>
                 </div>
+
             </div>
 
         </div>
 
-        </div>
 
 
 
-
-<!--配送方式-->
-<div class="popBg" style="display: none"></div>
-    <div class="popBox" style="display: none">
-       <div class="topTitle">
-           配送方式
-       </div>
-        <!--<ion-scroll>-->
-        <div class="middleBox" >
-            <div class="deliveryBox" ng-repeat="deliveryInfo in deliveryArray">
-                <div class="deliveryContent">{{deliveryInfo.shipping_name}}</div>
-                <div class="deliveryPrice" style="visibility:hidden";>&nbsp;&nbsp; {{deliveryFreight}}</div>
-                <div class="deliveryChoice" id="{{deliveryInfo.shipping_id}}">
-                    <img class="xuanImg" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
+        <!--配送方式-->
+        <div class="popBg" style="display: none"></div>
+        <div class="popBox" style="display: none">
+            <div class="topTitle">
+                配送方式
+            </div>
+            <!--<ion-scroll>-->
+            <div class="middleBox" >
+                <div class="deliveryBox" ng-repeat="deliveryInfo in deliveryArray">
+                    <div class="deliveryContent">{{deliveryInfo.shipping_name}}</div>
+                    <div class="deliveryPrice" style="visibility:hidden";>&nbsp;&nbsp; {{deliveryFreight}}</div>
+                    <div class="deliveryChoice" id="{{deliveryInfo.shipping_id}}">
+                        <img class="xuanImg" src="resource/images/icon/shoppingcar_xuanz.png" style="display: none">
+                    </div>
+                </div>
+            </div>
+            <!--</ion-scroll>-->
+            <div class="bottomBox">
+                <!--<div class="bottomChoice">-->
+                <!--<img src="resource/images/icon/shoppingcar_xuanz.png">-->
+                <!--</div>-->
+                <!--<div class="content">-->
+                <!--配送是否需要保价-->
+                <!--</div>-->
+                <div class="closeButton">
+                    关闭
                 </div>
             </div>
         </div>
-        <!--</ion-scroll>-->
-        <div class="bottomBox">
-           <!--<div class="bottomChoice">-->
-               <!--<img src="resource/images/icon/shoppingcar_xuanz.png">-->
-           <!--</div>-->
-           <!--<div class="content">-->
-              <!--配送是否需要保价-->
-           <!--</div>-->
-           <div class="closeButton">
-              关闭
-           </div>
-        </div>
-    </div>
 
-<!--选择发货地址-->
-     <div class="popAddressBox" style="display: none">
-         <div class="addressTitle">
-             选择发货地址
-         </div>
-         <div class="addressBox">
-             <div class="topContent">
-                 专卖店名: 三八妇乐(官方旗舰店)
-             </div>
-             <div class="bottomContent">
-                 店长名 : company&nbsp;&nbsp;地址 : 科技路旺座国际城
-             </div>
-             <div class="choice">
-                 <img style="display: none" src="resource/images/icon/shoppingcar_xuanz.png">
-             </div>
-         </div>
-         <div class="bottomBox">
-             <div class="inputAddress">
-                 <input type="text" placeholder="输入您想要的发货地址">
-             </div>
-             <div class="search">
-                 搜索
-             </div>
-             <div class="close">
-                 关闭
-             </div>
-         </div>
-     </div>
+        <!--选择发货地址-->
+        <div class="popAddressBox" style="display: none">
+            <div class="addressTitle">
+                选择发货地址
+            </div>
+            <div class="addressBox">
+                <div class="topContent">
+                    专卖店名: 三八妇乐(官方旗舰店)
+                </div>
+                <div class="bottomContent">
+                    店长名 : company&nbsp;&nbsp;地址 : 科技路旺座国际城
+                </div>
+                <div class="choice">
+                    <img style="display: none" src="resource/images/icon/shoppingcar_xuanz.png">
+                </div>
+            </div>
+            <div class="bottomBox">
+                <div class="inputAddress">
+                    <input type="text" placeholder="输入您想要的发货地址">
+                </div>
+                <div class="search">
+                    搜索
+                </div>
+                <div class="close">
+                    关闭
+                </div>
+            </div>
+        </div>
 
         <!--选择支付方式-->
 
@@ -209,6 +235,5 @@
 
     </ion-content>
 </ion-view>
-
 
 
