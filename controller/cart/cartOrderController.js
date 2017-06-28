@@ -6,6 +6,9 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
     function ctrl($rootScope, $scope, cartOrderService, POP, $state) {
 
+
+
+
         //修改显示地址刷新后用来判断要显示的地址
         $scope.jugdeAddress = "";
 
@@ -19,26 +22,46 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         $scope.$on('$ionicView.beforeEnter', function () {
             $(".popBg,.popBox").css("display", "none");
 
-          cartOrderService.getPartOrderInfo($scope, POP);
+            cartOrderService.getPartOrderInfo($scope, POP);
 
         });
 
-
-
+//alert(111);
+//        console.log("789789789")
+////密码框输入事件
+//        $('.passwordDiv input').on('input', function (e) {
+//            console.log("******")
+//            var number = 6;
+//            var pw = $("input[name = 'password']").val();
+//            var list = $('.passwordDiv ul li');
+//            for (var i = 0; i < number; i++) {
+//                if (pw[i]) {
+//                    $(list[i]).text('•');
+//                } else {
+//                    $(list[i]).text('');
+//                }
+//                ;
+//            }
+//            ;
+//        });
+////点击密码框清除密码
+//        $('.passwordDiv ul').click(function () {
+//            $("input[name = 'password']").val('');
+//            $('#password').focus();
+//            $('.passwordDiv ul li').text('')
+//        });
 
         // 接收传值页面传过来的地址内容
         $rootScope.$on('changeAddressInfo', function (event, args) {
 
             console.log("changeAddressInfo..");
-
             //将新的值重新注入页面
             //$scope.$apply(function () {
-              
-                $scope.address = args.address;
-           // })
+
+            $scope.address = args.address;
+            // })
 
         });
-
 
 
         //修改的地址为当前显示的地址
@@ -48,15 +71,13 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
             $scope.jugdeAddress = args.addressId;
             //将新的值重新注入页面
-           if($scope.address.address_id == args.addressId){
+            if ($scope.address.address_id == args.addressId) {
 
-               cartOrderService.getOrderInfo($scope, POP);
+                cartOrderService.getOrderInfo($scope, POP);
 
-           }
+            }
 
         });
-
-
 
 
         // 接收传值页面传过来的地址内容
@@ -86,6 +107,97 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                 // imageServer : "http://image.38zs.net:848",				    //图片服务器地址
                 // animate     : true,											//是否动画显示
             });
+        });
+
+
+        console.log("789789789")
+//密码框输入事件
+        $('.passwordDiv input').on('input', function (e) {
+            console.log("******")
+            var number = 6;
+            var pw = $("input[name = 'password']").val();
+            var list = $('.passwordDiv ul li');
+            for (var i = 0; i < number; i++) {
+                if (pw[i]) {
+                    $(list[i]).text('•');
+                } else {
+                    $(list[i]).text('');
+                }
+                ;
+            }
+            console.log(pw);
+            ;
+        });
+//点击密码框清除密码
+        $('.passwordDiv ul').click(function () {
+            alert(33333333333);
+            $("input[name = 'password']").val('');
+            $('#password').focus();
+            $('.passwordDiv ul li').text('')
+        });
+
+
+        $("#nor").click(function () {
+            $("#myPop").removeClass("popup-showing");
+            $("#myPop").removeClass("active");
+        });
+        $("#pos").click(function () {
+            var pw = $("#ipt").val();
+            if (pw == null || pw.length < 6) {
+                POP.Hint("密码格式不正确");
+                return false;
+            }
+            var info = User.getInfo();
+            var payParams = {
+                user_id: info.user_id,
+                password: pw,
+                type: "THREE_PASSWORD"
+            }
+            //验证密码
+            cartOrderService.verifyPayPassword($scope, payParams, POP, function () {
+
+                var orderParams = {
+                    user_id: info.user_id, //用户id
+                    user_money: $scope.userInfo.user_money, //用户余额
+                    shipping_fee: $scope.deliveryFreight == "免运费" ? 0 : $scope.deliveryFreight, //运费
+                    address_id: $scope.address.address_id, //收货地址id
+                    shipping_id: $scope.shi_id, //物流公司id
+                    shipping_name: $scope.expressName, //物流公司名
+                    goods_amount: $scope.amountOrder, //商品总金额
+                    surplus: $scope.orderInfo.pay_amount, //实际支付总金额
+                    referer: "手机", //订单来源(本站/手机/APP)
+                    order_mode: $scope.orderInfo.ORDER_TYPE, //订单类型（CE/CM）
+                    pv: $scope.orderInfo.pv, //获得PV
+                    isAccumulative: $scope.orderInfo.LEI_JI_TYPE, //是否累计PV 0-累计 1-不累计
+                    shipping_config: $scope.webConfig.EXEMPT_FREIGHT.PARAM_VALUE, //运费配置（达到指定支付金额免除运费）
+                    pay_id: 1, //余额支付
+                    pay_name: "余额支付", //支付方式名
+                    cart_id: $scope.cartGoods[0].cart_id, //购物车id
+                    LEVEL_TO: $scope.orderInfo.LEVEL_TO, //自动升级目标级别
+                    integral: $scope.orderInfo.integral, //累计积分
+                    pay_fee: 0, //支付手续费
+                    insure_fee: 0 //运费险
+                }
+
+
+                console.log(orderParams);
+
+
+                //提交订单
+                cartOrderService.addCommonPaymentOrder($scope, orderParams, POP, function () {
+
+                    $scope.$apply(function () {
+                        $rootScope.cartBadge = 0;
+                    })
+
+                    $state.go('tab.my');
+                });
+
+
+            });
+
+
+            return false;
 
         });
         //提交订单点击时
@@ -119,62 +231,65 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
 
             }
-            POP.FormAlert("请输入您的支付密码", $scope, function (v) {
-
-                var info = User.getInfo();
-
-                var payParams = {
-
-                    user_id: info.user_id,
-                    password: v,
-                    type: "THREE_PASSWORD"
-
-                }
-                //验证密码
-                cartOrderService.verifyPayPassword($scope, payParams, POP, function () {
-
-                    var orderParams = {
-                        user_id: info.user_id, //用户id
-                        user_money: $scope.userInfo.user_money, //用户余额
-                        shipping_fee: $scope.deliveryFreight == "免运费" ? 0 : $scope.deliveryFreight, //运费
-                        address_id: $scope.address.address_id, //收货地址id
-                        shipping_id: $scope.shi_id, //物流公司id
-                        shipping_name: $scope.expressName, //物流公司名
-                        goods_amount: $scope.amountOrder, //商品总金额
-                        surplus: $scope.orderInfo.pay_amount, //实际支付总金额
-                        referer: "手机", //订单来源(本站/手机/APP)
-                        order_mode: $scope.orderInfo.ORDER_TYPE, //订单类型（CE/CM）
-                        pv: $scope.orderInfo.pv, //获得PV
-                        isAccumulative: $scope.orderInfo.LEI_JI_TYPE, //是否累计PV 0-累计 1-不累计
-                        shipping_config: $scope.webConfig.EXEMPT_FREIGHT.PARAM_VALUE, //运费配置（达到指定支付金额免除运费）
-                        pay_id: 1, //余额支付
-                        pay_name: "余额支付", //支付方式名
-                        cart_id: $scope.cartGoods[0].cart_id, //购物车id
-                        LEVEL_TO: $scope.orderInfo.LEVEL_TO, //自动升级目标级别
-                        integral: $scope.orderInfo.integral, //累计积分
-                        pay_fee: 0, //支付手续费
-                        insure_fee: 0 //运费险
-                    }
-
-
-                    console.log(orderParams);
-
-
-                    //提交订单
-                    cartOrderService.addCommonPaymentOrder($scope, orderParams, POP, function () {
-
-                        $scope.$apply(function () {
-                            $rootScope.cartBadge = 0;
-                        })
-
-                        $state.go('tab.my');
-                    });
-
-
-                });
-
-
-            });
+            $("#myPop").addClass("popup-showing");
+            $("#myPop").addClass("active");
+            //POP.FormAlert("请输入您的支付密码", $scope, function (v) {
+            //
+            //    console.log($(".passwordDiv"));
+            //    var info = User.getInfo();
+            //
+            //    var payParams = {
+            //
+            //        user_id: info.user_id,
+            //        password: v,
+            //        type: "THREE_PASSWORD"
+            //
+            //    }
+            //    //验证密码
+            //    cartOrderService.verifyPayPassword($scope, payParams, POP, function () {
+            //
+            //        var orderParams = {
+            //            user_id: info.user_id, //用户id
+            //            user_money: $scope.userInfo.user_money, //用户余额
+            //            shipping_fee: $scope.deliveryFreight == "免运费" ? 0 : $scope.deliveryFreight, //运费
+            //            address_id: $scope.address.address_id, //收货地址id
+            //            shipping_id: $scope.shi_id, //物流公司id
+            //            shipping_name: $scope.expressName, //物流公司名
+            //            goods_amount: $scope.amountOrder, //商品总金额
+            //            surplus: $scope.orderInfo.pay_amount, //实际支付总金额
+            //            referer: "手机", //订单来源(本站/手机/APP)
+            //            order_mode: $scope.orderInfo.ORDER_TYPE, //订单类型（CE/CM）
+            //            pv: $scope.orderInfo.pv, //获得PV
+            //            isAccumulative: $scope.orderInfo.LEI_JI_TYPE, //是否累计PV 0-累计 1-不累计
+            //            shipping_config: $scope.webConfig.EXEMPT_FREIGHT.PARAM_VALUE, //运费配置（达到指定支付金额免除运费）
+            //            pay_id: 1, //余额支付
+            //            pay_name: "余额支付", //支付方式名
+            //            cart_id: $scope.cartGoods[0].cart_id, //购物车id
+            //            LEVEL_TO: $scope.orderInfo.LEVEL_TO, //自动升级目标级别
+            //            integral: $scope.orderInfo.integral, //累计积分
+            //            pay_fee: 0, //支付手续费
+            //            insure_fee: 0 //运费险
+            //        }
+            //
+            //
+            //        console.log(orderParams);
+            //
+            //
+            //        //提交订单
+            //        cartOrderService.addCommonPaymentOrder($scope, orderParams, POP, function () {
+            //
+            //            $scope.$apply(function () {
+            //                $rootScope.cartBadge = 0;
+            //            })
+            //
+            //            $state.go('tab.my');
+            //        });
+            //
+            //
+            //    });
+            //
+            //
+            //});
 
 
         });
@@ -191,16 +306,16 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
             var $popBox = $(".popBox");
 
-                $popBox.css({
-                    display: "block"
-                 });
-            $popBox.animate({"bottom":0},300);
+            $popBox.css({
+                display: "block"
+            });
+            $popBox.animate({"bottom": 0}, 300);
 
 
             $(".closeButton").click(function () {
-               // $(".popBg").css("display", "none");
+                // $(".popBg").css("display", "none");
                 $(".popBg").fadeOut(200);
-                $popBox.animate({"bottom":-1000},200);
+                $popBox.animate({"bottom": -1000}, 200);
             });
 
             //在配送方式选择界面选择具体的配送方式
@@ -213,23 +328,23 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
                 var freightParams = {
 
-                    shipping_id: shipping_id,
-                    cart_id: cart_id,
-                    payment_amount: payment_amount
+                        shipping_id: shipping_id,
+                        cart_id: cart_id,
+                        payment_amount: payment_amount
 
-                }
-;
+                    }
+                    ;
 
                 //计算运费
                 cartOrderService.countFreightAction($scope, freightParams, POP, function (freight) {
                     //alert(freightParams['shipping_id']);
 
-if (freightParams['shipping_id'] == 1){
-    $scope.shippingName =  $(".deliveryContent").eq(_index).text();
-}else {
-    $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
+                    if (freightParams['shipping_id'] == 1) {
+                        $scope.shippingName = $(".deliveryContent").eq(_index).text();
+                    } else {
+                        $scope.shippingName = $(".deliveryContent").eq(_index).text() + '¥' + freight;
 
-}
+                    }
                     $scope.expressName = $(".deliveryContent").eq(_index).text(); //物流公司名
                     $scope.amountOrder = $scope.orderInfo.pay_amount + freight;
 
@@ -307,8 +422,7 @@ if (freightParams['shipping_id'] == 1){
         });
 
 
-
-          //是否使用默认支付方式的选择
+        //是否使用默认支付方式的选择
         $(".bottomChoice").click(function () {
             if ($(this).find("img").is(':visible')) {
                 $(this).find("img").hide();

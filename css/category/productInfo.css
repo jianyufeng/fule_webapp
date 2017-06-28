@@ -28,7 +28,7 @@
 }
 .contentBox .scrollBox .productImgBox .productImg img {
   vertical-align: middle;
-  height: 260px;
+  height: 200px;
   width: auto;
 }
 .contentBox .scrollBox .productImgBox .instructions {
@@ -62,7 +62,6 @@
   clear: both;
 }
 .contentBox .scrollBox .productInfoBox .productProperty .productPrice {
-  width: 25%;
   font-size: 22px;
   color: #A82285;
   font-weight: 500;
@@ -74,13 +73,6 @@
   font-size: 15px;
   font-weight: 500;
   margin-left: 2px;
-}
-.contentBox .scrollBox .productInfoBox .productProperty .freight {
-  width: 50%;
-  display: block;
-  float: right;
-  font-size: 10px;
-  color: #C3C4C4;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox {
   background-color: #e4e5e7;
@@ -212,10 +204,7 @@
   line-height: 35px;
   color: white;
 }
-.goodsDetailBox {
-  margin: -6px;
-}
-.goodsDetailBox img {
+#goodsDetailBox img {
   width: 100%;
   height: auto;
 }

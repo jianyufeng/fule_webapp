@@ -6,15 +6,15 @@
 
 define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
-    function ctrl($scope, productInfoService, $stateParams, POP, $state, $ionicSlideBoxDelegate,$ionicTabsDelegate) {
-     $scope.showImg=false;
-     POP.StartLoading();
+    function ctrl($scope, productInfoService, $stateParams, POP, $state, $ionicSlideBoxDelegate, $ionicTabsDelegate, $compile) {
+        $scope.showImg = false;
+        $scope.goodsDetailImg = true;
+        POP.StartLoading();
         $scope.$on('$ionicView.enter', function () {
             $scope.count = 1;
             $scope.cartCount = 0;
-            productInfoService.getProductInfo($scope, $stateParams, POP);
+            productInfoService.getProductInfo($scope, $stateParams, POP, $compile);
             productInfoService.getCartInfo($scope, POP);
-
         });
         $scope.$on('$ionicView.leave', function () {
             $scope.count = 1;
@@ -22,22 +22,18 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
 
         //获取数量手动输入是去焦点
-        $(document).on("blur","#_number",function () {
+        $(document).on("blur", "#_number", function () {
 
-            $("#_number").css('border','1px solid #cccccc');
-
+            $("#_number").css('border', '1px solid #cccccc');
 
 
         });
         //手动输入商品数量获取焦点
-        $(document).on("focus","#_number",function () {
+        $(document).on("focus", "#_number", function () {
 
-            $("#_number").css('border','2px solid #d98bbc');
+            $("#_number").css('border', '2px solid #d98bbc');
 
         });
-
-
-
 
 
         $scope.onSlideChanged = function (index) {
@@ -49,7 +45,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         }
 
         $scope.startPage = function () {
-            productInfoService.startPage($scope, $state,$ionicTabsDelegate);
+            productInfoService.startPage($scope, $state, $ionicTabsDelegate);
         }
         // 减号
         $scope.reduce = function () {
@@ -101,7 +97,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
             $("#_number").val($scope.count);
         }
-        var i=0;
+        var i = 0;
         $scope.$on("viewOnFinish", function () {
             //productInfoService.setImageMargin();
             $scope.myActiveSlide = 0;
@@ -118,7 +114,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
     }
 
 
-    ctrl.$inject = ['$scope', 'productInfoService', '$stateParams', 'POP', '$state', '$ionicSlideBoxDelegate','$ionicTabsDelegate'];
+    ctrl.$inject = ['$scope', 'productInfoService', '$stateParams', 'POP', '$state', '$ionicSlideBoxDelegate', '$ionicTabsDelegate', "$compile"];
     app.registerController('productInfoController', ctrl);
 
 
