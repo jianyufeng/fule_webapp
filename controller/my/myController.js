@@ -37,7 +37,6 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         });
 
 
-
         /*下拉刷新*/
         $scope.doRefresh = function () {
             if (isLogin) {
@@ -50,6 +49,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         $('.loginOutBox').click(function () {
             POP.Confirm("确认退出登录?", function () {
                 $.cookie("userInfo", null, {path: '/'});
+                $.cookie('two_pass_go', null, {path: '/'});
                 $rootScope.cartBadge = 0;
                 $state.go("tab.home");
             });
@@ -74,6 +74,10 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         };
         //跳转界面  奖金币转电子币
         $scope.startJJBZDZB = function () {
+            if (isInputTwo()) { //是否已经输入二级密码
+                $state.go("tab.my-AwardGoldCOINSTransferElectronicToken");
+                return;
+            }
             POP.FormAlert("请输入二级支付密码", $scope, function (v) {
                 var info = User.getInfo();
                 var payParams = {
@@ -82,13 +86,18 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                     type: "SECOND_PASSWORD"
                 };
                 //验证二级密码
-                myService.verifyPayPassword($scope, payParams,POP,function(){
+                myService.verifyPayPassword($scope, payParams, POP, function () {
+                    twoPassGo();  //未输入 存储
                     $state.go("tab.my-AwardGoldCOINSTransferElectronicToken");
                 });
             });
         };
         //跳转界面 管理关系
         $scope.startGLGX = function () {
+            if (isInputTwo()) { //是否已经输入二级密码
+                $state.go("tab.my-manageRelationships");
+                return;
+            }
             POP.FormAlert("请输入二级支付密码", $scope, function (v) {
                 var info = User.getInfo();
                 var payParams = {
@@ -97,13 +106,18 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                     type: "SECOND_PASSWORD"
                 };
                 //验证二级密码
-                myService.verifyPayPassword($scope, payParams,POP,function(){
+                myService.verifyPayPassword($scope, payParams, POP, function () {
+                    twoPassGo();  //未输入 存储
                     $state.go("tab.my-manageRelationships");
                 });
             });
         };
         //跳转界面 服务关系
         $scope.startFWGX = function () {
+            if (isInputTwo()) { //是否已经输入二级密码
+                $state.go("tab.my-serviceRelationship");
+                return;
+            }
             POP.FormAlert("请输入二级支付密码", $scope, function (v) {
                 var info = User.getInfo();
                 var payParams = {
@@ -112,7 +126,8 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                     type: "SECOND_PASSWORD"
                 };
                 //验证二级密码
-                myService.verifyPayPassword($scope, payParams,POP,function(){
+                myService.verifyPayPassword($scope, payParams, POP, function () {
+                    twoPassGo();  //未输入 存储
                     $state.go("tab.my-serviceRelationship");
                 });
             });
@@ -121,6 +136,21 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
         // 跳转到升级界面
         $scope.upGrade = function () {
             myService.upGrade($scope, $state, POP);
+        };
+        //存储二级密码通过验证
+        var twoPassGo = function () {
+            var expiresDate = new Date();
+            expiresDate.setTime(expiresDate.getTime() + (30 * 60 * 1000));
+            $.cookie('two_pass_go', true, {expires: expiresDate, path: '/'});
+        };
+        //获取二级密码通过验证
+        var isInputTwo = function () {
+            var hasInput = $.cookie('two_pass_go');
+            if (hasInput == undefined || hasInput === 'null') {
+                return false;
+            } else {
+                return true;
+            }
         };
 
     }
