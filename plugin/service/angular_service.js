@@ -110,14 +110,13 @@ define(['app'], function (app) {
                 template: '<input type="password" id="pwdInput" style="border: 1px solid #e8e8e8;">',
                 title: msg,
                 scope: $scope,
-                //templateUrl:"passWordPop.html",
                 buttons: [
                     {text: '放弃'},
                     {
                         text: '<b>提交</b>',
                         type: 'button-positive',
                         onTap: function (e) {
-                            var pwdValue = $("#password").val();
+                            var pwdValue = $("#pwdInput").val();
                             if (pwdValue.length <= 0) {
                                 $ionicLoading.show({
                                     showBackdrop: false,
@@ -135,10 +134,10 @@ define(['app'], function (app) {
 
 
 
-            passWordPop.then(function (res) {
-
-                console.log("----------------")
-            });
+            //passWordPop.then(function (res) {
+            //
+            //    console.log("----------------")
+            //});
         }
 
         return service;
