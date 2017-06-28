@@ -84,8 +84,6 @@ define(['app'], function (app) {
                     $scope.amountOrder = orderAmount;                 //合计价格
                     $scope.webConfig = data.webConfig;              //免运费配置/专卖店情况
 
-                    console.log($scope.address);
-
                 });
 
             });
@@ -153,18 +151,37 @@ define(['app'], function (app) {
                 //计算运费
                 service.countFreightAction($scope, freightParams,POP, function (freight) {
 
-                    $scope.shippingName = $scope.deliveryArray[0].shipping_name + '¥' + freight;
-                    $scope.expressName = $scope.deliveryArray[0].shipping_name; //物流公司名
-                    $scope.amountOrder = $scope.orderInfo.pay_amount + freight;
+                    $scope.$apply(function () {
 
-                    if (freight == "免运费") {
-                        $scope.amountOrder = $scope.orderInfo.pay_amount
-                    }
+                        if(freight == "" || freight == null|| freight == undefined){
+                            $scope.shippingName = $scope.deliveryArray[0].shipping_name;
+                            $scope.amountOrder = $scope.orderInfo.pay_amount;
+                            $scope.expressName = $scope.deliveryArray[0].shipping_name; //物流公司名
+                            $(".deliveryBox:eq(0)").find(".deliveryPrice").html();
 
+                        }
+
+                        else {
+
+                            $scope.shippingName = $scope.deliveryArray[0].shipping_name + "¥" + freight;
+                            $scope.expressName = $scope.deliveryArray[0].shipping_name; //物流公司名
+                            if (freight == "免运费") {
+
+                                $scope.amountOrder = $scope.orderInfo.pay_amount
+
+                            } else {
+
+                                    $scope.amountOrder = $scope.orderInfo.pay_amount + freight;
+
+                            }
+                            $(".deliveryBox:eq(0)").find(".deliveryPrice").html("&nbsp;&nbsp;  ¥ " + freight);
+
+                        }
+                    });
                     $(".deliveryBox:eq(0)").children(".deliveryChoice").css("border", "0px");
                     $(".deliveryBox:eq(0)").find(".deliveryChoice img").show();
                     $(".deliveryBox:eq(0)").find(".deliveryPrice").css({visibility: "visible"});
-                    $(".deliveryBox:eq(0)").find(".deliveryPrice").html("&nbsp;&nbsp;  ¥ " + freight);
+
 
                 });
 
@@ -223,30 +240,46 @@ define(['app'], function (app) {
 
         service.countFreightAction = function ($scope,freightParams,POP,fn) {
 
+            if(freightParams.shipping_id == "1" ||freightParams.shipping_id == "23"){
 
-            //更新操作
-            HTTP.post(API.Cart.countFreight, freightParams, function (e, data) {
-                console.log("#############");
-console.log(data);
-                if (e) {
-                    POP.Alert("获取运费失败");
-                    return;
-                }
-                else {
-                    if (data == null) {
-                        data = "免运费";
+                fn("");
+                $scope.$apply(function () {
+                    $scope.deliveryFreight = "";
+                });
+
+            }else {
+
+                //更新操作
+                HTTP.post(API.Cart.countFreight, freightParams, function (e, data) {
+                    console.log("#############");
+                    console.log(data);
+                    if (e) {
+                        POP.Alert("获取运费失败");
+                        return;
+                    }
+                    else {
+                        if (data == undefined || data == null) {
+                            data = "免运费";
+                        }
+                        fn(data);
+                        $scope.$apply(function () {
+
+                            $scope.deliveryFreight = '¥' + data;
+
+                        });
+
+
                     }
 
-                    fn(data);
 
-                    $scope.$apply(function () {
-                        //$scope.deliveryFreight = data;
-                    });
-
-                }
+                });
 
 
-            });
+
+            }
+
+
+
 
         }
 

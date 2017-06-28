@@ -26,7 +26,7 @@ define(['app'], function (app) {
                 if(data.userInfo.headerUrl != undefined && data.userInfo.headerUrl != null && data.userInfo.headerUrl.length >4){
                     $("#usrIcon").attr('src',"http://image.38zs.net:38888" + data.userInfo.headerUrl);
                 }else {
-                    $("#usrIcon").attr('src',"./resource/images/default/user_default_icon.png");
+                    $("#usrIcon").attr('src',"./resource/images/default/morentouxiang.jpg");
                 }
                 // D级别的标准
                 var IS_D = data.config.IS_D;
