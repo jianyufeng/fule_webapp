@@ -240,32 +240,42 @@
 
 }
 
+.loginBgBox_my {
+  width: 100%;
+  height: 250px;
+  background: url("../../resource/images/icon/login_bg.png") no-repeat;
+  background-size: cover;
+
+}
 /*遮盖层*/
 .unLoginBox {
-  vertical-align: middle;
-  margin: 0px auto;
+  margin: 20px auto;
   width: 100%;
   z-index: 99999;
-  position: absolute;
-  top: 50%;
-  margin-top: -180px;
-  height: 360px;
 
-  img {
-    margin:  auto;
-    display: block;
-    width: auto;
-    height: 300px;
-    margin-bottom: 5px;
-  }
-  button {
-    width: 35%;
+
+  #my_login {
+    margin-left: 10%;
+    width: 80%;
     height: 35px;
+    line-height: 35px;
     vertical-align: middle;
     background: #d98bbc;
     border: none;
     border-radius: 5px;
     color: #fff;
+  }
+  #my_register {
+    line-height: 35px;
+    border: solid 1px #d98bbc ;
+    margin-top: 30px;
+    margin-left: 10%;
+    width: 80%;
+    height: 35px;
+    vertical-align: middle;
+    background: #fff;
+    border-radius: 5px;
+    color: #d98bbc;
   }
 
 }

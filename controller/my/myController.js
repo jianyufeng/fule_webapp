@@ -16,24 +16,30 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                 $('.my_loginBox').show();
                 $('.xiala').show();
                 $('.unLoginBoxP').hide();
-                $('.myHeaderBox').hide();
                 /*获取数据*/
                 myService.getMyInfo($scope, POP, false);
             } else {
                 $('.my_loginBox').hide();
                 $('.xiala').hide();
                 $('.unLoginBoxP').show();
-                $('.myHeaderBox').show();
             }
         });
 
-        /*登录 新用户 点击效果*/
-        $(document).off("touchstart", "#my_login,#my_register").on("touchstart", "#my_login,#my_register", function (event) {
-            $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 200);
+        /*登录  点击效果*/
+        $(document).off("touchstart", "#my_login").on("touchstart", "#my_login", function (event) {
+            $(this).css({"background": "#d98bbc"}).transition({"background": "#d9a9cd"}, 200);
         });
 
-        $(document).off("touchend", "#my_login,#my_register").on("touchend", "#my_login,#my_register", function (event) {
-            $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 200);
+        $(document).off("touchend", "#my_login").on("touchend", "#my_login", function (event) {
+            $(this).css({"background": "#d9a9cd"}).transition({"background": "#d98bbc"}, 200);
+        });
+        /* 新用户 点击效果*/
+        $(document).off("touchstart", "#my_register").on("touchstart", "#my_register", function (event) {
+            $(this).css({"border-color": "#d98bbc"}).transition({"border-color": "#d9a9cd"}, 200);
+        });
+
+        $(document).off("touchend", "#my_register").on("touchend", "#my_register", function (event) {
+            $(this).css({"border-color": "#d9a9cd"}).transition({"border-color": "#d98bbc"}, 200);
         });
 
 
