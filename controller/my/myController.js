@@ -84,7 +84,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                 $state.go("tab.my-AwardGoldCOINSTransferElectronicToken");
                 return;
             }
-            POP.FormAlert("请输入二级支付密码", $scope, function (v) {
+            POP.FormAlert("请输入二级密码", $scope, function (v) {
                 var info = User.getInfo();
                 var payParams = {
                     user_id: info.user_id,
@@ -104,7 +104,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                 $state.go("tab.my-manageRelationships");
                 return;
             }
-            POP.FormAlert("请输入二级支付密码", $scope, function (v) {
+            POP.FormAlert("请输入二级密码", $scope, function (v) {
                 var info = User.getInfo();
                 var payParams = {
                     user_id: info.user_id,
@@ -124,7 +124,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                 $state.go("tab.my-serviceRelationship");
                 return;
             }
-            POP.FormAlert("请输入二级支付密码", $scope, function (v) {
+            POP.FormAlert("请输入二级密码", $scope, function (v) {
                 var info = User.getInfo();
                 var payParams = {
                     user_id: info.user_id,
