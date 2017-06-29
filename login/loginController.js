@@ -280,10 +280,10 @@ app.controller("loginController", function ($scope, POP) {
             var userInfo = JSON.stringify(data);
             //判断是否保存登录信息  如果保存则保存7天
             if ($('#saveLogin').is(':checked')) {
-
                 $.cookie('userInfo', userInfo, {expires: 7, path: '/'});
+
             } else {
-                $.cookie("userInfo", userInfo, {path: '/'});
+                $.cookie('userInfo', userInfo, {expires: 1, path: '/'});
             }
             location.href = "../index.html";
 
