@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 禁止用户对屏幕进行缩放-->
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>密码找回</title>
+    <!-- 加载式文件 -->
+    <link rel="stylesheet" href="../retrievePass/retrievePass.css"/>
+    <link rel="stylesheet" href="../../lib/css/ionic.min.css"/>
+    <script src="../../lib/js/jquery.js"></script>
+    <script src="../../lib/js/ionic.bundle.min.js"></script>
+    <script src="../../lib/js/jquery.transit.js"></script>
+    <script src="../../lib/js/jquery.cookie.js"></script>
+    <script src="../util.js"></script>
+    <script src="../retrievePass/retrievePassController.js"></script>
+
+</head>
+<body ng-app="passApp" ng-controller="passController">
+<ion-content style="position: absolute;top: 0px;bottom: 0;left: 0px">
+    <div class="navm">密码找回<a href="../../login/login.html" style="text-decoration:none;">
+        <div class="loginBtn" style="position:absolute;right:0px;top:0px;right:10px;font-size:14px;color:#333;">去登录
+        </div>
+    </a>
+    </div>
+    <div style="position: relative">
+
+        <div class="mi_box">
+            <div class="mi_name">用户名</div>
+            <input class="mi_account" type="text" id="account" placeholder="请输入用户名">
+            <button class="sendBox">
+                发送到手机
+            </button>
+        </div>
+
+        <div class="change_box">
+            <div class="change_mi_box">
+                <div class="mi_name">新密码</div>
+                <input class="mi_account" id="new_mi" type="password" placeholder="6-16位字母、数字组合">
+            </div>
+            <div class="change_mi_box">
+                <div class="mi_name">确认密码</div>
+                <input class="mi_account" id="new_mi_re" type="password" placeholder="请确认新密码">
+            </div>
+            <div class="change_mi_box">
+                <div class="mi_name">短信效验码</div>
+                <input class="mi_account" type="text" id="du_code"placeholder="短信效验码">
+            </div>
+            <div class="changBtn_Box">
+                <button class="changBtn" id="changBtn">
+                    修改
+                </button>
+                <div class="no_re_code"> 没收到效验码？</div>
+            </div>
+        </div>
+    </div>
+
+</ion-content>
+</body>

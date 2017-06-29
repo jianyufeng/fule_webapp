@@ -205,7 +205,7 @@ input {
 .loginOptionBox {
   width: 100%;
   height: 40px;
-  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .loginOptionBox .saveLoginBox {
   float: left;
