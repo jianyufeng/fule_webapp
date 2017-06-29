@@ -92,14 +92,16 @@ app.controller("passController", function ($scope, POP) {
     //汉字正则
     var hzReg = /[^\x00-\xff]/;
     var zmReg = /^[a-zA-Z][a-zA-Z0-9]*$/;
+    var mima = /^[a-zA-Z0-9]*$/;
 
 
-    $(".mi_box").fadeOut();
-    $('.change_box').fadeIn();
+    $(".mi_box").fadeIn();
+    $('.change_box').fadeOut();
 
+    var user_name;
     /*点击发送短信效验码*/
     $('.sendBox').click(function () {
-        var user_name = $.trim($('#account').val());
+        user_name = $.trim($('#account').val());
         //账号不为空
         if (CommenFun.isNullObj(user_name)) {
             POP.Hint("账号不能为空");
@@ -117,11 +119,9 @@ app.controller("passController", function ($scope, POP) {
         sendBox.attr("disabled", true);
         sendBox.text("正在发送...");
         //获取验证码
-
-
-        var url = "http://192.168.10.70:3838/save/save.php/sms/login_verify/user_name/" + user_name;
-        //var url = serverIP + "/_user/getSmsCode/user_name/" + user_name;
+        var url = serverIP + "/sms/login_verify/user_name/" + user_name;
         HTTP.get(url, {}, function (e, data) {
+            console.log(data);
             if (e) {
                 POP.Hint("短信验证码发送失败，请重新尝试");
                 sendBox.removeAttr("disabled");
@@ -131,14 +131,14 @@ app.controller("passController", function ($scope, POP) {
             //更改密码
             $('.mi_box').fadeOut();
             $(".change_box").fadeIn();
-            POP.Hint(data);
+            sendBox.text("发送短信效验码");
+            sendBox.removeAttr("disabled");
+            $('#ch_account').val(user_name);
         });
     });
+
     /*修改*/
     $('#changBtn').click(function () {
-        //获取新密码
-
-
         //获取密码
         var password = $('#new_mi').val();
         //密码不为空
@@ -150,7 +150,7 @@ app.controller("passController", function ($scope, POP) {
             POP.Hint("密码长度不正确");
             return;
         }
-        if (hzReg.test(password)) {
+        if (!mima.test(password)) {
             POP.Hint("密码格式不正确");
             return;
         }
@@ -158,24 +158,23 @@ app.controller("passController", function ($scope, POP) {
         var password_r = $('#new_mi_re').val();
         //密码不为空
         if (CommenFun.isNullObj(password_r)) {
-            POP.Hint("密码不能为空");
+            POP.Hint("确认密码不能为空");
             return;
         }
         if (password_r.length < 6 || password_r.length > 16) {
-            POP.Hint("密码长度不正确");
+            POP.Hint("确认密码长度不正确");
             return;
         }
-        if (hzReg.test(password_r)) {
-            POP.Hint("密码格式不正确");
+        if (!mima.test(password_r)) {
+            POP.Hint("确认密码格式不正确");
             return;
         }
         if (password_r != password) {
-            POP.Hint("重复输入的密码不一致");
+            POP.Hint("密码不一致");
             return
         }
-
         //获取手机验证码
-        var code = $.trim($('#code').val());
+        var code = $.trim($('#du_code').val());
         //手机验证码不为空
         if (CommenFun.isNullObj(code)) {
             POP.Hint("验证码不能为空");
@@ -187,13 +186,16 @@ app.controller("passController", function ($scope, POP) {
         }
         if (code.length != 6) {
             POP.Hint("验证码长度不正确");
+            return
         }
         //提交修改
-        var url = serverIP + "/_user/login";
+        var url = serverIP + "/_user/findPassword";
         //登录的参数
         var param = {
+            'new_password': password,
+            'repeat_password': password_r,
             'user_name': user_name,
-            'password': password,
+            'verification_code': code
         };
         POP.StartLoading();
         HTTP.post(url, param, function (e, data) {
@@ -206,23 +208,15 @@ app.controller("passController", function ($scope, POP) {
                 POP.Hint(data);
                 return;
             }
-
-            //
-            //var userInfo = JSON.stringify(data);
-            ////判断是否保存登录信息  如果保存则保存7天
-            //if ($('#saveLogin').is(':checked')) {
-            //
-            //    $.cookie('userInfo', userInfo, {expires: 7, path: '/'});
-            //} else {
-            //    $.cookie("userInfo", userInfo, {path: '/'});
-            //}
-            //location.href = "../index.html";
-
-
+            POP.Hint('修改成功，请登录');
+            setTimeout(function () {
+                location.href = "../login.html";
+                $('input').val("");
+            }, 2000);
         })
-
     });
-    //输入框聚焦变换
+
+//输入框聚焦变换
     $(document).off('focus', '.mi_account,').on('focus', '.mi_account', function () {
         $(this).css("border", "solid 1px #d98bbc");
     });
@@ -231,7 +225,15 @@ app.controller("passController", function ($scope, POP) {
     });
 
 
-    /*登录 点击效果*/
+    /*获取码 点击效果*/
+    $(document).off("touchstart", "#mi_sendBox").on("touchstart", "#mi_sendBox", function (event) {
+        $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 200);
+    });
+
+    $(document).off("touchend", "#mi_sendBox").on("touchend", "#mi_sendBox", function (event) {
+        $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 200);
+    });
+    /*修改 点击效果*/
     $(document).off("touchstart", "#changBtn").on("touchstart", "#changBtn", function (event) {
         $(this).css({background: "#d98bbc"}).transition({background: "#d9a9cd"}, 200);
     });
@@ -240,5 +242,6 @@ app.controller("passController", function ($scope, POP) {
         $(this).css("background", "#d9a9cd").transition({background: "#d98bbc"}, 200);
     });
 
-});
+})
+;
 

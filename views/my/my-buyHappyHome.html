@@ -1,6 +1,31 @@
 <ion-view view-title="购买喜乐之家" hide-tabs="true" hide-nav-bar="{{isNavShow}}">
     <navigation-bar is-back="true" title="购买喜乐之家"></navigation-bar>
     <div class="goToTop"><i class="icon ion-arrow-up-c"></i>顶部</div>
+    <div class="popup-container " id="myPop" style="background-color: rgba(0, 0, 0, 0.3)">
+        <div class="popup" style="opacity: 1;background-color: white">
+            <div class="popup-head" style="background-color: white">请输入密码</div>
+            <div class="popup-body" style="background-color: white">
+                <div class="passwordDiv" style="margin-top: 20px;margin-left: 10px">
+                    <label for="ipt" class="passwordLabel">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </label>
+                    <input type="password" id="ipt" name="password" maxlength="6">
+                </div>
+
+            </div>
+            <div id="button" class="popup-buttons" style="background-color: white">
+                <button id="nor">放弃</button>
+                <button id="pos">确认</button>
+            </div>
+        </div>
+    </div>
     <ion-content scroll="false"  id="bhh_ContentBox">
         <div class="bhh_Box" new-set-window-height="">
             <div class="bhh_buyListBox">

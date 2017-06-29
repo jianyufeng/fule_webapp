@@ -28,12 +28,16 @@
         <div class="mi_box">
             <div class="mi_name">用户名</div>
             <input class="mi_account" type="text" id="account" placeholder="请输入用户名">
-            <button class="sendBox">
+            <button class="sendBox" id="mi_sendBox">
                 发送到手机
             </button>
         </div>
 
         <div class="change_box">
+            <div class="change_mi_box">
+                <div class="mi_name">用户名</div>
+                <input class="mi_account" id="ch_account" type="text"  readonly>
+            </div>
             <div class="change_mi_box">
                 <div class="mi_name">新密码</div>
                 <input class="mi_account" id="new_mi" type="password" placeholder="6-16位字母、数字组合">
@@ -50,7 +54,6 @@
                 <button class="changBtn" id="changBtn">
                     修改
                 </button>
-                <div class="no_re_code"> 没收到效验码？</div>
             </div>
         </div>
     </div>

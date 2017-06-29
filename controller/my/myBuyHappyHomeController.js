@@ -197,6 +197,68 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
         inputKeyUp = function (t) {
             t.value = t.value.replace(/\D/g, '');
         };
+        //密码框输入事件
+        $('.passwordDiv input').on('input', function (e) {
+            var number = 6;
+            var pw = $("input[name = 'password']").val();
+            var list = $('.passwordDiv ul li');
+            for (var i = 0; i < number; i++) {
+                if (pw[i]) {
+                    $(list[i]).text('•');
+                } else {
+                    $(list[i]).text('');
+                }
+            }
+            console.log(pw);
+        });
+        //点击密码框清除密码
+        $('.passwordDiv ul').click(function () {
+            //alert(33333333333);
+            $("input[name = 'password']").val('');
+            $('#password').focus();
+            $('.passwordDiv ul li').text('')
+        });
+        //密码取消
+        $("#nor").click(function () {
+            $("#myPop").removeClass("popup-showing");
+            $("#myPop").removeClass("active");
+            $("input[name = 'password']").val('');
+            $('#password').focus();
+            $('.passwordDiv ul li').text('')
+        });
+        //创建提交信息
+        var info = User.getInfo();
+        //密码提交
+        $("#pos").click(function () {
+            var pw = $("#ipt").val();
+            if (pw == null || pw.length < 6) {
+                POP.Hint("密码格式不正确");
+                return false;
+            }
+            //验证密码
+            var pars = {
+                'user_id': info.user_id,
+                'password': pw,
+                'type': 'THREE_PASSWORD'
+            };
+            myBuyHappyHomeServer.verifyPayPassword($scope, pars, POP, function () {
+                //密码验证成功后的回调
+                var p = {
+                    'config_id': configId,
+                    'user_id': info.user_id,
+                    'log_id': id
+                };
+                myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
+                    //购买完毕
+                    POP.Hint("购买成功");
+                    $ionicHistory.clearCache();
+                    setTimeout(function () {
+                        $state.go('tab.my');
+                    }, 1000);
+                })
+            })
+
+        });
         //点击保存按钮
         $(".bhh_saveBox").click(function () {
             //检测是否有库存不足 根据是否包含类名 canotSave
@@ -271,8 +333,6 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
                         goods_infos.push(goodInfo);
                     }
                 });
-            //创建提交信息
-            var info = User.getInfo();
             var paras = {
                 'order_info': {
                     'address_id': addressId,
@@ -289,30 +349,33 @@ define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
             //提交订单
             myBuyHappyHomeServer.saveOrderForm(paras, $scope, POP, function () {
                 //提交成功的回调  弹框验证密码
-                POP.FormAlert('请输入支付密码', $scope, function (psw) {
-                    //验证密码
-                    var pars = {
-                        'user_id': info.user_id,
-                        'password': psw,
-                        'type': 'THREE_PASSWORD'
-                    };
-                    myBuyHappyHomeServer.verifyPayPassword($scope, pars, POP, function () {
-                        //密码验证成功后的回调
-                        var p = {
-                            'config_id': configId,
-                            'user_id': info.user_id,
-                            'log_id': id
-                        };
-                        myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
-                            //购买完毕
-                            POP.Hint("购买成功");
-                            $ionicHistory.clearCache();
-                            setTimeout(function () {
-                                $state.go('tab.my');
-                            }, 1000);
-                        })
-                    })
-                });
+                $("#myPop").addClass("popup-showing");
+                $("#myPop").addClass("active");
+
+                //POP.FormAlert('请输入支付密码', $scope, function (psw) {
+                //    //验证密码
+                //    var pars = {
+                //        'user_id': info.user_id,
+                //        'password': psw,
+                //        'type': 'THREE_PASSWORD'
+                //    };
+                //    myBuyHappyHomeServer.verifyPayPassword($scope, pars, POP, function () {
+                //        //密码验证成功后的回调
+                //        var p = {
+                //            'config_id': configId,
+                //            'user_id': info.user_id,
+                //            'log_id': id
+                //        };
+                //        myBuyHappyHomeServer.happlyOver(p, $scope, POP, function () {
+                //            //购买完毕
+                //            POP.Hint("购买成功");
+                //            $ionicHistory.clearCache();
+                //            setTimeout(function () {
+                //                $state.go('tab.my');
+                //            }, 1000);
+                //        })
+                //    })
+                //});
             });
         })
     }

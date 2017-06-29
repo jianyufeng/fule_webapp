@@ -244,7 +244,7 @@ app.controller("loginController", function ($scope, POP) {
                 return;
             }
             if (code.length != 6) {
-                POP.Hint("验证码长度不正确");
+                //POP.Hint("验证码长度不正确");
                 verification_mode = "CIPHER"
             } else {
                 verification_mode = "CODE"
