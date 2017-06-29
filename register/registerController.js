@@ -459,6 +459,7 @@ console.log(data);
     $('#account').blur(function () {
         $('#nameIcon').attr("src", "../resource/images/icon/user_headhover.png");
     });
+    
 
     $('#mailbox').focus(function () {
         $('#mailIcon').attr("src", "../resource/images/icon/email_hover.png");
