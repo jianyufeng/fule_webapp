@@ -11,7 +11,11 @@
                  ng-click="changCategoryList(categoryItem.category_id,categoryItem.category_name,$index)"
                  id="item{{$index}}"
             >
-                <div class="categoryImageBox">
+                <div class="categoryImageBox2" ng-if="categoryItem.category_id == -1">
+                    <img src="./resource/images/icon/allCategory.png"
+                         style="display: block;width: 45px;height: 45px;margin: 0 auto"/>
+                </div>
+                <div class="categoryImageBox" ng-if="categoryItem.category_id != -1">
                     <img src="./resource/images/default/default_image.png"
                          data-original='{{categoryItem.category_img}}'/>
                 </div>
