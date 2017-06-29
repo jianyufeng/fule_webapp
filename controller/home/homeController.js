@@ -26,10 +26,10 @@ define(['app', 'jquery_fly'],function(app,home_fun){
 						$scope.hotGoodsData  = data.hotGoods.data;
 						$scope.newsGoodsData = data.newGoods.data;
 					});
-					$(".homeImage_0 img").myImageLazyLoad({});
-					$(".homeImage_1 img").myImageLazyLoad({});
-					$(".homeImage_2 img").myImageLazyLoad({});
-					$(".homeImage_3 img").myImageLazyLoad({});
+					$(".homeImage_0 img").myImageLazyLoad({imgSize:true});
+					$(".homeImage_1 img").myImageLazyLoad({imgSize:true});
+					$(".homeImage_2 img").myImageLazyLoad({imgSize:true});
+					$(".homeImage_3 img").myImageLazyLoad({imgSize:true});
 					$(".homeImage_4 img").myImageLazyLoad({});
 					$(".homeImage_5 img").myImageLazyLoad({});
 					$(".homeImage_6 img").myImageLazyLoad({});
