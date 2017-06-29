@@ -23,7 +23,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         });
 
-        $scope.on('$ionicView.leave', function () {
+        $scope.$on('$ionicView.leave', function () {
             // 清理弹出框缓存
             $("input[name = 'password']").val('');
             $('#password').focus();
