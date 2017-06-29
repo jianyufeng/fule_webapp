@@ -39,7 +39,7 @@
   text-align: center;
 }
 .contentBox .scrollBox .productImgBox .instructions div {
-  margin-left: 45%;
+  margin-left: 43%;
 }
 .contentBox .scrollBox .productImgBox .instructions div img {
   display: block;
@@ -204,7 +204,7 @@
   border-radius: 25px;
   margin-left: 5%;
   text-align: center;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 35px;
   color: white;
 }
