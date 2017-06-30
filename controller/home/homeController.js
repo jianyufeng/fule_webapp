@@ -36,10 +36,6 @@ define(['app', 'jquery_fly'],function(app,home_fun){
 					$(".homeImage_7 img").myImageLazyLoad({});
 					$(".homeImage_8 img").myImageLazyLoad({});
 
-					console.log($scope.hotGoodsData)
-					console.log($scope.newsGoodsData)
-					// $(".newGoodsImage img").myImageLazyLoad({});
-					// $(".newGoodsImage2 img").myImageLazyLoad({});
 
 				})
 			
@@ -118,6 +114,13 @@ define(['app', 'jquery_fly'],function(app,home_fun){
             return false;
 
         });
+
+
+
+
+		$scope.goSearchVC = function(){
+			$state.go("tab.homeSearch", {});
+		};
 
 
 

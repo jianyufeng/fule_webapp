@@ -46,8 +46,16 @@ define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function 
             console.log("index : "+ _idx);
             console.log("id : " + _id);
 
-           // 删除购买记录
-            myHappyHomeLogsService.deleteHappyHomeLogs($scope,POP,_id,_idx);
+
+            POP.Confirm("确认删除掉当前购买记录?",function () {
+
+                // 删除购买记录
+                myHappyHomeLogsService.deleteHappyHomeLogs($scope,POP,_id,_idx);
+
+
+            })
+
+
 
 
         })
