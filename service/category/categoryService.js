@@ -22,10 +22,12 @@ define(['app'], function (app) {
                     // 添加全部
                     var last = new Object();
                     last.category_id = -1;
-                    last.category_img = "";
+                    last.category_img = "resource/icon/allCategory.png";
                     last.category_name = "全部"
-                    $scope.categorys = data.categoryInfo;
-                    $scope.categorys.push(last);
+                    var array = [];
+                    array = data.categoryInfo;
+                    array.unshift(last);
+                    $scope.categorys = array;
                     $scope.productArray = data.goodsInfo.data;
                     $scope.allProduct = data.goodsInfo.data;
                     var a = data.categoryInfo;
@@ -69,6 +71,7 @@ define(['app'], function (app) {
             console.log("refreshCaregoryId" + refreshCaregoryId)
             //点击全部
             if (categoryId == -1) {
+                console.log("全部")
                 console.log($scope.allProduct);
                 $scope.productArray = $scope.allProduct;
                 $scope.categoryName = "全部";
@@ -81,9 +84,7 @@ define(['app'], function (app) {
                 //POP.StartLoading();
                 HTTP.get(API.Category.category + "/category_id/" + categoryId, {}, function (e, data) {
                     if (e) {
-                        //$.loadError(function () {
-                        //    service.getCategoryGoodsList();
-                        //});
+
                         return;
                     }
 
@@ -143,6 +144,30 @@ define(['app'], function (app) {
             console.log("当前的index=" + refreshIndex);
             if (refreshCaregoryId == -1) {
                 //请求全部
+                HTTP.get(API.Category.category, {}, function (e, data) {
+                    if (e) {
+                        return;
+                    }
+                    $scope.$apply(function () {
+                        // 添加全部
+                        $scope.$broadcast('scroll.refreshComplete');
+                        // 添加全部
+                        var last = new Object();
+                        last.category_id = -1;
+                        last.category_img = "resource/icon/allCategory.png";
+                        last.category_name = "全部"
+                        var array = [];
+                        array = data.categoryInfo;
+                        array.unshift(last);
+                        $scope.categorys = array;
+                        $scope.productArray = data.goodsInfo.data;
+                        $scope.allProduct = data.goodsInfo.data;
+                        $scope.$broadcast('clearCache');
+                    });
+
+                });
+
+                return;
             }
             HTTP.get(API.Category.category + "/category_id/" + refreshCaregoryId, {}, function (e, data) {
                 if (e) {
@@ -156,7 +181,10 @@ define(['app'], function (app) {
                     last.category_id = -1;
                     last.category_img = "";
                     last.category_name = "全部"
-                    $scope.categorys = data.categoryInfo;
+                    var array = [];
+                    array = data.categoryInfo;
+                    array.unshift(last);
+                    $scope.categorys = array;
                     $scope.categorys.push(last);
                     $scope.productArray = data.goodsInfo.data;
                     $scope.categoryName = refreshCaregoryName;

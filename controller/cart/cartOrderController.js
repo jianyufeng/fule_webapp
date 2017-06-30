@@ -19,11 +19,16 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         $scope.$on('$ionicView.beforeEnter', function () {
             $(".popBg,.popBox").css("display", "none");
 
-
             cartOrderService.getPartOrderInfo($scope, POP);
 
         });
 
+        $scope.$on('$ionicView.leave', function () {
+            // 清理弹出框缓存
+            $("input[name = 'password']").val('');
+            $('#password').focus();
+            $('.passwordDiv ul li').text('')
+        });
 
         // 接收传值页面传过来的地址内容
         $rootScope.$on('changeAddressInfo', function (event, args) {
@@ -130,13 +135,13 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             }
             //验证密码
             cartOrderService.verifyPayPassword($scope, payParams, POP, function () {
-                var deliveryFit = 0 ;
+                var deliveryFit = 0;
                 var delivery = $scope.deliveryFreight;
-                if(delivery == "" || delivery.indexOf("免运费")>0){
+                if (delivery == "" || delivery.indexOf("免运费") > 0) {
                     deliveryFit = 0;
 
-                }else {
-                    deliveryFit = delivery.substr(1,delivery.length);
+                } else {
+                    deliveryFit = delivery.substr(1, delivery.length);
                 }
                 var orderParams = {
                     user_id: info.user_id, //用户id

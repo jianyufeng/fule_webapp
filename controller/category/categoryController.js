@@ -35,22 +35,18 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
             //更换产品列表
             $scope.changCategoryList = function (categoryId, categoryName, index) {
-                POP.StartLoading();
-                setTimeout(function () {
-                    POP.EndLoading();
-                }, 2000);
+                //POP.StartLoading();
+                //setTimeout(function () {
+                //    POP.EndLoading();
+                //}, 2000);
                 categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName, index);
             };
             // 下拉刷新
             $scope.doRefresh = function () {
                 categoryService.Refresh($scope);
             }
-
-
         });
-
         $scope.$on("viewOnFinish", function () {
-            console.log(111111);
             //POP.EndLoading();
             $(".goodsImg img").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数

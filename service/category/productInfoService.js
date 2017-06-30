@@ -10,10 +10,11 @@ define(['app'], function (app) {
         var goodsId;
         var pri;
         // 获取产品详情
-        service.getProductInfo = function ($scope, $stateParams, POP,$compile) {
+        service.getProductInfo = function ($scope, $stateParams, POP, $compile) {
             POP.StartLoading();
             HTTP.get(API.Category.productInfo + "/goods_id/" + $stateParams.goodsId, {}, function (e, data) {
                 POP.EndLoading();
+
                 if (e) {
                     console.log(e);
                     $.loadError(function () {
@@ -21,8 +22,6 @@ define(['app'], function (app) {
                     });
                     return;
                 }
-
-
                 $scope.$apply(function () {
                     var goodsInfo = data.goodsInfo.data.shift();
                     // 商品的轮播图
@@ -48,17 +47,14 @@ define(['app'], function (app) {
                     var index = pri.indexOf(".");
                     $scope.productPrice_I = pri.substr(0, index);
                     $scope.productPrice_F = pri.substr(index, pri.length);
-
                     // 商品的详情图
                     var str = data.goodsDetail[0].detail_text;
-                    console.log(66666666666);
-                    console.log(str);
-                    if(str!=null&&str.length>0){
+                    if (str != null && str.length > 0) {
                         //正则替换
                         str = str.replace(/Image_Image/, "image.38zs.net:38888");
-                        var test = $compile(str)($scope);
-                        $("#goodsDetailBox").append(test);
+                        $("#goodsDetailBox").append(str);
                         $scope.goodsDetailImg = false;
+                        console.log($scope.goodsDetailImg);
                     }
                     // 商品购买的最大数量
                     if (goodsInfo.limit_num > 0) {
