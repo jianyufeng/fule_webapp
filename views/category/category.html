@@ -1,6 +1,6 @@
 <ion-view view-title="商品" hide-nav-bar="{{isNavShow}}">
     <navigation-bar title="分类"></navigation-bar>
-    <ion-content class="content" style="width:100%;position:absolute;top: 60px;">
+    <ion-content class="content" style="width:100%;position:absolute;top: 60px;" delegate-handle="small" >
         <ion-refresher
                 pulling-text="下拉刷新..."
                 on-refresh="doRefresh()">
@@ -32,8 +32,6 @@
                 <span>{{categoryName}}</span>
             </div>
         </div>
-
-
         <!-- 商品列表-->
         <div class="product_list">
             <div class="product_item" ng-repeat="productInfo in productArray" view-on-finish
