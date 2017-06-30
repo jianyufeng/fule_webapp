@@ -2,6 +2,8 @@ define(['app','jquery_fly'],function(app){
 
 	function ctrl($scope,$ionicHistory,POP,$state,$rootScope){
 
+		
+
 		$scope.$on("$ionicView.enter",function(){
 			console.log($rootScope.searchGoodsKeyName);
 			if($rootScope.searchGoodsKeyName != undefined){
@@ -30,7 +32,7 @@ define(['app','jquery_fly'],function(app){
 			}
 		});
 
-		$("#seachInput").focus();
+		//$("#seachInput").focus();
 
 		//搜索后退
 		$scope.searchBackBtn = function(){
@@ -84,6 +86,10 @@ define(['app','jquery_fly'],function(app){
 			});
          
         });
+
+		// $(document).on("click", ".inputSearch", function () {
+		// 	alert(1);
+		// });
 
 
 		$(document).on("click", ".goodsItem", function () {
