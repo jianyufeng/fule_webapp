@@ -115,6 +115,7 @@
   height: 100px;
   margin-top: 10px;
   padding-bottom: 30px;
+  text-align: center;
 }
 .productListBox .leftProductBox .productImage img {
   width: 90%;
@@ -197,6 +198,7 @@
   width: 100%;
   height: 100px;
   margin-top: 10px;
+  text-align: center;
 }
 .productListBox2 .leftProductBox .productImage img {
   width: 90%;
@@ -236,6 +238,7 @@
   width: 100%;
   height: 100px;
   margin-top: 10px;
+  text-align: center;
 }
 .productListBox3 .leftProductBox .productImage img {
   width: 90%;
@@ -337,7 +340,7 @@
   height: 180px;
 }
 .recommendGoodsBox .recommendGoodsItem .recommendGoodsItemBox .recommendImage img {
-  width: 80%;
+  width: auto;
   height: 80%;
   margin-left: 10%;
 }
