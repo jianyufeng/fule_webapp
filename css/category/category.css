@@ -76,12 +76,12 @@
   float: left;
 }
 .content .product_list .product_item {
-  width: 50%;
-  padding: 0 5px;
-  height: 230px;
-  margin-bottom: 5px;
+  width: 48%;
+  height: 220px;
+  margin-right: 2%;
   float: left;
   position: relative;
+  margin-bottom: 2%;
 }
 .content .product_list .product_item .backgroudBox {
   width: 95%;
