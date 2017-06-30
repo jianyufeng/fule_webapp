@@ -59,12 +59,15 @@ define(['app'], function (app) {
                     if (data.userInfo.ZHUAN_MAI_DIAN_GRADE > 0) {
                         //专卖店 或 旗舰店
                         $('.isNotRegister').show();
+                        $('#emptyFull').hide();
                     } else if (data.userInfo.REGISTER_GRADE < 1) {
                         //是注册会员
                         $('.isNotRegister').hide();
+                        $('#emptyFull').show(); //补齐空格
                     } else {
                         //其他等级的会员
                         $('.isNotRegister').show();
+                        $('#emptyFull').hide();  //
                     }
                     if (lv < 4) {
                         // 判断一键升级
