@@ -67,7 +67,8 @@
   padding: 0;
   margin: 0;
 }
-input{
+
+input {
   border: none;
   outline: none;
 }
@@ -154,7 +155,7 @@ input{
       bottom: (@h/2 - 25px)/2 - 3px;
 
       .account {
-        .wh(100%,30px);
+        .wh(100%, 30px);
         .border(b);
       }
 
@@ -198,7 +199,7 @@ input{
         bottom: 0;
         right: 0;
         left: 0;
-       border: solid 1px #eee;
+        border: solid 1px #eee;
         border-radius: 5px;
         .pl(40px);
 
@@ -217,10 +218,10 @@ input{
       font-size: 13px;
       border: none;
     }
-    .sendBox:disabled{
+    .sendBox:disabled {
       .bc(#d9a9cd);
     }
-    .sendBox:active{
+    .sendBox:active {
       .bc(#d95067);
     }
   }
@@ -338,27 +339,32 @@ input{
   }
 }
 
- .registBox {
-  padding-top: 20px;
-  margin: auto;
-  @h: 80px;
-  .wh(50%, @h);
-  color: #afafaf;
-  text-align: center;
-  .f();
-}
- .lineV{
-   margin-top: 16px;
-   .f();
-   background-color: #eee;
-   .wh(1px,30px);
- }
-.goHomeBox {
-  padding-top: 20px;
-  margin: auto;
-  @h: 80px;
-  .wh(49%, @h);
-  color: #afafaf;
-  text-align: center;
-  .f();
+.go_otherBox {
+  width: 100%;
+  height: 80px;
+
+  .registBox {
+    padding-top: 20px;
+    margin: auto;
+    @h: 80px;
+    .wh(50%, @h);
+    color: #afafaf;
+    text-align: center;
+    .f();
+  }
+  .lineV {
+    margin-top: 16px;
+    .f();
+    background-color: #eee;
+    .wh(1px, 30px);
+  }
+  .goHomeBox {
+    padding-top: 20px;
+    margin: auto;
+    @h: 80px;
+    .wh(49%, @h);
+    color: #afafaf;
+    text-align: center;
+    .f();
+  }
 }
