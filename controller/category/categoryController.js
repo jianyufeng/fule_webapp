@@ -1,6 +1,6 @@
 define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
-    function ctrl($scope, $rootScope, categoryService, POP, $state) {
+    function ctrl($scope, $rootScope, categoryService, POP, $state,$ionicScrollDelegate) {
 
         $rootScope[$state.current.name] = {};
 
@@ -39,6 +39,9 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
                 //setTimeout(function () {
                 //    POP.EndLoading();
                 //}, 2000);
+
+               // $scope.doRefresh();
+                smallToTop();
                 categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName, index);
             };
             // 下拉刷新
@@ -46,6 +49,10 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
                 categoryService.Refresh($scope);
             }
         });
+
+        var smallToTop =function() {
+            $ionicScrollDelegate.$getByHandle('small').scrollTop();
+        };
         $scope.$on("viewOnFinish", function () {
             //POP.EndLoading();
             $(".goodsImg img").myImageLazyLoad({
@@ -85,7 +92,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
     }
 
-    ctrl.$inject = ['$scope', '$rootScope', 'categoryService', 'POP', '$state'];
+    ctrl.$inject = ['$scope', '$rootScope', 'categoryService', 'POP', '$state','$ionicScrollDelegate'];
     app.registerController('categoryController', ctrl);
 
 

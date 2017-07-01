@@ -24,6 +24,11 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         //获取数量手动输入是去焦点
         $(document).on("blur", "#_number", function () {
 
+            var num = $("#_number").val();
+            if (num == null || num == ""||num=="0") {
+                POP.Hint("商品数量不能小于1");
+                $("#_number").val(1);
+            }
             $("#_number").css('border', '1px solid #cccccc');
 
 
