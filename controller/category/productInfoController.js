@@ -25,7 +25,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         $(document).on("blur", "#_number", function () {
 
             var num = $("#_number").val();
-            if (num == null || num == "") {
+            if (num == null || num == ""||num=="0") {
                 POP.Hint("商品数量不能小于1");
                 $("#_number").val(1);
             }
