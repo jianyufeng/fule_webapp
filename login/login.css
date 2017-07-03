@@ -242,7 +242,11 @@ input {
   line-height: 40px;
   letter-spacing: 5px;
 }
-.registBox {
+.go_otherBox {
+  width: 100%;
+  height: 80px;
+}
+.go_otherBox .registBox {
   padding-top: 20px;
   margin: auto;
   width: 50%;
@@ -251,14 +255,14 @@ input {
   text-align: center;
   float: left;
 }
-.lineV {
+.go_otherBox .lineV {
   margin-top: 16px;
   float: left;
   background-color: #eee;
   width: 1px;
   height: 30px;
 }
-.goHomeBox {
+.go_otherBox .goHomeBox {
   padding-top: 20px;
   margin: auto;
   width: 49%;

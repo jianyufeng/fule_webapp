@@ -161,10 +161,10 @@ app.controller("loginController", function ($scope, POP) {
         location.href = "retrievePass/retrievePass.html";
     });
     //聚焦
-    setTimeout(function () {
-            $('#account').focus();
-        }
-        , 500);
+    //setTimeout(function () {
+    //        $('#account').focus();
+    //    }
+    //    , 500);
 
 
     /*登录*/
