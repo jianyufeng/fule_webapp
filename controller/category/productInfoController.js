@@ -25,19 +25,15 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         $(document).on("blur", "#_number", function () {
 
             var num = $("#_number").val();
-            if (num == null || num == ""||num=="0") {
+            if (num == null || num == "" || num == "0") {
                 POP.Hint("商品数量不能小于1");
                 $("#_number").val(1);
             }
             $("#_number").css('border', '1px solid #cccccc');
-
-
         });
         //手动输入商品数量获取焦点
         $(document).on("focus", "#_number", function () {
-
             $("#_number").css('border', '2px solid #d98bbc');
-
         });
 
 
