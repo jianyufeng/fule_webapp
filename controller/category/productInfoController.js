@@ -20,7 +20,6 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
             $scope.count = 1;
         });
 
-
         //获取数量手动输入是去焦点
         $(document).on("blur", "#_number", function () {
 

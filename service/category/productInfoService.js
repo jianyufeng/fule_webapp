@@ -51,7 +51,7 @@ define(['app'], function (app) {
                     var str = data.goodsDetail[0].detail_text;
                     if (str != null && str.length > 0) {
                         //正则替换
-                        str = str.replace(/Image_Image/, "image.38zs.net:38888");
+                        str = str.replace(/Image_Image/g, "image.38zs.net:38888");
                         $("#goodsDetailBox").append(str);
                         $scope.goodsDetailImg = false;
                         console.log($scope.goodsDetailImg);
