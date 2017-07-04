@@ -47,12 +47,11 @@ define(['app'], function (app) {
                     console.log(listA.length);
                     console.log(listB.length);
                     console.log(listC.length);
-
-
-                    if (data.data.length <= 0) {
-                        $scope.isEmptyData = true;
-                    } else {
+                    // fix  ShareLock   修改显示的空列表的逻辑 2017-7-4
+                    if (listA != undefined & listA != null & listA.length > 0) {
                         $scope.isEmptyData = false;
+                    } else {
+                        $scope.isEmptyData = true;
                     }
 
                 });
