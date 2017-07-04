@@ -49,10 +49,15 @@ define(['app'], function (app) {
         service.showDef = function (index) {
             var id = "item" + index;
             $(".category_top_list_item").find(".categoryImgBack").css(
-                "background-color", "#FFFFFF"
+                {
+                    "background-color": "#FFFFFF",
+                    "border": "1px #e7c6df solid"
+                }
             )
             $("#" + id).find(".categoryImgBack").css(
-                "background-color", "#F5E9F3"
+                {
+                    "background-color": "#F5E9F3", "border": "0px"
+                }
             );
             $(".categoryName").css("color", "#999999");
             $(".categoryName").eq(index).css("color", "#D39AC5");
@@ -130,7 +135,7 @@ define(['app'], function (app) {
         service.Refresh = function ($scope) {
             console.log(55555555555555555);
             console.log("当前的index=" + refreshIndex);
-            console.log("当前的分类Id是："+refreshCaregoryId);
+            console.log("当前的分类Id是：" + refreshCaregoryId);
             if (refreshCaregoryId == -1) {
                 //请求全部
                 HTTP.get(API.Category.category, {}, function (e, data) {
@@ -165,7 +170,7 @@ define(['app'], function (app) {
                     return;
                 }
                 $scope.$apply(function () {
-                    console.log("请求的不是全部当前的分类Id是"+refreshCaregoryId);
+                    console.log("请求的不是全部当前的分类Id是" + refreshCaregoryId);
                     $scope.$broadcast('scroll.refreshComplete');
                     // 添加全部
                     var last = new Object();
