@@ -207,7 +207,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             //         return;
             //     }
             // }
-            
+
             var info = User.getInfo();
 
             var newParams = {
