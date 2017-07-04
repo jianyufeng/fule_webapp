@@ -13,6 +13,14 @@ define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
             myRechargeableCardListService.getAList($scope, POP, userId);
 
         });
+        // fix  ShareLock   修改显示的空列表的逻辑 2017-7-4
+        function showEmpty(list) {
+            if (list != undefined & list != null & list.length > 0) {
+                $scope.isEmptyData = false;
+            } else {
+                $scope.isEmptyData = true;
+            }
+        }
         $scope.show = function (index) {
             if (index == 1) {
                 $(".ACard").css('color', '#D39AC5');
@@ -21,6 +29,7 @@ define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
                 $("#listA").css('display', 'block');
                 $("#listB").css('display', 'none');
                 $("#listC").css('display', 'none');
+                showEmpty($scope.rechargeableCardAList)
             } else if (index == 2) {
                 $(".BCard").css('color', '#D39AC5');
                 $(".ACard").css('color', 'black');
@@ -28,6 +37,7 @@ define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
                 $("#listA").css('display', 'none');
                 $("#listB").css('display', 'block');
                 $("#listC").css('display', 'none');
+                showEmpty($scope.rechargeableCardBList)
             } else if (index == 3) {
                 $(".CCard").css('color', '#D39AC5');
                 $(".BCard").css('color', 'black');
@@ -35,6 +45,7 @@ define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
                 $("#listC").css('display', 'block');
                 $("#listB").css('display', 'none');
                 $("#listA").css('display', 'none');
+                showEmpty($scope.rechargeableCardCList)
             }
         }
     }
