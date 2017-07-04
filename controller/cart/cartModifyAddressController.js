@@ -115,18 +115,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                     return;
                 }
             }
-            //固定电话
-            if (familyPhone && familyPhone.length>0){
 
-                var re = /^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/;
-
-                if (!re.test(familyPhone)){
-
-                    POP.Hint("请填写正确的家庭电话");
-                    return;
-                }
-
-            }
             //收货地址
             if (location ==null || location.length <= 0){
                 POP.Hint("收货地址不能为空");
@@ -139,6 +128,67 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                 if (!re.test(location)){
 
                     POP.Hint("收货地址出现非法字符");
+                    return;
+                }
+
+            }
+
+
+            //收货地址邮编
+            if (zipCode ==null || zipCode.length <= 0){
+                POP.Hint("邮编不能为空");
+                return;
+            }else {
+                //正则匹配邮编
+                var  re= /^[1-9][0-9]{5}$/;
+                if (!re.test(zipCode)){
+
+                    POP.Hint("邮政编码格式不正确！");
+                    return;
+
+                }
+
+            }
+
+
+            //邮箱地址
+            if (email ==null || email.length <= 0){
+                POP.Hint("邮箱地址不能为空");
+                return;
+            }else {
+                //正则匹配邮箱地址
+                // var  re= /\w@\w*\.\w/;
+                var re = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+                if (!re.test(email)){
+
+                    POP.Hint("请填写正确的电子邮箱地址");
+                    return;
+
+                }
+
+            }
+
+            //固定电话
+            if (familyPhone && familyPhone.length>0){
+
+                var re = /^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/;
+
+                if (!re.test(familyPhone)){
+
+                    POP.Hint("请填写正确的家庭电话");
+                    return;
+                }
+
+            }
+
+             //详细地址
+            if (detailAddress ==null || detailAddress.length <= 0){
+                POP.Hint("详细地址不能为空");
+                return;
+            }else {
+
+                if (detailAddress.length>30){
+                    POP.Hint("详细地址不能超过30字!");
                     return;
                 }
 
@@ -157,50 +207,7 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             //         return;
             //     }
             // }
-            //邮箱地址
-            if (email ==null || email.length <= 0){
-                POP.Hint("邮箱地址不能为空");
-                return;
-            }else {
-                //正则匹配邮箱地址
-                // var  re= /\w@\w*\.\w/;
-                var re = /^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-                if (!re.test(email)){
-
-                    POP.Hint("请填写正确的电子邮箱地址");
-                    return;
-
-                }
-
-            }
-            //收货地址邮编
-            if (zipCode ==null || zipCode.length <= 0){
-                POP.Hint("邮编不能为空");
-                return;
-            }else {
-                //正则匹配邮编
-                var  re= /^[1-9][0-9]{5}$/;
-                if (!re.test(zipCode)){
-
-                    POP.Hint("邮政编码格式不正确！");
-                    return;
-
-                }
-
-            }
-
-            if (detailAddress ==null || detailAddress.length <= 0){
-                POP.Hint("详细地址不能为空");
-                return;
-            }else {
-
-                if (detailAddress.length>30){
-                    POP.Hint("详细地址不能超过30字!");
-                    return;
-                }
-
-            }
-
+            
             var info = User.getInfo();
 
             var newParams = {
