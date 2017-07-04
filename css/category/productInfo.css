@@ -106,25 +106,23 @@
   top: 5px;
   bottom: 5px;
   left: 45px;
-  border-top: solid 1px #C6C6C6;
-  border-bottom: solid 1px #C6C6C6;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox {
   float: left;
-  width: 35px;
+  width: 30px;
   height: 30px;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox img {
-  width: 35px;
+  width: 30px;
   height: 30px;
 }
 .contentBox .scrollBox .productInfoBox .productOtherBox .productOtherItem .numberBox .accountBox_number {
   float: left;
   width: 60px;
-  height: 28px;
+  height: 30px;
   text-align: center;
   line-height: 28px;
-  border: none;
+  border: solid 1px #C6C6C6;
 }
 .contentBox .scrollBox .product_Details {
   margin-top: 3px;
