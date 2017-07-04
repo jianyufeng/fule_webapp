@@ -27,7 +27,7 @@ define(['app'], function (app) {
                     last.category_name = "全部"
                     var array = [];
                     array = data.categoryInfo;
-                    array.unshift(last);
+                    array.push(last);
                     $scope.categorys = array;
                     $scope.productArray = data.goodsInfo.data;
                     $scope.allProduct = data.goodsInfo.data;
@@ -36,7 +36,6 @@ define(['app'], function (app) {
                     console.log($scope.productArray);
                     console.log(a);
                     var obj = a[0];
-
                     $scope.categoryName = obj.category_name;
                     //  手动请求一下点击事件
                     categoryId = obj.category_id;
@@ -49,16 +48,14 @@ define(['app'], function (app) {
 
         service.showDef = function (index) {
             var id = "item" + index;
-            $(".category_top_list_item").css(
-                {
-                    "z-index": 0,
-                    "background-color": "#FFFFFF"
-                }
+            $(".category_top_list_item").find(".categoryImgBack").css(
+                "background-color", "#FFFFFF"
             )
-            $("#" + id).css({
-                "z-index": -9999,
-                "background-color": "#E4E4E4"
-            });
+            $("#" + id).find(".categoryImgBack").css(
+                "background-color", "#F5E9F3"
+            );
+            $(".categoryName").css("color", "#999999");
+            $(".categoryName").eq(0).css("color", "#D39AC5");
         };
 
         // 点击按钮后实现分类货物的切换
@@ -77,8 +74,6 @@ define(['app'], function (app) {
                 $scope.productArray = $scope.allProduct;
                 $scope.categoryName = "全部";
                 service.showDef(index);
-                $(".categoryName").css("color", "#999999");
-                $(".categoryName").eq(index).css("color", "#D39AC5");
                 return;
             }
             if (CommenFun.isNullObj(cacheData)) {
@@ -94,8 +89,6 @@ define(['app'], function (app) {
                         cacheData[categoryId] = $scope.productArray;
                         $scope.categoryName = categoryName;
                         service.showDef(index);
-                        $(".categoryName").css("color", "#999999");
-                        $(".categoryName").eq(index).css("color", "#D39AC5");
 
                     });
 
@@ -117,8 +110,6 @@ define(['app'], function (app) {
                             cacheData[categoryId] = $scope.productArray;
                             $scope.categoryName = categoryName;
                             service.showDef(index);
-                            $(".categoryName").css("color", "#999999");
-                            $(".categoryName").eq(index).css("color", "#D39AC5");
 
                         });
 
@@ -129,10 +120,6 @@ define(['app'], function (app) {
                     $scope.productArray = cacheData[categoryId];
                     $scope.categoryName = categoryName;
                     service.showDef(index);
-                    $(".categoryName").css("color", "#999999");
-                    $(".categoryName").eq(index).css("color", "#D39AC5");
-
-
                 }
             }
 
@@ -143,6 +130,7 @@ define(['app'], function (app) {
         service.Refresh = function ($scope) {
             console.log(55555555555555555);
             console.log("当前的index=" + refreshIndex);
+            console.log("当前的分类Id是："+refreshCaregoryId);
             if (refreshCaregoryId == -1) {
                 //请求全部
                 HTTP.get(API.Category.category, {}, function (e, data) {
@@ -153,13 +141,14 @@ define(['app'], function (app) {
                         // 添加全部
                         $scope.$broadcast('scroll.refreshComplete');
                         // 添加全部
+                        console.log("请求全部");
                         var last = new Object();
                         last.category_id = -1;
                         last.category_img = "resource/icon/allCategory.png";
                         last.category_name = "全部"
                         var array = [];
                         array = data.categoryInfo;
-                        array.unshift(last);
+                        array.push(last);
                         $scope.categorys = array;
                         $scope.productArray = data.goodsInfo.data;
                         $scope.allProduct = data.goodsInfo.data;
@@ -176,17 +165,17 @@ define(['app'], function (app) {
                     return;
                 }
                 $scope.$apply(function () {
+                    console.log("请求的不是全部当前的分类Id是"+refreshCaregoryId);
                     $scope.$broadcast('scroll.refreshComplete');
                     // 添加全部
                     var last = new Object();
                     last.category_id = -1;
-                    last.category_img = "";
+                    last.category_img = "resource/icon/allCategory.png";
                     last.category_name = "全部"
                     var array = [];
                     array = data.categoryInfo;
-                    array.unshift(last);
+                    array.push(last);
                     $scope.categorys = array;
-                    $scope.categorys.push(last);
                     $scope.productArray = data.goodsInfo.data;
                     $scope.categoryName = refreshCaregoryName;
 

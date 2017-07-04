@@ -1,6 +1,6 @@
 define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
-    function ctrl($scope, $rootScope, categoryService, POP, $state,$ionicScrollDelegate) {
+    function ctrl($scope, $rootScope, categoryService, POP, $state, $ionicScrollDelegate) {
 
         $rootScope[$state.current.name] = {};
 
@@ -35,12 +35,6 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
             //更换产品列表
             $scope.changCategoryList = function (categoryId, categoryName, index) {
-                //POP.StartLoading();
-                //setTimeout(function () {
-                //    POP.EndLoading();
-                //}, 2000);
-
-               // $scope.doRefresh();
                 smallToTop();
                 categoryService.getCategoryGoodsList($scope, categoryId, POP, $rootScope[$state.current.name], categoryName, index);
             };
@@ -50,11 +44,10 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
             }
         });
 
-        var smallToTop =function() {
+        var smallToTop = function () {
             $ionicScrollDelegate.$getByHandle('small').scrollTop();
         };
         $scope.$on("viewOnFinish", function () {
-            //POP.EndLoading();
             $(".goodsImg img").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数
                 // imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图
@@ -76,8 +69,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
                 // animate     : true,											//是否动画显示
             });
 
-            $(".categoryName").css("color", "#999999");
-            $(".categoryName").eq(0).css("color", "#D39AC5");
+
         });
 
         // 页面销毁销毁内存
@@ -92,7 +84,7 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
 
     }
 
-    ctrl.$inject = ['$scope', '$rootScope', 'categoryService', 'POP', '$state','$ionicScrollDelegate'];
+    ctrl.$inject = ['$scope', '$rootScope', 'categoryService', 'POP', '$state', '$ionicScrollDelegate'];
     app.registerController('categoryController', ctrl);
 
 
