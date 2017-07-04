@@ -47,7 +47,6 @@
   text-align: center;
   line-height: 80px;
 }
-
 .registerInformationBox .contentBox .nameBox .inputbox {
   width: 85%;
   border-bottom: solid 1px #eee;
@@ -56,19 +55,18 @@
   width: 80% ;
   height: 60px;
   position: absolute;
-  top: 10px;
+  /*top: 10px;*/
   /*left: -15px;*/
   text-align: center;
-  line-height: 40px;
+  line-height: 60px;
 }
-.registerInformationBox .contentBox .sexBox input{
-  width: 22%;
+.registerInformationBox .contentBox .sexBox input {
+  width: 20px;
   height: auto;
   margin-left: 0px;
   margin-top: -10px;
 }
-
-.noteBox{
+.noteBox {
   width: 100%;
   height: auto;
   margin-top: 60px;
@@ -76,11 +74,10 @@
 .noteBox .postNoteBox {
   width: 100%;
   height: 50px;
-  /*margin-top: 50px;*/
   position: relative;
   text-align: center;
 }
-.postNoteBox .phoneIcon {
+.noteBox .postNoteBox .phoneIcon {
   width: 12px;
   height: 18px;
   position: absolute;
@@ -90,16 +87,16 @@
   left: 45px;
   z-index: 1;
 }
-.postNoteBox .note {
+.noteBox .postNoteBox .note {
   width: 45%;
   height: 35px;
   float: left;
   margin-left: 35px;
   border: 1px solid #eee;
   border-radius: 5px;
-  padding-left: 30px ;
+  padding-left: 30px;
 }
-.postNoteBox .postNote {
+.noteBox .postNoteBox .postNote {
   width: 30%;
   height: 35px;
   right: 35px;
@@ -109,7 +106,7 @@
   color: white;
   border-radius: 3px;
 }
-.postNoteBox .imgNote {
+.noteBox .postNoteBox .imgNote {
   width: 30%;
   height: 35px;
   right: 35px;
@@ -117,18 +114,13 @@
   line-height: 35px;
   border-radius: 3px;
 }
-
-
-.register{
-  width: 100%;
-  height: 100px;
-}
 .registerButton {
   width: 80%;
   height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 20px;
   background: #d79ac4;
   text-align: center;
   line-height: 40px;
