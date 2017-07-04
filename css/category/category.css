@@ -5,28 +5,49 @@
 .content .category_top_list {
   width: 100%;
   height: auto;
-  min-height: 90px;
+  min-height: 100px;
 }
 .content .category_top_list .category_top_list_item {
   width: 25%;
   height: auto;
   float: left;
+  min-height: 100px;
   padding: 10px;
   background-color: white;
-  z-index: 0;
-  border: 1px solid #E4E4E4;
 }
-.content .category_top_list .category_top_list_item .categoryImageBox img {
+.content .category_top_list .category_top_list_item .categoryImageBox .categoryImgBack {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  border: 1px #e7c6df solid;
+}
+.content .category_top_list .category_top_list_item .categoryImageBox .categoryImgBack img {
   display: block;
   width: 45px;
   height: 45px;
-  margin: 0 auto;
+  position: absolute;
+  top: 7.5px;
+  left: 7.5px;
 }
-.content .category_top_list .category_top_list_item .categoryImageBox2 img {
+.content .category_top_list .category_top_list_item .categoryImageBox2 .categoryImgBack {
+  width: 60px;
+  height: 60px;
+  background-color: #F5E9F3;
+  border-radius: 50%;
+  border: 1px #e7c6df solid;
+  margin: 0 auto;
+  position: relative;
+}
+.content .category_top_list .category_top_list_item .categoryImageBox2 .categoryImgBack img {
   display: block;
   width: 45px;
   height: 45px;
-  margin: 0 auto;
+  position: absolute;
+  top: 7.5px;
+  left: 7.5px;
 }
 .content .category_top_list .category_top_list_item .categoryName {
   text-align: center;
@@ -39,7 +60,6 @@
   width: 100%;
   background-color: #F4F4F4;
   height: 35px;
-  margin-top: -10px;
   float: left;
   padding-left: 5%;
   padding-right: 5%;
