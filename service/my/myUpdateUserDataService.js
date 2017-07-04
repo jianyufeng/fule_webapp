@@ -173,11 +173,17 @@ define(['app'], function (app) {
                         if (data != null) {
                             eleNode.css('display', 'block');
                             eleNode.html("<i class='icon ion-android-warning'></i>" + data);
+
                         }
                         return
                     }
                     $scope.$apply(function () {
                         $scope.upGrade.team = data.teamInfo.scheme_name + " " + data.teamInfo.team_name + " " + data.teamInfo.ACCOUNT_OWNER;
+                        var nowName = data.userInfo.user_name;
+                        if (nowName != undefined && nowName != null) {
+                            $("#recommend").val(nowName);
+                        }
+                        $scope.upGrade.recommendP = nowName;
                     });
 
                 });
@@ -198,9 +204,19 @@ define(['app'], function (app) {
                     /**
                      * 让左右区域可以点击
                      */
-                    $scope.upGrade.click = true;
-                    $scope.left = data.userInfo.LEFT_REGION_ID;
-                    $scope.right = data.userInfo.RIGHT_REGION_ID;
+
+
+                    $scope.$apply(function () {
+                        var nowName = data.userInfo.user_name;
+                        if (nowName != undefined && nowName != null) {
+                            $("#node").val(nowName);
+                        }
+                        $scope.upGrade.nodeP = nowName;
+                        $scope.upGrade.click = true;
+                        $scope.left = data.userInfo.LEFT_REGION_ID;
+                        $scope.right = data.userInfo.RIGHT_REGION_ID;
+                    });
+
 
                 })
             }
@@ -263,9 +279,6 @@ define(['app'], function (app) {
                 $("#address").val("");
             };
             return service;
-
         }
     );
-
-
 });

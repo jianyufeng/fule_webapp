@@ -13,8 +13,8 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         $scope.right = -1;
         $scope.bankList = null;
         var myGrade;
-
-
+        var nodeName;
+        var recommendName;
         function showEmptyError(str, elea, eleb) {
             if (str == null || str == "") {
                 showError(elea, eleb, "内容不能为空");

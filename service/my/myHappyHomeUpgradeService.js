@@ -255,8 +255,15 @@ define(['app'], function (app) {
                     }
                     return
                 }
-                //为user赋值
-                $scope.userArray[0].RECOMMENDED_MAN = userName;
+                $scope.$apply(function () {
+                    //为user赋值
+                    var nowUserName = data.userInfo.user_name;
+                    if (nowUserName != undefined && nowUserName != null) {
+                        $scope.userArray[0].RECOMMENDED_MAN = nowUserName;
+                        $("#recommend").val(nowUserName);
+                    }
+                })
+
 
             });
         }
@@ -274,14 +281,21 @@ define(['app'], function (app) {
                     }
                     return;
                 }
-                //为user赋值
-                $scope.userArray[0].CONTACT_MAN = userName;
-                /**
-                 * 让左右区域可以点击
-                 */
-                $scope.upGrade.click = true;
-                $scope.left = data.userInfo.LEFT_REGION_ID;
-                $scope.right = data.userInfo.RIGHT_REGION_ID;
+                $scope.$apply(function () {
+                    //为user赋值
+                    var nowUserName = data.userInfo.user_name;
+                    if (nowUserName != undefined && nowUserName != null) {
+                        $scope.userArray[0].CONTACT_MAN = nowUserName;
+                        $("#node").val(nowUserName);
+                    }
+                    /**
+                     * 让左右区域可以点击
+                     */
+                    $scope.upGrade.click = true;
+                    $scope.left = data.userInfo.LEFT_REGION_ID;
+                    $scope.right = data.userInfo.RIGHT_REGION_ID;
+                });
+
             })
         }
 
