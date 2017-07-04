@@ -253,6 +253,7 @@
 .unLoginBoxP .unLoginBox .my_pos_btn {
   height: 110px;
   width: 100%;
+  background-color: red;
   position: absolute;
   left: 0px;
   right: 0px;
