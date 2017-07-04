@@ -55,7 +55,7 @@ define(['app'], function (app) {
                 "background-color", "#F5E9F3"
             );
             $(".categoryName").css("color", "#999999");
-            $(".categoryName").eq(0).css("color", "#D39AC5");
+            $(".categoryName").eq(index).css("color", "#D39AC5");
         };
 
         // 点击按钮后实现分类货物的切换
