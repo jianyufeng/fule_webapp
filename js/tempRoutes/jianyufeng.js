@@ -89,6 +89,21 @@ define(['app'], function (app) {
 
                 }
             })
+            /*我的订单详情 路由*/
+            .state('tab.my-orderFormDetails', {
+                url: '/my-orderFormDetails',
+                cache : false,
+                views: {
+                    'tab-my': {
+                        templateUrl: "views/my/my-orderFormDetails.html?_r=" + Math.random(),
+                        controller: 'myOrderFormDetailsController',
+                        resolve: {
+                            deps: app.loadControllerJs('../controller/my/myOrderFormDetailsController')
+                        }
+                    }
+
+                }
+            })
             /*我的  防伪查询 路由*/
             .state('tab.my-authenticCheck', {
                 url: '/my-authenticCheck',

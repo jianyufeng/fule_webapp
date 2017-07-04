@@ -2,7 +2,7 @@
  * Created by Administrator on 2017/3/24.
  */
 define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
-    function ctrl($scope, myOrderFormService, POP, $ionicScrollDelegate) {
+    function ctrl($scope, myOrderFormService, POP, $ionicScrollDelegate,$state) {
         //默认不可以拉上
         $scope.isCanPull = false;
         //默认页数
@@ -87,10 +87,20 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
         $scope.loadMore = function () {
             myOrderFormService.getShopOrderForm($scope, POP, type);
         }
+
+        //跳转详情
+        $scope.showDetail = function (item) {
+            $state.go('tab.my-orderFormDetails', {
+                //title: item.title,
+                //add_time: item.add_time,
+                //create_user_name: item.approve_user_name,
+                //article_id:item.id
+            });
+        };
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
-    ctrl.$inject = ['$scope', 'myOrderFormService', 'POP', '$ionicScrollDelegate'];
+    ctrl.$inject = ['$scope', 'myOrderFormService', 'POP', '$ionicScrollDelegate','$state'];
 
     /*动态注册控制器*/
     app.registerController("myOrderFormController", ctrl);

@@ -229,19 +229,38 @@
   text-align: center;
   border-bottom: solid 1px #eee;
 }
-.loginBgBox_my {
+/*遮盖层*/
+.unLoginBoxP {
+  position: relative;
+  background-color: white;
+  height: 100%;
+  width: 100%;
+}
+.unLoginBoxP .loginBgBox_my {
   width: 100%;
   height: 250px;
   background: url("../../resource/images/icon/login_bg.png") no-repeat;
   background-size: cover;
 }
-/*遮盖层*/
-.unLoginBox {
-  margin: 20px auto;
+.unLoginBoxP .unLoginBox {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 250px;
   width: 100%;
-  z-index: 99999;
 }
-.unLoginBox #my_login {
+.unLoginBoxP .unLoginBox .my_pos_btn {
+  height: 110px;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  top: 50%;
+  margin-top: -60px;
+}
+.unLoginBoxP .unLoginBox .my_pos_btn #my_login {
   margin-left: 10%;
   width: 80%;
   height: 40px;
@@ -252,9 +271,9 @@
   border-radius: 5px;
   color: #fff;
 }
-.unLoginBox #my_register {
+.unLoginBoxP .unLoginBox .my_pos_btn #my_register {
   line-height: 40px;
-  border: solid 1px #d98bbc ;
+  border: solid 1px #d98bbc;
   margin-top: 30px;
   margin-left: 10%;
   width: 80%;
