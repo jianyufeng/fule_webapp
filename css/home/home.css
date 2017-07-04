@@ -148,6 +148,7 @@
   width: 50%;
   height: 100px;
   float: left;
+  color: #878787;
 }
 .productListBox .rightProductBox .topProductBox .rightProductInfo .rightProductTitle {
   width: 100%;
@@ -271,6 +272,7 @@
   width: 50%;
   height: 100px;
   float: left;
+  color: #878787;
 }
 .productListBox3 .rightProductBox .topProductBox .rightProductInfo .rightProductTitle {
   width: 100%;
