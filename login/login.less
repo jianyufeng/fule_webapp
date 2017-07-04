@@ -250,7 +250,7 @@ input {
 
     .lockIcon {
       .wh(20px, 16px);
-      .mt(20px);
+      .mt(30px);
 
     }
   }
@@ -262,7 +262,7 @@ input {
     left: 40px;
 
     .securityBox {
-      @sh: 40px;
+      @sh: 50px;
       .wh(100%, @sh);
 
       .securityCode {
@@ -278,11 +278,13 @@ input {
           color: white;
         }
         .codeValue {
-          .wh(90%, @sh - 20px);
+          margin-top: 4px;
+          .wh(90%, @sh - 24px);
           text-align: center;
           .border(l);
           .border(r);
           .border(b);
+          .border(t);
         }
 
       }
@@ -301,7 +303,7 @@ input {
     .f();
     height: @h;
     line-height: @h;
-    color: #afafaf;
+
 
     .saveLogin {
       @r: 16px;

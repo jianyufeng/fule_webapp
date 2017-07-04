@@ -212,7 +212,11 @@ define(['app'], function (app) {
         return function (input, varl) {
             var v = parseInt(input);
             var now = new Date(parseInt(v) * 1000);
-            return now.toLocaleDateString();
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var time = [year, month, date].join('-');
+            return time;
         }
     });
 
