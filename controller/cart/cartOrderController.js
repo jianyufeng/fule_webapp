@@ -18,16 +18,16 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         //每次进入页面
         $scope.$on('$ionicView.beforeEnter', function () {
             $(".popBg,.popBox").css("display", "none");
-
             cartOrderService.getPartOrderInfo($scope, POP);
-
         });
 
         $scope.$on('$ionicView.leave', function () {
             // 清理弹出框缓存
             $("input[name = 'password']").val('');
             $('#password').focus();
-            $('.passwordDiv ul li').text('')
+            $('.passwordDiv ul li').text('');
+            $("#myPop").removeClass("popup-showing");
+            $("#myPop").removeClass("active");
         });
 
         // 接收传值页面传过来的地址内容
