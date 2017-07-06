@@ -5,14 +5,14 @@
         <div class="ofd_state">
             <div class="ofd_s_goodsBox">
                 <div class="ofd_s_goods">
-                    <img id="ofd_s_goods_img" src="./resource/images/icon/orderform_readying.png">
-                    <span id="ofd_s_goods_name">未发货</span>
+                    <img id="ofd_s_goods_img" src="./resource/images/icon/orderform_unsend.png">
+                    <span id="ofd_s_goods_name">{{orderInfo.order_status|orderStatusFilter}}</span>
                 </div>
             </div>
             <div class="ofd_s_moneyBox">
                 <div class="ofd_s_money">
                     <img id="ofd_s_pay_img" src="./resource/images/icon/orderform_pay_state.png">
-                    <span id="ofd_s_pay_name">已付款</span>
+                    <span id="ofd_s_pay_name">{{orderInfo.pay_status|orderPayStatusFilter}}</span>
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
 
         <div class="ofd_goodItem"  ng-repeat="item in data" >
             <div class="ofd_gName">{{item.goods_name}}</div>
-            <div class="ofd_gattr">
+            <div class="ofd_gattr" ng-hide="isNumberEmpty(item.goods_attr)">
                 属性：{{item.goods_attr}}
             </div>
             <div class="ofd_gPrice">
@@ -97,7 +97,7 @@
         <div class="ofd_calculate">
             <div class="ofd_gTotalNumber">
                 商品总数量
-                <span class="ofd_gTN">20??</span>
+                <span class="ofd_gTN">{{goodsAllNumber}}</span>
             </div>
             <div class="ofd_gTotalMoney">
                 商品总额

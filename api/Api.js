@@ -9,7 +9,7 @@ var API = {
         // 个人信息
         myInfo: serverIP + "/_user/userHome",
         myOrderForm: serverIP + "/order/searchList",
-        myOrderFormDetails: serverIP + "order/searchOrderDetail",
+        myOrderFormDetails: serverIP + "/_order/searchOrderDetail",
         // 查询商品条形码
         searchBarCodeGoods: serverIP + "/barCode/searchBarCodeGoods",
         // 内部转账  获取短信验证码

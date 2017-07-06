@@ -86,7 +86,7 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
         //加载更多
         $scope.loadMore = function () {
             myOrderFormService.getShopOrderForm($scope, POP, type);
-        }
+        };
 
         //跳转详情
         $scope.showDetail = function (item) {

@@ -29,10 +29,18 @@ define(['app', "css! ../../../css/my/myOrderFormDetails"], function (app) {
         };
 
 
-        $scope.$on('$ionicView.loaded', function () {
+        $scope.$on('$ionicView.beforeEnter', function () {
             //获取订单详情
             myOrderFormDetailsService.getOrderFormDetails($scope, POP, orderId);
         });
+
+
+        $scope.isNumberEmpty = function (s) {
+            if (s == undefined || s == null || s == 'null' || s.length < 1 || parseInt(s) == 0) {
+                return true;
+            }
+            return false;
+        };
     }
 
     /*给构造函数添加$inject属性,添加注入的服务*/
