@@ -57,10 +57,8 @@
                     <span class="ofd_sendTime_t">最佳送货时间：</span>
                     <span class="ofd_sendTime_d">{{orderInfo.best_time}}</span>
                 </div>
-
             </div>
-
-
+            <div style="clear: both;"></div>
         </div>
 
 
@@ -70,12 +68,12 @@
                 属性：{{item.goods_attr}}
             </div>
             <div class="ofd_gPrice">
-                商品价格：&yen;{{item.goods_price}}
+                商品价格：&yen;&nbsp;{{item.goods_price}}
             </div>
             <div class="ofd_gButNumber">购买数量：{{item.goods_number}}</div>
             <div class="ofd_gSendNumber">已发数量：{{item.send_number}}</div>
             <div class="ofd_gUnSendNumber">未发数量：{{item.goods_number - item.send_number}}</div>
-            <div class="ofd_totalMoney">&yen;{{item.goods_number * item.goods_price}}</div>
+            <div class="ofd_totalMoney">&yen;&nbsp;{{item.goods_number * item.goods_price}}</div>
         </div>
 
         <div class="ofd_order">
@@ -101,16 +99,16 @@
             </div>
             <div class="ofd_gTotalMoney">
                 商品总额
-                <span class="ofd_gTMR">&yen;{{orderInfo.goods_amount}}</span>
+                <span class="ofd_gTMR">&yen;&nbsp;{{orderInfo.goods_amount}}</span>
             </div>
             <div class="ofd_gSendMoney">
                 +运费
-                <span class="ofd_gSM">&yen;1520??</span>
+                <span class="ofd_gSM">&yen;&nbsp;{{orderInfo.shipping_fee}}</span>
             </div>
         </div>
 
         <div class="pay_money">
-            实付款：<span style="color:red">&yen;<span>{{orderInfo.surplus}}</span></span>
+            实付款：<span style="color:red">&yen;&nbsp;<span>{{orderInfo.surplus}}</span></span>
         </div>
 
 

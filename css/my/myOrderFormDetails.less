@@ -1,28 +1,28 @@
 .ofd_state {
   width: 100%;
-  height: 142px;
+  height: 70px;
   background-color: #d4a0c9;
 
   .ofd_s_goodsBox {
     float: left;
     width: 50%;
-    height: 142px;
+    height: 70px;
 
     .ofd_s_goods {
       float: right;
       width: auto;
-      height: 38px;
-      margin-top: 52px;
+      height: 24px;
+      margin-top: 23px;
       margin-right: 20%;
 
       #ofd_s_goods_img {
-        height: 38px;
+        height: 24px;
         width: auto;
-        vertical-align: middle;
+        vertical-align: bottom;
       }
       #ofd_s_goods_name {
         color: white;
-        font-size: 16px;
+        font-size: 18px;
       }
 
     }
@@ -31,22 +31,22 @@
   .ofd_s_moneyBox {
     float: left;
     width: 50%;
-    height: 142px;
+    height: 70px;
 
     .ofd_s_money {
       width: auto;
-      height: 38px;
-      margin-top: 52px;
+      height: 24px;
+      margin-top: 23px;
       margin-left: 20%;
 
       #ofd_s_pay_img {
-        height: 38px;
+        height: 24px;
         width: auto;
-        vertical-align: middle;
+        vertical-align: bottom;
       }
       #ofd_s_pay_name {
         color: white;
-        font-size: 16px;
+        font-size: 18px;
       }
 
     }
@@ -55,41 +55,46 @@
 }
 
 .ofd_address {
+  position: relative;
   width: 100%;
-  min-height: 254px;
+  height:auto;
   background-color: white;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
   .ofd_ad_l {
+    position: absolute;
+    top: 50%;
+    margin-top: -15px;
     width: 20%;
-    min-height: 254px;
+    height:auto;
     float: left;
     text-align: center;
 
     .ofdAdL_img {
       width: 30px;
       height: auto;
-      margin: 112px auto;
     }
   }
   .ofd_ad_r {
+    margin-left: 20%;
     float: left;
     width: 75%;
-    min-height: 254px;
+    height:auto;
     margin-right: 5%;
     .ofd_personBox {
-      margin-top: 45px;
       width: 100%;
       height: 30px;
       .ofdAdL_PName {
         margin-right: 20px;
         color: #2e2d2d;
-        font-size: 14px;
+        font-size: 16px;
         float: left;
       }
       .ofdAdL_PPhone {
         margin-right: 20px;
         color: #2e2d2d;
-        font-size: 14px;
+        font-size: 16px;
         float: left;
       }
     }
@@ -97,14 +102,14 @@
       width: 100%;
       height: auto;
       color: #989b9b;
-      font-size: 12px;
+      font-size: 14px;
     }
 
     .ofd_pastCodeBox, .ofd_phoneBox, .ofd_flagRoomBox, .ofd_sendTimeBox, .ofd_callBox, .ofd_mailBox {
       width: auto;
       height: auto;
       color: #989b9b;
-      font-size: 12px;
+      font-size: 14px;
       float: left;
       margin-right: 20px;
     }
@@ -117,23 +122,27 @@
   width: 100%;
   height: auto;
   background-color: white;
-  margin-top: 2px;
+  margin-top: 1px;
+  clear: both;
 
   .ofd_gName {
-    font-size: 14px;
+    font-size: 16px;
     color: #2e2d2d;
+    padding-bottom: 5px;
   }
   .ofd_gPrice, .ofd_gButNumber, .ofd_gUnSendNumber, .ofd_gSendNumber, .ofd_gButNumber, .ofd_gattr {
     width: auto;
     height: auto;
     color: #989b9b;
-    font-size: 12px;
+    font-size: 14px;
     float: left;
     margin-right: 20px;
   }
   .ofd_totalMoney {
+    padding-top: 8px;
+    width: 100%;
     clear: both;
-    font-size: 14px;
+    font-size: 16px;
     color: #2e2d2d;
   }
 }
@@ -142,25 +151,36 @@
 .ofd_order {
   width: 100%;
   height: auto;
-  margin-top: 18px;
+  margin-top: 10px;
 
-  .ofd_o_time, .ofd_o_code {
+  .ofd_o_time{
+    padding-top: 5px;
     width: 100%;
-    height: 70px;
-    font-size: 14px;
+    height: 45px;
+    font-size: 16px;
     color: #2e2d2d;
     background-color: white;
-    line-height: 70px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+   .ofd_o_code {
+    width: 100%;
+    height: 45px;
+    font-size: 16px;
+    color: #2e2d2d;
+    background-color: white;
+    line-height: 52px;
     padding-left: 5%;
     padding-right: 5%;
   }
 
+
   .ofd_o_sendWay,.ofd_o_payWay {
-    margin-top: 2px;
+    margin-top: 1px;
     width: 100%;
-    height: 90px;
-    line-height: 90px;
-    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
     color: #2e2d2d;
     padding-left: 5%;
     padding-right: 5%;
@@ -168,27 +188,27 @@
   }
 }
 .ofd_calculate{
-  margin-top: 18px;
+  margin-top: 10px;
   background-color: white;
   width: 100%;
-  height: 180px;
+  height: 120px;
 
   .ofd_gSendMoney,.ofd_gTotalMoney,.ofd_gTotalNumber{
     padding-left: 5%;
     padding-right: 5%;
     width: 100%;
-    height: 60px;
-    line-height: 60px;
-    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
     color: #2e2d2d;
 
   }
   .ofd_gTotalMoney .ofd_gTMR,.ofd_gTotalNumber .ofd_gTN,.ofd_gSendMoney .ofd_gSM{
     float: right;
     display: block;
-    height: 60px;
-    line-height: 60px;
-    font-size: 14px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 16px;
     color: #2e2d2d;
   }
 
@@ -198,10 +218,10 @@
   background-color: white;
   padding-left: 5%;
   padding-right: 5%;
-  margin-top: 2px;
+  margin-top: 1px;
   width: 100%;
-  height: 79px;
-  line-height: 79px;
-  font-size: 14px;
+  height:  50px;
+  line-height: 50px;
+  font-size: 16px;
   color: #2e2d2d;
 }
