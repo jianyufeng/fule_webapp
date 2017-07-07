@@ -27,6 +27,8 @@ define([
     '../service/my/myService',
     //我的订单
     '../service/my/myOrderFormService',
+    //我的订单详情
+    '../service/my/myOrderFormDetailsService',
     // 商品条码查询
     '../service/my/myAuthenticCheckService',
     //充值卡充值

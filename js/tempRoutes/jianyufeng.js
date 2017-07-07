@@ -91,7 +91,7 @@ define(['app'], function (app) {
             })
             /*我的订单详情 路由*/
             .state('tab.my-orderFormDetails', {
-                url: '/my-orderFormDetails',
+                url: '/my-orderFormDetails/:order_id',
                 cache : false,
                 views: {
                     'tab-my': {

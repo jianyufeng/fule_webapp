@@ -21,9 +21,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         //每次进入页面
         $scope.$on('$ionicView.beforeEnter', function () {
             $(".popBg,.popBox").css("display", "none");
-
             cartOrderService.getPartOrderInfo($scope, POP);
-
         });
 
         $scope.$on('$ionicView.leave', function () {
