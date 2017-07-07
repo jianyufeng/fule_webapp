@@ -9,6 +9,9 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         //修改显示地址刷新后用来判断要显示的地址
         $scope.jugdeAddress = "";
 
+        //用来判断喜乐会所选择的条件
+        $scope.isNullUser_name = "";
+
         $scope.$on('$ionicView.loaded', function () {
 
             cartOrderService.getOrderInfo($scope, POP);
@@ -109,7 +112,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         });
         //点击密码框清除密码
         $('.passwordDiv ul').click(function () {
-            //alert(33333333333);
             $("input[name = 'password']").val('');
             $('#password').focus();
             $('.passwordDiv ul li').text('')
@@ -189,6 +191,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             return false;
 
         });
+
+
         //提交订单点击时
         $(".paySubmit").click(function () {
             //判断余额是否足够
@@ -212,7 +216,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         });
 
-        //弹出订单的配送方式选择选择界面
+        //弹出订单的配送方式选择界面
         $(".orderDeliveryModel").click(function () {
             // $(".popBg").css({
             //
@@ -300,8 +304,54 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         });
 
-        //弹出发货地址选择框(暂时不用)
+        //弹出发货地址选择框()
         $(".orderSendGoodsAddress").click(function () {
+            console.log("++++++++++++++++++++++++++++");
+                 console.log($scope.address);
+
+            var exclusiveShopParams;
+
+            if ($scope.address == null || $scope.address == undefined || $scope.address == "NO"){
+
+                POP.Alert("请先填写完整的收货人信息!");
+
+                return;
+            }
+
+            // if($scope.isNullUser_name == null || $scope.isNullUser_name == undefined || $scope.isNullUser_name.length <0){
+
+                exclusiveShopParams = {
+
+                    PROVINCE:$scope.address.province,
+                    CITY:$scope.address.city,
+                    DISTRICT:$scope.address.district
+
+                };
+
+            // }else {
+
+
+                // exclusiveShopParams = {
+                //
+                //     user_name:$scope.isNullUser_name
+
+                // }
+
+
+            // }
+
+
+            console.log(exclusiveShopParams);
+
+            cartOrderService.searchExclusiveShopAction($scope, exclusiveShopParams, POP,function (data) {
+
+                console.log("啦啦啦啦啦啦");
+                console.log(data);
+
+
+            });
+
+
             $(".popBg").css({
                 display: "block", height: $(document).height()
             });
@@ -314,6 +364,76 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                 $(".popBg,.popAddressBox").css("display", "none");
             });
         });
+
+         //搜索喜乐会
+        $(".xlhs_searchBtn").click(function () {
+
+            alert($(".inputUser").val());
+
+            var exclusiveShopParams = ""; //参数
+
+            var user_name = $(".inputUser").val();
+
+
+            if(user_name == null ||user_name == undefined){
+
+                exclusiveShopParams = {
+
+                    PROVINCE:$scope.address.province,
+                    CITY:$scope.address.city,
+                    DISTRICT:$scope.address.district
+
+                };
+
+            }else {
+                exclusiveShopParams = {
+
+                    user_name:user_name
+
+                };
+            }
+
+
+
+
+
+
+            cartOrderService.searchExclusiveShopAction($scope, exclusiveShopParams, POP,function (data) {
+
+                console.log("啦啦啦啦啦啦");
+                console.log(data);
+
+
+            });
+
+
+
+
+
+        });
+
+// //
+//         $(".inputUser").on('click',function () {
+//
+//
+//             var target = this;
+//
+//             setTimeout(function () {
+//                 target.scrollIntoView(true);
+//
+//             },100);
+//
+//
+//
+//
+//
+//
+//
+//         });
+
+
+
+
 
         //弹出支付方式选择框
         $(".orderPayModel").click(function () {
@@ -357,11 +477,18 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         });
 
         //具体发货地址选择
-        $(".choice").click(function () {
+
+        $(document).off("click").on("click",".choice",function () {
+
             if ($(this).find("img").is(':visible')) {
+                $('.choice').find("img").show();
+                $('.choice').css("border", "0px");
                 $(this).find("img").hide();
                 $(this).css("border", "1px solid #d79ac4");
+
             } else {
+                $('.choice').find("img").hide();
+                $('.choice').css("border", "1px solid #d79ac4");
                 $(this).find("img").show();
                 $(this).css("border", "0px");
             }

@@ -116,7 +116,9 @@ var API = {
         //普通商城生成支付订单
         commonPaymentOrder: serverIP + "/order/addCommonPaymentOrder",
         //计算运费
-        countFreight: serverIP + "/shipping/countFreight"
+        countFreight: serverIP + "/shipping/countFreight",
+        //查找喜乐会所
+        searchExclusiveShop:serverIP + "/exclusiveShop/search"
     },
 
     Category: {

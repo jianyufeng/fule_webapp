@@ -15,7 +15,7 @@ define(['app'], function (app) {
             var info = User.getInfo();
             HTTP.get(API.Cart.orderInfo + "/user_id/" + info.user_id, {}, function (e, data) {
 
-// console.log(data);
+
                 POP.EndLoading();
 
                 if (e) {
@@ -189,7 +189,7 @@ define(['app'], function (app) {
             });
 
 
-        }
+        };
 
 
         //验证支付密码
@@ -211,7 +211,7 @@ define(['app'], function (app) {
 
             });
 
-        }
+        };
 
 
         //生成支付订单(普通商城)
@@ -234,7 +234,7 @@ define(['app'], function (app) {
 
             });
 
-        }
+        };
 
         //计算运费
 
@@ -278,10 +278,47 @@ define(['app'], function (app) {
 
             }
 
+        };
+
+        service.searchExclusiveShopAction = function($scope,params,POP,fn){
+
+              if(params.user_name != null && params.user_name.length > 0 && params.user_name !=undefined){
+
+                  HTTP.get(API.Cart.searchExclusiveShop + "/user_name/" + params.user_name, {}, function (e, data) {
+
+                      console.log("**********用户名**********");
+                      console.log(data);
 
 
 
-        }
+                      fn(data);
+                      $scope.$apply(function () {
+
+                          $scope.ExclusiveShopList = data;
+
+                      });
+
+                  });
+
+              }else {
+
+
+                  HTTP.get(API.Cart.searchExclusiveShop + "/PROVINCE/" + params.PROVINCE + "/CITY/" + params.CITY + "/DISTRICT/" + params.DISTRICT, {}, function (e, data) {
+
+                      console.log("**********省市区**********");
+                      console.log(data);
+                      fn(data);
+                      $scope.$apply(function () {
+
+                          $scope.ExclusiveShopList = data;
+
+                      });
+
+                  });
+
+              }
+
+        };
 
 
         return service;

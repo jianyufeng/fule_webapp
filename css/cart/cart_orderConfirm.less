@@ -270,7 +270,7 @@
 
       .payInfoBox {
         width: 100%;
-        height: 100px;
+        height: auto;
         background: white;
         float: left;
         border-top: 5px solid #f8f8f8;
@@ -291,7 +291,6 @@
             padding-left: 10px;
 
             span {
-
               font-size: 14px;
 
             }
@@ -688,27 +687,41 @@
     text-align: center;
     line-height: 50px;
     font-size: 15px;
+    border-bottom: solid 1px #eee;
   }
+
+  .xlhsSV{
+
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 50px;
+    left: 0px;
+    bottom: 120px;
+    right: 0px;
+    float: left;
 
   .addressBox {
     width: 90%;
-    height: auto;
+    height: 60px;
     margin-top: 10px;
+    //margin-bottom: 10px;
     margin-left: 15px;
     border-bottom: solid 1px #eee;
     float: left;
 
+
     .topContent {
       height: 20px;
       width: 90%;
-      font-size: 14px;
+      font-size: 15px;
       float: left;
     }
     .bottomContent {
       width: 90%;
-      height: auto;
+      height: 40px;
       color: #9e9e9e;
-      font-size: 13px;
+      font-size: 14px;
       float: left;
     }
     .choice {
@@ -725,28 +738,29 @@
       }
     }
   }
-
+  }
   .bottomBox {
     width: 100%;
-    height: 80px;
+    height: 120px;
     position: absolute;
     bottom: 0;
 
-    .inputAddress {
+    .inputUser {
       position: absolute;
       width: 70%;
       height: 40px;
       left: 15px;
-      top: -30px;
+      top: 10px;
       border: solid 1px #d79ac4;
       border-radius: 5px;
+
     }
-    .search {
+    .xlhs_searchBtn {
       position: absolute;
       width: 18%;
       height: 40px;
       right: 15px;
-      top: -30px;
+      top: 10px;
       background: #d79ac4;
       color: white;
       border-radius: 5px;
