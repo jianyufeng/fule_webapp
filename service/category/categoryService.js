@@ -6,7 +6,6 @@ define(['app'], function (app) {
         var categoryId;
         var refreshCaregoryId;
         var refreshCaregoryName;
-
         //var refreshIndex;
         //  获取头部的分类列表和默认分类货物
         service.getCategoryListAndCategoryGoodsList = function ($scope, POP) {
@@ -94,7 +93,6 @@ define(['app'], function (app) {
                         cacheData[categoryId] = $scope.productArray;
                         $scope.categoryName = categoryName;
                         service.showDef(index);
-
                     });
 
 

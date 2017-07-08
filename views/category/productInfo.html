@@ -51,6 +51,16 @@
                                     <img src="./resource/images/icon/shoppingcar_add.png"></div>
                             </div>
                         </div>
+
+                        <div class="productOtherItem attrBox" ng-repeat="attr in attrs">
+                            <div class="attrName">{{attr[0].attr_name}}</div>
+
+                            <div class="attrValue-{{attrValue.attr_type}} attrItem" ng-repeat="attrValue in attr"
+                                 ng-click="selectAttr(attrValue.attr_type,attrValue.attr_price,$index)"
+                            >
+                                {{attrValue.attr_value}}
+                            </div>
+                        </div>
                         <div class="productOtherItem">
                             <span>本商品最大限制购买量:<span class="goodsNumber"> &nbsp;{{limitGoodsNumber}}</span></span>
                         </div>

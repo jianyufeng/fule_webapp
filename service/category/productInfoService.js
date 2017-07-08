@@ -9,6 +9,11 @@ define(['app'], function (app) {
         var service = {};
         var goodsId;
         var pri;
+        var firstSelect = true;
+        var secondSelect = true;
+        var firstPri = 0;
+        var secondPri = 0;
+        var Npri;
         // 获取产品详情
         service.getProductInfo = function ($scope, $stateParams, POP, $compile) {
             POP.StartLoading();
@@ -67,6 +72,39 @@ define(['app'], function (app) {
                     } else {
                         $scope.minGoodsNumber = "无限制";
                     }
+                    // fix by ShareLock_Li
+                    // 商品属性
+                     attr = data.goodsAttr;
+                    var attrNameArray = []; //同种类型的 不同表现
+                    newArray = []
+                    if (attr.length > 0) {
+                        for (var i = 0; i < attr.length; i++) {
+                            if (i == attr.length - 1) {
+                                if ($.inArray(attr[i].attr_name, attrNameArray) == -1) {
+                                    attrNameArray.push(attr[i].attr_name);
+                                    break;
+                                }
+                                break;
+                            }
+                            if (attr[i].attr_name != attr[i + 1].attr_name) {
+                                attrNameArray.push(attr[i].attr_name);
+                            }
+                        }
+                        for (var j = 0; j < attrNameArray.length; j++) {
+                            var mArray = [];
+                            for (var a = 0; a < attr.length; a++) {
+                                var obj = attr[a];
+                                if (attr[a].attr_name == attrNameArray[j]) {
+                                    mArray.push(obj);
+                                }
+                            }
+                            newArray.push(mArray);
+                        }
+                    }
+
+
+                    $scope.attrs = newArray;
+                    console.log(newArray);
                 });
 
 
@@ -140,7 +178,12 @@ define(['app'], function (app) {
                 //console.log("goods_id=", goodsId);
                 //console.log("goods_name=", goodsName);
                 //console.log("goods_number=", 1);
-                //console.log("goods_price", pri * goodsNumber);
+                console.log("显示商品价格");
+                if(attr.length>0){
+                    pri=Npri;
+                }
+                console.log(pri);
+                console.log("goods_price", pri * goodsNumber);
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
                     "user_id": userInfo.user_id,
@@ -193,6 +236,51 @@ define(['app'], function (app) {
             }
         }
 
+        /**
+         *  点击选择属性
+         * @param $scope
+         * @param type
+         * @param price
+         * @param index
+         */
+        service.selectAttr = function ($scope, type, price, index) {
+
+            if (type == 0) {
+                return;
+            }
+            // 改变样式
+            //找到所有样式为这
+            var s = "attrValue-" + type;
+            $("." + s).removeClass("attrValue_select");
+            $("." + s).eq(index).addClass("attrValue_select");
+            pri = Number(pri);
+            price = Number(price);
+
+            if (type == 1 && firstSelect) {
+                firstSelect = false;
+                firstPri = price;
+            }
+            if (type == 2) {
+                secondPri = price;
+            }
+
+            Npri = firstPri + secondPri + pri;
+            var SPri;
+            SPri=Npri+"";
+            console.log(SPri);
+            var index = SPri.indexOf(".");
+            console.log(index);
+            if(index<0){
+                SPri=SPri+".00";
+            }
+            var index = SPri.indexOf(".");
+            console.log(index);
+            $scope.productPrice_I = SPri.substr(0, index);
+            console.log( $scope.productPrice_I);
+            $scope.productPrice_F = SPri.substr(index, SPri.length);
+            console.log( $scope.productPrice_F);
+
+        }
 
         /**
          * 点击购物车跳转页面

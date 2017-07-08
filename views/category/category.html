@@ -51,7 +51,7 @@
                     <div class="goodsMoney">¥ {{productInfo.shop_price}}</div>
                     <div class="goodsContent">
                         <div class="goodsDesc ellipsis">{{productInfo.goods_name}}</div>
-                        <div class="goodsCart">
+                        <div class="goodsCart" ng-show="productInfo.is_product==0">
                             <img src="./resource/images/icon/shoppingcar.png" id="{{productInfo.goods_id}}"/>
                         </div>
                     </div>

@@ -40,6 +40,11 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
             productInfoService.Slide(index);
         }
 
+        // 选择属性
+        $scope.selectAttr = function (type,price,index) {
+            productInfoService.selectAttr($scope,type,price,index);
+        };
+
         $scope.addCartAction = function () {
             productInfoService.addCartAction($scope, POP);
         }
