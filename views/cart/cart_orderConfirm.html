@@ -105,12 +105,12 @@
                             <!--<span style="margin-left: 10px">请添加收货地址</span>-->
                         <!--</div>-->
                         <!--<div class="orderSendGoodsAddress" ng-if="address != 'NO'">-->
-                        <div class="orderSendGoodsAddress">
-                        <div class="titleArea"><span>选择发货地址:</span></div>
+                        <div class="orderSendGoodsAddress" id = {{xlhs_selected.ZHUAN_MAI_DIAN_ID}}>
+                        <div class="titleArea"><span>选择喜乐会所:</span></div>
                         <div class="sendAddressDetail">
-                        <div class="shopName"><span>专卖店名:三八妇乐(官方旗舰店)</span></div>
-                        <div class="negozianteName"><span>店长:38fule</span></div>
-                        <div class="address"><span>地址:科技路旺座国际</span></div>
+                        <div class="shopName ellipsis"><span>专卖店名:{{xlhs_selected.ZHUAN_MAI_DIAN_NAME}}</span></div>
+                        <div class="negozianteName ellipsis"><span>店主:{{xlhs_selected.USER_NAME}}</span></div>
+                        <div class="address ellipsis"><span>地址:{{xlhs_selected.ADDRESS}}</span></div>
                         </div>
                         <div class="setSendAddressBtn"><img src="resource/images/icon/jiantou_right.png"></div>
                         </div>
@@ -184,16 +184,16 @@
                     专卖店: {{shop.ZHUAN_MAI_DIAN_NAME}}
                 </div>
                 <div class="bottomContent ">
-                    店长 : {{shop.USER_NAME}}&nbsp;&nbsp;&nbsp;&nbsp;地址 : {{shop.ADDRESS}}
+                    店主 : {{shop.USER_NAME}}&nbsp;&nbsp;&nbsp;&nbsp;地址 : {{shop.ADDRESS}}
                 </div>
-                <div class="choice">
+                <div class="choice" ng-click="aaa($index,$event)" >
                     <img style="display: none" src="resource/images/icon/shoppingcar_xuanz.png">
                 </div>
             </div>
             </ion-scroll>
             <div class="bottomBox">
                 <!--<div class="inputAddress" >-->
-                    <input class="inputUser" type="text" placeholder="  输入店长名">
+                    <input class="inputUser" type="text" placeholder="  输入专卖店所属店主账号">
                 <!--</div>-->
                 <div class="xlhs_searchBtn">
                     搜索

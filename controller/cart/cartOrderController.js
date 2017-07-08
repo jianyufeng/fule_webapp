@@ -9,9 +9,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         //修改显示地址刷新后用来判断要显示的地址
         $scope.jugdeAddress = "";
 
-        //用来判断喜乐会所选择的条件
-        $scope.isNullUser_name = "";
-
         $scope.$on('$ionicView.loaded', function () {
 
             cartOrderService.getOrderInfo($scope, POP);
@@ -20,6 +17,13 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         //每次进入页面
         $scope.$on('$ionicView.beforeEnter', function () {
+
+            //用来判断喜乐会所选择的条件
+            $scope.isNullUser_name = "NO";
+
+            //选择的喜乐会所
+            $scope.xlhs_selected = "";
+
             $(".popBg,.popBox").css("display", "none");
             cartOrderService.getPartOrderInfo($scope, POP);
         });
@@ -38,9 +42,9 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
             console.log("changeAddressInfo..");
             //将新的值重新注入页面
-            //$scope.$apply(function () {
+            $scope.$apply(function () {
             $scope.address = args.address;
-            // })
+            })
 
         });
 
@@ -93,7 +97,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         //密码框输入事件
         $('.passwordDiv input').on('input', function (e) {
-            console.log("******")
             var number = 6;
             var pw = $("input[name = 'password']").val();
             var list = $('.passwordDiv ul li');
@@ -103,11 +106,12 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                 } else {
                     $(list[i]).text('');
                 }
-                ;
+
             }
-            console.log(pw);
 
         });
+
+
         //点击密码框清除密码
         $('.passwordDiv ul').click(function () {
             $("input[name = 'password']").val('');
@@ -123,6 +127,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             $('#password').focus();
             $('.passwordDiv ul li').text('')
         });
+
+
         $("#pos").click(function () {
             var pw = $("#ipt").val();
             if (pw == null || pw.length < 6) {
@@ -145,39 +151,74 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                 } else {
                     deliveryFit = delivery.substr(1, delivery.length);
                 }
-                var orderParams = {
-                    user_id: info.user_id, //用户id
-                    user_money: $scope.userInfo.user_money, //用户余额
-                    shipping_fee: deliveryFit, //运费
-                    address_id: $scope.address.address_id, //收货地址id
-                    shipping_id: $scope.shi_id, //物流公司id
-                    shipping_name: $scope.expressName, //物流公司名
-                    goods_amount: $scope.amountOrder, //商品总金额
-                    surplus: $scope.orderInfo.pay_amount, //实际支付总金额
-                    referer: "手机", //订单来源(本站/手机/APP)
-                    order_mode: $scope.orderInfo.ORDER_TYPE, //订单类型（CE/CM）
-                    pv: $scope.orderInfo.pv, //获得PV
-                    isAccumulative: $scope.orderInfo.LEI_JI_TYPE, //是否累计PV 0-累计 1-不累计
-                    shipping_config: $scope.webConfig.EXEMPT_FREIGHT.PARAM_VALUE, //运费配置（达到指定支付金额免除运费）
-                    pay_id: 1, //余额支付
-                    pay_name: "余额支付", //支付方式名
-                    cart_id: $scope.cartGoods[0].cart_id, //购物车id
-                    LEVEL_TO: $scope.orderInfo.LEVEL_TO, //自动升级目标级别
-                    integral: $scope.orderInfo.integral, //累计积分
-                    pay_fee: 0, //支付手续费
-                    insure_fee: 0 //运费险
+
+
+                console.log($scope.xlhs_selected);
+                if($scope.xlhs_selected){
+
+                    orderParams = {
+                        user_id: info.user_id, //用户id
+                        user_money: $scope.userInfo.user_money, //用户余额
+                        shipping_fee: deliveryFit, //运费
+                        address_id: $scope.address.address_id, //收货地址id
+                        shipping_id: $scope.shi_id, //物流公司id
+                        shipping_name: $scope.expressName, //物流公司名
+                        goods_amount: $scope.amountOrder, //商品总金额
+                        surplus: $scope.orderInfo.pay_amount, //实际支付总金额
+                        referer: "手机", //订单来源(本站/手机/APP)
+                        order_mode: $scope.orderInfo.ORDER_TYPE, //订单类型（CE/CM）
+                        pv: $scope.orderInfo.pv, //获得PV
+                        isAccumulative: $scope.orderInfo.LEI_JI_TYPE, //是否累计PV 0-累计 1-不累计
+                        shipping_config: $scope.webConfig.EXEMPT_FREIGHT.PARAM_VALUE, //运费配置（达到指定支付金额免除运费）
+                        pay_id: 1, //余额支付
+                        pay_name: "余额支付", //支付方式名
+                        cart_id: $scope.cartGoods[0].cart_id, //购物车id
+                        LEVEL_TO: $scope.orderInfo.LEVEL_TO, //自动升级目标级别
+                        integral: $scope.orderInfo.integral, //累计积分
+                        pay_fee: 0, //支付手续费
+                        insure_fee: 0 ,//运费险
+                        shop_id:$scope.xlhs_selected.USER_ID, //专卖店id
+                        shop_name:$scope.xlhs_selected.USER_NAME        //专卖店所属人账号
+                    }
+
+
+
+                }else {
+
+                    var orderParams = {
+                        user_id: info.user_id, //用户id
+                        user_money: $scope.userInfo.user_money, //用户余额
+                        shipping_fee: deliveryFit, //运费
+                        address_id: $scope.address.address_id, //收货地址id
+                        shipping_id: $scope.shi_id, //物流公司id
+                        shipping_name: $scope.expressName, //物流公司名
+                        goods_amount: $scope.amountOrder, //商品总金额
+                        surplus: $scope.orderInfo.pay_amount, //实际支付总金额
+                        referer: "手机", //订单来源(本站/手机/APP)
+                        order_mode: $scope.orderInfo.ORDER_TYPE, //订单类型（CE/CM）
+                        pv: $scope.orderInfo.pv, //获得PV
+                        isAccumulative: $scope.orderInfo.LEI_JI_TYPE, //是否累计PV 0-累计 1-不累计
+                        shipping_config: $scope.webConfig.EXEMPT_FREIGHT.PARAM_VALUE, //运费配置（达到指定支付金额免除运费）
+                        pay_id: 1, //余额支付
+                        pay_name: "余额支付", //支付方式名
+                        cart_id: $scope.cartGoods[0].cart_id, //购物车id
+                        LEVEL_TO: $scope.orderInfo.LEVEL_TO, //自动升级目标级别
+                        integral: $scope.orderInfo.integral, //累计积分
+                        pay_fee: 0, //支付手续费
+                        insure_fee: 0 //运费险
+                    };
+
+
                 }
-
-
+                console.log("^^^^^^^^^^^^^^^^^^^^^");
                 console.log(orderParams);
-
 
                 //提交订单
                 cartOrderService.addCommonPaymentOrder($scope, orderParams, POP, function () {
 
                     $scope.$apply(function () {
                         $rootScope.cartBadge = 0;
-                    })
+                    });
 
                     $state.go('tab.my');
                 });
@@ -216,10 +257,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         //弹出订单的配送方式选择界面
         $(".orderDeliveryModel").click(function () {
-            // $(".popBg").css({
-            //
-            //     height: $(document).height()
-            // });
 
             $(".popBg").fadeIn(300);
 
@@ -255,7 +292,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                     ;
 
                 //计算运费
-
                 cartOrderService.countFreightAction($scope, freightParams, POP, function (freight) {
 
 
@@ -268,6 +304,9 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                             $scope.amountOrder = $scope.orderInfo.pay_amount;
                         } else {
                             deliverymoney = "¥" + freight;
+                            if (freight == "免运费"){
+                                freight = 0;
+                            }
                             $scope.amountOrder = $scope.orderInfo.pay_amount + freight; //合计总额
                         }
 
@@ -304,9 +343,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         //弹出发货地址选择框()
         $(".orderSendGoodsAddress").click(function () {
-            console.log("++++++++++++++++++++++++++++");
-                 console.log($scope.address);
 
+            $(".inputUser").val("");
             var exclusiveShopParams;
 
             if ($scope.address == null || $scope.address == undefined || $scope.address == "NO"){
@@ -316,7 +354,11 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                 return;
             }
 
-            // if($scope.isNullUser_name == null || $scope.isNullUser_name == undefined || $scope.isNullUser_name.length <0){
+            console.log("就是这");
+            console.log($scope.isNullUser_name);
+            console.log($scope.xlhs_selected);
+
+            if($scope.isNullUser_name == "NO" || $scope.xlhs_selected == null || $scope.xlhs_selected == undefined ||$scope.xlhs_selected == ""){
 
                 exclusiveShopParams = {
 
@@ -326,54 +368,78 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
                 };
 
-            // }else {
-
-
-                // exclusiveShopParams = {
-                //
-                //     user_name:$scope.isNullUser_name
-
-                // }
-
-
-            // }
 
 
             console.log(exclusiveShopParams);
 
             cartOrderService.searchExclusiveShopAction($scope, exclusiveShopParams, POP,function (data) {
+                //搜到了
+                if(data != undefined && data != null){
 
-                console.log("啦啦啦啦啦啦");
-                console.log(data);
+                    $scope.isNullUser_name = "YES";
+
+
+                }
+
+
+                $scope.$apply(function () {
+
+                    $scope.ExclusiveShopList = data;
+
+                });
 
 
             });
 
+            }
 
-            $(".popBg").css({
-                display: "block", height: $(document).height()
-            });
+            $(".popBg").fadeIn(300);
+
             var $popAddressBox = $(".popAddressBox");
+
             $popAddressBox.css({
                 display: "block"
             });
+            $popAddressBox.animate({"bottom": 0}, 300);
+
 
             $(".close").click(function () {
-                $(".popBg,.popAddressBox").css("display", "none");
+                $(".popBg").fadeOut(200);
+                $popAddressBox.animate({"bottom": -1000}, 200);
+
             });
+
         });
 
-         //搜索喜乐会
+        $scope.aaa = function(idx,event){
+
+
+            //alert($(event.target));
+            var obj = $(event.target);
+
+            $(".choice").find("img").hide();
+            $(".choice").css("border", "1px solid #d79ac4");
+            if(obj.find("img").is(":hidden")){
+                obj.find("img").show();
+                obj.css("border", "0px");
+                $scope.xlhs_selected = $scope.ExclusiveShopList[idx];
+            }else{
+                obj.find("img").hide();
+                obj.css("border", "1px solid #d79ac4");
+                $scope.xlhs_selected = null;
+            }
+
+        };
+
+
+        //搜索喜乐会
         $(".xlhs_searchBtn").click(function () {
 
-            alert($(".inputUser").val());
-
-            var exclusiveShopParams = ""; //参数
+            var exclusiveShopParams; //参数
 
             var user_name = $(".inputUser").val();
 
-
-            if(user_name == null ||user_name == undefined){
+            if(user_name == null ||user_name == undefined ||user_name.length<=0 || user_name == ""){
 
                 exclusiveShopParams = {
 
@@ -382,6 +448,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                     DISTRICT:$scope.address.district
 
                 };
+
 
             }else {
                 exclusiveShopParams = {
@@ -392,14 +459,23 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             }
 
 
-
-
-
-
             cartOrderService.searchExclusiveShopAction($scope, exclusiveShopParams, POP,function (data) {
 
-                console.log("啦啦啦啦啦啦");
-                console.log(data);
+                //搜到了
+                if(data != undefined && data != null){
+
+                    $scope.isNullUser_name = "YES";
+
+
+                }
+
+
+
+                $scope.$apply(function () {
+
+                    $scope.ExclusiveShopList = data;
+
+                });
 
 
             });
@@ -410,24 +486,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         });
 
-// //
-//         $(".inputUser").on('click',function () {
-//
-//
-//             var target = this;
-//
-//             setTimeout(function () {
-//                 target.scrollIntoView(true);
-//
-//             },100);
-//
-//
-//
-//
-//
-//
-//
-//         });
 
 
 
@@ -450,6 +508,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             // });
 
         });
+
+
         //选择支付方式
         $(".confirmChoice").click(function () {
             if ($(this).find("img").is(':visible')) {
@@ -474,24 +534,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         });
 
-        //具体发货地址选择
 
-        $(document).off("click").on("click",".choice",function () {
 
-            if ($(this).find("img").is(':visible')) {
-                $('.choice').find("img").show();
-                $('.choice').css("border", "0px");
-                $(this).find("img").hide();
-                $(this).css("border", "1px solid #d79ac4");
-
-            } else {
-                $('.choice').find("img").hide();
-                $('.choice').css("border", "1px solid #d79ac4");
-                $(this).find("img").show();
-                $(this).css("border", "0px");
-            }
-
-        });
 
 
     }

@@ -311,10 +311,15 @@
   text-align: right;
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox .orderSendGoodsAddress .sendAddressDetail .address {
-  width: 100%;
+  width: 70%;
   height: 30px;
   line-height: 30px;
   text-align: right;
+  float: right;
+}
+.orderBox .orderDetailBox .scrollV .payInfoBox .orderSendGoodsAddress .sendAddressDetail .address span {
+  width: 90%;
+  height: 30px;
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox .orderPayModel {
   width: 100%;
