@@ -107,7 +107,7 @@
                         <!--<div class="orderSendGoodsAddress" ng-if="address != 'NO'">-->
                         <div class="orderSendGoodsAddress" id = {{xlhs_selected.ZHUAN_MAI_DIAN_ID}}>
                         <div class="titleArea"><span>选择喜乐会所:</span></div>
-                        <div class="sendAddressDetail">
+                        <div class="sendAddressDetail" ng-if="xlhs_selected !='' ">
                         <div class="shopName ellipsis"><span>专卖店名:{{xlhs_selected.ZHUAN_MAI_DIAN_NAME}}</span></div>
                         <div class="negozianteName ellipsis"><span>店主:{{xlhs_selected.USER_NAME}}</span></div>
                         <div class="address ellipsis"><span>地址:{{xlhs_selected.ADDRESS}}</span></div>
@@ -193,7 +193,7 @@
             </ion-scroll>
             <div class="bottomBox">
                 <!--<div class="inputAddress" >-->
-                    <input class="inputUser" type="text" placeholder="  输入专卖店所属店主账号">
+                    <input class="inputUser" type="text" placeholder="输入专卖店所属店主账号">
                 <!--</div>-->
                 <div class="xlhs_searchBtn">
                     搜索
