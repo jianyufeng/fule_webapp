@@ -74,7 +74,7 @@ define(['app'], function (app) {
                     }
                     // fix by ShareLock_Li
                     // 商品属性
-                     attr = data.goodsAttr;
+                    attr = data.goodsAttr;
                     var attrNameArray = []; //同种类型的 不同表现
                     newArray = []
                     if (attr.length > 0) {
@@ -179,11 +179,15 @@ define(['app'], function (app) {
                 //console.log("goods_name=", goodsName);
                 //console.log("goods_number=", 1);
                 console.log("显示商品价格");
-                if(attr.length>0){
-                    pri=Npri;
+                if (attr.length > 0) {
+                    if (firstSelect || secondSelect) {
+                        POP.Hint("请完整选择商品属性！");
+                        return;
+                    }
+                    pri = Npri;
                 }
-                console.log(pri);
-                console.log("goods_price", pri * goodsNumber);
+                //console.log(pri);
+                //console.log("goods_price", pri * goodsNumber);
                 HTTP.post(API.Cart.cartAdd, {
                     "user_name": userInfo.user_name,
                     "user_id": userInfo.user_id,
@@ -261,24 +265,25 @@ define(['app'], function (app) {
                 firstPri = price;
             }
             if (type == 2) {
+                secondSelect = false;
                 secondPri = price;
             }
 
             Npri = firstPri + secondPri + pri;
             var SPri;
-            SPri=Npri+"";
-            console.log(SPri);
+            SPri = Npri + "";
+            //console.log(SPri);
             var index = SPri.indexOf(".");
-            console.log(index);
-            if(index<0){
-                SPri=SPri+".00";
+            //console.log(index);
+            if (index < 0) {
+                SPri = SPri + ".00";
             }
             var index = SPri.indexOf(".");
-            console.log(index);
+            //console.log(index);
             $scope.productPrice_I = SPri.substr(0, index);
-            console.log( $scope.productPrice_I);
+            //console.log($scope.productPrice_I);
             $scope.productPrice_F = SPri.substr(index, SPri.length);
-            console.log( $scope.productPrice_F);
+            //console.log($scope.productPrice_F);
 
         }
 
