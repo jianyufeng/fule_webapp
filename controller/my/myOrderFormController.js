@@ -86,15 +86,12 @@ define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
         //加载更多
         $scope.loadMore = function () {
             myOrderFormService.getShopOrderForm($scope, POP, type);
-        }
+        };
 
         //跳转详情
         $scope.showDetail = function (item) {
             $state.go('tab.my-orderFormDetails', {
-                //title: item.title,
-                //add_time: item.add_time,
-                //create_user_name: item.approve_user_name,
-                //article_id:item.id
+                order_id: item.order_id
             });
         };
     }

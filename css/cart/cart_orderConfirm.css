@@ -216,7 +216,7 @@
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox {
   width: 100%;
-  height: 100px;
+  height: auto;
   background: white;
   float: left;
   border-top: 5px solid #f8f8f8;
@@ -550,29 +550,40 @@
   text-align: center;
   line-height: 50px;
   font-size: 15px;
+  border-bottom: solid 1px #eee;
 }
-.popAddressBox .addressBox {
-  width: 90%;
+.popAddressBox .xlhsSV {
+  width: 100%;
   height: auto;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+  bottom: 120px;
+  right: 0px;
+  float: left;
+}
+.popAddressBox .xlhsSV .addressBox {
+  width: 90%;
+  height: 60px;
   margin-top: 10px;
   margin-left: 15px;
   border-bottom: solid 1px #eee;
   float: left;
 }
-.popAddressBox .addressBox .topContent {
+.popAddressBox .xlhsSV .addressBox .topContent {
   height: 20px;
   width: 90%;
+  font-size: 15px;
+  float: left;
+}
+.popAddressBox .xlhsSV .addressBox .bottomContent {
+  width: 90%;
+  height: 40px;
+  color: #9e9e9e;
   font-size: 14px;
   float: left;
 }
-.popAddressBox .addressBox .bottomContent {
-  width: 90%;
-  height: auto;
-  color: #9e9e9e;
-  font-size: 13px;
-  float: left;
-}
-.popAddressBox .addressBox .choice {
+.popAddressBox .xlhsSV .addressBox .choice {
   width: 20px;
   height: 20px;
   border-radius: 10px;
@@ -580,31 +591,31 @@
   float: right;
   margin-top: -10px;
 }
-.popAddressBox .addressBox .choice img {
+.popAddressBox .xlhsSV .addressBox .choice img {
   width: 20px;
   height: 20px;
 }
 .popAddressBox .bottomBox {
   width: 100%;
-  height: 80px;
+  height: 120px;
   position: absolute;
   bottom: 0;
 }
-.popAddressBox .bottomBox .inputAddress {
+.popAddressBox .bottomBox .inputUser {
   position: absolute;
   width: 70%;
   height: 40px;
   left: 15px;
-  top: -30px;
+  top: 10px;
   border: solid 1px #d79ac4;
   border-radius: 5px;
 }
-.popAddressBox .bottomBox .search {
+.popAddressBox .bottomBox .xlhs_searchBtn {
   position: absolute;
   width: 18%;
   height: 40px;
   right: 15px;
-  top: -30px;
+  top: 10px;
   background: #d79ac4;
   color: white;
   border-radius: 5px;

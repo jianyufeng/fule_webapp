@@ -9,6 +9,7 @@ var API = {
         // 个人信息
         myInfo: serverIP + "/_user/userHome",
         myOrderForm: serverIP + "/order/searchList",
+        myOrderFormDetails: serverIP + "/_order/searchOrderDetail",
         // 查询商品条形码
         searchBarCodeGoods: serverIP + "/barCode/searchBarCodeGoods",
         // 内部转账  获取短信验证码
@@ -116,7 +117,9 @@ var API = {
         //普通商城生成支付订单
         commonPaymentOrder: serverIP + "/order/addCommonPaymentOrder",
         //计算运费
-        countFreight: serverIP + "/shipping/countFreight"
+        countFreight: serverIP + "/shipping/countFreight",
+        //查找喜乐会所
+        searchExclusiveShop:serverIP + "/exclusiveShop/search"
     },
 
     Category: {
