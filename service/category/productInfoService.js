@@ -14,7 +14,6 @@ define(['app'], function (app) {
         var ArrayPri = [];
         var goodsAttrIdArray = [];
         service.MYreset = function () {
-            console.log("清空数据");
             pri = 0;
             Npri = 0;
             selectArray = [];
@@ -39,7 +38,8 @@ define(['app'], function (app) {
                     var goodsInfo = data.goodsInfo.data.shift();
                     // 商品的轮播图
                     $scope.goodsImgss = data.goodsImgs;
-                    if ($scope.goodsImgss.length > 0) {
+                    productImgNum=$scope.goodsImgss.length;
+                    if (productImgNum > 0) {
                         $scope.showImg = true;
                         $("#noImg").hide();
                     } else {

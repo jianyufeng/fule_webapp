@@ -10,6 +10,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         $scope.showImg = false;
         $scope.goodsDetailImg = true;
         POP.StartLoading();
+        productImgNum=0;
         $scope.$on('$ionicView.enter', function () {
             $scope.count = 1;
             $scope.cartCount = 0;
@@ -18,9 +19,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
             productInfoService.getCartInfo($scope, POP);
         });
         $scope.$on('$ionicView.leave', function () {
-            console.log("清空数据");
             $scope.count = 1;
-
             productInfoService.MYreset();
         });
 
@@ -111,6 +110,15 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
             //productInfoService.setImageMargin();
             $scope.myActiveSlide = 0;
             $ionicSlideBoxDelegate.update();
+            // 计算
+            var Pwidth = $(".instructions").width();
+            console.log(222222222);
+            console.log(Pwidth);
+            var Iwidth = productImgNum * 23;
+            console.log(Iwidth);
+            var Nwidth = (Pwidth - Iwidth) / 2;
+            console.log(Nwidth);
+            $(".instructionItem").css("margin-left", Nwidth+"px");
             $(".productInfoImg").myImageLazyLoad({
                 //默认三个参数可不传，使用默认参数
                 // imageLoadErr : "./resource/images/default/default_image.png", //加载失败占位图

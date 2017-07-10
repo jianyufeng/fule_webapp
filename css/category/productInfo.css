@@ -37,12 +37,8 @@
   height: 20px;
   position: absolute;
   bottom: 10px;
-  text-align: center;
 }
-.contentBox .scrollBox .productImgBox .instructions div {
-  margin-left: 43%;
-}
-.contentBox .scrollBox .productImgBox .instructions div img {
+.contentBox .scrollBox .productImgBox .instructions .instructionItem img {
   display: block;
   float: left;
 }
