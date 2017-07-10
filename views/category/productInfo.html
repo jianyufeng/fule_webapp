@@ -54,7 +54,7 @@
 
                         <div class="productOtherItem attrBox" ng-repeat="attr in attrs" ng-init="outerIndex = $index" >
 
-                            <div class="attrName" data-attrSelect>{{attr[0].attr_name}}
+                            <div class="attrName" data-attrSelect>{{attr[0].attr_name}}:
                             </div>
                             <div class="attrValue-{{attrValue.attr_type}} attrItem" ng-repeat="attrValue in attr"
                                  ng-click="selectAttr(attrValue.attr_type,attrValue.attr_price,attrValue.goods_attr_id,outerIndex,$index)"

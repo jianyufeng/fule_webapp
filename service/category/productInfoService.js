@@ -122,7 +122,6 @@ define(['app'], function (app) {
                             itemPri = 0;
                         } else {
                             selectArray.push(false);
-                            //goodsAttrIdArray.push(0);
                         }
                         ArrayPri.push(itemPri);
                     }
@@ -239,8 +238,6 @@ define(['app'], function (app) {
                         "goods_price": cartPri * goodsNumber
                     };
                 }
-                //var str = JSON.stringify(arg);
-                //console.log(str);
                 HTTP.post(API.Cart.cartAdd, arg, function (e, data) {
                     if (e) {
                         POP.Hint("添加失败");

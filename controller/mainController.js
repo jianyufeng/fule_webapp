@@ -58,16 +58,22 @@ define(['app'],function(app){
         }
 
 		$scope.tabSelect=function(index){
+			$(".mytab").find(".tab-title").css("color","#000000");
 			if(index==0) {
 				$state.go('tab.goods',{});
+				$(".goodsIcon").find(".tab-title").css("color","#D9A8CD");
 			} else if(index==1) {
 				$state.go('tab.category',{});
+				$(".fenleiIcon").find(".tab-title").css("color","#D9A8CD");
 			} else if(index==2) {
 				$state.go('tab.home', {});
+				$(".middleIcon").find(".tab-title").css("color","#D9A8CD");
 			}else if(index==3) {
 				$state.go('tab.cart', {});
+				$(".cartIcon").find(".tab-title").css("color","#D9A8CD");
 			}else if(index==4) {
 				$state.go('tab.my', {});
+				$(".myIcon").find(".tab-title").css("color","#D9A8CD");
 			}
 		};
 		//var refresh = $.cookie('refresh');
