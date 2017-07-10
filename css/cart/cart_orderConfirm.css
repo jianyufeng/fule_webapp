@@ -259,7 +259,7 @@
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox .orderSendGoodsAddress {
   width: 100%;
-  height: 100px;
+  height: auto;
   float: left;
   line-height: 100px;
   border-bottom: 3px solid #f8f8f8;
@@ -272,6 +272,8 @@
   padding-left: 10px;
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox .orderSendGoodsAddress .titleArea span {
+  width: 100px;
+  height: auto;
   font-size: 14px;
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox .orderSendGoodsAddress .setSendAddressBtn {
@@ -311,10 +313,15 @@
   text-align: right;
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox .orderSendGoodsAddress .sendAddressDetail .address {
-  width: 100%;
+  width: 70%;
   height: 30px;
   line-height: 30px;
   text-align: right;
+  float: right;
+}
+.orderBox .orderDetailBox .scrollV .payInfoBox .orderSendGoodsAddress .sendAddressDetail .address span {
+  width: 90%;
+  height: 30px;
 }
 .orderBox .orderDetailBox .scrollV .payInfoBox .orderPayModel {
   width: 100%;
@@ -609,6 +616,7 @@
   top: 10px;
   border: solid 1px #d79ac4;
   border-radius: 5px;
+  padding-left: 10px;
 }
 .popAddressBox .bottomBox .xlhs_searchBtn {
   position: absolute;

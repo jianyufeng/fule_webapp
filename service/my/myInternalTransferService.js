@@ -87,7 +87,7 @@ define(['app'], function (app) {
             }
 
             if (passWord == undefined) {
-                POP.Hint("请填写支付密码！");
+                POP.Hint("请填写二级密码！");
                 return;
             }
             if (messageCode == undefined) {
@@ -107,7 +107,7 @@ define(['app'], function (app) {
                 POP.Hint("金额格式不正确，请重新输入！");
                 return;
             }
-            var parrt = /^\d{6}$/;
+
             if (!parrt.test(passWord)) {
                 POP.Hint("密码格式不正确，请重新输入！");
                 return;

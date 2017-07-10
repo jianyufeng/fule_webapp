@@ -225,10 +225,15 @@ define(['app'], function (app) {
                 POP.EndLoading();
 
                 if (e) {
-                    POP.Alert("订单提交失败");
+
+                  if (data){
+                      POP.Alert(data);
+                  }else {
+                      POP.Alert("订单提交失败");
+                  }
                     return;
                 } else {
-                    fn();
+                    fn(data);
                     POP.Hint("订单提交成功!");
                 }
 
@@ -292,11 +297,7 @@ define(['app'], function (app) {
 
 
                       fn(data);
-                      $scope.$apply(function () {
 
-                          $scope.ExclusiveShopList = data;
-
-                      });
 
                   });
 
@@ -308,11 +309,6 @@ define(['app'], function (app) {
                       console.log("**********省市区**********");
                       console.log(data);
                       fn(data);
-                      $scope.$apply(function () {
-
-                          $scope.ExclusiveShopList = data;
-
-                      });
 
                   });
 
