@@ -13,11 +13,15 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         $scope.$on('$ionicView.enter', function () {
             $scope.count = 1;
             $scope.cartCount = 0;
+            productInfoService.MYreset();
             productInfoService.getProductInfo($scope, $stateParams, POP, $compile);
             productInfoService.getCartInfo($scope, POP);
         });
         $scope.$on('$ionicView.leave', function () {
+            console.log("清空数据");
             $scope.count = 1;
+
+            productInfoService.MYreset();
         });
 
         //获取数量手动输入是去焦点
@@ -41,8 +45,8 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
         }
 
         // 选择属性
-        $scope.selectAttr = function (type,price,index) {
-            productInfoService.selectAttr($scope,type,price,index);
+        $scope.selectAttr = function (type,price,goods_AttrId,outerIndex,index) {
+            productInfoService.selectAttr($scope,type,price,goods_AttrId,outerIndex,index);
         };
 
         $scope.addCartAction = function () {
@@ -102,7 +106,7 @@ define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
             $("#_number").val($scope.count);
         }
-        var i = 0;
+
         $scope.$on("viewOnFinish", function () {
             //productInfoService.setImageMargin();
             $scope.myActiveSlide = 0;

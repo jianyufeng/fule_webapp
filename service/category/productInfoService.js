@@ -9,11 +9,19 @@ define(['app'], function (app) {
         var service = {};
         var goodsId;
         var pri;
-        var firstSelect = true;
-        var secondSelect = true;
-        var firstPri = 0;
-        var secondPri = 0;
         var Npri;
+        var selectArray = [];
+        var ArrayPri = [];
+        var goodsAttrIdArray = [];
+        service.MYreset = function () {
+            console.log("清空数据");
+            pri = 0;
+            Npri = 0;
+            selectArray = [];
+            ArrayPri = [];
+            goodsAttrIdArray = [];
+
+        }
         // 获取产品详情
         service.getProductInfo = function ($scope, $stateParams, POP, $compile) {
             POP.StartLoading();
@@ -79,6 +87,7 @@ define(['app'], function (app) {
                     newArray = []
                     if (attr.length > 0) {
                         for (var i = 0; i < attr.length; i++) {
+                            //如果是默认属性 则给goodsAttrId 直接拼接上 goods_attr_id
                             if (i == attr.length - 1) {
                                 if ($.inArray(attr[i].attr_name, attrNameArray) == -1) {
                                     attrNameArray.push(attr[i].attr_name);
@@ -105,6 +114,19 @@ define(['app'], function (app) {
 
                     $scope.attrs = newArray;
                     console.log(newArray);
+                    console.log(newArray.length);
+                    for (var a = 0; a < newArray.length; a++) {
+                        var itemPri = 0;
+                        if ((newArray[a][0].attr_type) == 0) {
+                            selectArray.push(true);
+                            itemPri = 0;
+                        } else {
+                            selectArray.push(false);
+                            //goodsAttrIdArray.push(0);
+                        }
+                        ArrayPri.push(itemPri);
+                    }
+                    console.log(goodsAttrIdArray)
                 });
 
 
@@ -179,23 +201,47 @@ define(['app'], function (app) {
                 //console.log("goods_name=", goodsName);
                 //console.log("goods_number=", 1);
                 console.log("显示商品价格");
+                var cartPri = 0;
+                var arg = {};
                 if (attr.length > 0) {
-                    if (firstSelect || secondSelect) {
-                        POP.Hint("请完整选择商品属性！");
-                        return;
+                    for (var b = 0; b < selectArray.length; b++) {
+                        console.log(12);
+                        console.log(selectArray[b]);
+                        if (selectArray[b] === false) {
+                            POP.Hint("请完整选择商品属性！");
+                            return;
+                        }
                     }
-                    pri = Npri;
+                    cartPri = Npri;
+                    // 字符串连接
+                    var goods_attrs = goodsAttrIdArray.join("_");
+                    var index = goods_attrs.indexOf("_");
+                    if (index == 0) {
+                        goods_attrs = goods_attrs.substr(index + 1, goods_attrs.length);
+                    }
+                    arg = {
+                        "user_name": userInfo.user_name,
+                        "user_id": userInfo.user_id,
+                        "goods_id": goodsId,
+                        "goods_name": goodsName,
+                        "goods_number": goodsNumber,
+                        "goods_attrs": goods_attrs,
+                        "goods_price": cartPri * goodsNumber
+                    };
+                } else {
+                    cartPri = pri;
+                    arg = {
+                        "user_name": userInfo.user_name,
+                        "user_id": userInfo.user_id,
+                        "goods_id": goodsId,
+                        "goods_name": goodsName,
+                        "goods_number": goodsNumber,
+                        "goods_price": cartPri * goodsNumber
+                    };
                 }
-                //console.log(pri);
-                //console.log("goods_price", pri * goodsNumber);
-                HTTP.post(API.Cart.cartAdd, {
-                    "user_name": userInfo.user_name,
-                    "user_id": userInfo.user_id,
-                    "goods_id": goodsId,
-                    "goods_name": goodsName,
-                    "goods_number": goodsNumber,
-                    "goods_price": pri * goodsNumber
-                }, function (e, data) {
+                //var str = JSON.stringify(arg);
+                //console.log(str);
+                HTTP.post(API.Cart.cartAdd, arg, function (e, data) {
                     if (e) {
                         POP.Hint("添加失败");
                         return;
@@ -247,9 +293,9 @@ define(['app'], function (app) {
          * @param price
          * @param index
          */
-        service.selectAttr = function ($scope, type, price, index) {
-
+        service.selectAttr = function ($scope, type, price, goodsAttrId, outerIndex, index) {
             if (type == 0) {
+
                 return;
             }
             // 改变样式
@@ -259,17 +305,18 @@ define(['app'], function (app) {
             $("." + s).eq(index).addClass("attrValue_select");
             pri = Number(pri);
             price = Number(price);
-
-            if (type == 1 && firstSelect) {
-                firstSelect = false;
-                firstPri = price;
+            selectArray[outerIndex] = true;
+            ArrayPri[outerIndex] = price;
+            goodsAttrIdArray[outerIndex] = goodsAttrId;
+            var selectPri = 0;
+            for (var p = 0; p < selectArray.length; p++) {
+                //判断选中的
+                if (selectArray[p] === true) {
+                    selectPri += ArrayPri[p];
+                }
             }
-            if (type == 2) {
-                secondSelect = false;
-                secondPri = price;
-            }
 
-            Npri = firstPri + secondPri + pri;
+            Npri = selectPri + pri;
             var SPri;
             SPri = Npri + "";
             //console.log(SPri);
@@ -279,12 +326,8 @@ define(['app'], function (app) {
                 SPri = SPri + ".00";
             }
             var index = SPri.indexOf(".");
-            //console.log(index);
             $scope.productPrice_I = SPri.substr(0, index);
-            //console.log($scope.productPrice_I);
             $scope.productPrice_F = SPri.substr(index, SPri.length);
-            //console.log($scope.productPrice_F);
-
         }
 
         /**
