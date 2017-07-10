@@ -6,6 +6,8 @@
 
 define(function(){
 
+
+
 	//创建模块,同时加载ionic模块
 	var app =  angular.module('myApp',['ionic']);
 
