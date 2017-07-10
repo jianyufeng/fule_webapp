@@ -364,12 +364,12 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             $popAddressBox.css({
                 display: "block"
             });
-            $popAddressBox.animate({"bottom": 0}, 300);
+            $popAddressBox.stop(true,true).animate({"bottom": 0}, 300);
 
 
             $(".close").click(function () {
                 $(".popBg").fadeOut(200);
-                $popAddressBox.animate({"bottom": -1000}, 200);
+                $popAddressBox.stop(true,true).animate({"bottom": -1000}, 200);
 
             });
 

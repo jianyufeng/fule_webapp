@@ -114,6 +114,9 @@
   float: left;
   color: #999;
 }
+.cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsInfoBox .cartArrtGoodsBox span {
+  font-size: 14px;
+}
 .cartBox .buyerListBox .buyerItem .cartGoodsInfo .cartGoodsInfoBox .cartGoodsActionBox {
   width: 120px;
   height: 30px;
