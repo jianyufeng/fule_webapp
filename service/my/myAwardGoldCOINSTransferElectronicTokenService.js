@@ -88,7 +88,7 @@ define(['app'], function (app) {
             var messageCode = $scope.transform.messageCode;
             if (reMark == undefined)reMark = "";
             if (passWord == undefined) {
-                POP.Hint("请填写支付密码！");
+                POP.Hint("请填写三级密码！");
                 return;
             }
             if (money == undefined) {
@@ -100,7 +100,7 @@ define(['app'], function (app) {
                 return;
             }
 
-            var parrt = /^\d{6}$/;
+            var parrt = /^[A-Za-z0-9_]+$/;
             if (!parrt.test(passWord)) {
                 POP.Hint("密码格式不正确，请重新输入！");
                 return;

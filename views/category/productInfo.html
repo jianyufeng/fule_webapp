@@ -15,7 +15,7 @@
                         </ion-slide>
                     </ion-slide-box>
                     <div class="instructions">
-                        <div ng-repeat="imgv in goodsImgss">
+                        <div ng-repeat="imgv in goodsImgss"  class="instructionItem" >
                             <img ng-if="$index == 0" src="./resource/images/icon/point_hover.png">
                             <img ng-if="$index != 0" src="./resource/images/icon/point_gray.png"
                                  style="margin-left: 10px">
@@ -52,14 +52,16 @@
                             </div>
                         </div>
 
-                        <div class="productOtherItem attrBox" ng-repeat="attr in attrs">
-                            <div class="attrName">{{attr[0].attr_name}}</div>
+                        <div class="productOtherItem attrBox" ng-repeat="attr in attrs" ng-init="outerIndex = $index" >
 
+                            <div class="attrName" data-attrSelect>{{attr[0].attr_name}}:
+                            </div>
                             <div class="attrValue-{{attrValue.attr_type}} attrItem" ng-repeat="attrValue in attr"
-                                 ng-click="selectAttr(attrValue.attr_type,attrValue.attr_price,$index)"
+                                 ng-click="selectAttr(attrValue.attr_type,attrValue.attr_price,attrValue.goods_attr_id,outerIndex,$index)"
                             >
                                 {{attrValue.attr_value}}
                             </div>
+
                         </div>
                         <div class="productOtherItem">
                             <span>本商品最大限制购买量:<span class="goodsNumber"> &nbsp;{{limitGoodsNumber}}</span></span>

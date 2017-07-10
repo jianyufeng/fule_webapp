@@ -33,7 +33,7 @@ define(['app'], function (app) {
             }
 
             if (thirdPassword == undefined) {
-                POP.Hint("请填写支付密码！");
+                POP.Hint("请填写二级密码！");
                 return;
             }
             if (messageCode == undefined) {
@@ -41,7 +41,7 @@ define(['app'], function (app) {
                 return;
             }
 
-            var parrt = /^\d{6}$/;
+            var parrt = /^[A-Za-z0-9_]+$/;
             if (!parrt.test(thirdPassword)) {
                 POP.Hint("密码格式不正确，请重新输入！");
             }

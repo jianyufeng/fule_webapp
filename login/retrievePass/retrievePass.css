@@ -1,0 +1,112 @@
+/*浮动 默认左浮动*/
+* {
+  padding: 0;
+  margin: 0;
+}
+.navm {
+  width: 100%;
+  height: 60px;
+  background: url("../../resource/images/icon/top_background.png") no-repeat;
+  background-size: cover;
+  text-align: center;
+  line-height: 60px;
+  color: black;
+  font-size: 16px;
+  z-index: 99999999999999;
+}
+.mi_box {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 40px auto;
+  width: 80%;
+  height: auto;
+  /*发送验证码*/
+}
+.mi_box .mi_name {
+  line-height: 40px;
+  width: 20%;
+  height: 40px;
+  float: left;
+}
+.mi_box .mi_account {
+  border: solid 1px #eee;
+  border-radius: 5px;
+  width: 80%;
+  float: left;
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.mi_box .sendBox {
+  margin-top: 30px;
+  background: #d98bbc;
+  width: 100%;
+  height: 40px;
+  float: right;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+  border: none;
+}
+.mi_box .sendBox:disabled {
+  background: #d9a9cd;
+}
+.mi_box .sendBox:active {
+  background: #d95067;
+}
+.change_box {
+  display: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 40px auto;
+  width: 100%;
+  height: auto;
+}
+.change_box .change_mi_box {
+  margin: 10px auto;
+  width: 90%;
+  height: 40px;
+}
+.change_box .change_mi_box .mi_name {
+  line-height: 40px;
+  width: 30%;
+  height: 40px;
+  float: left;
+}
+.change_box .change_mi_box .mi_account {
+  border: solid 1px #eee;
+  border-radius: 5px;
+  width: 70%;
+  float: left;
+  height: 40px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.change_box .changBtn_Box {
+  margin: 30px auto;
+  width: 90%;
+  height: auto;
+  /*发送验证码*/
+}
+.change_box .changBtn_Box .changBtn {
+  float: right;
+  background: #d98bbc;
+  width: 100%;
+  height: 40px;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 13px;
+  border: none;
+}
+.change_box .changBtn_Box .changBtn:disabled {
+  background: #d9a9cd;
+}
+.change_box .changBtn_Box .changBtn:active {
+  background: #d95067;
+}
