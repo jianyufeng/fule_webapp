@@ -342,7 +342,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
         });
 
 
-        
+
 
         //解决第三方软键盘唤起时底部input输入框被遮挡问题
         var bfscrolltop = document.body.scrollTop;//获取软键盘唤起前浏览器滚动部分的高度
