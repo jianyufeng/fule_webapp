@@ -181,7 +181,7 @@
 					<p class="ellipsis" style="width:80%;font-size:14px;color:#878787;margin-top:-25px;padding-left:10px;">{{hotGoodsData[0].goods_name}}</p>
 					<p style="color:#a82285;font-size:18px;padding-left:8px;">￥{{hotGoodsData[0].shop_price}}
 							</p>
-					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" data-goodsprice="{{hotGoodsData[0].shop_price}}" data-goodsname="{{hotGoodsData[0].goods_name}}" data-goodsid="{{hotGoodsData[0].goods_id}}" />
+					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" ng-show="hotGoodsData[0].is_product==0" data-goodsprice="{{hotGoodsData[0].shop_price}}" data-goodsname="{{hotGoodsData[0].goods_name}}" data-goodsid="{{hotGoodsData[0].goods_id}}" />
 				</div>
 			</div>
 			<div class="recommendGoodsItem">
@@ -192,7 +192,7 @@
 					</div>
 					<p class="ellipsis" style="width:80%;font-size:14px;color:#878787;margin-top:-25px;padding-left:10px;">{{hotGoodsData[1].goods_name}}</p>
 						<p style="color:#a82285;font-size:18px;padding-left:8px;">￥{{hotGoodsData[1].shop_price}}</p>
-					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" data-goodsprice="{{hotGoodsData[1].shop_price}}" data-goodsname="{{hotGoodsData[1].goods_name}}" data-goodsid="{{hotGoodsData[1].goods_id}}" />
+					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png"  ng-show="hotGoodsData[1].is_product==0" data-goodsprice="{{hotGoodsData[1].shop_price}}" data-goodsname="{{hotGoodsData[1].goods_name}}" data-goodsid="{{hotGoodsData[1].goods_id}}" />
 				</div>
 				
 			</div>
@@ -204,7 +204,7 @@
 					</div>
 					<p class="ellipsis" style="width:80%;font-size:14px;color:#878787;margin-top:-25px;padding-left:10px;">{{hotGoodsData[2].goods_name}}</p>
 						<p style="color:#a82285;font-size:18px;padding-left:8px;">￥{{hotGoodsData[2].shop_price}}</p>
-					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" data-goodsprice="{{hotGoodsData[2].shop_price}}" data-goodsname="{{hotGoodsData[2].goods_name}}" data-goodsid="{{hotGoodsData[2].goods_id}}" />
+					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" ng-show="hotGoodsData[2].is_product==0" data-goodsprice="{{hotGoodsData[2].shop_price}}" data-goodsname="{{hotGoodsData[2].goods_name}}" data-goodsid="{{hotGoodsData[2].goods_id}}" />
 				</div>
 			</div>
 			<div class="recommendGoodsItem">
@@ -215,7 +215,7 @@
 					</div>
 										<p  class="ellipsis" style="width:80%;font-size:14px;color:#878787;margin-top:-25px;padding-left:10px;">{{hotGoodsData[3].goods_name}}</p>
 						<p class="ellipsis" style="width:80%;color:#a82285;font-size:18px;padding-left:8px;">￥{{hotGoodsData[3].shop_price}}</p>
-					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" data-goodsprice="{{hotGoodsData[3].shop_price}}" data-goodsname="{{hotGoodsData[3].goods_name}}" data-goodsid="{{hotGoodsData[3].goods_id}}" />
+					<img class="cartIcon" src="./resource/images/icon/shoppingcar.png" ng-show="hotGoodsData[3].is_product==0" data-goodsprice="{{hotGoodsData[3].shop_price}}" data-goodsname="{{hotGoodsData[3].goods_name}}" data-goodsid="{{hotGoodsData[3].goods_id}}" />
 				</div>
 			</div>
 		</div>
