@@ -221,6 +221,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                     });
 
                     $state.go('tab.my');
+                    $(".mytab").find(".tab-title").css("color","#000000");
+                    $(".myIcon").find(".tab-title").css("color","#D9A8CD");
                 });
 
 
