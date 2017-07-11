@@ -429,7 +429,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         });
 
-        $scope.aaa = function(idx,event){
+        $scope.selectSender = function(idx,event){
 
 
             var obj = $(event.target);
