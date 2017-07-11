@@ -6,7 +6,7 @@
 
 define(['app'],function(app){
 
-	function ctrl($scope,$rootScope,$state){
+	function ctrl($scope,$rootScope,$state,$ionicTabsDelegate){
 
 
 
@@ -76,6 +76,7 @@ define(['app'],function(app){
 				$(".myIcon").find(".tab-title").css("color","#D9A8CD");
 			}
 		};
+
 		//var refresh = $.cookie('refresh');
 		//if(refresh == undefined || refresh === 'null'){
 		//}else{
@@ -93,7 +94,7 @@ define(['app'],function(app){
 		$.initAppEndLoad();
 	}
 
-	ctrl.$inject = ['$scope','$rootScope','$state'];
+	ctrl.$inject = ['$scope','$rootScope','$state','$ionicTabsDelegate'];
 	app.registerController('mainController',ctrl);
 
 
