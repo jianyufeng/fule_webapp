@@ -83,7 +83,7 @@
                                  </span>
                                 </div>
                                 <div class="orderGoodsPrice">
-                                    <div class="orderPrice">¥&nbsp;<span>{{order_good.shop_price}}</span></div>
+                                    <div class="orderPrice">¥&nbsp;<span>{{order_good.goods_price}}</span></div>
                                     <div class="orderAcount"><span>x{{order_good.goods_number}}</span></div>
                                 </div>
 
@@ -186,7 +186,7 @@
                 <div class="bottomContent ">
                     店主 : {{shop.USER_NAME}}&nbsp;&nbsp;&nbsp;&nbsp;地址 : {{shop.ADDRESS}}
                 </div>
-                <div class="choice" ng-click="aaa($index,$event)" >
+                <div class="choice" ng-click="selectSender($index,$event)" >
                     <img style="display: none" src="resource/images/icon/shoppingcar_xuanz.png">
                 </div>
             </div>

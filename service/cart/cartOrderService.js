@@ -16,6 +16,10 @@ define(['app'], function (app) {
             HTTP.get(API.Cart.orderInfo + "/user_id/" + info.user_id, {}, function (e, data) {
 
 
+                console.log("**********购物车订单详情");
+                console.log(data);
+
+
                 POP.EndLoading();
 
                 if (e) {
