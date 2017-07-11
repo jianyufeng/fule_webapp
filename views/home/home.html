@@ -37,77 +37,80 @@
 			</ion-slide-box>
 		</div>
 
-		<div class="newProductBox">
-			<div class="productLeftBox">
-				<img src="./resource/images/goods_1.png" />
+		<div class="newProductBox"  >
+			<div class="productLeftBox" ng-click="goGoodsDetail(158)">
+				<img src="./resource/images/newgoods/goods_new.png" />
 				<!--<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{newsGoodsData[0].img_normal}}' />-->
 				
 				<div class="newIcon">
 					
 				</div>
  			</div>
-			<div class="productContent">
-				<div class="productTitle">凝胶</div>
-				<div class="productDesc_1">生物制剂</div>
-				<div class="productDesc_2">健康新升级</div>
-			</div>
+			<!--<div class="productContent">-->
+				<!--<div class="productTitle">凝胶</div>-->
+				<!--<div class="productDesc_1">爱她爱他胶原蛋白果汁饮品</div>-->
+				<!--<div class="productDesc_2">焕然一新 美颜饮新骄傲</div>-->
+			<!--</div>-->
 		</div>
 
-		<div style="width:100%;height:20px;" ng-if="newsGoodsData.length == 0"></div>
-	
-
 		<div class="productListBox">
-			<div class="leftProductBox">
-				<div class="productTitle">爱她爱他</div>
-				<div class="productDesc">玫瑰黑枣复合果汁饮料</div>
+			<div class="leftProductBox" ng-click="goGoodsDetail(161)">
+				<div class="productTitle ellipsis">三八妇乐亲清免洗消毒喷雾</div>
+				<div class="productDesc ellipsis">轻轻一喷 卫生舒心</div>
 				<div class="productImage">
-					<img src="./resource/images/goods_2.png" />
+					<img src="./resource/images/newgoods/goods_01.png" />
 				</div>
 
 
 			</div>
 			<div class="rightProductBox">
-				<div class="topProductBox">
+				<div class="topProductBox" ng-click="goGoodsDetail(169)">
 					<div class="leftProductImage">
-						<img src="./resource/images/goods_3.png" />
+						<img src="./resource/images/newgoods/goods_02.png" />
 					</div>
 					<div class="rightProductInfo">
-						<div class="rightProductTitle">爱她爱他</div>
-						<div class="rightProductDesc ellipsis">胶原蛋白果汁饮料</div>
+						<div class="rightProductTitle" style="color: limegreen">格欧尼亚</div>
+						<div class="rightProductDesc">乳木果焕采嫩滑沐浴礼盒</div>
 					</div>
 				</div>
-				<div class="topProductBox" style="border:none;">
+				<div class="topProductBox" style="border:none;" ng-click="goGoodsDetail(160)">
 					<div class="leftProductImage">
-						<img src="./resource/images/goods_4.png" />
+						<img src="./resource/images/newgoods/goods_03.png" />
 					</div>
 					<div class="rightProductInfo">
-						<div class="rightProductTitle">爱她爱他</div>
-						<div class="rightProductDesc ellipsis">胶原蛋白果汁饮料</div>
+						<div class="rightProductTitle ellipsis" style="color: red">三八妇乐伊悦美</div>
+						<div class="rightProductDesc ellipsis">蔓越莓益生菌固体饮料</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!--<div class="productListBox2">-->
-			<!--<div class="leftProductBox goodsItem" style="border-right:1px solid #eee;padding-left:20px;padding-right:20px;" name="{{hotGoodsData[0].goods_id}}">-->
+		<div class="productListBox2">
+			<div class="leftProductBox goodsItem" style="border-right:1px solid #eee; padding-left:5px;padding-right:5px;" name="167">
 				<!--<div class="productTitle ellipsis">{{hotGoodsData[0].brand_name}}</div>-->
 				<!--<div class="productDesc ellipsis">{{hotGoodsData[0].goods_name}}</div>-->
-				<!--<div class="productImage homeImage_1">-->
-					<!--<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[0].img_normal}}' />-->
-				<!--</div>-->
+				<div class="productTitle ellipsis">一品清心参花茶</div>
+				<div class="productDesc ellipsis">匠心十年 只为一杯好茶</div>
+				<div class="productImage homeImage_1">
+					<!--<img src="./resource/images/newgoods/goods_04.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[0].img_normal}}' />-->
+					<img src="./resource/images/newgoods/goods_04.png" style="width:100%;height:100%;" />
+				</div>
 
-				<!---->
-			<!--</div>-->
-			 <!--<div class="leftProductBox goodsItem" style="padding-left:20px;padding-right:20px;" name="{{hotGoodsData[1].goods_id}}">-->
+
+			</div>
+			 <div class="leftProductBox goodsItem" style="padding-left:5px;padding-right:5px;" name="97">
 				<!--<div class="productTitle ellipsis">{{hotGoodsData[1].brand_name}}</div>-->
 				<!--<div class="productDesc ellipsis">{{hotGoodsData[1].goods_name}}</div>-->
-				<!--<div class="productImage homeImage_2">-->
-					<!--<img src="./resource/images/default/default_image.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[1].img_normal}}' />-->
-				<!--</div>-->
+				 <div class="productTitle ellipsis">三八妇乐妇洁抑菌凝胶</div>
+				 <div class="productDesc ellipsis">一管到底 健康美丽</div>
+				<div class="productImage homeImage_2">
+					<!--<img src="./resource/images/newgoods/goods_05.png" style="width:100%;height:100%;" data-original='{{hotGoodsData[1].img_normal}}' />-->
+					<img src="./resource/images/newgoods/goods_05.png" style="width:100%;height:100%;"/>
+				</div>
 
-				<!---->
-			<!--</div>-->
-		<!--</div>-->
+
+			</div>
+		</div>
 
 		<!--<div class="productListBox2" style="margin-top:0px;border-top:1px solid #eee;">-->
 			<!--<div class="leftProductBox goodsItem" style="border-right:1px solid #eee;padding-left:20px;padding-right:20px;"  name="{{hotGoodsData[2].goods_id}}">-->
@@ -132,36 +135,37 @@
 
 		<div class="productListBox3">
 			
-			<div class="rightProductBox">
-				<div class="topProductBox">
+			<div class="leftProductBox">
+				<div class="topProductBox" ng-click="goGoodsDetail(104)">
 					<div class="leftProductImage homeImage_3">
-						<img src="./resource/images/default/default_image.png" data-original='{{hotGoodsData[2].img_normal}}' />
-					
+						<!--<img src="./resource/images/default/default_image.png" data-original='{{hotGoodsData[2].img_normal}}' />-->
+						<img src="./resource/images/newgoods/goods_06.png" />
 					</div>
 					<div class="rightProductInfo">
-						<div class="rightProductTitle ellipsis">{{hotGoodsData[2].brand_name}}</div>
-						<div class="rightProductDesc ellipsis">{{hotGoodsData[2].brand_name}}</div>
+						<!--<div class="rightProductTitle ellipsis">{{hotGoodsData[2].brand_name}}</div>-->
+						<!--<div class="rightProductDesc ellipsis">{{hotGoodsData[2].brand_name}}</div>-->
+						<div class="rightProductTitle ellipsis">妍健·用品</div>
 					</div>
 				</div>
-				<div class="topProductBox" style="border:none;">
-					<div class="leftProductImage">
-						<img src="./resource/images/goods_4.png" />
+				<div class="bottomProductBox" style="border:none;" ng-click="goGoodsDetail(48)">
+					<div class="leftProductImage2">
+						<img src="./resource/images/newgoods/goods_07.png" />
 					</div>
-					<div class="rightProductInfo">
-						<div class="rightProductTitle">爱她爱他</div>
-						<div class="rightProductDesc ellipsis">胶原蛋白果汁饮料</div>
+					<div class="rightProductInfo2">
+						<!--<div class="rightProductTitle">爱她爱他</div>-->
+						<!--<div class="rightProductDesc ellipsis">胶原蛋白果汁饮料</div>-->
+						<div class="rightProductTitle2">妍生·食品</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="leftProductBox">
-				<div class="productTitle">爱她爱他</div>
-				<div class="productDesc">玫瑰黑枣复合果汁饮料</div>
+			<div class="rightProductBox" ng-click="goGoodsDetail(51)">
+				<div class="productTitle">精彩·男士护理</div>
+				<div class="productDesc">专为男士而生</div>
 				<div class="productImage">
-					<img src="./resource/images/goods_2.png" />
+					<img src="./resource/images/newgoods/goods_08.png" />
 				</div>
 
-				
 			</div>
 
 		</div>

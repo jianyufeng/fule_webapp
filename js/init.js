@@ -17,6 +17,7 @@ define(['jquery','loading','app'],function(N,N,app){
 		$.initAppStartLoad();
 
 
+
 	}]);
 
     //初始化界面

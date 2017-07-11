@@ -91,8 +91,8 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
                 POP.Hint("姓名不能为空");
                 return;
             }else {
-                //正则验证用户名为数字、字母或者中文
-                var re = /^[\w\u4e00-\u9fa5]+$/;
+                //正则验证用户名中文
+                var re = /^[\u4e00-\u9fa5]/;
 
                 if (!re.test(recieverName)){
 

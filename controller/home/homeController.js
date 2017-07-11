@@ -17,19 +17,21 @@ define(['app', 'jquery_fly'],function(app,home_fun){
 						return;
 					}
 
+					console.log("首页家在信息");
 					console.log(data);
 
 					
 
 					// hotGoods = data['hotGoods'];
 					$scope.$apply(function () {
+
 						$scope.hotGoodsData  = data.hotGoods.data;
 						$scope.newsGoodsData = data.newGoods.data;
 					});
-					$(".homeImage_0 img").myImageLazyLoad({imgSize:true});
-					$(".homeImage_1 img").myImageLazyLoad({imgSize:true});
-					$(".homeImage_2 img").myImageLazyLoad({imgSize:true});
-					$(".homeImage_3 img").myImageLazyLoad({imgSize:true});
+					// $(".homeImage_0 img").myImageLazyLoad({imgSize:true});
+					// $(".homeImage_1 img").myImageLazyLoad({imgSize:true});
+					// $(".homeImage_2 img").myImageLazyLoad({imgSize:true});
+					// $(".homeImage_3 img").myImageLazyLoad({imgSize:true});
 					$(".homeImage_4 img").myImageLazyLoad({});
 					$(".homeImage_5 img").myImageLazyLoad({});
 					$(".homeImage_6 img").myImageLazyLoad({});
@@ -121,6 +123,15 @@ define(['app', 'jquery_fly'],function(app,home_fun){
 		$scope.goSearchVC = function(){
 			$state.go("tab.homeSearch", {});
 		};
+
+
+		$scope.goGoodsDetail = function (goodsId) {
+
+            $state.go("tab.searchGoodsDetail", {"goodsId": goodsId});
+        }
+
+
+
 
 
 
