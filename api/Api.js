@@ -11,7 +11,7 @@ var API = {
         myOrderForm: serverIP + "/order/searchList",
         myOrderFormDetails: serverIP + "/_order/searchOrderDetail",
         //是否开启共享圈事业圈功能
-        showRegister: serverIP + "_user/showRegister",
+        showRegister: serverIP + "/_user/showRegister",
         // 查询商品条形码
         searchBarCodeGoods: serverIP + "/barCode/searchBarCodeGoods",
         // 内部转账  获取短信验证码

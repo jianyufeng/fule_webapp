@@ -5,6 +5,9 @@ var app = angular.module("registerApp",['ionic']);
  */
 app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
 
+
+
+
     var service = {};
 
     //确认弹出框
@@ -81,7 +84,13 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
     return service;
 });
 
-app.controller("registerController", function ($scope, POP) {
+app.controller("registerController", function ($scope, POP,$state,$ionicScrollDelegate) {
+
+    var url = "../transmit/save.php/_user/showRegister";
+
+    HTTP.get(url, {}, function (e, data) {
+        console.log(data["PARAM_VALUE"]);
+    });
 
     //短信验证码按钮开启 0，关闭 1
     var messageCode_On = 0;

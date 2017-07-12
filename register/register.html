@@ -47,6 +47,15 @@
                 <input id="woman" type="radio" class="selector_women" checked="checked" name="1" value="2"/>&nbsp;&nbsp;女
             </div>
         </div>
+        <div ng-if="goodsInfo.goods_number <= 0" class="contentBox">
+            <div class="nameIconBox">
+                <img class="nameIcon" id="circleIcon" alt="圈子" src="../resource/images/icon/shiyequan.png">
+            </div>
+            <div class="sexBox">
+                <input id="shiye" type="radio" class = "selector_man" name="1" value="1" />&nbsp;&nbsp;事业圈&nbsp;&nbsp;&nbsp;
+                <input id="gongxiang" type="radio" class="selector_women" checked="checked" name="1" value="2"/>&nbsp;&nbsp;共享圈
+            </div>
+        </div>
         <div class="contentBox">
             <div class="nameIconBox">
                 <img style="width: 21px;height: 15px" class="nameIcon" id="mailIcon" alt="邮箱" src="../resource/images/icon/email.png">
