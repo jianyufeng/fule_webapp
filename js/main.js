@@ -11,7 +11,7 @@ require.config({
         'app': './app',								   //angularjs主配置文件
         'init': './init',								   //初始化配置文件
         'routes': './routes',							   //路由文件
-        'jquery': '../lib/js/jquery',					   //jquery库文件
+        'jquery': '../lib/js/jquery.min',					   //jquery库文件
         'jquery_fly': '../lib/js/jquery.fly.min',			   //购物车加入动画
         'animate': '../lib/js/jquery.transit',			   //动画库
         'loading': '../plugin/loading/loading',   		   //动画加载插件文件

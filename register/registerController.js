@@ -86,10 +86,26 @@ app.factory("POP", function ($ionicPopup, $ionicActionSheet, $ionicLoading) {
 
 app.controller("registerController", function ($scope, POP,$state,$ionicScrollDelegate) {
 
-    var url = "../transmit/save.php/_user/showRegister";
 
+
+
+    var url = "../transmit/save.php/_user/showRegister";
+    POP.StartLoading();
     HTTP.get(url, {}, function (e, data) {
-        console.log(data["PARAM_VALUE"]);
+
+        POP.EndLoading();
+
+        if (e) {
+            $.loadError(function () {
+
+            });
+            return;
+        }
+
+        $scope.$apply(function () {
+            $scope.showCircle = data["PARAM_VALUE"];
+        });
+
     });
 
     //短信验证码按钮开启 0，关闭 1
@@ -153,7 +169,7 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
                         'border': '#f55c86'
                     });
                 }
-            }, 1000)
+            }, 1000);
 
 
 
@@ -215,6 +231,7 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
         var user_name = $.trim($('#account').val());
         var email = $('#mailbox').val();
         var sex = parseInt($("input[name = '1']:checked").val());
+        var circle = parseInt($("input[name = '2']:checked").val());
         var loginPassword = $('#loginPassword').val();
         var secondPassword = $('#secondPassword').val();
         var threePassword = $('#threePassword').val();
@@ -400,6 +417,11 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
         }
         var verification_mode = "CODE";
         var url = "../transmit/save.php/_user/register";
+
+
+
+
+
         var param = {
             'user_name':user_name,
             'email':email,
@@ -413,6 +435,28 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
             'code':note
 
     };
+
+
+        if($scope.showCircle == 1 || $scope.showCircle == "1"){
+
+            param = {
+                'user_name':user_name,
+                'email':email,
+                'sex':sex,
+                'USER_SHARE_TYPE':circle,
+                'password':loginPassword,
+                'confirm_password':loginPassword,
+                'SECOND_PASSWORD':secondPassword,
+                'THREE_PASSWORD':threePassword,
+                'mobile':phoneNumber,
+                'verification_code':verification_mode,
+                'code':note
+
+            };
+
+        }
+
+
         POP.StartLoading();
 
         HTTP.post(url, param, function (e, data) {
@@ -436,6 +480,7 @@ console.log(data);
             } else {
                 $.cookie("userInfo", userInfo, {path: '/'});
             }
+
             location.href = "../index.html";
         })
     });
