@@ -70,7 +70,7 @@ define(['app'],function(app){
 				$(".middleIcon").find(".tab-title").css("color","#D9A8CD");
 			}else if(index==3) {
 				$state.go('tab.cart', {});
-				$(".cartIcon").find(".tab-title").css("color","#D9A8CD");
+				$(".myCartIcon").find(".tab-title").css("color","#D9A8CD");
 			}else if(index==4) {
 				$state.go('tab.my', {});
 				$(".myIcon").find(".tab-title").css("color","#D9A8CD");
