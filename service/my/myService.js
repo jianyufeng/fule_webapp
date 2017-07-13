@@ -50,8 +50,7 @@ define(['app'], function (app) {
                 //  共享圈/事业圈
                 var share_type = data.userInfo.USER_SHARE_TYPE;
                 // 激活时间
-                var share_time = data.userInfo.USER_SHARE_TIME;
-
+                 share_time = data.userInfo.USER_SHARE_TIME;
 
                 $scope.$apply(function () {
                     $scope.userInfo = data.userInfo;
@@ -81,6 +80,7 @@ define(['app'], function (app) {
                     //  事业圈
                     if (share_type == 0) {
                         // 判断 REGISTER_GRADE
+                        console.log(11111111111);
                         if (lv < 4) {
                             // 判断一键升级
                             $(".levelName").text("事业圈·注册会员");
@@ -98,18 +98,25 @@ define(['app'], function (app) {
                                 $("#gradeButton").css("display", "none");
                             }
 
-                        } else if (lv = 4 && user_IS_VIP == 0 && user_INTEGRAL >= IS_VIP) {
-                            // 显示升级VIP
-                            $("#gradeButton").text("升级为VIP");
-                            $("#gradeButton").css("display", "block");
+                        } else if (lv == 4 && user_IS_VIP == 0 && user_IS_PI_FA == 0) {
                             $(".levelName").text("事业圈·志愿者D");
+                            if (user_IS_VIP == 0 && user_INTEGRAL >= IS_VIP) {
+                                // 显示升级VIP
+                                $("#gradeButton").text("升级为VIP");
+                                $("#gradeButton").css("display", "block");
+                            }
                             $scope.garde = 3;
-                        } else if (lv = 4 && user_IS_VIP == 1 && user_IS_PI_FA == 0 && user_INTEGRAL >= IS_PI_FA) {
-                            //  显示升级批发
-                            $("#gradeButton").text("升级为批发");
-                            $("#gradeButton").css("display", "block");
+                        } else if (lv == 4 && user_IS_VIP == 1 && user_IS_PI_FA == 0) {
                             $(".levelName").text("事业圈·VIP");
+                            if (user_INTEGRAL >= IS_PI_FA) {
+                                //  显示升级批发
+                                $("#gradeButton").text("升级为批发");
+                                $("#gradeButton").css("display", "block");
+                            }
                             $scope.garde = 4;
+                        } else if (lv == 4 && user_IS_VIP == 1 && user_IS_PI_FA == 1) {
+                            $("#gradeButton").css("display", "none");
+                            $(".levelName").text("事业圈·批发");
                         } else {
                             $("#gradeButton").css("display", "none");
                         }
@@ -125,15 +132,28 @@ define(['app'], function (app) {
                         if (lv < 4) {
                             // 判断一键升级
                             if (user_INTEGRAL >= GAOJI_ZHI_YUAN_ZHE) {
+                                if (share_time > 0) {
+                                    // 共享圈一键升级
+                                    $scope.garde = 6;
+                                } else {
+                                    //一键升级
+                                    $scope.garde = 1;
+                                }
                                 // 显示一键升级
                                 $("#gradeButton").text("一键升级");
                                 $("#gradeButton").css("display", "block");
-                                $scope.garde = 1;
+
                             } else if (user_INTEGRAL >= IS_D && user_INTEGRAL < GAOJI_ZHI_YUAN_ZHE) {
+                                if (share_time > 0) {
+                                    //共享圈激活会员升级为D;
+                                    $scope.garde = 7;
+                                } else {
+                                    // 升级D
+                                    $scope.garde = 2;
+                                }
                                 // 显示升级D级
                                 $("#gradeButton").text("升级为志愿者");
                                 $("#gradeButton").css("display", "block");
-                                $scope.garde = 2;
                             } else if (user_INTEGRAL < IS_D && user_INTEGRAL > IS_REAL_SHARE) {
                                 // 升级为共享圈注册会员
                                 // 显示升级D级
@@ -146,18 +166,25 @@ define(['app'], function (app) {
                                 console.log($scope.garde)
                             }
 
-                        } else if (lv = 4 && user_IS_VIP == 0 && user_INTEGRAL >= IS_VIP) {
-                            // 显示升级VIP
-                            $("#gradeButton").text("升级为VIP");
-                            $("#gradeButton").css("display", "block");
+                        } else if (lv == 4 && user_IS_VIP == 0 && user_IS_PI_FA == 0) {
+                            if (user_INTEGRAL >= IS_VIP) {
+                                // 显示升级VIP
+                                $("#gradeButton").text("升级为VIP");
+                                $("#gradeButton").css("display", "block");
+                            }
                             $scope.garde = 3;
                             $(".levelName").text("共享圈·志愿者D");
-                        } else if (lv = 4 && user_IS_VIP == 1 && user_IS_PI_FA == 0 && user_INTEGRAL >= IS_PI_FA) {
-                            //  显示升级批发
-                            $("#gradeButton").text("升级为批发");
-                            $("#gradeButton").css("display", "block");
+                        } else if (lv == 4 && user_IS_VIP == 1 && user_IS_PI_FA == 0) {
+                            if (user_INTEGRAL >= IS_PI_FA) {
+                                //  显示升级批发
+                                $("#gradeButton").text("升级为批发");
+                                $("#gradeButton").css("display", "block");
+                            }
                             $(".levelName").text("共享圈·VIP");
                             $scope.garde = 4;
+                        } else if (lv == 4 && user_IS_VIP == 1 && user_IS_PI_FA == 1) {
+                            $(".levelName").text("共享圈·批发");
+                            $("#gradeButton").css("display", "none");
                         } else {
                             $("#gradeButton").css("display", "none");
                         }
@@ -174,7 +201,7 @@ define(['app'], function (app) {
         };
         service.upGrade = function ($scope, $state, POP) {
             // 判断是否要填写用户资料
-            if ($scope.registerGrade > 0) {
+            if ($scope.registerGrade > 0||share_time>0) {
                 // 直接升级VIP
                 service.upgradeToVIPAndPIFA($scope, POP);
                 return;
@@ -185,12 +212,17 @@ define(['app'], function (app) {
         service.upgradeToVIPAndPIFA = function ($scope, POP) {
             var url = "";
             var user = User.getInfo();
-            user.user_name
+            console.log(1111111112222222);
+            console.log($scope.garde);
             if ($scope.garde == 3) {
                 url = API.My.upgradeToVIP;
                 // 直接升级批发
             } else if ($scope.garde == 4) {
                 url = API.My.upgradeToPIFA;
+            } else if ($scope.garde == 6) {
+                url=API.My.upgradeToAllFromShare;
+            }else if ($scope.garde == 7) {
+                url=API.My.upgradeToDFromShare;
             }
             POP.StartLoading();
             HTTP.post(url,

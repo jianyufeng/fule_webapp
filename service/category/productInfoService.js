@@ -335,7 +335,7 @@ define(['app'], function (app) {
             $state.go("tab.newCart");
             $ionicTabsDelegate.select(3);
             $(".mytab").find(".tab-title").css("color","#000000");
-            $(".cartIcon").find(".tab-title").css("color","#D9A8CD");
+            $(".myCartIcon").find(".tab-title").css("color","#D9A8CD");
         }
         return service;
     });

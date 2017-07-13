@@ -58,6 +58,7 @@ define(['app', './Fun/my_fun'], function (app, my_fun) {
                 $.cookie('two_pass_go', null, {path: '/'});
                 $rootScope.cartBadge = 0;
                 $state.go("tab.home");
+                $(".mytab").find(".tab-title").css("color","#000000");
             });
         });
         //去登陆
