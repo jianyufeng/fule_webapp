@@ -3,7 +3,7 @@ var API = {
 
     Goods: {
         goods: serverIP + "/_goods/search",
-        searchList : serverIP + "/_goods/searchList"
+        searchList: serverIP + "/_goods/searchList"
     },
     My: {
         // 个人信息
@@ -82,8 +82,15 @@ var API = {
         //  查看奖金币
         showUserBonus: serverIP + "/_bonus/showWithdrawal",
         // 获取银行
-        searchBanksDic: serverIP + "/banks/searchBanksDic"
+        searchBanksDic: serverIP + "/banks/searchBanksDic",
+        // 升级共享圈
+        upgradeToShare: serverIP + "/upgrade/upgradeToShare",
+        // 共享圈激活会员升级D
+        upgradeToDFromShare: serverIP + "/upgrade/upgradeToDFromShare",
+        // 共享圈激活会员一键升级
+        upgradeToAllFromShare: serverIP + "/upgrade/upgradeToAllFromShare"
     },
+
 
     Cart: {
         //购物车信息
@@ -121,7 +128,7 @@ var API = {
         //计算运费
         countFreight: serverIP + "/shipping/countFreight",
         //查找喜乐会所
-        searchExclusiveShop:serverIP + "/exclusiveShop/search"
+        searchExclusiveShop: serverIP + "/exclusiveShop/search"
     },
 
     Category: {
@@ -142,7 +149,7 @@ var API = {
     },
 
     Home: {
-        getHomeInfo : serverIP + "/_goods/home"
+        getHomeInfo: serverIP + "/_goods/home"
     }
 
 }
