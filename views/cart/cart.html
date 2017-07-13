@@ -1,66 +1,83 @@
 <ion-view view-title="购物车" hide-tabs="false" hide-nav-bar="{{isNavShow}}">
-	 <navigation-bar title="购物车" isright="yes" righttitle="{{righttitleValue}}" on-right-click="editCart()"></navigation-bar>
-	<ion-content scroll="false">
+    <navigation-bar title="购物车" isright="yes" righttitle="{{righttitleValue}}"
+                    on-right-click="editCart()"></navigation-bar>
+    <ion-content scroll="false">
 
-		<div class="noCartGoodBox">
-			<div class="isLoginBox">现在&nbsp;&nbsp;<a href="./login/login.html"><button>登录</button></a>&nbsp;&nbsp; , 您选择的商品将保存在"购物车"中</div>
-			<div class="noCartMain">
-				<img src="./resource/images/icon/shopping_bg.png" />
-				<p>购物车空空的，去买点啥呢~</p>
-				<p><a href="#/tab/home"><button>去首页逛逛</button></a></p>
-			</div>
-		</div>
+        <div class="noCartGoodBox">
+            <div class="isLoginBox">现在&nbsp;&nbsp;<a href="./login/login.html">
+                <button>登录</button>
+            </a>&nbsp;&nbsp; , 您选择的商品将保存在"购物车"中
+            </div>
+            <div class="noCartMain">
+                <img src="./resource/images/icon/shopping_bg.png"/>
+                <p>购物车空空的，去买点啥呢~</p>
+                <p>
+                    <button ng-click="goHome()">去首页逛逛</button>
+                </p>
+            </div>
+        </div>
 
-		<div class="cartBox" screen-height="" >
+        <div class="cartBox" screen-height="">
 
-			<div class="buyerListBox">
+            <div class="buyerListBox">
 
-				<ion-scroll style="width: 100%;height:98%;" id="abc" delegate-handle="mainScroll" on-scroll="blurAction()">
+                <ion-scroll style="width: 100%;height:98%;" id="abc" delegate-handle="mainScroll"
+                            on-scroll="blurAction()">
 
-						<div class="buyerItem"  ng-repeat="cart_good in cart_goods" view-on-finish>
+                    <div class="buyerItem" ng-repeat="cart_good in cart_goods" view-on-finish>
 
-							<div class="deleteBox" id="{{cart_good.id}}">删除</div>
+                        <div class="deleteBox" id="{{cart_good.id}}">删除</div>
 
-							<div class="buyerItemMain">
-								<div class="cartShade" style=" display: none;position: absolute;bottom: 0px; right: 0px; left: 0px;top: 0px; background-color: #000;z-index: 9999;filter: alpha(opacity=50);
+                        <div class="buyerItemMain">
+                            <div class="cartShade" style=" display: none;position: absolute;bottom: 0px; right: 0px; left: 0px;top: 0px; background-color: #000;z-index: 9999;filter: alpha(opacity=50);
    -moz-opacity: 0.5;opacity:0.5; "></div>
 
-								<!--<div class="selectBtnBox">
-									<div class="selectBtn">
-										<img src="resource/images/icon/shoppingcar_xuanz.png">
-									</div>
-								</div>-->
-								<div class="cartGoodsImage turnProduct" data-id="{{cart_good.goods_id}}">
-									<img src="./resource/images/default/default_image.png" data-original='{{cart_good.img}}'/>
-								</div>
-								<div class="cartGoodsInfo">
-									<div class="cartGoodsTitleBox turnProduct ellipsis"data-id="{{cart_good.goods_id}}"><span>{{cart_good.goods_name}}</span></div>
-									<div class="cartGoodsInfoBox">
-										<div class="cartGoodsMoneyBox turnProduct" data-id="{{cart_good.goods_id}}">
-											<span><strong>¥ </strong><b>{{cart_good.goods_price}}</b></span>
-										</div>
-										<div class="cartArrtGoodsBox">
-											<span ng-repeat="attr in cart_good.attrInfo">{{attr.attr_name}} : {{attr.attr_value}}&nbsp;&nbsp;&nbsp;</span>
-										</div>
-										<div class="cartGoodsActionBox" data-actuarnumber="{{cart_good.actual_goods_number}}" data-limitnumber="{{cart_good.limit_num}}" data-price="{{cart_good.goods_price/cart_good.goods_number}}" id="{{cart_good.goods_id}}" name="{{cart_good.id}}">
-											<img class="reduceBtn"  src="resource/images/icon/shoppingcar_reduce.png" />
-											<p class="changeBtn" style="border:1px solid #ccc;"><input  style="border:none; width :100%"  id = "cartChangeBtn" value="{{cart_good.goods_number}}" data-oldvalue="{{cart_good.goods_number}}"  onkeyup="this.value=this.value.replace(/\D/g,'')"
-																										onafterpaste="this.value=this.value.replace(/\D/g,'')"/></p>
-											<img class="addBtn"  src="resource/images/icon/shoppingcar_add.png" />
-										</div>
-									</div>
-								</div>
+                            <!--<div class="selectBtnBox">
+                                <div class="selectBtn">
+                                    <img src="resource/images/icon/shoppingcar_xuanz.png">
+                                </div>
+                            </div>-->
+                            <div class="cartGoodsImage turnProduct" data-id="{{cart_good.goods_id}}">
+                                <img src="./resource/images/default/default_image.png"
+                                     data-original='{{cart_good.img}}'/>
+                            </div>
+                            <div class="cartGoodsInfo">
+                                <div class="cartGoodsTitleBox turnProduct ellipsis" data-id="{{cart_good.goods_id}}">
+                                    <span>{{cart_good.goods_name}}</span></div>
+                                <div class="cartGoodsInfoBox">
+                                    <div class="cartGoodsMoneyBox turnProduct" data-id="{{cart_good.goods_id}}">
+                                        <span><strong>¥ </strong><b>{{cart_good.goods_price}}</b></span>
+                                    </div>
+                                    <div class="cartArrtGoodsBox">
+                                        <span ng-repeat="attr in cart_good.attrInfo">{{attr.attr_name}} : {{attr.attr_value}}&nbsp;&nbsp;&nbsp;</span>
+                                    </div>
+                                    <div class="cartGoodsActionBox"
+                                         data-actuarnumber="{{cart_good.actual_goods_number}}"
+                                         data-limitnumber="{{cart_good.limit_num}}"
+                                         data-price="{{cart_good.goods_price/cart_good.goods_number}}"
+                                         id="{{cart_good.goods_id}}" name="{{cart_good.id}}">
+                                        <img class="reduceBtn" src="resource/images/icon/shoppingcar_reduce.png"/>
+                                        <p class="changeBtn" style="border:1px solid #ccc;"><input
+                                                style="border:none; width :100%" id="cartChangeBtn"
+                                                value="{{cart_good.goods_number}}"
+                                                data-oldvalue="{{cart_good.goods_number}}"
+                                                onkeyup="this.value=this.value.replace(/\D/g,'')"
+                                                onafterpaste="this.value=this.value.replace(/\D/g,'')"/></p>
+                                        <img class="addBtn" src="resource/images/icon/shoppingcar_add.png"/>
+                                    </div>
+                                </div>
+                            </div>
 
-							</div>
+                        </div>
 
-						</div>
+                    </div>
 
-				</ion-scroll>
+                </ion-scroll>
 
 
-			</div>
+            </div>
 
-			<div class="hintBox">
+            <div class="hintBox">
 
 			<span>
 				<i ng-if="cart_info.content == undefined">购物车中暂无信息</i>
@@ -68,30 +85,29 @@
 				<i ng-if="cart_info.content != undefined">{{cart_info.content}}</i>
 			</span>
 
-			</div>
+            </div>
 
-			<div class="amountBox">
+            <div class="amountBox">
 
-				<!--<div class="selectBox">
-					<div class="allSelectArea">
-						<div class="allSelectBtn">
-							<img src="resource/images/icon/shoppingcar_xuanz.png">
-						</div>
-					</div>
-					<div class="allSelectPrompt">
-						<span>全选</span>
-					</div>
+                <!--<div class="selectBox">
+                    <div class="allSelectArea">
+                        <div class="allSelectBtn">
+                            <img src="resource/images/icon/shoppingcar_xuanz.png">
+                        </div>
+                    </div>
+                    <div class="allSelectPrompt">
+                        <span>全选</span>
+                    </div>
 
-				</div>-->
-				<div class="valueBox">合计:&nbsp;&nbsp;<span class = "price">¥ {{countPrice()}} </span>
-				</div>
-				<div class="cartAccountBox">结算</div>
-			</div>
+                </div>-->
+                <div class="valueBox">合计:&nbsp;&nbsp;<span class="price">¥ {{countPrice()}} </span>
+                </div>
+                <div class="cartAccountBox">结算</div>
+            </div>
 
 
+        </div>
 
-		</div>
-
-	</ion-content>
+    </ion-content>
 
 </ion-view>

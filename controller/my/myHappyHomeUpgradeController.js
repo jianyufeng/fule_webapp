@@ -31,11 +31,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
 
         $scope.showLeftOrRight = function () {
-            console.log(88888888888888888);
             tagAnimateFun.showLeftOrRight($scope, $ionicScrollDelegate);
-        };
-        $scope.showMe = function () {
-            console.log(999999999999);
         };
         // 跳转到购物界面
         $scope.goToShopping = function () {
