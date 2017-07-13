@@ -3,7 +3,7 @@
 
 $url='http://192.168.10.110:8899/';
 
-$u=str_replace('/ec_app_proscenium/transmit/save.php/',$url,$_SERVER['REQUEST_URI']);
+$u=str_replace('/fule_webapp/transmit/save.php/',$url,$_SERVER['REQUEST_URI']);
 
 //验证码
 
