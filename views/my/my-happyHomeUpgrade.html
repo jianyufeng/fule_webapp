@@ -9,7 +9,7 @@
                 <i class="ion-arrow-left-c" style="color: red;font-size: 16px"></i>
             </div>
             <ion-scroll zooming="false" direction="x" scrollbar-x="false" style="position: relative"
-                        delegate-handle="topScroll" on-scroll-complete="showLeftOrRight()">
+                        delegate-handle="topScroll" on-scroll="showLeftOrRight()">
                 <div class="of_navBox">
                     <div class="of_nav" ng-repeat=" userName in userNameArray" ng-click="showUser($index)">
                         {{userName}}

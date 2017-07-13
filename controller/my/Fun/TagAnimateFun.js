@@ -13,7 +13,7 @@ define(['app'], function () {
     var leftTimer = null;
 
     myFun.startTagAnimate = function () {
-
+        console.log(55555555555)
         rightTimer = setInterval(function () {
 
             (function () {

@@ -31,9 +31,12 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
 
 
         $scope.showLeftOrRight = function () {
+            console.log(88888888888888888);
             tagAnimateFun.showLeftOrRight($scope, $ionicScrollDelegate);
-        }
-
+        };
+        $scope.showMe = function () {
+            console.log(999999999999);
+        };
         // 跳转到购物界面
         $scope.goToShopping = function () {
             if ($scope.goShopping == undefined) {
@@ -194,6 +197,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
         // 推荐人失去焦点
         $(document).on("blur", "#recommend", function () {
             var str = _.trim($(this).val());
+            console.log(dex)
             if (dex > 0) {
                 return;
             }
@@ -204,6 +208,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 return;
             }
 
+            console.log(121212121212);
             var pattern = /^[A-Za-z0-9_]+$/;
 
             if (!pattern.test(str)) {
@@ -337,7 +342,7 @@ define(['app', './Fun/identityCardTest', './Fun/tagAnimateFun', 'css! ../../../c
                 return;
             }
             if (!pattern.test(str)) {
-                myHappyHomeUpgradeService.showError($("#secondPassWordWaring"),  "输入的格式有误请重新输入");
+                myHappyHomeUpgradeService.showError($("#secondPassWordWaring"), "输入的格式有误请重新输入");
             }
         }
 

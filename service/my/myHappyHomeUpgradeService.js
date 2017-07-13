@@ -150,7 +150,7 @@ define(['app'], function (app) {
          * @param index
          */
         service.showUserGrade = function ($scope, index, scrollhand) {
-
+            dex = index;
             $(".of_nav").css("color", "#000000")
             $(".of_nav").eq(index).css("color", "#d39bc5");
             var info = $scope.userArray[index];
@@ -206,9 +206,7 @@ define(['app'], function (app) {
                 $("#selectResult").css('color', "#000000");
             }
 
-            dex = index;
-            $("input").blur();
-            $(".waring").hide();
+            $(".waring").css("display", "none");
             var delegate = scrollhand.$getByHandle('back');
             delegate.scrollTop();
             $.initAppEndLoad();
