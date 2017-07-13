@@ -1,0 +1,219 @@
+.ofd_state {
+  width: 100%;
+  height: 70px;
+  background-color: #d4a0c9;
+}
+.ofd_state .ofd_s_goodsBox {
+  float: left;
+  width: 50%;
+  height: 70px;
+}
+.ofd_state .ofd_s_goodsBox .ofd_s_goods {
+  float: right;
+  width: auto;
+  height: 24px;
+  margin-top: 23px;
+  margin-right: 20%;
+}
+.ofd_state .ofd_s_goodsBox .ofd_s_goods #ofd_s_goods_img {
+  height: 24px;
+  width: auto;
+  vertical-align: bottom;
+}
+.ofd_state .ofd_s_goodsBox .ofd_s_goods #ofd_s_goods_name {
+  color: white;
+  font-size: 18px;
+}
+.ofd_state .ofd_s_moneyBox {
+  float: left;
+  width: 50%;
+  height: 70px;
+}
+.ofd_state .ofd_s_moneyBox .ofd_s_money {
+  width: auto;
+  height: 24px;
+  margin-top: 23px;
+  margin-left: 20%;
+}
+.ofd_state .ofd_s_moneyBox .ofd_s_money #ofd_s_pay_img {
+  height: 24px;
+  width: auto;
+  vertical-align: bottom;
+}
+.ofd_state .ofd_s_moneyBox .ofd_s_money #ofd_s_pay_name {
+  color: white;
+  font-size: 18px;
+}
+.ofd_address {
+  position: relative;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.ofd_address .ofd_ad_l {
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  width: 15%;
+  height: auto;
+  float: left;
+  text-align: center;
+}
+.ofd_address .ofd_ad_l .ofdAdL_img {
+  width: 25px;
+  height: auto;
+}
+.ofd_address .ofd_ad_r {
+  margin-left: 15%;
+  float: left;
+  width: 75%;
+  height: auto;
+  margin-right: 5%;
+}
+.ofd_address .ofd_ad_r .ofd_personBox {
+  width: 100%;
+  height: 30px;
+}
+.ofd_address .ofd_ad_r .ofd_personBox .ofdAdL_PName {
+  margin-right: 20px;
+  color: #2e2d2d;
+  font-size: 16px;
+  float: left;
+}
+.ofd_address .ofd_ad_r .ofd_personBox .ofdAdL_PPhone {
+  margin-right: 20px;
+  color: #2e2d2d;
+  font-size: 16px;
+  float: left;
+}
+.ofd_address .ofd_ad_r .ofd_addressBox {
+  width: 100%;
+  height: auto;
+  color: #989b9b;
+  font-size: 14px;
+}
+.ofd_address .ofd_ad_r .ofd_pastCodeBox,
+.ofd_address .ofd_ad_r .ofd_phoneBox,
+.ofd_address .ofd_ad_r .ofd_flagRoomBox,
+.ofd_address .ofd_ad_r .ofd_sendTimeBox,
+.ofd_address .ofd_ad_r .ofd_callBox,
+.ofd_address .ofd_ad_r .ofd_mailBox {
+  width: auto;
+  height: auto;
+  color: #989b9b;
+  font-size: 14px;
+  float: left;
+  margin-right: 20px;
+}
+.ofd_goodItem {
+  padding: 20px 5%;
+  width: 100%;
+  height: auto;
+  background-color: white;
+  margin-top: 1px;
+  clear: both;
+}
+.ofd_goodItem .ofd_gName {
+  font-size: 16px;
+  color: #2e2d2d;
+  padding-bottom: 5px;
+}
+.ofd_goodItem .ofd_gPrice,
+.ofd_goodItem .ofd_gButNumber,
+.ofd_goodItem .ofd_gUnSendNumber,
+.ofd_goodItem .ofd_gSendNumber,
+.ofd_goodItem .ofd_gButNumber,
+.ofd_goodItem .ofd_gattr {
+  width: auto;
+  height: auto;
+  color: #989b9b;
+  font-size: 14px;
+  float: left;
+  margin-right: 20px;
+}
+.ofd_goodItem .ofd_totalMoney {
+  padding-top: 8px;
+  width: 100%;
+  clear: both;
+  font-size: 16px;
+  color: #2e2d2d;
+}
+.ofd_order {
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+.ofd_order .ofd_o_time {
+  padding-top: 5px;
+  width: 100%;
+  height: 45px;
+  font-size: 16px;
+  color: #2e2d2d;
+  background-color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.ofd_order .ofd_o_code {
+  width: 100%;
+  height: 45px;
+  font-size: 16px;
+  color: #2e2d2d;
+  background-color: white;
+  line-height: 52px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+.ofd_order .ofd_o_sendWay,
+.ofd_order .ofd_o_payWay {
+  margin-top: 1px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  color: #2e2d2d;
+  padding-left: 5%;
+  padding-right: 5%;
+  background-color: white;
+}
+.ofd_calculate {
+  margin-top: 10px;
+  background-color: white;
+  width: 100%;
+  height: 120px;
+}
+.ofd_calculate .ofd_gSendMoney,
+.ofd_calculate .ofd_gTotalMoney,
+.ofd_calculate .ofd_gTotalNumber {
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #2e2d2d;
+}
+.ofd_calculate .ofd_gTotalMoney .ofd_gTMR,
+.ofd_calculate .ofd_gTotalNumber .ofd_gTN,
+.ofd_calculate .ofd_gSendMoney .ofd_gSM {
+  float: right;
+  display: block;
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: #2e2d2d;
+}
+.pay_money {
+  text-align: right;
+  background-color: white;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin-top: 1px;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  font-size: 16px;
+  color: #2e2d2d;
+}

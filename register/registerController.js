@@ -96,9 +96,9 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
         POP.EndLoading();
 
         if (e) {
-            $.loadError(function () {
-
-            });
+            //$.loadError(function () {
+            //
+            //});
             return;
         }
 
