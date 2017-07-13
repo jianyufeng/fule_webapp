@@ -35,6 +35,8 @@ define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData
         $scope.$on('$ionicView.loaded', function () {
             // 页面传值过来的要升级的级别
             myGrade = $stateParams.grade;
+            console.log(11111111111);
+            console.log(myGrade);
             // 获取银行列表
             myUpdateUserDataService.searchBanksDic($scope);
 

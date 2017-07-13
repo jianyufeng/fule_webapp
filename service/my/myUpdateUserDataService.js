@@ -125,6 +125,8 @@ define(['app'], function (app) {
                 } else if (myGrade == 4) {
                     //  批发
                     url = API.My.upgradeToPIFA;
+                }else if(myGrade==5){
+                    url = API.My.upgradeToShare;
                 }
                 if (region == "左区") {
                     region = 0;

@@ -57,40 +57,59 @@ define(['app'], function (app) {
 
     });
     /*显示用户等级 过滤器*/
-    app.filter('userLevelFilter', function ($rootScope) {
-        return function (input, varl, var2) {
-            var v = parseInt(input);
-            var is_vip = parseInt(varl);
-            var is_pi_fa = parseInt(var2);
-            switch (v) {
-                case  0:
-                    varl = '会员';
-                    break;
-                case 4:
-                    switch (is_vip) {
-                        case 0:
-                            varl = "志愿者D";
-                            break;
-                        case 1:
-                            switch (is_pi_fa) {
-                                case 0:
-                                    varl = "VIP";
-                                    break;
-                                case 1:
-                                    varl = "批发";
-                                    break;
-                            }
-                            break;
-                    }
-                    break;
-                default:
-                    varl = '会员';
-                    break;
-            }
-            return varl
-        }
-
-    });
+    //app.filter('userLevelFilter', function ($rootScope) {
+    //    return function (input, varl, var2) {
+    //        var v = parseInt(input);
+    //        var is_vip = parseInt(varl);
+    //        var is_pi_fa = parseInt(var2);
+    //        console.log(v);
+    //        console.log(is_vip);
+    //        console.log(is_pi_fa);
+    //        switch (v) {
+    //            case  0:
+    //                varl = '事业圈·注册会员';
+    //                switch (is_vip) {
+    //                    case 0:
+    //                        varl = "事业圈·志愿者D";
+    //                        break;
+    //                    case 1:
+    //                        switch (is_pi_fa) {
+    //                            case 0:
+    //                                varl = "事业圈·VIP";
+    //                                break;
+    //                            case 1:
+    //                                varl = "事业圈·批发";
+    //                                break;
+    //                        }
+    //                        break;
+    //                }
+    //                break;
+    //            case  1:
+    //                varl = '共享圈·注册会员';
+    //                switch (is_vip) {
+    //                    case 0:
+    //                        varl = "共享圈·志愿者D";
+    //                        break;
+    //                    case 1:
+    //                        switch (is_pi_fa) {
+    //                            case 0:
+    //                                varl = "共享圈·VIP";
+    //                                break;
+    //                            case 1:
+    //                                varl = "共享圈·批发";
+    //                                break;
+    //                        }
+    //                        break;
+    //                }
+    //                break;
+    //            default:
+    //                varl = '事业圈·会员';
+    //                break;
+    //        }
+    //        return varl
+    //    }
+    //
+    //});
     /*订单类型 过滤器*/
     app.filter('orderTypeFilter', function ($rootScope) {
         return function (input, varl) {
