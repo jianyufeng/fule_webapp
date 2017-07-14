@@ -434,10 +434,12 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
             var obj = $(event.target);
 
             $(".choice").find("img").hide();
+            $(".choice").find("img").css('border','none');
             $(".choice").css("border", "1px solid #d79ac4");
+
             if(obj.find("img").is(":hidden")){
                 obj.find("img").show();
-                obj.css("border", "0px");
+                obj.css("border", "none");
                 $scope.xlhs_selected = $scope.ExclusiveShopList[idx];
             }else{
                 obj.find("img").hide();

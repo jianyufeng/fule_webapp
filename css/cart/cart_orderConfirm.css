@@ -592,16 +592,18 @@
   float: left;
 }
 .popAddressBox .xlhsSV .addressBox .choice {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
   border: 1px solid #d79ac4;
   float: right;
   margin-top: -10px;
 }
 .popAddressBox .xlhsSV .addressBox .choice img {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  border: none;
 }
 .popAddressBox .bottomBox {
   width: 100%;
