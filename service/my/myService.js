@@ -91,7 +91,7 @@ define(['app'], function (app) {
                                 $scope.garde = 1;
                             } else if (user_INTEGRAL >= IS_D && user_INTEGRAL < GAOJI_ZHI_YUAN_ZHE) {
                                 // 显示升级D级
-                                $("#gradeButton").text("升级为志愿者");
+                                $("#gradeButton").text("升级为志愿者D");
                                 $("#gradeButton").css("display", "block");
                                 $scope.garde = 2;
                             } else {
@@ -152,7 +152,7 @@ define(['app'], function (app) {
                                     $scope.garde = 2;
                                 }
                                 // 显示升级D级
-                                $("#gradeButton").text("升级为志愿者");
+                                $("#gradeButton").text("升级为志愿者D");
                                 $("#gradeButton").css("display", "block");
                             } else if (user_INTEGRAL < IS_D && user_INTEGRAL > IS_REAL_SHARE) {
                                 // 升级为共享圈注册会员

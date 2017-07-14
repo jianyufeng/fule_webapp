@@ -66,7 +66,12 @@ define(['app'], function (app) {
                 var branchBank = $scope.upGrade.branchBank;
                 // 省市地区
                 var address = $scope.upGrade.address;
-
+                console.log(222222222);
+                console.log(address);
+                if ($(".waring").is(':visible')) {
+                    POP.Hint("页面有错误信息，请检查！");
+                    return;
+                }
                 if (recommendP == undefined || recommendP == null) {
                     POP.Hint("推荐人不能为空，请检查！");
                     return;
@@ -108,7 +113,7 @@ define(['app'], function (app) {
                     return;
                 }
 
-                if (address == null || address == "") {
+                if (CommenFun.isNullObj(address) || address == null || address == "") {
                     POP.Hint("请检查，地址！");
                     return;
                 }
@@ -125,7 +130,7 @@ define(['app'], function (app) {
                 } else if (myGrade == 4) {
                     //  批发
                     url = API.My.upgradeToPIFA;
-                }else if(myGrade==5){
+                } else if (myGrade == 5) {
                     url = API.My.upgradeToShare;
                 }
                 if (region == "左区") {
@@ -207,7 +212,6 @@ define(['app'], function (app) {
                      * 让左右区域可以点击
                      */
 
-
                     $scope.$apply(function () {
                         var nowName = data.userInfo.user_name;
                         if (nowName != undefined && nowName != null) {
@@ -217,6 +221,10 @@ define(['app'], function (app) {
                         $scope.upGrade.click = true;
                         $scope.left = data.userInfo.LEFT_REGION_ID;
                         $scope.right = data.userInfo.RIGHT_REGION_ID;
+
+                        console.log(66666666666666)
+                        console.log($scope.left);
+                        console.log($scope.right);
                     });
 
 
