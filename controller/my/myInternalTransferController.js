@@ -4,6 +4,8 @@
  */
 define(['app','css! ../../../css/my/my-internalTransfer'],function(app){
     function ctrl($scope,myInternalTransferService,$stateParams,POP,$state) {
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
      $scope.transformMoney={};
         $scope.$on('$ionicView.loaded', function () {
             // 获取参数

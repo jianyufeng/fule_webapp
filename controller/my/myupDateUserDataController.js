@@ -5,7 +5,8 @@
 
 define(['app', './Fun/identityCardTest', "css! ../../../css/my/my-updateUserData", 'addressSelect'], function (app, identityCardTest) {
     function ctrl($scope, myUpdateUserDataService, POP, $stateParams, $state, $compile) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.upGrade = {};
         $scope.upGrade.click = false;
         $scope.upGrade.address = {};

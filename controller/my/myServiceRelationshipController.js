@@ -2,7 +2,8 @@
 define(['app',"./Fun/my_fun",'css! ../../../css/my/my-serviceRelationship'], function (app,my_fun) {
 
     function ctrl($scope,myServiceRelationService,POP,$state,$rootScope) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         //默认不能上拉
         $scope.isPullComplete = false;
         //默认服务关系页码

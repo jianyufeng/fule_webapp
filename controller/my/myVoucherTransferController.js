@@ -4,7 +4,8 @@
  */
 define(['app', 'css! ../../../css/my/my-voucherTransfer'], function (app) {
     function ctrl($scope, myVoucherTransferService, POP, $stateParams,$state) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.voucher={};
         $scope.$on('$ionicView.loaded', function () {
             // 为页面赋值

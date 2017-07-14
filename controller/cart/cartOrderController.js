@@ -8,7 +8,8 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
 
         //修改显示地址刷新后用来判断要显示的地址
         $scope.jugdeAddress = "";
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myCartIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.$on('$ionicView.loaded', function () {
 
             cartOrderService.getOrderInfo($scope, POP);
@@ -221,8 +222,6 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                     });
 
                     $state.go('tab.my');
-                    $(".mytab").find(".tab-title").css("color","#000000");
-                    $(".myIcon").find(".tab-title").css("color","#D9A8CD");
                 });
 
 

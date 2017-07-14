@@ -5,6 +5,8 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
 
     function ctrl($scope,$rootScope,cartAddAddressService,POP,$ionicHistory){
 
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myCartIcon").find(".tab-title").css("color", "#D9A8CD");
         //初始化 p 绑定
         $scope.p = {};
         //初始化默认按钮

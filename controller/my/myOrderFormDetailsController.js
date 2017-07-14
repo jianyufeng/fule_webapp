@@ -3,7 +3,8 @@
  */
 define(['app', "css! ../../../css/my/myOrderFormDetails"], function (app) {
     function ctrl($scope, myOrderFormDetailsService, POP, $stateParams) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         var orderId = $stateParams.order_id;
 
         $scope.orderInfo = {

@@ -1,6 +1,7 @@
 define(['app', 'css! ../../../css/my/my-happyHomeList'], function (app) {
     function ctrl($scope, myHappyHomeListService, POP, $state) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.$on('$ionicView.loaded', function () {
             /*获取数据*/
             $scope.righttitleValue = "购买记录";

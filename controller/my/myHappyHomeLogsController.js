@@ -3,7 +3,8 @@
 define(['app',"./Fun/my_fun",'css! ../../../css/my/my-happyHomeLogs'], function (app,my_fun) {
 
     function ctrl($scope,myHappyHomeLogsService,POP) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.$on('$ionicView.beforeEnter', function () {
 
             //初始化加载喜乐之家

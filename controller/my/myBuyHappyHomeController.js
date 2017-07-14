@@ -3,6 +3,8 @@
  */
 define(['app', 'css! ../../../css/my/my-buyHappyHome'], function (app) {
     function ctrl($scope, $rootScope, myBuyHappyHomeServer, POP, $compile, $ionicScrollDelegate, $stateParams, $state, $ionicHistory) {
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         //输入框聚焦变换
         $(document).off('focus', '.bhh_search, .bhh_goodItemBox_P input').on('focus', '.bhh_search  , .bhh_goodItemBox_P input', function () {
             $(this).css("border", "solid 1px #d98bbc");

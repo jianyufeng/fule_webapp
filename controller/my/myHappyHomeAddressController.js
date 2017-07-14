@@ -5,7 +5,8 @@
 define(['app','css!../../../css/my/my-happyHomeAddress'],function(app){
 
     function ctrl($rootScope,$scope,myHappyHomeAddressService,POP,$state,$ionicHistory){
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.addressTitle = "选择收货地址";
         var editing = false;  //管理状态
 

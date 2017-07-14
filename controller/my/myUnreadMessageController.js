@@ -3,6 +3,8 @@
  */
 define(['app', './Fun/my_fun', "css! ../../../css/my/unreadMessage", 'dotdotdot'], function (app) {
     function ctrl($scope, myUnreadMsgService, POP, $state) {
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         /*加载界面动画*/
         /*未读消息 点击效果*/
         $(document).off("touchstart", ".itemBox").on("touchstart", ".itemBox", function (event) {

@@ -3,6 +3,8 @@ define(['app', "./Fun/caregoryFun"], function (app, caregoryFun) {
     function ctrl($scope, $rootScope, categoryService, POP, $state, $ionicScrollDelegate) {
 
         $rootScope[$state.current.name] = {};
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".fenleiIcon").find(".tab-title").css("color", "#D9A8CD");
 
         refreshIndex = 0;
         var allProduct = {};

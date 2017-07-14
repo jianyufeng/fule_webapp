@@ -4,6 +4,8 @@
 define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','animate'],function(app){
 
     function ctrl($rootScope,$scope,cartManageAddressService,POP,$state,$ionicHistory){
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myCartIcon").find(".tab-title").css("color", "#D9A8CD");
 
         $scope.addressTitle = "选择收货地址";
         var editing = false;  //管理状态

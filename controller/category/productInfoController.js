@@ -7,6 +7,8 @@
 define(['app', 'css! ../../../css/category/productInfo'], function (app) {
 
     function ctrl($scope, productInfoService, $stateParams, POP, $state, $ionicSlideBoxDelegate, $ionicTabsDelegate, $compile) {
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".fenleiIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.showImg = false;
         $scope.goodsDetailImg = true;
         POP.StartLoading();

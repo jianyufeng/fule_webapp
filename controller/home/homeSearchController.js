@@ -1,9 +1,8 @@
 define(['app','jquery_fly'],function(app){
 
 	function ctrl($scope,$ionicHistory,POP,$state,$rootScope){
-
-		
-
+		$(".mytab").find(".tab-title").css("color", "#000000");
+		$(".middleIcon").find(".tab-title").css("color", "#D9A8CD");
 		$scope.$on("$ionicView.enter",function(){
 			console.log($rootScope.searchGoodsKeyName);
 			if($rootScope.searchGoodsKeyName != undefined){

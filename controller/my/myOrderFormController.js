@@ -3,6 +3,8 @@
  */
 define(['app', "css! ../../../css/my/myOrderForm"], function (app) {
     function ctrl($scope, myOrderFormService, POP, $ionicScrollDelegate,$state) {
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         //默认不可以拉上
         $scope.isCanPull = false;
         //默认页数

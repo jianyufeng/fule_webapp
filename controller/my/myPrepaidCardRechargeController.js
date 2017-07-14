@@ -4,7 +4,8 @@
  */
 define(['app', 'css! ../../../css/my/my-prepaidCardRecharge'], function (app) {
     function ctrl($scope, myPrepaidCardRechargeService,POP,$state) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.rechargeCard={};
         $scope.$on('$ionicView.loaded', function () {
             //点击充值按钮

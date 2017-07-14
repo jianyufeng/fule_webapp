@@ -1,7 +1,8 @@
 define(['app', "./Fun/cart_fun", 'animate'], function (app, cart_fun) {
 
     function ctrl($rootScope, $scope, cartService, POP, $state) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myCartIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.blurAction = function () {
             $(".changeBtn input").blur();
         }
@@ -196,7 +197,6 @@ define(['app', "./Fun/cart_fun", 'animate'], function (app, cart_fun) {
 
         $scope.goHome = function () {
             $state.go('tab.home');
-            $(".mytab").find(".tab-title").css("color", "#000000");
         }
 
         //左滑动出现删除

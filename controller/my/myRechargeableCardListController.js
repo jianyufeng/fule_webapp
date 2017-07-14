@@ -6,7 +6,8 @@
 
 define(['app', 'css! ../../../css/my/my-RechargeableCardList'], function (app) {
     function ctrl($scope, myRechargeableCardListService, POP) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.rechargeableCard = {};
         var userId = User.getInfo().user_id;
         $scope.$on('$ionicView.loaded', function () {

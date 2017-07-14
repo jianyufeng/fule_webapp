@@ -4,6 +4,8 @@
  */
 define(['app', 'css! ../../../css/my/my-authenticCheck'], function (app) {
     function ctrl($scope, myAuthenticCheckService, POP) {
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.barCodeGoods = {};
         /**
          * 查询商品码

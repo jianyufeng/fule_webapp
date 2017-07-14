@@ -3,6 +3,8 @@
  */
 define(['app', "css! ../../../css/my/my-transferRecord"], function (app) {
     function ctrl($scope, myTransferRecordService, POP,$ionicScrollDelegate) {
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         //默认不可以拉上
         $scope.isCanPull = false;
         //默认页数

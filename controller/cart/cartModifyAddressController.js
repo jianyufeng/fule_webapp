@@ -9,7 +9,8 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
     function ctrl($scope, $rootScope,cartModifyAddressService,POP,$state,$ionicHistory,$stateParams){
 
         $scope.p = {};
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myCartIcon").find(".tab-title").css("color", "#D9A8CD");
 
         //$stateParams 框架传过来的参数综合对象
         $scope.$on('$ionicView.beforeEnter',function () {

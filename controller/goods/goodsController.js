@@ -6,6 +6,8 @@ define(['app','./Fun/goods_fun'],function(app,goods_fun){
 
 		goods_fun.menuSelected($ionicScrollDelegate);
 
+		$(".mytab").find(".tab-title").css("color", "#000000");
+		$(".goodsIcon").find(".tab-title").css("color", "#D9A8CD");
 		var nowSreenH = $("#goodContentBox").height();
 		$scope.goodListScrollEvent = function(){
 			var scrollTop = $ionicScrollDelegate.getScrollPosition().top;

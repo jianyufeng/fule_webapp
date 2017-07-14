@@ -1,62 +1,61 @@
-define(['app', 'jquery_fly'],function(app,home_fun){
+define(['app', 'jquery_fly'], function (app, home_fun) {
 
-	function ctrl($scope,$state,POP,$rootScope){
+    function ctrl($scope, $state, POP, $rootScope) {
 
-		 var hotGoods  = [];
-		 var newsGoods = {};
-		POP.StartLoading();
-		$scope.$on("$ionicView.enter",function(){
+        var hotGoods = [];
+        var newsGoods = {};
+        POP.StartLoading();
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".middleIcon").find(".tab-title").css("color", "#D9A8CD");
+        $scope.$on("$ionicView.enter", function () {
 
-				HTTP.get(API.Home.getHomeInfo, {}, function (e, data) {
-				POP.EndLoading();
-					
-              
-
-					if(e) {
-						console.log("首页信息加载失败");
-						return;
-					}
-
-					console.log("首页家在信息");
-					console.log(data);
-
-					
-
-					// hotGoods = data['hotGoods'];
-					$scope.$apply(function () {
-
-						$scope.hotGoodsData  = data.hotGoods.data;
-						$scope.newsGoodsData = data.newGoods.data;
-					});
-					// $(".homeImage_0 img").myImageLazyLoad({imgSize:true});
-					// $(".homeImage_1 img").myImageLazyLoad({imgSize:true});
-					// $(".homeImage_2 img").myImageLazyLoad({imgSize:true});
-					// $(".homeImage_3 img").myImageLazyLoad({imgSize:true});
-					$(".homeImage_4 img").myImageLazyLoad({});
-					$(".homeImage_5 img").myImageLazyLoad({});
-					$(".homeImage_6 img").myImageLazyLoad({});
-					$(".homeImage_7 img").myImageLazyLoad({});
-					$(".homeImage_8 img").myImageLazyLoad({});
+            HTTP.get(API.Home.getHomeInfo, {}, function (e, data) {
+                POP.EndLoading();
 
 
-				})
-			
-		});
+                if (e) {
+                    console.log("首页信息加载失败");
+                    return;
+                }
 
-		$(document).on("click", ".goodsItem", function () {
+                console.log("首页家在信息");
+                console.log(data);
+
+
+                // hotGoods = data['hotGoods'];
+                $scope.$apply(function () {
+
+                    $scope.hotGoodsData = data.hotGoods.data;
+                    $scope.newsGoodsData = data.newGoods.data;
+                });
+                // $(".homeImage_0 img").myImageLazyLoad({imgSize:true});
+                // $(".homeImage_1 img").myImageLazyLoad({imgSize:true});
+                // $(".homeImage_2 img").myImageLazyLoad({imgSize:true});
+                // $(".homeImage_3 img").myImageLazyLoad({imgSize:true});
+                $(".homeImage_4 img").myImageLazyLoad({});
+                $(".homeImage_5 img").myImageLazyLoad({});
+                $(".homeImage_6 img").myImageLazyLoad({});
+                $(".homeImage_7 img").myImageLazyLoad({});
+                $(".homeImage_8 img").myImageLazyLoad({});
+
+
+            })
+
+        });
+
+        $(document).on("click", ".goodsItem", function () {
             var goodsId = $(this).attr('name');
 
-			
+
             //var goodsNumber = $(this).attr('number');
 
-           // if (goodsNumber > 0) {
-                $state.go("tab.searchGoodsDetail", {"goodsId": goodsId});
-           // }
+            // if (goodsNumber > 0) {
+            $state.go("tab.searchGoodsDetail", {"goodsId": goodsId});
+            // }
         });
 
 
-
-		$(document).off("click", ".cartIcon").on("click", ".cartIcon", function () {
+        $(document).off("click", ".cartIcon").on("click", ".cartIcon", function () {
 
 
             var offset = $(".tab-item:eq(3)").offset();
@@ -118,26 +117,20 @@ define(['app', 'jquery_fly'],function(app,home_fun){
         });
 
 
+        $scope.goSearchVC = function () {
+            $state.go("tab.homeSearch", {});
+        };
 
 
-		$scope.goSearchVC = function(){
-			$state.go("tab.homeSearch", {});
-		};
-
-
-		$scope.goGoodsDetail = function (goodsId) {
+        $scope.goGoodsDetail = function (goodsId) {
 
             $state.go("tab.searchGoodsDetail", {"goodsId": goodsId});
         }
 
 
+    }
 
-
-
-
-	}
-
-	ctrl.$inject = ['$scope','$state','POP','$rootScope'];
-	app.registerController('homeController',ctrl);
+    ctrl.$inject = ['$scope', '$state', 'POP', '$rootScope'];
+    app.registerController('homeController', ctrl);
 
 });

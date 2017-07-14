@@ -3,7 +3,8 @@
  */
 define(['app', 'animate', "css! ../../../css/my/myElectronicBankTransfer", 'css!../../../plugin/datePicker/datePicker.css', 'datePicker', 'addressSelect'], function (app) {
     function ctrl($scope, myElectronicBankTransferService, POP, $ionicHistory) {
-
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         //$scope.$on('$ionicView.beforeLeave', function () {
         //    /*获取数据*/
         //});

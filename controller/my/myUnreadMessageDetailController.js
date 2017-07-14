@@ -3,6 +3,8 @@
  */
 define(['app',"css! ../../../css/my/unreadMessage"],function(app){
     function ctrl($scope, $stateParams,myUnreadMsgService,POP,$sce) {
+        $(".mytab").find(".tab-title").css("color", "#000000");
+        $(".myIcon").find(".tab-title").css("color", "#D9A8CD");
         $scope.title = $stateParams.title;
         $scope.add_time = $stateParams.add_time;
         $scope.create_user_name = $stateParams.create_user_name;
