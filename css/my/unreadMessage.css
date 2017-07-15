@@ -35,7 +35,7 @@
   /*标题*/
   /*时间*/
 }
-.itemBox .messageBox .titleBox .title {
+.itemBox .messageBox .titleBox .titleName {
   width: 65%;
   height: 100%;
   float: left;
