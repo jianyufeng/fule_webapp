@@ -129,7 +129,7 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','anima
                         user_id : info.user_id,
                         address_id : addressID
 
-                    }
+                    };
 
 
                     if (addressID == $scope.defaultAddressID){
@@ -211,9 +211,9 @@ define(['app','./Fun/cart_fun','css!../../../css/cart/cart_manageAddress','anima
             var rrAddress =  $scope.historyAddress[_idx];
 
             var PARAMS = {
-                user_id :rrAddress.user_id,
-                address_id : rrAddress.address_id
-            }
+                user_id :rrAddress.user_id,        //用户的id
+                address_id : rrAddress.address_id  //删除地址的id
+            };
 
             if (rrAddress.address_id == $scope.defaultAddressID){
 

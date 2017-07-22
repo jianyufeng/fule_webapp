@@ -209,21 +209,21 @@ define(['app','css!../../../css/cart/cart_addAddress',"addressSelect"],function(
 
             var newParams = {
 
-                address_name : categray,
-                user_id      : info.user_id,
-                consignee    : recieverName,
-                email        : email,
-                country      : 1,
-                province     : PID,
-                city         : CID,
-                district     : AID,
-                address      : detailAddress,
-                zipcode      : zipCode,
-                sign_building: building,
-                best_time    : best_time,
-                mobile       : mobileNumeber,
-                tel          : familyPhone,
-                is_default   : defaultAddress?1:0
+                address_name : categray,        //地址别名
+                user_id      : info.user_id,    //用户id
+                consignee    : recieverName,    //收货者姓名
+                email        : email,           //收货人邮箱
+                country      : 1,               //国家,默认为中国1
+                province     : PID,             //省id
+                city         : CID,             //市id
+                district     : AID,             //区id
+                address      : detailAddress,   //详细地址
+                zipcode      : zipCode,         //邮编
+                sign_building: building,        //标志建筑
+                best_time    : best_time,       //最佳送货时间
+                mobile       : mobileNumeber,   //移动电话
+                tel          : familyPhone,     //家庭电话
+                is_default   : defaultAddress?1:0 //是否设置为默认地址
 
             }
 

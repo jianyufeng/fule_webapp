@@ -212,22 +212,22 @@ define(['app','css!../../../css/cart/cart_modifyAddress',"addressSelect"],functi
             var info = User.getInfo();
 
             var newParams = {
-                address_id   : $stateParams.address_id,
-                address_name : categray,
-                user_id      : info.user_id,
-                consignee    : recieverName,
-                email        : email,
-                country      : 1,
-                province     : PID,
-                city         : CID,
-                district     : AID,
-                address      : detailAddress,
-                zipcode      : zipCode,
-                tel          : familyPhone,
-                mobile       : mobileNumeber,
-                sign_building: building,
-                best_time    : best_time
-            }
+                address_id   : $stateParams.address_id, //地址的id
+                address_name : categray,                //地址别名
+                user_id      : info.user_id,            //用户id
+                consignee    : recieverName,            //收货人姓名
+                email        : email,                   //收货人邮箱
+                country      : 1,                       //国家,默认为1(中国)
+                province     : PID,                     //省id
+                city         : CID,                     //市id
+                district     : AID,                     //区id
+                address      : detailAddress,           //详细地址
+                zipcode      : zipCode,                 //邮编
+                tel          : familyPhone,             //家庭电话
+                mobile       : mobileNumeber,           //移动电话
+                sign_building: building,                //标志建筑
+                best_time    : best_time                //最佳送货时间
+            };
 
 
             //上传数据

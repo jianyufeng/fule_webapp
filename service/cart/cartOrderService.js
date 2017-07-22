@@ -298,8 +298,6 @@ define(['app'], function (app) {
                       console.log("**********用户名**********");
                       console.log(data);
 
-
-
                       fn(data);
 
 

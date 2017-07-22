@@ -141,7 +141,7 @@ define(['app', 'css!../../../css/cart/cart_orderConfirm'], function (app) {
                 user_id: info.user_id,
                 password: pw,
                 type: "THREE_PASSWORD"
-            }
+            };
             //验证密码
             cartOrderService.verifyPayPassword($scope, payParams, POP, function () {
                 var deliveryFit = 0;

@@ -3,6 +3,7 @@ var API = {
 
     Goods: {
         goods: serverIP + "/_goods/search",
+        //商品搜索接口
         searchList: serverIP + "/_goods/searchList"
     },
     My: {
@@ -97,7 +98,7 @@ var API = {
         cartSearch: serverIP + "/_cart/search",
         //添加购物车
         cartAdd: serverIP + "/_cart/addGoods",
-        //商品支付
+        //商品支付页面信息
         orderInfo: serverIP + "/_goods/payment",
         //用户地址查询
         shippingAddress: serverIP + "/_user/searchUserAddress",
@@ -145,10 +146,12 @@ var API = {
         getProvinces: serverIP + "/region/provinces",
         getCities: serverIP + "/region/cities",
         getCounties: serverIP + "/region/counties",
+        //查询全部省市区
         getRegion: serverIP + "/region/searchRegion"
     },
 
     Home: {
+        //首页展示信息
         getHomeInfo: serverIP + "/_goods/home"
     }
 
