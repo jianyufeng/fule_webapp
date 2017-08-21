@@ -1,4 +1,5 @@
 var app = angular.module("registerApp",['ionic']);
+var serverIP = "../transmit/save.php";
 
 /*
  * 作用:弹出框服务封装
@@ -89,7 +90,7 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
 
 
 
-    var url = "../transmit/save.php/_user/showRegister";
+    var url = serverIP + "/_user/showRegister/";
     POP.StartLoading();
     HTTP.get(url, {}, function (e, data) {
 
@@ -176,7 +177,7 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
 
 
             //获取验证码
-            var url = "../transmit/save.php/sms/registerVerification/mobile/" + mobile;
+            var url = serverIP + "/sms/registerVerification/mobile/" + mobile;
             HTTP.get(url, {}, function (e, data) {
 
                 if (e) {
@@ -244,7 +245,7 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
         var pattern_6Number = /^[0-9]([0-9]{5,5})$/; //6位数字
         var pattern_Number = /^[0-9]$/; //纯数字
         var pattern_wenzi = /[^A-Za-z0-9]/; //文字
-        var pattern_feifa = /[(,),`,~,-,_,!,#,<,>,\\[,\\],:,;,?,$,%,^,&,*,+,=,\\\\,',\",|,{,},\/]/ ; //非法文字
+        var pattern_feifa = /[(,),`,~,-,_,!,#,<,>,\\[,\\],:,;,?,$,%,^,&,*,+,=,\\\\,',\",|]/ ; //非法文字
         var pattern_email = /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,5}$/; //邮箱
         var pattern_phone = /^0?(13|14|15|18)[0-9]{9}$/; //手机号码
 
@@ -416,7 +417,7 @@ app.controller("registerController", function ($scope, POP,$state,$ionicScrollDe
             return;
         }
         var verification_mode = "CODE";
-        var url = "../transmit/save.php/_user/register";
+        var url = serverIP + "/_user/register";
 
 
 
@@ -495,7 +496,7 @@ console.log(data);
 
     function userRepeat(user_name) {
         //检查用户名是否存在
-        var url = "../transmit/save.php/_user/verifyUserName/user_name/" + user_name;
+        var url = serverIP + "/_user/verifyUserName/user_name/" + user_name;
         HTTP.get(url, function (e, data) {
             if (e) {
                 POP.Hint(data);
@@ -574,7 +575,7 @@ console.log(data);
         var pattern_6Number = /^[0-9]([0-9]{5,5})$/; //6位数字
         var pattern_Number = /^[0-9]$/; //纯数字
         var pattern_wenzi = /[^A-Za-z0-9]/; //文字
-        var pattern_feifa = /[(,),`,~,-,_,!,#,<,>,\\[,\\],:,;,?,$,%,^,&,*,+,=,\\\\,',\",|,{,},\/]/ ; //非法文字
+        var pattern_feifa = /[(,),`,~,-,_,!,#,<,>,\\[,\\],:,;,?,$,%,^,&,*,+,=,\\\\,',\",|]/ ; //非法文字
         var pattern_email = /\w[-\w.+]*@([A-Za-z0-9][-A-Za-z0-9]+\.)+[A-Za-z]{2,5}$/; //邮箱
         var pattern_phone = /^0?(13|14|15|18)[0-9]{9}$/; //手机号码
 
